@@ -2,8 +2,10 @@
 import { RouterLink, RouterView } from "vue-router";
 import { useProgressStore } from "./stores/progress";
 import { computed, onMounted } from "vue";
+import { useTheme } from "./composables/useTheme";
 
 const progressStore = useProgressStore();
+const { theme, toggleTheme } = useTheme();
 
 onMounted(() => {
   progressStore.init();
@@ -42,6 +44,13 @@ const stats = computed(() => progressStore.getLearningStats());
             <span class="nav-icon">📈</span>
             <span>Прогресс</span>
           </RouterLink>
+          <button
+            @click="toggleTheme"
+            class="theme-toggle"
+            :title="theme === 'dark' ? 'Светлая тема' : 'Темная тема'"
+          >
+            <span class="nav-icon">{{ theme === "dark" ? "☀️" : "🌙" }}</span>
+          </button>
         </nav>
       </div>
     </header>
@@ -157,6 +166,24 @@ const stats = computed(() => progressStore.getLearningStats());
 
 .nav-icon {
   font-size: 1.1rem;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }
 
 .app-main {
