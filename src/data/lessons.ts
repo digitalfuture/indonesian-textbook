@@ -40,7 +40,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [1, 2, 3, 4],
-    vocabulary: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    vocabulary: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15],
     estimatedTime: 45,
   },
   {
@@ -87,7 +87,10 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [5, 6, 7, 8],
-    vocabulary: [11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    vocabulary: [
+      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 341, 342, 343, 344, 345, 361, 362,
+      363,
+    ],
     estimatedTime: 40,
   },
   {
@@ -107,8 +110,7 @@ export const lessons: Lesson[] = [
 - minum (минум) - пить
 - pergi (пэрги) - идти
 - datang (датанг) - приходить
-- lihat (лихат) - видеть
-- bicara (бичара) - говорить`,
+- lihat (лихат) - видеть`,
       examples: [
         { indonesian: "Saya makan nasi", russian: "Я ем рис" },
         { indonesian: "Dia minum air", russian: "Он/она пьёт воду" },
@@ -126,7 +128,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [9, 10, 11, 12],
-    vocabulary: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+    vocabulary: [41, 42, 43, 44, 45, 201, 202, 424, 443],
     estimatedTime: 45,
   },
   {
@@ -173,7 +175,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [13, 14, 15, 16],
-    vocabulary: [31, 32, 33, 34, 35, 36, 37, 38, 39, 40],
+    vocabulary: [101, 102, 103, 104, 105, 11, 10],
     estimatedTime: 40,
   },
   {
@@ -217,7 +219,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [17, 18, 19, 20],
-    vocabulary: [41, 42, 43, 44, 45, 46, 47, 48, 49, 50],
+    vocabulary: [121, 122, 123, 124, 322, 323],
     estimatedTime: 40,
   },
   {
@@ -258,7 +260,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [21, 22, 23, 24],
-    vocabulary: [51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
+    vocabulary: [141, 142, 61, 62, 63, 64, 65, 365, 441, 345],
     estimatedTime: 35,
   },
   {
@@ -302,7 +304,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [25, 26, 27, 28],
-    vocabulary: [61, 62, 63, 64, 65, 66, 67, 68, 69, 70],
+    vocabulary: [161, 162, 163, 164, 165, 64, 105],
     estimatedTime: 45,
   },
   {
@@ -345,7 +347,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [29, 30, 31, 32],
-    vocabulary: [71, 72, 73, 74, 75, 76, 77, 78, 79, 80],
+    vocabulary: [241, 242, 243, 244, 245, 2, 262, 163, 165, 105],
     estimatedTime: 40,
   },
   {
@@ -383,7 +385,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [33, 34, 35, 36],
-    vocabulary: [81, 82, 83, 84, 85, 86, 87, 88, 89, 90],
+    vocabulary: [486, 487, 490, 44],
     estimatedTime: 40,
   },
   {
@@ -425,7 +427,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [37, 38, 39, 40],
-    vocabulary: [91, 92, 93, 94, 95, 96, 97, 98, 99, 100],
+    vocabulary: [489, 62, 421, 423, 364, 424, 425, 283],
     estimatedTime: 35,
   },
   {
@@ -473,7 +475,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [41, 42, 43, 44],
-    vocabulary: [101, 102, 103, 104, 105, 106, 107, 108, 109, 110],
+    vocabulary: [488, 493, 424, 242, 44, 41],
     estimatedTime: 35,
   },
   {
@@ -520,7 +522,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [45, 46, 47, 48],
-    vocabulary: [111, 112, 113, 114, 115, 116, 117, 118, 119, 120],
+    vocabulary: [491, 492, 493, 203, 421, 424, 41],
     estimatedTime: 40,
   },
   {
@@ -563,7 +565,11 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [49, 50, 51, 52],
-    vocabulary: [121, 122, 123, 124, 125, 126, 127, 128, 129, 130],
+    vocabulary: [
+      381, 382, 383, 384, 385, 14, 142, 205, 264, 303, 304, 305, 321, 322, 323,
+      324, 481, 482, 483, 484, 485, 494, 495, 496, 63, 65, 61, 263, 363, 301,
+      302, 441, 442, 444, 445, 461,
+    ],
     estimatedTime: 40,
   },
   {
@@ -610,7 +616,10 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [53, 54, 55, 56],
-    vocabulary: [131, 132, 133, 134, 135, 136, 137, 138, 139, 140],
+    vocabulary: [
+      15, 43, 61, 102, 103, 245, 265, 281, 282, 283, 284, 285, 401, 402, 403,
+      404, 405, 462, 463, 464, 465,
+    ],
     estimatedTime: 40,
   },
   {
@@ -667,7 +676,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [57, 58, 59, 60],
-    vocabulary: [141, 142, 143, 144, 145, 146, 147, 148, 149, 150],
+    vocabulary: [497, 498, 499, 500, 124, 45, 64, 203, 204, 261, 325],
     estimatedTime: 45,
   },
   {
@@ -716,7 +725,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [61, 62, 63, 64],
-    vocabulary: [151, 152, 153, 154, 155, 156, 157, 158, 159, 160],
+    vocabulary: [3, 4, 5, 6, 321],
     estimatedTime: 50,
   },
 ];

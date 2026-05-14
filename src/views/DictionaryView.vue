@@ -1,370 +1,17 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useProgressStore } from "../stores/progress";
+import { vocabulary } from "../data/vocabulary";
 import type { Category } from "../utils/types";
 
 const progressStore = useProgressStore();
-
-// Пример словаря (первые 50 слов для демонстрации)
-const dictionary = [
-  {
-    id: 1,
-    word: "saya",
-    translation: "я",
-    category: "pronoun" as Category,
-    frequency: 1,
-  },
-  {
-    id: 2,
-    word: "aku",
-    translation: "я (неформ.)",
-    category: "pronoun" as Category,
-    frequency: 2,
-  },
-  {
-    id: 3,
-    word: "kamu",
-    translation: "ты",
-    category: "pronoun" as Category,
-    frequency: 3,
-  },
-  {
-    id: 4,
-    word: "dia",
-    translation: "он/она",
-    category: "pronoun" as Category,
-    frequency: 4,
-  },
-  {
-    id: 5,
-    word: "kami",
-    translation: "мы (без тебя)",
-    category: "pronoun" as Category,
-    frequency: 5,
-  },
-  {
-    id: 6,
-    word: "kita",
-    translation: "мы (с тобой)",
-    category: "pronoun" as Category,
-    frequency: 6,
-  },
-  {
-    id: 7,
-    word: "mereka",
-    translation: "они",
-    category: "pronoun" as Category,
-    frequency: 7,
-  },
-  {
-    id: 8,
-    word: "Anda",
-    translation: "Вы",
-    category: "pronoun" as Category,
-    frequency: 8,
-  },
-  {
-    id: 9,
-    word: "ini",
-    translation: "это",
-    category: "pronoun" as Category,
-    frequency: 9,
-  },
-  {
-    id: 10,
-    word: "itu",
-    translation: "то",
-    category: "pronoun" as Category,
-    frequency: 10,
-  },
-  {
-    id: 11,
-    word: "makan",
-    translation: "есть (кушать)",
-    category: "verb" as Category,
-    frequency: 11,
-  },
-  {
-    id: 12,
-    word: "minum",
-    translation: "пить",
-    category: "verb" as Category,
-    frequency: 12,
-  },
-  {
-    id: 13,
-    word: "pergi",
-    translation: "идти",
-    category: "verb" as Category,
-    frequency: 13,
-  },
-  {
-    id: 14,
-    word: "datang",
-    translation: "приходить",
-    category: "verb" as Category,
-    frequency: 14,
-  },
-  {
-    id: 15,
-    word: "lihat",
-    translation: "видеть",
-    category: "verb" as Category,
-    frequency: 15,
-  },
-  {
-    id: 16,
-    word: "bicara",
-    translation: "говорить",
-    category: "verb" as Category,
-    frequency: 16,
-  },
-  {
-    id: 17,
-    word: "belajar",
-    translation: "учиться",
-    category: "verb" as Category,
-    frequency: 17,
-  },
-  {
-    id: 18,
-    word: "bekerja",
-    translation: "работать",
-    category: "verb" as Category,
-    frequency: 18,
-  },
-  {
-    id: 19,
-    word: "tidur",
-    translation: "спать",
-    category: "verb" as Category,
-    frequency: 19,
-  },
-  {
-    id: 20,
-    word: "buka",
-    translation: "открывать",
-    category: "verb" as Category,
-    frequency: 20,
-  },
-  {
-    id: 21,
-    word: "rumah",
-    translation: "дом",
-    category: "noun" as Category,
-    frequency: 21,
-  },
-  {
-    id: 22,
-    word: "buku",
-    translation: "книга",
-    category: "noun" as Category,
-    frequency: 22,
-  },
-  {
-    id: 23,
-    word: "air",
-    translation: "вода",
-    category: "noun" as Category,
-    frequency: 23,
-  },
-  {
-    id: 24,
-    word: "makanan",
-    translation: "еда",
-    category: "noun" as Category,
-    frequency: 24,
-  },
-  {
-    id: 25,
-    word: "orang",
-    translation: "человек",
-    category: "noun" as Category,
-    frequency: 25,
-  },
-  {
-    id: 26,
-    word: "hari",
-    translation: "день",
-    category: "noun" as Category,
-    frequency: 26,
-  },
-  {
-    id: 27,
-    word: "waktu",
-    translation: "время",
-    category: "noun" as Category,
-    frequency: 27,
-  },
-  {
-    id: 28,
-    word: "uang",
-    translation: "деньги",
-    category: "noun" as Category,
-    frequency: 28,
-  },
-  {
-    id: 29,
-    word: "sekolah",
-    translation: "школа",
-    category: "noun" as Category,
-    frequency: 29,
-  },
-  {
-    id: 30,
-    word: "kantor",
-    translation: "офис",
-    category: "noun" as Category,
-    frequency: 30,
-  },
-  {
-    id: 31,
-    word: "besar",
-    translation: "большой",
-    category: "adjective" as Category,
-    frequency: 31,
-  },
-  {
-    id: 32,
-    word: "kecil",
-    translation: "маленький",
-    category: "adjective" as Category,
-    frequency: 32,
-  },
-  {
-    id: 33,
-    word: "baik",
-    translation: "хороший",
-    category: "adjective" as Category,
-    frequency: 33,
-  },
-  {
-    id: 34,
-    word: "baru",
-    translation: "новый",
-    category: "adjective" as Category,
-    frequency: 34,
-  },
-  {
-    id: 35,
-    word: "lama",
-    translation: "старый",
-    category: "adjective" as Category,
-    frequency: 35,
-  },
-  {
-    id: 36,
-    word: "panas",
-    translation: "горячий",
-    category: "adjective" as Category,
-    frequency: 36,
-  },
-  {
-    id: 37,
-    word: "dingin",
-    translation: "холодный",
-    category: "adjective" as Category,
-    frequency: 37,
-  },
-  {
-    id: 38,
-    word: "cepat",
-    translation: "быстрый",
-    category: "adjective" as Category,
-    frequency: 38,
-  },
-  {
-    id: 39,
-    word: "lambat",
-    translation: "медленный",
-    category: "adjective" as Category,
-    frequency: 39,
-  },
-  {
-    id: 40,
-    word: "indah",
-    translation: "красивый",
-    category: "adjective" as Category,
-    frequency: 40,
-  },
-  {
-    id: 41,
-    word: "di",
-    translation: "в/на",
-    category: "preposition" as Category,
-    frequency: 41,
-  },
-  {
-    id: 42,
-    word: "ke",
-    translation: "в/на (напр.)",
-    category: "preposition" as Category,
-    frequency: 42,
-  },
-  {
-    id: 43,
-    word: "dari",
-    translation: "из/от",
-    category: "preposition" as Category,
-    frequency: 43,
-  },
-  {
-    id: 44,
-    word: "dengan",
-    translation: "с",
-    category: "preposition" as Category,
-    frequency: 44,
-  },
-  {
-    id: 45,
-    word: "untuk",
-    translation: "для",
-    category: "preposition" as Category,
-    frequency: 45,
-  },
-  {
-    id: 46,
-    word: "pada",
-    translation: "в (время)",
-    category: "preposition" as Category,
-    frequency: 46,
-  },
-  {
-    id: 47,
-    word: "dan",
-    translation: "и",
-    category: "adverb" as Category,
-    frequency: 47,
-  },
-  {
-    id: 48,
-    word: "atau",
-    translation: "или",
-    category: "adverb" as Category,
-    frequency: 48,
-  },
-  {
-    id: 49,
-    word: "tapi",
-    translation: "но",
-    category: "adverb" as Category,
-    frequency: 49,
-  },
-  {
-    id: 50,
-    word: "karena",
-    translation: "потому что",
-    category: "adverb" as Category,
-    frequency: 50,
-  },
-];
 
 const searchQuery = ref("");
 const selectedCategory = ref<Category | "all">("all");
 const sortBy = ref<"frequency" | "alphabetical">("frequency");
 
 const filteredDictionary = computed(() => {
-  let result = [...dictionary];
+  let result = [...vocabulary];
 
   // Поиск
   if (searchQuery.value) {
@@ -399,6 +46,9 @@ const categories = [
   { value: "adjective", label: "Прилагательные" },
   { value: "preposition", label: "Предлоги" },
   { value: "adverb", label: "Наречия" },
+  { value: "conjunction", label: "Союзы" },
+  { value: "number", label: "Числа" },
+  { value: "interjection", label: "Междометия" },
 ];
 
 function toggleFavorite(wordId: number) {
@@ -417,10 +67,26 @@ function isWordFavorite(wordId: number): boolean {
   return progressStore.isFavoriteWord(wordId);
 }
 
+function getCategoryLabel(category: string): string {
+  const cat = categories.find((c) => c.value === category);
+  return cat ? cat.label : category;
+}
+
+function showExamples(wordId: number) {
+  const word = vocabulary.find((w) => w.id === wordId);
+  if (word?.examples && word.examples.length > 0) {
+    selectedWord.value = word;
+    showExamplesModal.value = true;
+  }
+}
+
+const showExamplesModal = ref(false);
+const selectedWord = ref<(typeof vocabulary)[0] | null>(null);
+
 const stats = computed(() => ({
-  total: dictionary.length,
-  learned: dictionary.filter((w) => isWordLearned(w.id)).length,
-  favorite: dictionary.filter((w) => isWordFavorite(w.id)).length,
+  total: vocabulary.length,
+  learned: vocabulary.filter((w) => isWordLearned(w.id)).length,
+  favorite: vocabulary.filter((w) => isWordFavorite(w.id)).length,
 }));
 </script>
 
@@ -484,12 +150,23 @@ const stats = computed(() => ({
         <div class="word-main">
           <h3 class="word-indonesian">{{ word.word }}</h3>
           <p class="word-russian">{{ word.translation }}</p>
-          <span class="word-category">{{
-            categories.find((c) => c.value === word.category)?.label
-          }}</span>
+          <div class="word-meta">
+            <span class="word-category">{{
+              getCategoryLabel(word.category)
+            }}</span>
+            <span class="word-frequency">№{{ word.frequency }}</span>
+          </div>
         </div>
 
         <div class="word-actions">
+          <button
+            class="action-btn examples-btn"
+            @click="showExamples(word.id)"
+            v-if="word.examples && word.examples.length > 0"
+            title="Примеры"
+          >
+            💬
+          </button>
           <button
             class="action-btn"
             :class="{ active: isWordFavorite(word.id) }"
@@ -513,6 +190,32 @@ const stats = computed(() => ({
     <div v-if="filteredDictionary.length === 0" class="no-results">
       <p>Слова не найдены</p>
     </div>
+
+    <!-- Модальное окно с примерами -->
+    <div
+      v-if="showExamplesModal && selectedWord"
+      class="modal-overlay"
+      @click="showExamplesModal = false"
+    >
+      <div class="modal-content" @click.stop>
+        <button class="modal-close" @click="showExamplesModal = false">
+          ✕
+        </button>
+        <h2>{{ selectedWord.word }}</h2>
+        <p class="modal-translation">{{ selectedWord.translation }}</p>
+        <div class="modal-examples">
+          <h3>Примеры:</h3>
+          <div
+            v-for="(example, i) in selectedWord.examples"
+            :key="i"
+            class="modal-example"
+          >
+            <p class="example-indo">🇮🇩 {{ example.sentence }}</p>
+            <p class="example-ru">🇷🇺 {{ example.translation }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -534,7 +237,7 @@ const stats = computed(() => ({
 
 .dictionary-description {
   font-size: 1.1rem;
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 1.5rem;
 }
 
@@ -542,6 +245,7 @@ const stats = computed(() => ({
   display: flex;
   justify-content: center;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .stat {
@@ -558,7 +262,7 @@ const stats = computed(() => ({
 
 .stat-label {
   font-size: 0.85rem;
-  color: #718096;
+  color: var(--text);
 }
 
 .controls {
@@ -591,15 +295,17 @@ const stats = computed(() => ({
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: white;
+  background: var(--bg);
   border-radius: 0.5rem;
   padding: 1rem 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+  border: 1px solid var(--border);
 }
 
 .word-card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: var(--accent-border);
 }
 
 .word-card.learned {
@@ -613,27 +319,39 @@ const stats = computed(() => ({
 .word-indonesian {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 0.25rem;
 }
 
 .word-russian {
   font-size: 0.95rem;
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 0.25rem;
+}
+
+.word-meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
 }
 
 .word-category {
   font-size: 0.75rem;
-  color: #718096;
-  background: #f7fafc;
+  color: #667eea;
+  background: var(--accent-bg);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
+}
+
+.word-frequency {
+  font-size: 0.75rem;
+  color: var(--text);
 }
 
 .word-actions {
   display: flex;
   gap: 0.5rem;
+  margin-left: 1rem;
 }
 
 .action-btn {
@@ -649,14 +367,85 @@ const stats = computed(() => ({
   transform: scale(1.2);
 }
 
-.action-btn.active {
-  opacity: 1;
-}
-
 .no-results {
   text-align: center;
   padding: 3rem;
-  color: #718096;
+  color: var(--text);
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--bg);
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.modal-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.modal-translation {
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.modal-examples h3 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-h);
+}
+
+.modal-example {
+  padding: 0.75rem;
+  background: var(--code-bg);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.example-indo {
+  font-weight: 500;
+  color: var(--text-h);
+  margin-bottom: 0.25rem;
+}
+
+.example-ru {
+  color: var(--text);
+  font-size: 0.9rem;
 }
 
 @media (max-width: 768px) {
@@ -670,6 +459,17 @@ const stats = computed(() => ({
 
   .dictionary-stats {
     gap: 1rem;
+  }
+
+  .word-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .word-actions {
+    margin-left: 0;
+    align-self: flex-end;
   }
 }
 </style>
