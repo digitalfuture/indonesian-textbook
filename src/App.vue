@@ -102,10 +102,12 @@ const stats = computed(() => progressStore.getLearningStats());
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .app-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-gradient);
   color: white;
   padding: 1rem 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -140,6 +142,7 @@ const stats = computed(() => progressStore.getLearningStats());
 .main-nav {
   display: flex;
   gap: 0.5rem;
+  align-items: center;
 }
 
 .nav-link {
@@ -192,11 +195,12 @@ const stats = computed(() => progressStore.getLearningStats());
   margin: 0 auto;
   padding: 2rem 1rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .app-footer {
-  background: #2d3748;
-  color: #a0aec0;
+  background: var(--footer-bg);
+  color: var(--footer-text);
   padding: 2rem 0;
   margin-top: auto;
 }
@@ -226,12 +230,12 @@ const stats = computed(() => progressStore.getLearningStats());
 .stat-value {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #63b3ed;
+  color: var(--stat-color);
 }
 
 .stat-label {
   font-size: 0.875rem;
-  color: #a0aec0;
+  color: var(--footer-text);
 }
 
 .footer-info {
@@ -245,7 +249,7 @@ const stats = computed(() => progressStore.getLearningStats());
 
 .copyright {
   font-size: 0.75rem;
-  color: #718096;
+  color: var(--muted);
 }
 
 @media (max-width: 768px) {

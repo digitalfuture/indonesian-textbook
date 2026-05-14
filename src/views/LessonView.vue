@@ -38,6 +38,10 @@ function goToLesson(id: number) {
   router.push(`/lesson/${id}`);
 }
 
+function goToExercises() {
+  router.push(`/exercises/lesson/${lessonId.value}`);
+}
+
 function completeLesson() {
   progressStore.completeLesson(lessonId.value, 100);
 }
@@ -181,13 +185,11 @@ function completeLesson() {
             </div>
           </div>
 
-          <button
-            class="btn btn-primary btn-lg"
-            @click="completeLesson"
-            :disabled="isCompleted"
-          >
-            {{ isCompleted ? "✅ Урок завершён" : "Завершить урок" }}
-          </button>
+          <div class="exercises-actions">
+            <button class="btn btn-primary btn-lg" @click="goToExercises">
+              ✍️ Начать упражнения
+            </button>
+          </div>
         </div>
       </section>
     </main>
@@ -240,7 +242,7 @@ function completeLesson() {
 
 .lesson-number {
   font-weight: 600;
-  color: #667eea;
+  color: var(--primary);
   font-size: 1.1rem;
 }
 
@@ -251,7 +253,7 @@ function completeLesson() {
 
 .lesson-description {
   font-size: 1.1rem;
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 1rem;
 }
 
@@ -263,7 +265,7 @@ function completeLesson() {
 
 .meta-item {
   font-size: 0.9rem;
-  color: #718096;
+  color: var(--muted);
 }
 
 .meta-item.completed {
@@ -275,7 +277,7 @@ function completeLesson() {
   display: flex;
   gap: 0.5rem;
   margin-bottom: 2rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid var(--border);
 }
 
 .tab {
@@ -283,7 +285,7 @@ function completeLesson() {
   background: none;
   border: none;
   font-size: 1rem;
-  color: #718096;
+  color: var(--muted);
   cursor: pointer;
   border-bottom: 2px solid transparent;
   margin-bottom: -2px;
@@ -291,12 +293,12 @@ function completeLesson() {
 }
 
 .tab:hover {
-  color: #667eea;
+  color: var(--primary);
 }
 
 .tab.active {
-  color: #667eea;
-  border-bottom-color: #667eea;
+  color: var(--primary);
+  border-bottom-color: var(--primary);
   font-weight: 500;
 }
 
@@ -304,36 +306,24 @@ function completeLesson() {
   margin-bottom: 2rem;
 }
 
-.content-card {
-  background: white;
-  border-radius: 0.75rem;
-  padding: 2rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-.content-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: #2d3748;
-}
-
 .theory-text {
   line-height: 1.8;
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 2rem;
+  white-space: pre-line;
 }
 
 .key-points {
-  background: #f7fafc;
+  background: var(--code-bg);
   border-radius: 0.5rem;
   padding: 1.5rem;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--primary);
 }
 
 .key-points h3 {
   font-size: 1.1rem;
   margin-bottom: 1rem;
-  color: #2d3748;
+  color: var(--text-h);
 }
 
 .key-points ul {
@@ -345,12 +335,12 @@ function completeLesson() {
   padding: 0.5rem 0;
   padding-left: 1.5rem;
   position: relative;
-  color: #4a5568;
+  color: var(--text);
 }
 
 .key-points li::before {
   content: "•";
-  color: #667eea;
+  color: var(--primary);
   font-weight: bold;
   position: absolute;
   left: 0;
@@ -362,32 +352,32 @@ function completeLesson() {
 }
 
 .example-card {
-  background: #f7fafc;
+  background: var(--code-bg);
   border-radius: 0.5rem;
   padding: 1.5rem;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--primary);
 }
 
 .example-indonesian {
   font-size: 1.1rem;
   font-weight: 500;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 0.5rem;
 }
 
 .example-russian {
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 0.5rem;
 }
 
 .example-notes {
   font-size: 0.85rem;
-  color: #718096;
+  color: var(--muted);
   font-style: italic;
 }
 
 .exercises-intro {
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 1.5rem;
 }
 
@@ -398,21 +388,27 @@ function completeLesson() {
 }
 
 .exercise-item {
-  background: #f7fafc;
+  background: var(--code-bg);
   border-radius: 0.5rem;
   padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1px solid var(--border);
 }
 
 .exercise-number {
   font-weight: 500;
-  color: #2d3748;
+  color: var(--text-h);
 }
 
 .exercise-status {
   font-size: 1.2rem;
+}
+
+.exercises-actions {
+  display: flex;
+  justify-content: center;
 }
 
 .lesson-footer {
@@ -431,7 +427,7 @@ function completeLesson() {
 }
 
 .not-found p {
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 2rem;
 }
 
@@ -453,10 +449,6 @@ function completeLesson() {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
     white-space: nowrap;
-  }
-
-  .content-card {
-    padding: 1.5rem;
   }
 
   .lesson-footer {
