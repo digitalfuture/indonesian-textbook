@@ -142,3 +142,4 @@ GitHub Actions автоматически соберёт и задеплоит �
 5. В Settings > Pages выберите источник "Deploy from a branch" и ветку `gh-pages`
 
 Однако способ с GitHub Actions предпочтительнее, так как автоматизирует процесс.
+# Trigger redeploy
