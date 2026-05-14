@@ -1,4 +1,53 @@
-/* Основные стили приложения */
+/* CSS переменные для тем */
+:root {
+  /* Light theme */
+  --text: #6b6375;
+  --text-h: #08060d;
+  --bg: #fff;
+  --bg-card: #fff;
+  --bg-elevated: #fff;
+  --border: #e5e4e7;
+  --code-bg: #f4f3ec;
+  --accent: #aa3bff;
+  --accent-bg: rgba(170, 59, 255, 0.1);
+  --accent-border: rgba(170, 59, 255, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --primary: #667eea;
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --footer-bg: #2d3748;
+  --footer-text: #a0aec0;
+  --stat-color: #63b3ed;
+  --card-bg: #f7fafc;
+  --card-text: #4a5568;
+  --muted: #718096;
+  color-scheme: light;
+}
+
+/* Dark theme */
+:root[data-theme="dark"] {
+  --text: #9ca3af;
+  --text-h: #f3f4f6;
+  --bg: #16171d;
+  --bg-card: #22242e;
+  --bg-elevated: #2a2c38;
+  --border: #2e303a;
+  --code-bg: #1f2028;
+  --accent: #c084fc;
+  --accent-bg: rgba(192, 132, 252, 0.15);
+  --accent-border: rgba(192, 132, 252, 0.5);
+  --shadow:
+    rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  --primary: #818cf8;
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --footer-bg: #111118;
+  --footer-text: #71717a;
+  --stat-color: #60a5fa;
+  --card-bg: #1e2028;
+  --card-text: #a1a1aa;
+  --muted: #71717a;
+  color-scheme: dark;
+}
 
 * {
   margin: 0;
@@ -8,11 +57,18 @@
 
 body {
   font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
   line-height: 1.6;
-  color: #2d3748;
-  background-color: #f7fafc;
+  color: var(--text);
+  background-color: var(--bg);
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 
 #app {
@@ -20,46 +76,45 @@ body {
 }
 
 /* Типографика */
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text-h);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
 h1 {
   font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 1.2;
   margin-bottom: 1rem;
 }
-
 h2 {
   font-size: 2rem;
-  font-weight: 600;
-  line-height: 1.3;
   margin-bottom: 0.75rem;
 }
-
 h3 {
   font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.4;
   margin-bottom: 0.5rem;
 }
-
 h4 {
   font-size: 1.25rem;
-  font-weight: 600;
-  line-height: 1.4;
   margin-bottom: 0.5rem;
 }
 
 p {
   margin-bottom: 1rem;
+  color: var(--text);
 }
 
 a {
-  color: #667eea;
+  color: var(--primary);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #5a67d8;
+  opacity: 0.8;
 }
 
 /* Утилиты */
@@ -68,21 +123,17 @@ a:hover {
   margin: 0 auto;
   padding: 0 1rem;
 }
-
 .text-center {
   text-align: center;
 }
-
 .text-primary {
-  color: #667eea;
+  color: var(--primary);
 }
-
 .text-secondary {
-  color: #4a5568;
+  color: var(--text);
 }
-
 .text-muted {
-  color: #718096;
+  color: var(--muted);
 }
 
 /* Кнопки */
@@ -93,7 +144,7 @@ a:hover {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   font-weight: 500;
-  border: none;
+  border: 2px solid transparent;
   border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -101,7 +152,7 @@ a:hover {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-gradient);
   color: white;
 }
 
@@ -110,33 +161,21 @@ a:hover {
   box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
-.btn-secondary {
-  background: white;
-  color: #667eea;
-  border: 2px solid #667eea;
-}
-
-.btn-secondary:hover {
-  background: #667eea;
-  color: white;
-}
-
 .btn-outline {
   background: transparent;
-  color: #4a5568;
-  border: 2px solid #e2e8f0;
+  color: var(--text);
+  border-color: var(--border);
 }
 
 .btn-outline:hover {
-  border-color: #667eea;
-  color: #667eea;
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 .btn-sm {
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
 }
-
 .btn-lg {
   padding: 1rem 2rem;
   font-size: 1.125rem;
@@ -144,10 +183,11 @@ a:hover {
 
 /* Карточки */
 .card {
-  background: white;
+  background: var(--bg-card);
   border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
   padding: 1.5rem;
+  border: 1px solid var(--border);
   transition: all 0.3s ease;
 }
 
@@ -159,14 +199,13 @@ a:hover {
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 0.5rem;
 }
 
 .card-text {
-  color: #4a5568;
+  color: var(--text);
   font-size: 0.95rem;
-  line-height: 1.5;
 }
 
 /* Формы */
@@ -178,7 +217,7 @@ a:hover {
   display: block;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 0.5rem;
 }
 
@@ -186,34 +225,35 @@ a:hover {
   width: 100%;
   padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 2px solid #e2e8f0;
+  border: 2px solid var(--border);
   border-radius: 0.5rem;
   transition: all 0.3s ease;
-  background: white;
+  background: var(--bg);
+  color: var(--text-h);
 }
 
 .form-input:focus {
   outline: none;
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
 }
 
 .form-input::placeholder {
-  color: #a0aec0;
+  color: var(--muted);
 }
 
 /* Прогресс бар */
 .progress {
   width: 100%;
   height: 0.5rem;
-  background: #e2e8f0;
+  background: var(--border);
   border-radius: 0.25rem;
   overflow: hidden;
 }
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-gradient);
   border-radius: 0.25rem;
   transition: width 0.3s ease;
 }
@@ -223,15 +263,12 @@ a:hover {
   display: grid;
   gap: 1.5rem;
 }
-
 .grid-2 {
   grid-template-columns: repeat(2, 1fr);
 }
-
 .grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
-
 .grid-4 {
   grid-template-columns: repeat(4, 1fr);
 }
@@ -240,35 +277,27 @@ a:hover {
 .flex {
   display: flex;
 }
-
 .flex-col {
   flex-direction: column;
 }
-
 .items-center {
   align-items: center;
 }
-
 .justify-center {
   justify-content: center;
 }
-
 .justify-between {
   justify-content: space-between;
 }
-
 .gap-1 {
   gap: 0.5rem;
 }
-
 .gap-2 {
   gap: 1rem;
 }
-
 .gap-3 {
   gap: 1.5rem;
 }
-
 .gap-4 {
   gap: 2rem;
 }
@@ -289,7 +318,6 @@ a:hover {
 .mt-5 {
   margin-top: 3rem;
 }
-
 .mb-1 {
   margin-bottom: 0.5rem;
 }
@@ -305,7 +333,6 @@ a:hover {
 .mb-5 {
   margin-bottom: 3rem;
 }
-
 .ml-1 {
   margin-left: 0.5rem;
 }
@@ -318,7 +345,6 @@ a:hover {
 .ml-4 {
   margin-left: 2rem;
 }
-
 .mr-1 {
   margin-right: 0.5rem;
 }
@@ -331,7 +357,6 @@ a:hover {
 .mr-4 {
   margin-right: 2rem;
 }
-
 .p-1 {
   padding: 0.5rem;
 }
@@ -356,13 +381,11 @@ a:hover {
   h3 {
     font-size: 1.25rem;
   }
-
   .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
   }
-
   .container {
     padding: 0 1rem;
   }
@@ -384,43 +407,40 @@ a:hover {
   animation: fadeIn 0.5s ease-out;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.slide-in {
-  animation: slideIn 0.3s ease-out;
-}
-
 /* Скроллбар */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: var(--code-bg);
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
+  background: var(--border);
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1a1;
+  background: var(--muted);
 }
 
 /* Выделение текста */
 ::selection {
-  background: rgba(102, 126, 234, 0.2);
-  color: #2d3748;
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
+/* Общий фон для карточек контента */
+.content-card {
+  background: var(--bg-card);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.content-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-h);
 }
