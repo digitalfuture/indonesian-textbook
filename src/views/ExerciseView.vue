@@ -1,49 +1,29 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import { useProgressStore } from "../stores/progress";
+import { exercises as allExercises } from "../data/exercises";
+import type { Exercise } from "../utils/types";
 
 const router = useRouter();
+const route = useRoute();
 const progressStore = useProgressStore();
 
-// Примеры упражнений
-const exercises = [
-  {
-    id: 1,
-    type: "translation",
-    question: 'Переведите: "Selamat pagi, nama saya Ivan"',
-    answer: "Доброе утро, меня зовут Иван",
-    hint: "selamat pagi = доброе утро, nama = имя, saya = я",
-  },
-  {
-    id: 2,
-    type: "fillblank",
-    question: 'Вставьте пропущенное слово: "Saya ... dari Rusia"',
-    answer: "berasal",
-    hint: 'глагол "происходить"',
-  },
-  {
-    id: 3,
-    type: "multiplechoice",
-    question: 'Что означает "Terima kasih"?',
-    options: ["Спасибо", "До свидания", "Привет", "Пока"],
-    answer: "Спасибо",
-  },
-  {
-    id: 4,
-    type: "translation",
-    question: 'Переведите: "Saya belajar bahasa Indonesia"',
-    answer: "Я изучаю индонезийский язык",
-    hint: "belajar = учиться/изучать, bahasa = язык",
-  },
-  {
-    id: 5,
-    type: "multiplechoice",
-    question: 'Какое местоимение означает "мы" (включая собеседника)?',
-    options: ["kami", "kita", "mereka", "kamu"],
-    answer: "kita",
-  },
-];
+// Get lessonId from route params (if navigating from a lesson)
+const lessonId = computed(() => {
+  const id = route.params.lessonId;
+  return id ? parseInt(id as string) : null;
+});
+
+// Filter exercises by lesson if lessonId is provided
+const exercises = computed(() => {
+  if (lessonId.value) {
+    return allExercises
+      .filter((e) => e.lessonId === lessonId.value)
+      .sort((a, b) => a.id - b.id);
+  }
+  return allExercises;
+});
 
 const currentExerciseIndex = ref(0);
 const userAnswer = ref("");
@@ -52,17 +32,44 @@ const showFeedback = ref(false);
 const isCorrect = ref(false);
 const completedExercises = ref<number[]>([]);
 
-const currentExercise = computed(() => exercises[currentExerciseIndex.value]);
+const currentExercise = computed(
+  () => exercises.value[currentExerciseIndex.value],
+);
+
+function getLessonTitle(exercise: Exercise): string {
+  const lessons: Record<number, string> = {
+    1: "Знакомство и базовые фразы",
+    2: "Личные местоимения",
+    3: "Простые предложения",
+    4: "Вопросительные слова",
+    5: "Отрицания",
+    6: "Притяжательные конструкции",
+    7: "Числа и счёт",
+    8: "Время и даты",
+    9: "Прошедшее время",
+    10: "Настоящее продолженное",
+    11: "Будущее время",
+    12: "Модальные глаголы",
+    13: "Прилагательные",
+    14: "Предлоги",
+    15: "Сложные предложения",
+    16: "Разговорная практика",
+  };
+  return lessons[exercise.lessonId] || `Урок ${exercise.lessonId}`;
+}
 
 function checkAnswer() {
-  let correct = false;
+  if (!currentExercise.value) return;
 
-  if (currentExercise.value.type === "multiplechoice") {
-    correct = selectedOption.value === currentExercise.value.answer;
+  let correct = false;
+  const answer = currentExercise.value.correctAnswer;
+
+  if (currentExercise.value.type === "multipleChoice") {
+    correct = selectedOption.value === answer;
   } else {
     correct =
       userAnswer.value.toLowerCase().trim() ===
-      currentExercise.value.answer.toLowerCase();
+      (typeof answer === "string" ? answer.toLowerCase().trim() : "");
   }
 
   isCorrect.value = correct;
@@ -70,27 +77,25 @@ function checkAnswer() {
 
   if (correct && !completedExercises.value.includes(currentExercise.value.id)) {
     completedExercises.value.push(currentExercise.value.id);
-    progressStore.completeExercise(1, currentExercise.value.id, 10);
+    progressStore.completeExercise(
+      currentExercise.value.lessonId,
+      currentExercise.value.id,
+      currentExercise.value.points,
+    );
   }
 }
 
 function nextExercise() {
-  if (currentExerciseIndex.value < exercises.length - 1) {
+  if (currentExerciseIndex.value < exercises.value.length - 1) {
     currentExerciseIndex.value++;
-    userAnswer.value = "";
-    selectedOption.value = "";
-    showFeedback.value = false;
-    isCorrect.value = false;
+    resetExercise();
   }
 }
 
 function prevExercise() {
   if (currentExerciseIndex.value > 0) {
     currentExerciseIndex.value--;
-    userAnswer.value = "";
-    selectedOption.value = "";
-    showFeedback.value = false;
-    isCorrect.value = false;
+    resetExercise();
   }
 }
 
@@ -102,7 +107,8 @@ function resetExercise() {
 }
 
 const progress = computed(() => {
-  return (completedExercises.value.length / exercises.length) * 100;
+  if (exercises.value.length === 0) return 0;
+  return (completedExercises.value.length / exercises.value.length) * 100;
 });
 </script>
 
@@ -110,11 +116,14 @@ const progress = computed(() => {
   <div class="exercise-view">
     <header class="exercise-header">
       <h1>✍️ Упражнения</h1>
-      <p class="exercise-description">
+      <p class="exercise-description" v-if="!lessonId">
         Практикуйте индонезийский язык с помощью интерактивных упражнений
       </p>
+      <p class="exercise-description" v-else>
+        Упражнения к уроку: {{ getLessonTitle(currentExercise) }}
+      </p>
 
-      <div class="progress-container">
+      <div class="progress-container" v-if="exercises.length > 0">
         <div class="progress-info">
           <span
             >Прогресс: {{ completedExercises.length }}/{{
@@ -129,7 +138,7 @@ const progress = computed(() => {
       </div>
     </header>
 
-    <main class="exercise-content">
+    <main class="exercise-content" v-if="exercises.length > 0">
       <div class="exercise-card">
         <div class="exercise-nav">
           <button
@@ -159,12 +168,12 @@ const progress = computed(() => {
               >Перевод</span
             >
             <span
-              v-else-if="currentExercise.type === 'fillblank'"
+              v-else-if="currentExercise.type === 'fillBlank'"
               class="type-badge"
               >Заполните пропуск</span
             >
             <span
-              v-else-if="currentExercise.type === 'multiplechoice'"
+              v-else-if="currentExercise.type === 'multipleChoice'"
               class="type-badge"
               >Выбор ответа</span
             >
@@ -174,7 +183,7 @@ const progress = computed(() => {
 
           <!-- Ввод ответа для перевода и заполнения пропуска -->
           <div
-            v-if="currentExercise.type !== 'multiplechoice'"
+            v-if="currentExercise.type !== 'multipleChoice'"
             class="answer-section"
           >
             <input
@@ -194,11 +203,12 @@ const progress = computed(() => {
               class="option"
               :class="{
                 selected: selectedOption === option,
-                correct: showFeedback && option === currentExercise.answer,
+                correct:
+                  showFeedback && option === currentExercise.correctAnswer,
                 wrong:
                   showFeedback &&
                   selectedOption === option &&
-                  option !== currentExercise.answer,
+                  option !== currentExercise.correctAnswer,
               }"
               @click="!showFeedback && (selectedOption = option)"
             >
@@ -213,7 +223,7 @@ const progress = computed(() => {
               class="btn btn-primary"
               @click="checkAnswer"
               :disabled="
-                currentExercise.type === 'multiplechoice'
+                currentExercise.type === 'multipleChoice'
                   ? !selectedOption
                   : !userAnswer
               "
@@ -235,11 +245,10 @@ const progress = computed(() => {
             <div class="feedback-text">
               <strong>{{ isCorrect ? "Правильно!" : "Неправильно" }}</strong>
               <p v-if="!isCorrect">
-                Правильный ответ: <strong>{{ currentExercise.answer }}</strong>
+                Правильный ответ:
+                <strong>{{ currentExercise.correctAnswer }}</strong>
               </p>
-            </div>
-            <div v-if="currentExercise.hint" class="feedback-hint">
-              💡 {{ currentExercise.hint }}
+              <p class="explanation">{{ currentExercise.explanation }}</p>
             </div>
           </div>
         </div>
@@ -251,15 +260,29 @@ const progress = computed(() => {
         class="completion-card"
       >
         <h2>🎉 Поздравляем!</h2>
-        <p>Вы完成了所有 упражнения!</p>
-        <button
-          class="btn btn-primary btn-lg"
-          @click="router.push('/progress')"
-        >
-          Посмотреть прогресс
-        </button>
+        <p>Вы выполнили все упражнения!</p>
+        <div class="completion-actions">
+          <button class="btn btn-primary" @click="router.push('/progress')">
+            Посмотреть прогресс
+          </button>
+          <button
+            v-if="lessonId && lessonId < 16"
+            class="btn btn-outline"
+            @click="router.push('/lesson/' + (lessonId! + 1))"
+          >
+            Следующий урок →
+          </button>
+        </div>
       </div>
     </main>
+
+    <div v-else class="empty-state">
+      <h2>Упражнения не найдены</h2>
+      <p v-if="lessonId">Для этого урока пока нет упражнений.</p>
+      <button class="btn btn-primary" @click="router.push('/lessons')">
+        К списку уроков
+      </button>
+    </div>
   </div>
 </template>
 
@@ -281,7 +304,7 @@ const progress = computed(() => {
 
 .exercise-description {
   font-size: 1.1rem;
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 1.5rem;
 }
 
@@ -295,7 +318,22 @@ const progress = computed(() => {
   justify-content: space-between;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
-  color: #718096;
+  color: var(--text);
+}
+
+.progress {
+  width: 100%;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
 }
 
 .exercise-content {
@@ -303,10 +341,11 @@ const progress = computed(() => {
 }
 
 .exercise-card {
-  background: white;
+  background: var(--bg);
   border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
   overflow: hidden;
+  border: 1px solid var(--border);
 }
 
 .exercise-nav {
@@ -314,13 +353,13 @@ const progress = computed(() => {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 1.5rem;
-  background: #f7fafc;
-  border-bottom: 1px solid #e2e8f0;
+  background: var(--code-bg);
+  border-bottom: 1px solid var(--border);
 }
 
 .exercise-number {
   font-weight: 500;
-  color: #4a5568;
+  color: var(--text);
 }
 
 .exercise-body {
@@ -343,13 +382,34 @@ const progress = computed(() => {
 
 .question {
   font-size: 1.25rem;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 1.5rem;
   line-height: 1.4;
 }
 
 .answer-section {
   margin-bottom: 1.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-h);
+  background: var(--bg);
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-input:disabled {
+  opacity: 0.6;
 }
 
 .options-section {
@@ -360,22 +420,23 @@ const progress = computed(() => {
 
 .option {
   padding: 1rem 1.5rem;
-  background: #f7fafc;
-  border: 2px solid #e2e8f0;
+  background: var(--code-bg);
+  border: 2px solid var(--border);
   border-radius: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 1rem;
+  color: var(--text-h);
 }
 
 .option:hover:not(.selected):not(.correct):not(.wrong) {
-  border-color: #667eea;
-  background: #edf2f7;
+  border-color: var(--accent);
+  background: var(--accent-bg);
 }
 
 .option.selected {
-  border-color: #667eea;
-  background: #ebf4ff;
+  border-color: var(--accent);
+  background: var(--accent-bg);
 }
 
 .option.correct {
@@ -390,6 +451,55 @@ const progress = computed(() => {
 
 .action-buttons {
   margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--border);
+  color: var(--text);
+}
+
+.btn-outline:hover:not(:disabled) {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
 }
 
 .feedback {
@@ -422,27 +532,30 @@ const progress = computed(() => {
 .feedback-text strong {
   display: block;
   margin-bottom: 0.25rem;
+  color: var(--text-h);
 }
 
 .feedback-text p {
-  margin: 0;
+  margin: 0.25rem 0;
   font-size: 0.95rem;
-  color: #4a5568;
+  color: var(--text);
 }
 
-.feedback-hint {
-  font-size: 0.9rem;
-  color: #718096;
+.explanation {
+  font-style: italic;
   margin-top: 0.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
 }
 
 .completion-card {
   text-align: center;
   padding: 3rem;
-  background: white;
+  background: var(--bg);
   border-radius: 0.75rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
   margin-top: 2rem;
+  border: 1px solid var(--border);
 }
 
 .completion-card h2 {
@@ -452,7 +565,27 @@ const progress = computed(() => {
 
 .completion-card p {
   font-size: 1.1rem;
-  color: #4a5568;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+.completion-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text);
+}
+
+.empty-state h2 {
+  margin-bottom: 1rem;
+}
+
+.empty-state p {
   margin-bottom: 2rem;
 }
 
@@ -468,6 +601,10 @@ const progress = computed(() => {
 
   .question {
     font-size: 1.1rem;
+  }
+
+  .completion-actions {
+    flex-direction: column;
   }
 }
 </style>
