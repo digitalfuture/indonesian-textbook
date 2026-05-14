@@ -4,7 +4,7 @@ import vue from "@vitejs/plugin-vue";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  base: "./", // Относительные пути для GitHub Pages
+  base: "/indonesian-textbook/", // Путь для GitHub Pages с именем репозитория
   build: {
     outDir: "dist",
     assetsDir: "assets",
