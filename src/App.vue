@@ -25,6 +25,7 @@ onUnmounted(() => {
 });
 
 const stats = computed(() => progressStore.getLearningStats());
+const currentYear = new Date().getFullYear();
 </script>
 
 <template>
@@ -102,7 +103,7 @@ const stats = computed(() => progressStore.getLearningStats());
             Метод Дмитрия Петрова • Интерактивный учебник индонезийского языка
           </p>
           <p class="copyright">
-            © 2024 Indonesian Textbook. Все права защищены.
+            © {{ currentYear }} Indonesian Textbook. Все права защищены.
           </p>
         </div>
       </div>
