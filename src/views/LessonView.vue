@@ -44,7 +44,7 @@ function handleUncomplete() {
       @navigate="navigateLesson"
     />
 
-    <LessonTabs v-model:currentStep="currentStep" :currentStep="currentStep" />
+    <LessonTabs v-model:currentStep="currentStep" />
 
     <main class="lesson-content">
       <section v-if="currentStep === 'theory'" class="theory-section fade-in">
