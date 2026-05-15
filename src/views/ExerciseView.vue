@@ -76,6 +76,26 @@ function getLessonTitle(exercise: Exercise): string {
   return lessons[exercise.lessonId] || `Урок ${exercise.lessonId}`;
 }
 
+function normalizeText(s: string) {
+  if (!s) return "";
+  const v = s.normalize ? s.normalize("NFKC") : s;
+  try {
+    // Remove punctuation using Unicode property escapes when available
+    return v
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}\s]/gu, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  } catch {
+    // Fallback for environments without Unicode property escapes
+    return v
+      .toLowerCase()
+      .replace(/[^\w\s]|_/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+}
+
 function checkAnswer() {
   if (!currentExercise.value) return;
 
@@ -85,9 +105,10 @@ function checkAnswer() {
   if (currentExercise.value.type === "multipleChoice") {
     correct = selectedOption.value === answer;
   } else {
-    correct =
-      userAnswer.value.toLowerCase().trim() ===
-      (typeof answer === "string" ? answer.toLowerCase().trim() : "");
+    const userNormalized = normalizeText(userAnswer.value);
+    const answerNormalized =
+      typeof answer === "string" ? normalizeText(answer) : "";
+    correct = userNormalized === answerNormalized;
   }
 
   isCorrect.value = correct;
