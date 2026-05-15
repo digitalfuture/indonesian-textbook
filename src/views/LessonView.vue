@@ -192,6 +192,31 @@ function completeLesson() {
           </div>
         </div>
       </section>
+
+      <!-- Кнопка завершения урока -->
+      <section class="complete-section">
+        <div class="content-card complete-card">
+          <h2>Завершить урок?</h2>
+          <p class="exercises-intro">
+            Отметьте урок как пройденный, когда вы изучили теорию, примеры и
+            выполнили все упражнения.
+          </p>
+          <div class="exercises-actions">
+            <button
+              v-if="!isCompleted"
+              class="btn btn-primary btn-lg"
+              @click="completeLesson"
+            >
+              ✅ Завершить урок
+            </button>
+            <div v-else class="completed-badge">
+              <span style="font-size: 1.2rem; color: #48bb78; font-weight: 500"
+                >✅ Урок завершён</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Навигация внизу -->
@@ -409,6 +434,18 @@ function completeLesson() {
 .exercises-actions {
   display: flex;
   justify-content: center;
+}
+
+.complete-card {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.completed-badge {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background: rgba(72, 187, 120, 0.1);
+  border: 2px solid #48bb78;
 }
 
 .lesson-footer {
