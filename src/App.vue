@@ -1,14 +1,27 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from "vue-router";
 import { useProgressStore } from "./stores/progress";
-import { computed, onMounted } from "vue";
+import { computed, onMounted, onUnmounted } from "vue";
 import { useTheme } from "./composables/useTheme";
 
 const progressStore = useProgressStore();
 const { theme, toggleTheme } = useTheme();
 
+let timeInterval: ReturnType<typeof setInterval> | null = null;
+
 onMounted(() => {
   progressStore.init();
+  // Track time spent every 30 seconds
+  timeInterval = setInterval(() => {
+    progressStore.addTimeSpent(0.5);
+  }, 30000);
+});
+
+onUnmounted(() => {
+  if (timeInterval) {
+    clearInterval(timeInterval);
+    timeInterval = null;
+  }
 });
 
 const stats = computed(() => progressStore.getLearningStats());
