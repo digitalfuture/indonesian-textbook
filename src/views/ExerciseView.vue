@@ -30,7 +30,13 @@ const userAnswer = ref("");
 const selectedOption = ref("");
 const showFeedback = ref(false);
 const isCorrect = ref(false);
-const completedExercises = ref<number[]>([]);
+const completedExercises = ref<number[]>(
+  (lessonId.value != null
+    ? progressStore
+        .lessonProgress(lessonId.value)
+        ?.completedExercises?.slice?.()
+    : []) || [],
+);
 
 const currentExercise = computed(
   () => exercises.value[currentExerciseIndex.value],
