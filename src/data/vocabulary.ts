@@ -161,6 +161,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Nama saya Andi", translation: "Меня зовут Анди" },
       { sentence: "Siapa namamu?", translation: "Как тебя зовут?" },
     ],
+    relatedWords: [11, 34, 35], // siapa, perkenalan, berkenalan
     lessonIds: [1],
   },
   {
@@ -797,6 +798,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Mobil baru", translation: "Новая машина" },
       { sentence: "Mobil saya merah", translation: "Моя машина красная" },
     ],
+    relatedWords: [86, 87, 89], // naik (садиться), turun (выходить), jual (продавать)
     lessonIds: [6, 13],
   },
   {

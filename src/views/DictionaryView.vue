@@ -82,6 +82,20 @@ function showExamples(wordId: number) {
 
 const showExamplesModal = ref(false);
 const selectedWord = ref<(typeof vocabulary)[0] | null>(null);
+const expandedWordId = ref<number | null>(null);
+
+function toggleExpand(wordId: number) {
+  if (expandedWordId.value === wordId) {
+    expandedWordId.value = null;
+  } else {
+    expandedWordId.value = wordId;
+  }
+}
+
+function getRelatedWords(word: (typeof vocabulary)[0]) {
+  if (!word.relatedWords) return [];
+  return vocabulary.filter((w) => word.relatedWords?.includes(w.id));
+}
 
 const stats = computed(() => ({
   total: vocabulary.length,
@@ -144,45 +158,102 @@ const stats = computed(() => ({
       <div
         v-for="word in filteredDictionary"
         :key="word.id"
-        class="word-card"
-        :class="{ learned: isWordLearned(word.id) }"
+        class="word-card-wrapper"
       >
-        <div class="word-main">
-          <h3 class="word-indonesian">{{ word.word }}</h3>
-          <p class="word-russian">{{ word.translation }}</p>
-          <div class="word-meta">
-            <span class="word-category">{{
-              getCategoryLabel(word.category)
-            }}</span>
-            <span class="word-frequency">№{{ word.frequency }}</span>
+        <div
+          class="word-card"
+          :class="{
+            learned: isWordLearned(word.id),
+            expanded: expandedWordId === word.id,
+          }"
+          @click="toggleExpand(word.id)"
+        >
+          <div class="word-main">
+            <h3 class="word-indonesian">{{ word.word }}</h3>
+            <p class="word-russian">{{ word.translation }}</p>
+            <div class="word-meta">
+              <span class="word-category">{{
+                getCategoryLabel(word.category)
+              }}</span>
+              <span class="word-frequency">№{{ word.frequency }}</span>
+              <span
+                v-if="word.relatedWords && word.relatedWords.length > 0"
+                class="related-badge"
+              >
+                🔗 {{ word.relatedWords.length }}
+              </span>
+            </div>
+          </div>
+
+          <div class="word-actions" @click.stop>
+            <button
+              class="action-btn examples-btn"
+              @click="showExamples(word.id)"
+              v-if="word.examples && word.examples.length > 0"
+              title="Примеры"
+            >
+              💬
+            </button>
+            <button
+              class="action-btn"
+              :class="{ active: isWordFavorite(word.id) }"
+              @click="toggleFavorite(word.id)"
+              title="В избранное"
+            >
+              {{ isWordFavorite(word.id) ? "⭐" : "☆" }}
+            </button>
+            <button
+              class="action-btn"
+              :class="{ active: isWordLearned(word.id) }"
+              @click="markAsLearned(word.id)"
+              title="Отметить как изученное"
+            >
+              {{ isWordLearned(word.id) ? "✅" : "⬜" }}
+            </button>
           </div>
         </div>
 
-        <div class="word-actions">
-          <button
-            class="action-btn examples-btn"
-            @click="showExamples(word.id)"
+        <!-- Разворачиваемый блок с однокоренными словами -->
+        <div v-if="expandedWordId === word.id" class="word-expanded-content">
+          <div
+            v-if="word.relatedWords && word.relatedWords.length > 0"
+            class="related-words-section"
+          >
+            <h4>Однокоренные слова:</h4>
+            <div class="related-words-list">
+              <div
+                v-for="related in getRelatedWords(word)"
+                :key="related.id"
+                class="related-word-item"
+                @click="toggleExpand(related.id)"
+              >
+                <span class="related-word">{{ related.word }}</span>
+                <span class="related-translation"
+                  >— {{ related.translation }}</span
+                >
+              </div>
+            </div>
+          </div>
+          <div v-else class="no-related">
+            <p>Для этого слова пока не добавлены однокоренные слова.</p>
+          </div>
+
+          <div
             v-if="word.examples && word.examples.length > 0"
-            title="Примеры"
+            class="quick-examples"
           >
-            💬
-          </button>
-          <button
-            class="action-btn"
-            :class="{ active: isWordFavorite(word.id) }"
-            @click="toggleFavorite(word.id)"
-            title="В избранное"
-          >
-            {{ isWordFavorite(word.id) ? "⭐" : "☆" }}
-          </button>
-          <button
-            class="action-btn"
-            :class="{ active: isWordLearned(word.id) }"
-            @click="markAsLearned(word.id)"
-            title="Отметить как изученное"
-          >
-            {{ isWordLearned(word.id) ? "✅" : "⬜" }}
-          </button>
+            <h4>Примеры:</h4>
+            <div
+              v-for="(ex, i) in word.examples.slice(0, 2)"
+              :key="i"
+              class="quick-example"
+            >
+              <p>
+                <strong>🇮🇩 {{ ex.sentence }}</strong>
+              </p>
+              <p>🇷🇺 {{ ex.translation }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -301,6 +372,7 @@ const stats = computed(() => ({
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   border: 1px solid var(--border);
+  cursor: pointer;
 }
 
 .word-card:hover {
@@ -308,8 +380,98 @@ const stats = computed(() => ({
   border-color: var(--accent-border);
 }
 
+.word-card.expanded {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: var(--accent-bg);
+  border-color: var(--accent);
+}
+
 .word-card.learned {
   border-left: 4px solid #48bb78;
+}
+
+.word-expanded-content {
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  border-top: none;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.5rem;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.related-words-section h4,
+.quick-examples h4 {
+  font-size: 0.9rem;
+  color: var(--text-h);
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25rem;
+}
+
+.related-words-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.related-word-item {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: background 0.2s;
+}
+
+.related-word-item:hover {
+  background: var(--accent-bg);
+}
+
+.related-word {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.related-translation {
+  color: var(--text);
+}
+
+.related-badge {
+  font-size: 0.75rem;
+  color: var(--text);
+  background: var(--code-bg);
+  padding: 0.1rem 0.4rem;
+  border-radius: 1rem;
+}
+
+.quick-example {
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--border);
+}
+
+.no-related {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  font-style: italic;
+  margin-bottom: 1rem;
 }
 
 .word-main {
