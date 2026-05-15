@@ -163,7 +163,7 @@ const achievementList = [
           <div class="stat-info">
             <span class="stat-value"
               >{{ Math.floor(stats.timeSpent / 60) }}ч
-              {{ stats.timeSpent % 60 }}мин</span
+              {{ Math.floor(stats.timeSpent % 60) }}мин</span
             >
             <span class="stat-label">Времени потрачено</span>
           </div>
@@ -332,13 +332,14 @@ section h2 {
 }
 
 .stat-card {
-  background: white;
+  background: var(--bg);
   border-radius: 0.75rem;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
   display: flex;
   align-items: center;
   gap: 1rem;
+  border: 1px solid var(--border);
 }
 
 .stat-icon {
@@ -381,10 +382,11 @@ section h2 {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: white;
+  background: var(--bg);
   border-radius: 0.5rem;
   padding: 1rem 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -450,10 +452,11 @@ section h2 {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: white;
+  background: var(--bg);
   border-radius: 0.5rem;
   padding: 1rem 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
   opacity: 0.6;
 }
 
@@ -510,11 +513,13 @@ section h2 {
 }
 
 .modal {
-  background: white;
+  background: var(--bg);
   border-radius: 0.75rem;
   padding: 2rem;
   max-width: 500px;
   width: 90%;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .modal h3 {

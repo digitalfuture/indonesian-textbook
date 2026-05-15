@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useProgressStore } from "../stores/progress";
 import { exercises as allExercises } from "../data/exercises";
@@ -35,6 +35,18 @@ const completedExercises = ref<number[]>([]);
 const currentExercise = computed(
   () => exercises.value[currentExerciseIndex.value],
 );
+
+// Auto-complete lesson when all exercises are done
+watch(completedExercises, (newVal) => {
+  if (
+    lessonId.value &&
+    newVal.length === exercises.value.length &&
+    exercises.value.length > 0
+  ) {
+    progressStore.completeLesson(lessonId.value, 100);
+    progressStore.checkAchievements();
+  }
+});
 
 function getLessonTitle(exercise: Exercise): string {
   const lessons: Record<number, string> = {
