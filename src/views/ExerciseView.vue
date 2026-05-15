@@ -444,9 +444,19 @@ const progress = computed(() => {
   background: #f0fff4;
 }
 
+:root[data-theme="dark"] .option.correct {
+  background: rgba(72, 187, 120, 0.15);
+  border-color: #48bb78;
+}
+
 .option.wrong {
   border-color: #f56565;
   background: #fff5f5;
+}
+
+:root[data-theme="dark"] .option.wrong {
+  background: rgba(245, 101, 101, 0.15);
+  border-color: #f56565;
 }
 
 .action-buttons {
@@ -516,9 +526,19 @@ const progress = computed(() => {
   border: 1px solid #c6f6d5;
 }
 
+:root[data-theme="dark"] .feedback.correct {
+  background: rgba(72, 187, 120, 0.15);
+  border: 1px solid rgba(72, 187, 120, 0.4);
+}
+
 .feedback.wrong {
   background: #fff5f5;
   border: 1px solid #feb2b2;
+}
+
+:root[data-theme="dark"] .feedback.wrong {
+  background: rgba(245, 101, 101, 0.15);
+  border: 1px solid rgba(245, 101, 101, 0.4);
 }
 
 .feedback-icon {
