@@ -16,14 +16,50 @@ const grammarTables = [
     icon: "👤",
     headers: ["Местоимение", "Значение", "Использование"],
     rows: [
-      { label: "saya", cells: ["я", "Официально/нейтрально"] },
-      { label: "aku", cells: ["я", "Неформально, с друзьями"] },
-      { label: "kamu", cells: ["ты", "Неформально"] },
-      { label: "Anda", cells: ["Вы", "Официально, уважительно"] },
-      { label: "dia", cells: ["он/она", "Третий лицо"] },
-      { label: "kami", cells: ["мы", "Без собеседника"] },
-      { label: "kita", cells: ["мы", "Включая собеседника"] },
-      { label: "mereka", cells: ["они", "Третье лицо множественное"] },
+      {
+        label: "saya",
+        cells: ["я", "Официально/нейтрально", "Saya dari Rusia (Я из России)"],
+      },
+      {
+        label: "aku",
+        cells: [
+          "я",
+          "Неформально, с друзьями",
+          "Aku cinta kamu (Я люблю тебя)",
+        ],
+      },
+      {
+        label: "kamu",
+        cells: ["ты", "Неформально", "Kamu cantik (Ты красивая)"],
+      },
+      {
+        label: "Anda",
+        cells: ["Вы", "Официально, уважительно", "Anda guru? (Вы учитель?)"],
+      },
+      {
+        label: "dia",
+        cells: ["он/она", "Третье лицо", "Dia teman saya (Он/она мой друг)"],
+      },
+      {
+        label: "kami",
+        cells: [
+          "мы (без вас)",
+          "Исключает собеседника",
+          "Kami pergi (Мы уходим, а вы остаётесь)",
+        ],
+      },
+      {
+        label: "kita",
+        cells: [
+          "мы (с вами)",
+          "Включает собеседника",
+          "Kita makan bersama (Мы едим вместе)",
+        ],
+      },
+      {
+        label: "mereka",
+        cells: ["они", "Третье лицо мн.ч.", "Mereka siswa (Они ученики)"],
+      },
     ],
   },
   {
@@ -35,32 +71,67 @@ const grammarTables = [
     rows: [
       {
         label: "sudah",
-        cells: ["уже (завершённое)", "Saya sudah makan (Я уже поел)"],
+        cells: [
+          "уже (завершённое действие)",
+          "Saya sudah makan (Я уже поел)",
+          "Sudah selesai? (Уже закончил?)",
+        ],
       },
       {
         label: "telah",
-        cells: ["уже (формально)", "Dia telah selesai (Он уже закончил)"],
+        cells: [
+          "уже (формально/книжно)",
+          "Dia telah selesai (Он уже закончил)",
+          "Используется в письменной речи",
+        ],
       },
       {
         label: "sedang",
-        cells: ["в процессе", "Saya sedang bekerja (Я работаю сейчас)"],
+        cells: [
+          "в процессе (сейчас)",
+          "Saya sedang bekerja (Я работаю сейчас)",
+          "Действие происходит в данный момент",
+        ],
       },
       {
         label: "lagi",
-        cells: ["в процессе (разг.)", "Dia lagi tidur (Он спит сейчас)"],
+        cells: [
+          "в процессе (разговорное)",
+          "Dia lagi tidur (Он спит сейчас)",
+          "Употребляется в повседневной речи",
+        ],
       },
       {
         label: "masih",
-        cells: ["всё ещё", "Saya masih di rumah (Я всё ещё дома)"],
+        cells: [
+          "всё ещё",
+          "Saya masih di rumah (Я всё ещё дома)",
+          "Подчёркивает, что действие продолжается",
+        ],
       },
-      { label: "akan", cells: ["буду (нейтр.)", "Saya akan pergi (Я пойду)"] },
+      {
+        label: "akan",
+        cells: [
+          "будущее время (нейтр.)",
+          "Saya akan pergi (Я пойду)",
+          "Нейтральное выражение будущего",
+        ],
+      },
       {
         label: "mau",
-        cells: ["собираюсь/хочу", "Saya mau tidur (Я собираюсь спать)"],
+        cells: [
+          "собираться / хотеть",
+          "Saya mau tidur (Я собираюсь спать)",
+          "Разговорный вариант будущего",
+        ],
       },
       {
         label: "pernah",
-        cells: ["когда-либо", "Saya pernah ke Bali (Я бывал на Бали)"],
+        cells: [
+          "когда-либо (опыт)",
+          "Saya pernah ke Bali (Я бывал на Бали)",
+          "Для вопросов об опыте: Pernah ke Bali?",
+        ],
       },
     ],
   },
@@ -73,16 +144,35 @@ const grammarTables = [
     rows: [
       {
         label: "tidak",
-        cells: ["С глаголами и прилагательными", "Saya tidak tahu (Я не знаю)"],
+        cells: [
+          "С глаголами и прилагательными",
+          "Saya tidak tahu (Я не знаю)",
+          "Самое распространённое отрицание",
+        ],
       },
       {
         label: "bukan",
-        cells: ["С существительными", "Ini bukan buku (Это не книга)"],
+        cells: [
+          "С существительными",
+          "Ini bukan buku (Это не книга)",
+          "Отрицает принадлежность к категории",
+        ],
       },
-      { label: "belum", cells: ["Ещё не", "Saya belum makan (Я ещё не ел)"] },
+      {
+        label: "belum",
+        cells: [
+          "Ещё не (незавершённость)",
+          "Saya belum makan (Я ещё не ел)",
+          "Отрицает завершённость, ждёт в будущем",
+        ],
+      },
       {
         label: "jangan",
-        cells: ["Запрет (не делай!)", "Jangan pergi! (Не уходи!)"],
+        cells: [
+          "Запрет (повелительное)",
+          "Jangan pergi! (Не уходи!)",
+          "Команда/просьба не делать",
+        ],
       },
     ],
   },
@@ -93,14 +183,66 @@ const grammarTables = [
     icon: "📍",
     headers: ["Предлог", "Значение", "Пример"],
     rows: [
-      { label: "di", cells: ["в/на (место)", "di rumah (дома)"] },
-      { label: "ke", cells: ["в/на (направление)", "ke kantor (в офис)"] },
-      { label: "dari", cells: ["из/от", "dari Rusia (из России)"] },
-      { label: "pada", cells: ["в (время)", "pada jam 5 (в 5 часов)"] },
-      { label: "dengan", cells: ["с", "dengan saya (со мной)"] },
-      { label: "untuk", cells: ["для", "untuk kamu (для тебя)"] },
-      { label: "dari", cells: ["от/из", "dari pagi (с утра)"] },
-      { label: "sampai", cells: ["до", "sampai besok (до завтра)"] },
+      {
+        label: "di",
+        cells: [
+          "в/на (место)",
+          "di rumah (дома)",
+          "Saya di kantor (Я в офисе)",
+        ],
+      },
+      {
+        label: "ke",
+        cells: [
+          "в/на (направление)",
+          "ke kantor (в офис)",
+          "Dia pergi ke pasar (Он идёт на рынок)",
+        ],
+      },
+      {
+        label: "dari",
+        cells: [
+          "из/от (исходная точка)",
+          "dari Rusia (из России)",
+          "Saya dari Jakarta (Я из Джакарты)",
+        ],
+      },
+      {
+        label: "pada",
+        cells: [
+          "в/при (время)",
+          "pada jam 5 (в 5 часов)",
+          "Pada hari Senin (в понедельник)",
+        ],
+      },
+      {
+        label: "dengan",
+        cells: [
+          "с (совместность)",
+          "dengan saya (со мной)",
+          "Makan dengan teman (Есть с другом)",
+        ],
+      },
+      {
+        label: "untuk",
+        cells: ["для", "untuk kamu (для тебя)", "Ini untuk ibu (Это для мамы)"],
+      },
+      {
+        label: "di atas",
+        cells: [
+          "на/над (сверху)",
+          "di atas meja (на столе)",
+          "Buku di atas meja (Книга на столе)",
+        ],
+      },
+      {
+        label: "di bawah",
+        cells: [
+          "под (внизу)",
+          "di bawah kursi (под стулом)",
+          "Kucing di bawah meja (Кот под столом)",
+        ],
+      },
     ],
   },
   {
@@ -110,32 +252,77 @@ const grammarTables = [
     icon: "❓",
     headers: ["Слово", "Значение", "Пример"],
     rows: [
-      { label: "apa", cells: ["что", "Apa ini? (Что это?)"] },
-      { label: "siapa", cells: ["кто", "Siapa nama kamu? (Как тебя зовут?)"] },
+      {
+        label: "apa",
+        cells: [
+          "что",
+          "Apa ini? (Что это?)",
+          "Apa yang kamu lakukan? (Что ты делаешь?)",
+        ],
+      },
+      {
+        label: "siapa",
+        cells: [
+          "кто",
+          "Siapa nama kamu? (Как тебя зовут?)",
+          "Siapa dia? (Кто он/она?)",
+        ],
+      },
       {
         label: "di mana",
-        cells: ["где", "Di mana rumah kamu? (Где твой дом?)"],
+        cells: [
+          "где (место)",
+          "Di mana rumah kamu? (Где твой дом?)",
+          "Di mana kamu tinggal? (Где ты живёшь?)",
+        ],
       },
       {
         label: "ke mana",
-        cells: ["куда", "Ke mana kamu pergi? (Куда ты идёшь?)"],
+        cells: [
+          "куда (направление)",
+          "Ke mana kamu pergi? (Куда ты идёшь?)",
+          "Ke mana liburan? (Куда на каникулы?)",
+        ],
       },
-      { label: "dari mana", cells: ["откуда", "Dari mana kamu? (Откуда ты?)"] },
+      {
+        label: "dari mana",
+        cells: [
+          "откуда (происхождение)",
+          "Dari mana kamu? (Откуда ты?)",
+          "Dari mana asalnya? (Откуда родом?)",
+        ],
+      },
       {
         label: "kapan",
-        cells: ["когда", "Kapan kamu datang? (Когда ты придёшь?)"],
+        cells: [
+          "когда (время)",
+          "Kapan kamu datang? (Когда ты придёшь?)",
+          "Kapan ulang tahunmu? (Когда твой день рождения?)",
+        ],
       },
       {
-        label: "mengapa",
-        cells: ["почему", "Mengapa kamu sedih? (Почему ты грустишь?)"],
+        label: "mengapa / kenapa",
+        cells: [
+          "почему / зачем",
+          "Mengapa kamu sedih? (Почему ты грустишь?)",
+          "Kenapa tidak datang? (Почему не пришёл?)",
+        ],
       },
       {
         label: "bagaimana",
-        cells: ["как", "Bagaimana kabar kamu? (Как твои дела?)"],
+        cells: [
+          "как / каким образом",
+          "Bagaimana kabar kamu? (Как твои дела?)",
+          "Bagaimana caranya? (Как это сделать?)",
+        ],
       },
       {
         label: "berapa",
-        cells: ["сколько", "Berapa harganya? (Сколько это стоит?)"],
+        cells: [
+          "сколько (цена/количество)",
+          "Berapa harganya? (Сколько это стоит?)",
+          "Berapa umur kamu? (Сколько тебе лет?)",
+        ],
       },
     ],
   },
@@ -146,37 +333,69 @@ const grammarTables = [
     icon: "🔗",
     headers: ["Союз", "Значение", "Пример"],
     rows: [
-      { label: "dan", cells: ["и", "Saya makan dan minum (Я ем и пью)"] },
-      { label: "atau", cells: ["или", "Teh atau kopi? (Чай или кофе?)"] },
-      { label: "tapi", cells: ["но", "Pintar tapi malas (Умный, но ленивый)"] },
+      {
+        label: "dan",
+        cells: [
+          "и",
+          "Saya makan dan minum (Я ем и пью)",
+          "Соединяет однородные члены",
+        ],
+      },
+      {
+        label: "atau",
+        cells: [
+          "или",
+          "Teh atau kopi? (Чай или кофе?)",
+          "Для выбора между вариантами",
+        ],
+      },
+      {
+        label: "tapi",
+        cells: [
+          "но / однако",
+          "Pintar tapi malas (Умный, но ленивый)",
+          "Выражает противопоставление",
+        ],
+      },
       {
         label: "karena",
         cells: [
           "потому что",
           "Tidak datang karena sakit (Не пришёл, потому что заболел)",
+          "Указывает причину",
         ],
       },
       {
         label: "jadi",
         cells: [
-          "поэтому",
+          "поэтому / так что",
           "Sakit jadi tidak datang (Заболел, поэтому не пришёл)",
+          "Указывает следствие",
         ],
       },
       {
         label: "yang",
-        cells: ["который", "Orang yang baik (Хороший человек)"],
+        cells: [
+          "который / что",
+          "Orang yang baik (Хороший человек)",
+          "Определительное слово, заменяет 'который'",
+        ],
       },
       {
-        label: "jika",
+        label: "jika / kalau",
         cells: [
-          "если",
+          "если / когда",
           "Jika hujan, saya tidak pergi (Если дождь, я не пойду)",
+          "Условный союз",
         ],
       },
       {
         label: "ketika",
-        cells: ["когда (в то время как)", "Ketika saya tidur (Когда я спал)"],
+        cells: [
+          "когда (в то время как)",
+          "Ketika saya tidur (Когда я спал)",
+          "Одновременность действий",
+        ],
       },
     ],
   },
@@ -189,32 +408,59 @@ const grammarTables = [
     rows: [
       {
         label: "bisa",
-        cells: ["мочь/уметь", "Saya bisa berenang (Я умею плавать)"],
+        cells: [
+          "мочь / уметь",
+          "Saya bisa berenang (Я умею плавать)",
+          "Bisa bantu saya? (Можете помочь?)",
+        ],
       },
       {
         label: "harus",
-        cells: ["должен", "Kamu harus belajar (Ты должен учиться)"],
+        cells: [
+          "должен / обязан",
+          "Kamu harus belajar (Ты должен учиться)",
+          "Выражает необходимость",
+        ],
       },
       {
         label: "mau",
-        cells: ["хотеть (разг.)", "Saya mau kopi (Я хочу кофе)"],
+        cells: [
+          "хотеть (разговорное)",
+          "Saya mau kopi (Я хочу кофе)",
+          "Mau ke mana? (Куда хочешь пойти?)",
+        ],
       },
       {
         label: "ingin",
-        cells: ["хотеть (форм.)", "Saya ingin belajar (Я хочу учиться)"],
+        cells: [
+          "хотеть / желать (формально)",
+          "Saya ingin belajar (Я хочу учиться)",
+          "Более вежливо, чем mau",
+        ],
       },
       {
         label: "perlu",
-        cells: ["нуждаться", "Saya perlu bantuan (Мне нужна помощь)"],
+        cells: [
+          "нуждаться / нужно",
+          "Saya perlu bantuan (Мне нужна помощь)",
+          "Tidak perlu (Не нужно)",
+        ],
       },
       {
         label: "boleh",
-        cells: ["можно/разрешено", "Boleh masuk (Можно войти)"],
+        cells: [
+          "можно / разрешено",
+          "Boleh masuk? (Можно войти?)",
+          "Boleh saya pinjam? (Можно одолжить?)",
+        ],
       },
-      { label: "ingin", cells: ["желать", "Dia ingin pergi (Он хочет уйти)"] },
       {
         label: "suka",
-        cells: ["любить/нравиться", "Saya suka kopi (Я люблю кофе)"],
+        cells: [
+          "любить / нравиться",
+          "Saya suka kopi (Я люблю кофе)",
+          "Suka atau tidak? (Нравится или нет?)",
+        ],
       },
     ],
   },
@@ -225,20 +471,48 @@ const grammarTables = [
     icon: "🔢",
     headers: ["Число", "Индонезийский", "Примечание"],
     rows: [
-      { label: "1", cells: ["satu", "основа"] },
-      { label: "2", cells: ["dua", "основа"] },
-      { label: "3", cells: ["tiga", "основа"] },
-      { label: "10", cells: ["sepuluh", "основа"] },
-      { label: "20", cells: ["dua puluh", "число + puluh"] },
-      { label: "100", cells: ["seratus", "особая форма"] },
-      { label: "1000", cells: ["seribu", "особая форма"] },
+      {
+        label: "0",
+        cells: ["nol", "Заимствовано из голландского", "null/nul"],
+      },
+      { label: "1", cells: ["satu", "Основа", "satu orang (один человек)"] },
+      { label: "2", cells: ["dua", "Основа", "dua buku (две книги)"] },
+      { label: "3", cells: ["tiga", "Основа", "tiga rumah (три дома)"] },
+      {
+        label: "10",
+        cells: [
+          "sepuluh",
+          "Префикс se- + puluh",
+          "sepuluh siswa (10 учеников)",
+        ],
+      },
+      {
+        label: "20",
+        cells: ["dua puluh", "Число + puluh", "dua puluh orang (20 человек)"],
+      },
+      {
+        label: "100",
+        cells: ["seratus", "Префикс se- + ratus", "seratus rupiah (100 рупий)"],
+      },
+      {
+        label: "1000",
+        cells: ["seribu", "Префикс se- + ribu", "seribu dolar (1000 долларов)"],
+      },
       {
         label: "orang",
-        cells: ["классификатор для людей", "dua orang (два человека)"],
+        cells: [
+          "Классификатор для людей",
+          "dua orang (два человека)",
+          "Обязателен при счёте людей",
+        ],
       },
       {
         label: "buah",
-        cells: ["классификатор для предметов", "dua buah rumah (два дома)"],
+        cells: [
+          "Классификатор для предметов",
+          "dua buah rumah (два дома)",
+          "Общий классификатор для вещей",
+        ],
       },
     ],
   },
@@ -338,7 +612,7 @@ function goBack() {
 
 .grammar-description {
   font-size: 1.1rem;
-  color: #4a5568;
+  color: var(--text);
 }
 
 .tables-grid {
@@ -348,11 +622,12 @@ function goBack() {
 }
 
 .table-card {
-  background: white;
+  background: var(--bg-card);
   border-radius: 0.75rem;
   padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
   transition: all 0.3s ease;
+  border: 1px solid var(--border);
 }
 
 .table-card.clickable {
@@ -371,12 +646,12 @@ function goBack() {
 
 .table-card h3 {
   font-size: 1.25rem;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 0.5rem;
 }
 
 .table-description {
-  color: #4a5568;
+  color: var(--text);
   font-size: 0.95rem;
   line-height: 1.5;
   margin-bottom: 1rem;
@@ -384,7 +659,7 @@ function goBack() {
 
 .table-meta {
   font-size: 0.85rem;
-  color: #718096;
+  color: var(--muted);
 }
 
 .table-detail {
@@ -404,7 +679,7 @@ function goBack() {
 }
 
 .table-description {
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 1.5rem;
 }
 
@@ -423,23 +698,23 @@ function goBack() {
 .grammar-table td {
   padding: 0.75rem 1rem;
   text-align: left;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border);
 }
 
 .grammar-table th {
-  background: #f7fafc;
+  background: var(--code-bg);
   font-weight: 600;
-  color: #2d3748;
+  color: var(--text-h);
   white-space: nowrap;
 }
 
 .grammar-table tr:hover td {
-  background: #f7fafc;
+  background: var(--code-bg);
 }
 
 .term-cell {
   font-weight: 600;
-  color: #667eea;
+  color: var(--primary);
   white-space: nowrap;
 }
 
