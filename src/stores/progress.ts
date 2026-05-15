@@ -96,29 +96,19 @@ export const useProgressStore = defineStore("progress", () => {
     const lesson = progress.value.lessons[lessonId];
     if (!lesson) return;
 
-    const removedExercises = lesson.completedExercises?.length || 0;
-    const removedScore = lesson.score || 0;
-
+    // Only mark as not completed while preserving completedExercises and score.
+    // This allows retrying the lesson without losing progress counts.
     progress.value.lessons[lessonId] = {
       ...lesson,
       isCompleted: false,
-      completedExercises: [],
-      score: 0,
       completedAt: undefined,
     };
 
+    // Update only lessonsCompleted count; keep exercisesCompleted and totalPoints unchanged.
     progress.value = updateStatistics(progress.value, {
       lessonsCompleted: Object.values(progress.value.lessons).filter(
         (l) => l.isCompleted,
       ).length,
-      exercisesCompleted: Math.max(
-        0,
-        progress.value.statistics.exercisesCompleted - removedExercises,
-      ),
-      totalPoints: Math.max(
-        0,
-        progress.value.statistics.totalPoints - removedScore,
-      ),
     });
 
     saveProgress(progress.value);
