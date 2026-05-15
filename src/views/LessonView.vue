@@ -45,6 +45,10 @@ function goToExercises() {
 function completeLesson() {
   progressStore.completeLesson(lessonId.value, 100);
 }
+
+function uncompleteLessonAction() {
+  progressStore.uncompleteLesson(lessonId.value);
+}
 </script>
 
 <template>
@@ -213,6 +217,12 @@ function completeLesson() {
               <span style="font-size: 1.2rem; color: #48bb78; font-weight: 500"
                 >✅ Урок завершён</span
               >
+              <button
+                class="btn btn-outline btn-sm"
+                @click="uncompleteLessonAction"
+              >
+                Отметить как непройденный
+              </button>
             </div>
           </div>
         </div>

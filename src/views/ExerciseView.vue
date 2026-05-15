@@ -453,22 +453,12 @@ const progress = computed(() => {
 
 .option.correct {
   border-color: #48bb78;
-  background: #f0fff4;
-}
-
-:root[data-theme="dark"] .option.correct {
-  background: rgba(72, 187, 120, 0.15);
-  border-color: #48bb78;
+  background: var(--option-correct-bg);
 }
 
 .option.wrong {
   border-color: #f56565;
-  background: #fff5f5;
-}
-
-:root[data-theme="dark"] .option.wrong {
-  background: rgba(245, 101, 101, 0.15);
-  border-color: #f56565;
+  background: var(--option-wrong-bg);
 }
 
 .action-buttons {
@@ -534,23 +524,13 @@ const progress = computed(() => {
 }
 
 .feedback.correct {
-  background: #f0fff4;
-  border: 1px solid #c6f6d5;
-}
-
-:root[data-theme="dark"] .feedback.correct {
-  background: rgba(72, 187, 120, 0.15);
-  border: 1px solid rgba(72, 187, 120, 0.4);
+  background: var(--feedback-correct-bg);
+  border: 1px solid var(--feedback-correct-border);
 }
 
 .feedback.wrong {
-  background: #fff5f5;
-  border: 1px solid #feb2b2;
-}
-
-:root[data-theme="dark"] .feedback.wrong {
-  background: rgba(245, 101, 101, 0.15);
-  border: 1px solid rgba(245, 101, 101, 0.4);
+  background: var(--feedback-wrong-bg);
+  border: 1px solid var(--feedback-wrong-border);
 }
 
 .feedback-icon {

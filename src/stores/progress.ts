@@ -92,6 +92,38 @@ export const useProgressStore = defineStore("progress", () => {
     saveProgress(progress.value);
   }
 
+  function uncompleteLesson(lessonId: number) {
+    const lesson = progress.value.lessons[lessonId];
+    if (!lesson) return;
+
+    const removedExercises = lesson.completedExercises?.length || 0;
+    const removedScore = lesson.score || 0;
+
+    progress.value.lessons[lessonId] = {
+      ...lesson,
+      isCompleted: false,
+      completedExercises: [],
+      score: 0,
+      completedAt: undefined,
+    };
+
+    progress.value = updateStatistics(progress.value, {
+      lessonsCompleted: Object.values(progress.value.lessons).filter(
+        (l) => l.isCompleted,
+      ).length,
+      exercisesCompleted: Math.max(
+        0,
+        progress.value.statistics.exercisesCompleted - removedExercises,
+      ),
+      totalPoints: Math.max(
+        0,
+        progress.value.statistics.totalPoints - removedScore,
+      ),
+    });
+
+    saveProgress(progress.value);
+  }
+
   function completeExercise(
     lessonId: number,
     exerciseId: number,
@@ -318,6 +350,7 @@ export const useProgressStore = defineStore("progress", () => {
     // Методы
     init,
     completeLesson,
+    uncompleteLesson,
     completeExercise,
     markWordAsLearned,
     practiceWord,
