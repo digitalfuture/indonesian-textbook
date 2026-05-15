@@ -4,11 +4,14 @@ export const exercises: Exercise[] = [
   // Урок 1 - Знакомство и базовые фразы (ID: 1-4)
   {
     id: 1,
-    type: "translation",
+    type: "twoStage",
     lessonId: 1,
-    question: 'Переведите: "Selamat pagi, nama saya Ivan"',
-    correctAnswer: "Доброе утро, меня зовут Иван",
-    explanation: "Selamat pagi = доброе утро, nama = имя, saya = я",
+    question: "Как представиться?",
+    options: ["Nama saya Ivan", "Selamat pagi", "Apa kabar"],
+    correctAnswer: "Nama saya Ivan",
+    stage2Question: "Как еще можно сказать 'Меня зовут Иван'?",
+    stage2Answer: "Nama saya Ivan",
+    explanation: "Nama saya Ivan = Меня зовут Иван.",
     difficulty: 1,
     points: 10,
   },

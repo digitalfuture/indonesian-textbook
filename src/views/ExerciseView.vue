@@ -30,6 +30,7 @@ const userAnswer = ref("");
 const selectedOption = ref("");
 const showFeedback = ref(false);
 const isCorrect = ref(false);
+const isStage2 = ref(false);
 const completedExercises = ref<number[]>(
   (lessonId.value != null
     ? progressStore
@@ -104,6 +105,15 @@ function checkAnswer() {
 
   if (currentExercise.value.type === "multipleChoice") {
     correct = selectedOption.value === answer;
+  } else if (currentExercise.value.type === "twoStage" && !isStage2.value) {
+    correct = selectedOption.value === answer;
+  } else if (currentExercise.value.type === "twoStage" && isStage2.value) {
+    const userNormalized = normalizeText(userAnswer.value);
+    const answer2 =
+      currentExercise.value.stage2Answer || currentExercise.value.correctAnswer;
+    const answerNormalized =
+      typeof answer2 === "string" ? normalizeText(answer2) : "";
+    correct = userNormalized === answerNormalized;
   } else {
     const userNormalized = normalizeText(userAnswer.value);
     const answerNormalized =
@@ -115,12 +125,29 @@ function checkAnswer() {
   showFeedback.value = true;
 
   if (correct && !completedExercises.value.includes(currentExercise.value.id)) {
-    completedExercises.value.push(currentExercise.value.id);
-    progressStore.completeExercise(
-      currentExercise.value.lessonId,
-      currentExercise.value.id,
-      currentExercise.value.points,
-    );
+    if (currentExercise.value.type === "twoStage" && !isStage2.value) {
+      // Just wait for stage 2
+    } else {
+      completedExercises.value.push(currentExercise.value.id);
+      progressStore.completeExercise(
+        currentExercise.value.lessonId,
+        currentExercise.value.id,
+        currentExercise.value.points,
+      );
+    }
+  }
+}
+
+function nextStage() {
+  if (
+    currentExercise.value.type === "twoStage" &&
+    !isStage2.value &&
+    isCorrect.value
+  ) {
+    isStage2.value = true;
+    showFeedback.value = false;
+    isCorrect.value = false;
+    selectedOption.value = "";
   }
 }
 
@@ -143,6 +170,7 @@ function resetExercise() {
   selectedOption.value = "";
   showFeedback.value = false;
   isCorrect.value = false;
+  isStage2.value = false;
 }
 
 const progress = computed(() => {
@@ -216,13 +244,28 @@ const progress = computed(() => {
               class="type-badge"
               >Выбор ответа</span
             >
+            <span
+              v-else-if="currentExercise.type === 'twoStage'"
+              class="type-badge"
+              >2 этапа: {{ isStage2 ? "Ввод" : "Выбор" }}</span
+            >
           </div>
 
-          <h2 class="question">{{ currentExercise.question }}</h2>
+          <h2 class="question">
+            {{
+              isStage2 && currentExercise.stage2Question
+                ? currentExercise.stage2Question
+                : currentExercise.question
+            }}
+          </h2>
 
-          <!-- Ввод ответа для перевода и заполнения пропуска -->
+          <!-- Ввод ответа для перевода, заполнения пропуска и 2-го этапа -->
           <div
-            v-if="currentExercise.type !== 'multipleChoice'"
+            v-if="
+              currentExercise.type === 'translation' ||
+              currentExercise.type === 'fillBlank' ||
+              (currentExercise.type === 'twoStage' && isStage2)
+            "
             class="answer-section"
           >
             <input
@@ -234,8 +277,14 @@ const progress = computed(() => {
             />
           </div>
 
-          <!-- Варианты ответов для multiple choice -->
-          <div v-else class="options-section">
+          <!-- Варианты ответов для multiple choice и 1-го этапа -->
+          <div
+            v-else-if="
+              currentExercise.type === 'multipleChoice' ||
+              (currentExercise.type === 'twoStage' && !isStage2)
+            "
+            class="options-section"
+          >
             <div
               v-for="option in currentExercise.options"
               :key="option"
@@ -262,12 +311,25 @@ const progress = computed(() => {
               class="btn btn-primary"
               @click="checkAnswer"
               :disabled="
-                currentExercise.type === 'multipleChoice'
+                currentExercise.type === 'multipleChoice' ||
+                (currentExercise.type === 'twoStage' && !isStage2)
                   ? !selectedOption
                   : !userAnswer
               "
             >
               Проверить
+            </button>
+            <button
+              v-else-if="
+                showFeedback &&
+                isCorrect &&
+                currentExercise.type === 'twoStage' &&
+                !isStage2
+              "
+              class="btn btn-primary"
+              @click="nextStage"
+            >
+              Следующий этап →
             </button>
             <button v-else class="btn btn-outline" @click="resetExercise">
               Попробовать снова
@@ -285,7 +347,11 @@ const progress = computed(() => {
               <strong>{{ isCorrect ? "Правильно!" : "Неправильно" }}</strong>
               <p v-if="!isCorrect">
                 Правильный ответ:
-                <strong>{{ currentExercise.correctAnswer }}</strong>
+                <strong>{{
+                  isStage2 && currentExercise.stage2Answer
+                    ? currentExercise.stage2Answer
+                    : currentExercise.correctAnswer
+                }}</strong>
               </p>
               <p class="explanation">{{ currentExercise.explanation }}</p>
             </div>

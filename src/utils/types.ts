@@ -16,7 +16,8 @@ export type ExerciseType =
   | "fillBlank"
   | "multipleChoice"
   | "matching"
-  | "sentenceBuilder";
+  | "sentenceBuilder"
+  | "twoStage";
 
 export type DifficultyLevel = 1 | 2 | 3; // 1-легкий, 2-средний, 3-сложный
 
@@ -56,6 +57,8 @@ export interface Exercise {
   explanation: string;
   difficulty: DifficultyLevel;
   points: number;
+  stage2Answer?: string; // Для двухэтапных упражнений
+  stage2Question?: string; // Вопрос второго этапа
 }
 
 // Интерфейс урока
