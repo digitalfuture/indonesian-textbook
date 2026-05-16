@@ -21,19 +21,19 @@ function setStep(step: "theory" | "examples" | "exercises") {
       :class="['tab', { active: currentStep === 'theory' }]"
       @click="setStep('theory')"
     >
-      📖 Теория
+      {{ $t('lesson.tabs.theory') }}
     </button>
     <button
       :class="['tab', { active: currentStep === 'examples' }]"
       @click="setStep('examples')"
     >
-      💡 Примеры
+      {{ $t('lesson.tabs.examples') }}
     </button>
     <button
       :class="['tab', { active: currentStep === 'exercises' }]"
       @click="setStep('exercises')"
     >
-      ✍️ Упражнения
+      {{ $t('lesson.tabs.exercises') }}
     </button>
   </nav>
 </template>

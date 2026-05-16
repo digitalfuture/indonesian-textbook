@@ -19,11 +19,8 @@ function start() {
 <template>
   <section class="exercises-section fade-in">
     <div class="content-card">
-      <h2>Упражнения</h2>
-      <p class="exercises-intro">
-        Выполните упражнения для закрепления материала. После завершения всех
-        упражнений урок будет считаться пройденным.
-      </p>
+      <h2>{{ $t('lesson.exercises.title') }}</h2>
+      <p class="exercises-intro">{{ $t('lesson.exercises.description') }}</p>
 
       <div class="exercises-list">
         <div
@@ -32,7 +29,7 @@ function start() {
           class="exercise-item"
         >
           <div class="exercise-info">
-            <span class="exercise-number">Упражнение {{ exerciseId }}</span>
+            <span class="exercise-number">{{ $t('lesson.exercises.item', { id: exerciseId }) }}</span>
             <span
               v-if="lessonProgress?.completedExercises?.includes(exerciseId)"
               class="exercise-status"
@@ -44,7 +41,7 @@ function start() {
 
       <div class="exercises-actions">
         <button class="btn btn-primary btn-lg" @click="start">
-          ✍️ Начать упражнения
+          {{ $t('lesson.exercises.startButton') }}
         </button>
       </div>
     </div>

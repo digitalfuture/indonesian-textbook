@@ -14,28 +14,26 @@ const currentYear = new Date().getFullYear();
       <div class="footer-stats">
         <div class="stat-item">
           <span class="stat-value">{{ Math.round(stats.wordProgress) }}%</span>
-          <span class="stat-label">Слов</span>
+          <span class="stat-label">{{ $t('footer.stats.words') }}</span>
         </div>
         <div class="stat-item">
           <span class="stat-value">{{ Math.round(stats.lessonProgress) }}%</span>
-          <span class="stat-label">Уроков</span>
+          <span class="stat-label">{{ $t('footer.stats.lessons') }}</span>
         </div>
         <div class="stat-item">
           <span class="stat-value">{{ stats.exerciseProgress }}</span>
-          <span class="stat-label">Упражнений</span>
+          <span class="stat-label">{{ $t('footer.stats.exercises') }}</span>
         </div>
         <div class="stat-item">
           <span class="stat-value">{{ stats.totalPoints }}</span>
-          <span class="stat-label">Баллов</span>
+          <span class="stat-label">{{ $t('footer.stats.points') }}</span>
         </div>
       </div>
 
       <div class="footer-info">
-        <p class="footer-method">
-          Метод Дмитрия Петрова • Интерактивный учебник индонезийского языка
-        </p>
+        <p class="footer-method">{{ $t('footer.method') }}</p>
         <p class="footer-copyright">
-          © {{ currentYear }} Indonesian Textbook. Все права защищены.
+          © {{ currentYear }} Indonesian Textbook. {{ $t('footer.copyright') }}
         </p>
       </div>
     </div>

@@ -2,12 +2,14 @@
 import { ref, computed, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useProgressStore } from "../stores/progress";
+import { useLanguageStore } from "../stores/language";
 import { exercises as allExercises } from "../data/exercises";
 import type { Exercise } from "../utils/types";
 
 const router = useRouter();
 const route = useRoute();
 const progressStore = useProgressStore();
+const langStore = useLanguageStore();
 
 // Get lessonId from route params (if navigating from a lesson)
 const lessonId = computed(() => {
@@ -54,28 +56,6 @@ watch(completedExercises, (newVal) => {
     progressStore.checkAchievements();
   }
 });
-
-function getLessonTitle(exercise: Exercise): string {
-  const lessons: Record<number, string> = {
-    1: "Знакомство и базовые фразы",
-    2: "Личные местоимения",
-    3: "Простые предложения",
-    4: "Вопросительные слова",
-    5: "Отрицания",
-    6: "Притяжательные конструкции",
-    7: "Числа и счёт",
-    8: "Время и даты",
-    9: "Прошедшее время",
-    10: "Настоящее продолженное",
-    11: "Будущее время",
-    12: "Модальные глаголы",
-    13: "Прилагательные",
-    14: "Предлоги",
-    15: "Сложные предложения",
-    16: "Разговорная практика",
-  };
-  return lessons[exercise.lessonId] || `Урок ${exercise.lessonId}`;
-}
 
 function normalizeText(s: string) {
   if (!s) return "";
@@ -182,21 +162,17 @@ const progress = computed(() => {
 <template>
   <div class="exercise-view">
     <header class="exercise-header">
-      <h1>✍️ Упражнения</h1>
+      <h1>{{ $t('exercise.title') }}</h1>
       <p class="exercise-description" v-if="!lessonId">
-        Практикуйте индонезийский язык с помощью интерактивных упражнений
+        {{ $t('exercise.description') }}
       </p>
-      <p class="exercise-description" v-else>
-        Упражнения к уроку: {{ getLessonTitle(currentExercise) }}
+      <p class="exercise-description" v-else-if="currentExercise">
+        {{ $t('exercise.forLesson', { title: $t('lesson.title.' + currentExercise.lessonId) }) }}
       </p>
 
       <div class="progress-container" v-if="exercises.length > 0">
         <div class="progress-info">
-          <span
-            >Прогресс: {{ completedExercises.length }}/{{
-              exercises.length
-            }}</span
-          >
+          <span>{{ $t('exercise.progress', { completed: completedExercises.length, total: exercises.length }) }}</span>
           <span>{{ Math.round(progress) }}%</span>
         </div>
         <div class="progress">
@@ -213,17 +189,17 @@ const progress = computed(() => {
             @click="prevExercise"
             :disabled="currentExerciseIndex === 0"
           >
-            ← Назад
+            {{ $t('exercise.previous') }}
           </button>
           <span class="exercise-number">
-            Упражнение {{ currentExerciseIndex + 1 }} из {{ exercises.length }}
+            {{ $t('exercise.number', { current: currentExerciseIndex + 1, total: exercises.length }) }}
           </span>
           <button
             class="btn btn-sm btn-outline"
             @click="nextExercise"
             :disabled="currentExerciseIndex === exercises.length - 1"
           >
-            Вперёд →
+            {{ $t('exercise.next') }}
           </button>
         </div>
 
@@ -232,22 +208,22 @@ const progress = computed(() => {
             <span
               v-if="currentExercise.type === 'translation'"
               class="type-badge"
-              >Перевод</span
+              >{{ $t('exercise.type.translation') }}</span
             >
             <span
               v-else-if="currentExercise.type === 'fillBlank'"
               class="type-badge"
-              >Заполните пропуск</span
+              >{{ $t('exercise.type.fillBlank') }}</span
             >
             <span
               v-else-if="currentExercise.type === 'multipleChoice'"
               class="type-badge"
-              >Выбор ответа</span
+              >{{ $t('exercise.type.multipleChoice') }}</span
             >
             <span
               v-else-if="currentExercise.type === 'twoStage'"
               class="type-badge"
-              >2 этапа: {{ isStage2 ? "Ввод" : "Выбор" }}</span
+              >{{ $t('exercise.type.twoStage', { stage: isStage2 ? $t('exercise.twoStage.input') : $t('exercise.twoStage.choice') }) }}</span
             >
           </div>
 
@@ -259,7 +235,6 @@ const progress = computed(() => {
             }}
           </h2>
 
-          <!-- Ввод ответа для перевода, заполнения пропуска и 2-го этапа -->
           <div
             v-if="
               currentExercise.type === 'translation' ||
@@ -271,13 +246,12 @@ const progress = computed(() => {
             <input
               v-model="userAnswer"
               type="text"
-              placeholder="Введите ваш ответ..."
+              :placeholder="$t('exercise.answerPlaceholder')"
               class="form-input"
               :disabled="showFeedback"
             />
           </div>
 
-          <!-- Варианты ответов для multiple choice и 1-го этапа -->
           <div
             v-else-if="
               currentExercise.type === 'multipleChoice' ||
@@ -304,7 +278,6 @@ const progress = computed(() => {
             </div>
           </div>
 
-          <!-- Кнопки действий -->
           <div class="action-buttons">
             <button
               v-if="!showFeedback"
@@ -317,7 +290,7 @@ const progress = computed(() => {
                   : !userAnswer
               "
             >
-              Проверить
+              {{ $t('exercise.check') }}
             </button>
             <button
               v-else-if="
@@ -329,14 +302,13 @@ const progress = computed(() => {
               class="btn btn-primary"
               @click="nextStage"
             >
-              Следующий этап →
+              {{ $t('exercise.nextStage') }}
             </button>
             <button v-else class="btn btn-outline" @click="resetExercise">
-              Попробовать снова
+              {{ $t('exercise.retry') }}
             </button>
           </div>
 
-          <!-- Обратная связь -->
           <div
             v-if="showFeedback"
             class="feedback"
@@ -344,9 +316,9 @@ const progress = computed(() => {
           >
             <div class="feedback-icon">{{ isCorrect ? "✅" : "❌" }}</div>
             <div class="feedback-text">
-              <strong>{{ isCorrect ? "Правильно!" : "Неправильно" }}</strong>
+              <strong>{{ isCorrect ? $t('exercise.feedback.correct') : $t('exercise.feedback.wrong') }}</strong>
               <p v-if="!isCorrect">
-                Правильный ответ:
+                {{ $t('exercise.feedback.correctAnswer') }}
                 <strong>{{
                   isStage2 && currentExercise.stage2Answer
                     ? currentExercise.stage2Answer
@@ -356,36 +328,58 @@ const progress = computed(() => {
               <p class="explanation">{{ currentExercise.explanation }}</p>
             </div>
           </div>
+
+          <div
+            class="exercise-nav exercise-nav-bottom"
+            v-if="completedExercises.length < exercises.length"
+          >
+            <button
+              class="btn btn-sm btn-outline"
+              @click="prevExercise"
+              :disabled="currentExerciseIndex === 0"
+            >
+              {{ $t('exercise.previous') }}
+            </button>
+            <span class="exercise-number">
+              {{ $t('exercise.number', { current: currentExerciseIndex + 1, total: exercises.length }) }}
+            </span>
+            <button
+              class="btn btn-sm btn-outline"
+              @click="nextExercise"
+              :disabled="currentExerciseIndex === exercises.length - 1"
+            >
+              {{ $t('exercise.next') }}
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Завершение -->
       <div
         v-if="completedExercises.length === exercises.length"
         class="completion-card"
       >
-        <h2>🎉 Поздравляем!</h2>
-        <p>Вы выполнили все упражнения!</p>
+        <h2>{{ $t('exercise.completion.title') }}</h2>
+        <p>{{ $t('exercise.completion.message') }}</p>
         <div class="completion-actions">
-          <button class="btn btn-primary" @click="router.push('/progress')">
-            Посмотреть прогресс
+          <button class="btn btn-primary" @click="router.push('/' + langStore.interfaceLang + '/' + langStore.targetLang + '/progress')">
+            {{ $t('exercise.completion.viewProgress') }}
           </button>
           <button
             v-if="lessonId && lessonId < 16"
             class="btn btn-outline"
-            @click="router.push('/lesson/' + (lessonId! + 1))"
+            @click="router.push('/' + langStore.interfaceLang + '/' + langStore.targetLang + '/lesson/' + (lessonId! + 1))"
           >
-            Следующий урок →
+            {{ $t('exercise.completion.nextLesson') }}
           </button>
         </div>
       </div>
     </main>
 
     <div v-else class="empty-state">
-      <h2>Упражнения не найдены</h2>
-      <p v-if="lessonId">Для этого урока пока нет упражнений.</p>
-      <button class="btn btn-primary" @click="router.push('/lessons')">
-        К списку уроков
+      <h2>{{ $t('exercise.empty.title') }}</h2>
+      <p v-if="lessonId">{{ $t('exercise.empty.message') }}</p>
+      <button class="btn btn-primary" @click="router.push('/' + langStore.interfaceLang + '/' + langStore.targetLang)">
+        {{ $t('exercise.empty.goToLessons') }}
       </button>
     </div>
   </div>

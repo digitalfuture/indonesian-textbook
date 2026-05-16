@@ -21,25 +21,22 @@ function onUncomplete() {
 <template>
   <section class="complete-section">
     <div class="content-card complete-card">
-      <h2>Завершить урок?</h2>
-      <p class="exercises-intro">
-        Отметьте урок как пройденный, когда вы изучили теорию, примеры и
-        выполнили все упражнения.
-      </p>
+      <h2>{{ $t('lesson.completion.title') }}</h2>
+      <p class="exercises-intro">{{ $t('lesson.completion.description') }}</p>
       <div class="exercises-actions">
         <button
           v-if="!isCompleted"
           class="btn btn-primary btn-lg"
           @click="onComplete"
         >
-          ✅ Завершить урок
+          {{ $t('lesson.completion.completeButton') }}
         </button>
         <div v-else class="completed-badge">
-          <span style="font-size: 1.2rem; color: #48bb78; font-weight: 500"
-            >✅ Урок завершён</span
-          >
+          <span style="font-size: 1.2rem; color: #48bb78; font-weight: 500">{{
+            $t('lesson.completion.completedLabel')
+          }}</span>
           <button class="btn btn-outline btn-sm" @click="onUncomplete">
-            Отметить как непройденный
+            {{ $t('lesson.completion.uncompleteButton') }}
           </button>
         </div>
       </div>

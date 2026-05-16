@@ -25,15 +25,15 @@ function goToLesson(id?: number) {
         class="btn btn-outline btn-sm"
         @click="goToLesson(prevLesson!.id)"
       >
-        ← Урок {{ prevLesson!.id }}
+        {{ $t('lesson.header.previous', { id: prevLesson!.id }) }}
       </button>
-      <span class="lesson-number">Урок {{ lesson?.id }}</span>
+      <span class="lesson-number">{{ $t('lesson.header.number', { id: lesson?.id }) }}</span>
       <button
         v-if="nextLesson"
         class="btn btn-outline btn-sm"
         @click="goToLesson(nextLesson!.id)"
       >
-        Урок {{ nextLesson!.id }} →
+        {{ $t('lesson.header.next', { id: nextLesson!.id }) }}
       </button>
     </div>
 

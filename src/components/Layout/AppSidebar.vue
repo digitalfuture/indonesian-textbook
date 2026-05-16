@@ -2,6 +2,7 @@
 import { ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
+import { useLanguageStore } from "../../stores/language";
 
 const props = defineProps<{
   visible: boolean;
@@ -14,9 +15,9 @@ const emit = defineEmits<{
 const router = useRouter();
 const route = useRoute();
 const { theme, toggleTheme } = useTheme();
+const langStore = useLanguageStore();
 const activeKey = ref<string>("0");
 
-// Sync drawer visibility
 const drawerVisible = ref(false);
 
 watch(
@@ -32,51 +33,22 @@ watch(drawerVisible, (val) => {
 });
 
 const menuItems = ref([
-  {
-    key: "0",
-    label: "Главная",
-    icon: "pi pi-home",
-    route: "/",
-  },
-  {
-    key: "1",
-    label: "Уроки",
-    icon: "pi pi-book",
-    route: "/lessons",
-  },
-  {
-    key: "2",
-    label: "Грамматика",
-    icon: "pi pi-table",
-    route: "/grammar",
-  },
-  {
-    key: "3",
-    label: "Словарь",
-    icon: "pi pi-list",
-    route: "/dictionary",
-  },
-  {
-    key: "4",
-    label: "Упражнения",
-    icon: "pi pi-pencil",
-    route: "/exercises",
-  },
-  {
-    key: "5",
-    label: "Прогресс",
-    icon: "pi pi-chart-bar",
-    route: "/progress",
-  },
+  { key: "0", labelKey: "nav.home", icon: "pi pi-home", path: "" },
+  { key: "1", labelKey: "nav.lessons", icon: "pi pi-book", path: "/lessons" },
+  { key: "2", labelKey: "nav.grammar", icon: "pi pi-table", path: "/grammar" },
+  { key: "3", labelKey: "nav.dictionary", icon: "pi pi-list", path: "/dictionary" },
+  { key: "4", labelKey: "nav.exercises", icon: "pi pi-pencil", path: "/exercises" },
+  { key: "5", labelKey: "nav.progress", icon: "pi pi-chart-bar", path: "/progress" },
 ]);
 
-// Update active key based on current route
 watch(
   () => route.path,
   (path) => {
-    const item = menuItems.value.find(
-      (m) => (m.route === "/" && path === "/") || (m.route !== "/" && path.startsWith(m.route)),
-    );
+    const prefix = `/${langStore.interfaceLang}/${langStore.targetLang}`;
+    const item = menuItems.value.find((m) => {
+      const fullPath = prefix + m.path;
+      return path === fullPath || path.startsWith(fullPath + "/");
+    });
     if (item) {
       activeKey.value = item.key;
     }
@@ -85,8 +57,9 @@ watch(
 );
 
 function onMenuClick(item: any) {
-  if (item.route) {
-    router.push(item.route);
+  if (item.path !== undefined) {
+    const to = `/${langStore.interfaceLang}/${langStore.targetLang}${item.path}`;
+    router.push(to);
     drawerVisible.value = false;
   }
 }
@@ -95,7 +68,7 @@ function onMenuClick(item: any) {
 <template>
   <PDrawer
     v-model:visible="drawerVisible"
-    header="Индонезийский учебник"
+    header=" "
     position="left"
     :dismissable="true"
     :show-close-icon="true"
@@ -104,7 +77,7 @@ function onMenuClick(item: any) {
     <template #header>
       <div class="drawer-header">
         <span class="drawer-flag">🇮🇩</span>
-        <span class="drawer-title">Индонезийский учебник</span>
+        <span class="drawer-title">{{ $t('sidebar.title') }}</span>
       </div>
     </template>
 
@@ -118,14 +91,14 @@ function onMenuClick(item: any) {
           @click="onMenuClick(item)"
         >
           <i :class="item.icon"></i>
-          <span>{{ item.label }}</span>
+          <span>{{ $t(item.labelKey) }}</span>
         </div>
       </div>
 
       <div class="drawer-footer-section">
         <div class="drawer-theme-toggle" @click="toggleTheme">
           <i :class="theme === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"></i>
-          <span>{{ theme === "dark" ? "Светлая тема" : "Темная тема" }}</span>
+          <span>{{ $t(theme === 'dark' ? 'theme.light' : 'theme.dark') }}</span>
         </div>
       </div>
     </div>
