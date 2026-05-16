@@ -1,17 +1,24 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useProgressStore } from "../stores/progress";
-import { vocabulary } from "../data/vocabulary";
+import { useLanguageStore } from "../stores/language";
+import { vocabulary as vocabId } from "../data/vocabulary";
+import { vocabularyRu as vocabRu } from "../data/vocabularyRu";
 import type { Category } from "../utils/types";
 
 const progressStore = useProgressStore();
+const langStore = useLanguageStore();
+
+const vocabulary = computed(() =>
+  langStore.targetLang === "id" ? vocabId : vocabRu,
+);
 
 const searchQuery = ref("");
 const selectedCategory = ref<Category | "all">("all");
 const sortBy = ref<"frequency" | "alphabetical">("frequency");
 
 const filteredDictionary = computed(() => {
-  let result = [...vocabulary];
+  let result = [...vocabulary.value];
 
   // Поиск
   if (searchQuery.value) {
@@ -73,7 +80,7 @@ function getCategoryLabel(category: string): string {
 }
 
 function showExamples(wordId: number) {
-  const word = vocabulary.find((w) => w.id === wordId);
+  const word = vocabulary.value.find((w) => w.id === wordId);
   if (word?.examples && word.examples.length > 0) {
     selectedWord.value = word;
     showExamplesModal.value = true;
@@ -81,7 +88,7 @@ function showExamples(wordId: number) {
 }
 
 const showExamplesModal = ref(false);
-const selectedWord = ref<(typeof vocabulary)[0] | null>(null);
+const selectedWord = ref<(typeof vocabulary.value)[0] | null>(null);
 const expandedWordId = ref<number | null>(null);
 
 function toggleExpand(wordId: number) {
@@ -92,15 +99,15 @@ function toggleExpand(wordId: number) {
   }
 }
 
-function getRelatedWords(word: (typeof vocabulary)[0]) {
+function getRelatedWords(word: (typeof vocabulary.value)[0]) {
   if (!word.relatedWords) return [];
-  return vocabulary.filter((w) => word.relatedWords?.includes(w.id));
+  return vocabulary.value.filter((w) => word.relatedWords?.includes(w.id));
 }
 
 const stats = computed(() => ({
-  total: vocabulary.length,
-  learned: vocabulary.filter((w) => isWordLearned(w.id)).length,
-  favorite: vocabulary.filter((w) => isWordFavorite(w.id)).length,
+  total: vocabulary.value.length,
+  learned: vocabulary.value.filter((w) => isWordLearned(w.id)).length,
+  favorite: vocabulary.value.filter((w) => isWordFavorite(w.id)).length,
 }));
 </script>
 
