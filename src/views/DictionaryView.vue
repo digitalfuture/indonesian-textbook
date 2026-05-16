@@ -39,16 +39,16 @@ const filteredDictionary = computed(() => {
 });
 
 const categories = [
-  { value: "all", label: "Все" },
-  { value: "pronoun", label: "Местоимения" },
-  { value: "verb", label: "Глаголы" },
-  { value: "noun", label: "Существительные" },
-  { value: "adjective", label: "Прилагательные" },
-  { value: "preposition", label: "Предлоги" },
-  { value: "adverb", label: "Наречия" },
-  { value: "conjunction", label: "Союзы" },
-  { value: "number", label: "Числа" },
-  { value: "interjection", label: "Междометия" },
+  { value: "all", labelKey: "dictionary.category.all" },
+  { value: "pronoun", labelKey: "dictionary.category.pronoun" },
+  { value: "verb", labelKey: "dictionary.category.verb" },
+  { value: "noun", labelKey: "dictionary.category.noun" },
+  { value: "adjective", labelKey: "dictionary.category.adjective" },
+  { value: "preposition", labelKey: "dictionary.category.preposition" },
+  { value: "adverb", labelKey: "dictionary.category.adverb" },
+  { value: "conjunction", labelKey: "dictionary.category.conjunction" },
+  { value: "number", labelKey: "dictionary.category.number" },
+  { value: "interjection", labelKey: "dictionary.category.interjection" },
 ];
 
 function toggleFavorite(wordId: number) {
@@ -69,7 +69,7 @@ function isWordFavorite(wordId: number): boolean {
 
 function getCategoryLabel(category: string): string {
   const cat = categories.find((c) => c.value === category);
-  return cat ? cat.label : category;
+  return cat ? cat.labelKey : "dictionary.category." + category;
 }
 
 function showExamples(wordId: number) {
@@ -107,23 +107,21 @@ const stats = computed(() => ({
 <template>
   <div class="dictionary-view">
     <header class="dictionary-header">
-      <h1>📖 Частотный словарь</h1>
-      <p class="dictionary-description">
-        500 самых важных слов индонезийского языка
-      </p>
+      <h1>{{ $t('dictionary.title') }}</h1>
+      <p class="dictionary-description">{{ $t('dictionary.description') }}</p>
 
       <div class="dictionary-stats">
         <div class="stat">
           <span class="stat-value">{{ stats.total }}</span>
-          <span class="stat-label">Всего слов</span>
+          <span class="stat-label">{{ $t('dictionary.stats.total') }}</span>
         </div>
         <div class="stat">
           <span class="stat-value">{{ stats.learned }}</span>
-          <span class="stat-label">Изучено</span>
+          <span class="stat-label">{{ $t('dictionary.stats.learned') }}</span>
         </div>
         <div class="stat">
           <span class="stat-value">{{ stats.favorite }}</span>
-          <span class="stat-label">В избранном</span>
+          <span class="stat-label">{{ $t('dictionary.stats.favorite') }}</span>
         </div>
       </div>
     </header>
@@ -134,7 +132,7 @@ const stats = computed(() => ({
         <input
           v-model="searchQuery"
           type="text"
-          placeholder="Поиск слова..."
+          :placeholder="$t('dictionary.search')"
           class="form-input"
         />
       </div>
@@ -142,13 +140,13 @@ const stats = computed(() => ({
       <div class="filters">
         <select v-model="selectedCategory" class="form-input">
           <option v-for="cat in categories" :key="cat.value" :value="cat.value">
-            {{ cat.label }}
+            {{ $t(cat.labelKey) }}
           </option>
         </select>
 
         <select v-model="sortBy" class="form-input">
-          <option value="frequency">По частоте</option>
-          <option value="alphabetical">По алфавиту</option>
+          <option value="frequency">{{ $t('dictionary.sort.frequency') }}</option>
+          <option value="alphabetical">{{ $t('dictionary.sort.alphabetical') }}</option>
         </select>
       </div>
     </div>
@@ -176,7 +174,7 @@ const stats = computed(() => ({
             <p class="word-russian">{{ word.translation }}</p>
             <div class="word-meta">
               <span class="word-category">{{
-                getCategoryLabel(word.category)
+                $t(getCategoryLabel(word.category))
               }}</span>
               <span class="word-frequency">№{{ word.frequency }}</span>
               <span
@@ -193,7 +191,7 @@ const stats = computed(() => ({
               class="action-btn examples-btn"
               @click="showExamples(word.id)"
               v-if="word.examples && word.examples.length > 0"
-              title="Примеры"
+              :title="$t('dictionary.examples')"
             >
               💬
             </button>
@@ -201,7 +199,7 @@ const stats = computed(() => ({
               class="action-btn"
               :class="{ active: isWordFavorite(word.id) }"
               @click="toggleFavorite(word.id)"
-              title="В избранное"
+              :title="$t('dictionary.addToFavorites')"
             >
               {{ isWordFavorite(word.id) ? "⭐" : "☆" }}
             </button>
@@ -209,7 +207,7 @@ const stats = computed(() => ({
               class="action-btn"
               :class="{ active: isWordLearned(word.id) }"
               @click="markAsLearned(word.id)"
-              title="Отметить как изученное"
+              :title="$t('dictionary.markAsLearned')"
             >
               {{ isWordLearned(word.id) ? "✅" : "⬜" }}
             </button>
@@ -223,7 +221,7 @@ const stats = computed(() => ({
             v-if="word.relatedWords && word.relatedWords.length > 0"
             class="expanded-section"
           >
-            <h4>Однокоренные в словаре:</h4>
+            <h4>{{ $t('dictionary.relatedWords') }}</h4>
             <div class="related-words-list">
               <div
                 v-for="related in getRelatedWords(word)"
@@ -244,7 +242,7 @@ const stats = computed(() => ({
             v-if="word.wordFamily && word.wordFamily.length > 0"
             class="expanded-section family-section"
           >
-            <h4>Также однокоренные:</h4>
+            <h4>{{ $t('dictionary.wordFamily') }}</h4>
             <div class="family-list">
               <div
                 v-for="fw in word.wordFamily"
@@ -261,7 +259,7 @@ const stats = computed(() => ({
             v-if="word.examples && word.examples.length > 0"
             class="quick-examples"
           >
-            <h4>Примеры:</h4>
+            <h4>{{ $t('dictionary.examples') }}:</h4>
             <div
               v-for="(ex, i) in word.examples.slice(0, 2)"
               :key="i"
@@ -278,7 +276,7 @@ const stats = computed(() => ({
     </div>
 
     <div v-if="filteredDictionary.length === 0" class="no-results">
-      <p>Слова не найдены</p>
+      <p>{{ $t('dictionary.noResults') }}</p>
     </div>
 
     <!-- Модальное окно с примерами -->
@@ -294,7 +292,7 @@ const stats = computed(() => ({
         <h2>{{ selectedWord.word }}</h2>
         <p class="modal-translation">{{ selectedWord.translation }}</p>
         <div class="modal-examples">
-          <h3>Примеры:</h3>
+          <h3>{{ $t('dictionary.examples') }}:</h3>
           <div
             v-for="(example, i) in selectedWord.examples"
             :key="i"

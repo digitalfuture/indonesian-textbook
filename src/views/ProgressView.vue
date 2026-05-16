@@ -86,21 +86,18 @@ const achievementList = [
 <template>
   <div class="progress-view">
     <header class="progress-header">
-      <h1>📈 Ваш прогресс</h1>
-      <p class="progress-description">
-        Отслеживайте свои достижения в изучении индонезийского языка
-      </p>
+      <h1>{{ $t('progress.title') }}</h1>
+      <p class="progress-description">{{ $t('progress.description') }}</p>
     </header>
 
-    <!-- Общая статистика -->
     <section class="stats-section">
-      <h2>Общая статистика</h2>
+      <h2>{{ $t('progress.stats.title') }}</h2>
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-icon">📚</div>
           <div class="stat-info">
             <span class="stat-value">{{ wordsLearnedCount }}</span>
-            <span class="stat-label">Слов изучено</span>
+            <span class="stat-label">{{ $t('progress.stats.wordsLearned') }}</span>
           </div>
           <div class="stat-progress">
             <div class="progress">
@@ -109,9 +106,7 @@ const achievementList = [
                 :style="{ width: stats.wordProgress + '%' }"
               ></div>
             </div>
-            <span class="progress-text"
-              >{{ Math.round(stats.wordProgress) }}%</span
-            >
+            <span class="progress-text">{{ Math.round(stats.wordProgress) }}%</span>
           </div>
         </div>
 
@@ -119,7 +114,7 @@ const achievementList = [
           <div class="stat-icon">📖</div>
           <div class="stat-info">
             <span class="stat-value">{{ lessonsCompletedCount }}</span>
-            <span class="stat-label">Уроков завершено</span>
+            <span class="stat-label">{{ $t('progress.stats.lessonsCompleted') }}</span>
           </div>
           <div class="stat-progress">
             <div class="progress">
@@ -128,9 +123,7 @@ const achievementList = [
                 :style="{ width: stats.lessonProgress + '%' }"
               ></div>
             </div>
-            <span class="progress-text"
-              >{{ Math.round(stats.lessonProgress) }}%</span
-            >
+            <span class="progress-text">{{ Math.round(stats.lessonProgress) }}%</span>
           </div>
         </div>
 
@@ -138,7 +131,7 @@ const achievementList = [
           <div class="stat-icon">✍️</div>
           <div class="stat-info">
             <span class="stat-value">{{ stats.exerciseProgress }}</span>
-            <span class="stat-label">Упражнений выполнено</span>
+            <span class="stat-label">{{ $t('progress.stats.exercisesCompleted') }}</span>
           </div>
         </div>
 
@@ -146,7 +139,7 @@ const achievementList = [
           <div class="stat-icon">⭐</div>
           <div class="stat-info">
             <span class="stat-value">{{ stats.totalPoints }}</span>
-            <span class="stat-label">Баллов набрано</span>
+            <span class="stat-label">{{ $t('progress.stats.pointsEarned') }}</span>
           </div>
         </div>
 
@@ -154,7 +147,7 @@ const achievementList = [
           <div class="stat-icon">🔥</div>
           <div class="stat-info">
             <span class="stat-value">{{ stats.streakDays }}</span>
-            <span class="stat-label">Дней подряд</span>
+            <span class="stat-label">{{ $t('progress.stats.streakDays') }}</span>
           </div>
         </div>
 
@@ -165,15 +158,14 @@ const achievementList = [
               >{{ Math.floor(stats.timeSpent / 60) }}ч
               {{ Math.floor(stats.timeSpent % 60) }}мин</span
             >
-            <span class="stat-label">Времени потрачено</span>
+            <span class="stat-label">{{ $t('progress.stats.timeSpent') }}</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Прогресс по урокам -->
     <section class="lessons-progress">
-      <h2>Прогресс по урокам</h2>
+      <h2>{{ $t('progress.lessons.title') }}</h2>
       <div class="lessons-list">
         <div
           v-for="lesson in lessons"
@@ -194,9 +186,9 @@ const achievementList = [
               v-if="progressStore.isLessonCompleted(lesson.id)"
               class="status-completed"
             >
-              ✅ Завершено
+              ✅ {{ $t('progress.lessons.completed') }}
             </span>
-            <span v-else class="status-pending"> ⬜ Не начато </span>
+            <span v-else class="status-pending"> ⬜ {{ $t('progress.lessons.notStarted') }} </span>
           </div>
         </div>
       </div>
@@ -204,7 +196,7 @@ const achievementList = [
 
     <!-- Достижения -->
     <section class="achievements-section">
-      <h2>Достижения</h2>
+      <h2>{{ $t('progress.achievements.title') }}</h2>
       <div class="achievements-grid">
         <div
           v-for="achievement in achievementList"
@@ -216,8 +208,8 @@ const achievementList = [
             {{ achievement.icon }}
           </div>
           <div class="achievement-info">
-            <h3>{{ achievement.name }}</h3>
-            <p>{{ achievement.description }}</p>
+            <h3>{{ $t('progress.achievement.' + achievement.id + '.name') }}</h3>
+            <p>{{ $t('progress.achievement.' + achievement.id + '.description') }}</p>
           </div>
           <div class="achievement-status">
             {{ progressStore.hasAchievement(achievement.id) ? "🏆" : "🔒" }}
@@ -226,31 +218,29 @@ const achievementList = [
       </div>
     </section>
 
-    <!-- Управление прогрессом -->
     <section class="settings-section">
-      <h2>Управление прогрессом</h2>
+      <h2>{{ $t('progress.settings.title') }}</h2>
       <div class="settings-grid">
         <button class="btn btn-primary" @click="showExportModal = true">
-          📥 Экспорт прогресса
+          {{ $t('progress.settings.export') }}
         </button>
         <button class="btn btn-secondary" @click="showImportModal = true">
-          📤 Импорт прогресса
+          {{ $t('progress.settings.import') }}
         </button>
         <button class="btn btn-outline" @click="resetProgress">
-          🗑️ Сбросить прогресс
+          {{ $t('progress.settings.reset') }}
         </button>
       </div>
     </section>
 
-    <!-- Модальное окно экспорта -->
     <div
       v-if="showExportModal"
       class="modal-overlay"
       @click="showExportModal = false"
     >
       <div class="modal" @click.stop>
-        <h3>Экспорт прогресса</h3>
-        <p>Ваш прогресс будет сохранён в файл JSON.</p>
+        <h3>{{ $t('progress.exportModal.title') }}</h3>
+        <p>{{ $t('progress.exportModal.message') }}</p>
         <textarea
           :value="progressStore.exportProgressDataInner()"
           readonly
@@ -258,10 +248,10 @@ const achievementList = [
         ></textarea>
         <div class="modal-actions">
           <button class="btn btn-primary" @click="exportProgress">
-            Скачать файл
+            {{ $t('progress.exportModal.download') }}
           </button>
           <button class="btn btn-outline" @click="showExportModal = false">
-            Закрыть
+            {{ $t('common.close') }}
           </button>
         </div>
       </div>
