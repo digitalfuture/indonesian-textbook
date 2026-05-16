@@ -14,23 +14,22 @@ export const useLanguageStore = defineStore("language", () => {
     targetLang.value = valid.includes(pathTarget) ? pathTarget : "id";
   }
 
-  function setInterface(lang: "ru" | "id") {
+  async function setInterface(lang: "ru" | "id") {
     interfaceLang.value = lang;
-    navigate();
+    await navigate();
   }
 
-  function setTarget(lang: "ru" | "id") {
+  async function setTarget(lang: "ru" | "id") {
     targetLang.value = lang;
-    navigate();
+    await navigate();
   }
 
-  function navigate() {
+  async function navigate() {
     const currentPath = router.currentRoute.value.path;
     const segments = currentPath.split("/").filter(Boolean);
-    // Replace first two segments with new langs, keep rest
     const rest = segments.slice(2).join("/");
     const path = `/${interfaceLang.value}/${targetLang.value}${rest ? "/" + rest : ""}`;
-    router.push(path);
+    await router.push(path);
   }
 
   return {

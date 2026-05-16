@@ -111,6 +111,9 @@ function navigate(path: string) {
 
 .logo-flag {
   font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 .logo-text {
