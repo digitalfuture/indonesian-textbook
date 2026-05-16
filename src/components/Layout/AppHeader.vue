@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
+import { useLanguageStore } from "../../stores/language";
+import LanguageSwitcher from "./LanguageSwitcher.vue";
 
 defineProps<{
   drawerVisible: boolean;
@@ -13,22 +15,24 @@ const emit = defineEmits<{
 const router = useRouter();
 const route = useRoute();
 const { theme, toggleTheme } = useTheme();
+const langStore = useLanguageStore();
 
 const navItems = [
-  { label: "Главная", icon: "pi pi-home", to: "/" },
-  { label: "Уроки", icon: "pi pi-book", to: "/lessons" },
-  { label: "Грамматика", icon: "pi pi-table", to: "/grammar" },
-  { label: "Словарь", icon: "pi pi-list", to: "/dictionary" },
-  { label: "Упражнения", icon: "pi pi-pencil", to: "/exercises" },
-  { label: "Прогресс", icon: "pi pi-chart-bar", to: "/progress" },
+  { labelKey: "nav.home", icon: "pi pi-home", path: "" },
+  { labelKey: "nav.lessons", icon: "pi pi-book", path: "/lessons" },
+  { labelKey: "nav.grammar", icon: "pi pi-table", path: "/grammar" },
+  { labelKey: "nav.dictionary", icon: "pi pi-list", path: "/dictionary" },
+  { labelKey: "nav.exercises", icon: "pi pi-pencil", path: "/exercises" },
+  { labelKey: "nav.progress", icon: "pi pi-chart-bar", path: "/progress" },
 ];
 
 function isActive(path: string): boolean {
-  if (path === "/") return route.path === "/";
-  return route.path.startsWith(path);
+  const prefix = `/${langStore.interfaceLang}/${langStore.targetLang}${path}`;
+  return route.path === prefix || route.path.startsWith(prefix + "/");
 }
 
-function navigate(to: string) {
+function navigate(path: string) {
+  const to = `/${langStore.interfaceLang}/${langStore.targetLang}${path}`;
   router.push(to);
 }
 </script>
@@ -43,40 +47,43 @@ function navigate(to: string) {
           severity="secondary"
           text
           rounded
-          aria-label="Меню"
+          :aria-label="$t('header.menu')"
           @click="emit('toggle-drawer')"
         />
-        <div class="logo" @click="navigate('/')">
+        <div class="logo" @click="navigate('')">
           <span class="logo-flag">🇮🇩</span>
-          <span class="logo-text">Индонезийский за 16 уроков</span>
+          <span class="logo-text">{{ $t('header.logo') }}</span>
         </div>
       </template>
 
       <template #center>
         <nav class="desktop-nav">
-          <button
-            v-for="item in navItems"
-            :key="item.to"
-            class="nav-link"
-            :class="{ active: isActive(item.to) }"
-            @click="navigate(item.to)"
-          >
-            <i :class="item.icon"></i>
-            <span>{{ item.label }}</span>
-          </button>
+            <button
+              v-for="item in navItems"
+              :key="item.path"
+              class="nav-link"
+              :class="{ active: isActive(item.path) }"
+              @click="navigate(item.path)"
+            >
+              <i :class="item.icon"></i>
+              <span>{{ $t(item.labelKey) }}</span>
+            </button>
         </nav>
       </template>
 
       <template #end>
-        <PButton
-          :icon="theme === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"
-          severity="secondary"
-          text
-          rounded
-          :aria-label="theme === 'dark' ? 'Светлая тема' : 'Темная тема'"
-          v-tooltip.top="theme === 'dark' ? 'Светлая тема' : 'Темная тема'"
-          @click="toggleTheme"
-        />
+        <div class="header-end">
+          <LanguageSwitcher />
+          <PButton
+            :icon="theme === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"
+            severity="secondary"
+            text
+            rounded
+            :aria-label="$t(theme === 'dark' ? 'theme.light' : 'theme.dark')"
+            v-tooltip.top="$t(theme === 'dark' ? 'theme.light' : 'theme.dark')"
+            @click="toggleTheme"
+          />
+        </div>
       </template>
     </PToolbar>
   </header>
@@ -163,6 +170,12 @@ function navigate(to: string) {
     display: flex;
     justify-content: center;
   }
+}
+
+.header-end {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 @media (max-width: 1024px) {

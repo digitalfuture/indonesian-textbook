@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
+import { useLanguageStore } from "../stores/language";
+import { i18n } from "../i18n";
 
-// Ленивая загрузка view компонентов
 const HomeView = () => import("../views/HomeView.vue");
 const LessonView = () => import("../views/LessonView.vue");
 const GrammarView = () => import("../views/GrammarView.vue");
@@ -11,104 +12,71 @@ const ProgressView = () => import("../views/ProgressView.vue");
 
 const routes: RouteRecordRaw[] = [
   {
+    path: "/:interfaceLang(ru|id)/:targetLang(ru|id)",
+    children: [
+      {
+        path: "",
+        name: "Home",
+        component: HomeView,
+      },
+      {
+        path: "lessons",
+        name: "Lessons",
+        component: HomeView,
+      },
+      {
+        path: "lesson/:id",
+        name: "Lesson",
+        component: LessonView,
+        props: true,
+      },
+      {
+        path: "grammar",
+        name: "Grammar",
+        component: GrammarView,
+      },
+      {
+        path: "grammar/:tableId",
+        name: "GrammarTable",
+        component: GrammarView,
+        props: true,
+      },
+      {
+        path: "dictionary",
+        name: "Dictionary",
+        component: DictionaryView,
+      },
+      {
+        path: "dictionary/:wordId",
+        name: "WordDetails",
+        component: DictionaryView,
+        props: true,
+      },
+      {
+        path: "exercises",
+        name: "Exercises",
+        component: ExerciseView,
+      },
+      {
+        path: "exercises/lesson/:lessonId",
+        name: "LessonExercises",
+        component: ExerciseView,
+        props: true,
+      },
+      {
+        path: "progress",
+        name: "Progress",
+        component: ProgressView,
+      },
+    ],
+  },
+  {
     path: "/",
-    name: "Home",
-    component: HomeView,
-    meta: {
-      title: "Индонезийский язык за 16 уроков",
-      description:
-        "Интерактивный учебник индонезийского языка по методу Дмитрия Петрова",
-    },
-  },
-  {
-    path: "/lessons",
-    name: "Lessons",
-    component: HomeView,
-    meta: {
-      title: "Уроки",
-      description: "16 уроков индонезийского языка",
-    },
-  },
-  {
-    path: "/lesson/:id",
-    name: "Lesson",
-    component: LessonView,
-    props: true,
-    meta: {
-      title: "Урок",
-      description: "Изучение индонезийского языка",
-    },
-  },
-  {
-    path: "/grammar",
-    name: "Grammar",
-    component: GrammarView,
-    meta: {
-      title: "Грамматика",
-      description: "Таблицы грамматики и времен индонезийского языка",
-    },
-  },
-  {
-    path: "/grammar/:tableId",
-    name: "GrammarTable",
-    component: GrammarView,
-    props: true,
-    meta: {
-      title: "Грамматическая таблица",
-      description: "Таблица индонезийской грамматики",
-    },
-  },
-  {
-    path: "/dictionary",
-    name: "Dictionary",
-    component: DictionaryView,
-    meta: {
-      title: "Словарь",
-      description:
-        "Частотный словарь индонезийского языка - 500 самых важных слов",
-    },
-  },
-  {
-    path: "/dictionary/:wordId",
-    name: "WordDetails",
-    component: DictionaryView,
-    props: true,
-    meta: {
-      title: "Слово",
-      description: "Детали слова индонезийского языка",
-    },
-  },
-  {
-    path: "/exercises",
-    name: "Exercises",
-    component: ExerciseView,
-    meta: {
-      title: "Упражнения",
-      description: "Упражнения для практики индонезийского языка",
-    },
-  },
-  {
-    path: "/exercises/lesson/:lessonId",
-    name: "LessonExercises",
-    component: ExerciseView,
-    props: true,
-    meta: {
-      title: "Упражнения урока",
-      description: "Упражнения для конкретного урока",
-    },
-  },
-  {
-    path: "/progress",
-    name: "Progress",
-    component: ProgressView,
-    meta: {
-      title: "Прогресс",
-      description: "Ваш прогресс в изучении индонезийского языка",
-    },
+    redirect: "/ru/id",
   },
   {
     path: "/:pathMatch(.*)*",
-    redirect: "/",
+    redirect: "/ru/id",
   },
 ];
 
@@ -124,11 +92,32 @@ const router = createRouter({
   },
 });
 
-// Обновление заголовка страницы при навигации
 router.beforeEach((to, _from, next) => {
-  const defaultTitle = "Индонезийский язык за 16 уроков";
-  document.title = to.meta.title
-    ? `${to.meta.title} - Индонезийский учебник`
+  const langStore = useLanguageStore();
+  const il = to.params.interfaceLang as string;
+  const tl = to.params.targetLang as string;
+  const langs: Record<string, "ru" | "id"> = { ru: "ru", id: "id" };
+
+  if (il && tl) {
+    const i = langs[il] || "ru";
+    const t = langs[tl] || "id";
+    langStore.init(i, t);
+    i18n.global.locale.value = i;
+  }
+
+  const defaultTitle = "Belajar Bahasa";
+  const routeName = to.name as string;
+  const titleMap: Record<string, string> = {
+    Home: "Belajar Bahasa",
+    Lessons: "Pelajaran",
+    Lesson: "Pelajaran",
+    Grammar: "Tata Bahasa",
+    Dictionary: "Kamus",
+    Exercises: "Latihan",
+    Progress: "Kemajuan",
+  };
+  document.title = titleMap[routeName]
+    ? `${titleMap[routeName]} - Belajar Bahasa`
     : defaultTitle;
   next();
 });
