@@ -1,5 +1,6 @@
 import { computed, ref } from "vue";
-import { lessons } from "../data/lessons";
+import { lessons as lessonsId } from "../data/lessons";
+import { lessonsRu } from "../data/lessonsRu";
 import { useProgressStore } from "../stores/progress";
 import { useLanguageStore } from "../stores/language";
 
@@ -8,7 +9,11 @@ export function useLesson(lessonId: number) {
   const langStore = useLanguageStore();
   const currentStep = ref<"theory" | "examples" | "exercises">("theory");
 
-  const lesson = computed(() => lessons.find((l) => l.id === lessonId) || null);
+  const lessons = computed(() =>
+    langStore.targetLang === "id" ? lessonsId : lessonsRu,
+  );
+
+  const lesson = computed(() => lessons.value.find((l) => l.id === lessonId) || null);
   const lessonProgress = computed(() => progressStore.lessonProgress(lessonId));
   const isCompleted = computed(() => progressStore.isLessonCompleted(lessonId));
 
@@ -27,14 +32,14 @@ export function useLesson(lessonId: number) {
   const nextLesson = computed(() => {
     if (!lesson.value) return null;
     if (lesson.value.id < 16)
-      return lessons.find((l) => l.id === lesson.value!.id + 1) || null;
+      return lessons.value.find((l) => l.id === lesson.value!.id + 1) || null;
     return null;
   });
 
   const prevLesson = computed(() => {
     if (!lesson.value) return null;
     if (lesson.value.id > 1)
-      return lessons.find((l) => l.id === lesson.value!.id - 1) || null;
+      return lessons.value.find((l) => l.id === lesson.value!.id - 1) || null;
     return null;
   });
 

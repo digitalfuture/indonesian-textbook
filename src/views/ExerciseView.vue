@@ -3,13 +3,14 @@ import { ref, computed, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useProgressStore } from "../stores/progress";
 import { useLanguageStore } from "../stores/language";
-import { exercises as allExercises } from "../data/exercises";
+import { useExerciseData } from "../composables/useExercises";
 import type { Exercise } from "../utils/types";
 
 const router = useRouter();
 const route = useRoute();
 const progressStore = useProgressStore();
 const langStore = useLanguageStore();
+const { allExercises, getByLesson } = useExerciseData();
 
 // Get lessonId from route params (if navigating from a lesson)
 const lessonId = computed(() => {
@@ -19,12 +20,13 @@ const lessonId = computed(() => {
 
 // Filter exercises by lesson if lessonId is provided
 const exercises = computed(() => {
+  const data = allExercises.value;
   if (lessonId.value) {
-    return allExercises
+    return data
       .filter((e) => e.lessonId === lessonId.value)
       .sort((a, b) => a.id - b.id);
   }
-  return allExercises;
+  return data;
 });
 
 const currentExerciseIndex = ref(0);
