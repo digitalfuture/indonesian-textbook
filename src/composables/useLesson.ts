@@ -1,9 +1,11 @@
 import { computed, ref } from "vue";
 import { lessons } from "../data/lessons";
 import { useProgressStore } from "../stores/progress";
+import { useLanguageStore } from "../stores/language";
 
 export function useLesson(lessonId: number) {
   const progressStore = useProgressStore();
+  const langStore = useLanguageStore();
   const currentStep = ref<"theory" | "examples" | "exercises">("theory");
 
   const lesson = computed(() => lessons.find((l) => l.id === lessonId) || null);
@@ -19,7 +21,7 @@ export function useLesson(lessonId: number) {
   }
 
   function goToExercises(router: any) {
-    router.push(`/exercises/lesson/${lessonId}`);
+    router.push(`/${langStore.interfaceLang}/${langStore.targetLang}/exercises/lesson/${lessonId}`);
   }
 
   const nextLesson = computed(() => {

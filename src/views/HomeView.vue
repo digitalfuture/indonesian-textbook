@@ -2,29 +2,34 @@
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import { useProgressStore } from "../stores/progress";
+import { useLanguageStore } from "../stores/language";
 import { lessons } from "../data/lessons";
+import { useI18n } from "vue-i18n";
 
 const router = useRouter();
 const progressStore = useProgressStore();
+const langStore = useLanguageStore();
+const { t } = useI18n();
+
+const base = computed(() => `/${langStore.interfaceLang}/${langStore.targetLang}`);
 
 const completedLessons = computed(() =>
   lessons.map((lesson) => ({
     ...lesson,
     isCompleted: progressStore.isLessonCompleted(lesson.id),
-    progress: progressStore.lessonProgress(lesson.id),
-  })),
+  }))
 );
 
 function goToLesson(id: number) {
-  router.push(`/lesson/${id}`);
+  router.push(`${base.value}/lesson/${id}`);
 }
 
 function goToGrammar() {
-  router.push("/grammar");
+  router.push(`${base.value}/grammar`);
 }
 
 function goToDictionary() {
-  router.push("/dictionary");
+  router.push(`${base.value}/dictionary`);
 }
 </script>
 
@@ -33,17 +38,12 @@ function goToDictionary() {
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Индонезийский язык за 16 уроков</h1>
-        <p class="hero-subtitle">
-          Интерактивный учебник по методу Дмитрия Петрова
-        </p>
-        <p class="hero-description">
-          Освойте базовый индонезийский язык всего за 16 уроков! Метод основан
-          на понимании основных принципов языка и их практическом применении.
-        </p>
+        <h1>{{ $t('home.hero.title') }}</h1>
+        <p class="hero-subtitle">{{ $t('home.hero.subtitle') }}</p>
+        <p class="hero-description">{{ $t('home.hero.description') }}</p>
         <div class="hero-buttons">
-          <PButton label="Начать обучение" icon="pi pi-play" @click="goToLesson(1)" />
-          <PButton label="Словарь" icon="pi pi-book" severity="secondary" @click="goToDictionary" />
+          <PButton :label="$t('home.hero.startLearning')" icon="pi pi-play" @click="goToLesson(1)" />
+          <PButton :label="$t('home.hero.dictionary')" icon="pi pi-book" severity="secondary" @click="goToDictionary" />
         </div>
       </div>
       <div class="hero-illustration">
@@ -53,34 +53,34 @@ function goToDictionary() {
 
     <!-- Метод Петрова -->
     <section class="method-section">
-      <h2>Метод Дмитрия Петрова</h2>
+      <h2>{{ $t('home.method.title') }}</h2>
       <div class="method-grid">
         <div class="method-card">
           <div class="method-icon">🎯</div>
-          <h3>16 уроков</h3>
-          <p>Структурированная программа, охватывающая все основы языка</p>
+          <h3>{{ $t('home.method.cards.lessons.title') }}</h3>
+          <p>{{ $t('home.method.cards.lessons.description') }}</p>
         </div>
         <div class="method-card">
           <div class="method-icon">📚</div>
-          <h3>500 слов</h3>
-          <p>Самые частотные слова, покрывающие 80% повседневной речи</p>
+          <h3>{{ $t('home.method.cards.words.title') }}</h3>
+          <p>{{ $t('home.method.cards.words.description') }}</p>
         </div>
         <div class="method-card">
           <div class="method-icon">🏗️</div>
-          <h3>Система</h3>
-          <p>Понимание структуры языка вместо заучивания правил</p>
+          <h3>{{ $t('home.method.cards.system.title') }}</h3>
+          <p>{{ $t('home.method.cards.system.description') }}</p>
         </div>
         <div class="method-card">
           <div class="method-icon">💪</div>
-          <h3>Практика</h3>
-          <p>Много упражнений для закрепления материала</p>
+          <h3>{{ $t('home.method.cards.practice.title') }}</h3>
+          <p>{{ $t('home.method.cards.practice.description') }}</p>
         </div>
       </div>
     </section>
 
     <!-- Список уроков -->
     <section class="lessons-section">
-      <h2>Программа обучения</h2>
+      <h2>{{ $t('home.lessons.title') }}</h2>
       <div class="lessons-grid">
         <div
           v-for="lesson in completedLessons"
@@ -93,13 +93,13 @@ function goToDictionary() {
             {{ lesson.id }}
           </div>
           <div class="lesson-content">
-            <h3>{{ lesson.title }}</h3>
+            <h3>{{ $t('lesson.title.' + lesson.id) }}</h3>
             <p>{{ lesson.description }}</p>
             <div class="lesson-meta">
               <span class="lesson-time"><i class="pi pi-clock"></i> {{ lesson.estimatedTime }} мин</span>
               <PBadge
                 v-if="lesson.isCompleted"
-                value="Завершено"
+                :value="$t('common.completed')"
                 severity="success"
               />
             </div>
@@ -110,24 +110,24 @@ function goToDictionary() {
 
     <!-- Быстрые ссылки -->
     <section class="quick-links">
-      <h2>Быстрый доступ</h2>
+      <h2>{{ $t('home.quickLinks.title') }}</h2>
       <div class="quick-links-grid">
         <PCard class="quick-link-card" @click="goToGrammar">
           <template #header>
             <div class="quick-link-icon">📊</div>
           </template>
-          <template #title>Таблица грамматики</template>
+          <template #title>{{ $t('home.quickLinks.grammarTable') }}</template>
           <template #content>
-            <p>Все времена, местоимения и грамматические конструкции</p>
+            <p>{{ $t('home.quickLinks.grammarTableDescription') }}</p>
           </template>
         </PCard>
         <PCard class="quick-link-card" @click="goToDictionary">
           <template #header>
             <div class="quick-link-icon">📖</div>
           </template>
-          <template #title>Частотный словарь</template>
+          <template #title>{{ $t('home.quickLinks.dictionary') }}</template>
           <template #content>
-            <p>500 самых важных слов с примерами</p>
+            <p>{{ $t('home.quickLinks.dictionaryDescription') }}</p>
           </template>
         </PCard>
       </div>

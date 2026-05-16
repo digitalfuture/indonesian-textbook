@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
 import { useLesson } from "../composables/useLesson";
+import { useLanguageStore } from "../stores/language";
 import LessonHeader from "../components/lesson/LessonHeader.vue";
 import LessonTabs from "../components/lesson/LessonTabs.vue";
 import LessonExercises from "../components/lesson/LessonExercises.vue";
@@ -8,6 +9,7 @@ import LessonCompletion from "../components/lesson/LessonCompletion.vue";
 
 const route = useRoute();
 const router = useRouter();
+const langStore = useLanguageStore();
 const lessonId = parseInt(route.params.id as string);
 const {
   lesson,
@@ -22,7 +24,7 @@ const {
 } = useLesson(lessonId);
 
 function navigateLesson(id: number) {
-  router.push(`/lesson/${id}`);
+  router.push(`/${langStore.interfaceLang}/${langStore.targetLang}/lesson/${id}`);
 }
 function startExercises() {
   goToExercises(router);
@@ -49,14 +51,14 @@ function handleUncomplete() {
     <main class="lesson-content">
       <section v-if="currentStep === 'theory'" class="theory-section fade-in">
         <div class="content-card">
-          <h2>Теория</h2>
+          <h2>{{ $t('lesson.tabs.theory') }}</h2>
           <div
             class="theory-text"
             v-html="lesson.content.theory.replace(/\n/g, '<br>')"
           ></div>
 
           <div class="key-points">
-            <h3>Ключевые моменты</h3>
+            <h3>{{ $t('lesson.keyPoints') }}</h3>
             <ul>
               <li
                 v-for="(point, index) in lesson.content.keyPoints"
@@ -74,7 +76,7 @@ function handleUncomplete() {
         class="examples-section fade-in"
       >
         <div class="content-card">
-          <h2>Примеры</h2>
+          <h2>{{ $t('lesson.tabs.examples') }}</h2>
           <div class="examples-grid">
             <div
               v-for="(example, index) in lesson.content.examples"
@@ -111,23 +113,23 @@ function handleUncomplete() {
         class="btn btn-outline"
         @click="navigateLesson(prevLesson.id)"
       >
-        ← Предыдущий урок
+        {{ $t('lesson.previous') }}
       </button>
       <button
         v-if="nextLesson"
         class="btn btn-primary"
         @click="navigateLesson(nextLesson.id)"
       >
-        Следующий урок →
+        {{ $t('lesson.next') }}
       </button>
     </footer>
   </div>
 
   <div v-else class="not-found">
-    <h2>Урок не найден</h2>
-    <p>Урок с номером {{ lessonId }} не существует.</p>
-    <button class="btn btn-primary" @click="router.push('/')">
-      На главную
+    <h2>{{ $t('lesson.notFound.title') }}</h2>
+    <p>{{ $t('lesson.notFound.message', { id: lessonId }) }}</p>
+    <button class="btn btn-primary" @click="router.push('/' + langStore.interfaceLang + '/' + langStore.targetLang)">
+      {{ $t('lesson.notFound.goHome') }}
     </button>
   </div>
 </template>
