@@ -42,6 +42,26 @@ export const vocabulary: DictionaryWord[] = [
         translation: "Спасибо за помощь",
       },
     ],
+    relatedWords: [4, 40], // sama-sama, terima
+    lessonIds: [1, 16],
+  },
+  {
+    id: 4,
+    word: "sama-sama",
+    translation: "пожалуйста (в ответ на спасибо)",
+    category: "interjection",
+    frequency: 4,
+    examples: [
+      {
+        sentence: "Terima kasih - Sama-sama",
+        translation: "Спасибо - Пожалуйста",
+      },
+      {
+        sentence: "Sama-sama, senang bisa membantu",
+        translation: "Пожалуйста, рад помочь",
+      },
+    ],
+    relatedWords: [3, 134], // terima kasih, sama
     lessonIds: [1, 16],
   },
   {
@@ -72,6 +92,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Maaf, saya terlambat", translation: "Извините, я опоздал" },
       { sentence: "Maaf, saya tidak tahu", translation: "Извините, я не знаю" },
     ],
+    relatedWords: [96], // minta
     lessonIds: [1, 16],
   },
   {
@@ -90,6 +111,7 @@ export const vocabulary: DictionaryWord[] = [
         translation: "Пожалуйста, подай книгу",
       },
     ],
+    relatedWords: [96], // minta
     lessonIds: [1, 16],
   },
   {

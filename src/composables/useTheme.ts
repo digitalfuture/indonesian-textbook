@@ -16,8 +16,12 @@ function getSavedTheme(): Theme | null {
 }
 
 function applyTheme(theme: Theme) {
-  document.documentElement.setAttribute("data-theme", theme);
-  document.documentElement.style.colorScheme = theme;
+  // PrimeVue Aura dark mode uses .app-dark class on <html>
+  if (theme === "dark") {
+    document.documentElement.classList.add("app-dark");
+  } else {
+    document.documentElement.classList.remove("app-dark");
+  }
 }
 
 export function useTheme() {

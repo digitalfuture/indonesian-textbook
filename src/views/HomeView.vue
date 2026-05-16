@@ -42,12 +42,8 @@ function goToDictionary() {
           на понимании основных принципов языка и их практическом применении.
         </p>
         <div class="hero-buttons">
-          <button class="btn btn-primary" @click="goToLesson(1)">
-            Начать обучение
-          </button>
-          <button class="btn btn-secondary" @click="goToDictionary">
-            Словарь
-          </button>
+          <PButton label="Начать обучение" icon="pi pi-play" @click="goToLesson(1)" />
+          <PButton label="Словарь" icon="pi pi-book" severity="secondary" @click="goToDictionary" />
         </div>
       </div>
       <div class="hero-illustration">
@@ -100,10 +96,12 @@ function goToDictionary() {
             <h3>{{ lesson.title }}</h3>
             <p>{{ lesson.description }}</p>
             <div class="lesson-meta">
-              <span class="lesson-time">⏱️ {{ lesson.estimatedTime }} мин</span>
-              <span v-if="lesson.isCompleted" class="lesson-status"
-                >✅ Завершено</span
-              >
+              <span class="lesson-time"><i class="pi pi-clock"></i> {{ lesson.estimatedTime }} мин</span>
+              <PBadge
+                v-if="lesson.isCompleted"
+                value="Завершено"
+                severity="success"
+              />
             </div>
           </div>
         </div>
@@ -114,16 +112,24 @@ function goToDictionary() {
     <section class="quick-links">
       <h2>Быстрый доступ</h2>
       <div class="quick-links-grid">
-        <div class="quick-link-card" @click="goToGrammar">
-          <div class="quick-link-icon">📊</div>
-          <h3>Таблица грамматики</h3>
-          <p>Все времена, местоимения и грамматические конструкции</p>
-        </div>
-        <div class="quick-link-card" @click="goToDictionary">
-          <div class="quick-link-icon">📖</div>
-          <h3>Частотный словарь</h3>
-          <p>500 самых важных слов с примерами</p>
-        </div>
+        <PCard class="quick-link-card" @click="goToGrammar">
+          <template #header>
+            <div class="quick-link-icon">📊</div>
+          </template>
+          <template #title>Таблица грамматики</template>
+          <template #content>
+            <p>Все времена, местоимения и грамматические конструкции</p>
+          </template>
+        </PCard>
+        <PCard class="quick-link-card" @click="goToDictionary">
+          <template #header>
+            <div class="quick-link-icon">📖</div>
+          </template>
+          <template #title>Частотный словарь</template>
+          <template #content>
+            <p>500 самых важных слов с примерами</p>
+          </template>
+        </PCard>
       </div>
     </section>
   </div>

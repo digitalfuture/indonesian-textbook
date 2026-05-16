@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru" data-theme="dark">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -9,14 +9,15 @@
       // Set theme immediately to prevent flash
       (function () {
         var saved = localStorage.getItem("indonesian-textbook-theme");
-        var theme = "dark";
-        if (saved === "light" || saved === "dark") {
-          theme = saved;
-        } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-          theme = "light";
+        var isDark = false;
+        if (saved === "dark") {
+          isDark = true;
+        } else if (saved === null && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          isDark = true;
         }
-        document.documentElement.setAttribute("data-theme", theme);
-        document.documentElement.style.colorScheme = theme;
+        if (isDark) {
+          document.documentElement.classList.add("app-dark");
+        }
       })();
     </script>
   </head>
