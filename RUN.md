@@ -111,6 +111,43 @@ npm run type-check
 
 Рекомендуется использовать Prettier и ESLint для поддержания стиля кода.
 
+## Telegram Mirror
+
+Для удалённого управления OpenCode через Telegram настроен `opencode-telegram-mirror`.
+
+### Запуск
+
+```bash
+# 1. Сначала запустить OpenCode сервер
+opencode serve
+
+# 2. В другом терминале запустить mirror
+npm run telegram
+```
+
+Либо одной командой:
+```bash
+npm run telegram:serve
+```
+
+### Требования
+
+- `TELEGRAM_BOT_TOKEN` — токен от [@BotFather](https://t.me/BotFather)
+- `TELEGRAM_CHAT_ID` — ID чата из [@userinfobot](https://t.me/userinfobot)
+
+Эти переменные должны быть в файле `.env` (не коммитится). Смотри `.env.example`.
+
+### Команды в Telegram
+
+- Отправьте текст — он уйдёт как промпт в OpenCode
+- Отправьте фото — прикрепится как файл к промпту
+- Голосовые сообщения — транскрибируются через Whisper
+- `x` — прервать текущую операцию
+- `/interrupt` — остановить выполнение
+- `/plan` — переключиться в режим планирования
+- `/build` — переключиться в режим выполнения
+- `/review` — ревью изменений
+
 ## Поддержка
 
 При возникновении проблем:

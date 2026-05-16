@@ -1,12 +1,14 @@
 {
   "name": "indonesian-textbook",
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "telegram": "opencode-telegram-mirror",
+    "telegram:serve": "opencode serve & npm run telegram"
   },
   "dependencies": {
     "@primeuix/themes": "^2.0.3",
