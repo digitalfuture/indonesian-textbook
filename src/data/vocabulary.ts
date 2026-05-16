@@ -13,7 +13,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Selamat pagi!", translation: "Доброе утро!" },
       { sentence: "Selamat datang", translation: "Добро пожаловать" },
     ],
-    relatedWords: [2, 33, 44], // pagi, selamat jalan, datang
+    relatedWords: [33], // selamat jalan
     lessonIds: [1],
   },
   {
@@ -26,7 +26,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Selamat pagi", translation: "Доброе утро" },
       { sentence: "Saya bangun pagi", translation: "Я просыпаюсь утром" },
     ],
-    relatedWords: [1, 66, 67, 68], // selamat, malam, siang, sore
     lessonIds: [1, 8],
   },
   {
@@ -42,7 +41,7 @@ export const vocabulary: DictionaryWord[] = [
         translation: "Спасибо за помощь",
       },
     ],
-    relatedWords: [4, 40], // sama-sama, terima
+    relatedWords: [40], // terima
     lessonIds: [1, 16],
   },
   {
@@ -61,7 +60,7 @@ export const vocabulary: DictionaryWord[] = [
         translation: "Пожалуйста, рад помочь",
       },
     ],
-    relatedWords: [3, 134], // terima kasih, sama
+    relatedWords: [134], // sama
     lessonIds: [1, 16],
   },
   {
@@ -92,7 +91,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Maaf, saya terlambat", translation: "Извините, я опоздал" },
       { sentence: "Maaf, saya tidak tahu", translation: "Извините, я не знаю" },
     ],
-    relatedWords: [96], // minta
     lessonIds: [1, 16],
   },
   {
@@ -102,16 +100,12 @@ export const vocabulary: DictionaryWord[] = [
     category: "interjection",
     frequency: 6,
     examples: [
-      {
-        sentence: "Tolong bantu saya",
-        translation: "Пожалуйста, помогите мне",
-      },
+      { sentence: "Tolong bantu saya", translation: "Пожалуйста, помогите мне" },
       {
         sentence: "Tolong ambilkan buku",
         translation: "Пожалуйста, подай книгу",
       },
     ],
-    relatedWords: [96], // minta
     lessonIds: [1, 16],
   },
   {
@@ -173,7 +167,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Siapa nama kamu?", translation: "Как тебя зовут?" },
       { sentence: "Siapa dia?", translation: "Кто он/она?" },
     ],
-    relatedWords: [12, 111], // nama, siapa-siapa
+    relatedWords: [111], // siapa-siapa
     lessonIds: [1, 4],
   },
   {
@@ -186,7 +180,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Nama saya Andi", translation: "Меня зовут Анди" },
       { sentence: "Siapa namamu?", translation: "Как тебя зовут?" },
     ],
-    relatedWords: [11, 34, 35], // siapa, perkenalan, berkenalan
     lessonIds: [1],
   },
   {
@@ -236,7 +229,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya siswa", translation: "Я ученик" },
       { sentence: "Buku saya", translation: "Моя книга" },
     ],
-    relatedWords: [17, 18, 19, 20, 21, 22, 23], // kamu, dia, kita, mereka, kami, Anda, aku
     lessonIds: [1, 2],
   },
   {
@@ -389,6 +381,7 @@ export const vocabulary: DictionaryWord[] = [
       },
       { sentence: "Mari berkenalan", translation: "Давайте познакомимся" },
     ],
+    relatedWords: [34, 35],
     lessonIds: [1, 16],
   },
   {
@@ -455,6 +448,7 @@ export const vocabulary: DictionaryWord[] = [
         translation: "Счастливого пути, береги себя!",
       },
     ],
+    relatedWords: [1, 282],
     lessonIds: [1, 16],
   },
   {
@@ -470,6 +464,7 @@ export const vocabulary: DictionaryWord[] = [
       },
       { sentence: "Perkenalan pertama", translation: "Первое знакомство" },
     ],
+    relatedWords: [28, 35],
     lessonIds: [1],
   },
   {
@@ -482,6 +477,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Mereka sedang berkenalan", translation: "Они знакомятся" },
       { sentence: "Senang berkenalan", translation: "Приятно познакомиться" },
     ],
+    relatedWords: [28, 34],
     lessonIds: [1, 16],
   },
   {
@@ -545,6 +541,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Terima undangan", translation: "Принять приглашение" },
       { sentence: "Saya terima", translation: "Я принимаю" },
     ],
+    relatedWords: [3],
     lessonIds: [1],
   },
   // === УРОК 3: Простые предложения (41-100) ===
@@ -559,7 +556,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya makan nasi", translation: "Я ем рис" },
       { sentence: "Mau makan?", translation: "Хочешь есть?" },
     ],
-    relatedWords: [42, 69, 98], // minum, saya mau, habis
+    relatedWords: [205, 227, 228], // makanan, makan siang, makan malam
     lessonIds: [3, 12],
   },
   {
@@ -572,7 +569,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya minum air", translation: "Я пью воду" },
       { sentence: "Mau minum?", translation: "Хочешь пить?" },
     ],
-    relatedWords: [41, 69], // makan, saya mau
     lessonIds: [3],
   },
   {
@@ -705,6 +701,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Dia lari cepat", translation: "Он бежит быстро" },
       { sentence: "Jangan lari!", translation: "Не беги!" },
     ],
+    relatedWords: [91],
     lessonIds: [3],
   },
   {
@@ -717,6 +714,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Mari jalan-jalan", translation: "Давай погуляем" },
       { sentence: "Saya suka jalan-jalan", translation: "Я люблю гулять" },
     ],
+    relatedWords: [282],
     lessonIds: [3, 14],
   },
   {
@@ -789,6 +787,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Guru mengajar", translation: "Учитель учит" },
       { sentence: "Ajar saya", translation: "Научи меня" },
     ],
+    relatedWords: [424],
     lessonIds: [3],
   },
   // Существительные (61-100) - existing ones preserved
@@ -802,6 +801,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Rumah saya besar", translation: "Мой дом большой" },
       { sentence: "Di rumah", translation: "Дома" },
     ],
+    relatedWords: [286, 360],
     lessonIds: [6, 14],
   },
   {
@@ -826,7 +826,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Mobil baru", translation: "Новая машина" },
       { sentence: "Mobil saya merah", translation: "Моя машина красная" },
     ],
-    relatedWords: [86, 87, 89], // naik (садиться), turun (выходить), jual (продавать)
     lessonIds: [6, 13],
   },
   {
@@ -935,6 +934,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya membaca buku", translation: "Я читаю книгу" },
       { sentence: "Dia membaca surat", translation: "Он читает письмо" },
     ],
+    relatedWords: [425],
     lessonIds: [3, 10],
   },
   {
@@ -1166,6 +1166,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Dia berlari cepat", translation: "Он бежит быстро" },
       { sentence: "Berlari di taman", translation: "Бегать в парке" },
     ],
+    relatedWords: [53],
     lessonIds: [3, 13],
   },
   {
@@ -1287,6 +1288,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Kapan kamu datang?", translation: "Когда ты придёшь?" },
       { sentence: "Kapan kita pergi?", translation: "Когда мы идём?" },
     ],
+    relatedWords: [112],
     lessonIds: [4],
   },
   {
@@ -1417,6 +1419,7 @@ export const vocabulary: DictionaryWord[] = [
       },
       { sentence: "Siapa saja?", translation: "Кто именно?" },
     ],
+    relatedWords: [11],
     lessonIds: [4],
   },
   {
@@ -1432,6 +1435,7 @@ export const vocabulary: DictionaryWord[] = [
       },
       { sentence: "Datanglah kapan-kapan", translation: "Приходи как-нибудь" },
     ],
+    relatedWords: [101],
     lessonIds: [4, 11],
   },
   {
@@ -1710,6 +1714,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Sama saya", translation: "Со мной" },
       { sentence: "Sama besar", translation: "Одинаковый по размеру" },
     ],
+    relatedWords: [4],
     lessonIds: [5, 14],
   },
   {
@@ -2580,6 +2585,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Makanan enak", translation: "Вкусная еда" },
       { sentence: "Makanan Indonesia", translation: "Индонезийская еда" },
     ],
+    relatedWords: [41],
     lessonIds: [13],
   },
   // More food (206-240)
@@ -2848,6 +2854,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Makan siang bersama", translation: "Обед вместе" },
       { sentence: "Waktu makan siang", translation: "Время обеда" },
     ],
+    relatedWords: [41],
     lessonIds: [8, 15],
   },
   {
@@ -2860,6 +2867,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Makan malam romantis", translation: "Романтический ужин" },
       { sentence: "Sudah makan malam?", translation: "Уже поужинал?" },
     ],
+    relatedWords: [41],
     lessonIds: [8, 15],
   },
   {
@@ -3020,6 +3028,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Hari ini", translation: "Сегодня" },
       { sentence: "Hari Senin", translation: "Понедельник" },
     ],
+    relatedWords: [246, 247, 248, 249, 250, 251, 252],
     lessonIds: [8],
   },
   {
@@ -3522,6 +3531,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Jalan raya", translation: "Шоссе" },
       { sentence: "Jalan kaki", translation: "Идти пешком" },
     ],
+    relatedWords: [33, 54],
     lessonIds: [14],
   },
   {
@@ -3939,6 +3949,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Pakaian baru", translation: "Новая одежда" },
       { sentence: "Toko pakaian", translation: "Магазин одежды" },
     ],
+    relatedWords: [430],
     lessonIds: [13],
   },
   {
@@ -4269,6 +4280,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Kakak saya", translation: "Мой/моя старший/ая брат/сестра" },
       { sentence: "Kakak perempuan", translation: "Старшая сестра" },
     ],
+    relatedWords: [356, 357],
     lessonIds: [6],
   },
   {
@@ -4293,6 +4305,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Anak saya", translation: "Мой ребёнок" },
       { sentence: "Anak sekolah", translation: "Школьник" },
     ],
+    relatedWords: [358, 359],
     lessonIds: [6],
   },
   // More family (346-360)
@@ -4931,6 +4944,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Rumah bersih", translation: "Чистый дом" },
       { sentence: "Air bersih", translation: "Чистая вода" },
     ],
+    relatedWords: [428],
     lessonIds: [13],
   },
   {
@@ -5258,6 +5272,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya belajar bahasa", translation: "Я изучаю язык" },
       { sentence: "Belajar di rumah", translation: "Учиться дома" },
     ],
+    relatedWords: [60],
     lessonIds: [3, 10, 11, 12],
   },
   {
@@ -5270,6 +5285,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Baca buku", translation: "Читать книгу" },
       { sentence: "Saya baca", translation: "Я читаю" },
     ],
+    relatedWords: [72],
     lessonIds: [10],
   },
   // More daily activities (426-440)
@@ -5307,6 +5323,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Bersihkan kamar", translation: "Убрать комнату" },
       { sentence: "Bersihkan meja", translation: "Протереть стол" },
     ],
+    relatedWords: [397],
     lessonIds: [10],
   },
   {
@@ -5331,6 +5348,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Pakai baju ini", translation: "Надень эту рубашку" },
       { sentence: "Pakai apa?", translation: "Что надеть?" },
     ],
+    relatedWords: [316],
     lessonIds: [10],
   },
   {
