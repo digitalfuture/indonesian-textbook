@@ -155,21 +155,21 @@ function goToDictionary() {
 
 .hero h1 {
   font-size: 2.5rem;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  color: #667eea;
+  color: var(--primary);
   margin-bottom: 1rem;
   font-weight: 500;
 }
 
 .hero-description {
   font-size: 1.1rem;
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -225,7 +225,7 @@ function goToDictionary() {
 
 .method-section h2 {
   font-size: 2rem;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -237,7 +237,7 @@ function goToDictionary() {
 }
 
 .method-card {
-  background: white;
+  background: var(--bg-card);
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;
@@ -256,13 +256,21 @@ function goToDictionary() {
 
 .method-card h3 {
   font-size: 1.25rem;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 0.5rem;
 }
 
 .method-card p {
-  color: #4a5568;
+  font-size: 0.95rem;
+  color: var(--text);
   line-height: 1.5;
+}
+
+.lessons-section h2 {
+  font-size: 2rem;
+  color: var(--text-h);
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .lessons-section {
@@ -271,7 +279,7 @@ function goToDictionary() {
 
 .lessons-section h2 {
   font-size: 2rem;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 1.5rem;
 }
 
@@ -285,7 +293,7 @@ function goToDictionary() {
   display: flex;
   gap: 1rem;
   padding: 1.5rem;
-  background: white;
+  background: var(--bg-card);
   border-radius: 0.75rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   cursor: pointer;
@@ -304,7 +312,7 @@ function goToDictionary() {
 .lesson-number {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-gradient);
   color: white;
   border-radius: 50%;
   display: flex;
@@ -321,13 +329,13 @@ function goToDictionary() {
 
 .lesson-content h3 {
   font-size: 1.1rem;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 0.5rem;
 }
 
 .lesson-content p {
   font-size: 0.9rem;
-  color: #4a5568;
+  color: var(--text);
   margin-bottom: 0.75rem;
   line-height: 1.4;
 }
@@ -339,7 +347,7 @@ function goToDictionary() {
 }
 
 .lesson-time {
-  color: #718096;
+  color: var(--muted);
 }
 
 .lesson-status {
@@ -353,7 +361,7 @@ function goToDictionary() {
 
 .quick-links h2 {
   font-size: 2rem;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 1.5rem;
 }
 
@@ -364,7 +372,7 @@ function goToDictionary() {
 }
 
 .quick-link-card {
-  background: white;
+  background: var(--bg-card);
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -384,12 +392,12 @@ function goToDictionary() {
 
 .quick-link-card h3 {
   font-size: 1.25rem;
-  color: #2d3748;
+  color: var(--text-h);
   margin-bottom: 0.5rem;
 }
 
 .quick-link-card p {
-  color: #4a5568;
+  color: var(--text);
   line-height: 1.5;
 }
 
