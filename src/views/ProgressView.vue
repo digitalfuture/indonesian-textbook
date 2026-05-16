@@ -2,10 +2,14 @@
 import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useProgressStore } from "../stores/progress";
+import { useLanguageStore } from "../stores/language";
+import { useI18n } from "vue-i18n";
 import { lessons } from "../data/lessons";
 
 const router = useRouter();
 const progressStore = useProgressStore();
+const langStore = useLanguageStore();
+const { t } = useI18n();
 
 const stats = computed(() => progressStore.getLearningStats());
 const wordsLearnedCount = computed(
@@ -24,7 +28,7 @@ const showImportModal = ref(false);
 const importData = ref("");
 
 function goToLesson(id: number) {
-  router.push(`/lesson/${id}`);
+  router.push(`/${langStore.interfaceLang}/${langStore.targetLang}/lesson/${id}`);
 }
 
 function exportProgress() {
@@ -38,7 +42,7 @@ function importProgress() {
       showImportModal.value = false;
       importData.value = "";
     } else {
-      alert("Ошибка импорта. Проверьте данные.");
+      alert(t("progress.importModal.error"));
     }
   }
 }
@@ -264,19 +268,19 @@ const achievementList = [
       @click="showImportModal = false"
     >
       <div class="modal" @click.stop>
-        <h3>Импорт прогресса</h3>
-        <p>Вставьте данные JSON для импорта прогресса.</p>
+        <h3>{{ $t('progress.importModal.title') }}</h3>
+        <p>{{ $t('progress.importModal.message') }}</p>
         <textarea
           v-model="importData"
-          placeholder="Вставьте JSON данные здесь..."
-          class="import-textarea"
+          :placeholder="$t('progress.importModal.placeholder')"
+          class="form-input import-textarea"
         ></textarea>
         <div class="modal-actions">
           <button class="btn btn-primary" @click="importProgress">
-            Импортировать
+            {{ $t('progress.importModal.import') }}
           </button>
           <button class="btn btn-outline" @click="showImportModal = false">
-            Закрыть
+            {{ $t('common.close') }}
           </button>
         </div>
       </div>
