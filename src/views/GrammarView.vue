@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { useLanguageStore } from "../stores/language";
 
 const route = useRoute();
 const router = useRouter();
+const langStore = useLanguageStore();
 
 const tableId = computed(() => route.params.tableId as string | undefined);
 
@@ -524,39 +526,36 @@ const selectedTable = computed(() => {
 });
 
 function goToTable(tableId: string) {
-  router.push(`/grammar/${tableId}`);
+  router.push(`/${langStore.interfaceLang}/${langStore.targetLang}/grammar/${tableId}`);
 }
 
 function goBack() {
-  router.push("/grammar");
+  router.push(`/${langStore.interfaceLang}/${langStore.targetLang}/grammar`);
 }
 </script>
 
 <template>
   <div class="grammar-view">
     <header class="grammar-header">
-      <h1>📊 Грамматические таблицы</h1>
-      <p class="grammar-description">
-        Все основные грамматические конструкции индонезийского языка в удобных
-        таблицах
-      </p>
+      <h1>{{ $t('grammar.title') }}</h1>
+      <p class="grammar-description">{{ $t('grammar.description') }}</p>
     </header>
 
     <!-- Просмотр одной таблицы -->
     <div v-if="selectedTable" class="table-detail fade-in">
       <button class="btn btn-outline btn-sm mb-3" @click="goBack">
-        ← Назад к таблицам
+        {{ $t('grammar.backToList') }}
       </button>
 
       <div class="table-card">
-        <h2>{{ selectedTable.icon }} {{ selectedTable.title }}</h2>
-        <p class="table-description">{{ selectedTable.description }}</p>
+        <h2>{{ selectedTable.icon }} {{ $t('grammar.table.' + selectedTable.id + '.title') }}</h2>
+        <p class="table-description">{{ $t('grammar.table.' + selectedTable.id + '.description') }}</p>
 
         <div class="table-container">
           <table class="grammar-table">
             <thead>
               <tr>
-                <th>Термин</th>
+                <th>{{ $t('grammar.table.termColumn') }}</th>
                 <th v-for="header in selectedTable.headers" :key="header">
                   {{ header }}
                 </th>
@@ -583,10 +582,10 @@ function goBack() {
           @click="goToTable(table.id)"
         >
           <div class="table-icon">{{ table.icon }}</div>
-          <h3>{{ table.title }}</h3>
-          <p>{{ table.description }}</p>
+          <h3>{{ table.icon }} {{ $t('grammar.table.' + table.id + '.title') }}</h3>
+          <p>{{ $t('grammar.table.' + table.id + '.description') }}</p>
           <div class="table-meta">
-            <span>{{ table.rows.length }} записей</span>
+            <span>{{ $t('grammar.table.entryCount', { count: table.rows.length }) }}</span>
           </div>
         </div>
       </div>
