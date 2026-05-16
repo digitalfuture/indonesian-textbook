@@ -25,18 +25,21 @@ function toggle() {
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.3rem;
-  border: 1px solid var(--border, #ccc);
+  border: 1px solid var(--border);
   background: transparent;
-  color: var(--text, inherit);
+  color: var(--text);
   cursor: pointer;
   transition: all 0.2s;
   white-space: nowrap;
   font-weight: 600;
   letter-spacing: 0.02em;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
 }
 
 .lang-toggle:hover {
-  border-color: var(--accent, #667eea);
-  color: var(--accent, #667eea);
+  border-color: var(--accent);
+  color: var(--accent);
 }
 </style>

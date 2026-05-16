@@ -51,8 +51,8 @@ function navigate(path: string) {
           @click="emit('toggle-drawer')"
         />
         <div class="logo" @click="navigate('')">
-          <span class="logo-flag">🇮🇩</span>
-          <span class="logo-text">{{ $t('header.logo') }}</span>
+          <span class="logo-flag">{{ langStore.targetLang === 'id' ? '🇮🇩' : '🇷🇺' }}</span>
+          <span class="logo-text">{{ $t('header.logo.' + langStore.targetLang) }}</span>
         </div>
       </template>
 

@@ -7,7 +7,8 @@
   "nav.progress": "Прогресс",
 
   "header.menu": "Меню",
-  "header.logo": "Индонезийский за 16 уроков",
+  "header.logo.id": "Индонезийский за 16 уроков",
+"header.logo.ru": "Русский за 16 уроков",
 
   "sidebar.title": "Индонезийский учебник",
 
