@@ -11,7 +11,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Selamat pagi!", translation: "Доброе утро!" },
       { sentence: "Selamat datang", translation: "Добро пожаловать" },
     ], // selamat jalan
-    relatedWords: [33],
     lessonIds: [1],
   },
 
@@ -41,7 +40,6 @@ export const vocabulary: DictionaryWord[] = [
         translation: "Спасибо за помощь",
       },
     ], // terima
-    relatedWords: [40],
     lessonIds: [1, 16],
   },
 
@@ -458,7 +456,6 @@ export const vocabulary: DictionaryWord[] = [
         translation: "Счастливого пути, береги себя!",
       },
     ],
-    relatedWords: [1, 54, 282, 476],
     lessonIds: [1, 16],
   },
 
@@ -503,7 +500,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Senang bertemu Anda", translation: "Рад встрече с Вами" },
       { sentence: "Saya senang sekali", translation: "Я очень рад" },
     ],
-    relatedWords: [321],
     lessonIds: [1, 13, 16],
   },
 
@@ -559,7 +555,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Terima undangan", translation: "Принять приглашение" },
       { sentence: "Saya terima", translation: "Я принимаю" },
     ],
-    relatedWords: [3],
     lessonIds: [1],
   },
 
@@ -573,7 +568,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya makan nasi", translation: "Я ем рис" },
       { sentence: "Mau makan?", translation: "Хочешь есть?" },
     ], // makanan, makan siang, makan malam
-    relatedWords: [205, 227, 228],
+    relatedWords: [205],
     lessonIds: [3, 12],
   },
 
@@ -745,7 +740,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Mari jalan-jalan", translation: "Давай погуляем" },
       { sentence: "Saya suka jalan-jalan", translation: "Я люблю гулять" },
     ],
-    relatedWords: [33, 282, 476],
+    relatedWords: [282, 476],
     lessonIds: [3, 14],
   },
 
@@ -838,7 +833,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Rumah saya besar", translation: "Мой дом большой" },
       { sentence: "Di rumah", translation: "Дома" },
     ],
-    relatedWords: [286, 360],
     lessonIds: [6, 14],
   },
 
@@ -904,7 +898,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Selamat malam", translation: "Доброй ночи" },
       { sentence: "Malam ini", translation: "Сегодня вечером" },
     ],
-    relatedWords: [228],
     lessonIds: [1, 8],
   },
 
@@ -918,7 +911,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Selamat siang", translation: "Добрый день" },
       { sentence: "Makan siang", translation: "Обед" },
     ],
-    relatedWords: [227],
     lessonIds: [1, 8],
   },
 
@@ -1314,7 +1306,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Simpan buku ini", translation: "Сохрани эту книгу" },
       { sentence: "Simpan uang", translation: "Хранить деньги" },
     ],
-    relatedWords: [433],
     lessonIds: [3],
   },
 
@@ -2767,7 +2758,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Makanan enak", translation: "Вкусная еда" },
       { sentence: "Makanan Indonesia", translation: "Индонезийская еда" },
     ],
-    relatedWords: [41, 227, 228],
+    relatedWords: [41],
     lessonIds: [13],
   },
 
@@ -3057,7 +3048,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Makan siang bersama", translation: "Обед вместе" },
       { sentence: "Waktu makan siang", translation: "Время обеда" },
     ],
-    relatedWords: [41, 67, 205, 228],
     lessonIds: [8, 15],
   },
 
@@ -3071,7 +3061,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Makan malam romantis", translation: "Романтический ужин" },
       { sentence: "Sudah makan malam?", translation: "Уже поужинал?" },
     ],
-    relatedWords: [41, 66, 205, 227],
     lessonIds: [8, 15],
   },
 
@@ -3244,7 +3233,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Hari ini", translation: "Сегодня" },
       { sentence: "Hari Senin", translation: "Понедельник" },
     ],
-    relatedWords: [246, 247, 248, 249, 250, 251, 252],
     lessonIds: [8],
   },
 
@@ -3271,7 +3259,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Bulan depan", translation: "В следующем месяце" },
       { sentence: "Bulan ini", translation: "В этом месяце" },
     ],
-    relatedWords: [277],
     lessonIds: [8],
   },
 
@@ -3311,7 +3298,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Hari Senin pertama", translation: "Первый понедельник" },
       { sentence: "Besok hari Senin", translation: "Завтра понедельник" },
     ],
-    relatedWords: [241, 247, 248, 249, 250, 251, 252],
     lessonIds: [8],
   },
 
@@ -3325,7 +3311,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Hari Selasa kerja", translation: "Во вторник работаю" },
       { sentence: "Selasa lalu", translation: "Во вторник прошлый" },
     ],
-    relatedWords: [241, 246, 248, 249, 250, 251, 252],
     lessonIds: [8],
   },
 
@@ -3339,7 +3324,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Hari Rabu rapat", translation: "В среду собрание" },
       { sentence: "Rabu depan", translation: "В следующую среду" },
     ],
-    relatedWords: [241, 246, 247, 249, 250, 251, 252],
     lessonIds: [8],
   },
 
@@ -3353,7 +3337,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Hari Kamis libur", translation: "В четверг выходной" },
       { sentence: "Kamis malam", translation: "Вечером в четверг" },
     ],
-    relatedWords: [241, 246, 247, 248, 250, 251, 252],
     lessonIds: [8],
   },
 
@@ -3367,7 +3350,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Hari Jumat sholat", translation: "В пятницу молитва" },
       { sentence: "Jumat berkah", translation: "Благословенная пятница" },
     ],
-    relatedWords: [241, 246, 247, 248, 249, 251, 252],
     lessonIds: [8],
   },
 
@@ -3381,7 +3363,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Hari Sabtu jalan-jalan", translation: "В субботу гулять" },
       { sentence: "Sabtu dan Minggu", translation: "Суббота и воскресенье" },
     ],
-    relatedWords: [241, 246, 247, 248, 249, 250, 252],
     lessonIds: [8],
   },
 
@@ -3398,7 +3379,6 @@ export const vocabulary: DictionaryWord[] = [
       },
       { sentence: "Akhir minggu", translation: "Выходные" },
     ],
-    relatedWords: [241, 246, 247, 248, 249, 250, 251],
     lessonIds: [8],
   },
 
@@ -3532,7 +3512,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Matahari terbit", translation: "Восход солнца" },
       { sentence: "Hari ini panas", translation: "Сегодня жарко" },
     ],
-    relatedWords: [502],
     lessonIds: [8],
   },
 
@@ -3728,7 +3707,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Bulan purnama", translation: "Полнолуние" },
       { sentence: "Cahaya bulan", translation: "Лунный свет" },
     ],
-    relatedWords: [243],
     lessonIds: [8, 14],
   },
 
@@ -3768,7 +3746,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Gempa bumi besar", translation: "Большое землетрясение" },
       { sentence: "Ada gempa", translation: "Было землетрясение" },
     ],
-    relatedWords: [485],
     lessonIds: [14],
   },
 
@@ -3795,7 +3772,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Jalan raya", translation: "Шоссе" },
       { sentence: "Jalan kaki", translation: "Идти пешком" },
     ],
-    relatedWords: [33, 54, 476],
+    relatedWords: [54, 476],
     lessonIds: [14],
   },
 
@@ -3848,7 +3825,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Ke rumah sakit", translation: "В больницу" },
       { sentence: "Di rumah sakit", translation: "В больнице" },
     ],
-    relatedWords: [61, 325, 360],
     lessonIds: [14],
   },
 
@@ -4314,7 +4290,6 @@ export const vocabulary: DictionaryWord[] = [
         translation: "Рад встрече с тобой",
       },
     ],
-    relatedWords: [36],
     lessonIds: [13, 16],
   },
 
@@ -4367,7 +4342,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya sakit", translation: "Я болен" },
       { sentence: "Sakit kepala", translation: "Головная боль" },
     ],
-    relatedWords: [286],
     lessonIds: [15],
   },
 
@@ -4602,7 +4576,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Kakak saya", translation: "Мой/моя старший/ая брат/сестра" },
       { sentence: "Kakak perempuan", translation: "Старшая сестра" },
     ],
-    relatedWords: [356, 357],
     lessonIds: [6],
   },
 
@@ -4629,7 +4602,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Anak saya", translation: "Мой ребёнок" },
       { sentence: "Anak sekolah", translation: "Школьник" },
     ],
-    relatedWords: [358, 359],
     lessonIds: [6],
   },
 
@@ -4773,7 +4745,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Kakak laki-laki saya", translation: "Мой старший брат" },
       { sentence: "Dia kakak laki-laki", translation: "Он старший брат" },
     ],
-    relatedWords: [343, 357],
     lessonIds: [6],
   },
 
@@ -4787,7 +4758,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Kakak perempuan saya", translation: "Моя старшая сестра" },
       { sentence: "Dua kakak perempuan", translation: "Две старшие сестры" },
     ],
-    relatedWords: [343, 356],
     lessonIds: [6],
   },
 
@@ -4801,7 +4771,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Anak laki-laki saya", translation: "Мой сын" },
       { sentence: "Dua anak laki-laki", translation: "Два сына" },
     ],
-    relatedWords: [345, 359],
     lessonIds: [6],
   },
 
@@ -4815,7 +4784,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Anak perempuan saya", translation: "Моя дочь" },
       { sentence: "Cantik anak perempuan", translation: "Красивая дочь" },
     ],
-    relatedWords: [345, 358],
     lessonIds: [6],
   },
 
@@ -4829,7 +4797,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Ibu rumah tangga", translation: "Домохозяйка" },
       { sentence: "Kehidupan rumah tangga", translation: "Семейная жизнь" },
     ],
-    relatedWords: [61, 286],
     lessonIds: [6],
   },
 
@@ -5780,7 +5747,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Simpan buku ini", translation: "Убери эту книгу" },
       { sentence: "Simpan rapi", translation: "Хранить аккуратно" },
     ],
-    relatedWords: [97],
     lessonIds: [10],
   },
 
@@ -6307,7 +6273,7 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Perjalanan jauh", translation: "Далёкая поездка" },
       { sentence: "Selamat perjalanan", translation: "Счастливого пути" },
     ],
-    relatedWords: [33, 54, 282],
+    relatedWords: [54, 282],
     lessonIds: [14],
   },
 
@@ -6425,7 +6391,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Gempa bumi", translation: "Землетрясение" },
       { sentence: "Ada gempa", translation: "Было землетрясение" },
     ],
-    relatedWords: [280],
     lessonIds: [13],
   },
 
@@ -6504,7 +6469,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Musim hujan", translation: "Сезон дождей" },
       { sentence: "Musim kemarau", translation: "Сухой сезон" },
     ],
-    relatedWords: [492, 493, 494, 495],
     lessonIds: [13],
   },
 
@@ -6518,7 +6482,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Musim panas lalu", translation: "Прошлым летом" },
       { sentence: "Liburan musim panas", translation: "Летние каникулы" },
     ],
-    relatedWords: [491, 493, 494, 495],
     lessonIds: [13],
   },
 
@@ -6532,7 +6495,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Musim dingin salju", translation: "Зимой снег" },
       { sentence: "Jaket musim dingin", translation: "Зимняя куртка" },
     ],
-    relatedWords: [491, 492, 494, 495],
     lessonIds: [13],
   },
 
@@ -6546,7 +6508,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Bunga di musim semi", translation: "Цветы весной" },
       { sentence: "Musim semi tiba", translation: "Весна пришла" },
     ],
-    relatedWords: [491, 492, 493, 495],
     lessonIds: [13],
   },
 
@@ -6560,7 +6521,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Daun gugur", translation: "Опавшие листья" },
       { sentence: "Musim gugur indah", translation: "Осень красива" },
     ],
-    relatedWords: [491, 492, 493, 494],
     lessonIds: [13],
   },
 
@@ -6658,7 +6618,6 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Mata coklat", translation: "Карие глаза" },
       { sentence: "Tutup mata", translation: "Закрыть глаза" },
     ],
-    relatedWords: [262],
     lessonIds: [13],
   },
 
