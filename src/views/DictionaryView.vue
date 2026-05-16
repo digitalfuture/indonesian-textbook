@@ -170,6 +170,9 @@ const stats = computed(() => ({
         >
           <div class="word-main">
             <h3 class="word-indonesian">{{ word.word }}</h3>
+            <span class="word-pronunciation" v-if="word.pronunciation">{{
+              word.pronunciation
+            }}</span>
             <p class="word-russian">{{ word.translation }}</p>
             <div class="word-meta">
               <span class="word-category">{{
@@ -213,13 +216,14 @@ const stats = computed(() => ({
           </div>
         </div>
 
-        <!-- Разворачиваемый блок с однокоренными словами -->
+        <!-- Разворачиваемый блок -->
         <div v-if="expandedWordId === word.id" class="word-expanded-content">
+          <!-- Однокоренные из словаря -->
           <div
             v-if="word.relatedWords && word.relatedWords.length > 0"
-            class="related-words-section"
+            class="expanded-section"
           >
-            <h4>Однокоренные слова:</h4>
+            <h4>Однокоренные в словаре:</h4>
             <div class="related-words-list">
               <div
                 v-for="related in getRelatedWords(word)"
@@ -234,8 +238,23 @@ const stats = computed(() => ({
               </div>
             </div>
           </div>
-          <div v-else class="no-related">
-            <p>Для этого слова пока не добавлены однокоренные слова.</p>
+
+          <!-- Внешние однокоренные -->
+          <div
+            v-if="word.wordFamily && word.wordFamily.length > 0"
+            class="expanded-section family-section"
+          >
+            <h4>Также однокоренные:</h4>
+            <div class="family-list">
+              <div
+                v-for="fw in word.wordFamily"
+                :key="fw.word"
+                class="family-item"
+              >
+                <span class="family-word">{{ fw.word }}</span>
+                <span class="family-translation">— {{ fw.translation }}</span>
+              </div>
+            </div>
           </div>
 
           <div
@@ -413,7 +432,7 @@ const stats = computed(() => ({
   }
 }
 
-.related-words-section h4,
+.expanded-section h4,
 .quick-examples h4 {
   font-size: 0.9rem;
   color: var(--text-h);
@@ -460,6 +479,35 @@ const stats = computed(() => ({
   border-radius: 1rem;
 }
 
+.family-section {
+  margin-top: 0.5rem;
+}
+
+.family-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.family-item {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  padding: 0.15rem 0.5rem;
+}
+
+.family-word {
+  font-weight: 600;
+  color: var(--accent);
+  opacity: 0.85;
+}
+
+.family-translation {
+  color: var(--text);
+  opacity: 0.7;
+}
+
 .quick-example {
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
@@ -489,6 +537,15 @@ const stats = computed(() => ({
   font-size: 0.95rem;
   color: var(--text);
   margin-bottom: 0.25rem;
+}
+
+.word-pronunciation {
+  font-size: 0.85rem;
+  color: var(--text);
+  opacity: 0.45;
+  display: block;
+  margin-bottom: 0.25rem;
+  font-style: italic;
 }
 
 .word-meta {

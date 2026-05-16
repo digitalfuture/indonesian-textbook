@@ -4,6 +4,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 1,
     word: "selamat",
+    pronunciation: "/səlamat/",
     translation: "здравствуйте, привет (букв. 'безопасный')",
     category: "interjection",
     frequency: 1,
@@ -17,6 +18,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 2,
     word: "pagi",
+    pronunciation: "/paɡi/",
     translation: "утро",
     category: "noun",
     frequency: 2,
@@ -30,6 +32,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 3,
     word: "terima kasih",
+    pronunciation: "/tərima kasih/",
     translation: "спасибо",
     category: "interjection",
     frequency: 3,
@@ -46,6 +49,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 4,
     word: "sama-sama",
+    pronunciation: "/sama sama/",
     translation: "пожалуйста (в ответ на спасибо)",
     category: "interjection",
     frequency: 4,
@@ -59,13 +63,21 @@ export const vocabulary: DictionaryWord[] = [
         translation: "Пожалуйста, рад помочь",
       },
     ], // sama
-    relatedWords: [134, 145],
+    wordFamily: [
+      { word: "sama-sama", translation: "пожалуйста (в ответ); вместе" },
+      { word: "bersama", translation: "вместе, совместно" },
+      { word: "menyamai", translation: "равняться, достигать" },
+      { word: "menyamakan", translation: "уравнивать, сравнивать" },
+      { word: "persamaan", translation: "равенство, уравнение" },
+      { word: "sesama", translation: "такой же, подобный" },
+    ],
     lessonIds: [1, 16],
   },
 
 {
     id: 5,
     word: "maaf",
+    pronunciation: "/maʔaf/",
     translation: "извините, простите",
     category: "interjection",
     frequency: 5,
@@ -79,6 +91,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 6,
     word: "tolong",
+    pronunciation: "/toloŋ/",
     translation: "пожалуйста (просьба), помогите",
     category: "interjection",
     frequency: 6,
@@ -95,6 +108,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 7,
     word: "sampai jumpa",
+    pronunciation: "/sampai dʒumpa/",
     translation: "до свидания",
     category: "interjection",
     frequency: 7,
@@ -108,6 +122,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 8,
     word: "ya",
+    pronunciation: "/ja/",
     translation: "да",
     category: "adverb",
     frequency: 8,
@@ -121,6 +136,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 9,
     word: "tidak",
+    pronunciation: "/tidaʔ/",
     translation: "нет, не",
     category: "adverb",
     frequency: 9,
@@ -134,6 +150,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 10,
     word: "apa",
+    pronunciation: "/apa/",
     translation: "что, вопросительная частица",
     category: "adverb",
     frequency: 10,
@@ -141,13 +158,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Apa ini?", translation: "Что это?" },
       { sentence: "Apa kabar?", translation: "Как дела?" },
     ],
-    relatedWords: [110],
     lessonIds: [1, 4],
   },
 
 {
     id: 11,
     word: "siapa",
+    pronunciation: "/siapa/",
     translation: "кто",
     category: "adverb",
     frequency: 11,
@@ -155,13 +172,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Siapa nama kamu?", translation: "Как тебя зовут?" },
       { sentence: "Siapa dia?", translation: "Кто он/она?" },
     ], // siapa-siapa
-    relatedWords: [111],
     lessonIds: [1, 4],
   },
 
 {
     id: 12,
     word: "nama",
+    pronunciation: "/nama/",
     translation: "имя",
     category: "noun",
     frequency: 12,
@@ -175,6 +192,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 13,
     word: "kabar",
+    pronunciation: "/kabar/",
     translation: "новости, дела",
     category: "noun",
     frequency: 13,
@@ -188,6 +206,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 14,
     word: "baik",
+    pronunciation: "/baiʔ/",
     translation: "хороший, хорошо",
     category: "adjective",
     frequency: 14,
@@ -201,6 +220,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 15,
     word: "dari",
+    pronunciation: "/dari/",
     translation: "из, от",
     category: "preposition",
     frequency: 15,
@@ -214,6 +234,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 16,
     word: "saya",
+    pronunciation: "/saja/",
     translation: "я (официально)",
     category: "pronoun",
     frequency: 16,
@@ -227,6 +248,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 17,
     word: "kamu",
+    pronunciation: "/kamu/",
     translation: "ты (неформально)",
     category: "pronoun",
     frequency: 17,
@@ -240,6 +262,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 18,
     word: "dia",
+    pronunciation: "/dia/",
     translation: "он, она",
     category: "pronoun",
     frequency: 18,
@@ -253,6 +276,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 19,
     word: "kita",
+    pronunciation: "/kita/",
     translation: "мы (включая собеседника)",
     category: "pronoun",
     frequency: 19,
@@ -266,6 +290,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 20,
     word: "mereka",
+    pronunciation: "/mereka/",
     translation: "они",
     category: "pronoun",
     frequency: 20,
@@ -279,6 +304,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 21,
     word: "kami",
+    pronunciation: "/kami/",
     translation: "мы (без собеседника)",
     category: "pronoun",
     frequency: 21,
@@ -292,6 +318,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 22,
     word: "Anda",
+    pronunciation: "/Anda/",
     translation: "Вы (официально)",
     category: "pronoun",
     frequency: 22,
@@ -305,6 +332,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 23,
     word: "aku",
+    pronunciation: "/aku/",
     translation: "я (неформально)",
     category: "pronoun",
     frequency: 23,
@@ -318,6 +346,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 24,
     word: "ini",
+    pronunciation: "/ini/",
     translation: "это, этот, эта",
     category: "adverb",
     frequency: 24,
@@ -331,6 +360,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 25,
     word: "itu",
+    pronunciation: "/itu/",
     translation: "то, тот, та",
     category: "adverb",
     frequency: 25,
@@ -344,6 +374,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 26,
     word: "beliau",
+    pronunciation: "/bəliau/",
     translation: "он/она (уважительно)",
     category: "pronoun",
     frequency: 26,
@@ -360,6 +391,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 27,
     word: "engkau",
+    pronunciation: "/əŋkau/",
     translation: "ты (поэтично/архаично)",
     category: "pronoun",
     frequency: 27,
@@ -373,6 +405,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 28,
     word: "kenalan",
+    pronunciation: "/kenalan/",
     translation: "знакомиться, знакомство",
     category: "verb",
     frequency: 28,
@@ -383,13 +416,23 @@ export const vocabulary: DictionaryWord[] = [
       },
       { sentence: "Mari berkenalan", translation: "Давайте познакомимся" },
     ],
-    relatedWords: [34, 35],
+    wordFamily: [
+      { word: "kenalan", translation: "знакомый, знакомство" },
+      { word: "berkenalan", translation: "знакомиться" },
+      { word: "mengenal", translation: "знать, узнавать" },
+      { word: "dikenal", translation: "быть узнанным" },
+      { word: "perkenalan", translation: "представление, знакомство" },
+      { word: "terkenal", translation: "известный, знаменитый" },
+      { word: "mengenali", translation: "опознавать, узнавать" },
+      { word: "kenali", translation: "узнай, распознай" },
+    ],
     lessonIds: [1, 16],
   },
 
 {
     id: 29,
     word: "tinggal",
+    pronunciation: "/tiŋɡal/",
     translation: "жить, проживать",
     category: "verb",
     frequency: 29,
@@ -403,6 +446,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 30,
     word: "asal",
+    pronunciation: "/asal/",
     translation: "происхождение, родом",
     category: "noun",
     frequency: 30,
@@ -416,6 +460,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 31,
     word: "kenapa",
+    pronunciation: "/kənapa/",
     translation: "почему, зачем",
     category: "adverb",
     frequency: 31,
@@ -429,6 +474,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 32,
     word: "bagaimana",
+    pronunciation: "/baɡaimana/",
     translation: "как, каким образом",
     category: "adverb",
     frequency: 32,
@@ -436,13 +482,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Bagaimana kabarmu?", translation: "Как твои дела?" },
       { sentence: "Bagaimana caranya?", translation: "Как это сделать?" },
     ],
-    relatedWords: [120],
     lessonIds: [4],
   },
 
 {
     id: 33,
     word: "selamat jalan",
+    pronunciation: "/səlamat dʒalan/",
     translation: "счастливого пути",
     category: "interjection",
     frequency: 33,
@@ -456,12 +502,22 @@ export const vocabulary: DictionaryWord[] = [
         translation: "Счастливого пути, береги себя!",
       },
     ],
+    wordFamily: [
+      { word: "berjalan", translation: "идти, ходить" },
+      { word: "menjalan", translation: "проходить, выполняться" },
+      { word: "menjalankan", translation: "выполнять, запускать" },
+      { word: "perjalanan", translation: "путешествие, поездка" },
+      { word: "pejalan", translation: "пешеход" },
+      { word: "sejalan", translation: "по пути, согласованно" },
+      { word: "jalan-jalan", translation: "гулять, прогуливаться" },
+    ],
     lessonIds: [1, 16],
   },
 
 {
     id: 34,
     word: "perkenalan",
+    pronunciation: "/perkenalan/",
     translation: "представление, знакомство",
     category: "noun",
     frequency: 34,
@@ -472,13 +528,23 @@ export const vocabulary: DictionaryWord[] = [
       },
       { sentence: "Perkenalan pertama", translation: "Первое знакомство" },
     ],
-    relatedWords: [28, 35],
+    wordFamily: [
+      { word: "kenalan", translation: "знакомый, знакомство" },
+      { word: "berkenalan", translation: "знакомиться" },
+      { word: "mengenal", translation: "знать, узнавать" },
+      { word: "dikenal", translation: "быть узнанным" },
+      { word: "perkenalan", translation: "представление, знакомство" },
+      { word: "terkenal", translation: "известный, знаменитый" },
+      { word: "mengenali", translation: "опознавать, узнавать" },
+      { word: "kenali", translation: "узнай, распознай" },
+    ],
     lessonIds: [1],
   },
 
 {
     id: 35,
     word: "berkenalan",
+    pronunciation: "/berkenalan/",
     translation: "знакомиться друг с другом",
     category: "verb",
     frequency: 35,
@@ -486,13 +552,23 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Mereka sedang berkenalan", translation: "Они знакомятся" },
       { sentence: "Senang berkenalan", translation: "Приятно познакомиться" },
     ],
-    relatedWords: [28, 34],
+    wordFamily: [
+      { word: "kenalan", translation: "знакомый, знакомство" },
+      { word: "berkenalan", translation: "знакомиться" },
+      { word: "mengenal", translation: "знать, узнавать" },
+      { word: "dikenal", translation: "быть узнанным" },
+      { word: "perkenalan", translation: "представление, знакомство" },
+      { word: "terkenal", translation: "известный, знаменитый" },
+      { word: "mengenali", translation: "опознавать, узнавать" },
+      { word: "kenali", translation: "узнай, распознай" },
+    ],
     lessonIds: [1, 16],
   },
 
 {
     id: 36,
     word: "senang",
+    pronunciation: "/senaŋ/",
     translation: "рад, приятно",
     category: "adjective",
     frequency: 36,
@@ -506,6 +582,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 37,
     word: "bertemu",
+    pronunciation: "/bərtəmu/",
     translation: "встречать, встречаться",
     category: "verb",
     frequency: 37,
@@ -522,6 +599,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 38,
     word: "berkenan",
+    pronunciation: "/bərkənan/",
     translation: "соблаговолить, быть любезным",
     category: "verb",
     frequency: 38,
@@ -535,6 +613,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 39,
     word: "silakan",
+    pronunciation: "/silakan/",
     translation: "пожалуйста (приглашение)",
     category: "interjection",
     frequency: 39,
@@ -548,6 +627,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 40,
     word: "terima",
+    pronunciation: "/terima/",
     translation: "принимать, получать",
     category: "verb",
     frequency: 40,
@@ -561,6 +641,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 41,
     word: "makan",
+    pronunciation: "/makan/",
     translation: "есть, кушать",
     category: "verb",
     frequency: 41,
@@ -568,13 +649,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya makan nasi", translation: "Я ем рис" },
       { sentence: "Mau makan?", translation: "Хочешь есть?" },
     ], // makanan, makan siang, makan malam
-    relatedWords: [205],
+    wordFamily: [
+      { word: "memakan", translation: "съедать, есть" },
+      { word: "dimakan", translation: "быть съеденным" },
+      { word: "makanan", translation: "еда, пища" },
+      { word: "pemakan", translation: "едок, пожиратель" },
+      { word: "termakan", translation: "быть случайно съеденным" },
+      { word: "makan-makan", translation: "застолье, пирушка" },
+    ],
     lessonIds: [3, 12],
   },
 
 {
     id: 42,
     word: "minum",
+    pronunciation: "/minum/",
     translation: "пить",
     category: "verb",
     frequency: 42,
@@ -582,13 +671,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya minum air", translation: "Я пью воду" },
       { sentence: "Mau minum?", translation: "Хочешь пить?" },
     ],
-    relatedWords: [504],
+    wordFamily: [
+      { word: "meminum", translation: "пить, выпивать" },
+      { word: "diminum", translation: "быть выпитым" },
+      { word: "minuman", translation: "напиток" },
+      { word: "peminum", translation: "пьяница, любитель выпить" },
+      { word: "terminum", translation: "быть случайно выпитым" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 43,
     word: "pergi",
+    pronunciation: "/perɡi/",
     translation: "идти, уходить",
     category: "verb",
     frequency: 43,
@@ -602,6 +698,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 44,
     word: "datang",
+    pronunciation: "/dataŋ/",
     translation: "приходить, приезжать",
     category: "verb",
     frequency: 44,
@@ -615,6 +712,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 45,
     word: "lihat",
+    pronunciation: "/lihat/",
     translation: "видеть, смотреть",
     category: "verb",
     frequency: 45,
@@ -622,12 +720,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya lihat rumah", translation: "Я вижу дом" },
       { sentence: "Lihat itu!", translation: "Смотри туда!" },
     ],
+    wordFamily: [
+      { word: "melihat", translation: "видеть, смотреть" },
+      { word: "dilihat", translation: "быть увиденным" },
+      { word: "terlihat", translation: "видимый, заметный" },
+      { word: "penglihatan", translation: "зрение, взгляд" },
+      { word: "pelihat", translation: "ясновидящий, провидец" },
+    ],
     lessonIds: [3, 15],
   },
 
 {
     id: 46,
     word: "pegang",
+    pronunciation: "/pəɡaŋ/",
     translation: "держать, трогать",
     category: "verb",
     frequency: 46,
@@ -641,6 +747,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 47,
     word: "lempar",
+    pronunciation: "/lempar/",
     translation: "бросать, кидать",
     category: "verb",
     frequency: 47,
@@ -654,6 +761,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 48,
     word: "pukul",
+    pronunciation: "/pukul/",
     translation: "бить, ударять",
     category: "verb",
     frequency: 48,
@@ -667,6 +775,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 49,
     word: "taruh",
+    pronunciation: "/taruh/",
     translation: "класть, ставить",
     category: "verb",
     frequency: 49,
@@ -680,6 +789,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 50,
     word: "coba",
+    pronunciation: "/tʃoba/",
     translation: "пробовать, пытаться",
     category: "verb",
     frequency: 50,
@@ -693,6 +803,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 51,
     word: "nyanyi",
+    pronunciation: "/ɲaɲi/",
     translation: "петь",
     category: "verb",
     frequency: 51,
@@ -700,12 +811,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Dia suka menyanyi", translation: "Он любит петь" },
       { sentence: "Nyanyi lagu", translation: "Петь песню" },
     ],
+    wordFamily: [
+      { word: "menyanyi", translation: "петь" },
+      { word: "dinyanyi", translation: "быть спетым" },
+      { word: "nyanyian", translation: "песня, пение" },
+      { word: "penyanyi", translation: "певец, певица" },
+      { word: "penyanyian", translation: "пение" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 52,
     word: "main",
+    pronunciation: "/main/",
     translation: "играть",
     category: "verb",
     frequency: 52,
@@ -713,12 +832,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Anak-anak main bola", translation: "Дети играют в мяч" },
       { sentence: "Mau main?", translation: "Хочешь поиграть?" },
     ],
+    wordFamily: [
+      { word: "bermain", translation: "играть" },
+      { word: "memainkan", translation: "играть (в/на), исполнять" },
+      { word: "dimainkan", translation: "исполняться, разыгрываться" },
+      { word: "mainan", translation: "игрушка" },
+      { word: "pemain", translation: "игрок, исполнитель" },
+      { word: "permainan", translation: "игра" },
+    ],
     lessonIds: [3, 12],
   },
 
 {
     id: 53,
     word: "lari",
+    pronunciation: "/lari/",
     translation: "бежать, убегать",
     category: "verb",
     frequency: 53,
@@ -726,13 +854,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Dia lari cepat", translation: "Он бежит быстро" },
       { sentence: "Jangan lari!", translation: "Не беги!" },
     ],
-    relatedWords: [91],
+    wordFamily: [
+      { word: "berlari", translation: "бежать, бегать" },
+      { word: "pelari", translation: "бегун" },
+      { word: "larian", translation: "побег, бегство" },
+      { word: "melarikan", translation: "убегать, сбегать" },
+      { word: "larikan", translation: "украсть, увести" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 54,
     word: "jalan-jalan",
+    pronunciation: "/dʒalan-dʒalan/",
     translation: "гулять, прогуливаться",
     category: "verb",
     frequency: 54,
@@ -740,13 +875,22 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Mari jalan-jalan", translation: "Давай погуляем" },
       { sentence: "Saya suka jalan-jalan", translation: "Я люблю гулять" },
     ],
-    relatedWords: [282, 476],
+    wordFamily: [
+      { word: "berjalan", translation: "идти, ходить" },
+      { word: "menjalan", translation: "проходить, выполняться" },
+      { word: "menjalankan", translation: "выполнять, запускать" },
+      { word: "perjalanan", translation: "путешествие, поездка" },
+      { word: "pejalan", translation: "пешеход" },
+      { word: "sejalan", translation: "по пути, согласованно" },
+      { word: "jalan-jalan", translation: "гулять, прогуливаться" },
+    ],
     lessonIds: [3, 14],
   },
 
 {
     id: 55,
     word: "pikir",
+    pronunciation: "/pikir/",
     translation: "думать",
     category: "verb",
     frequency: 55,
@@ -754,12 +898,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya pikir begitu", translation: "Я так думаю" },
       { sentence: "Pikir dulu", translation: "Подумай сначала" },
     ],
+    wordFamily: [
+      { word: "berpikir", translation: "думать, мыслить" },
+      { word: "memikirkan", translation: "думать о, обдумывать" },
+      { word: "dipikirkan", translation: "быть обдуманным" },
+      { word: "pikiran", translation: "мысль, размышление" },
+      { word: "pemikir", translation: "мыслитель" },
+      { word: "pemikiran", translation: "мышление, идея" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 56,
     word: "ingat",
+    pronunciation: "/iŋat/",
     translation: "помнить, вспоминать",
     category: "verb",
     frequency: 56,
@@ -767,12 +920,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya ingat kamu", translation: "Я помню тебя" },
       { sentence: "Ingat tidak?", translation: "Помнишь или нет?" },
     ],
+    wordFamily: [
+      { word: "mengingat", translation: "помнить, запоминать" },
+      { word: "diingat", translation: "быть запомненным" },
+      { word: "teringat", translation: "вспомнить (нечаянно)" },
+      { word: "ingatan", translation: "память, воспоминание" },
+      { word: "peringatan", translation: "напоминание, предупреждение" },
+      { word: "mengingatkan", translation: "напоминать" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 57,
     word: "lupa",
+    pronunciation: "/lupa/",
     translation: "забывать",
     category: "verb",
     frequency: 57,
@@ -780,12 +942,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya lupa", translation: "Я забыл" },
       { sentence: "Jangan lupa!", translation: "Не забудь!" },
     ],
+    wordFamily: [
+      { word: "melupakan", translation: "забывать, забыть" },
+      { word: "dilupakan", translation: "быть забытым" },
+      { word: "terlupa", translation: "забытый, упущенный" },
+      { word: "lupaan", translation: "забывчивый человек" },
+      { word: "kelupaan", translation: "забыть (случайно)" },
+    ],
     lessonIds: [3, 5],
   },
 
 {
     id: 58,
     word: "kirim",
+    pronunciation: "/kirim/",
     translation: "посылать, отправлять",
     category: "verb",
     frequency: 58,
@@ -793,12 +963,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Kirim surat", translation: "Отправить письмо" },
       { sentence: "Saya kirim pesan", translation: "Я отправляю сообщение" },
     ],
+    wordFamily: [
+      { word: "mengirim", translation: "отправлять, посылать" },
+      { word: "dikirim", translation: "быть отправленным" },
+      { word: "kiriman", translation: "посылка, отправление" },
+      { word: "pengirim", translation: "отправитель" },
+      { word: "pengiriman", translation: "отправка, доставка" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 59,
     word: "terbang",
+    pronunciation: "/tərbaŋ/",
     translation: "летать, лететь",
     category: "verb",
     frequency: 59,
@@ -812,6 +990,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 60,
     word: "ajar",
+    pronunciation: "/adʒar/",
     translation: "учить, обучать",
     category: "verb",
     frequency: 60,
@@ -819,13 +998,23 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Guru mengajar", translation: "Учитель учит" },
       { sentence: "Ajar saya", translation: "Научи меня" },
     ],
-    relatedWords: [424],
+    wordFamily: [
+      { word: "mengajar", translation: "учить, преподавать" },
+      { word: "diajar", translation: "быть обученным" },
+      { word: "belajar", translation: "учиться, изучать" },
+      { word: "pelajar", translation: "ученик, учащийся" },
+      { word: "pengajar", translation: "преподаватель, учитель" },
+      { word: "ajaran", translation: "учение, доктрина" },
+      { word: "pengajaran", translation: "обучение, преподавание" },
+      { word: "pelajaran", translation: "урок, предмет" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 61,
     word: "rumah",
+    pronunciation: "/rumah/",
     translation: "дом",
     category: "noun",
     frequency: 61,
@@ -833,12 +1022,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Rumah saya besar", translation: "Мой дом большой" },
       { sentence: "Di rumah", translation: "Дома" },
     ],
+    wordFamily: [
+      { word: "rumah sakit", translation: "больница" },
+      { word: "rumah tangga", translation: "домашнее хозяйство" },
+      { word: "berumah", translation: "иметь дом, жить" },
+      { word: "perumahan", translation: "жильё, жилой комплекс" },
+      { word: "serumah", translation: "в одном доме, совместно" },
+    ],
     lessonIds: [6, 14],
   },
 
 {
     id: 62,
     word: "buku",
+    pronunciation: "/buku/",
     translation: "книга",
     category: "noun",
     frequency: 62,
@@ -852,6 +1049,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 63,
     word: "mobil",
+    pronunciation: "/mobil/",
     translation: "машина, автомобиль",
     category: "noun",
     frequency: 63,
@@ -865,6 +1063,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 64,
     word: "orang",
+    pronunciation: "/oraŋ/",
     translation: "человек, люди",
     category: "noun",
     frequency: 64,
@@ -878,6 +1077,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 65,
     word: "teman",
+    pronunciation: "/teman/",
     translation: "друг, товарищ",
     category: "noun",
     frequency: 65,
@@ -891,6 +1091,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 66,
     word: "malam",
+    pronunciation: "/malam/",
     translation: "ночь, вечер",
     category: "noun",
     frequency: 66,
@@ -898,12 +1099,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Selamat malam", translation: "Доброй ночи" },
       { sentence: "Malam ini", translation: "Сегодня вечером" },
     ],
+    wordFamily: [
+      { word: "makan malam", translation: "ужин" },
+      { word: "bermalam", translation: "ночевать" },
+      { word: "semalam", translation: "прошлой ночью; всю ночь" },
+      { word: "malam-malam", translation: "поздно вечером" },
+      { word: "kemalaman", translation: "слишком поздно (ночью)" },
+    ],
     lessonIds: [1, 8],
   },
 
 {
     id: 67,
     word: "siang",
+    pronunciation: "/siaŋ/",
     translation: "день (время суток)",
     category: "noun",
     frequency: 67,
@@ -911,12 +1120,19 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Selamat siang", translation: "Добрый день" },
       { sentence: "Makan siang", translation: "Обед" },
     ],
+    wordFamily: [
+      { word: "makan siang", translation: "обед" },
+      { word: "siang-siang", translation: "рано, спозаранку" },
+      { word: "sesiang", translation: "в полдень, днём" },
+      { word: "siangan", translation: "чуть позднее утра" },
+    ],
     lessonIds: [1, 8],
   },
 
 {
     id: 68,
     word: "sore",
+    pronunciation: "/sorə/",
     translation: "вечер (до заката)",
     category: "noun",
     frequency: 68,
@@ -930,6 +1146,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 69,
     word: "saya mau",
+    pronunciation: "/saja mau/",
     translation: "я хочу, я собираюсь",
     category: "verb",
     frequency: 69,
@@ -943,6 +1160,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 70,
     word: "ada",
+    pronunciation: "/ada/",
     translation: "есть, имеется, существовать",
     category: "verb",
     frequency: 70,
@@ -956,6 +1174,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 71,
     word: "tiada",
+    pronunciation: "/tiada/",
     translation: "нет, не имеется",
     category: "verb",
     frequency: 71,
@@ -969,6 +1188,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 72,
     word: "membaca",
+    pronunciation: "/məmbatʃa/",
     translation: "читать, прочитать",
     category: "verb",
     frequency: 72,
@@ -976,13 +1196,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya membaca buku", translation: "Я читаю книгу" },
       { sentence: "Dia membaca surat", translation: "Он читает письмо" },
     ],
-    relatedWords: [425],
+    wordFamily: [
+      { word: "membaca", translation: "читать, прочитать" },
+      { word: "dibaca", translation: "быть прочитанным" },
+      { word: "bacaan", translation: "чтение, текст, чтиво" },
+      { word: "pembaca", translation: "читатель" },
+      { word: "terbaca", translation: "читаемый, различимый" },
+      { word: "pembacaan", translation: "прочтение, чтение вслух" },
+    ],
     lessonIds: [3, 10],
   },
 
 {
     id: 73,
     word: "menulis",
+    pronunciation: "/mənulis/",
     translation: "писать, написать",
     category: "verb",
     frequency: 73,
@@ -990,12 +1218,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya menulis surat", translation: "Я пишу письмо" },
       { sentence: "Menulis nama", translation: "Написать имя" },
     ],
+    wordFamily: [
+      { word: "menulis", translation: "писать, написать" },
+      { word: "ditulis", translation: "быть написанным" },
+      { word: "tulisan", translation: "надпись, письмо, текст" },
+      { word: "penulis", translation: "писатель, автор" },
+      { word: "tertulis", translation: "написанный, письменный" },
+      { word: "penulisan", translation: "написание, письмо" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 74,
     word: "dengar",
+    pronunciation: "/dəŋar/",
     translation: "слушать, слышать",
     category: "verb",
     frequency: 74,
@@ -1003,12 +1240,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya dengar musik", translation: "Я слушаю музыку" },
       { sentence: "Dengar!", translation: "Слушай!" },
     ],
+    wordFamily: [
+      { word: "mendengar", translation: "слышать, слушать" },
+      { word: "didengar", translation: "быть услышанным" },
+      { word: "pendengar", translation: "слушатель" },
+      { word: "terdengar", translation: "слышный, раздавшийся" },
+      { word: "pendengaran", translation: "слух" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 75,
     word: "tahu",
+    pronunciation: "/tahu/",
     translation: "знать",
     category: "verb",
     frequency: 75,
@@ -1016,12 +1261,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya tidak tahu", translation: "Я не знаю" },
       { sentence: "Apa kamu tahu?", translation: "Ты знаешь?" },
     ],
+    wordFamily: [
+      { word: "mengetahui", translation: "знать, понимать, узнавать" },
+      { word: "diketahui", translation: "известный, быть узнанным" },
+      { word: "pengetahuan", translation: "знание, познание" },
+      { word: "ketahui", translation: "знай, узнай" },
+      { word: "tertahu", translation: "известно, стало известно" },
+    ],
     lessonIds: [3, 5],
   },
 
 {
     id: 76,
     word: "bicara",
+    pronunciation: "/bitʃara/",
     translation: "говорить, разговаривать",
     category: "verb",
     frequency: 76,
@@ -1032,12 +1285,20 @@ export const vocabulary: DictionaryWord[] = [
       },
       { sentence: "Mereka bicara", translation: "Они разговаривают" },
     ],
+    wordFamily: [
+      { word: "berbicara", translation: "говорить, разговаривать" },
+      { word: "pembicara", translation: "оратор, докладчик" },
+      { word: "pembicaraan", translation: "разговор, обсуждение" },
+      { word: "membicarakan", translation: "обсуждать, говорить о" },
+      { word: "dibicarakan", translation: "обсуждаться" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 77,
     word: "mengerti",
+    pronunciation: "/məŋərti/",
     translation: "понимать",
     category: "verb",
     frequency: 77,
@@ -1051,6 +1312,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 78,
     word: "bawa",
+    pronunciation: "/bawa/",
     translation: "нести, приносить",
     category: "verb",
     frequency: 78,
@@ -1058,12 +1320,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Bawa buku ini", translation: "Принеси эту книгу" },
       { sentence: "Saya bawa mobil", translation: "Я привёл машину" },
     ],
+    wordFamily: [
+      { word: "membawa", translation: "нести, приносить" },
+      { word: "dibawa", translation: "быть принесённым" },
+      { word: "bawaan", translation: "ноша, груз, багаж" },
+      { word: "pembawa", translation: "носитель, переносчик" },
+      { word: "terbawa", translation: "унесённый, занесённый" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 79,
     word: "buat",
+    pronunciation: "/buat/",
     translation: "делать, создавать",
     category: "verb",
     frequency: 79,
@@ -1071,12 +1341,22 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya buat kopi", translation: "Я делаю кофе" },
       { sentence: "Buat apa?", translation: "Зачем? (букв. 'делать что?')" },
     ],
+    wordFamily: [
+      { word: "membuat", translation: "делать, создавать" },
+      { word: "dibuat", translation: "сделанный, созданный" },
+      { word: "buatan", translation: "изделие, творение" },
+      { word: "pembuat", translation: "создатель, производитель" },
+      { word: "pembuatan", translation: "изготовление, производство" },
+      { word: "terbuat", translation: "сделанный (из материала)" },
+      { word: "berbuat", translation: "делать, поступать" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 80,
     word: "beri",
+    pronunciation: "/bəri/",
     translation: "давать, дать",
     category: "verb",
     frequency: 80,
@@ -1084,12 +1364,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Beri saya buku", translation: "Дай мне книгу" },
       { sentence: "Dia beri hadiah", translation: "Он даёт подарок" },
     ],
+    wordFamily: [
+      { word: "memberi", translation: "давать, предоставлять" },
+      { word: "diberi", translation: "быть данным" },
+      { word: "pemberi", translation: "дающий, даритель" },
+      { word: "pemberian", translation: "дар, подарок, даяние" },
+      { word: "berikan", translation: "дай, отдай" },
+      { word: "diberikan", translation: "быть данным, вручённым" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 81,
     word: "cari",
+    pronunciation: "/tʃari/",
     translation: "искать, найти",
     category: "verb",
     frequency: 81,
@@ -1097,12 +1386,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Cari buku", translation: "Искать книгу" },
       { sentence: "Saya cari rumah", translation: "Я ищу дом" },
     ],
+    wordFamily: [
+      { word: "mencari", translation: "искать, найти" },
+      { word: "dicari", translation: "быть искомым, разыскиваться" },
+      { word: "pencari", translation: "искатель, разыскивающий" },
+      { word: "pencarian", translation: "поиск, поиски" },
+      { word: "carikan", translation: "найти (для кого-то)" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 82,
     word: "tunggu",
+    pronunciation: "/tuŋɡu/",
     translation: "ждать, подождать",
     category: "verb",
     frequency: 82,
@@ -1110,12 +1407,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Tunggu saya!", translation: "Подожди меня!" },
       { sentence: "Saya tunggu", translation: "Я жду" },
     ],
+    wordFamily: [
+      { word: "menunggu", translation: "ждать, ожидать" },
+      { word: "ditunggu", translation: "быть ожидаемым" },
+      { word: "tungguan", translation: "ожидание" },
+      { word: "penunggu", translation: "тот, кто ждёт; сторож" },
+      { word: "menunggukan", translation: "ожидать (кого-то)" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 83,
     word: "ambil",
+    pronunciation: "/ambil/",
     translation: "брать, взять",
     category: "verb",
     frequency: 83,
@@ -1123,12 +1428,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Ambil buku", translation: "Возьми книгу" },
       { sentence: "Tolong ambilkan", translation: "Пожалуйста, подай" },
     ],
+    wordFamily: [
+      { word: "mengambil", translation: "брать, взять" },
+      { word: "diambil", translation: "быть взятым" },
+      { word: "ambilan", translation: "взятое; урожай" },
+      { word: "pengambil", translation: "берущий, захватчик" },
+      { word: "pengambilan", translation: "взятие, сбор" },
+    ],
     lessonIds: [3, 16],
   },
 
 {
     id: 84,
     word: "masuk",
+    pronunciation: "/masuʔ/",
     translation: "входить, заходить",
     category: "verb",
     frequency: 84,
@@ -1136,12 +1449,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Silakan masuk", translation: "Пожалуйста, входите" },
       { sentence: "Masuk ke rumah", translation: "Войти в дом" },
     ],
+    wordFamily: [
+      { word: "memasuki", translation: "входить, вступать" },
+      { word: "memasukkan", translation: "вставлять, включать" },
+      { word: "dimasukkan", translation: "быть вставленным" },
+      { word: "termasuk", translation: "включая, в том числе" },
+      { word: "masukan", translation: "вход; предложение, вклад" },
+    ],
     lessonIds: [3, 14, 16],
   },
 
 {
     id: 85,
     word: "keluar",
+    pronunciation: "/keluar/",
     translation: "выходить, выйти",
     category: "verb",
     frequency: 85,
@@ -1149,12 +1470,19 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Keluar dari rumah", translation: "Выйти из дома" },
       { sentence: "Dia keluar", translation: "Он вышел" },
     ],
+    wordFamily: [
+      { word: "mengeluarkan", translation: "выпускать, издавать" },
+      { word: "dikeluarkan", translation: "быть выпущенным" },
+      { word: "keluaran", translation: "выход; продукт, выпуск" },
+      { word: "pengeluaran", translation: "расход, выпуск, вывод" },
+    ],
     lessonIds: [3, 14],
   },
 
 {
     id: 86,
     word: "naik",
+    pronunciation: "/naiʔ/",
     translation: "подниматься, садиться (в транспорт)",
     category: "verb",
     frequency: 86,
@@ -1162,12 +1490,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Naik mobil", translation: "Сесть в машину" },
       { sentence: "Naik pesawat", translation: "Лететь самолётом" },
     ],
+    wordFamily: [
+      { word: "menaik", translation: "повышаться, расти" },
+      { word: "menaiki", translation: "подниматься, взбираться" },
+      { word: "menaikkan", translation: "повышать, увеличивать" },
+      { word: "dinaikkan", translation: "быть повышенным" },
+      { word: "naikan", translation: "повышение, подъём" },
+      { word: "kenaikan", translation: "рост, повышение" },
+    ],
     lessonIds: [3, 14],
   },
 
 {
     id: 87,
     word: "turun",
+    pronunciation: "/turun/",
     translation: "спускаться, выходить (из транспорта)",
     category: "verb",
     frequency: 87,
@@ -1175,12 +1512,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Turun dari mobil", translation: "Выйти из машины" },
       { sentence: "Turun di sini", translation: "Выхожу здесь" },
     ],
+    wordFamily: [
+      { word: "menurun", translation: "снижаться, спускаться" },
+      { word: "menuruni", translation: "спускаться по" },
+      { word: "menurunkan", translation: "снижать, опускать" },
+      { word: "diturunkan", translation: "быть сниженным" },
+      { word: "turunan", translation: "потомок; производное" },
+      { word: "keturunan", translation: "потомок, происхождение" },
+    ],
     lessonIds: [3, 14],
   },
 
 {
     id: 88,
     word: "beli",
+    pronunciation: "/bəli/",
     translation: "покупать, купить",
     category: "verb",
     frequency: 88,
@@ -1188,12 +1534,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya beli buku", translation: "Я покупаю книгу" },
       { sentence: "Mau beli apa?", translation: "Что хочешь купить?" },
     ],
+    wordFamily: [
+      { word: "membeli", translation: "купить, покупать" },
+      { word: "dibeli", translation: "быть купленным" },
+      { word: "pembeli", translation: "покупатель" },
+      { word: "pembelian", translation: "покупка, приобретение" },
+      { word: "belanja", translation: "покупки, закупать" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 89,
     word: "jual",
+    pronunciation: "/dʒual/",
     translation: "продавать",
     category: "verb",
     frequency: 89,
@@ -1201,12 +1555,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Dia jual rumah", translation: "Он продаёт дом" },
       { sentence: "Jual mobil", translation: "Продать машину" },
     ],
+    wordFamily: [
+      { word: "menjual", translation: "продавать" },
+      { word: "dijual", translation: "продаётся, быть проданным" },
+      { word: "penjual", translation: "продавец" },
+      { word: "penjualan", translation: "продажа, сбыт" },
+      { word: "jualan", translation: "товар, продукт на продажу" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 90,
     word: "berenang",
+    pronunciation: "/bərənaŋ/",
     translation: "плавать",
     category: "verb",
     frequency: 90,
@@ -1220,6 +1582,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 91,
     word: "berlari",
+    pronunciation: "/bərlari/",
     translation: "бегать, бежать",
     category: "verb",
     frequency: 91,
@@ -1227,13 +1590,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Dia berlari cepat", translation: "Он бежит быстро" },
       { sentence: "Berlari di taman", translation: "Бегать в парке" },
     ],
-    relatedWords: [53],
+    wordFamily: [
+      { word: "berlari", translation: "бежать, бегать" },
+      { word: "pelari", translation: "бегун" },
+      { word: "larian", translation: "побег, бегство" },
+      { word: "melarikan", translation: "убегать, сбегать" },
+      { word: "larikan", translation: "украсть, увести" },
+    ],
     lessonIds: [3, 13],
   },
 
 {
     id: 92,
     word: "duduk",
+    pronunciation: "/duduʔ/",
     translation: "сидеть, садиться",
     category: "verb",
     frequency: 92,
@@ -1241,12 +1611,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Silakan duduk", translation: "Садитесь, пожалуйста" },
       { sentence: "Duduk di kursi", translation: "Сидеть на стуле" },
     ],
+    wordFamily: [
+      { word: "menduduki", translation: "занимать (место)" },
+      { word: "mendudukkan", translation: "усаживать, размещать" },
+      { word: "diduduki", translation: "быть занятым" },
+      { word: "kedudukan", translation: "положение, статус" },
+      { word: "penduduk", translation: "житель, население" },
+    ],
     lessonIds: [3, 14],
   },
 
 {
     id: 93,
     word: "berdiri",
+    pronunciation: "/bərdiri/",
     translation: "стоять, вставать",
     category: "verb",
     frequency: 93,
@@ -1260,6 +1638,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 94,
     word: "buka",
+    pronunciation: "/buka/",
     translation: "открывать",
     category: "verb",
     frequency: 94,
@@ -1267,12 +1646,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Buka pintu", translation: "Открой дверь" },
       { sentence: "Toko buka jam 8", translation: "Магазин открывается в 8" },
     ],
+    wordFamily: [
+      { word: "membuka", translation: "открывать" },
+      { word: "dibuka", translation: "быть открытым" },
+      { word: "terbuka", translation: "открытый, открыт" },
+      { word: "bukaan", translation: "отверстие; начало" },
+      { word: "pembuka", translation: "открыватель, вступление" },
+      { word: "pembukaan", translation: "открытие, начало" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 95,
     word: "tutup",
+    pronunciation: "/tutup/",
     translation: "закрывать",
     category: "verb",
     frequency: 95,
@@ -1280,12 +1668,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Tutup pintu", translation: "Закрой дверь" },
       { sentence: "Toko tutup jam 9", translation: "Магазин закрывается в 9" },
     ],
+    wordFamily: [
+      { word: "menutup", translation: "закрывать" },
+      { word: "ditutup", translation: "быть закрытым" },
+      { word: "tertutup", translation: "закрытый, закрыт" },
+      { word: "tutupan", translation: "крышка, покрытие" },
+      { word: "penutup", translation: "закрывающий, завершение" },
+      { word: "penutupan", translation: "закрытие" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 96,
     word: "minta",
+    pronunciation: "/minta/",
     translation: "просить, попросить",
     category: "verb",
     frequency: 96,
@@ -1299,6 +1696,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 97,
     word: "simpan",
+    pronunciation: "/simpan/",
     translation: "хранить, сохранять",
     category: "verb",
     frequency: 97,
@@ -1312,6 +1710,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 98,
     word: "habis",
+    pronunciation: "/habis/",
     translation: "кончаться, заканчиваться",
     category: "verb",
     frequency: 98,
@@ -1319,12 +1718,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Makanan habis", translation: "Еда закончилась" },
       { sentence: "Uang sudah habis", translation: "Деньги уже кончились" },
     ],
+    wordFamily: [
+      { word: "menghabiskan", translation: "тратить, расходовать" },
+      { word: "dihabiskan", translation: "быть потраченным" },
+      { word: "kehabisan", translation: "исчерпать, кончиться" },
+      { word: "penghabisan", translation: "последний, окончательный" },
+      { word: "habisan", translation: "до конца, совсем" },
+    ],
     lessonIds: [3, 9],
   },
 
 {
     id: 99,
     word: "selesai",
+    pronunciation: "/selesai/",
     translation: "заканчивать, завершать",
     category: "verb",
     frequency: 99,
@@ -1332,12 +1739,19 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya sudah selesai", translation: "Я уже закончил" },
       { sentence: "Selesai kerja", translation: "Закончить работу" },
     ],
+    wordFamily: [
+      { word: "menyelesaikan", translation: "заканчивать, решать" },
+      { word: "diselesaikan", translation: "быть решённым/завершённым" },
+      { word: "terselesaikan", translation: "решённый, улаженный" },
+      { word: "penyelesaian", translation: "завершение, решение" },
+    ],
     lessonIds: [3, 9],
   },
 
 {
     id: 100,
     word: "mulai",
+    pronunciation: "/mulai/",
     translation: "начинать, начать",
     category: "verb",
     frequency: 100,
@@ -1345,12 +1759,19 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Mulai belajar", translation: "Начать учиться" },
       { sentence: "Mulai dari sekarang", translation: "Начать с сейчас" },
     ],
+    wordFamily: [
+      { word: "memulai", translation: "начинать, начать" },
+      { word: "dimulai", translation: "начинаться, быть начатым" },
+      { word: "permulaan", translation: "начало, исток" },
+      { word: "mulai-mulai", translation: "только начинать" },
+    ],
     lessonIds: [3],
   },
 
 {
     id: 101,
     word: "kapan",
+    pronunciation: "/kapan/",
     translation: "когда",
     category: "adverb",
     frequency: 101,
@@ -1358,13 +1779,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Kapan kamu datang?", translation: "Когда ты придёшь?" },
       { sentence: "Kapan kita pergi?", translation: "Когда мы идём?" },
     ],
-    relatedWords: [112],
     lessonIds: [4],
   },
 
 {
     id: 102,
     word: "di mana",
+    pronunciation: "/di mana/",
     translation: "где",
     category: "adverb",
     frequency: 102,
@@ -1378,6 +1799,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 103,
     word: "ke mana",
+    pronunciation: "/kə mana/",
     translation: "куда",
     category: "adverb",
     frequency: 103,
@@ -1391,6 +1813,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 104,
     word: "dari mana",
+    pronunciation: "/dari mana/",
     translation: "откуда",
     category: "adverb",
     frequency: 104,
@@ -1404,6 +1827,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 105,
     word: "berapa",
+    pronunciation: "/bərapa/",
     translation: "сколько",
     category: "adverb",
     frequency: 105,
@@ -1411,13 +1835,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Berapa harganya?", translation: "Сколько стоит?" },
       { sentence: "Berapa umurmu?", translation: "Сколько тебе лет?" },
     ],
-    relatedWords: [109, 198],
     lessonIds: [4, 7, 8],
   },
 
 {
     id: 106,
     word: "yang mana",
+    pronunciation: "/jaŋ mana/",
     translation: "который, какой (из)",
     category: "adverb",
     frequency: 106,
@@ -1431,6 +1855,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 107,
     word: "mengapa",
+    pronunciation: "/məŋapa/",
     translation: "почему (формально)",
     category: "adverb",
     frequency: 107,
@@ -1444,6 +1869,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 108,
     word: "bagaimana cara",
+    pronunciation: "/baɡaimana tʃara/",
     translation: "как (способ)",
     category: "adverb",
     frequency: 108,
@@ -1463,6 +1889,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 109,
     word: "seberapa",
+    pronunciation: "/seberapa/",
     translation: "насколько",
     category: "adverb",
     frequency: 109,
@@ -1470,13 +1897,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Seberapa jauh?", translation: "Насколько далеко?" },
       { sentence: "Seberapa besar?", translation: "Насколько большой?" },
     ],
-    relatedWords: [105, 198],
     lessonIds: [4],
   },
 
 {
     id: 110,
     word: "apakah",
+    pronunciation: "/apakah/",
     translation: "ли (вопрос. частица)",
     category: "adverb",
     frequency: 110,
@@ -1484,13 +1911,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Apakah kamu mengerti?", translation: "Понимаешь ли ты?" },
       { sentence: "Apakah ini benar?", translation: "Это правда?" },
     ],
-    relatedWords: [10],
     lessonIds: [4],
   },
 
 {
     id: 111,
     word: "siapa-siapa",
+    pronunciation: "/siapa-siapa/",
     translation: "кто (множественное)",
     category: "adverb",
     frequency: 111,
@@ -1501,13 +1928,13 @@ export const vocabulary: DictionaryWord[] = [
       },
       { sentence: "Siapa saja?", translation: "Кто именно?" },
     ],
-    relatedWords: [11],
     lessonIds: [4],
   },
 
 {
     id: 112,
     word: "kapan-kapan",
+    pronunciation: "/kapan-kapan/",
     translation: "когда-нибудь, sometime",
     category: "adverb",
     frequency: 112,
@@ -1518,13 +1945,13 @@ export const vocabulary: DictionaryWord[] = [
       },
       { sentence: "Datanglah kapan-kapan", translation: "Приходи как-нибудь" },
     ],
-    relatedWords: [101],
     lessonIds: [4, 11],
   },
 
 {
     id: 113,
     word: "begitu",
+    pronunciation: "/bəɡitu/",
     translation: "так, таким образом",
     category: "adverb",
     frequency: 113,
@@ -1538,6 +1965,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 114,
     word: "macam",
+    pronunciation: "/matʃam/",
     translation: "вид, тип, разновидность",
     category: "noun",
     frequency: 114,
@@ -1551,6 +1979,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 115,
     word: "jenis",
+    pronunciation: "/dʒənis/",
     translation: "тип, род, сорт",
     category: "noun",
     frequency: 115,
@@ -1564,6 +1993,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 116,
     word: "entah",
+    pronunciation: "/əntah/",
     translation: "неизвестно, не знаю",
     category: "adverb",
     frequency: 116,
@@ -1577,6 +2007,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 117,
     word: "ataukah",
+    pronunciation: "/ataukah/",
     translation: "или же",
     category: "conjunction",
     frequency: 117,
@@ -1593,6 +2024,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 118,
     word: "manakah",
+    pronunciation: "/manakah/",
     translation: "который же (усиление)",
     category: "adverb",
     frequency: 118,
@@ -1606,6 +2038,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 119,
     word: "bilakah",
+    pronunciation: "/bilakah/",
     translation: "когда же (формально)",
     category: "adverb",
     frequency: 119,
@@ -1619,6 +2052,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 120,
     word: "bagaimanakah",
+    pronunciation: "/baɡaimanakah/",
     translation: "как же (формально)",
     category: "adverb",
     frequency: 120,
@@ -1626,13 +2060,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Bagaimanakah caranya?", translation: "Каким же образом?" },
       { sentence: "Bagaimanakah keadaanmu?", translation: "Как же твои дела?" },
     ],
-    relatedWords: [32],
     lessonIds: [4],
   },
 
 {
     id: 121,
     word: "bukan",
+    pronunciation: "/bukan/",
     translation: "не (с существительными)",
     category: "adverb",
     frequency: 121,
@@ -1646,6 +2080,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 122,
     word: "belum",
+    pronunciation: "/bəlum/",
     translation: "ещё не",
     category: "adverb",
     frequency: 122,
@@ -1659,6 +2094,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 123,
     word: "jangan",
+    pronunciation: "/dʒaŋan/",
     translation: "не (запрет)",
     category: "adverb",
     frequency: 123,
@@ -1672,6 +2108,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 124,
     word: "jadi",
+    pronunciation: "/dʒadi/",
     translation: "поэтому, так что",
     category: "conjunction",
     frequency: 124,
@@ -1688,6 +2125,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 125,
     word: "mungkin",
+    pronunciation: "/muŋkin/",
     translation: "может быть, возможно",
     category: "adverb",
     frequency: 125,
@@ -1701,6 +2139,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 126,
     word: "selalu",
+    pronunciation: "/səlalu/",
     translation: "всегда",
     category: "adverb",
     frequency: 126,
@@ -1717,6 +2156,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 127,
     word: "pernah",
+    pronunciation: "/pernah/",
     translation: "когда-либо, никогда",
     category: "adverb",
     frequency: 127,
@@ -1730,6 +2170,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 128,
     word: "tetap",
+    pronunciation: "/tetap/",
     translation: "оставаться, всё ещё",
     category: "adverb",
     frequency: 128,
@@ -1743,6 +2184,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 129,
     word: "tak",
+    pronunciation: "/taʔ/",
     translation: "не (краткая форма)",
     category: "adverb",
     frequency: 129,
@@ -1756,6 +2198,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 130,
     word: "tanpa",
+    pronunciation: "/tanpa/",
     translation: "без",
     category: "preposition",
     frequency: 130,
@@ -1769,6 +2212,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 131,
     word: "melainkan",
+    pronunciation: "/məlainkan/",
     translation: "а (напротив)",
     category: "conjunction",
     frequency: 131,
@@ -1782,6 +2226,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 132,
     word: "bukan saja",
+    pronunciation: "/bukan sadʒa/",
     translation: "не только",
     category: "adverb",
     frequency: 132,
@@ -1798,6 +2243,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 133,
     word: "kecuali",
+    pronunciation: "/kətʃuali/",
     translation: "кроме, исключая",
     category: "preposition",
     frequency: 133,
@@ -1811,6 +2257,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 134,
     word: "sama",
+    pronunciation: "/sama/",
     translation: "с, вместе; одинаковый",
     category: "preposition",
     frequency: 134,
@@ -1818,13 +2265,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Sama saya", translation: "Со мной" },
       { sentence: "Sama besar", translation: "Одинаковый по размеру" },
     ],
-    relatedWords: [4, 145],
+    wordFamily: [
+      { word: "sama-sama", translation: "пожалуйста (в ответ); вместе" },
+      { word: "bersama", translation: "вместе, совместно" },
+      { word: "menyamai", translation: "равняться, достигать" },
+      { word: "menyamakan", translation: "уравнивать, сравнивать" },
+      { word: "persamaan", translation: "равенство, уравнение" },
+      { word: "sesama", translation: "такой же, подобный" },
+    ],
     lessonIds: [5, 14],
   },
 
 {
     id: 135,
     word: "tidak ada",
+    pronunciation: "/tidaʔ ada/",
     translation: "нет, не имеется",
     category: "adverb",
     frequency: 135,
@@ -1838,6 +2293,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 136,
     word: "bisa jadi",
+    pronunciation: "/bisa dʒadi/",
     translation: "может быть, возможно",
     category: "adverb",
     frequency: 136,
@@ -1851,6 +2307,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 137,
     word: "acap kali",
+    pronunciation: "/atʃap kali/",
     translation: "часто, нередко",
     category: "adverb",
     frequency: 137,
@@ -1867,6 +2324,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 138,
     word: "jarang",
+    pronunciation: "/dʒaraŋ/",
     translation: "редко",
     category: "adverb",
     frequency: 138,
@@ -1883,6 +2341,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 139,
     word: "hampir",
+    pronunciation: "/hampir/",
     translation: "почти",
     category: "adverb",
     frequency: 139,
@@ -1896,6 +2355,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 140,
     word: "sekali",
+    pronunciation: "/səkali/",
     translation: "один раз; очень (усиление)",
     category: "adverb",
     frequency: 140,
@@ -1909,6 +2369,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 141,
     word: "punya",
+    pronunciation: "/puɲa/",
     translation: "иметь, принадлежать",
     category: "verb",
     frequency: 141,
@@ -1922,6 +2383,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 142,
     word: "baru",
+    pronunciation: "/baru/",
     translation: "новый",
     category: "adjective",
     frequency: 142,
@@ -1935,6 +2397,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 143,
     word: "milik",
+    pronunciation: "/miliʔ/",
     translation: "собственность, принадлежность",
     category: "noun",
     frequency: 143,
@@ -1948,6 +2411,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 144,
     word: "sendiri",
+    pronunciation: "/səndiri/",
     translation: "сам, самостоятельно",
     category: "adverb",
     frequency: 144,
@@ -1961,6 +2425,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 145,
     word: "bersama",
+    pronunciation: "/bərsama/",
     translation: "вместе, совместно",
     category: "adverb",
     frequency: 145,
@@ -1968,13 +2433,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Kita bersama", translation: "Мы вместе" },
       { sentence: "Belajar bersama", translation: "Учиться вместе" },
     ],
-    relatedWords: [4, 134],
+    wordFamily: [
+      { word: "sama-sama", translation: "пожалуйста (в ответ); вместе" },
+      { word: "bersama", translation: "вместе, совместно" },
+      { word: "menyamai", translation: "равняться, достигать" },
+      { word: "menyamakan", translation: "уравнивать, сравнивать" },
+      { word: "persamaan", translation: "равенство, уравнение" },
+      { word: "sesama", translation: "такой же, подобный" },
+    ],
     lessonIds: [6],
   },
 
 {
     id: 146,
     word: "masing-masing",
+    pronunciation: "/masiŋ-masiŋ/",
     translation: "каждый (по отдельности)",
     category: "adverb",
     frequency: 146,
@@ -1991,6 +2464,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 147,
     word: "seperti",
+    pronunciation: "/seperti/",
     translation: "как, подобно, например",
     category: "preposition",
     frequency: 147,
@@ -2004,6 +2478,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 148,
     word: "antara",
+    pronunciation: "/antara/",
     translation: "между, среди",
     category: "preposition",
     frequency: 148,
@@ -2017,6 +2492,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 149,
     word: "tentang",
+    pronunciation: "/tentaŋ/",
     translation: "о, об, относительно",
     category: "preposition",
     frequency: 149,
@@ -2030,6 +2506,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 150,
     word: "terhadap",
+    pronunciation: "/tərhadap/",
     translation: "к, по отношению к",
     category: "preposition",
     frequency: 150,
@@ -2043,6 +2520,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 151,
     word: "bagi",
+    pronunciation: "/baɡi/",
     translation: "для, ради",
     category: "preposition",
     frequency: 151,
@@ -2056,6 +2534,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 152,
     word: "untuk",
+    pronunciation: "/untuʔ/",
     translation: "для, чтобы",
     category: "preposition",
     frequency: 152,
@@ -2069,6 +2548,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 153,
     word: "oleh",
+    pronunciation: "/oləh/",
     translation: "от, (кем-то)",
     category: "preposition",
     frequency: 153,
@@ -2082,6 +2562,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 154,
     word: "dengan",
+    pronunciation: "/deŋan/",
     translation: "с, вместе с",
     category: "preposition",
     frequency: 154,
@@ -2095,6 +2576,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 155,
     word: "secara",
+    pronunciation: "/setʃara/",
     translation: "способом, образом",
     category: "adverb",
     frequency: 155,
@@ -2108,6 +2590,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 156,
     word: "melalui",
+    pronunciation: "/melalui/",
     translation: "через, посредством",
     category: "preposition",
     frequency: 156,
@@ -2121,6 +2604,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 157,
     word: "tiap",
+    pronunciation: "/tiap/",
     translation: "каждый (о времени)",
     category: "adverb",
     frequency: 157,
@@ -2128,13 +2612,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Tiap hari", translation: "Каждый день" },
       { sentence: "Tiap minggu", translation: "Каждую неделю" },
     ],
-    relatedWords: [158],
     lessonIds: [6, 8],
   },
 
 {
     id: 158,
     word: "setiap",
+    pronunciation: "/setiap/",
     translation: "каждый, любой",
     category: "adverb",
     frequency: 158,
@@ -2142,13 +2626,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Setiap orang", translation: "Каждый человек" },
       { sentence: "Setiap hari", translation: "Каждый день" },
     ],
-    relatedWords: [157],
     lessonIds: [6, 8],
   },
 
 {
     id: 159,
     word: "semua",
+    pronunciation: "/semua/",
     translation: "все, всё",
     category: "adverb",
     frequency: 159,
@@ -2162,6 +2646,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 160,
     word: "seluruh",
+    pronunciation: "/seluruh/",
     translation: "весь, целый",
     category: "adverb",
     frequency: 160,
@@ -2175,6 +2660,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 161,
     word: "satu",
+    pronunciation: "/satu/",
     translation: "один",
     category: "number",
     frequency: 161,
@@ -2188,6 +2674,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 162,
     word: "dua",
+    pronunciation: "/dua/",
     translation: "два",
     category: "number",
     frequency: 162,
@@ -2201,6 +2688,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 163,
     word: "tiga",
+    pronunciation: "/tiɡa/",
     translation: "три",
     category: "number",
     frequency: 163,
@@ -2214,6 +2702,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 164,
     word: "empat",
+    pronunciation: "/empat/",
     translation: "четыре",
     category: "number",
     frequency: 164,
@@ -2227,6 +2716,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 165,
     word: "lima",
+    pronunciation: "/lima/",
     translation: "пять",
     category: "number",
     frequency: 165,
@@ -2240,6 +2730,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 166,
     word: "enam",
+    pronunciation: "/enam/",
     translation: "шесть",
     category: "number",
     frequency: 166,
@@ -2253,6 +2744,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 167,
     word: "tujuh",
+    pronunciation: "/tudʒuh/",
     translation: "семь",
     category: "number",
     frequency: 167,
@@ -2266,6 +2758,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 168,
     word: "delapan",
+    pronunciation: "/dəlapan/",
     translation: "восемь",
     category: "number",
     frequency: 168,
@@ -2279,6 +2772,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 169,
     word: "sembilan",
+    pronunciation: "/səmbilan/",
     translation: "девять",
     category: "number",
     frequency: 169,
@@ -2292,6 +2786,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 170,
     word: "sepuluh",
+    pronunciation: "/səpuluh/",
     translation: "десять",
     category: "number",
     frequency: 170,
@@ -2305,6 +2800,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 171,
     word: "sebelas",
+    pronunciation: "/sebelas/",
     translation: "одиннадцать",
     category: "number",
     frequency: 171,
@@ -2318,6 +2814,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 172,
     word: "dua belas",
+    pronunciation: "/dua bəlas/",
     translation: "двенадцать",
     category: "number",
     frequency: 172,
@@ -2331,6 +2828,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 173,
     word: "seratus",
+    pronunciation: "/seratus/",
     translation: "сто",
     category: "number",
     frequency: 173,
@@ -2344,6 +2842,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 174,
     word: "dua ratus",
+    pronunciation: "/dua ratus/",
     translation: "двести",
     category: "number",
     frequency: 174,
@@ -2357,6 +2856,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 175,
     word: "seribu",
+    pronunciation: "/seribu/",
     translation: "тысяча",
     category: "number",
     frequency: 175,
@@ -2370,6 +2870,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 176,
     word: "sejuta",
+    pronunciation: "/sedʒuta/",
     translation: "миллион",
     category: "number",
     frequency: 176,
@@ -2386,6 +2887,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 177,
     word: "nomor",
+    pronunciation: "/nomor/",
     translation: "номер",
     category: "noun",
     frequency: 177,
@@ -2399,6 +2901,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 178,
     word: "angka",
+    pronunciation: "/aŋka/",
     translation: "цифра, число",
     category: "noun",
     frequency: 178,
@@ -2412,6 +2915,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 179,
     word: "hitung",
+    pronunciation: "/hituŋ/",
     translation: "считать, подсчитывать",
     category: "verb",
     frequency: 179,
@@ -2425,6 +2929,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 180,
     word: "setengah",
+    pronunciation: "/seteŋah/",
     translation: "половина",
     category: "number",
     frequency: 180,
@@ -2438,6 +2943,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 181,
     word: "lebih",
+    pronunciation: "/ləbih/",
     translation: "более, больше",
     category: "adverb",
     frequency: 181,
@@ -2451,6 +2957,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 182,
     word: "kurang",
+    pronunciation: "/kuraŋ/",
     translation: "менее, меньше, не хватает",
     category: "adverb",
     frequency: 182,
@@ -2464,6 +2971,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 183,
     word: "kali",
+    pronunciation: "/kali/",
     translation: "раз, умножить на",
     category: "adverb",
     frequency: 183,
@@ -2477,6 +2985,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 184,
     word: "lipat",
+    pronunciation: "/lipat/",
     translation: "складывать; раз (кратность)",
     category: "verb",
     frequency: 184,
@@ -2490,6 +2999,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 185,
     word: "ganda",
+    pronunciation: "/ɡanda/",
     translation: "двойной, вдвойне",
     category: "adverb",
     frequency: 185,
@@ -2503,6 +3013,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 186,
     word: "separuh",
+    pronunciation: "/separuh/",
     translation: "половина (часть)",
     category: "number",
     frequency: 186,
@@ -2516,6 +3027,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 187,
     word: "sepertiga",
+    pronunciation: "/sepertiɡa/",
     translation: "одна треть",
     category: "number",
     frequency: 187,
@@ -2529,6 +3041,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 188,
     word: "seperempat",
+    pronunciation: "/seperempat/",
     translation: "одна четверть",
     category: "number",
     frequency: 188,
@@ -2542,6 +3055,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 189,
     word: "kilo",
+    pronunciation: "/kilo/",
     translation: "килограмм",
     category: "noun",
     frequency: 189,
@@ -2555,6 +3069,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 190,
     word: "meter",
+    pronunciation: "/meter/",
     translation: "метр",
     category: "noun",
     frequency: 190,
@@ -2568,6 +3083,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 191,
     word: "liter",
+    pronunciation: "/litər/",
     translation: "литр",
     category: "noun",
     frequency: 191,
@@ -2581,6 +3097,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 192,
     word: "jumlah",
+    pronunciation: "/dʒumlah/",
     translation: "количество, сумма",
     category: "noun",
     frequency: 192,
@@ -2594,6 +3111,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 193,
     word: "total",
+    pronunciation: "/total/",
     translation: "итог, всего",
     category: "noun",
     frequency: 193,
@@ -2607,6 +3125,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 194,
     word: "pertama",
+    pronunciation: "/pərtama/",
     translation: "первый",
     category: "number",
     frequency: 194,
@@ -2620,6 +3139,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 195,
     word: "kedua",
+    pronunciation: "/kədua/",
     translation: "второй",
     category: "number",
     frequency: 195,
@@ -2633,6 +3153,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 196,
     word: "ketiga",
+    pronunciation: "/kətiɡa/",
     translation: "третий",
     category: "number",
     frequency: 196,
@@ -2646,6 +3167,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 197,
     word: "terakhir",
+    pronunciation: "/təraxir/",
     translation: "последний",
     category: "adjective",
     frequency: 197,
@@ -2659,6 +3181,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 198,
     word: "beberapa",
+    pronunciation: "/bəbərapa/",
     translation: "несколько",
     category: "adverb",
     frequency: 198,
@@ -2666,13 +3189,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Beberapa orang", translation: "Несколько человек" },
       { sentence: "Beberapa hari", translation: "Несколько дней" },
     ],
-    relatedWords: [105, 109],
     lessonIds: [7],
   },
 
 {
     id: 199,
     word: "banyak",
+    pronunciation: "/baɲaʔ/",
     translation: "много",
     category: "adverb",
     frequency: 199,
@@ -2686,6 +3209,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 200,
     word: "sedikit",
+    pronunciation: "/sedikit/",
     translation: "мало, немного",
     category: "adverb",
     frequency: 200,
@@ -2699,6 +3223,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 201,
     word: "nasi",
+    pronunciation: "/nasi/",
     translation: "рис (варёный)",
     category: "noun",
     frequency: 201,
@@ -2712,6 +3237,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 202,
     word: "air",
+    pronunciation: "/air/",
     translation: "вода",
     category: "noun",
     frequency: 202,
@@ -2725,6 +3251,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 203,
     word: "kopi",
+    pronunciation: "/kopi/",
     translation: "кофе",
     category: "noun",
     frequency: 203,
@@ -2738,6 +3265,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 204,
     word: "teh",
+    pronunciation: "/təh/",
     translation: "чай",
     category: "noun",
     frequency: 204,
@@ -2751,6 +3279,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 205,
     word: "makanan",
+    pronunciation: "/makanan/",
     translation: "еда, пища",
     category: "noun",
     frequency: 205,
@@ -2758,13 +3287,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Makanan enak", translation: "Вкусная еда" },
       { sentence: "Makanan Indonesia", translation: "Индонезийская еда" },
     ],
-    relatedWords: [41],
+    wordFamily: [
+      { word: "memakan", translation: "съедать, есть" },
+      { word: "dimakan", translation: "быть съеденным" },
+      { word: "makanan", translation: "еда, пища" },
+      { word: "pemakan", translation: "едок, пожиратель" },
+      { word: "termakan", translation: "быть случайно съеденным" },
+      { word: "makan-makan", translation: "застолье, пирушка" },
+    ],
     lessonIds: [13],
   },
 
 {
     id: 206,
     word: "gula",
+    pronunciation: "/ɡula/",
     translation: "сахар",
     category: "noun",
     frequency: 206,
@@ -2781,6 +3318,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 207,
     word: "garam",
+    pronunciation: "/ɡaram/",
     translation: "соль",
     category: "noun",
     frequency: 207,
@@ -2794,6 +3332,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 208,
     word: "susu",
+    pronunciation: "/susu/",
     translation: "молоко",
     category: "noun",
     frequency: 208,
@@ -2807,6 +3346,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 209,
     word: "roti",
+    pronunciation: "/roti/",
     translation: "хлеб",
     category: "noun",
     frequency: 209,
@@ -2820,6 +3360,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 210,
     word: "sayur",
+    pronunciation: "/sajur/",
     translation: "овощи",
     category: "noun",
     frequency: 210,
@@ -2833,6 +3374,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 211,
     word: "buah",
+    pronunciation: "/buah/",
     translation: "фрукты",
     category: "noun",
     frequency: 211,
@@ -2846,6 +3388,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 212,
     word: "daging",
+    pronunciation: "/daɡiŋ/",
     translation: "мясо",
     category: "noun",
     frequency: 212,
@@ -2859,6 +3402,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 213,
     word: "ikan",
+    pronunciation: "/ikan/",
     translation: "рыба",
     category: "noun",
     frequency: 213,
@@ -2872,6 +3416,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 214,
     word: "telur",
+    pronunciation: "/telur/",
     translation: "яйцо",
     category: "noun",
     frequency: 214,
@@ -2885,6 +3430,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 215,
     word: "enak",
+    pronunciation: "/enaʔ/",
     translation: "вкусный",
     category: "adjective",
     frequency: 215,
@@ -2898,6 +3444,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 216,
     word: "pedas",
+    pronunciation: "/pədas/",
     translation: "острый (на вкус)",
     category: "adjective",
     frequency: 216,
@@ -2911,6 +3458,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 217,
     word: "asin",
+    pronunciation: "/asin/",
     translation: "солёный",
     category: "adjective",
     frequency: 217,
@@ -2924,6 +3472,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 218,
     word: "manis",
+    pronunciation: "/manis/",
     translation: "сладкий",
     category: "adjective",
     frequency: 218,
@@ -2937,6 +3486,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 219,
     word: "pahit",
+    pronunciation: "/pahit/",
     translation: "горький",
     category: "adjective",
     frequency: 219,
@@ -2950,6 +3500,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 220,
     word: "masak",
+    pronunciation: "/masaʔ/",
     translation: "готовить (еду)",
     category: "verb",
     frequency: 220,
@@ -2957,12 +3508,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Ibu sedang masak", translation: "Мама готовит" },
       { sentence: "Saya suka masak", translation: "Я люблю готовить" },
     ],
+    wordFamily: [
+      { word: "memasak", translation: "готовить (еду), варить" },
+      { word: "dimasak", translation: "быть приготовленным" },
+      { word: "masakan", translation: "блюдо, кушанье, кухня" },
+      { word: "pemasak", translation: "повар, кулинар" },
+      { word: "pemasakan", translation: "варка, приготовление" },
+    ],
     lessonIds: [10, 15],
   },
 
 {
     id: 221,
     word: "goreng",
+    pronunciation: "/ɡorəŋ/",
     translation: "жарить, жареный",
     category: "verb",
     frequency: 221,
@@ -2976,6 +3535,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 222,
     word: "rebus",
+    pronunciation: "/rəbus/",
     translation: "варить, варёный",
     category: "verb",
     frequency: 222,
@@ -2989,6 +3549,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 223,
     word: "bakar",
+    pronunciation: "/bakar/",
     translation: "жарить на огне, печь",
     category: "verb",
     frequency: 223,
@@ -3002,6 +3563,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 224,
     word: "lapar",
+    pronunciation: "/lapar/",
     translation: "голодный, голод",
     category: "adjective",
     frequency: 224,
@@ -3015,6 +3577,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 225,
     word: "haus",
+    pronunciation: "/haus/",
     translation: "жажда, хотеть пить",
     category: "adjective",
     frequency: 225,
@@ -3028,6 +3591,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 226,
     word: "sarapan",
+    pronunciation: "/sarapan/",
     translation: "завтрак, завтракать",
     category: "noun",
     frequency: 226,
@@ -3041,6 +3605,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 227,
     word: "makan siang",
+    pronunciation: "/makan siaŋ/",
     translation: "обед",
     category: "noun",
     frequency: 227,
@@ -3048,12 +3613,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Makan siang bersama", translation: "Обед вместе" },
       { sentence: "Waktu makan siang", translation: "Время обеда" },
     ],
+    wordFamily: [
+      { word: "memakan", translation: "съедать, есть" },
+      { word: "dimakan", translation: "быть съеденным" },
+      { word: "makanan", translation: "еда, пища" },
+      { word: "pemakan", translation: "едок, пожиратель" },
+      { word: "termakan", translation: "быть случайно съеденным" },
+      { word: "makan-makan", translation: "застолье, пирушка" },
+    ],
     lessonIds: [8, 15],
   },
 
 {
     id: 228,
     word: "makan malam",
+    pronunciation: "/makan malam/",
     translation: "ужин",
     category: "noun",
     frequency: 228,
@@ -3061,12 +3635,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Makan malam romantis", translation: "Романтический ужин" },
       { sentence: "Sudah makan malam?", translation: "Уже поужинал?" },
     ],
+    wordFamily: [
+      { word: "memakan", translation: "съедать, есть" },
+      { word: "dimakan", translation: "быть съеденным" },
+      { word: "makanan", translation: "еда, пища" },
+      { word: "pemakan", translation: "едок, пожиратель" },
+      { word: "termakan", translation: "быть случайно съеденным" },
+      { word: "makan-makan", translation: "застолье, пирушка" },
+    ],
     lessonIds: [8, 15],
   },
 
 {
     id: 229,
     word: "piring",
+    pronunciation: "/piriŋ/",
     translation: "тарелка",
     category: "noun",
     frequency: 229,
@@ -3080,6 +3663,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 230,
     word: "gelas",
+    pronunciation: "/ɡəlas/",
     translation: "стакан",
     category: "noun",
     frequency: 230,
@@ -3093,6 +3677,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 231,
     word: "sendok",
+    pronunciation: "/səndoʔ/",
     translation: "ложка",
     category: "noun",
     frequency: 231,
@@ -3106,6 +3691,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 232,
     word: "garpu",
+    pronunciation: "/ɡarpu/",
     translation: "вилка",
     category: "noun",
     frequency: 232,
@@ -3119,6 +3705,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 233,
     word: "restoran",
+    pronunciation: "/restoran/",
     translation: "ресторан",
     category: "noun",
     frequency: 233,
@@ -3132,6 +3719,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 234,
     word: "menu",
+    pronunciation: "/mənu/",
     translation: "меню",
     category: "noun",
     frequency: 234,
@@ -3145,6 +3733,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 235,
     word: "pesan",
+    pronunciation: "/pəsan/",
     translation: "заказывать; сообщение",
     category: "verb",
     frequency: 235,
@@ -3161,6 +3750,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 236,
     word: "bayar",
+    pronunciation: "/bajar/",
     translation: "платить",
     category: "verb",
     frequency: 236,
@@ -3174,6 +3764,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 237,
     word: "harga",
+    pronunciation: "/harɡa/",
     translation: "цена",
     category: "noun",
     frequency: 237,
@@ -3187,6 +3778,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 238,
     word: "murah",
+    pronunciation: "/murah/",
     translation: "дешёвый",
     category: "adjective",
     frequency: 238,
@@ -3200,6 +3792,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 239,
     word: "mahal",
+    pronunciation: "/mahal/",
     translation: "дорогой",
     category: "adjective",
     frequency: 239,
@@ -3213,6 +3806,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 240,
     word: "uang",
+    pronunciation: "/uaŋ/",
     translation: "деньги",
     category: "noun",
     frequency: 240,
@@ -3226,6 +3820,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 241,
     word: "hari",
+    pronunciation: "/hari/",
     translation: "день",
     category: "noun",
     frequency: 241,
@@ -3233,12 +3828,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Hari ini", translation: "Сегодня" },
       { sentence: "Hari Senin", translation: "Понедельник" },
     ],
+    wordFamily: [
+      { word: "sehari", translation: "один день, целый день" },
+      { word: "harian", translation: "ежедневный; газета" },
+      { word: "berhari-hari", translation: "днями напролёт" },
+      { word: "keseharian", translation: "повседневность, будни" },
+      { word: "perayaan", translation: "празднование, торжество" },
+    ],
     lessonIds: [8],
   },
 
 {
     id: 242,
     word: "minggu",
+    pronunciation: "/miŋɡu/",
     translation: "неделя; воскресенье",
     category: "noun",
     frequency: 242,
@@ -3252,6 +3855,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 243,
     word: "bulan",
+    pronunciation: "/bulan/",
     translation: "месяц; луна",
     category: "noun",
     frequency: 243,
@@ -3265,6 +3869,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 244,
     word: "tahun",
+    pronunciation: "/tahun/",
     translation: "год",
     category: "noun",
     frequency: 244,
@@ -3278,6 +3883,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 245,
     word: "jam",
+    pronunciation: "/dʒam/",
     translation: "час, часы (время)",
     category: "noun",
     frequency: 245,
@@ -3291,6 +3897,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 246,
     word: "hari Senin",
+    pronunciation: "/hari Sənin/",
     translation: "понедельник",
     category: "noun",
     frequency: 246,
@@ -3304,6 +3911,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 247,
     word: "hari Selasa",
+    pronunciation: "/hari Səlasa/",
     translation: "вторник",
     category: "noun",
     frequency: 247,
@@ -3317,6 +3925,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 248,
     word: "hari Rabu",
+    pronunciation: "/hari Rabu/",
     translation: "среда",
     category: "noun",
     frequency: 248,
@@ -3330,6 +3939,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 249,
     word: "hari Kamis",
+    pronunciation: "/hari Kamis/",
     translation: "четверг",
     category: "noun",
     frequency: 249,
@@ -3343,6 +3953,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 250,
     word: "hari Jumat",
+    pronunciation: "/hari Jumat/",
     translation: "пятница",
     category: "noun",
     frequency: 250,
@@ -3356,6 +3967,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 251,
     word: "hari Sabtu",
+    pronunciation: "/hari Sabtu/",
     translation: "суббота",
     category: "noun",
     frequency: 251,
@@ -3369,6 +3981,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 252,
     word: "hari Minggu",
+    pronunciation: "/hari Miŋɡu/",
     translation: "воскресенье",
     category: "noun",
     frequency: 252,
@@ -3385,6 +3998,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 253,
     word: "kemarin",
+    pronunciation: "/kemarin/",
     translation: "вчера",
     category: "adverb",
     frequency: 253,
@@ -3398,6 +4012,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 254,
     word: "besok",
+    pronunciation: "/besoʔ/",
     translation: "завтра",
     category: "adverb",
     frequency: 254,
@@ -3411,6 +4026,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 255,
     word: "sekarang",
+    pronunciation: "/sekaraŋ/",
     translation: "сейчас, теперь",
     category: "adverb",
     frequency: 255,
@@ -3424,6 +4040,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 256,
     word: "nanti",
+    pronunciation: "/nanti/",
     translation: "потом, позже",
     category: "adverb",
     frequency: 256,
@@ -3437,6 +4054,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 257,
     word: "dulu",
+    pronunciation: "/dulu/",
     translation: "раньше, сначала",
     category: "adverb",
     frequency: 257,
@@ -3453,6 +4071,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 258,
     word: "lalu",
+    pronunciation: "/lalu/",
     translation: "потом, затем; прошлый",
     category: "adverb",
     frequency: 258,
@@ -3466,6 +4085,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 259,
     word: "awal",
+    pronunciation: "/awal/",
     translation: "начало, ранний",
     category: "noun",
     frequency: 259,
@@ -3479,6 +4099,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 260,
     word: "akhir",
+    pronunciation: "/axir/",
     translation: "конец, последний",
     category: "noun",
     frequency: 260,
@@ -3492,6 +4113,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 261,
     word: "hujan",
+    pronunciation: "/hudʒan/",
     translation: "дождь",
     category: "noun",
     frequency: 261,
@@ -3505,6 +4127,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 262,
     word: "matahari",
+    pronunciation: "/matahari/",
     translation: "солнце",
     category: "noun",
     frequency: 262,
@@ -3518,6 +4141,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 263,
     word: "pohon",
+    pronunciation: "/pohon/",
     translation: "дерево",
     category: "noun",
     frequency: 263,
@@ -3531,6 +4155,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 264,
     word: "bunga",
+    pronunciation: "/buŋa/",
     translation: "цветок",
     category: "noun",
     frequency: 264,
@@ -3544,6 +4169,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 265,
     word: "laut",
+    pronunciation: "/laut/",
     translation: "море",
     category: "noun",
     frequency: 265,
@@ -3557,6 +4183,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 266,
     word: "gunung",
+    pronunciation: "/ɡunuŋ/",
     translation: "гора",
     category: "noun",
     frequency: 266,
@@ -3570,6 +4197,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 267,
     word: "sungai",
+    pronunciation: "/suŋai/",
     translation: "река",
     category: "noun",
     frequency: 267,
@@ -3583,6 +4211,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 268,
     word: "danau",
+    pronunciation: "/danau/",
     translation: "озеро",
     category: "noun",
     frequency: 268,
@@ -3596,6 +4225,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 269,
     word: "pantai",
+    pronunciation: "/pantai/",
     translation: "пляж, побережье",
     category: "noun",
     frequency: 269,
@@ -3609,6 +4239,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 270,
     word: "hutan",
+    pronunciation: "/hutan/",
     translation: "лес",
     category: "noun",
     frequency: 270,
@@ -3622,6 +4253,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 271,
     word: "tanah",
+    pronunciation: "/tanah/",
     translation: "земля, почва",
     category: "noun",
     frequency: 271,
@@ -3635,6 +4267,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 272,
     word: "batu",
+    pronunciation: "/batu/",
     translation: "камень",
     category: "noun",
     frequency: 272,
@@ -3648,6 +4281,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 273,
     word: "pasir",
+    pronunciation: "/pasir/",
     translation: "песок",
     category: "noun",
     frequency: 273,
@@ -3661,6 +4295,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 274,
     word: "api",
+    pronunciation: "/api/",
     translation: "огонь",
     category: "noun",
     frequency: 274,
@@ -3674,6 +4309,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 275,
     word: "udara",
+    pronunciation: "/udara/",
     translation: "воздух",
     category: "noun",
     frequency: 275,
@@ -3687,6 +4323,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 276,
     word: "bintang",
+    pronunciation: "/bintaŋ/",
     translation: "звезда",
     category: "noun",
     frequency: 276,
@@ -3700,6 +4337,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 277,
     word: "bulan",
+    pronunciation: "/bulan/",
     translation: "луна, месяц",
     category: "noun",
     frequency: 277,
@@ -3713,6 +4351,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 278,
     word: "langit",
+    pronunciation: "/laŋit/",
     translation: "небо",
     category: "noun",
     frequency: 278,
@@ -3726,6 +4365,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 279,
     word: "pelangi",
+    pronunciation: "/pelaŋi/",
     translation: "радуга",
     category: "noun",
     frequency: 279,
@@ -3739,6 +4379,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 280,
     word: "gempa bumi",
+    pronunciation: "/ɡəmpa bumi/",
     translation: "землетрясение",
     category: "noun",
     frequency: 280,
@@ -3752,6 +4393,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 281,
     word: "kota",
+    pronunciation: "/kota/",
     translation: "город",
     category: "noun",
     frequency: 281,
@@ -3765,6 +4407,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 282,
     word: "jalan",
+    pronunciation: "/dʒalan/",
     translation: "улица, дорога; идти",
     category: "noun",
     frequency: 282,
@@ -3772,13 +4415,22 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Jalan raya", translation: "Шоссе" },
       { sentence: "Jalan kaki", translation: "Идти пешком" },
     ],
-    relatedWords: [54, 476],
+    wordFamily: [
+      { word: "berjalan", translation: "идти, ходить" },
+      { word: "menjalan", translation: "проходить, выполняться" },
+      { word: "menjalankan", translation: "выполнять, запускать" },
+      { word: "perjalanan", translation: "путешествие, поездка" },
+      { word: "pejalan", translation: "пешеход" },
+      { word: "sejalan", translation: "по пути, согласованно" },
+      { word: "jalan-jalan", translation: "гулять, прогуливаться" },
+    ],
     lessonIds: [14],
   },
 
 {
     id: 283,
     word: "kantor",
+    pronunciation: "/kantor/",
     translation: "офис, контора",
     category: "noun",
     frequency: 283,
@@ -3792,6 +4444,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 284,
     word: "sekolah",
+    pronunciation: "/sekolah/",
     translation: "школа",
     category: "noun",
     frequency: 284,
@@ -3805,6 +4458,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 285,
     word: "pasar",
+    pronunciation: "/pasar/",
     translation: "рынок, базар",
     category: "noun",
     frequency: 285,
@@ -3818,6 +4472,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 286,
     word: "rumah sakit",
+    pronunciation: "/rumah sakit/",
     translation: "больница",
     category: "noun",
     frequency: 286,
@@ -3825,12 +4480,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Ke rumah sakit", translation: "В больницу" },
       { sentence: "Di rumah sakit", translation: "В больнице" },
     ],
+    wordFamily: [
+      { word: "rumah sakit", translation: "больница" },
+      { word: "penyakit", translation: "болезнь" },
+      { word: "menyakiti", translation: "причинять боль, обижать" },
+      { word: "tersakiti", translation: "обиженный, уязвлённый" },
+      { word: "kesakitan", translation: "страдающий от боли" },
+      { word: "sakit-sakit", translation: "с трудом, насилу" },
+    ],
     lessonIds: [14],
   },
 
 {
     id: 287,
     word: "bank",
+    pronunciation: "/banʔ/",
     translation: "банк",
     category: "noun",
     frequency: 287,
@@ -3844,6 +4508,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 288,
     word: "toko",
+    pronunciation: "/toko/",
     translation: "магазин",
     category: "noun",
     frequency: 288,
@@ -3857,6 +4522,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 289,
     word: "apotek",
+    pronunciation: "/apotəʔ/",
     translation: "аптека",
     category: "noun",
     frequency: 289,
@@ -3870,6 +4536,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 290,
     word: "stasiun",
+    pronunciation: "/stasiun/",
     translation: "вокзал, станция",
     category: "noun",
     frequency: 290,
@@ -3883,6 +4550,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 291,
     word: "bandara",
+    pronunciation: "/bandara/",
     translation: "аэропорт",
     category: "noun",
     frequency: 291,
@@ -3899,6 +4567,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 292,
     word: "pelabuhan",
+    pronunciation: "/pelabuhan/",
     translation: "порт, гавань",
     category: "noun",
     frequency: 292,
@@ -3915,6 +4584,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 293,
     word: "taman",
+    pronunciation: "/taman/",
     translation: "парк, сад",
     category: "noun",
     frequency: 293,
@@ -3928,6 +4598,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 294,
     word: "masjid",
+    pronunciation: "/masdʒid/",
     translation: "мечеть",
     category: "noun",
     frequency: 294,
@@ -3941,6 +4612,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 295,
     word: "gereja",
+    pronunciation: "/ɡeredʒa/",
     translation: "церковь",
     category: "noun",
     frequency: 295,
@@ -3954,6 +4626,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 296,
     word: "kiri",
+    pronunciation: "/kiri/",
     translation: "левый, налево",
     category: "adverb",
     frequency: 296,
@@ -3967,6 +4640,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 297,
     word: "kanan",
+    pronunciation: "/kanan/",
     translation: "правый, направо",
     category: "adverb",
     frequency: 297,
@@ -3980,6 +4654,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 298,
     word: "lurus",
+    pronunciation: "/lurus/",
     translation: "прямо",
     category: "adverb",
     frequency: 298,
@@ -3993,6 +4668,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 299,
     word: "dekat",
+    pronunciation: "/dekat/",
     translation: "близко, рядом",
     category: "adverb",
     frequency: 299,
@@ -4006,6 +4682,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 300,
     word: "jauh",
+    pronunciation: "/dʒauh/",
     translation: "далеко",
     category: "adverb",
     frequency: 300,
@@ -4019,6 +4696,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 301,
     word: "baju",
+    pronunciation: "/badʒu/",
     translation: "одежда, рубашка",
     category: "noun",
     frequency: 301,
@@ -4032,6 +4710,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 302,
     word: "warna",
+    pronunciation: "/warna/",
     translation: "цвет",
     category: "noun",
     frequency: 302,
@@ -4045,6 +4724,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 303,
     word: "merah",
+    pronunciation: "/merah/",
     translation: "красный",
     category: "adjective",
     frequency: 303,
@@ -4058,6 +4738,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 304,
     word: "putih",
+    pronunciation: "/putih/",
     translation: "белый",
     category: "adjective",
     frequency: 304,
@@ -4071,6 +4752,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 305,
     word: "hitam",
+    pronunciation: "/hitam/",
     translation: "чёрный",
     category: "adjective",
     frequency: 305,
@@ -4084,6 +4766,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 306,
     word: "biru",
+    pronunciation: "/biru/",
     translation: "синий, голубой",
     category: "adjective",
     frequency: 306,
@@ -4097,6 +4780,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 307,
     word: "hijau",
+    pronunciation: "/hidʒau/",
     translation: "зелёный",
     category: "adjective",
     frequency: 307,
@@ -4110,6 +4794,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 308,
     word: "kuning",
+    pronunciation: "/kuniŋ/",
     translation: "жёлтый",
     category: "adjective",
     frequency: 308,
@@ -4123,6 +4808,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 309,
     word: "coklat",
+    pronunciation: "/tʃoklat/",
     translation: "коричневый",
     category: "adjective",
     frequency: 309,
@@ -4136,6 +4822,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 310,
     word: "abu-abu",
+    pronunciation: "/abu-abu/",
     translation: "серый",
     category: "adjective",
     frequency: 310,
@@ -4149,6 +4836,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 311,
     word: "celana",
+    pronunciation: "/tʃəlana/",
     translation: "брюки, штаны",
     category: "noun",
     frequency: 311,
@@ -4162,6 +4850,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 312,
     word: "topi",
+    pronunciation: "/topi/",
     translation: "шляпа, кепка",
     category: "noun",
     frequency: 312,
@@ -4175,6 +4864,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 313,
     word: "sepatu",
+    pronunciation: "/sepatu/",
     translation: "обувь, туфли",
     category: "noun",
     frequency: 313,
@@ -4188,6 +4878,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 314,
     word: "kaus",
+    pronunciation: "/kaus/",
     translation: "футболка",
     category: "noun",
     frequency: 314,
@@ -4201,6 +4892,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 315,
     word: "jaket",
+    pronunciation: "/dʒakət/",
     translation: "куртка",
     category: "noun",
     frequency: 315,
@@ -4214,6 +4906,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 316,
     word: "pakaian",
+    pronunciation: "/pakaian/",
     translation: "одежда (общее)",
     category: "noun",
     frequency: 316,
@@ -4221,13 +4914,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Pakaian baru", translation: "Новая одежда" },
       { sentence: "Toko pakaian", translation: "Магазин одежды" },
     ],
-    relatedWords: [430],
+    wordFamily: [
+      { word: "memakai", translation: "использовать, надевать" },
+      { word: "dipakai", translation: "используемый, носимый" },
+      { word: "pakaian", translation: "одежда" },
+      { word: "pemakaian", translation: "использование, применение" },
+      { word: "terpakai", translation: "использованный, ношеный" },
+      { word: "berpakai", translation: "одеваться, носить одежду" },
+    ],
     lessonIds: [13],
   },
 
 {
     id: 317,
     word: "terang",
+    pronunciation: "/teraŋ/",
     translation: "светлый, яркий",
     category: "adjective",
     frequency: 317,
@@ -4241,6 +4942,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 318,
     word: "gelap",
+    pronunciation: "/ɡelap/",
     translation: "тёмный, темно",
     category: "adjective",
     frequency: 318,
@@ -4254,6 +4956,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 319,
     word: "tipis",
+    pronunciation: "/tipis/",
     translation: "тонкий",
     category: "adjective",
     frequency: 319,
@@ -4267,6 +4970,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 320,
     word: "tebal",
+    pronunciation: "/tebal/",
     translation: "толстый",
     category: "adjective",
     frequency: 320,
@@ -4280,6 +4984,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 321,
     word: "senang",
+    pronunciation: "/senaŋ/",
     translation: "радостный, счастливый",
     category: "adjective",
     frequency: 321,
@@ -4296,6 +5001,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 322,
     word: "sedih",
+    pronunciation: "/sədih/",
     translation: "грустный, печальный",
     category: "adjective",
     frequency: 322,
@@ -4309,6 +5015,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 323,
     word: "marah",
+    pronunciation: "/marah/",
     translation: "сердитый, злой",
     category: "adjective",
     frequency: 323,
@@ -4322,6 +5029,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 324,
     word: "capek",
+    pronunciation: "/tʃapəʔ/",
     translation: "усталый, уставший",
     category: "adjective",
     frequency: 324,
@@ -4335,6 +5043,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 325,
     word: "sakit",
+    pronunciation: "/sakit/",
     translation: "больной, боль",
     category: "adjective",
     frequency: 325,
@@ -4342,12 +5051,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya sakit", translation: "Я болен" },
       { sentence: "Sakit kepala", translation: "Головная боль" },
     ],
+    wordFamily: [
+      { word: "rumah sakit", translation: "больница" },
+      { word: "penyakit", translation: "болезнь" },
+      { word: "menyakiti", translation: "причинять боль, обижать" },
+      { word: "tersakiti", translation: "обиженный, уязвлённый" },
+      { word: "kesakitan", translation: "страдающий от боли" },
+      { word: "sakit-sakit", translation: "с трудом, насилу" },
+    ],
     lessonIds: [15],
   },
 
 {
     id: 326,
     word: "gembira",
+    pronunciation: "/ɡəmbira/",
     translation: "весёлый, радостный",
     category: "adjective",
     frequency: 326,
@@ -4361,6 +5079,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 327,
     word: "takut",
+    pronunciation: "/takut/",
     translation: "бояться, страшно",
     category: "adjective",
     frequency: 327,
@@ -4374,6 +5093,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 328,
     word: "berani",
+    pronunciation: "/bərani/",
     translation: "смелый, храбрый",
     category: "adjective",
     frequency: 328,
@@ -4387,6 +5107,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 329,
     word: "malas",
+    pronunciation: "/malas/",
     translation: "ленивый",
     category: "adjective",
     frequency: 329,
@@ -4400,6 +5121,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 330,
     word: "rajin",
+    pronunciation: "/radʒin/",
     translation: "прилежный, усердный",
     category: "adjective",
     frequency: 330,
@@ -4413,6 +5135,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 331,
     word: "pintar",
+    pronunciation: "/pintar/",
     translation: "умный, способный",
     category: "adjective",
     frequency: 331,
@@ -4426,6 +5149,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 332,
     word: "bodoh",
+    pronunciation: "/bodoh/",
     translation: "глупый",
     category: "adjective",
     frequency: 332,
@@ -4439,6 +5163,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 333,
     word: "baik hati",
+    pronunciation: "/baiʔ hati/",
     translation: "добрый, добросердечный",
     category: "adjective",
     frequency: 333,
@@ -4452,6 +5177,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 334,
     word: "jahat",
+    pronunciation: "/dʒahat/",
     translation: "злой, плохой",
     category: "adjective",
     frequency: 334,
@@ -4465,6 +5191,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 335,
     word: "sabar",
+    pronunciation: "/sabar/",
     translation: "терпеливый, терпение",
     category: "adjective",
     frequency: 335,
@@ -4478,6 +5205,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 336,
     word: "cemas",
+    pronunciation: "/tʃəmas/",
     translation: "тревожный, беспокойный",
     category: "adjective",
     frequency: 336,
@@ -4491,6 +5219,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 337,
     word: "kaget",
+    pronunciation: "/kaɡət/",
     translation: "удивлённый, поражённый",
     category: "adjective",
     frequency: 337,
@@ -4504,6 +5233,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 338,
     word: "bangga",
+    pronunciation: "/baŋɡa/",
     translation: "гордый, гордиться",
     category: "adjective",
     frequency: 338,
@@ -4517,6 +5247,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 339,
     word: "malu",
+    pronunciation: "/malu/",
     translation: "стеснительный, стыдно",
     category: "adjective",
     frequency: 339,
@@ -4530,6 +5261,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 340,
     word: "heran",
+    pronunciation: "/həran/",
     translation: "удивляться, поражаться",
     category: "adjective",
     frequency: 340,
@@ -4543,6 +5275,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 341,
     word: "ibu",
+    pronunciation: "/ibu/",
     translation: "мать, мама; госпожа (обращение)",
     category: "noun",
     frequency: 341,
@@ -4556,6 +5289,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 342,
     word: "bapak",
+    pronunciation: "/bapaʔ/",
     translation: "отец, папа; господин (обращение)",
     category: "noun",
     frequency: 342,
@@ -4569,6 +5303,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 343,
     word: "kakak",
+    pronunciation: "/kakaʔ/",
     translation: "старший брат/сестра",
     category: "noun",
     frequency: 343,
@@ -4582,6 +5317,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 344,
     word: "adik",
+    pronunciation: "/adiʔ/",
     translation: "младший брат/сестра",
     category: "noun",
     frequency: 344,
@@ -4595,6 +5331,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 345,
     word: "anak",
+    pronunciation: "/anaʔ/",
     translation: "ребёнок, дитя",
     category: "noun",
     frequency: 345,
@@ -4608,6 +5345,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 346,
     word: "kakek",
+    pronunciation: "/kakəʔ/",
     translation: "дедушка",
     category: "noun",
     frequency: 346,
@@ -4621,6 +5359,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 347,
     word: "nenek",
+    pronunciation: "/neneʔ/",
     translation: "бабушка",
     category: "noun",
     frequency: 347,
@@ -4634,6 +5373,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 348,
     word: "suami",
+    pronunciation: "/suami/",
     translation: "муж",
     category: "noun",
     frequency: 348,
@@ -4647,6 +5387,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 349,
     word: "istri",
+    pronunciation: "/istri/",
     translation: "жена",
     category: "noun",
     frequency: 349,
@@ -4660,6 +5401,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 350,
     word: "paman",
+    pronunciation: "/paman/",
     translation: "дядя",
     category: "noun",
     frequency: 350,
@@ -4673,6 +5415,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 351,
     word: "bibi",
+    pronunciation: "/bibi/",
     translation: "тётя",
     category: "noun",
     frequency: 351,
@@ -4686,6 +5429,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 352,
     word: "keponakan",
+    pronunciation: "/kəponakan/",
     translation: "племянник/племянница",
     category: "noun",
     frequency: 352,
@@ -4699,6 +5443,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 353,
     word: "sepupu",
+    pronunciation: "/səpupu/",
     translation: "двоюродный брат/сестра",
     category: "noun",
     frequency: 353,
@@ -4712,6 +5457,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 354,
     word: "keluarga",
+    pronunciation: "/keluarɡa/",
     translation: "семья",
     category: "noun",
     frequency: 354,
@@ -4725,6 +5471,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 355,
     word: "saudara",
+    pronunciation: "/saudara/",
     translation: "брат/сестра (родственник)",
     category: "noun",
     frequency: 355,
@@ -4738,6 +5485,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 356,
     word: "kakak laki-laki",
+    pronunciation: "/kakaʔ laki-laki/",
     translation: "старший брат",
     category: "noun",
     frequency: 356,
@@ -4751,6 +5499,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 357,
     word: "kakak perempuan",
+    pronunciation: "/kakaʔ pərəmpuan/",
     translation: "старшая сестра",
     category: "noun",
     frequency: 357,
@@ -4764,6 +5513,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 358,
     word: "anak laki-laki",
+    pronunciation: "/anaʔ laki-laki/",
     translation: "сын",
     category: "noun",
     frequency: 358,
@@ -4777,6 +5527,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 359,
     word: "anak perempuan",
+    pronunciation: "/anaʔ pərəmpuan/",
     translation: "дочь",
     category: "noun",
     frequency: 359,
@@ -4790,6 +5541,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 360,
     word: "rumah tangga",
+    pronunciation: "/rumah taŋɡa/",
     translation: "домашнее хозяйство, семья",
     category: "noun",
     frequency: 360,
@@ -4797,12 +5549,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Ibu rumah tangga", translation: "Домохозяйка" },
       { sentence: "Kehidupan rumah tangga", translation: "Семейная жизнь" },
     ],
+    wordFamily: [
+      { word: "rumah sakit", translation: "больница" },
+      { word: "rumah tangga", translation: "домашнее хозяйство" },
+      { word: "berumah", translation: "иметь дом, жить" },
+      { word: "perumahan", translation: "жильё, жилой комплекс" },
+      { word: "serumah", translation: "в одном доме, совместно" },
+    ],
     lessonIds: [6],
   },
 
 {
     id: 361,
     word: "guru",
+    pronunciation: "/ɡuru/",
     translation: "учитель",
     category: "noun",
     frequency: 361,
@@ -4816,6 +5576,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 362,
     word: "dokter",
+    pronunciation: "/doktər/",
     translation: "врач, доктор",
     category: "noun",
     frequency: 362,
@@ -4829,6 +5590,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 363,
     word: "mahasiswa",
+    pronunciation: "/mahasiswa/",
     translation: "студент",
     category: "noun",
     frequency: 363,
@@ -4842,6 +5604,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 364,
     word: "kerja",
+    pronunciation: "/kərdʒa/",
     translation: "работа, работать",
     category: "noun",
     frequency: 364,
@@ -4849,12 +5612,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya kerja di kantor", translation: "Я работаю в офисе" },
       { sentence: "Selamat kerja", translation: "Удачи в работе" },
     ],
+    wordFamily: [
+      { word: "bekerja", translation: "работать, трудиться" },
+      { word: "mengerjakan", translation: "делать, выполнять работу" },
+      { word: "dikerjakan", translation: "быть сделанным" },
+      { word: "pekerja", translation: "работник, трудящийся" },
+      { word: "pekerjaan", translation: "работа, занятие, профессия" },
+      { word: "kerjakan", translation: "сделай, выполни" },
+    ],
     lessonIds: [10],
   },
 
 {
     id: 365,
     word: "tugas",
+    pronunciation: "/tuɡas/",
     translation: "задание, задача",
     category: "noun",
     frequency: 365,
@@ -4868,6 +5640,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 366,
     word: "polisi",
+    pronunciation: "/polisi/",
     translation: "полицейский",
     category: "noun",
     frequency: 366,
@@ -4884,6 +5657,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 367,
     word: "supir",
+    pronunciation: "/supir/",
     translation: "водитель",
     category: "noun",
     frequency: 367,
@@ -4897,6 +5671,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 368,
     word: "koki",
+    pronunciation: "/koki/",
     translation: "повар",
     category: "noun",
     frequency: 368,
@@ -4910,6 +5685,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 369,
     word: "petani",
+    pronunciation: "/petani/",
     translation: "фермер, крестьянин",
     category: "noun",
     frequency: 369,
@@ -4926,6 +5702,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 370,
     word: "nelayan",
+    pronunciation: "/nəlajan/",
     translation: "рыбак",
     category: "noun",
     frequency: 370,
@@ -4939,6 +5716,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 371,
     word: "pedagang",
+    pronunciation: "/pədaɡaŋ/",
     translation: "торговец, продавец",
     category: "noun",
     frequency: 371,
@@ -4952,6 +5730,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 372,
     word: "pengusaha",
+    pronunciation: "/pəŋusaha/",
     translation: "предприниматель",
     category: "noun",
     frequency: 372,
@@ -4965,6 +5744,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 373,
     word: "insinyur",
+    pronunciation: "/insiɲur/",
     translation: "инженер",
     category: "noun",
     frequency: 373,
@@ -4981,6 +5761,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 374,
     word: "perawat",
+    pronunciation: "/pərawat/",
     translation: "медсестра, медбрат",
     category: "noun",
     frequency: 374,
@@ -4994,6 +5775,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 375,
     word: "karyawan",
+    pronunciation: "/karjawan/",
     translation: "служащий, сотрудник",
     category: "noun",
     frequency: 375,
@@ -5007,6 +5789,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 376,
     word: "pensiun",
+    pronunciation: "/pənsiun/",
     translation: "пенсия, на пенсии",
     category: "noun",
     frequency: 376,
@@ -5020,6 +5803,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 377,
     word: "gaji",
+    pronunciation: "/ɡadʒi/",
     translation: "зарплата",
     category: "noun",
     frequency: 377,
@@ -5033,6 +5817,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 378,
     word: "libur",
+    pronunciation: "/libur/",
     translation: "выходной, отпуск",
     category: "noun",
     frequency: 378,
@@ -5046,6 +5831,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 379,
     word: "cuti",
+    pronunciation: "/tʃuti/",
     translation: "отпуск",
     category: "noun",
     frequency: 379,
@@ -5059,6 +5845,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 380,
     word: "rapat",
+    pronunciation: "/rapat/",
     translation: "собрание, совещание",
     category: "noun",
     frequency: 380,
@@ -5072,6 +5859,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 381,
     word: "besar",
+    pronunciation: "/bəsar/",
     translation: "большой",
     category: "adjective",
     frequency: 381,
@@ -5079,12 +5867,23 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Rumah besar", translation: "Большой дом" },
       { sentence: "Kota besar", translation: "Большой город" },
     ],
+    wordFamily: [
+      { word: "membesar", translation: "увеличиваться, расти" },
+      { word: "perbesar", translation: "увеличь, расширь" },
+      { word: "memperbesar", translation: "увеличивать, расширять" },
+      { word: "diperbesar", translation: "быть увеличенным" },
+      { word: "kebesaran", translation: "величие, огромность" },
+      { word: "sebesar", translation: "такой же большой как" },
+      { word: "terbesar", translation: "самый большой, крупнейший" },
+      { word: "pembesar", translation: "увеличитель, руководитель" },
+    ],
     lessonIds: [13],
   },
 
 {
     id: 382,
     word: "kecil",
+    pronunciation: "/kətʃil/",
     translation: "маленький",
     category: "adjective",
     frequency: 382,
@@ -5092,12 +5891,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Rumah kecil", translation: "Маленький дом" },
       { sentence: "Anak kecil", translation: "Маленький ребёнок" },
     ],
+    wordFamily: [
+      { word: "mengecil", translation: "уменьшаться" },
+      { word: "kecilkan", translation: "уменьши" },
+      { word: "mengecilkan", translation: "уменьшать" },
+      { word: "sekecil", translation: "такой же маленький как" },
+      { word: "terkecil", translation: "самый маленький" },
+    ],
     lessonIds: [13],
   },
 
 {
     id: 383,
     word: "panjang",
+    pronunciation: "/pandʒaŋ/",
     translation: "длинный",
     category: "adjective",
     frequency: 383,
@@ -5111,6 +5918,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 384,
     word: "pendek",
+    pronunciation: "/pəndəʔ/",
     translation: "короткий",
     category: "adjective",
     frequency: 384,
@@ -5124,6 +5932,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 385,
     word: "cepat",
+    pronunciation: "/tʃəpat/",
     translation: "быстрый, быстро",
     category: "adjective",
     frequency: 385,
@@ -5137,6 +5946,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 386,
     word: "lambat",
+    pronunciation: "/lambat/",
     translation: "медленный, медленно",
     category: "adjective",
     frequency: 386,
@@ -5150,6 +5960,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 387,
     word: "tinggi",
+    pronunciation: "/tiŋɡi/",
     translation: "высокий",
     category: "adjective",
     frequency: 387,
@@ -5163,6 +5974,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 388,
     word: "rendah",
+    pronunciation: "/rendah/",
     translation: "низкий",
     category: "adjective",
     frequency: 388,
@@ -5176,6 +5988,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 389,
     word: "berat",
+    pronunciation: "/bərat/",
     translation: "тяжёлый",
     category: "adjective",
     frequency: 389,
@@ -5189,6 +6002,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 390,
     word: "ringan",
+    pronunciation: "/riŋan/",
     translation: "лёгкий",
     category: "adjective",
     frequency: 390,
@@ -5202,6 +6016,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 391,
     word: "kuat",
+    pronunciation: "/kuat/",
     translation: "сильный",
     category: "adjective",
     frequency: 391,
@@ -5215,6 +6030,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 392,
     word: "lemah",
+    pronunciation: "/lemah/",
     translation: "слабый",
     category: "adjective",
     frequency: 392,
@@ -5228,6 +6044,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 393,
     word: "keras",
+    pronunciation: "/kəras/",
     translation: "твёрдый, громкий, сильный",
     category: "adjective",
     frequency: 393,
@@ -5241,6 +6058,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 394,
     word: "lunak",
+    pronunciation: "/lunaʔ/",
     translation: "мягкий",
     category: "adjective",
     frequency: 394,
@@ -5254,6 +6072,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 395,
     word: "kasar",
+    pronunciation: "/kasar/",
     translation: "грубый, шершавый",
     category: "adjective",
     frequency: 395,
@@ -5267,6 +6086,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 396,
     word: "halus",
+    pronunciation: "/halus/",
     translation: "гладкий, нежный",
     category: "adjective",
     frequency: 396,
@@ -5280,6 +6100,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 397,
     word: "bersih",
+    pronunciation: "/bersih/",
     translation: "чистый",
     category: "adjective",
     frequency: 397,
@@ -5287,13 +6108,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Rumah bersih", translation: "Чистый дом" },
       { sentence: "Air bersih", translation: "Чистая вода" },
     ],
-    relatedWords: [428],
+    wordFamily: [
+      { word: "membersihkan", translation: "чистить, убирать" },
+      { word: "dibersihkan", translation: "быть очищенным" },
+      { word: "kebersihan", translation: "чистота" },
+      { word: "pembersih", translation: "чистящее средство" },
+      { word: "bersih-bersih", translation: "уборка, приборка" },
+    ],
     lessonIds: [13],
   },
 
 {
     id: 398,
     word: "kotor",
+    pronunciation: "/kotor/",
     translation: "грязный",
     category: "adjective",
     frequency: 398,
@@ -5307,6 +6135,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 399,
     word: "basah",
+    pronunciation: "/basah/",
     translation: "мокрый",
     category: "adjective",
     frequency: 399,
@@ -5320,6 +6149,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 400,
     word: "kering",
+    pronunciation: "/keriŋ/",
     translation: "сухой",
     category: "adjective",
     frequency: 400,
@@ -5333,6 +6163,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 401,
     word: "sini",
+    pronunciation: "/sini/",
     translation: "здесь, сюда",
     category: "adverb",
     frequency: 401,
@@ -5346,6 +6177,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 402,
     word: "situ",
+    pronunciation: "/situ/",
     translation: "там (рядом с собеседником)",
     category: "adverb",
     frequency: 402,
@@ -5359,6 +6191,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 403,
     word: "sana",
+    pronunciation: "/sana/",
     translation: "там (далеко)",
     category: "adverb",
     frequency: 403,
@@ -5372,6 +6205,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 404,
     word: "atas",
+    pronunciation: "/atas/",
     translation: "верх, наверху",
     category: "preposition",
     frequency: 404,
@@ -5385,6 +6219,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 405,
     word: "bawah",
+    pronunciation: "/bawah/",
     translation: "низ, внизу",
     category: "preposition",
     frequency: 405,
@@ -5398,6 +6233,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 406,
     word: "dalam",
+    pronunciation: "/dalam/",
     translation: "в, внутри",
     category: "preposition",
     frequency: 406,
@@ -5411,6 +6247,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 407,
     word: "luar",
+    pronunciation: "/luar/",
     translation: "снаружи, вне",
     category: "preposition",
     frequency: 407,
@@ -5424,6 +6261,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 408,
     word: "depan",
+    pronunciation: "/dəpan/",
     translation: "перед, впереди",
     category: "preposition",
     frequency: 408,
@@ -5437,6 +6275,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 409,
     word: "belakang",
+    pronunciation: "/bəlakaŋ/",
     translation: "сзади, позади",
     category: "preposition",
     frequency: 409,
@@ -5450,6 +6289,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 410,
     word: "samping",
+    pronunciation: "/sampiŋ/",
     translation: "рядом, сбоку",
     category: "preposition",
     frequency: 410,
@@ -5463,6 +6303,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 411,
     word: "seberang",
+    pronunciation: "/seberaŋ/",
     translation: "напротив, через",
     category: "preposition",
     frequency: 411,
@@ -5476,6 +6317,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 412,
     word: "tepi",
+    pronunciation: "/təpi/",
     translation: "край, берег",
     category: "noun",
     frequency: 412,
@@ -5489,6 +6331,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 413,
     word: "ujung",
+    pronunciation: "/udʒuŋ/",
     translation: "конец, окончание",
     category: "noun",
     frequency: 413,
@@ -5502,6 +6345,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 414,
     word: "pinggir",
+    pronunciation: "/piŋɡir/",
     translation: "окраина, край",
     category: "noun",
     frequency: 414,
@@ -5515,6 +6359,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 415,
     word: "sekitar",
+    pronunciation: "/sekitar/",
     translation: "вокруг, около",
     category: "preposition",
     frequency: 415,
@@ -5528,6 +6373,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 416,
     word: "sudut",
+    pronunciation: "/sudut/",
     translation: "угол",
     category: "noun",
     frequency: 416,
@@ -5541,6 +6387,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 417,
     word: "tempat",
+    pronunciation: "/tempat/",
     translation: "место",
     category: "noun",
     frequency: 417,
@@ -5554,6 +6401,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 418,
     word: "posisi",
+    pronunciation: "/posisi/",
     translation: "позиция, положение",
     category: "noun",
     frequency: 418,
@@ -5567,6 +6415,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 419,
     word: "arah",
+    pronunciation: "/arah/",
     translation: "направление",
     category: "noun",
     frequency: 419,
@@ -5580,6 +6429,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 420,
     word: "jurusan",
+    pronunciation: "/dʒurusan/",
     translation: "направление, курс",
     category: "noun",
     frequency: 420,
@@ -5593,6 +6443,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 421,
     word: "tidur",
+    pronunciation: "/tidur/",
     translation: "спать",
     category: "verb",
     frequency: 421,
@@ -5600,12 +6451,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Selamat tidur", translation: "Спокойной ночи" },
       { sentence: "Saya mau tidur", translation: "Я хочу спать" },
     ],
+    wordFamily: [
+      { word: "tidur-tidur", translation: "вздремнуть, полежать" },
+      { word: "menidurkan", translation: "укладывать спать" },
+      { word: "ditidurkan", translation: "быть уложенным спать" },
+      { word: "tertidur", translation: "заснуть (нечаянно)" },
+      { word: "tiduran", translation: "прилечь, полежать" },
+    ],
     lessonIds: [10, 12],
   },
 
 {
     id: 422,
     word: "bangun",
+    pronunciation: "/baŋun/",
     translation: "просыпаться, вставать",
     category: "verb",
     frequency: 422,
@@ -5613,12 +6472,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya bangun pagi", translation: "Я просыпаюсь утром" },
       { sentence: "Bangun tidur", translation: "Проснуться" },
     ],
+    wordFamily: [
+      { word: "membangun", translation: "строить, возводить" },
+      { word: "dibangun", translation: "быть построенным" },
+      { word: "bangunan", translation: "здание, строение" },
+      { word: "pembangun", translation: "строитель" },
+      { word: "pembangunan", translation: "строительство, развитие" },
+    ],
     lessonIds: [8],
   },
 
 {
     id: 423,
     word: "mandi",
+    pronunciation: "/mandi/",
     translation: "купаться, принимать душ",
     category: "verb",
     frequency: 423,
@@ -5632,6 +6499,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 424,
     word: "belajar",
+    pronunciation: "/beladʒar/",
     translation: "учиться, изучать",
     category: "verb",
     frequency: 424,
@@ -5639,13 +6507,23 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Saya belajar bahasa", translation: "Я изучаю язык" },
       { sentence: "Belajar di rumah", translation: "Учиться дома" },
     ],
-    relatedWords: [60],
+    wordFamily: [
+      { word: "mengajar", translation: "учить, преподавать" },
+      { word: "diajar", translation: "быть обученным" },
+      { word: "belajar", translation: "учиться, изучать" },
+      { word: "pelajar", translation: "ученик, учащийся" },
+      { word: "pengajar", translation: "преподаватель, учитель" },
+      { word: "ajaran", translation: "учение, доктрина" },
+      { word: "pengajaran", translation: "обучение, преподавание" },
+      { word: "pelajaran", translation: "урок, предмет" },
+    ],
     lessonIds: [3, 10, 11, 12],
   },
 
 {
     id: 425,
     word: "baca",
+    pronunciation: "/batʃa/",
     translation: "читать",
     category: "verb",
     frequency: 425,
@@ -5653,13 +6531,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Baca buku", translation: "Читать книгу" },
       { sentence: "Saya baca", translation: "Я читаю" },
     ],
-    relatedWords: [72],
+    wordFamily: [
+      { word: "membaca", translation: "читать, прочитать" },
+      { word: "dibaca", translation: "быть прочитанным" },
+      { word: "bacaan", translation: "чтение, текст, чтиво" },
+      { word: "pembaca", translation: "читатель" },
+      { word: "terbaca", translation: "читаемый, различимый" },
+      { word: "pembacaan", translation: "прочтение, чтение вслух" },
+    ],
     lessonIds: [10],
   },
 
 {
     id: 427,
     word: "cuci",
+    pronunciation: "/tʃutʃi/",
     translation: "мыть, стирать",
     category: "verb",
     frequency: 427,
@@ -5667,12 +6553,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Cuci tangan", translation: "Мыть руки" },
       { sentence: "Cuci baju", translation: "Стирать одежду" },
     ],
+    wordFamily: [
+      { word: "mencuci", translation: "мыть, стирать" },
+      { word: "dicuci", translation: "быть вымытым" },
+      { word: "pencuci", translation: "моющее средство" },
+      { word: "cucian", translation: "стирка; грязное бельё" },
+      { word: "pencucian", translation: "стирка, мытьё" },
+    ],
     lessonIds: [10],
   },
 
 {
     id: 428,
     word: "bersihkan",
+    pronunciation: "/bersihkan/",
     translation: "убирать, чистить",
     category: "verb",
     frequency: 428,
@@ -5680,13 +6574,20 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Bersihkan kamar", translation: "Убрать комнату" },
       { sentence: "Bersihkan meja", translation: "Протереть стол" },
     ],
-    relatedWords: [397],
+    wordFamily: [
+      { word: "membersihkan", translation: "чистить, убирать" },
+      { word: "dibersihkan", translation: "быть очищенным" },
+      { word: "kebersihan", translation: "чистота" },
+      { word: "pembersih", translation: "чистящее средство" },
+      { word: "bersih-bersih", translation: "уборка, приборка" },
+    ],
     lessonIds: [10],
   },
 
 {
     id: 429,
     word: "beres",
+    pronunciation: "/bərəs/",
     translation: "готово, в порядке",
     category: "adjective",
     frequency: 429,
@@ -5700,6 +6601,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 430,
     word: "pakai",
+    pronunciation: "/pakai/",
     translation: "использовать, носить",
     category: "verb",
     frequency: 430,
@@ -5707,13 +6609,21 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Pakai baju ini", translation: "Надень эту рубашку" },
       { sentence: "Pakai apa?", translation: "Что надеть?" },
     ],
-    relatedWords: [316],
+    wordFamily: [
+      { word: "memakai", translation: "использовать, надевать" },
+      { word: "dipakai", translation: "используемый, носимый" },
+      { word: "pakaian", translation: "одежда" },
+      { word: "pemakaian", translation: "использование, применение" },
+      { word: "terpakai", translation: "использованный, ношеный" },
+      { word: "berpakai", translation: "одеваться, носить одежду" },
+    ],
     lessonIds: [10],
   },
 
 {
     id: 431,
     word: "lepas",
+    pronunciation: "/ləpas/",
     translation: "снимать, отпускать",
     category: "verb",
     frequency: 431,
@@ -5727,6 +6637,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 432,
     word: "ganti",
+    pronunciation: "/ɡanti/",
     translation: "менять, заменять",
     category: "verb",
     frequency: 432,
@@ -5740,6 +6651,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 433,
     word: "simpan",
+    pronunciation: "/simpan/",
     translation: "хранить, убирать",
     category: "verb",
     frequency: 433,
@@ -5753,6 +6665,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 434,
     word: "antar",
+    pronunciation: "/antar/",
     translation: "провожать, сопровождать",
     category: "verb",
     frequency: 434,
@@ -5766,6 +6679,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 435,
     word: "jemput",
+    pronunciation: "/dʒəmput/",
     translation: "встречать, забирать",
     category: "verb",
     frequency: 435,
@@ -5779,6 +6693,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 438,
     word: "pulang",
+    pronunciation: "/pulaŋ/",
     translation: "возвращаться домой",
     category: "verb",
     frequency: 438,
@@ -5792,6 +6707,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 439,
     word: "berangkat",
+    pronunciation: "/bəraŋkat/",
     translation: "отправляться, уезжать",
     category: "verb",
     frequency: 439,
@@ -5811,6 +6727,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 440,
     word: "siap",
+    pronunciation: "/siap/",
     translation: "готовый, готов",
     category: "adjective",
     frequency: 440,
@@ -5824,6 +6741,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 441,
     word: "kucing",
+    pronunciation: "/kutʃiŋ/",
     translation: "кошка",
     category: "noun",
     frequency: 441,
@@ -5837,6 +6755,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 442,
     word: "anjing",
+    pronunciation: "/andʒiŋ/",
     translation: "собака",
     category: "noun",
     frequency: 442,
@@ -5850,6 +6769,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 443,
     word: "ikan",
+    pronunciation: "/ikan/",
     translation: "рыба",
     category: "noun",
     frequency: 443,
@@ -5863,6 +6783,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 444,
     word: "burung",
+    pronunciation: "/buruŋ/",
     translation: "птица",
     category: "noun",
     frequency: 444,
@@ -5876,6 +6797,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 445,
     word: "kuda",
+    pronunciation: "/kuda/",
     translation: "лошадь",
     category: "noun",
     frequency: 445,
@@ -5889,6 +6811,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 446,
     word: "ayam",
+    pronunciation: "/ajam/",
     translation: "курица",
     category: "noun",
     frequency: 446,
@@ -5902,6 +6825,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 447,
     word: "bebek",
+    pronunciation: "/bebeʔ/",
     translation: "утка",
     category: "noun",
     frequency: 447,
@@ -5915,6 +6839,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 448,
     word: "sapi",
+    pronunciation: "/sapi/",
     translation: "корова",
     category: "noun",
     frequency: 448,
@@ -5928,6 +6853,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 449,
     word: "kambing",
+    pronunciation: "/kambiŋ/",
     translation: "коза",
     category: "noun",
     frequency: 449,
@@ -5941,6 +6867,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 450,
     word: "ular",
+    pronunciation: "/ular/",
     translation: "змея",
     category: "noun",
     frequency: 450,
@@ -5954,6 +6881,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 451,
     word: "harimau",
+    pronunciation: "/harimau/",
     translation: "тигр",
     category: "noun",
     frequency: 451,
@@ -5967,6 +6895,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 452,
     word: "gajah",
+    pronunciation: "/ɡadʒah/",
     translation: "слон",
     category: "noun",
     frequency: 452,
@@ -5980,6 +6909,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 453,
     word: "monyet",
+    pronunciation: "/moɲət/",
     translation: "обезьяна",
     category: "noun",
     frequency: 453,
@@ -5993,6 +6923,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 454,
     word: "nyamuk",
+    pronunciation: "/ɲamuʔ/",
     translation: "комар",
     category: "noun",
     frequency: 454,
@@ -6006,6 +6937,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 455,
     word: "kupu-kupu",
+    pronunciation: "/kupu-kupu/",
     translation: "бабочка",
     category: "noun",
     frequency: 455,
@@ -6019,6 +6951,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 456,
     word: "lebah",
+    pronunciation: "/ləbah/",
     translation: "пчела",
     category: "noun",
     frequency: 456,
@@ -6032,6 +6965,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 457,
     word: "semut",
+    pronunciation: "/səmut/",
     translation: "муравей",
     category: "noun",
     frequency: 457,
@@ -6045,6 +6979,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 458,
     word: "kura-kura",
+    pronunciation: "/kura-kura/",
     translation: "черепаха",
     category: "noun",
     frequency: 458,
@@ -6058,6 +6993,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 459,
     word: "buaya",
+    pronunciation: "/buaja/",
     translation: "крокодил",
     category: "noun",
     frequency: 459,
@@ -6071,6 +7007,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 461,
     word: "sepeda",
+    pronunciation: "/sepeda/",
     translation: "велосипед",
     category: "noun",
     frequency: 461,
@@ -6084,6 +7021,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 462,
     word: "kereta",
+    pronunciation: "/kereta/",
     translation: "поезд",
     category: "noun",
     frequency: 462,
@@ -6097,6 +7035,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 463,
     word: "pesawat",
+    pronunciation: "/pesawat/",
     translation: "самолёт",
     category: "noun",
     frequency: 463,
@@ -6110,6 +7049,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 464,
     word: "kapal",
+    pronunciation: "/kapal/",
     translation: "корабль",
     category: "noun",
     frequency: 464,
@@ -6123,6 +7063,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 465,
     word: "bis",
+    pronunciation: "/bis/",
     translation: "автобус",
     category: "noun",
     frequency: 465,
@@ -6136,6 +7077,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 466,
     word: "taksi",
+    pronunciation: "/taksi/",
     translation: "такси",
     category: "noun",
     frequency: 466,
@@ -6149,6 +7091,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 467,
     word: "motor",
+    pronunciation: "/motor/",
     translation: "мотоцикл",
     category: "noun",
     frequency: 467,
@@ -6162,6 +7105,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 468,
     word: "becak",
+    pronunciation: "/betʃaʔ/",
     translation: "велорикша",
     category: "noun",
     frequency: 468,
@@ -6175,6 +7119,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 469,
     word: "ojek",
+    pronunciation: "/odʒəʔ/",
     translation: "мототакси",
     category: "noun",
     frequency: 469,
@@ -6188,6 +7133,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 470,
     word: "bensin",
+    pronunciation: "/bensin/",
     translation: "бензин",
     category: "noun",
     frequency: 470,
@@ -6201,6 +7147,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 471,
     word: "ban",
+    pronunciation: "/ban/",
     translation: "шина",
     category: "noun",
     frequency: 471,
@@ -6214,6 +7161,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 472,
     word: "kecelakaan",
+    pronunciation: "/ketʃelakaan/",
     translation: "авария, несчастный случай",
     category: "noun",
     frequency: 472,
@@ -6227,6 +7175,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 473,
     word: "macet",
+    pronunciation: "/matʃət/",
     translation: "пробка, затор",
     category: "adjective",
     frequency: 473,
@@ -6240,6 +7189,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 474,
     word: "tiket",
+    pronunciation: "/tikət/",
     translation: "билет",
     category: "noun",
     frequency: 474,
@@ -6253,6 +7203,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 475,
     word: "koper",
+    pronunciation: "/kopər/",
     translation: "чемодан",
     category: "noun",
     frequency: 475,
@@ -6266,6 +7217,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 476,
     word: "perjalanan",
+    pronunciation: "/perdʒalanan/",
     translation: "путешествие, поездка",
     category: "noun",
     frequency: 476,
@@ -6273,13 +7225,22 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Perjalanan jauh", translation: "Далёкая поездка" },
       { sentence: "Selamat perjalanan", translation: "Счастливого пути" },
     ],
-    relatedWords: [54, 282],
+    wordFamily: [
+      { word: "berjalan", translation: "идти, ходить" },
+      { word: "menjalan", translation: "проходить, выполняться" },
+      { word: "menjalankan", translation: "выполнять, запускать" },
+      { word: "perjalanan", translation: "путешествие, поездка" },
+      { word: "pejalan", translation: "пешеход" },
+      { word: "sejalan", translation: "по пути, согласованно" },
+      { word: "jalan-jalan", translation: "гулять, прогуливаться" },
+    ],
     lessonIds: [14],
   },
 
 {
     id: 477,
     word: "wisata",
+    pronunciation: "/wisata/",
     translation: "туризм, экскурсия",
     category: "noun",
     frequency: 477,
@@ -6293,6 +7254,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 478,
     word: "peta",
+    pronunciation: "/pəta/",
     translation: "карта",
     category: "noun",
     frequency: 478,
@@ -6306,6 +7268,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 479,
     word: "paspor",
+    pronunciation: "/paspor/",
     translation: "паспорт",
     category: "noun",
     frequency: 479,
@@ -6319,6 +7282,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 480,
     word: "bagasi",
+    pronunciation: "/baɡasi/",
     translation: "багаж",
     category: "noun",
     frequency: 480,
@@ -6332,6 +7296,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 481,
     word: "panas",
+    pronunciation: "/panas/",
     translation: "жаркий, горячий",
     category: "adjective",
     frequency: 481,
@@ -6345,6 +7310,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 482,
     word: "dingin",
+    pronunciation: "/diŋin/",
     translation: "холодный",
     category: "adjective",
     frequency: 482,
@@ -6358,6 +7324,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 483,
     word: "angin",
+    pronunciation: "/aŋin/",
     translation: "ветер",
     category: "noun",
     frequency: 483,
@@ -6371,6 +7338,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 484,
     word: "awan",
+    pronunciation: "/awan/",
     translation: "облако",
     category: "noun",
     frequency: 484,
@@ -6384,6 +7352,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 485,
     word: "gempa",
+    pronunciation: "/ɡəmpa/",
     translation: "землетрясение",
     category: "noun",
     frequency: 485,
@@ -6397,6 +7366,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 486,
     word: "cerah",
+    pronunciation: "/tʃərah/",
     translation: "ясный, солнечный",
     category: "adjective",
     frequency: 486,
@@ -6410,6 +7380,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 487,
     word: "mendung",
+    pronunciation: "/mənduŋ/",
     translation: "облачный, пасмурный",
     category: "adjective",
     frequency: 487,
@@ -6423,6 +7394,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 488,
     word: "sejuk",
+    pronunciation: "/sedʒuʔ/",
     translation: "прохладный",
     category: "adjective",
     frequency: 488,
@@ -6436,6 +7408,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 489,
     word: "lembab",
+    pronunciation: "/lembab/",
     translation: "влажный",
     category: "adjective",
     frequency: 489,
@@ -6449,6 +7422,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 490,
     word: "cuaca",
+    pronunciation: "/tʃuatʃa/",
     translation: "погода",
     category: "noun",
     frequency: 490,
@@ -6462,6 +7436,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 491,
     word: "musim",
+    pronunciation: "/musim/",
     translation: "сезон, время года",
     category: "noun",
     frequency: 491,
@@ -6475,6 +7450,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 492,
     word: "musim panas",
+    pronunciation: "/musim panas/",
     translation: "лето",
     category: "noun",
     frequency: 492,
@@ -6488,6 +7464,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 493,
     word: "musim dingin",
+    pronunciation: "/musim diŋin/",
     translation: "зима",
     category: "noun",
     frequency: 493,
@@ -6501,6 +7478,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 494,
     word: "musim semi",
+    pronunciation: "/musim səmi/",
     translation: "весна",
     category: "noun",
     frequency: 494,
@@ -6514,6 +7492,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 495,
     word: "musim gugur",
+    pronunciation: "/musim ɡuɡur/",
     translation: "осень",
     category: "noun",
     frequency: 495,
@@ -6527,6 +7506,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 496,
     word: "iklim",
+    pronunciation: "/iklim/",
     translation: "климат",
     category: "noun",
     frequency: 496,
@@ -6540,6 +7520,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 497,
     word: "suhu",
+    pronunciation: "/suhu/",
     translation: "температура",
     category: "noun",
     frequency: 497,
@@ -6553,6 +7534,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 498,
     word: "derajat",
+    pronunciation: "/deradʒat/",
     translation: "градус",
     category: "noun",
     frequency: 498,
@@ -6569,6 +7551,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 499,
     word: "topan",
+    pronunciation: "/topan/",
     translation: "тайфун, ураган",
     category: "noun",
     frequency: 499,
@@ -6582,6 +7565,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 500,
     word: "banjir",
+    pronunciation: "/bandʒir/",
     translation: "наводнение",
     category: "noun",
     frequency: 500,
@@ -6598,6 +7582,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 501,
     word: "kaki",
+    pronunciation: "/kaki/",
     translation: "нога, ступня",
     category: "noun",
     frequency: 501,
@@ -6611,6 +7596,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 502,
     word: "mata",
+    pronunciation: "/mata/",
     translation: "глаз",
     category: "noun",
     frequency: 502,
@@ -6624,6 +7610,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 503,
     word: "tangan",
+    pronunciation: "/taŋan/",
     translation: "рука, кисть",
     category: "noun",
     frequency: 503,
@@ -6637,6 +7624,7 @@ export const vocabulary: DictionaryWord[] = [
 {
     id: 504,
     word: "minuman",
+    pronunciation: "/minuman/",
     translation: "напиток",
     category: "noun",
     frequency: 504,
@@ -6644,7 +7632,13 @@ export const vocabulary: DictionaryWord[] = [
       { sentence: "Minuman dingin", translation: "Холодный напиток" },
       { sentence: "Minuman manis", translation: "Сладкий напиток" },
     ],
-    relatedWords: [42],
+    wordFamily: [
+      { word: "meminum", translation: "пить, выпивать" },
+      { word: "diminum", translation: "быть выпитым" },
+      { word: "minuman", translation: "напиток" },
+      { word: "peminum", translation: "пьяница, любитель выпить" },
+      { word: "terminum", translation: "быть случайно выпитым" },
+    ],
     lessonIds: [15],
   }
 

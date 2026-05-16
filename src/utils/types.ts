@@ -32,15 +32,22 @@ export interface WordExample {
   translation: string;
 }
 
+export interface WordFamilyEntry {
+  word: string;
+  translation: string;
+}
+
 // Интерфейс слова в словаре
 export interface DictionaryWord {
   id: number;
   word: string;
+  pronunciation?: string; // IPA: /səlamat/
   translation: string;
   category: Category;
   frequency: number; // 1-500, где 1 - самое частое
   examples: WordExample[];
   relatedWords?: number[]; // ID связанных слов
+  wordFamily?: WordFamilyEntry[]; // внешние однокоренные
   lessonIds: number[]; // В каких уроках встречается
   isLearned?: boolean;
   isFavorite?: boolean;
