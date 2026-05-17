@@ -5,121 +5,113 @@ export const vocabularyRu: DictionaryWord[] = [
     id: 1,
     word: "здравствуйте",
     pronunciation: "/zdravstvujtje/",
-    translation: "selamat",
+    translation: "halo (formal), selamat...",
     category: "interjection",
     frequency: 1,
     examples: [
-      { sentence: "Доброе утро!", translation: "Selamat pagi!" },
-      { sentence: "Добро пожаловать", translation: "Selamat datang" },
+      { sentence: "Здравствуйте!", translation: "Halo! (salam formal)" },
+      { sentence: "Здравствуйте, как дела?", translation: "Halo, apa kabar?" },
     ],
     wordFamily: [
-      { word: "здороваться", translation: "bersalaman" },
-      { word: "поздороваться", translation: "memberi salam" },
-      { word: "приветствие", translation: "salam, ucapan salam" },
+      { word: "здоровье", translation: "kesehatan" },
     ],
     lessonIds: [1],
   },
 
   {
     id: 2,
-    word: "утро",
-    pronunciation: "/utro/",
-    translation: "pagi",
-    category: "noun",
+    word: "привет",
+    pronunciation: "/privjet/",
+    translation: "hai (informal)",
+    category: "interjection",
     frequency: 2,
     examples: [
-      { sentence: "Доброе утро", translation: "Selamat pagi" },
-      { sentence: "Я просыпаюсь утром", translation: "Saya bangun pagi" },
+      { sentence: "Привет!", translation: "Hai!" },
+      { sentence: "Привет, как ты?", translation: "Hai, apa kabar?" },
     ],
     wordFamily: [
-      { word: "утренний", translation: "pagi" },
-      { word: "поутру", translation: "pagi-pagi" },
+      { word: "приветствие", translation: "salam, ucapan salam" },
     ],
-    lessonIds: [1, 8],
+    lessonIds: [1],
   },
 
   {
     id: 3,
-    word: "спасибо",
-    pronunciation: "/spasibo/",
-    translation: "terima kasih",
+    word: "до свидания",
+    pronunciation: "/do svidanija/",
+    translation: "sampai jumpa (formal)",
     category: "interjection",
     frequency: 3,
     examples: [
-      { sentence: "Большое спасибо", translation: "Terima kasih banyak" },
+      { sentence: "До свидания!", translation: "Sampai jumpa!" },
+      { sentence: "До свидания, до встречи!", translation: "Sampai jumpa lagi!" },
     ],
     wordFamily: [
-      { word: "благодарить", translation: "berterima kasih" },
-      { word: "благодарность", translation: "terima kasih, ucapan terima kasih" },
+      { word: "свидание", translation: "pertemuan, kencan" },
     ],
-    lessonIds: [1, 16],
+    lessonIds: [1],
   },
 
   {
     id: 4,
-    word: "пожалуйста",
-    pronunciation: "/poʐalujsta/",
-    translation: "sama-sama",
+    word: "пока",
+    pronunciation: "/poka/",
+    translation: "dadah (informal)",
     category: "interjection",
     frequency: 4,
     examples: [
-      { sentence: "Пример с \"пожалуйста\"", translation: "sama-sama" },
+      { sentence: "Пока!", translation: "Dadah!" },
+      { sentence: "Ну, пока!", translation: "Yah, dadah!" },
     ],
-    wordFamily: [
-      { word: "пожалуйста (в ответ)", translation: "sama-sama" },
-    ],
-    lessonIds: [1, 16],
+    lessonIds: [1],
   },
 
   {
     id: 5,
-    word: "извините",
-    pronunciation: "/izvinitje/",
-    translation: "maaf",
+    word: "спасибо",
+    pronunciation: "/spasibo/",
+    translation: "terima kasih",
     category: "interjection",
     frequency: 5,
     examples: [
-      { sentence: "Извините, я опоздал", translation: "Maaf, saya terlambat" },
-      { sentence: "Извините, я не знаю", translation: "Maaf, saya tidak tahu" },
+      { sentence: "Спасибо!", translation: "Terima kasih!" },
+      { sentence: "Большое спасибо!", translation: "Terima kasih banyak!" },
     ],
     wordFamily: [
-      { word: "извиняться", translation: "minta maaf" },
-      { word: "прощение", translation: "maaf, permintaan maaf" },
-      { word: "извинить", translation: "memaafkan" },
+      { word: "благодарить", translation: "berterima kasih" },
+      { word: "благодарность", translation: "rasa terima kasih" },
     ],
-    lessonIds: [1, 16],
+    lessonIds: [1],
   },
 
   {
     id: 6,
     word: "пожалуйста",
     pronunciation: "/poʐalujsta/",
-    translation: "tolong",
+    translation: "tolong; sama-sama",
     category: "interjection",
     frequency: 6,
     examples: [
-      { sentence: "Пожалуйста, помогите мне", translation: "Tolong bantu saya" },
+      { sentence: "Спасибо! — Пожалуйста!", translation: "Terima kasih! — Sama-sama!" },
+      { sentence: "Пожалуйста, помогите!", translation: "Tolong bantu saya!" },
     ],
-    wordFamily: [
-      { word: "пожалуйста (в ответ)", translation: "sama-sama" },
-    ],
-    lessonIds: [1, 16],
+    lessonIds: [1],
   },
 
   {
     id: 7,
-    word: "до свидания",
-    pronunciation: "/do svidanija/",
-    translation: "sampai jumpa",
+    word: "извините",
+    pronunciation: "/izvinitje/",
+    translation: "maaf, permisi",
     category: "interjection",
     frequency: 7,
     examples: [
-      { sentence: "До новой встречи", translation: "Sampai jumpa lagi" },
-      { sentence: "До завтра", translation: "Sampai jumpa besok" },
+      { sentence: "Извините, вы не знаете?", translation: "Maaf, Anda tidak tahu?" },
+      { sentence: "Извините, я опоздал", translation: "Maaf, saya terlambat" },
     ],
     wordFamily: [
-      { word: "свидание", translation: "pertemuan, kencan" },
-      { word: "встреча", translation: "pertemuan" },
+      { word: "извинять", translation: "memaafkan" },
+      { word: "извинение", translation: "permintaan maaf" },
     ],
     lessonIds: [1],
   },
@@ -132,11 +124,8 @@ export const vocabularyRu: DictionaryWord[] = [
     category: "adverb",
     frequency: 8,
     examples: [
+      { sentence: "Да, конечно", translation: "Ya, tentu" },
       { sentence: "Да, я понимаю", translation: "Ya, saya mengerti" },
-      { sentence: "Да, верно", translation: "Ya, benar" },
-    ],
-    wordFamily: [
-      { word: "согласие", translation: "persetujuan" },
     ],
     lessonIds: [1],
   },
@@ -149,7177 +138,6075 @@ export const vocabularyRu: DictionaryWord[] = [
     category: "adverb",
     frequency: 9,
     examples: [
+      { sentence: "Нет, спасибо", translation: "Tidak, terima kasih" },
       { sentence: "Нет, я не хочу", translation: "Tidak, saya tidak mau" },
-      { sentence: "Я не знаю", translation: "Saya tidak tahu" },
     ],
-    wordFamily: [
-      { word: "отрицание", translation: "negasi, sangkalan" },
-    ],
-    lessonIds: [1, 3, 5],
+    lessonIds: [1],
   },
 
   {
     id: 10,
-    word: "что",
-    pronunciation: "/tɕto/",
-    translation: "apa",
+    word: "как",
+    pronunciation: "/kak/",
+    translation: "bagaimana",
     category: "adverb",
     frequency: 10,
     examples: [
-      { sentence: "Что это?", translation: "Apa ini?" },
       { sentence: "Как дела?", translation: "Apa kabar?" },
+      { sentence: "Как тебя зовут?", translation: "Siapa namamu?" },
     ],
     wordFamily: [
-      { word: "чтобы", translation: "bahwa, supaya" },
-      { word: "что-то", translation: "sesuatu" },
-      { word: "ничто", translation: "tidak ada apa-apa" },
+      { word: "какой", translation: "yang mana, apa" },
+      { word: "как-то", translation: "entah bagaimana" },
     ],
-    lessonIds: [1, 4],
+    lessonIds: [1],
   },
 
   {
     id: 11,
-    word: "кто",
-    pronunciation: "/kto/",
-    translation: "siapa",
-    category: "adverb",
+    word: "я",
+    pronunciation: "/ja/",
+    translation: "saya",
+    category: "pronoun",
     frequency: 11,
     examples: [
-      { sentence: "Как тебя зовут?", translation: "Siapa nama kamu?" },
-      { sentence: "Кто он/она?", translation: "Siapa dia?" },
+      { sentence: "Я студент", translation: "Saya mahasiswa" },
+      { sentence: "Я из России", translation: "Saya dari Rusia" },
     ],
     wordFamily: [
-      { word: "кто-то", translation: "seseorang" },
-      { word: "никто", translation: "tidak seorang pun" },
+      { word: "меня", translation: "saya (milik)" },
+      { word: "мне", translation: "saya (kepada)" },
     ],
-    lessonIds: [1, 4],
+    lessonIds: [1],
   },
 
   {
     id: 12,
-    word: "имя",
-    pronunciation: "/imja/",
-    translation: "nama",
-    category: "noun",
+    word: "ты",
+    pronunciation: "/tɨ/",
+    translation: "kamu (informal)",
+    category: "pronoun",
     frequency: 12,
     examples: [
-      { sentence: "Меня зовут Анди", translation: "Nama saya Andi" },
-      { sentence: "Как тебя зовут?", translation: "Siapa namamu?" },
+      { sentence: "Ты хороший друг", translation: "Kamu teman baik" },
+      { sentence: "Как ты?", translation: "Apa kabar kamu?" },
     ],
     wordFamily: [
-      { word: "именной", translation: "nominal" },
-      { word: "называть", translation: "menamai, memanggil" },
-      { word: "название", translation: "nama, sebutan" },
+      { word: "тебя", translation: "kamu (milik)" },
+      { word: "тебе", translation: "kamu (kepada)" },
     ],
     lessonIds: [1],
   },
 
   {
     id: 13,
-    word: "новости",
-    pronunciation: "/novosti/",
-    translation: "kabar",
-    category: "noun",
+    word: "он",
+    pronunciation: "/on/",
+    translation: "dia (laki-laki)",
+    category: "pronoun",
     frequency: 13,
     examples: [
-      { sentence: "Как дела?", translation: "Apa kabar?" },
-      { sentence: "Дела хорошие", translation: "Kabar baik" },
+      { sentence: "Он учитель", translation: "Dia guru" },
+      { sentence: "Он здесь", translation: "Dia di sini" },
     ],
     wordFamily: [
-      { word: "новость", translation: "berita, kabar" },
-      { word: "новостной", translation: "berita" },
+      { word: "его", translation: "dia (milik laki-laki)" },
     ],
-    lessonIds: [1],
+    lessonIds: [2],
   },
 
   {
     id: 14,
-    word: "хороший",
-    pronunciation: "/xoroʂij/",
-    translation: "baik",
-    category: "adjective",
+    word: "она",
+    pronunciation: "/ona/",
+    translation: "dia (perempuan)",
+    category: "pronoun",
     frequency: 14,
     examples: [
-      { sentence: "Дела хорошие", translation: "Kabar baik" },
-      { sentence: "Хороший человек", translation: "Orang baik" },
+      { sentence: "Она красивая", translation: "Dia cantik" },
+      { sentence: "Она дома", translation: "Dia di rumah" },
     ],
     wordFamily: [
-      { word: "хорошо", translation: "baik" },
-      { word: "лучший", translation: "terbaik" },
-      { word: "улучшать", translation: "memperbaiki" },
-      { word: "улучшение", translation: "perbaikan" },
+      { word: "её", translation: "dia (milik perempuan)" },
     ],
-    lessonIds: [1, 13],
+    lessonIds: [2],
   },
 
   {
     id: 15,
-    word: "из",
-    pronunciation: "/iz/",
-    translation: "dari",
-    category: "preposition",
+    word: "мы",
+    pronunciation: "/mɨ/",
+    translation: "kami, kita",
+    category: "pronoun",
     frequency: 15,
     examples: [
-      { sentence: "Я из России", translation: "Saya dari Rusia" },
-      { sentence: "Откуда?", translation: "Dari mana?" },
+      { sentence: "Мы вместе", translation: "Kita bersama" },
+      { sentence: "Мы учимся", translation: "Kami belajar" },
     ],
     wordFamily: [
-      { word: "изо", translation: "dari" },
-      { word: "от", translation: "dari, daripada" },
+      { word: "нас", translation: "kami (milik)" },
+      { word: "нам", translation: "kami (kepada)" },
     ],
-    lessonIds: [1, 14],
+    lessonIds: [2],
   },
 
   {
     id: 16,
-    word: "я",
-    pronunciation: "/ja/",
-    translation: "saya",
+    word: "вы",
+    pronunciation: "/vɨ/",
+    translation: "Anda, kalian",
     category: "pronoun",
     frequency: 16,
     examples: [
-      { sentence: "Я ученик", translation: "Saya siswa" },
-      { sentence: "Моя книга", translation: "Buku saya" },
+      { sentence: "Вы говорите по-русски?", translation: "Anda bicara bahasa Rusia?" },
+      { sentence: "Вы здесь работаете?", translation: "Anda bekerja di sini?" },
     ],
     wordFamily: [
-      { word: "меня", translation: "saya, aku" },
-      { word: "мне", translation: "saya, aku" },
-      { word: "мой", translation: "saya, aku" },
+      { word: "вас", translation: "Anda (milik)" },
+      { word: "вам", translation: "Anda (kepada)" },
     ],
-    lessonIds: [1, 2],
+    lessonIds: [2],
   },
 
   {
     id: 17,
-    word: "ты",
-    pronunciation: "/tɨ/",
-    translation: "kamu",
+    word: "они",
+    pronunciation: "/oni/",
+    translation: "mereka",
     category: "pronoun",
     frequency: 17,
     examples: [
-      { sentence: "Ты хороший", translation: "Kamu baik" },
-      { sentence: "Кто ты?", translation: "Siapa kamu?" },
+      { sentence: "Они пришли", translation: "Mereka datang" },
+      { sentence: "Они мои друзья", translation: "Mereka teman saya" },
     ],
     wordFamily: [
-      { word: "тебя", translation: "kamu, engkau" },
-      { word: "твой", translation: "kamu, engkau" },
+      { word: "их", translation: "mereka (milik)" },
     ],
     lessonIds: [2],
   },
 
   {
     id: 18,
-    word: "он",
-    pronunciation: "/on/",
-    translation: "dia",
-    category: "pronoun",
+    word: "кто",
+    pronunciation: "/kto/",
+    translation: "siapa",
+    category: "adverb",
     frequency: 18,
     examples: [
-      { sentence: "Он/она учитель", translation: "Dia guru" },
-      { sentence: "Его/её дом", translation: "Rumah dia" },
+      { sentence: "Кто это?", translation: "Siapa ini?" },
+      { sentence: "Кто ты?", translation: "Siapa kamu?" },
     ],
     wordFamily: [
-      { word: "она", translation: "dia (perempuan)" },
-      { word: "его", translation: "dia, miliknya" },
-      { word: "её", translation: "dia, miliknya" },
+      { word: "кто-то", translation: "seseorang" },
+      { word: "никто", translation: "tidak seorang pun" },
     ],
     lessonIds: [2],
   },
 
   {
     id: 19,
-    word: "мы",
-    pronunciation: "/mɨ/",
-    translation: "kita",
-    category: "pronoun",
+    word: "что",
+    pronunciation: "/tɕto/",
+    translation: "apa",
+    category: "adverb",
     frequency: 19,
     examples: [
-      { sentence: "Мы идём (все вместе)", translation: "Kita pergi" },
-      { sentence: "Мы учимся", translation: "Kita belajar" },
+      { sentence: "Что это?", translation: "Apa ini?" },
+      { sentence: "Что ты делаешь?", translation: "Apa yang kamu lakukan?" },
     ],
     wordFamily: [
-      { word: "нас", translation: "kami, kita" },
-      { word: "наш", translation: "kami, kita" },
+      { word: "что-то", translation: "sesuatu" },
+      { word: "ничто", translation: "tidak ada apa-apa" },
     ],
     lessonIds: [2],
   },
 
   {
     id: 20,
-    word: "они",
-    pronunciation: "/oni/",
-    translation: "mereka",
-    category: "pronoun",
+    word: "где",
+    pronunciation: "/ɡdje/",
+    translation: "di mana",
+    category: "adverb",
     frequency: 20,
     examples: [
-      { sentence: "Они мои друзья", translation: "Mereka teman saya" },
-      { sentence: "Они приходят", translation: "Mereka datang" },
-    ],
-    wordFamily: [
-      { word: "их", translation: "mereka, milik mereka" },
+      { sentence: "Где туалет?", translation: "Di mana toilet?" },
+      { sentence: "Где ты живёшь?", translation: "Di mana kamu tinggal?" },
     ],
     lessonIds: [2],
   },
 
   {
     id: 21,
-    word: "мы",
-    pronunciation: "/mɨ/",
-    translation: "kami",
-    category: "pronoun",
+    word: "когда",
+    pronunciation: "/koɡda/",
+    translation: "kapan",
+    category: "adverb",
     frequency: 21,
     examples: [
-      { sentence: "Мы из Индонезии", translation: "Kami dari Indonesia" },
-      { sentence: "Мы едем на Бали", translation: "Kami pergi ke Bali" },
-    ],
-    wordFamily: [
-      { word: "нас", translation: "kami, kita" },
-      { word: "наш", translation: "kami, kita" },
+      { sentence: "Когда ты придёшь?", translation: "Kapan kamu datang?" },
+      { sentence: "Когда урок?", translation: "Kapan pelajarannya?" },
     ],
     lessonIds: [2],
   },
 
   {
     id: 22,
-    word: "вы",
-    pronunciation: "/vɨ/",
-    translation: "Anda",
-    category: "pronoun",
+    word: "почему",
+    pronunciation: "/potɕjemu/",
+    translation: "mengapa",
+    category: "adverb",
     frequency: 22,
     examples: [
-      { sentence: "Вы учитель", translation: "Anda guru" },
-      { sentence: "Доброе утро, Вы", translation: "Selamat pagi, Anda" },
+      { sentence: "Почему ты не идёшь?", translation: "Kenapa kamu tidak pergi?" },
+      { sentence: "Почему?", translation: "Mengapa?" },
     ],
     lessonIds: [2],
   },
 
   {
     id: 23,
-    word: "я",
-    pronunciation: "/ja/",
-    translation: "aku",
-    category: "pronoun",
+    word: "говорить",
+    pronunciation: "/ɡovoritʲ/",
+    translation: "bicara, mengatakan",
+    category: "verb",
     frequency: 23,
     examples: [
-      { sentence: "Я люблю тебя", translation: "Aku cinta kamu" },
-      { sentence: "Я хочу есть", translation: "Aku mau makan" },
+      { sentence: "Я говорю по-русски", translation: "Saya bicara bahasa Rusia" },
+      { sentence: "Что ты говоришь?", translation: "Apa yang kamu katakan?" },
     ],
     wordFamily: [
-      { word: "меня", translation: "saya, aku" },
-      { word: "мне", translation: "saya, aku" },
-      { word: "мой", translation: "saya, aku" },
+      { word: "сказать", translation: "berkata" },
+      { word: "разговор", translation: "percakapan" },
     ],
     lessonIds: [2],
   },
 
   {
     id: 24,
-    word: "это",
-    pronunciation: "/ɛto/",
-    translation: "ini",
-    category: "adverb",
+    word: "делать",
+    pronunciation: "/djelatʲ/",
+    translation: "melakukan, membuat",
+    category: "verb",
     frequency: 24,
     examples: [
-      { sentence: "Это моя книга", translation: "Ini buku saya" },
-      { sentence: "Этот дом большой", translation: "Rumah ini besar" },
+      { sentence: "Что ты делаешь?", translation: "Apa yang kamu lakukan?" },
+      { sentence: "Я делаю уроки", translation: "Saya mengerjakan PR" },
     ],
     wordFamily: [
-      { word: "этот", translation: "ini" },
-      { word: "эта", translation: "ini" },
-      { word: "эти", translation: "ini (jamak)" },
+      { word: "сделать", translation: "selesai melakukan" },
+      { word: "дело", translation: "urusan, pekerjaan" },
     ],
-    lessonIds: [2, 6],
+    lessonIds: [2],
   },
 
   {
     id: 25,
-    word: "то",
-    pronunciation: "/to/",
-    translation: "itu",
-    category: "adverb",
+    word: "знать",
+    pronunciation: "/znatʲ/",
+    translation: "tahu",
+    category: "verb",
     frequency: 25,
     examples: [
-      { sentence: "То его/её дом", translation: "Itu rumah dia" },
-      { sentence: "Та книга", translation: "Buku itu" },
+      { sentence: "Я знаю", translation: "Saya tahu" },
+      { sentence: "Ты знаешь его?", translation: "Kamu kenal dia?" },
     ],
     wordFamily: [
-      { word: "тот", translation: "itu" },
-      { word: "та", translation: "itu" },
-      { word: "те", translation: "itu (jamak)" },
+      { word: "знание", translation: "pengetahuan" },
+      { word: "известный", translation: "terkenal" },
     ],
-    lessonIds: [2, 6],
+    lessonIds: [3],
   },
 
   {
     id: 26,
-    word: "он/она",
-    pronunciation: "/on/ona/",
-    translation: "beliau",
-    category: "pronoun",
+    word: "понимать",
+    pronunciation: "/ponimatʲ/",
+    translation: "mengerti",
+    category: "verb",
     frequency: 26,
     examples: [
-      { sentence: "Он уважаемый профессор", translation: "Beliau guru besar" },
+      { sentence: "Я понимаю", translation: "Saya mengerti" },
+      { sentence: "Я не понимаю", translation: "Saya tidak mengerti" },
     ],
-    lessonIds: [2],
+    wordFamily: [
+      { word: "понять", translation: "paham" },
+      { word: "понимание", translation: "pemahaman" },
+    ],
+    lessonIds: [3],
   },
 
   {
     id: 27,
-    word: "ты",
-    pronunciation: "/tɨ/",
-    translation: "engkau",
-    category: "pronoun",
+    word: "хотеть",
+    pronunciation: "/xotjetʲ/",
+    translation: "mau, ingin",
+    category: "verb",
     frequency: 27,
     examples: [
-      { sentence: "Ты красивая", translation: "Engkau cantik" },
-      { sentence: "Кто ты?", translation: "Engkau siapa?" },
+      { sentence: "Я хочу есть", translation: "Saya mau makan" },
+      { sentence: "Что ты хочешь?", translation: "Apa yang kamu mau?" },
     ],
     wordFamily: [
-      { word: "тебя", translation: "kamu, engkau" },
-      { word: "твой", translation: "kamu, engkau" },
+      { word: "захотеть", translation: "menjadi ingin" },
+      { word: "желание", translation: "keinginan" },
     ],
-    lessonIds: [2],
+    lessonIds: [3],
   },
 
   {
     id: 28,
-    word: "знакомиться",
-    pronunciation: "/znakomitjsja/",
-    translation: "kenalan",
+    word: "мочь",
+    pronunciation: "/motɕʲ/",
+    translation: "bisa, dapat",
     category: "verb",
     frequency: 28,
     examples: [
-      { sentence: "Давайте познакомимся", translation: "Mari berkenalan" },
+      { sentence: "Я могу помочь", translation: "Saya bisa membantu" },
+      { sentence: "Ты можешь?", translation: "Kamu bisa?" },
     ],
-    lessonIds: [1, 16],
+    wordFamily: [
+      { word: "смочь", translation: "berhasil" },
+      { word: "возможность", translation: "kemungkinan" },
+    ],
+    lessonIds: [3],
   },
 
   {
     id: 29,
-    word: "жить",
-    pronunciation: "/ʐitj/",
-    translation: "tinggal",
+    word: "идти",
+    pronunciation: "/idti/",
+    translation: "pergi (berjalan)",
     category: "verb",
     frequency: 29,
     examples: [
-      { sentence: "Я живу в Москве", translation: "Saya tinggal di Moskow" },
-      { sentence: "Где живёшь?", translation: "Tinggal di mana?" },
+      { sentence: "Я иду домой", translation: "Saya pulang" },
+      { sentence: "Куда ты идёшь?", translation: "Kamu pergi ke mana?" },
     ],
     wordFamily: [
-      { word: "проживать", translation: "tinggal, mendiami" },
-      { word: "жизнь", translation: "kehidupan, hidup" },
-      { word: "житель", translation: "penduduk" },
+      { word: "пойти", translation: "berangkat" },
+      { word: "прийти", translation: "datang" },
     ],
-    lessonIds: [1, 14],
+    lessonIds: [3],
   },
 
   {
     id: 30,
-    word: "происхождение",
-    pronunciation: "/proisxoʐdjenije/",
-    translation: "asal",
-    category: "noun",
+    word: "прийти",
+    pronunciation: "/prijti/",
+    translation: "datang",
+    category: "verb",
     frequency: 30,
     examples: [
-      { sentence: "Откуда он родом?", translation: "Dari mana asalnya?" },
-      { sentence: "Я родом из России", translation: "Asal saya dari Rusia" },
+      { sentence: "Он пришёл", translation: "Dia datang" },
+      { sentence: "Когда ты придёшь?", translation: "Kapan kamu datang?" },
     ],
     wordFamily: [
-      { word: "происходить", translation: "berasal, terjadi" },
-      { word: "родом", translation: "berasal dari" },
-      { word: "родной", translation: "asal, asli" },
+      { word: "приходить", translation: "datang (berulang)" },
     ],
-    lessonIds: [1, 4],
+    lessonIds: [3],
   },
 
   {
     id: 31,
-    word: "почему",
-    pronunciation: "/potɕjemu/",
-    translation: "kenapa",
-    category: "adverb",
+    word: "видеть",
+    pronunciation: "/vidjetʲ/",
+    translation: "melihat",
+    category: "verb",
     frequency: 31,
     examples: [
-      { sentence: "Почему ты уходишь?", translation: "Kenapa kamu pergi?" },
-      { sentence: "Почему нет?", translation: "Kenapa tidak?" },
+      { sentence: "Я вижу дом", translation: "Saya melihat rumah" },
+      { sentence: "Ты видишь?", translation: "Kamu lihat?" },
     ],
     wordFamily: [
-      { word: "почему-то", translation: "entah kenapa" },
+      { word: "увидеть", translation: "melihat (tiba-tiba)" },
+      { word: "вид", translation: "pemandangan" },
     ],
-    lessonIds: [4],
+    lessonIds: [3],
   },
 
   {
     id: 32,
-    word: "как",
-    pronunciation: "/kak/",
-    translation: "bagaimana",
-    category: "adverb",
+    word: "слышать",
+    pronunciation: "/slɨʂatʲ/",
+    translation: "mendengar",
+    category: "verb",
     frequency: 32,
     examples: [
-      { sentence: "Как твои дела?", translation: "Bagaimana kabarmu?" },
-      { sentence: "Как это сделать?", translation: "Bagaimana caranya?" },
+      { sentence: "Я слышу музыку", translation: "Saya dengar musik" },
+      { sentence: "Ты слышишь?", translation: "Kamu dengar?" },
     ],
     wordFamily: [
-      { word: "какой", translation: "yang mana, bagaimana" },
-      { word: "как-то", translation: "entah bagaimana" },
-    ],
-    lessonIds: [4],
-  },
-
-  {
-    id: 33,
-    word: "счастливого пути",
-    pronunciation: "/stɕastlivoɡo puti/",
-    translation: "selamat jalan",
-    category: "interjection",
-    frequency: 33,
-    examples: [
-      { sentence: "Пример с \"счастливого пути\"", translation: "selamat jalan" },
-    ],
-    lessonIds: [1, 16],
-  },
-
-  {
-    id: 34,
-    word: "представление",
-    pronunciation: "/prjedstavljenije/",
-    translation: "perkenalan",
-    category: "noun",
-    frequency: 34,
-    examples: [
-      { sentence: "Первое знакомство", translation: "Perkenalan pertama" },
-    ],
-    lessonIds: [1],
-  },
-
-  {
-    id: 35,
-    word: "знакомиться друг с другом",
-    pronunciation: "/znakomitjsja druɡ s druɡom/",
-    translation: "berkenalan",
-    category: "verb",
-    frequency: 35,
-    examples: [
-      { sentence: "Они знакомятся", translation: "Mereka sedang berkenalan" },
-      { sentence: "Приятно познакомиться", translation: "Senang berkenalan" },
-    ],
-    lessonIds: [1, 16],
-  },
-
-  {
-    id: 36,
-    word: "рад",
-    pronunciation: "/rad/",
-    translation: "senang",
-    category: "adjective",
-    frequency: 36,
-    examples: [
-      { sentence: "Рад встрече с Вами", translation: "Senang bertemu Anda" },
-      { sentence: "Я очень рад", translation: "Saya senang sekali" },
-    ],
-    lessonIds: [1, 13, 16],
-  },
-
-  {
-    id: 37,
-    word: "встречать",
-    pronunciation: "/vstrjetɕatj/",
-    translation: "bertemu",
-    category: "verb",
-    frequency: 37,
-    examples: [
-      { sentence: "Мы снова встретились", translation: "Kita bertemu lagi" },
-    ],
-    lessonIds: [1, 16],
-  },
-
-  {
-    id: 38,
-    word: "соблаговолить",
-    pronunciation: "/soblaɡovolitj/",
-    translation: "berkenan",
-    category: "verb",
-    frequency: 38,
-    examples: [
-      { sentence: "Садитесь, пожалуйста", translation: "Silakan duduk" },
-      { sentence: "Соблаговолите прийти", translation: "Berkenan datang" },
-    ],
-    lessonIds: [1, 16],
-  },
-
-  {
-    id: 39,
-    word: "пожалуйста",
-    pronunciation: "/poʐalujsta/",
-    translation: "silakan",
-    category: "interjection",
-    frequency: 39,
-    examples: [
-      { sentence: "Пожалуйста, входите", translation: "Silakan masuk" },
-      { sentence: "Садитесь, пожалуйста", translation: "Silakan duduk" },
-    ],
-    wordFamily: [
-      { word: "пожалуйста (в ответ)", translation: "sama-sama" },
-    ],
-    lessonIds: [1, 16],
-  },
-
-  {
-    id: 40,
-    word: "принимать",
-    pronunciation: "/prinimatj/",
-    translation: "terima",
-    category: "verb",
-    frequency: 40,
-    examples: [
-      { sentence: "Принять приглашение", translation: "Terima undangan" },
-      { sentence: "Я принимаю", translation: "Saya terima" },
-    ],
-    lessonIds: [1],
-  },
-
-  {
-    id: 41,
-    word: "есть",
-    pronunciation: "/jestj/",
-    translation: "makan",
-    category: "verb",
-    frequency: 41,
-    examples: [
-      { sentence: "Я ем рис", translation: "Saya makan nasi" },
-      { sentence: "Хочешь есть?", translation: "Mau makan?" },
-    ],
-    wordFamily: [
-      { word: "иметься", translation: "tersedia, ada" },
-      { word: "быть", translation: "ada, adalah" },
-      { word: "существовать", translation: "ada, wujud" },
-    ],
-    lessonIds: [3, 12],
-  },
-
-  {
-    id: 42,
-    word: "пить",
-    pronunciation: "/pitj/",
-    translation: "minum",
-    category: "verb",
-    frequency: 42,
-    examples: [
-      { sentence: "Я пью воду", translation: "Saya minum air" },
-      { sentence: "Хочешь пить?", translation: "Mau minum?" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 43,
-    word: "идти",
-    pronunciation: "/idti/",
-    translation: "pergi",
-    category: "verb",
-    frequency: 43,
-    examples: [
-      { sentence: "Я иду на рынок", translation: "Saya pergi ke pasar" },
-      { sentence: "Он уходит сейчас", translation: "Dia pergi sekarang" },
-    ],
-    lessonIds: [3, 14],
-  },
-
-  {
-    id: 44,
-    word: "приходить",
-    pronunciation: "/prixoditj/",
-    translation: "datang",
-    category: "verb",
-    frequency: 44,
-    examples: [
-      { sentence: "Он придёт завтра", translation: "Dia datang besok" },
-      { sentence: "Добро пожаловать!", translation: "Selamat datang!" },
-    ],
-    lessonIds: [3, 11],
-  },
-
-  {
-    id: 45,
-    word: "видеть",
-    pronunciation: "/vidjetj/",
-    translation: "lihat",
-    category: "verb",
-    frequency: 45,
-    examples: [
-      { sentence: "Я вижу дом", translation: "Saya lihat rumah" },
-      { sentence: "Смотри туда!", translation: "Lihat itu!" },
-    ],
-    lessonIds: [3, 15],
-  },
-
-  {
-    id: 46,
-    word: "держать",
-    pronunciation: "/djerʐatj/",
-    translation: "pegang",
-    category: "verb",
-    frequency: 46,
-    examples: [
-      { sentence: "Держи эту книгу", translation: "Pegang buku ini" },
-      { sentence: "Не трогай!", translation: "Jangan pegang!" },
-    ],
-    lessonIds: [3, 5],
-  },
-
-  {
-    id: 47,
-    word: "бросать",
-    pronunciation: "/brosatj/",
-    translation: "lempar",
-    category: "verb",
-    frequency: 47,
-    examples: [
-      { sentence: "Бросить мяч", translation: "Lempar bola" },
-      { sentence: "Не бросай камни", translation: "Jangan lempar batu" },
-    ],
-    lessonIds: [3, 5],
-  },
-
-  {
-    id: 48,
-    word: "бить",
-    pronunciation: "/bitj/",
-    translation: "pukul",
-    category: "verb",
-    frequency: 48,
-    examples: [
-      { sentence: "Не бей его", translation: "Jangan pukul dia" },
-      { sentence: "Постучать в дверь", translation: "Pukul pintu" },
-    ],
-    lessonIds: [3, 5],
-  },
-
-  {
-    id: 49,
-    word: "класть",
-    pronunciation: "/klastj/",
-    translation: "taruh",
-    category: "verb",
-    frequency: 49,
-    examples: [
-      { sentence: "Положи книгу на стол", translation: "Taruh buku di meja" },
-      { sentence: "Положи здесь", translation: "Taruh di sini" },
-    ],
-    lessonIds: [3, 14],
-  },
-
-  {
-    id: 50,
-    word: "пробовать",
-    pronunciation: "/probovatj/",
-    translation: "coba",
-    category: "verb",
-    frequency: 50,
-    examples: [
-      { sentence: "Попробуй снова", translation: "Coba lagi" },
-      { sentence: "Я попробую", translation: "Saya coba" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 51,
-    word: "петь",
-    pronunciation: "/pjetj/",
-    translation: "nyanyi",
-    category: "verb",
-    frequency: 51,
-    examples: [
-      { sentence: "Он любит петь", translation: "Dia suka menyanyi" },
-      { sentence: "Петь песню", translation: "Nyanyi lagu" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 52,
-    word: "играть",
-    pronunciation: "/iɡratj/",
-    translation: "main",
-    category: "verb",
-    frequency: 52,
-    examples: [
-      { sentence: "Дети играют в мяч", translation: "Anak-anak main bola" },
-      { sentence: "Хочешь поиграть?", translation: "Mau main?" },
-    ],
-    lessonIds: [3, 12],
-  },
-
-  {
-    id: 53,
-    word: "бежать",
-    pronunciation: "/bjeʐatj/",
-    translation: "lari",
-    category: "verb",
-    frequency: 53,
-    examples: [
-      { sentence: "Он бежит быстро", translation: "Dia lari cepat" },
-      { sentence: "Не беги!", translation: "Jangan lari!" },
-    ],
-    wordFamily: [
-      { word: "бегать", translation: "berlari, berlari-lari" },
-      { word: "бег", translation: "lari, pelarian" },
-      { word: "бегун", translation: "pelari" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 54,
-    word: "гулять",
-    pronunciation: "/ɡuljatj/",
-    translation: "jalan-jalan",
-    category: "verb",
-    frequency: 54,
-    examples: [
-      { sentence: "Давай погуляем", translation: "Mari jalan-jalan" },
-      { sentence: "Я люблю гулять", translation: "Saya suka jalan-jalan" },
-    ],
-    lessonIds: [3, 14],
-  },
-
-  {
-    id: 55,
-    word: "думать",
-    pronunciation: "/dumatj/",
-    translation: "pikir",
-    category: "verb",
-    frequency: 55,
-    examples: [
-      { sentence: "Я так думаю", translation: "Saya pikir begitu" },
-      { sentence: "Подумай сначала", translation: "Pikir dulu" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 56,
-    word: "помнить",
-    pronunciation: "/pomnitj/",
-    translation: "ingat",
-    category: "verb",
-    frequency: 56,
-    examples: [
-      { sentence: "Я помню тебя", translation: "Saya ingat kamu" },
-      { sentence: "Помнишь или нет?", translation: "Ingat tidak?" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 57,
-    word: "забывать",
-    pronunciation: "/zabɨvatj/",
-    translation: "lupa",
-    category: "verb",
-    frequency: 57,
-    examples: [
-      { sentence: "Я забыл", translation: "Saya lupa" },
-      { sentence: "Не забудь!", translation: "Jangan lupa!" },
-    ],
-    lessonIds: [3, 5],
-  },
-
-  {
-    id: 58,
-    word: "посылать",
-    pronunciation: "/posɨlatj/",
-    translation: "kirim",
-    category: "verb",
-    frequency: 58,
-    examples: [
-      { sentence: "Отправить письмо", translation: "Kirim surat" },
-      { sentence: "Я отправляю сообщение", translation: "Saya kirim pesan" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 59,
-    word: "летать",
-    pronunciation: "/ljetatj/",
-    translation: "terbang",
-    category: "verb",
-    frequency: 59,
-    examples: [
-      { sentence: "Птица летит", translation: "Burung terbang" },
-      { sentence: "Самолёт летит", translation: "Pesawat terbang" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 60,
-    word: "учить",
-    pronunciation: "/utɕitj/",
-    translation: "ajar",
-    category: "verb",
-    frequency: 60,
-    examples: [
-      { sentence: "Учитель учит", translation: "Guru mengajar" },
-      { sentence: "Научи меня", translation: "Ajar saya" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 61,
-    word: "дом",
-    pronunciation: "/dom/",
-    translation: "rumah",
-    category: "noun",
-    frequency: 61,
-    examples: [
-      { sentence: "Мой дом большой", translation: "Rumah saya besar" },
-      { sentence: "Дома", translation: "Di rumah" },
-    ],
-    wordFamily: [
-      { word: "домашний", translation: "rumah" },
-      { word: "домик", translation: "rumah kecil" },
-      { word: "жильё", translation: "perumahan" },
-    ],
-    lessonIds: [6, 14],
-  },
-
-  {
-    id: 62,
-    word: "книга",
-    pronunciation: "/kniɡa/",
-    translation: "buku",
-    category: "noun",
-    frequency: 62,
-    examples: [
-      { sentence: "Это моя книга", translation: "Ini buku saya" },
-      { sentence: "Читать книгу", translation: "Baca buku" },
-    ],
-    lessonIds: [2, 6, 10],
-  },
-
-  {
-    id: 63,
-    word: "машина",
-    pronunciation: "/maʂina/",
-    translation: "mobil",
-    category: "noun",
-    frequency: 63,
-    examples: [
-      { sentence: "Новая машина", translation: "Mobil baru" },
-      { sentence: "Моя машина красная", translation: "Mobil saya merah" },
-    ],
-    lessonIds: [6, 13],
-  },
-
-  {
-    id: 64,
-    word: "человек",
-    pronunciation: "/tɕjelovjek/",
-    translation: "orang",
-    category: "noun",
-    frequency: 64,
-    examples: [
-      { sentence: "Один человек", translation: "Satu orang" },
-      { sentence: "Индонезиец", translation: "Orang Indonesia" },
-    ],
-    wordFamily: [
-      { word: "люди", translation: "orang, manusia" },
-      { word: "человеческий", translation: "manusiawi" },
-    ],
-    lessonIds: [7, 15],
-  },
-
-  {
-    id: 65,
-    word: "друг",
-    pronunciation: "/druɡ/",
-    translation: "teman",
-    category: "noun",
-    frequency: 65,
-    examples: [
-      { sentence: "Мой друг", translation: "Teman saya" },
-      { sentence: "Хороший друг", translation: "Teman baik" },
-    ],
-    wordFamily: [
-      { word: "дружба", translation: "persahabatan, pertemanan" },
-      { word: "дружить", translation: "berteman, bersahabat" },
-    ],
-    lessonIds: [2, 6, 13],
-  },
-
-  {
-    id: 66,
-    word: "ночь",
-    pronunciation: "/notɕj/",
-    translation: "malam",
-    category: "noun",
-    frequency: 66,
-    examples: [
-      { sentence: "Доброй ночи", translation: "Selamat malam" },
-      { sentence: "Сегодня вечером", translation: "Malam ini" },
-    ],
-    lessonIds: [1, 8],
-  },
-
-  {
-    id: 67,
-    word: "день",
-    pronunciation: "/djenj/",
-    translation: "siang",
-    category: "noun",
-    frequency: 67,
-    examples: [
-      { sentence: "Добрый день", translation: "Selamat siang" },
-      { sentence: "Обед", translation: "Makan siang" },
-    ],
-    lessonIds: [1, 8],
-  },
-
-  {
-    id: 68,
-    word: "вечер",
-    pronunciation: "/vjetɕjer/",
-    translation: "sore",
-    category: "noun",
-    frequency: 68,
-    examples: [
-      { sentence: "Добрый вечер", translation: "Selamat sore" },
-      { sentence: "Сегодня вечером", translation: "Sore ini" },
-    ],
-    lessonIds: [1, 8],
-  },
-
-  {
-    id: 69,
-    word: "я хочу",
-    pronunciation: "/ja xotɕu/",
-    translation: "saya mau",
-    category: "verb",
-    frequency: 69,
-    examples: [
-      { sentence: "Я хочу есть", translation: "Saya mau makan" },
-      { sentence: "Я хочу пойти", translation: "Saya mau pergi" },
-    ],
-    lessonIds: [3, 11, 12],
-  },
-
-  {
-    id: 70,
-    word: "есть",
-    pronunciation: "/jestj/",
-    translation: "ada",
-    category: "verb",
-    frequency: 70,
-    examples: [
-      { sentence: "На столе есть книга", translation: "Ada buku di meja" },
-      { sentence: "Что случилось?", translation: "Ada apa?" },
-    ],
-    wordFamily: [
-      { word: "иметься", translation: "tersedia, ada" },
-      { word: "быть", translation: "ada, adalah" },
-      { word: "существовать", translation: "ada, wujud" },
-    ],
-    lessonIds: [3, 6],
-  },
-
-  {
-    id: 71,
-    word: "нет",
-    pronunciation: "/njet/",
-    translation: "tiada",
-    category: "verb",
-    frequency: 71,
-    examples: [
-      { sentence: "Нет проблем", translation: "Tiada masalah" },
-      { sentence: "Никого нет", translation: "Tiada seorang pun" },
-    ],
-    wordFamily: [
-      { word: "отрицание", translation: "negasi, sangkalan" },
-    ],
-    lessonIds: [5],
-  },
-
-  {
-    id: 72,
-    word: "читать",
-    pronunciation: "/tɕitatj/",
-    translation: "membaca",
-    category: "verb",
-    frequency: 72,
-    examples: [
-      { sentence: "Я читаю книгу", translation: "Saya membaca buku" },
-      { sentence: "Он читает письмо", translation: "Dia membaca surat" },
-    ],
-    wordFamily: [
-      { word: "прочитать", translation: "membaca" },
-      { word: "прочтение", translation: "pembacaan" },
-      { word: "читатель", translation: "pembaca" },
-      { word: "чтение", translation: "bacaan" },
-    ],
-    lessonIds: [3, 10],
-  },
-
-  {
-    id: 73,
-    word: "писать",
-    pronunciation: "/pisatj/",
-    translation: "menulis",
-    category: "verb",
-    frequency: 73,
-    examples: [
-      { sentence: "Я пишу письмо", translation: "Saya menulis surat" },
-      { sentence: "Написать имя", translation: "Menulis nama" },
-    ],
-    wordFamily: [
-      { word: "написать", translation: "menulis" },
-      { word: "письмо", translation: "surat, tulisan" },
-      { word: "писатель", translation: "penulis" },
-      { word: "запись", translation: "catatan, tulisan" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 74,
-    word: "слушать",
-    pronunciation: "/sluʂatj/",
-    translation: "dengar",
-    category: "verb",
-    frequency: 74,
-    examples: [
-      { sentence: "Я слушаю музыку", translation: "Saya dengar musik" },
-      { sentence: "Слушай!", translation: "Dengar!" },
-    ],
-    wordFamily: [
-      { word: "слышать", translation: "mendengar" },
-      { word: "послушать", translation: "mendengarkan" },
-      { word: "слушатель", translation: "pendengar" },
+      { word: "услышать", translation: "mendengar (tiba-tiba)" },
       { word: "слух", translation: "pendengaran" },
     ],
     lessonIds: [3],
   },
 
   {
-    id: 75,
-    word: "знать",
-    pronunciation: "/znatj/",
-    translation: "tahu",
+    id: 33,
+    word: "есть",
+    pronunciation: "/jestʲ/",
+    translation: "makan",
     category: "verb",
-    frequency: 75,
+    frequency: 33,
     examples: [
-      { sentence: "Я не знаю", translation: "Saya tidak tahu" },
-      { sentence: "Ты знаешь?", translation: "Apa kamu tahu?" },
+      { sentence: "Я хочу есть", translation: "Saya mau makan" },
+      { sentence: "Ты уже ел?", translation: "Kamu sudah makan?" },
     ],
     wordFamily: [
-      { word: "знание", translation: "pengetahuan" },
-      { word: "известный", translation: "terkenal, diketahui" },
-      { word: "узнавать", translation: "mengetahui, mengenali" },
+      { word: "съесть", translation: "menghabiskan makanan" },
+      { word: "еда", translation: "makanan" },
     ],
-    lessonIds: [3, 5],
+    lessonIds: [3],
+  },
+
+  {
+    id: 34,
+    word: "пить",
+    pronunciation: "/pitʲ/",
+    translation: "minum",
+    category: "verb",
+    frequency: 34,
+    examples: [
+      { sentence: "Я хочу пить", translation: "Saya mau minum" },
+      { sentence: "Что ты пьёшь?", translation: "Kamu minum apa?" },
+    ],
+    wordFamily: [
+      { word: "выпить", translation: "minum habis" },
+      { word: "питьё", translation: "minuman" },
+    ],
+    lessonIds: [3],
+  },
+
+  {
+    id: 35,
+    word: "любить",
+    pronunciation: "/ljubitʲ/",
+    translation: "mencintai, suka",
+    category: "verb",
+    frequency: 35,
+    examples: [
+      { sentence: "Я люблю тебя", translation: "Aku cinta kamu" },
+      { sentence: "Я люблю музыку", translation: "Saya suka musik" },
+    ],
+    wordFamily: [
+      { word: "полюбить", translation: "jatuh cinta" },
+      { word: "любовь", translation: "cinta" },
+    ],
+    lessonIds: [3],
+  },
+
+  {
+    id: 36,
+    word: "жить",
+    pronunciation: "/ʐitʲ/",
+    translation: "hidup, tinggal",
+    category: "verb",
+    frequency: 36,
+    examples: [
+      { sentence: "Я живу в Москве", translation: "Saya tinggal di Moskow" },
+      { sentence: "Где ты живёшь?", translation: "Di mana kamu tinggal?" },
+    ],
+    wordFamily: [
+      { word: "проживать", translation: "tinggal, mendiami" },
+      { word: "жизнь", translation: "kehidupan" },
+    ],
+    lessonIds: [3],
+  },
+
+  {
+    id: 37,
+    word: "не",
+    pronunciation: "/nje/",
+    translation: "tidak (sebelum kata)",
+    category: "adverb",
+    frequency: 37,
+    examples: [
+      { sentence: "Я не знаю", translation: "Saya tidak tahu" },
+      { sentence: "Он не пришёл", translation: "Dia tidak datang" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 38,
+    word: "ни",
+    pronunciation: "/ni/",
+    translation: "tidak satu pun",
+    category: "adverb",
+    frequency: 38,
+    examples: [
+      { sentence: "Я ничего не знаю", translation: "Saya tidak tahu apa-apa" },
+      { sentence: "Никто не пришёл", translation: "Tidak ada yang datang" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 39,
+    word: "или",
+    pronunciation: "/ili/",
+    translation: "atau",
+    category: "conjunction",
+    frequency: 39,
+    examples: [
+      { sentence: "Чай или кофе?", translation: "Teh atau kopi?" },
+      { sentence: "Сегодня или завтра?", translation: "Hari ini atau besok?" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 40,
+    word: "но",
+    pronunciation: "/no/",
+    translation: "tetapi",
+    category: "conjunction",
+    frequency: 40,
+    examples: [
+      { sentence: "Я хочу, но не могу", translation: "Saya mau tapi tidak bisa" },
+      { sentence: "Дорого, но вкусно", translation: "Mahal tapi enak" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 41,
+    word: "а",
+    pronunciation: "/a/",
+    translation: "sedangkan (kontras)",
+    category: "conjunction",
+    frequency: 41,
+    examples: [
+      { sentence: "Я здесь, а ты там", translation: "Saya di sini, sedangkan kamu di sana" },
+      { sentence: "Это дом, а это школа", translation: "Ini rumah, dan ini sekolah" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 42,
+    word: "да",
+    pronunciation: "/da/",
+    translation: "dan, ya",
+    category: "conjunction",
+    frequency: 42,
+    examples: [
+      { sentence: "Я и ты", translation: "Saya dan kamu" },
+      { sentence: "Мама и папа", translation: "Ibu dan ayah" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 43,
+    word: "если",
+    pronunciation: "/jesli/",
+    translation: "jika",
+    category: "conjunction",
+    frequency: 43,
+    examples: [
+      { sentence: "Если хочешь, приходи", translation: "Jika mau, datanglah" },
+      { sentence: "Если будет время", translation: "Jika ada waktu" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 44,
+    word: "что",
+    pronunciation: "/tɕto/",
+    translation: "bahwa",
+    category: "conjunction",
+    frequency: 44,
+    examples: [
+      { sentence: "Я знаю, что ты прав", translation: "Saya tahu bahwa kamu benar" },
+      { sentence: "Он сказал, что придёт", translation: "Dia bilang bahwa akan datang" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 45,
+    word: "чтобы",
+    pronunciation: "/tɕtobɨ/",
+    translation: "agar, supaya",
+    category: "conjunction",
+    frequency: 45,
+    examples: [
+      { sentence: "Я хочу, чтобы ты помог", translation: "Saya ingin kamu membantu" },
+      { sentence: "Сделай, чтобы было хорошо", translation: "Lakukan supaya menjadi baik" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 46,
+    word: "потому что",
+    pronunciation: "/potomu tɕto/",
+    translation: "karena",
+    category: "conjunction",
+    frequency: 46,
+    examples: [
+      { sentence: "Я учусь, потому что хочу знать", translation: "Saya belajar karena ingin tahu" },
+      { sentence: "Он не пришёл, потому что занят", translation: "Dia tidak datang karena sibuk" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 47,
+    word: "мой",
+    pronunciation: "/moj/",
+    translation: "milik saya (laki-laki)",
+    category: "pronoun",
+    frequency: 47,
+    examples: [
+      { sentence: "Это мой дом", translation: "Ini rumah saya" },
+      { sentence: "Мой папа", translation: "Ayah saya" },
+    ],
+    wordFamily: [
+      { word: "моя", translation: "milik saya (perempuan)" },
+      { word: "моё", translation: "milik saya (netral)" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 48,
+    word: "твой",
+    pronunciation: "/tvoj/",
+    translation: "milik kamu (laki-laki)",
+    category: "pronoun",
+    frequency: 48,
+    examples: [
+      { sentence: "Это твой друг?", translation: "Ini teman kamu?" },
+      { sentence: "Твой дом", translation: "Rumahmu" },
+    ],
+    wordFamily: [
+      { word: "твоя", translation: "milik kamu (perempuan)" },
+    ],
+    lessonIds: [4],
+  },
+
+  {
+    id: 49,
+    word: "наш",
+    pronunciation: "/naʂ/",
+    translation: "milik kami (laki-laki)",
+    category: "pronoun",
+    frequency: 49,
+    examples: [
+      { sentence: "Наш дом", translation: "Rumah kami" },
+      { sentence: "Наш учитель", translation: "Guru kami" },
+    ],
+    wordFamily: [
+      { word: "наша", translation: "milik kami (perempuan)" },
+      { word: "наше", translation: "milik kami (netral)" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 50,
+    word: "ваш",
+    pronunciation: "/vaʂ/",
+    translation: "milik Anda (laki-laki)",
+    category: "pronoun",
+    frequency: 50,
+    examples: [
+      { sentence: "Ваш билет", translation: "Tiket Anda" },
+      { sentence: "Ваш паспорт", translation: "Paspor Anda" },
+    ],
+    wordFamily: [
+      { word: "ваша", translation: "milik Anda (perempuan)" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 51,
+    word: "хороший",
+    pronunciation: "/xoroʂij/",
+    translation: "baik, bagus",
+    category: "adjective",
+    frequency: 51,
+    examples: [
+      { sentence: "Хороший человек", translation: "Orang baik" },
+      { sentence: "Хорошая книга", translation: "Buku bagus" },
+    ],
+    wordFamily: [
+      { word: "хорошо", translation: "baik (adv)" },
+      { word: "лучший", translation: "terbaik" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 52,
+    word: "плохой",
+    pronunciation: "/ploxoj/",
+    translation: "buruk, jelek",
+    category: "adjective",
+    frequency: 52,
+    examples: [
+      { sentence: "Плохая погода", translation: "Cuaca buruk" },
+      { sentence: "Плохой фильм", translation: "Film jelek" },
+    ],
+    wordFamily: [
+      { word: "плохо", translation: "buruk (adv)" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 53,
+    word: "большой",
+    pronunciation: "/bolʲʂoj/",
+    translation: "besar",
+    category: "adjective",
+    frequency: 53,
+    examples: [
+      { sentence: "Большой город", translation: "Kota besar" },
+      { sentence: "Большая страна", translation: "Negara besar" },
+    ],
+    wordFamily: [
+      { word: "больше", translation: "lebih besar" },
+      { word: "величие", translation: "kebesaran" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 54,
+    word: "маленький",
+    pronunciation: "/maljenʲkij/",
+    translation: "kecil",
+    category: "adjective",
+    frequency: 54,
+    examples: [
+      { sentence: "Маленький дом", translation: "Rumah kecil" },
+      { sentence: "Маленькая собака", translation: "Anjing kecil" },
+    ],
+    wordFamily: [
+      { word: "меньше", translation: "lebih kecil" },
+      { word: "мелкий", translation: "kecil-kecil" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 55,
+    word: "новый",
+    pronunciation: "/novɨj/",
+    translation: "baru",
+    category: "adjective",
+    frequency: 55,
+    examples: [
+      { sentence: "Новый телефон", translation: "Telepon baru" },
+      { sentence: "Новая машина", translation: "Mobil baru" },
+    ],
+    wordFamily: [
+      { word: "новость", translation: "kabar, berita" },
+      { word: "обновление", translation: "pembaruan" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 56,
+    word: "старый",
+    pronunciation: "/starɨj/",
+    translation: "tua, lama",
+    category: "adjective",
+    frequency: 56,
+    examples: [
+      { sentence: "Старый дом", translation: "Rumah tua" },
+      { sentence: "Старый друг", translation: "Teman lama" },
+    ],
+    wordFamily: [
+      { word: "стареть", translation: "menjadi tua" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 57,
+    word: "красивый",
+    pronunciation: "/krasivɨj/",
+    translation: "cantik, indah",
+    category: "adjective",
+    frequency: 57,
+    examples: [
+      { sentence: "Красивая девушка", translation: "Gadis cantik" },
+      { sentence: "Красивый вид", translation: "Pemandangan indah" },
+    ],
+    wordFamily: [
+      { word: "красота", translation: "kecantikan, keindahan" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 58,
+    word: "умный",
+    pronunciation: "/umnɨj/",
+    translation: "pintar, cerdas",
+    category: "adjective",
+    frequency: 58,
+    examples: [
+      { sentence: "Умный студент", translation: "Mahasiswa pintar" },
+      { sentence: "Умная собака", translation: "Anjing cerdas" },
+    ],
+    wordFamily: [
+      { word: "ум", translation: "akal, pikiran" },
+      { word: "умнеть", translation: "menjadi pintar" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 59,
+    word: "добрый",
+    pronunciation: "/dobrɨj/",
+    translation: "baik hati",
+    category: "adjective",
+    frequency: 59,
+    examples: [
+      { sentence: "Добрый человек", translation: "Orang baik hati" },
+      { sentence: "Доброе утро!", translation: "Selamat pagi!" },
+    ],
+    wordFamily: [
+      { word: "доброта", translation: "kebaikan hati" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 60,
+    word: "сильный",
+    pronunciation: "/silʲnɨj/",
+    translation: "kuat",
+    category: "adjective",
+    frequency: 60,
+    examples: [
+      { sentence: "Сильный мужчина", translation: "Pria kuat" },
+      { sentence: "Сильный ветер", translation: "Angin kencang" },
+    ],
+    wordFamily: [
+      { word: "сила", translation: "kekuatan" },
+      { word: "усиливать", translation: "memperkuat" },
+    ],
+    lessonIds: [5],
+  },
+
+  {
+    id: 61,
+    word: "хлеб",
+    pronunciation: "/xljeb/",
+    translation: "roti",
+    category: "noun",
+    frequency: 61,
+    examples: [
+      { sentence: "Купить хлеб", translation: "Beli rota" },
+      { sentence: "Белый хлеб", translation: "Roti putih" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 62,
+    word: "молоко",
+    pronunciation: "/moloko/",
+    translation: "susu",
+    category: "noun",
+    frequency: 62,
+    examples: [
+      { sentence: "Купить молоко", translation: "Beli susu" },
+      { sentence: "Горячее молоко", translation: "Susu panas" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 63,
+    word: "мясо",
+    pronunciation: "/mjaso/",
+    translation: "daging",
+    category: "noun",
+    frequency: 63,
+    examples: [
+      { sentence: "Куриное мясо", translation: "Daging ayam" },
+      { sentence: "Свежее мясо", translation: "Daging segar" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 64,
+    word: "рыба",
+    pronunciation: "/rɨba/",
+    translation: "ikan",
+    category: "noun",
+    frequency: 64,
+    examples: [
+      { sentence: "Свежая рыба", translation: "Ikan segar" },
+      { sentence: "Жареная рыба", translation: "Ikan goreng" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 65,
+    word: "вода",
+    pronunciation: "/voda/",
+    translation: "air",
+    category: "noun",
+    frequency: 65,
+    examples: [
+      { sentence: "Стакан воды", translation: "Segelas air" },
+      { sentence: "Пить воду", translation: "Minum air" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 66,
+    word: "чай",
+    pronunciation: "/tɕaj/",
+    translation: "teh",
+    category: "noun",
+    frequency: 66,
+    examples: [
+      { sentence: "Зелёный чай", translation: "Teh hijau" },
+      { sentence: "Чай с сахаром", translation: "Teh dengan gula" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 67,
+    word: "кофе",
+    pronunciation: "/kofje/",
+    translation: "kopi",
+    category: "noun",
+    frequency: 67,
+    examples: [
+      { sentence: "Чёрный кофе", translation: "Kopi hitam" },
+      { sentence: "Кофе с молоком", translation: "Kopi susu" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 68,
+    word: "сахар",
+    pronunciation: "/saxar/",
+    translation: "gula",
+    category: "noun",
+    frequency: 68,
+    examples: [
+      { sentence: "Чай с сахаром", translation: "Teh dengan gula" },
+      { sentence: "Белый сахар", translation: "Gula putih" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 69,
+    word: "соль",
+    pronunciation: "/solʲ/",
+    translation: "garam",
+    category: "noun",
+    frequency: 69,
+    examples: [
+      { sentence: "Добавить соль", translation: "Tambahkan garam" },
+      { sentence: "Морская соль", translation: "Garam laut" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 70,
+    word: "яйцо",
+    pronunciation: "/jajtso/",
+    translation: "telur",
+    category: "noun",
+    frequency: 70,
+    examples: [
+      { sentence: "Куриное яйцо", translation: "Telur ayam" },
+      { sentence: "Яичница", translation: "Telur goreng" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 71,
+    word: "рис",
+    pronunciation: "/ris/",
+    translation: "nasi, beras",
+    category: "noun",
+    frequency: 71,
+    examples: [
+      { sentence: "Варёный рис", translation: "Nasi rebus" },
+      { sentence: "Рис с мясом", translation: "Nasi dengan daging" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 72,
+    word: "суп",
+    pronunciation: "/sup/",
+    translation: "sup",
+    category: "noun",
+    frequency: 72,
+    examples: [
+      { sentence: "Горячий суп", translation: "Sup panas" },
+      { sentence: "Суп с мясом", translation: "Sup dengan daging" },
+    ],
+    lessonIds: [6],
+  },
+
+  {
+    id: 73,
+    word: "фрукт",
+    pronunciation: "/frukt/",
+    translation: "buah",
+    category: "noun",
+    frequency: 73,
+    examples: [
+      { sentence: "Свежие фрукты", translation: "Buah segar" },
+      { sentence: "Фруктовый сок", translation: "Jus buah" },
+    ],
+    lessonIds: [7],
+  },
+
+  {
+    id: 74,
+    word: "овощ",
+    pronunciation: "/ovoɕː/",
+    translation: "sayur",
+    category: "noun",
+    frequency: 74,
+    examples: [
+      { sentence: "Свежие овощи", translation: "Sayur segar" },
+      { sentence: "Суп из овощей", translation: "Sup sayur" },
+    ],
+    lessonIds: [7],
+  },
+
+  {
+    id: 75,
+    word: "вкусный",
+    pronunciation: "/vkusnɨj/",
+    translation: "lezat, enak",
+    category: "adjective",
+    frequency: 75,
+    examples: [
+      { sentence: "Вкусная еда", translation: "Makanan enak" },
+      { sentence: "Очень вкусно!", translation: "Sangat enak!" },
+    ],
+    wordFamily: [
+      { word: "вкус", translation: "rasa" },
+    ],
+    lessonIds: [7],
   },
 
   {
     id: 76,
-    word: "говорить",
-    pronunciation: "/ɡovoritj/",
-    translation: "bicara",
-    category: "verb",
+    word: "один",
+    pronunciation: "/odin/",
+    translation: "satu",
+    category: "number",
     frequency: 76,
     examples: [
-      { sentence: "Они разговаривают", translation: "Mereka bicara" },
+      { sentence: "Один билет", translation: "Satu tiket" },
+      { sentence: "Одна минута", translation: "Satu menit" },
     ],
     wordFamily: [
-      { word: "разговаривать", translation: "berbicara, bercakap" },
-      { word: "разговор", translation: "pembicaraan, percakapan" },
-      { word: "сказать", translation: "berkata, mengatakan" },
-      { word: "говорун", translation: "pembicara" },
+      { word: "первый", translation: "pertama" },
+      { word: "единица", translation: "angka satu" },
     ],
-    lessonIds: [3],
+    lessonIds: [7],
   },
 
   {
     id: 77,
-    word: "понимать",
-    pronunciation: "/ponimatj/",
-    translation: "mengerti",
-    category: "verb",
+    word: "два",
+    pronunciation: "/dva/",
+    translation: "dua",
+    category: "number",
     frequency: 77,
     examples: [
-      { sentence: "Я понимаю", translation: "Saya mengerti" },
-      { sentence: "Я не понимаю", translation: "Saya tidak mengerti" },
+      { sentence: "Два билета", translation: "Dua tiket" },
+      { sentence: "Два друга", translation: "Dua teman" },
     ],
     wordFamily: [
-      { word: "понять", translation: "mengerti, memahami" },
-      { word: "понимание", translation: "pengertian, pemahaman" },
+      { word: "второй", translation: "kedua" },
+      { word: "двойка", translation: "angka dua" },
     ],
-    lessonIds: [3, 5],
+    lessonIds: [7],
   },
 
   {
     id: 78,
-    word: "нести",
-    pronunciation: "/njesti/",
-    translation: "bawa",
-    category: "verb",
+    word: "три",
+    pronunciation: "/tri/",
+    translation: "tiga",
+    category: "number",
     frequency: 78,
     examples: [
-      { sentence: "Принеси эту книгу", translation: "Bawa buku ini" },
-      { sentence: "Я привёл машину", translation: "Saya bawa mobil" },
+      { sentence: "Три билета", translation: "Tiga tiket" },
+      { sentence: "Три минуты", translation: "Tiga menit" },
     ],
     wordFamily: [
-      { word: "приносить", translation: "membawa, mendatangkan" },
-      { word: "носить", translation: "memakai, membawa" },
+      { word: "третий", translation: "ketiga" },
+      { word: "тройка", translation: "angka tiga" },
     ],
-    lessonIds: [3],
+    lessonIds: [7],
   },
 
   {
     id: 79,
-    word: "делать",
-    pronunciation: "/djelatj/",
-    translation: "buat",
-    category: "verb",
+    word: "четыре",
+    pronunciation: "/tɕjetɨrje/",
+    translation: "empat",
+    category: "number",
     frequency: 79,
     examples: [
-      { sentence: "Я делаю кофе", translation: "Saya buat kopi" },
-      { sentence: "Зачем? (букв. 'делать что?')", translation: "Buat apa?" },
+      { sentence: "Четыре часа", translation: "Empat jam" },
+      { sentence: "Четыре друга", translation: "Empat teman" },
     ],
     wordFamily: [
-      { word: "сделать", translation: "membuat, mengerjakan" },
-      { word: "дело", translation: "urusan, pekerjaan" },
-      { word: "создатель", translation: "pembuat, pencipta" },
+      { word: "четвёртый", translation: "keempat" },
     ],
-    lessonIds: [3],
+    lessonIds: [7],
   },
 
   {
     id: 80,
-    word: "давать",
-    pronunciation: "/davatj/",
-    translation: "beri",
-    category: "verb",
+    word: "пять",
+    pronunciation: "/pjatʲ/",
+    translation: "lima",
+    category: "number",
     frequency: 80,
     examples: [
-      { sentence: "Дай мне книгу", translation: "Beri saya buku" },
-      { sentence: "Он даёт подарок", translation: "Dia beri hadiah" },
+      { sentence: "Пять минут", translation: "Lima menit" },
+      { sentence: "Пять рублей", translation: "Lima rubel" },
     ],
     wordFamily: [
-      { word: "дать", translation: "memberi, memberikan" },
-      { word: "подарок", translation: "hadiah, pemberian" },
+      { word: "пятый", translation: "kelima" },
     ],
-    lessonIds: [3],
+    lessonIds: [7],
   },
 
   {
     id: 81,
-    word: "искать",
-    pronunciation: "/iskatj/",
-    translation: "cari",
-    category: "verb",
+    word: "шесть",
+    pronunciation: "/ʂjestʲ/",
+    translation: "enam",
+    category: "number",
     frequency: 81,
     examples: [
-      { sentence: "Искать книгу", translation: "Cari buku" },
-      { sentence: "Я ищу дом", translation: "Saya cari rumah" },
+      { sentence: "Шесть часов", translation: "Enam jam" },
+      { sentence: "Шесть дней", translation: "Enam hari" },
     ],
     wordFamily: [
-      { word: "поиск", translation: "pencarian, cari" },
-      { word: "поисковый", translation: "pencarian" },
+      { word: "шестой", translation: "keenam" },
     ],
-    lessonIds: [3],
+    lessonIds: [7],
   },
 
   {
     id: 82,
-    word: "ждать",
-    pronunciation: "/ʐdatj/",
-    translation: "tunggu",
-    category: "verb",
+    word: "семь",
+    pronunciation: "/sjemʲ/",
+    translation: "tujuh",
+    category: "number",
     frequency: 82,
     examples: [
-      { sentence: "Подожди меня!", translation: "Tunggu saya!" },
-      { sentence: "Я жду", translation: "Saya tunggu" },
+      { sentence: "Семь дней", translation: "Tujuh hari" },
+      { sentence: "Семь рублей", translation: "Tujuh rubel" },
     ],
     wordFamily: [
-      { word: "подождать", translation: "menunggu" },
-      { word: "ожидание", translation: "penantian, tungguan" },
+      { word: "седьмой", translation: "ketujuh" },
     ],
-    lessonIds: [3],
+    lessonIds: [7],
   },
 
   {
     id: 83,
-    word: "брать",
-    pronunciation: "/bratj/",
-    translation: "ambil",
-    category: "verb",
+    word: "восемь",
+    pronunciation: "/vosjemʲ/",
+    translation: "delapan",
+    category: "number",
     frequency: 83,
     examples: [
-      { sentence: "Возьми книгу", translation: "Ambil buku" },
-      { sentence: "Пожалуйста, подай", translation: "Tolong ambilkan" },
+      { sentence: "Восемь часов", translation: "Delapan jam" },
+      { sentence: "Восемь рублей", translation: "Delapan rubel" },
     ],
     wordFamily: [
-      { word: "взять", translation: "mengambil, ambil" },
-      { word: "взятие", translation: "pengambilan" },
+      { word: "восьмой", translation: "kedelapan" },
     ],
-    lessonIds: [3, 16],
+    lessonIds: [7],
   },
 
   {
     id: 84,
-    word: "входить",
-    pronunciation: "/vxoditj/",
-    translation: "masuk",
-    category: "verb",
+    word: "девять",
+    pronunciation: "/djevjatʲ/",
+    translation: "sembilan",
+    category: "number",
     frequency: 84,
     examples: [
-      { sentence: "Пожалуйста, входите", translation: "Silakan masuk" },
-      { sentence: "Войти в дом", translation: "Masuk ke rumah" },
+      { sentence: "Девять минут", translation: "Sembilan menit" },
+      { sentence: "Девять рублей", translation: "Sembilan rubel" },
     ],
     wordFamily: [
-      { word: "заходить", translation: "masuk, mampir" },
-      { word: "вход", translation: "jalan masuk, pintu masuk" },
+      { word: "девятый", translation: "kesembilan" },
     ],
-    lessonIds: [3, 14, 16],
+    lessonIds: [7],
   },
 
   {
     id: 85,
-    word: "выходить",
-    pronunciation: "/vɨxoditj/",
-    translation: "keluar",
-    category: "verb",
+    word: "десять",
+    pronunciation: "/djesjatʲ/",
+    translation: "sepuluh",
+    category: "number",
     frequency: 85,
     examples: [
-      { sentence: "Выйти из дома", translation: "Keluar dari rumah" },
-      { sentence: "Он вышел", translation: "Dia keluar" },
+      { sentence: "Десять рублей", translation: "Sepuluh rubel" },
+      { sentence: "Десять минут", translation: "Sepuluh menit" },
     ],
     wordFamily: [
-      { word: "выйти", translation: "keluar" },
-      { word: "выход", translation: "keluar, jalan keluar" },
+      { word: "десятый", translation: "kesepuluh" },
     ],
-    lessonIds: [3, 14],
+    lessonIds: [8],
   },
 
   {
     id: 86,
-    word: "подниматься",
-    pronunciation: "/podnimatjsja/",
-    translation: "naik",
-    category: "verb",
+    word: "сто",
+    pronunciation: "/sto/",
+    translation: "seratus",
+    category: "number",
     frequency: 86,
     examples: [
-      { sentence: "Сесть в машину", translation: "Naik mobil" },
-      { sentence: "Лететь самолётом", translation: "Naik pesawat" },
+      { sentence: "Сто рублей", translation: "Seratus rubel" },
+      { sentence: "Сто лет", translation: "Seratus tahun" },
     ],
     wordFamily: [
-      { word: "поднять", translation: "menaikkan, mengangkat" },
-      { word: "подъём", translation: "kenaikan, tanjakan" },
+      { word: "сотня", translation: "ratusan" },
     ],
-    lessonIds: [3, 14],
+    lessonIds: [8],
   },
 
   {
     id: 87,
-    word: "спускаться",
-    pronunciation: "/spuskatjsja/",
-    translation: "turun",
-    category: "verb",
+    word: "тысяча",
+    pronunciation: "/tɨsjatɕa/",
+    translation: "seribu",
+    category: "number",
     frequency: 87,
     examples: [
-      { sentence: "Выйти из машины", translation: "Turun dari mobil" },
-      { sentence: "Выхожу здесь", translation: "Turun di sini" },
+      { sentence: "Тысяча рублей", translation: "Seribu rubel" },
+      { sentence: "Тысяча лет", translation: "Seribu tahun" },
     ],
     wordFamily: [
-      { word: "спуститься", translation: "turun" },
-      { word: "спуск", translation: "turunan, penurunan" },
+      { word: "тысячный", translation: "keseribu" },
     ],
-    lessonIds: [3, 14],
+    lessonIds: [8],
   },
 
   {
     id: 88,
-    word: "покупать",
-    pronunciation: "/pokupatj/",
-    translation: "beli",
-    category: "verb",
+    word: "миллион",
+    pronunciation: "/million/",
+    translation: "sejuta",
+    category: "number",
     frequency: 88,
     examples: [
-      { sentence: "Я покупаю книгу", translation: "Saya beli buku" },
-      { sentence: "Что хочешь купить?", translation: "Mau beli apa?" },
+      { sentence: "Миллион рублей", translation: "Sejuta rubel" },
+      { sentence: "Миллион раз", translation: "Sejuta kali" },
     ],
-    wordFamily: [
-      { word: "купить", translation: "membeli, beli" },
-      { word: "покупка", translation: "pembelian, belanja" },
-      { word: "покупатель", translation: "pembeli" },
-    ],
-    lessonIds: [3],
+    lessonIds: [8],
   },
 
   {
     id: 89,
-    word: "продавать",
-    pronunciation: "/prodavatj/",
-    translation: "jual",
-    category: "verb",
+    word: "номер",
+    pronunciation: "/nomjer/",
+    translation: "nomor",
+    category: "noun",
     frequency: 89,
     examples: [
-      { sentence: "Он продаёт дом", translation: "Dia jual rumah" },
-      { sentence: "Продать машину", translation: "Jual mobil" },
+      { sentence: "Номер телефона", translation: "Nomor telepon" },
+      { sentence: "Какой номер?", translation: "Nomor berapa?" },
     ],
-    wordFamily: [
-      { word: "продать", translation: "menjual, jual" },
-      { word: "продажа", translation: "penjualan" },
-      { word: "продавец", translation: "penjual" },
-    ],
-    lessonIds: [3],
+    lessonIds: [8],
   },
 
   {
     id: 90,
-    word: "плавать",
-    pronunciation: "/plavatj/",
-    translation: "berenang",
-    category: "verb",
+    word: "сколько",
+    pronunciation: "/skolʲko/",
+    translation: "berapa",
+    category: "adverb",
     frequency: 90,
     examples: [
-      { sentence: "Я умею плавать", translation: "Saya bisa berenang" },
-      { sentence: "Плавать в море", translation: "Berenang di laut" },
+      { sentence: "Сколько стоит?", translation: "Berapa harganya?" },
+      { sentence: "Сколько лет?", translation: "Berapa tahun?" },
     ],
-    wordFamily: [
-      { word: "плавание", translation: "renang, pelayaran" },
-      { word: "пловец", translation: "perenang" },
-    ],
-    lessonIds: [3, 12],
+    lessonIds: [8],
   },
 
   {
     id: 91,
-    word: "бегать",
-    pronunciation: "/bjeɡatj/",
-    translation: "berlari",
-    category: "verb",
+    word: "время",
+    pronunciation: "/vrjemja/",
+    translation: "waktu",
+    category: "noun",
     frequency: 91,
     examples: [
-      { sentence: "Он бежит быстро", translation: "Dia berlari cepat" },
-      { sentence: "Бегать в парке", translation: "Berlari di taman" },
+      { sentence: "Который час?", translation: "Jam berapa?" },
+      { sentence: "У меня есть время", translation: "Saya punya waktu" },
     ],
-    lessonIds: [3, 13],
+    wordFamily: [
+      { word: "временный", translation: "sementara" },
+    ],
+    lessonIds: [8],
   },
 
   {
     id: 92,
-    word: "сидеть",
-    pronunciation: "/sidjetj/",
-    translation: "duduk",
-    category: "verb",
+    word: "сегодня",
+    pronunciation: "/sjeɡodnja/",
+    translation: "hari ini",
+    category: "adverb",
     frequency: 92,
     examples: [
-      { sentence: "Садитесь, пожалуйста", translation: "Silakan duduk" },
-      { sentence: "Сидеть на стуле", translation: "Duduk di kursi" },
+      { sentence: "Сегодня хороший день", translation: "Hari ini hari yang baik" },
+      { sentence: "Сегодня холодно", translation: "Hari ini dingin" },
     ],
-    wordFamily: [
-      { word: "сесть", translation: "duduk" },
-      { word: "сиденье", translation: "tempat duduk, kursi" },
-    ],
-    lessonIds: [3, 14],
+    lessonIds: [8],
   },
 
   {
     id: 93,
-    word: "стоять",
-    pronunciation: "/stojatj/",
-    translation: "berdiri",
-    category: "verb",
+    word: "завтра",
+    pronunciation: "/zavtra/",
+    translation: "besok",
+    category: "adverb",
     frequency: 93,
     examples: [
-      { sentence: "Стой здесь", translation: "Berdiri di sini" },
-      { sentence: "Он стоит", translation: "Dia berdiri" },
+      { sentence: "Завтра я приду", translation: "Besok saya datang" },
+      { sentence: "До завтра!", translation: "Sampai besok!" },
     ],
-    wordFamily: [
-      { word: "встать", translation: "berdiri, bangun" },
-      { word: "стойка", translation: "sikap berdiri" },
-    ],
-    lessonIds: [3],
+    lessonIds: [8],
   },
 
   {
     id: 94,
-    word: "открывать",
-    pronunciation: "/otkrɨvatj/",
-    translation: "buka",
-    category: "verb",
+    word: "вчера",
+    pronunciation: "/vtɕjera/",
+    translation: "kemarin",
+    category: "adverb",
     frequency: 94,
     examples: [
-      { sentence: "Открой дверь", translation: "Buka pintu" },
-      { sentence: "Магазин открывается в 8", translation: "Toko buka jam 8" },
+      { sentence: "Вчера был дождь", translation: "Kemarin hujan" },
+      { sentence: "Вчера я работал", translation: "Kemarin saya bekerja" },
     ],
-    wordFamily: [
-      { word: "открыть", translation: "membuka, buka" },
-      { word: "открытый", translation: "terbuka, buka" },
-      { word: "открытие", translation: "pembukaan" },
-    ],
-    lessonIds: [3],
+    lessonIds: [8],
   },
 
   {
     id: 95,
-    word: "закрывать",
-    pronunciation: "/zakrɨvatj/",
-    translation: "tutup",
-    category: "verb",
+    word: "сейчас",
+    pronunciation: "/sjejtɕas/",
+    translation: "sekarang",
+    category: "adverb",
     frequency: 95,
     examples: [
-      { sentence: "Закрой дверь", translation: "Tutup pintu" },
-      { sentence: "Магазин закрывается в 9", translation: "Toko tutup jam 9" },
+      { sentence: "Сейчас три часа", translation: "Sekarang jam tiga" },
+      { sentence: "Сейчас я занят", translation: "Sekarang saya sibuk" },
     ],
-    wordFamily: [
-      { word: "закрыть", translation: "menutup, tutup" },
-      { word: "закрытый", translation: "tertutup, tutup" },
-      { word: "закрытие", translation: "penutupan" },
-    ],
-    lessonIds: [3],
+    lessonIds: [8],
   },
 
   {
     id: 96,
-    word: "просить",
-    pronunciation: "/prositj/",
-    translation: "minta",
-    category: "verb",
+    word: "потом",
+    pronunciation: "/potom/",
+    translation: "nanti",
+    category: "adverb",
     frequency: 96,
     examples: [
-      { sentence: "Я прошу помощи", translation: "Saya minta tolong" },
-      { sentence: "Просить прощения", translation: "Minta maaf" },
+      { sentence: "Потом приду", translation: "Nanti datang" },
+      { sentence: "Сначала работа, потом отдых", translation: "Dulu kerja, nanti istirahat" },
     ],
-    wordFamily: [
-      { word: "попросить", translation: "meminta, minta" },
-      { word: "просьба", translation: "permintaan, mohon" },
-    ],
-    lessonIds: [3, 16],
+    lessonIds: [8],
   },
 
   {
     id: 97,
-    word: "хранить",
-    pronunciation: "/xranitj/",
-    translation: "simpan",
-    category: "verb",
+    word: "всегда",
+    pronunciation: "/vsjeɡda/",
+    translation: "selalu",
+    category: "adverb",
     frequency: 97,
     examples: [
-      { sentence: "Сохрани эту книгу", translation: "Simpan buku ini" },
-      { sentence: "Хранить деньги", translation: "Simpan uang" },
+      { sentence: "Я всегда дома", translation: "Saya selalu di rumah" },
+      { sentence: "Она всегда улыбается", translation: "Dia selalu tersenyum" },
     ],
-    wordFamily: [
-      { word: "сохранять", translation: "menyimpan, memelihara" },
-      { word: "сохранение", translation: "penyimpanan, simpanan" },
-    ],
-    lessonIds: [3],
+    lessonIds: [9],
   },
 
   {
     id: 98,
-    word: "кончаться",
-    pronunciation: "/kontɕatjsja/",
-    translation: "habis",
-    category: "verb",
+    word: "никогда",
+    pronunciation: "/nikoɡda/",
+    translation: "tidak pernah",
+    category: "adverb",
     frequency: 98,
     examples: [
-      { sentence: "Еда закончилась", translation: "Makanan habis" },
-      { sentence: "Деньги уже кончились", translation: "Uang sudah habis" },
+      { sentence: "Я никогда не был в Москве", translation: "Saya tidak pernah ke Moskow" },
+      { sentence: "Никогда не поздно", translation: "Tidak pernah terlambat" },
     ],
-    wordFamily: [
-      { word: "кончить", translation: "menghabiskan, menyudahi" },
-      { word: "конец", translation: "akhir, habis" },
-    ],
-    lessonIds: [3, 9],
+    lessonIds: [9],
   },
 
   {
     id: 99,
-    word: "заканчивать",
-    pronunciation: "/zakantɕivatj/",
-    translation: "selesai",
-    category: "verb",
+    word: "часто",
+    pronunciation: "/tɕasto/",
+    translation: "sering",
+    category: "adverb",
     frequency: 99,
     examples: [
-      { sentence: "Я уже закончил", translation: "Saya sudah selesai" },
-      { sentence: "Закончить работу", translation: "Selesai kerja" },
+      { sentence: "Я часто хожу в кино", translation: "Saya sering ke bioskop" },
+      { sentence: "Она часто опаздывает", translation: "Dia sering terlambat" },
     ],
     wordFamily: [
-      { word: "закончить", translation: "menyelesaikan, selesai" },
-      { word: "завершение", translation: "penyelesaian" },
+      { word: "частый", translation: "sering" },
     ],
-    lessonIds: [3, 9],
+    lessonIds: [9],
   },
 
   {
     id: 100,
-    word: "начинать",
-    pronunciation: "/natɕinatj/",
-    translation: "mulai",
-    category: "verb",
+    word: "редко",
+    pronunciation: "/rjedko/",
+    translation: "jarang",
+    category: "adverb",
     frequency: 100,
     examples: [
-      { sentence: "Начать учиться", translation: "Mulai belajar" },
-      { sentence: "Начать с сейчас", translation: "Mulai dari sekarang" },
+      { sentence: "Я редко пью кофе", translation: "Saya jarang minum kopi" },
+      { sentence: "Он редко приходит", translation: "Dia jarang datang" },
     ],
     wordFamily: [
-      { word: "начать", translation: "memulai" },
-      { word: "начало", translation: "permulaan" },
+      { word: "редкий", translation: "jarang" },
     ],
-    lessonIds: [3],
+    lessonIds: [9],
   },
 
   {
     id: 101,
-    word: "когда",
-    pronunciation: "/koɡda/",
-    translation: "kapan",
-    category: "adverb",
+    word: "утро",
+    pronunciation: "/utro/",
+    translation: "pagi",
+    category: "noun",
     frequency: 101,
     examples: [
-      { sentence: "Когда ты придёшь?", translation: "Kapan kamu datang?" },
-      { sentence: "Когда мы идём?", translation: "Kapan kita pergi?" },
+      { sentence: "Доброе утро!", translation: "Selamat pagi!" },
+      { sentence: "Утром я пью кофе", translation: "Pagi saya minum kopi" },
     ],
-    lessonIds: [4],
+    wordFamily: [
+      { word: "утренний", translation: "pagi" },
+    ],
+    lessonIds: [9],
   },
 
   {
     id: 102,
-    word: "где",
-    pronunciation: "/ɡdje/",
-    translation: "di mana",
-    category: "adverb",
+    word: "день",
+    pronunciation: "/djenʲ/",
+    translation: "siang, hari",
+    category: "noun",
     frequency: 102,
     examples: [
-      { sentence: "Где твой дом?", translation: "Di mana rumah kamu?" },
-      { sentence: "Где ты?", translation: "Di mana kamu?" },
+      { sentence: "Добрый день!", translation: "Selamat siang!" },
+      { sentence: "Целый день", translation: "Seharian" },
     ],
-    lessonIds: [4, 14],
+    wordFamily: [
+      { word: "дневной", translation: "siang" },
+    ],
+    lessonIds: [9],
   },
 
   {
     id: 103,
-    word: "куда",
-    pronunciation: "/kuda/",
-    translation: "ke mana",
-    category: "adverb",
+    word: "вечер",
+    pronunciation: "/vjetɕjer/",
+    translation: "sore, malam",
+    category: "noun",
     frequency: 103,
     examples: [
-      { sentence: "Куда идёшь?", translation: "Mau ke mana?" },
-      { sentence: "Куда он пошёл?", translation: "Ke mana dia pergi?" },
+      { sentence: "Добрый вечер!", translation: "Selamat sore!" },
+      { sentence: "Вечером дома", translation: "Sore di rumah" },
     ],
-    lessonIds: [4, 14],
+    wordFamily: [
+      { word: "вечерний", translation: "sore" },
+    ],
+    lessonIds: [9],
   },
 
   {
     id: 104,
-    word: "откуда",
-    pronunciation: "/otkuda/",
-    translation: "dari mana",
-    category: "adverb",
+    word: "ночь",
+    pronunciation: "/notɕʲ/",
+    translation: "malam",
+    category: "noun",
     frequency: 104,
     examples: [
-      { sentence: "Откуда ты?", translation: "Dari mana kamu?" },
-      { sentence: "Откуда родом?", translation: "Dari mana asalnya?" },
+      { sentence: "Спокойной ночи!", translation: "Selamat malam!" },
+      { sentence: "Ночью темно", translation: "Malam gelap" },
     ],
-    lessonIds: [4],
+    wordFamily: [
+      { word: "ночной", translation: "malam" },
+    ],
+    lessonIds: [9],
   },
 
   {
     id: 105,
-    word: "сколько",
-    pronunciation: "/skoljko/",
-    translation: "berapa",
-    category: "adverb",
+    word: "неделя",
+    pronunciation: "/njedjelja/",
+    translation: "minggu",
+    category: "noun",
     frequency: 105,
     examples: [
-      { sentence: "Сколько стоит?", translation: "Berapa harganya?" },
-      { sentence: "Сколько тебе лет?", translation: "Berapa umurmu?" },
+      { sentence: "На следующей неделе", translation: "Minggu depan" },
+      { sentence: "Два раза в неделю", translation: "Dua kali seminggu" },
     ],
-    lessonIds: [4, 7, 8],
+    wordFamily: [
+      { word: "еженедельный", translation: "mingguan" },
+    ],
+    lessonIds: [9],
   },
 
   {
     id: 106,
-    word: "который",
-    pronunciation: "/kotorɨj/",
-    translation: "yang mana",
-    category: "adverb",
+    word: "быть",
+    pronunciation: "/bɨtʲ/",
+    translation: "ada, adalah",
+    category: "verb",
     frequency: 106,
     examples: [
-      { sentence: "Который твой дом?", translation: "Yang mana rumahmu?" },
-      { sentence: "Который?", translation: "Yang mana?" },
+      { sentence: "Я был дома", translation: "Saya ada di rumah (laki-laki)" },
+      { sentence: "Она была в школе", translation: "Dia ada di sekolah" },
     ],
-    lessonIds: [4],
+    wordFamily: [
+      { word: "бывший", translation: "mantan" },
+    ],
+    lessonIds: [9],
   },
 
   {
     id: 107,
-    word: "почему",
-    pronunciation: "/potɕjemu/",
-    translation: "mengapa",
-    category: "adverb",
+    word: "был",
+    pronunciation: "/bɨl/",
+    translation: "sudah (lampau, laki-laki)",
+    category: "verb",
     frequency: 107,
     examples: [
-      { sentence: "Почему ты уходишь?", translation: "Mengapa kamu pergi?" },
-      { sentence: "Я не знаю почему", translation: "Saya tidak tahu mengapa" },
+      { sentence: "Я был в Москве", translation: "Saya pernah ke Moskow" },
+      { sentence: "Он был студентом", translation: "Dia adalah mahasiswa" },
     ],
-    wordFamily: [
-      { word: "почему-то", translation: "entah kenapa" },
-    ],
-    lessonIds: [4],
+    lessonIds: [9],
   },
 
   {
     id: 108,
-    word: "как",
-    pronunciation: "/kak/",
-    translation: "bagaimana cara",
-    category: "adverb",
+    word: "была",
+    pronunciation: "/bɨla/",
+    translation: "sudah (lampau, perempuan)",
+    category: "verb",
     frequency: 108,
     examples: [
-      { sentence: "Пример с \"как\"", translation: "bagaimana cara" },
+      { sentence: "Она была дома", translation: "Dia ada di rumah" },
+      { sentence: "Ты была в школе?", translation: "Kamu ada di sekolah?" },
     ],
-    wordFamily: [
-      { word: "какой", translation: "yang mana, bagaimana" },
-      { word: "как-то", translation: "entah bagaimana" },
-    ],
-    lessonIds: [4],
+    lessonIds: [9],
   },
 
   {
     id: 109,
-    word: "насколько",
-    pronunciation: "/naskoljko/",
-    translation: "seberapa",
-    category: "adverb",
+    word: "было",
+    pronunciation: "/bɨlo/",
+    translation: "sudah (lampau, netral)",
+    category: "verb",
     frequency: 109,
     examples: [
-      { sentence: "Насколько далеко?", translation: "Seberapa jauh?" },
-      { sentence: "Насколько большой?", translation: "Seberapa besar?" },
+      { sentence: "Было холодно", translation: "Dulu dingin" },
+      { sentence: "Было хорошо", translation: "Dulu baik" },
     ],
-    lessonIds: [4],
+    lessonIds: [10],
   },
 
   {
     id: 110,
-    word: "ли",
-    pronunciation: "/li/",
-    translation: "apakah",
-    category: "adverb",
+    word: "были",
+    pronunciation: "/bɨli/",
+    translation: "sudah (lampau, jamak)",
+    category: "verb",
     frequency: 110,
     examples: [
-      { sentence: "Понимаешь ли ты?", translation: "Apakah kamu mengerti?" },
-      { sentence: "Это правда?", translation: "Apakah ini benar?" },
+      { sentence: "Мы были вместе", translation: "Kami bersama" },
+      { sentence: "Они были друзьями", translation: "Mereka adalah teman" },
     ],
-    lessonIds: [4],
+    lessonIds: [10],
   },
 
   {
     id: 111,
-    word: "кто",
-    pronunciation: "/kto/",
-    translation: "siapa-siapa",
+    word: "уже",
+    pronunciation: "/uʐje/",
+    translation: "sudah",
     category: "adverb",
     frequency: 111,
     examples: [
-      { sentence: "Кто именно?", translation: "Siapa saja?" },
+      { sentence: "Я уже пришёл", translation: "Saya sudah datang" },
+      { sentence: "Уже поздно", translation: "Sudah terlambat" },
     ],
     wordFamily: [
-      { word: "кто-то", translation: "seseorang" },
-      { word: "никто", translation: "tidak seorang pun" },
+      { word: "уже", translation: "sudah" },
     ],
-    lessonIds: [4],
+    lessonIds: [10],
   },
 
   {
     id: 112,
-    word: "когда-нибудь",
-    pronunciation: "/koɡda-nibudj/",
-    translation: "kapan-kapan",
+    word: "ещё",
+    pronunciation: "/jeɕːё/",
+    translation: "masih, lagi",
     category: "adverb",
     frequency: 112,
     examples: [
-      { sentence: "Приходи как-нибудь", translation: "Datanglah kapan-kapan" },
+      { sentence: "Я ещё не готов", translation: "Saya belum siap" },
+      { sentence: "Ещё раз", translation: "Sekali lagi" },
     ],
-    lessonIds: [4, 11],
+    lessonIds: [10],
   },
 
   {
     id: 113,
-    word: "так",
-    pronunciation: "/tak/",
-    translation: "begitu",
-    category: "adverb",
+    word: "сделать",
+    pronunciation: "/sdjelatʲ/",
+    translation: "selesai melakukan",
+    category: "verb",
     frequency: 113,
     examples: [
-      { sentence: "Такой большой", translation: "Begitu besar" },
-      { sentence: "Просто так", translation: "Begitu saja" },
+      { sentence: "Я сделал уроки", translation: "Saya selesai mengerjakan PR" },
+      { sentence: "Что ты сделал?", translation: "Apa yang kamu lakukan?" },
     ],
-    lessonIds: [4, 15],
+    wordFamily: [
+      { word: "делать", translation: "melakukan (imperfektif)" },
+    ],
+    lessonIds: [10],
   },
 
   {
     id: 114,
-    word: "вид",
-    pronunciation: "/vid/",
-    translation: "macam",
-    category: "noun",
+    word: "сказать",
+    pronunciation: "/skazatʲ/",
+    translation: "mengatakan",
+    category: "verb",
     frequency: 114,
     examples: [
-      { sentence: "Что это за вид?", translation: "Macam apa ini?" },
-      { sentence: "Разные виды", translation: "Macam-macam" },
+      { sentence: "Он сказал правду", translation: "Dia mengatakan kebenaran" },
+      { sentence: "Скажи мне!", translation: "Katakan padaku!" },
     ],
-    lessonIds: [4],
+    wordFamily: [
+      { word: "говорить", translation: "bicara (imperfektif)" },
+    ],
+    lessonIds: [10],
   },
 
   {
     id: 115,
-    word: "тип",
-    pronunciation: "/tip/",
-    translation: "jenis",
-    category: "noun",
+    word: "дать",
+    pronunciation: "/datʲ/",
+    translation: "memberi",
+    category: "verb",
     frequency: 115,
     examples: [
-      { sentence: "Какого типа?", translation: "Jenis apa?" },
-      { sentence: "Тип еды", translation: "Jenis makanan" },
+      { sentence: "Дай мне книгу", translation: "Berikan saya buku" },
+      { sentence: "Он дал мне ручку", translation: "Dia memberi saya pulpen" },
     ],
-    lessonIds: [4],
+    wordFamily: [
+      { word: "давать", translation: "memberi (imperfektif)" },
+      { word: "подарок", translation: "hadiah" },
+    ],
+    lessonIds: [10],
   },
 
   {
     id: 116,
-    word: "неизвестно",
-    pronunciation: "/njeizvjestno/",
-    translation: "entah",
-    category: "adverb",
+    word: "взять",
+    pronunciation: "/vzjatʲ/",
+    translation: "mengambil",
+    category: "verb",
     frequency: 116,
     examples: [
-      { sentence: "Неизвестно кто", translation: "Entah siapa" },
-      { sentence: "Неизвестно почему", translation: "Entah kenapa" },
+      { sentence: "Возьми это!", translation: "Ambil ini!" },
+      { sentence: "Я взял билет", translation: "Saya mengambil tiket" },
     ],
-    lessonIds: [4],
+    wordFamily: [
+      { word: "брать", translation: "mengambil (imperfektif)" },
+    ],
+    lessonIds: [10],
   },
 
   {
     id: 117,
-    word: "или же",
-    pronunciation: "/ili ʐje/",
-    translation: "ataukah",
-    category: "conjunction",
+    word: "понять",
+    pronunciation: "/ponjatʲ/",
+    translation: "memahami",
+    category: "verb",
     frequency: 117,
     examples: [
-      { sentence: "Это или же то?", translation: "Ini ataukah itu?" },
+      { sentence: "Я понял!", translation: "Saya paham!" },
+      { sentence: "Ты понял?", translation: "Kamu paham?" },
     ],
-    lessonIds: [4, 15],
+    wordFamily: [
+      { word: "понимать", translation: "memahami (imperfektif)" },
+    ],
+    lessonIds: [10],
   },
 
   {
     id: 118,
-    word: "который же",
-    pronunciation: "/kotorɨj ʐje/",
-    translation: "manakah",
-    category: "adverb",
+    word: "увидеть",
+    pronunciation: "/uvidjetʲ/",
+    translation: "melihat (tiba-tiba)",
+    category: "verb",
     frequency: 118,
     examples: [
-      { sentence: "Которое же верно?", translation: "Manakah yang benar?" },
-      { sentence: "Которое твой выбор?", translation: "Manakah pilihanmu?" },
+      { sentence: "Я увидел друга", translation: "Saya melihat teman" },
+      { sentence: "Он увидел дом", translation: "Dia melihat rumah" },
     ],
-    lessonIds: [4],
+    wordFamily: [
+      { word: "видеть", translation: "melihat (imperfektif)" },
+    ],
+    lessonIds: [10],
   },
 
   {
     id: 119,
-    word: "когда же",
-    pronunciation: "/koɡda ʐje/",
-    translation: "bilakah",
-    category: "adverb",
+    word: "услышать",
+    pronunciation: "/uslɨʂatʲ/",
+    translation: "mendengar (tiba-tiba)",
+    category: "verb",
     frequency: 119,
     examples: [
-      { sentence: "Когда же он придёт?", translation: "Bilakah dia datang?" },
-      { sentence: "Когда же мы начнём?", translation: "Bilakah kita mulai?" },
+      { sentence: "Я услышал новость", translation: "Saya mendengar kabar" },
+      { sentence: "Она услышала звук", translation: "Dia mendengar suara" },
     ],
-    lessonIds: [4],
+    wordFamily: [
+      { word: "слышать", translation: "mendengar (imperfektif)" },
+    ],
+    lessonIds: [10],
   },
 
   {
     id: 120,
-    word: "как же",
-    pronunciation: "/kak ʐje/",
-    translation: "bagaimanakah",
-    category: "adverb",
+    word: "приехать",
+    pronunciation: "/prijexatʲ/",
+    translation: "tiba (naik kendaraan)",
+    category: "verb",
     frequency: 120,
     examples: [
-      { sentence: "Каким же образом?", translation: "Bagaimanakah caranya?" },
-      { sentence: "Как же твои дела?", translation: "Bagaimanakah keadaanmu?" },
+      { sentence: "Он приехал в Москву", translation: "Dia tiba di Moskow" },
+      { sentence: "Когда ты приедешь?", translation: "Kapan kamu tiba?" },
     ],
-    lessonIds: [4],
+    wordFamily: [
+      { word: "приезжать", translation: "tiba (imperfektif)" },
+    ],
+    lessonIds: [10],
   },
 
   {
     id: 121,
-    word: "не",
-    pronunciation: "/nje/",
-    translation: "bukan",
-    category: "adverb",
+    word: "читать",
+    pronunciation: "/tɕitatʲ/",
+    translation: "membaca",
+    category: "verb",
     frequency: 121,
     examples: [
-      { sentence: "Это не моя книга", translation: "Ini bukan buku saya" },
-      { sentence: "Он не учитель", translation: "Dia bukan guru" },
+      { sentence: "Я читаю книгу", translation: "Saya membaca buku" },
+      { sentence: "Что ты читаешь?", translation: "Apa yang kamu baca?" },
     ],
-    lessonIds: [5],
+    wordFamily: [
+      { word: "прочитать", translation: "selesai membaca" },
+      { word: "читатель", translation: "pembaca" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 122,
-    word: "ещё не",
-    pronunciation: "/jeɕːjo nje/",
-    translation: "belum",
-    category: "adverb",
+    word: "писать",
+    pronunciation: "/pisatʲ/",
+    translation: "menulis",
+    category: "verb",
     frequency: 122,
     examples: [
-      { sentence: "Я ещё не готов", translation: "Saya belum siap" },
-      { sentence: "Ещё не ел", translation: "Belum makan" },
+      { sentence: "Я пишу письмо", translation: "Saya menulis surat" },
+      { sentence: "Она пишет книгу", translation: "Dia menulis buku" },
     ],
-    lessonIds: [5],
+    wordFamily: [
+      { word: "написать", translation: "selesai menulis" },
+      { word: "писатель", translation: "penulis" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 123,
-    word: "не",
-    pronunciation: "/nje/",
-    translation: "jangan",
-    category: "adverb",
+    word: "работать",
+    pronunciation: "/rabotatʲ/",
+    translation: "bekerja",
+    category: "verb",
     frequency: 123,
     examples: [
-      { sentence: "Не уходи!", translation: "Jangan pergi!" },
-      { sentence: "Не забудь!", translation: "Jangan lupa!" },
+      { sentence: "Я работаю в офисе", translation: "Saya bekerja di kantor" },
+      { sentence: "Где ты работаешь?", translation: "Di mana kamu bekerja?" },
     ],
-    lessonIds: [5],
+    wordFamily: [
+      { word: "поработать", translation: "bekerja sebentar" },
+      { word: "работа", translation: "pekerjaan" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 124,
-    word: "поэтому",
-    pronunciation: "/poɛtomu/",
-    translation: "jadi",
-    category: "conjunction",
+    word: "учиться",
+    pronunciation: "/utɕitʲsja/",
+    translation: "belajar",
+    category: "verb",
     frequency: 124,
     examples: [
-      { sentence: "Итак, мы идём", translation: "Jadi, kita pergi" },
+      { sentence: "Я учусь в университете", translation: "Saya belajar di universitas" },
+      { sentence: "Она учится хорошо", translation: "Dia belajar dengan baik" },
     ],
-    lessonIds: [5, 15],
+    wordFamily: [
+      { word: "научиться", translation: "belajar hingga bisa" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 125,
-    word: "может быть",
-    pronunciation: "/moʐjet bɨtj/",
-    translation: "mungkin",
-    category: "adverb",
+    word: "играть",
+    pronunciation: "/iɡratʲ/",
+    translation: "bermain",
+    category: "verb",
     frequency: 125,
     examples: [
-      { sentence: "Может быть, он придёт", translation: "Mungkin dia datang" },
-      { sentence: "Невозможно", translation: "Tidak mungkin" },
+      { sentence: "Дети играют", translation: "Anak-anak bermain" },
+      { sentence: "Я играю в футбол", translation: "Saya main sepak bola" },
+    ],
+    wordFamily: [
+      { word: "сыграть", translation: "selesai bermain" },
+      { word: "игра", translation: "permainan" },
     ],
     lessonIds: [11],
   },
 
   {
     id: 126,
-    word: "всегда",
-    pronunciation: "/vsjeɡda/",
-    translation: "selalu",
-    category: "adverb",
+    word: "смотреть",
+    pronunciation: "/smotrjetʲ/",
+    translation: "menonton, melihat",
+    category: "verb",
     frequency: 126,
     examples: [
-      { sentence: "Всегда учиться", translation: "Selalu belajar" },
+      { sentence: "Я смотрю фильм", translation: "Saya menonton film" },
+      { sentence: "Что ты смотришь?", translation: "Apa yang kamu tonton?" },
     ],
-    lessonIds: [9],
+    wordFamily: [
+      { word: "посмотреть", translation: "selesai menonton" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 127,
-    word: "когда-либо",
-    pronunciation: "/koɡda-libo/",
-    translation: "pernah",
-    category: "adverb",
+    word: "слушать",
+    pronunciation: "/sluʂatʲ/",
+    translation: "mendengarkan",
+    category: "verb",
     frequency: 127,
     examples: [
-      { sentence: "Я был на Бали", translation: "Saya pernah ke Bali" },
-      { sentence: "Ещё никогда", translation: "Belum pernah" },
+      { sentence: "Я слушаю музыку", translation: "Saya dengar musik" },
+      { sentence: "Слушай!", translation: "Dengarkan!" },
     ],
-    lessonIds: [5, 9],
+    wordFamily: [
+      { word: "послушать", translation: "mendengarkan sebentar" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 128,
-    word: "оставаться",
-    pronunciation: "/ostavatjsja/",
-    translation: "tetap",
-    category: "adverb",
+    word: "ждать",
+    pronunciation: "/ʐdatʲ/",
+    translation: "menunggu",
+    category: "verb",
     frequency: 128,
     examples: [
-      { sentence: "Он остаётся молчаливым", translation: "Dia tetap diam" },
-      { sentence: "Держись!", translation: "Tetap semangat!" },
+      { sentence: "Я жду тебя", translation: "Saya menunggu kamu" },
+      { sentence: "Подожди!", translation: "Tunggu!" },
     ],
-    lessonIds: [5],
+    wordFamily: [
+      { word: "подождать", translation: "menunggu sebentar" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 129,
-    word: "не",
-    pronunciation: "/nje/",
-    translation: "tak",
-    category: "adverb",
+    word: "стоять",
+    pronunciation: "/stojatʲ/",
+    translation: "berdiri",
+    category: "verb",
     frequency: 129,
     examples: [
-      { sentence: "Не знаю", translation: "Tak tahu" },
-      { sentence: "Ничего, нормально", translation: "Tak apa" },
+      { sentence: "Я стою здесь", translation: "Saya berdiri di sini" },
+      { sentence: "Они стоят на улице", translation: "Mereka berdiri di jalan" },
     ],
-    lessonIds: [5],
+    wordFamily: [
+      { word: "постоять", translation: "berdiri sebentar" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 130,
-    word: "без",
-    pronunciation: "/bjez/",
-    translation: "tanpa",
-    category: "preposition",
+    word: "лежать",
+    pronunciation: "/ljeʐatʲ/",
+    translation: "berbaring",
+    category: "verb",
     frequency: 130,
     examples: [
-      { sentence: "Без тебя", translation: "Tanpa kamu" },
-      { sentence: "Без проблем", translation: "Tanpa masalah" },
+      { sentence: "Книга лежит на столе", translation: "Buku terletak di meja" },
+      { sentence: "Я лежу на диване", translation: "Saya berbaring di sofa" },
     ],
-    lessonIds: [5, 14],
+    wordFamily: [
+      { word: "полежать", translation: "berbaring sebentar" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 131,
-    word: "а",
-    pronunciation: "/a/",
-    translation: "melainkan",
-    category: "conjunction",
+    word: "сидеть",
+    pronunciation: "/sidjetʲ/",
+    translation: "duduk",
+    category: "verb",
     frequency: 131,
     examples: [
-      { sentence: "Не я, а он", translation: "Bukan saya, melainkan dia" },
-      { sentence: "Не это, а то", translation: "Bukan ini, melainkan itu" },
+      { sentence: "Я сижу на стуле", translation: "Saya duduk di kursi" },
+      { sentence: "Они сидят в кафе", translation: "Mereka duduk di kafe" },
     ],
-    lessonIds: [5, 15],
+    wordFamily: [
+      { word: "посидеть", translation: "duduk sebentar" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 132,
-    word: "не только",
-    pronunciation: "/nje toljko/",
-    translation: "bukan saja",
-    category: "adverb",
+    word: "бежать",
+    pronunciation: "/bjeʐatʲ/",
+    translation: "berlari",
+    category: "verb",
     frequency: 132,
     examples: [
-      { sentence: "Не только я", translation: "Bukan saja saya" },
+      { sentence: "Я бегу быстро", translation: "Saya berlari cepat" },
+      { sentence: "Дети бегут", translation: "Anak-anak berlari" },
     ],
-    lessonIds: [5, 15],
+    wordFamily: [
+      { word: "побежать", translation: "mulai berlari" },
+      { word: "бег", translation: "lari" },
+    ],
+    lessonIds: [11],
   },
 
   {
     id: 133,
-    word: "кроме",
-    pronunciation: "/kromje/",
-    translation: "kecuali",
-    category: "preposition",
+    word: "ехать",
+    pronunciation: "/jexatʲ/",
+    translation: "pergi (naik kendaraan)",
+    category: "verb",
     frequency: 133,
     examples: [
-      { sentence: "Все кроме меня", translation: "Semua kecuali saya" },
-      { sentence: "Кроме воскресенья", translation: "Kecuali hari Minggu" },
+      { sentence: "Я еду на работу", translation: "Saya pergi ke kerja" },
+      { sentence: "Он едет на машине", translation: "Dia pergi naik mobil" },
     ],
-    lessonIds: [5, 14],
+    wordFamily: [
+      { word: "поехать", translation: "berangkat" },
+    ],
+    lessonIds: [12],
   },
 
   {
     id: 134,
-    word: "с",
-    pronunciation: "/s/",
-    translation: "sama",
-    category: "preposition",
+    word: "лететь",
+    pronunciation: "/ljetjetʲ/",
+    translation: "terbang",
+    category: "verb",
     frequency: 134,
     examples: [
-      { sentence: "Со мной", translation: "Sama saya" },
-      { sentence: "Одинаковый по размеру", translation: "Sama besar" },
+      { sentence: "Самолёт летит", translation: "Pesawat terbang" },
+      { sentence: "Я лечу в Москву", translation: "Saya terbang ke Moskow" },
     ],
-    lessonIds: [5, 14],
+    wordFamily: [
+      { word: "полететь", translation: "mulai terbang" },
+    ],
+    lessonIds: [12],
   },
 
   {
     id: 135,
-    word: "нет",
-    pronunciation: "/njet/",
-    translation: "tidak ada",
-    category: "adverb",
+    word: "плыть",
+    pronunciation: "/plɨtʲ/",
+    translation: "berenang, berlayar",
+    category: "verb",
     frequency: 135,
     examples: [
-      { sentence: "Нет проблем", translation: "Tidak ada masalah" },
-      { sentence: "Никого нет", translation: "Tidak ada seorang pun" },
+      { sentence: "Корабль плывёт", translation: "Kapal berlayar" },
+      { sentence: "Он плывёт", translation: "Dia berenang" },
     ],
     wordFamily: [
-      { word: "отрицание", translation: "negasi, sangkalan" },
+      { word: "поплыть", translation: "mulai berenang" },
     ],
-    lessonIds: [5],
+    lessonIds: [12],
   },
 
   {
     id: 136,
-    word: "может быть",
-    pronunciation: "/moʐjet bɨtj/",
-    translation: "bisa jadi",
-    category: "adverb",
+    word: "буду",
+    pronunciation: "/budu/",
+    translation: "akan (saya)",
+    category: "verb",
     frequency: 136,
     examples: [
-      { sentence: "Может быть, он забыл", translation: "Bisa jadi dia lupa" },
-      { sentence: "Может быть правда", translation: "Bisa jadi benar" },
+      { sentence: "Я буду ждать", translation: "Saya akan menunggu" },
+      { sentence: "Я буду учиться", translation: "Saya akan belajar" },
     ],
-    lessonIds: [5, 11],
+    lessonIds: [12],
   },
 
   {
     id: 137,
-    word: "часто",
-    pronunciation: "/tɕasto/",
-    translation: "acap kali",
-    category: "adverb",
+    word: "будет",
+    pronunciation: "/budjet/",
+    translation: "akan (dia)",
+    category: "verb",
     frequency: 137,
     examples: [
-      { sentence: "Часто идёт дождь", translation: "Acap kali hujan" },
+      { sentence: "Он будет работать", translation: "Dia akan bekerja" },
+      { sentence: "Завтра будет дождь", translation: "Besok akan hujan" },
     ],
-    lessonIds: [9],
+    lessonIds: [12],
   },
 
   {
     id: 138,
-    word: "редко",
-    pronunciation: "/rjedko/",
-    translation: "jarang",
-    category: "adverb",
+    word: "будут",
+    pronunciation: "/budut/",
+    translation: "akan (mereka)",
+    category: "verb",
     frequency: 138,
     examples: [
-      { sentence: "Очень редко", translation: "Jarang sekali" },
+      { sentence: "Они будут здесь", translation: "Mereka akan di sini" },
+      { sentence: "Завтра будут уроки", translation: "Besok akan ada pelajaran" },
     ],
-    lessonIds: [9],
+    lessonIds: [12],
   },
 
   {
     id: 139,
-    word: "почти",
-    pronunciation: "/potɕti/",
-    translation: "hampir",
-    category: "adverb",
+    word: "стать",
+    pronunciation: "/statʲ/",
+    translation: "menjadi",
+    category: "verb",
     frequency: 139,
     examples: [
-      { sentence: "Почти готово", translation: "Hampir selesai" },
-      { sentence: "Почти забыл", translation: "Hampir lupa" },
+      { sentence: "Он стал врачом", translation: "Dia menjadi dokter" },
+      { sentence: "Я хочу стать учителем", translation: "Saya ingin menjadi guru" },
     ],
-    lessonIds: [5],
+    wordFamily: [
+      { word: "становиться", translation: "menjadi (proses)" },
+    ],
+    lessonIds: [12],
   },
 
   {
     id: 140,
-    word: "один раз; очень",
-    pronunciation: "/odin raz; otɕjenj/",
-    translation: "sekali",
-    category: "adverb",
+    word: "начать",
+    pronunciation: "/natɕatʲ/",
+    translation: "memulai",
+    category: "verb",
     frequency: 140,
     examples: [
-      { sentence: "Ещё раз", translation: "Sekali lagi" },
-      { sentence: "Очень хорошо", translation: "Baik sekali" },
+      { sentence: "Я начал учить русский", translation: "Saya mulai belajar bahasa Rusia" },
+      { sentence: "Начнём!", translation: "Mari mulai!" },
     ],
-    lessonIds: [7, 13],
+    wordFamily: [
+      { word: "начинать", translation: "memulai (imperfektif)" },
+      { word: "начало", translation: "permulaan" },
+    ],
+    lessonIds: [12],
   },
 
   {
     id: 141,
-    word: "иметь",
-    pronunciation: "/imjetj/",
-    translation: "punya",
+    word: "кончить",
+    pronunciation: "/kontɕitʲ/",
+    translation: "menyelesaikan",
     category: "verb",
     frequency: 141,
     examples: [
-      { sentence: "У меня есть книга", translation: "Saya punya buku" },
-      { sentence: "Это моё", translation: "Ini punya saya" },
+      { sentence: "Я кончил работу", translation: "Saya selesai kerja" },
+      { sentence: "Кончай!", translation: "Hentikan!" },
     ],
-    lessonIds: [6, 7],
+    wordFamily: [
+      { word: "кончать", translation: "menyelesaikan (imperfektif)" },
+    ],
+    lessonIds: [12],
   },
 
   {
     id: 142,
-    word: "новый",
-    pronunciation: "/novɨj/",
-    translation: "baru",
-    category: "adjective",
+    word: "помочь",
+    pronunciation: "/pomotɕʲ/",
+    translation: "membantu",
+    category: "verb",
     frequency: 142,
     examples: [
-      { sentence: "Новая машина", translation: "Mobil baru" },
-      { sentence: "Новый дом", translation: "Rumah baru" },
+      { sentence: "Помоги мне!", translation: "Tolong saya!" },
+      { sentence: "Я помогу тебе", translation: "Saya akan membantu kamu" },
     ],
     wordFamily: [
-      { word: "новинка", translation: "baru, kabar baru" },
-      { word: "обновлять", translation: "memperbarui" },
-      { word: "обновление", translation: "pembaruan" },
+      { word: "помогать", translation: "membantu (imperfektif)" },
+      { word: "помощь", translation: "bantuan" },
     ],
-    lessonIds: [6, 13],
+    lessonIds: [12],
   },
 
   {
     id: 143,
-    word: "собственность",
-    pronunciation: "/sobstvjennostj/",
-    translation: "milik",
-    category: "noun",
+    word: "ответить",
+    pronunciation: "/otvjetitʲ/",
+    translation: "menjawab",
+    category: "verb",
     frequency: 143,
     examples: [
-      { sentence: "Это моя собственность", translation: "Ini milik saya" },
-      { sentence: "Чьё это?", translation: "Milik siapa ini?" },
+      { sentence: "Ответь мне!", translation: "Jawab saya!" },
+      { sentence: "Он ответил на вопрос", translation: "Dia menjawab pertanyaan" },
     ],
-    lessonIds: [6],
+    wordFamily: [
+      { word: "отвечать", translation: "menjawab (imperfektif)" },
+      { word: "ответ", translation: "jawaban" },
+    ],
+    lessonIds: [12],
   },
 
   {
     id: 144,
-    word: "сам",
-    pronunciation: "/sam/",
-    translation: "sendiri",
-    category: "adverb",
+    word: "спросить",
+    pronunciation: "/sprositʲ/",
+    translation: "bertanya",
+    category: "verb",
     frequency: 144,
     examples: [
-      { sentence: "Я сам", translation: "Saya sendiri" },
-      { sentence: "Работать самостоятельно", translation: "Kerja sendiri" },
+      { sentence: "Спроси его!", translation: "Tanya dia!" },
+      { sentence: "Я спросил дорогу", translation: "Saya bertanya jalan" },
     ],
-    lessonIds: [3, 6],
+    wordFamily: [
+      { word: "спрашивать", translation: "bertanya (imperfektif)" },
+      { word: "вопрос", translation: "pertanyaan" },
+    ],
+    lessonIds: [12],
   },
 
   {
     id: 145,
-    word: "вместе",
-    pronunciation: "/vmjestje/",
-    translation: "bersama",
-    category: "adverb",
+    word: "поехать",
+    pronunciation: "/pojexatʲ/",
+    translation: "berangkat (kendaraan)",
+    category: "verb",
     frequency: 145,
     examples: [
-      { sentence: "Мы вместе", translation: "Kita bersama" },
-      { sentence: "Учиться вместе", translation: "Belajar bersama" },
+      { sentence: "Я поеду в Москву", translation: "Saya akan pergi ke Moskow" },
+      { sentence: "Поехали!", translation: "Ayo berangkat!" },
     ],
-    lessonIds: [6],
+    wordFamily: [
+      { word: "ехать", translation: "pergi (kendaraan, imperfektif)" },
+    ],
+    lessonIds: [13],
   },
 
   {
     id: 146,
-    word: "каждый",
-    pronunciation: "/kaʐdɨj/",
-    translation: "masing-masing",
+    word: "можно",
+    pronunciation: "/moʐno/",
+    translation: "boleh, bisa",
     category: "adverb",
     frequency: 146,
     examples: [
-      { sentence: "Свой собственный дом", translation: "Rumah masing-masing" },
+      { sentence: "Можно войти?", translation: "Boleh masuk?" },
+      { sentence: "Можно мне воды?", translation: "Boleh saya minta air?" },
     ],
-    lessonIds: [6],
+    lessonIds: [13],
   },
 
   {
     id: 147,
-    word: "как",
-    pronunciation: "/kak/",
-    translation: "seperti",
-    category: "preposition",
+    word: "нужно",
+    pronunciation: "/nuʐno/",
+    translation: "perlu, harus",
+    category: "adverb",
     frequency: 147,
     examples: [
-      { sentence: "Как я", translation: "Seperti saya" },
-      { sentence: "Как это, вот так", translation: "Seperti ini" },
+      { sentence: "Нужно учиться", translation: "Harus belajar" },
+      { sentence: "Что нужно сделать?", translation: "Apa yang perlu dilakukan?" },
     ],
     wordFamily: [
-      { word: "какой", translation: "yang mana, bagaimana" },
-      { word: "как-то", translation: "entah bagaimana" },
+      { word: "нужный", translation: "yang diperlukan" },
     ],
-    lessonIds: [6, 14],
+    lessonIds: [13],
   },
 
   {
     id: 148,
-    word: "между",
-    pronunciation: "/mjeʐdu/",
-    translation: "antara",
-    category: "preposition",
+    word: "надо",
+    pronunciation: "/nado/",
+    translation: "harus, perlu",
+    category: "adverb",
     frequency: 148,
     examples: [
-      { sentence: "Между мной и ним", translation: "Antara saya dan dia" },
-      { sentence: "Среди них", translation: "Di antara mereka" },
+      { sentence: "Надо идти", translation: "Harus pergi" },
+      { sentence: "Мне надо домой", translation: "Saya harus pulang" },
     ],
-    lessonIds: [6, 14],
+    lessonIds: [13],
   },
 
   {
     id: 149,
-    word: "о",
-    pronunciation: "/o/",
-    translation: "tentang",
-    category: "preposition",
+    word: "нельзя",
+    pronunciation: "/njelʲzja/",
+    translation: "tidak boleh",
+    category: "adverb",
     frequency: 149,
     examples: [
-      { sentence: "Рассказ о нём", translation: "Cerita tentang dia" },
-      { sentence: "О чём?", translation: "Tentang apa?" },
+      { sentence: "Нельзя курить", translation: "Tidak boleh merokok" },
+      { sentence: "Нельзя опаздывать", translation: "Tidak boleh terlambat" },
     ],
-    lessonIds: [6, 14],
+    lessonIds: [13],
   },
 
   {
     id: 150,
-    word: "к",
-    pronunciation: "/k/",
-    translation: "terhadap",
-    category: "preposition",
+    word: "должен",
+    pronunciation: "/dolʐjen/",
+    translation: "harus (kewajiban, laki-laki)",
+    category: "adjective",
     frequency: 150,
     examples: [
-      { sentence: "Добрый к людям", translation: "Baik terhadap orang" },
-      { sentence: "Отношение к", translation: "Sikap terhadap" },
+      { sentence: "Я должен работать", translation: "Saya harus bekerja" },
+      { sentence: "Он должен прийти", translation: "Dia harus datang" },
     ],
-    lessonIds: [6, 14],
+    wordFamily: [
+      { word: "должна", translation: "harus (perempuan)" },
+    ],
+    lessonIds: [13],
   },
 
   {
     id: 151,
-    word: "для",
-    pronunciation: "/dlja/",
-    translation: "bagi",
-    category: "preposition",
+    word: "обязательно",
+    pronunciation: "/objazatjelʲno/",
+    translation: "pasti, wajib",
+    category: "adverb",
     frequency: 151,
     examples: [
-      { sentence: "Для меня", translation: "Bagi saya" },
-      { sentence: "Для тебя", translation: "Bagi kamu" },
+      { sentence: "Обязательно приду", translation: "Pasti datang" },
+      { sentence: "Это обязательно?", translation: "Ini wajib?" },
     ],
-    lessonIds: [6, 14],
+    wordFamily: [
+      { word: "обязанность", translation: "kewajiban" },
+    ],
+    lessonIds: [13],
   },
 
   {
     id: 152,
-    word: "для",
-    pronunciation: "/dlja/",
-    translation: "untuk",
-    category: "preposition",
+    word: "может быть",
+    pronunciation: "/moʐjet bɨtʲ/",
+    translation: "mungkin",
+    category: "adverb",
     frequency: 152,
     examples: [
-      { sentence: "Для меня", translation: "Untuk saya" },
-      { sentence: "Для чего?", translation: "Untuk apa?" },
+      { sentence: "Может быть, завтра", translation: "Mungkin besok" },
+      { sentence: "Может быть, он придёт", translation: "Mungkin dia datang" },
     ],
-    lessonIds: [6, 14],
+    lessonIds: [13],
   },
 
   {
     id: 153,
-    word: "от",
-    pronunciation: "/ot/",
-    translation: "oleh",
-    category: "preposition",
+    word: "хотеться",
+    pronunciation: "/xotjetʲsja/",
+    translation: "ingin (rasanya)",
+    category: "verb",
     frequency: 153,
     examples: [
-      { sentence: "Сделано мной", translation: "Dibuat oleh saya" },
-      { sentence: "Поэтому", translation: "Oleh karena itu" },
+      { sentence: "Мне хочется пить", translation: "Saya haus" },
+      { sentence: "Хочется спать", translation: "Mau tidur" },
     ],
-    lessonIds: [6, 14],
+    lessonIds: [13],
   },
 
   {
     id: 154,
-    word: "с",
-    pronunciation: "/s/",
-    translation: "dengan",
-    category: "preposition",
+    word: "нуждаться",
+    pronunciation: "/nuʐdatʲsja/",
+    translation: "memerlukan",
+    category: "verb",
     frequency: 154,
     examples: [
-      { sentence: "Со мной", translation: "Dengan saya" },
-      { sentence: "С удовольствием", translation: "Dengan senang hati" },
+      { sentence: "Я нуждаюсь в помощи", translation: "Saya perlu bantuan" },
+      { sentence: "Он нуждается в деньгах", translation: "Dia perlu uang" },
     ],
-    lessonIds: [6, 14],
+    wordFamily: [
+      { word: "нужда", translation: "kebutuhan" },
+    ],
+    lessonIds: [13],
   },
 
   {
     id: 155,
-    word: "способом",
-    pronunciation: "/sposobom/",
-    translation: "secara",
-    category: "adverb",
+    word: "мочь",
+    pronunciation: "/motɕʲ/",
+    translation: "bisa",
+    category: "verb",
     frequency: 155,
     examples: [
-      { sentence: "Медленно", translation: "Secara perlahan" },
-      { sentence: "Непосредственно", translation: "Secara langsung" },
+      { sentence: "Я могу", translation: "Saya bisa" },
+      { sentence: "Ты можешь мне помочь?", translation: "Kamu bisa bantu saya?" },
     ],
-    lessonIds: [6],
+    wordFamily: [
+      { word: "смочь", translation: "berhasil" },
+    ],
+    lessonIds: [13],
   },
 
   {
     id: 156,
-    word: "через",
-    pronunciation: "/tɕjerjez/",
-    translation: "melalui",
-    category: "preposition",
+    word: "тёплый",
+    pronunciation: "/tёplɨj/",
+    translation: "hangat",
+    category: "adjective",
     frequency: 156,
     examples: [
-      { sentence: "По телефону", translation: "Melalui telepon" },
-      { sentence: "Через интернет", translation: "Melalui internet" },
+      { sentence: "Тёплая вода", translation: "Air hangat" },
+      { sentence: "Тёплый день", translation: "Hari yang hangat" },
     ],
-    lessonIds: [6, 14],
+    wordFamily: [
+      { word: "тепло", translation: "hangat (adv)" },
+      { word: "теплота", translation: "kehangatan" },
+    ],
+    lessonIds: [13],
   },
 
   {
     id: 157,
-    word: "каждый",
-    pronunciation: "/kaʐdɨj/",
-    translation: "tiap",
-    category: "adverb",
-    frequency: 157,
-    examples: [
-      { sentence: "Каждый день", translation: "Tiap hari" },
-      { sentence: "Каждую неделю", translation: "Tiap minggu" },
-    ],
-    lessonIds: [6, 8],
-  },
-
-  {
-    id: 158,
-    word: "каждый",
-    pronunciation: "/kaʐdɨj/",
-    translation: "setiap",
-    category: "adverb",
-    frequency: 158,
-    examples: [
-      { sentence: "Каждый человек", translation: "Setiap orang" },
-      { sentence: "Каждый день", translation: "Setiap hari" },
-    ],
-    lessonIds: [6, 8],
-  },
-
-  {
-    id: 159,
-    word: "все",
-    pronunciation: "/vsje/",
-    translation: "semua",
-    category: "adverb",
-    frequency: 159,
-    examples: [
-      { sentence: "Все люди", translation: "Semua orang" },
-      { sentence: "Всё готово", translation: "Semua sudah siap" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 160,
-    word: "весь",
-    pronunciation: "/vjesj/",
-    translation: "seluruh",
-    category: "adverb",
-    frequency: 160,
-    examples: [
-      { sentence: "Вся Индонезия", translation: "Seluruh Indonesia" },
-      { sentence: "Весь мир", translation: "Seluruh dunia" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 161,
-    word: "один",
-    pronunciation: "/odin/",
-    translation: "satu",
-    category: "number",
-    frequency: 161,
-    examples: [
-      { sentence: "Один человек", translation: "Satu orang" },
-      { sentence: "Одна книга", translation: "Satu buku" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 162,
-    word: "два",
-    pronunciation: "/dva/",
-    translation: "dua",
-    category: "number",
-    frequency: 162,
-    examples: [
-      { sentence: "Два человека", translation: "Dua orang" },
-      { sentence: "Две книги", translation: "Dua buku" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 163,
-    word: "три",
-    pronunciation: "/tri/",
-    translation: "tiga",
-    category: "number",
-    frequency: 163,
-    examples: [
-      { sentence: "Три человека", translation: "Tiga orang" },
-      { sentence: "Три часа", translation: "Jam tiga" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 164,
-    word: "четыре",
-    pronunciation: "/tɕjetɨrje/",
-    translation: "empat",
-    category: "number",
-    frequency: 164,
-    examples: [
-      { sentence: "Четыре книги", translation: "Empat buku" },
-      { sentence: "Четыре человека", translation: "Empat orang" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 165,
-    word: "пять",
-    pronunciation: "/pjatj/",
-    translation: "lima",
-    category: "number",
-    frequency: 165,
-    examples: [
-      { sentence: "Пять дней", translation: "Lima hari" },
-      { sentence: "Пять часов", translation: "Jam lima" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 166,
-    word: "шесть",
-    pronunciation: "/ʂjestj/",
-    translation: "enam",
-    category: "number",
-    frequency: 166,
-    examples: [
-      { sentence: "Шесть человек", translation: "Enam orang" },
-      { sentence: "Шесть часов", translation: "Jam enam" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 167,
-    word: "семь",
-    pronunciation: "/sjemj/",
-    translation: "tujuh",
-    category: "number",
-    frequency: 167,
-    examples: [
-      { sentence: "Семь дней", translation: "Tujuh hari" },
-      { sentence: "Семь часов", translation: "Jam tujuh" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 168,
-    word: "восемь",
-    pronunciation: "/vosjemj/",
-    translation: "delapan",
-    category: "number",
-    frequency: 168,
-    examples: [
-      { sentence: "Восемь книг", translation: "Delapan buku" },
-      { sentence: "Восемь часов", translation: "Jam delapan" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 169,
-    word: "девять",
-    pronunciation: "/djevjatj/",
-    translation: "sembilan",
-    category: "number",
-    frequency: 169,
-    examples: [
-      { sentence: "Девять человек", translation: "Sembilan orang" },
-      { sentence: "Девять часов", translation: "Jam sembilan" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 170,
-    word: "десять",
-    pronunciation: "/djesjatj/",
-    translation: "sepuluh",
-    category: "number",
-    frequency: 170,
-    examples: [
-      { sentence: "Десять книг", translation: "Sepuluh buku" },
-      { sentence: "Десять часов", translation: "Jam sepuluh" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 171,
-    word: "одиннадцать",
-    pronunciation: "/odinnadtsatj/",
-    translation: "sebelas",
-    category: "number",
-    frequency: 171,
-    examples: [
-      { sentence: "Одиннадцать человек", translation: "Sebelas orang" },
-      { sentence: "Номер одиннадцать", translation: "Nomor sebelas" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 172,
-    word: "двенадцать",
-    pronunciation: "/dvjenadtsatj/",
-    translation: "dua belas",
-    category: "number",
-    frequency: 172,
-    examples: [
-      { sentence: "Двенадцать месяцев", translation: "Dua belas bulan" },
-      { sentence: "Двенадцать часов", translation: "Jam dua belas" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 173,
-    word: "сто",
-    pronunciation: "/sto/",
-    translation: "seratus",
-    category: "number",
-    frequency: 173,
-    examples: [
-      { sentence: "Сто рупий", translation: "Seratus rupiah" },
-      { sentence: "Сто человек", translation: "Seratus orang" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 174,
-    word: "двести",
-    pronunciation: "/dvjesti/",
-    translation: "dua ratus",
-    category: "number",
-    frequency: 174,
-    examples: [
-      { sentence: "Двести книг", translation: "Dua ratus buku" },
-      { sentence: "Двести рупий", translation: "Dua ratus rupiah" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 175,
-    word: "тысяча",
-    pronunciation: "/tɨsjatɕa/",
-    translation: "seribu",
-    category: "number",
-    frequency: 175,
-    examples: [
-      { sentence: "Тысяча рупий", translation: "Seribu rupiah" },
-      { sentence: "Тысяча человек", translation: "Seribu orang" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 176,
-    word: "миллион",
-    pronunciation: "/million/",
-    translation: "sejuta",
-    category: "number",
-    frequency: 176,
-    examples: [
-      { sentence: "Миллион рупий", translation: "Sejuta rupiah" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 177,
-    word: "номер",
-    pronunciation: "/nomjer/",
-    translation: "nomor",
-    category: "noun",
-    frequency: 177,
-    examples: [
-      { sentence: "Номер телефона", translation: "Nomor telepon" },
-      { sentence: "Какой номер?", translation: "Nomor berapa?" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 178,
-    word: "цифра",
-    pronunciation: "/tsifra/",
-    translation: "angka",
-    category: "noun",
-    frequency: 178,
-    examples: [
-      { sentence: "Цифра один", translation: "Angka satu" },
-      { sentence: "Какое число?", translation: "Angka berapa?" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 179,
-    word: "считать",
-    pronunciation: "/stɕitatj/",
-    translation: "hitung",
-    category: "verb",
-    frequency: 179,
-    examples: [
-      { sentence: "Считай с одного", translation: "Hitung dari satu" },
-      { sentence: "Я считаю", translation: "Saya hitung" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 180,
-    word: "половина",
-    pronunciation: "/polovina/",
-    translation: "setengah",
-    category: "number",
-    frequency: 180,
-    examples: [
-      { sentence: "Полчаса", translation: "Setengah jam" },
-      { sentence: "Полкило", translation: "Setengah kilo" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 181,
-    word: "более",
-    pronunciation: "/boljeje/",
-    translation: "lebih",
-    category: "adverb",
-    frequency: 181,
-    examples: [
-      { sentence: "Больше десяти", translation: "Lebih dari sepuluh" },
-      { sentence: "Лучше", translation: "Lebih baik" },
-    ],
-    lessonIds: [7, 13],
-  },
-
-  {
-    id: 182,
-    word: "менее",
-    pronunciation: "/mjenjeje/",
-    translation: "kurang",
-    category: "adverb",
-    frequency: 182,
-    examples: [
-      { sentence: "Меньше пяти", translation: "Kurang dari lima" },
-      { sentence: "Не хватает одного", translation: "Kurang satu" },
-    ],
-    lessonIds: [7, 13],
-  },
-
-  {
-    id: 183,
-    word: "раз",
-    pronunciation: "/raz/",
-    translation: "kali",
-    category: "adverb",
-    frequency: 183,
-    examples: [
-      { sentence: "Один раз", translation: "Satu kali" },
-      { sentence: "Два раза в день", translation: "Dua kali sehari" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 184,
-    word: "складывать; раз",
-    pronunciation: "/skladɨvatj; raz/",
-    translation: "lipat",
-    category: "verb",
-    frequency: 184,
-    examples: [
-      { sentence: "Вдвое", translation: "Dua lipat" },
-      { sentence: "Вдвойне", translation: "Lipat ganda" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 185,
-    word: "двойной",
-    pronunciation: "/dvojnoj/",
-    translation: "ganda",
-    category: "adverb",
-    frequency: 185,
-    examples: [
-      { sentence: "Вдвойне", translation: "Lipat ganda" },
-      { sentence: "Двойная цена", translation: "Harga ganda" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 186,
-    word: "половина",
-    pronunciation: "/polovina/",
-    translation: "separuh",
-    category: "number",
-    frequency: 186,
-    examples: [
-      { sentence: "Половина книги", translation: "Separuh buku" },
-      { sentence: "Половина дороги", translation: "Separuh jalan" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 187,
-    word: "одна треть",
-    pronunciation: "/odna trjetj/",
-    translation: "sepertiga",
-    category: "number",
-    frequency: 187,
-    examples: [
-      { sentence: "Треть цены", translation: "Sepertiga dari harga" },
-      { sentence: "Треть часа", translation: "Sepertiga jam" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 188,
-    word: "одна четверть",
-    pronunciation: "/odna tɕjetvjertj/",
-    translation: "seperempat",
-    category: "number",
-    frequency: 188,
-    examples: [
-      { sentence: "Четверть часа", translation: "Seperempat jam" },
-      { sentence: "Четверть кило", translation: "Seperempat kilo" },
-    ],
-    lessonIds: [7, 8],
-  },
-
-  {
-    id: 189,
-    word: "килограмм",
-    pronunciation: "/kiloɡramm/",
-    translation: "kilo",
-    category: "noun",
-    frequency: 189,
-    examples: [
-      { sentence: "Один килограмм риса", translation: "Satu kilo beras" },
-      { sentence: "Сколько килограмм?", translation: "Berapa kilo?" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 190,
-    word: "метр",
-    pronunciation: "/mjetr/",
-    translation: "meter",
-    category: "noun",
-    frequency: 190,
-    examples: [
-      { sentence: "Десять метров", translation: "Sepuluh meter" },
-      { sentence: "Измерительная лента", translation: "Meteran" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 191,
-    word: "литр",
-    pronunciation: "/litr/",
-    translation: "liter",
-    category: "noun",
-    frequency: 191,
-    examples: [
-      { sentence: "Два литра воды", translation: "Dua liter air" },
-      { sentence: "Один литр молока", translation: "Satu liter susu" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 192,
-    word: "количество",
-    pronunciation: "/kolitɕjestvo/",
-    translation: "jumlah",
-    category: "noun",
-    frequency: 192,
-    examples: [
-      { sentence: "Количество людей", translation: "Jumlah orang" },
-      { sentence: "Сколько всего?", translation: "Jumlahnya berapa?" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 193,
-    word: "итог",
-    pronunciation: "/itoɡ/",
-    translation: "total",
-    category: "noun",
-    frequency: 193,
-    examples: [
-      { sentence: "Общая цена", translation: "Total harga" },
-      { sentence: "Всего десять", translation: "Total sepuluh" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 194,
-    word: "первый",
-    pronunciation: "/pjervɨj/",
-    translation: "pertama",
-    category: "number",
-    frequency: 194,
-    examples: [
-      { sentence: "В первый раз", translation: "Pertama kali" },
-      { sentence: "Первый ребёнок", translation: "Anak pertama" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 195,
-    word: "второй",
-    pronunciation: "/vtoroj/",
-    translation: "kedua",
-    category: "number",
-    frequency: 195,
-    examples: [
-      { sentence: "Во второй раз", translation: "Kedua kalinya" },
-      { sentence: "Второй ребёнок", translation: "Anak kedua" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 196,
-    word: "третий",
-    pronunciation: "/trjetij/",
-    translation: "ketiga",
-    category: "number",
-    frequency: 196,
-    examples: [
-      { sentence: "В третий раз", translation: "Ketiga kalinya" },
-      { sentence: "Третья часть", translation: "Bagian ketiga" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 197,
-    word: "последний",
-    pronunciation: "/posljednij/",
-    translation: "terakhir",
-    category: "adjective",
-    frequency: 197,
-    examples: [
-      { sentence: "Последний", translation: "Yang terakhir" },
-      { sentence: "В последний раз", translation: "Kali terakhir" },
-    ],
-    lessonIds: [7, 13],
-  },
-
-  {
-    id: 198,
-    word: "несколько",
-    pronunciation: "/njeskoljko/",
-    translation: "beberapa",
-    category: "adverb",
-    frequency: 198,
-    examples: [
-      { sentence: "Несколько человек", translation: "Beberapa orang" },
-      { sentence: "Несколько дней", translation: "Beberapa hari" },
-    ],
-    lessonIds: [7],
-  },
-
-  {
-    id: 199,
-    word: "много",
-    pronunciation: "/mnoɡo/",
-    translation: "banyak",
-    category: "adverb",
-    frequency: 199,
-    examples: [
-      { sentence: "Много людей", translation: "Banyak orang" },
-      { sentence: "Сколько?", translation: "Berapa banyak?" },
-    ],
-    lessonIds: [7, 13],
-  },
-
-  {
-    id: 200,
-    word: "мало",
-    pronunciation: "/malo/",
-    translation: "sedikit",
-    category: "adverb",
-    frequency: 200,
-    examples: [
-      { sentence: "Только немного", translation: "Sedikit saja" },
-      { sentence: "Мало-помалу", translation: "Sedikit demi sedikit" },
-    ],
-    lessonIds: [7, 13],
-  },
-
-  {
-    id: 201,
-    word: "рис",
-    pronunciation: "/ris/",
-    translation: "nasi",
-    category: "noun",
-    frequency: 201,
-    examples: [
-      { sentence: "Я ем рис", translation: "Saya makan nasi" },
-      { sentence: "Жареный рис", translation: "Nasi goreng" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 202,
-    word: "вода",
-    pronunciation: "/voda/",
-    translation: "air",
-    category: "noun",
-    frequency: 202,
-    examples: [
-      { sentence: "Вода (букв. 'белая вода')", translation: "Air putih" },
-      { sentence: "Пить воду", translation: "Minum air" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 203,
-    word: "кофе",
-    pronunciation: "/kofje/",
-    translation: "kopi",
-    category: "noun",
-    frequency: 203,
-    examples: [
-      { sentence: "Хочешь кофе?", translation: "Mau kopi?" },
-      { sentence: "Горячий кофе", translation: "Kopi panas" },
-    ],
-    lessonIds: [12, 15],
-  },
-
-  {
-    id: 204,
-    word: "чай",
-    pronunciation: "/tɕaj/",
-    translation: "teh",
-    category: "noun",
-    frequency: 204,
-    examples: [
-      { sentence: "Сладкий чай", translation: "Teh manis" },
-      { sentence: "Хочешь чай или кофе?", translation: "Mau teh atau kopi?" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 205,
-    word: "еда",
-    pronunciation: "/jeda/",
-    translation: "makanan",
-    category: "noun",
-    frequency: 205,
-    examples: [
-      { sentence: "Вкусная еда", translation: "Makanan enak" },
-      { sentence: "Индонезийская еда", translation: "Makanan Indonesia" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 206,
-    word: "сахар",
-    pronunciation: "/saxar/",
-    translation: "gula",
-    category: "noun",
-    frequency: 206,
-    examples: [
-      { sentence: "Сахарный песок", translation: "Gula pasir" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 207,
-    word: "соль",
-    pronunciation: "/solj/",
-    translation: "garam",
-    category: "noun",
-    frequency: 207,
-    examples: [
-      { sentence: "Добавить соли", translation: "Tambah garam" },
-      { sentence: "Не хватает соли", translation: "Kurang garam" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 208,
-    word: "молоко",
-    pronunciation: "/moloko/",
-    translation: "susu",
-    category: "noun",
-    frequency: 208,
-    examples: [
-      { sentence: "Кофе с молоком", translation: "Kopi susu" },
-      { sentence: "Тёплое молоко", translation: "Susu hangat" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 209,
-    word: "хлеб",
-    pronunciation: "/xljeb/",
-    translation: "roti",
-    category: "noun",
-    frequency: 209,
-    examples: [
-      { sentence: "Белый хлеб", translation: "Roti tawar" },
-      { sentence: "Тост", translation: "Roti bakar" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 210,
-    word: "овощи",
-    pronunciation: "/ovoɕːi/",
-    translation: "sayur",
-    category: "noun",
-    frequency: 210,
-    examples: [
-      { sentence: "Суп", translation: "Sayur sop" },
-      { sentence: "Есть овощи", translation: "Makan sayur" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 211,
-    word: "фрукты",
-    pronunciation: "/fruktɨ/",
-    translation: "buah",
-    category: "noun",
-    frequency: 211,
-    examples: [
-      { sentence: "Свежие фрукты", translation: "Buah segar" },
-      { sentence: "Фруктовый сок", translation: "Jus buah" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 212,
-    word: "мясо",
-    pronunciation: "/mjaso/",
-    translation: "daging",
-    category: "noun",
-    frequency: 212,
-    examples: [
-      { sentence: "Куриное мясо", translation: "Daging ayam" },
-      { sentence: "Говядина", translation: "Daging sapi" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 213,
-    word: "рыба",
-    pronunciation: "/rɨba/",
-    translation: "ikan",
-    category: "noun",
-    frequency: 213,
-    examples: [
-      { sentence: "Жареная рыба", translation: "Ikan goreng" },
-      { sentence: "Свежая рыба", translation: "Ikan segar" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 214,
-    word: "яйцо",
-    pronunciation: "/jajtso/",
-    translation: "telur",
-    category: "noun",
-    frequency: 214,
-    examples: [
-      { sentence: "Яичница", translation: "Telur goreng" },
-      { sentence: "Варёное яйцо", translation: "Telur rebus" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 215,
-    word: "вкусный",
-    pronunciation: "/vkusnɨj/",
-    translation: "enak",
-    category: "adjective",
-    frequency: 215,
-    examples: [
-      { sentence: "Вкусная еда", translation: "Makanan enak" },
-      { sentence: "Очень вкусно", translation: "Enak sekali" },
-    ],
-    lessonIds: [13, 15],
-  },
-
-  {
-    id: 216,
-    word: "острый",
-    pronunciation: "/ostrɨj/",
-    translation: "pedas",
-    category: "adjective",
-    frequency: 216,
-    examples: [
-      { sentence: "Острый соус", translation: "Sambal pedas" },
-      { sentence: "Острая еда", translation: "Makanan pedas" },
-    ],
-    lessonIds: [13, 15],
-  },
-
-  {
-    id: 217,
-    word: "солёный",
-    pronunciation: "/soljonɨj/",
-    translation: "asin",
-    category: "adjective",
-    frequency: 217,
-    examples: [
-      { sentence: "Солёная еда", translation: "Makanan asin" },
-      { sentence: "Слишком солёно", translation: "Terlalu asin" },
-    ],
-    lessonIds: [13, 15],
-  },
-
-  {
-    id: 218,
-    word: "сладкий",
-    pronunciation: "/sladkij/",
-    translation: "manis",
-    category: "adjective",
-    frequency: 218,
-    examples: [
-      { sentence: "Сладкий чай", translation: "Teh manis" },
-      { sentence: "Сладкое пирожное", translation: "Kue manis" },
-    ],
-    lessonIds: [13, 15],
-  },
-
-  {
-    id: 219,
-    word: "горький",
-    pronunciation: "/ɡorjkij/",
-    translation: "pahit",
-    category: "adjective",
-    frequency: 219,
-    examples: [
-      { sentence: "Горький кофе", translation: "Kopi pahit" },
-      { sentence: "Горькое лекарство", translation: "Obat pahit" },
-    ],
-    lessonIds: [13, 15],
-  },
-
-  {
-    id: 220,
-    word: "готовить",
-    pronunciation: "/ɡotovitj/",
-    translation: "masak",
-    category: "verb",
-    frequency: 220,
-    examples: [
-      { sentence: "Мама готовит", translation: "Ibu sedang masak" },
-      { sentence: "Я люблю готовить", translation: "Saya suka masak" },
-    ],
-    lessonIds: [10, 15],
-  },
-
-  {
-    id: 221,
-    word: "жарить",
-    pronunciation: "/ʐaritj/",
-    translation: "goreng",
-    category: "verb",
-    frequency: 221,
-    examples: [
-      { sentence: "Жареный рис", translation: "Nasi goreng" },
-      { sentence: "Жареная рыба", translation: "Ikan goreng" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 222,
-    word: "варить",
-    pronunciation: "/varitj/",
-    translation: "rebus",
-    category: "verb",
-    frequency: 222,
-    examples: [
-      { sentence: "Варёное яйцо", translation: "Telur rebus" },
-      { sentence: "Кипячёная вода", translation: "Air rebus" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 223,
-    word: "жарить на огне",
-    pronunciation: "/ʐaritj na oɡnje/",
-    translation: "bakar",
-    category: "verb",
-    frequency: 223,
-    examples: [
-      { sentence: "Тост", translation: "Roti bakar" },
-      { sentence: "Жареная курица", translation: "Ayam bakar" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 224,
-    word: "голодный",
-    pronunciation: "/ɡolodnɨj/",
-    translation: "lapar",
-    category: "adjective",
-    frequency: 224,
-    examples: [
-      { sentence: "Я голоден", translation: "Saya lapar" },
-      { sentence: "Очень голоден", translation: "Lapar sekali" },
-    ],
-    lessonIds: [13, 15],
-  },
-
-  {
-    id: 225,
-    word: "жажда",
-    pronunciation: "/ʐaʐda/",
-    translation: "haus",
-    category: "adjective",
-    frequency: 225,
-    examples: [
-      { sentence: "Я хочу пить", translation: "Saya haus" },
-      { sentence: "Очень хочется пить", translation: "Haus sekali" },
-    ],
-    lessonIds: [13, 15],
-  },
-
-  {
-    id: 226,
-    word: "завтрак",
-    pronunciation: "/zavtrak/",
-    translation: "sarapan",
-    category: "noun",
-    frequency: 226,
-    examples: [
-      { sentence: "Утренний завтрак", translation: "Sarapan pagi" },
-      { sentence: "Ещё не завтракал", translation: "Belum sarapan" },
-    ],
-    lessonIds: [8, 15],
-  },
-
-  {
-    id: 227,
-    word: "обед",
-    pronunciation: "/objed/",
-    translation: "makan siang",
-    category: "noun",
-    frequency: 227,
-    examples: [
-      { sentence: "Обед вместе", translation: "Makan siang bersama" },
-      { sentence: "Время обеда", translation: "Waktu makan siang" },
-    ],
-    lessonIds: [8, 15],
-  },
-
-  {
-    id: 228,
-    word: "ужин",
-    pronunciation: "/uʐin/",
-    translation: "makan malam",
-    category: "noun",
-    frequency: 228,
-    examples: [
-      { sentence: "Романтический ужин", translation: "Makan malam romantis" },
-      { sentence: "Уже поужинал?", translation: "Sudah makan malam?" },
-    ],
-    lessonIds: [8, 15],
-  },
-
-  {
-    id: 229,
-    word: "тарелка",
-    pronunciation: "/tarjelka/",
-    translation: "piring",
-    category: "noun",
-    frequency: 229,
-    examples: [
-      { sentence: "Мыть посуду", translation: "Cuci piring" },
-      { sentence: "На тарелке", translation: "Di atas piring" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 230,
-    word: "стакан",
-    pronunciation: "/stakan/",
-    translation: "gelas",
-    category: "noun",
-    frequency: 230,
-    examples: [
-      { sentence: "Стакан воды", translation: "Gelas air" },
-      { sentence: "Пустой стакан", translation: "Gelas kosong" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 231,
-    word: "ложка",
-    pronunciation: "/loʐka/",
-    translation: "sendok",
-    category: "noun",
-    frequency: 231,
-    examples: [
-      { sentence: "Столовая ложка", translation: "Sendok makan" },
-      { sentence: "Чайная ложка", translation: "Sendok teh" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 232,
-    word: "вилка",
-    pronunciation: "/vilka/",
-    translation: "garpu",
-    category: "noun",
-    frequency: 232,
-    examples: [
-      { sentence: "Использовать вилку", translation: "Pakai garpu" },
-      { sentence: "Вилка и нож", translation: "Garpu dan pisau" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 233,
-    word: "ресторан",
-    pronunciation: "/rjestoran/",
-    translation: "restoran",
-    category: "noun",
-    frequency: 233,
-    examples: [
-      { sentence: "Есть в ресторане", translation: "Makan di restoran" },
-      { sentence: "Вкусный ресторан", translation: "Restoran enak" },
-    ],
-    lessonIds: [14, 15],
-  },
-
-  {
-    id: 234,
-    word: "меню",
-    pronunciation: "/mjenju/",
-    translation: "menu",
-    category: "noun",
-    frequency: 234,
-    examples: [
-      { sentence: "Посмотреть меню", translation: "Lihat menu" },
-      { sentence: "Меню на сегодня", translation: "Menu hari ini" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 235,
-    word: "заказывать; сообщение",
-    pronunciation: "/zakazɨvatj; soobɕːjenije/",
-    translation: "pesan",
-    category: "verb",
-    frequency: 235,
-    examples: [
-      { sentence: "Отправить сообщение", translation: "Kirim pesan" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 236,
-    word: "платить",
-    pronunciation: "/platitj/",
-    translation: "bayar",
-    category: "verb",
-    frequency: 236,
-    examples: [
-      { sentence: "Платить на кассе", translation: "Bayar di kasir" },
-      { sentence: "Уже заплатил", translation: "Sudah bayar" },
-    ],
-    lessonIds: [16],
-  },
-
-  {
-    id: 237,
-    word: "цена",
-    pronunciation: "/tsjena/",
-    translation: "harga",
-    category: "noun",
-    frequency: 237,
-    examples: [
-      { sentence: "Сколько стоит?", translation: "Harga berapa?" },
-      { sentence: "Дешёвая цена", translation: "Harga murah" },
-    ],
-    lessonIds: [16],
-  },
-
-  {
-    id: 238,
-    word: "дешёвый",
-    pronunciation: "/djeʂjovɨj/",
-    translation: "murah",
-    category: "adjective",
-    frequency: 238,
-    examples: [
-      { sentence: "Дешёвая цена", translation: "Harga murah" },
-      { sentence: "Дешёвый товар", translation: "Barang murah" },
-    ],
-    lessonIds: [13, 16],
-  },
-
-  {
-    id: 239,
-    word: "дорогой",
-    pronunciation: "/doroɡoj/",
-    translation: "mahal",
-    category: "adjective",
-    frequency: 239,
-    examples: [
-      { sentence: "Дорогая машина", translation: "Mobil mahal" },
-      { sentence: "Слишком дорого", translation: "Terlalu mahal" },
-    ],
-    lessonIds: [13, 16],
-  },
-
-  {
-    id: 240,
-    word: "деньги",
-    pronunciation: "/djenjɡi/",
-    translation: "uang",
-    category: "noun",
-    frequency: 240,
-    examples: [
-      { sentence: "Нет денег", translation: "Tidak punya uang" },
-      { sentence: "Наличные", translation: "Uang tunai" },
-    ],
-    lessonIds: [7, 16],
-  },
-
-  {
-    id: 241,
-    word: "день",
-    pronunciation: "/djenj/",
-    translation: "hari",
-    category: "noun",
-    frequency: 241,
-    examples: [
-      { sentence: "Сегодня", translation: "Hari ini" },
-      { sentence: "Понедельник", translation: "Hari Senin" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 242,
-    word: "неделя; воскресенье",
-    pronunciation: "/njedjelja; voskrjesjenjje/",
-    translation: "minggu",
-    category: "noun",
-    frequency: 242,
-    examples: [
-      { sentence: "На следующей неделе", translation: "Minggu depan" },
-      { sentence: "Воскресенье", translation: "Hari Minggu" },
-    ],
-    lessonIds: [8, 11],
-  },
-
-  {
-    id: 243,
-    word: "месяц; луна",
-    pronunciation: "/mjesjats; luna/",
-    translation: "bulan",
-    category: "noun",
-    frequency: 243,
-    examples: [
-      { sentence: "В следующем месяце", translation: "Bulan depan" },
-      { sentence: "В этом месяце", translation: "Bulan ini" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 244,
-    word: "год",
-    pronunciation: "/ɡod/",
-    translation: "tahun",
-    category: "noun",
-    frequency: 244,
-    examples: [
-      { sentence: "Новый год", translation: "Tahun baru" },
-      { sentence: "В следующем году", translation: "Tahun depan" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 245,
-    word: "час",
-    pronunciation: "/tɕas/",
-    translation: "jam",
-    category: "noun",
-    frequency: 245,
-    examples: [
-      { sentence: "Который час?", translation: "Jam berapa?" },
-      { sentence: "Два часа", translation: "Jam dua" },
-    ],
-    lessonIds: [8, 14],
-  },
-
-  {
-    id: 246,
-    word: "понедельник",
-    pronunciation: "/ponjedjeljnik/",
-    translation: "hari Senin",
-    category: "noun",
-    frequency: 246,
-    examples: [
-      { sentence: "Первый понедельник", translation: "Hari Senin pertama" },
-      { sentence: "Завтра понедельник", translation: "Besok hari Senin" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 247,
-    word: "вторник",
-    pronunciation: "/vtornik/",
-    translation: "hari Selasa",
-    category: "noun",
-    frequency: 247,
-    examples: [
-      { sentence: "Во вторник работаю", translation: "Hari Selasa kerja" },
-      { sentence: "Во вторник прошлый", translation: "Selasa lalu" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 248,
-    word: "среда",
-    pronunciation: "/srjeda/",
-    translation: "hari Rabu",
-    category: "noun",
-    frequency: 248,
-    examples: [
-      { sentence: "В среду собрание", translation: "Hari Rabu rapat" },
-      { sentence: "В следующую среду", translation: "Rabu depan" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 249,
-    word: "четверг",
-    pronunciation: "/tɕjetvjerɡ/",
-    translation: "hari Kamis",
-    category: "noun",
-    frequency: 249,
-    examples: [
-      { sentence: "В четверг выходной", translation: "Hari Kamis libur" },
-      { sentence: "Вечером в четверг", translation: "Kamis malam" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 250,
-    word: "пятница",
-    pronunciation: "/pjatnitsa/",
-    translation: "hari Jumat",
-    category: "noun",
-    frequency: 250,
-    examples: [
-      { sentence: "В пятницу молитва", translation: "Hari Jumat sholat" },
-      { sentence: "Благословенная пятница", translation: "Jumat berkah" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 251,
-    word: "суббота",
-    pronunciation: "/subbota/",
-    translation: "hari Sabtu",
-    category: "noun",
-    frequency: 251,
-    examples: [
-      { sentence: "В субботу гулять", translation: "Hari Sabtu jalan-jalan" },
-      { sentence: "Суббота и воскресенье", translation: "Sabtu dan Minggu" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 252,
-    word: "воскресенье",
-    pronunciation: "/voskrjesjenjje/",
-    translation: "hari Minggu",
-    category: "noun",
-    frequency: 252,
-    examples: [
-      { sentence: "Выходные", translation: "Akhir minggu" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 253,
-    word: "вчера",
-    pronunciation: "/vtɕjera/",
-    translation: "kemarin",
-    category: "adverb",
-    frequency: 253,
-    examples: [
-      { sentence: "Вчера я ходил", translation: "Kemarin saya pergi" },
-      { sentence: "Вчера вечером", translation: "Kemarin malam" },
-    ],
-    lessonIds: [8, 9],
-  },
-
-  {
-    id: 254,
-    word: "завтра",
-    pronunciation: "/zavtra/",
-    translation: "besok",
-    category: "adverb",
-    frequency: 254,
-    examples: [
-      { sentence: "Завтра я приду", translation: "Besok saya datang" },
-      { sentence: "До завтра", translation: "Sampai jumpa besok" },
-    ],
-    lessonIds: [8, 11],
-  },
-
-  {
-    id: 255,
-    word: "сейчас",
-    pronunciation: "/sjejtɕas/",
-    translation: "sekarang",
-    category: "adverb",
-    frequency: 255,
-    examples: [
-      { sentence: "Сейчас который час?", translation: "Sekarang jam berapa?" },
-      { sentence: "Сейчас же", translation: "Sekarang juga" },
-    ],
-    lessonIds: [8, 10],
-  },
-
-  {
-    id: 256,
-    word: "потом",
-    pronunciation: "/potom/",
-    translation: "nanti",
-    category: "adverb",
-    frequency: 256,
-    examples: [
-      { sentence: "Потом мы пойдём", translation: "Nanti kita pergi" },
-      { sentence: "До встречи", translation: "Sampai nanti" },
-    ],
-    lessonIds: [8, 11],
-  },
-
-  {
-    id: 257,
-    word: "раньше",
-    pronunciation: "/ranjʂje/",
-    translation: "dulu",
-    category: "adverb",
-    frequency: 257,
-    examples: [
-      { sentence: "Сначала послушай", translation: "Dengar dulu" },
-    ],
-    lessonIds: [8, 9],
-  },
-
-  {
-    id: 258,
-    word: "потом",
-    pronunciation: "/potom/",
-    translation: "lalu",
-    category: "adverb",
-    frequency: 258,
-    examples: [
-      { sentence: "На прошлой неделе", translation: "Minggu lalu" },
-      { sentence: "Потом он ушёл", translation: "Lalu dia pergi" },
-    ],
-    lessonIds: [8, 9, 15],
-  },
-
-  {
-    id: 259,
-    word: "начало",
-    pronunciation: "/natɕalo/",
-    translation: "awal",
-    category: "noun",
-    frequency: 259,
-    examples: [
-      { sentence: "Начало месяца", translation: "Awal bulan" },
-      { sentence: "Начало года", translation: "Awal tahun" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 260,
-    word: "конец",
-    pronunciation: "/konjets/",
-    translation: "akhir",
-    category: "noun",
-    frequency: 260,
-    examples: [
-      { sentence: "Конец месяца", translation: "Akhir bulan" },
-      { sentence: "Конец года", translation: "Akhir tahun" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 261,
-    word: "дождь",
-    pronunciation: "/doʐdj/",
-    translation: "hujan",
-    category: "noun",
-    frequency: 261,
-    examples: [
-      { sentence: "Сильный дождь", translation: "Hujan deras" },
-      { sentence: "Идёт дождь", translation: "Sedang hujan" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 262,
-    word: "солнце",
-    pronunciation: "/solntsje/",
-    translation: "matahari",
-    category: "noun",
-    frequency: 262,
-    examples: [
-      { sentence: "Восход солнца", translation: "Matahari terbit" },
-      { sentence: "Сегодня жарко", translation: "Hari ini panas" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 263,
-    word: "дерево",
-    pronunciation: "/djerjevo/",
-    translation: "pohon",
-    category: "noun",
-    frequency: 263,
-    examples: [
-      { sentence: "Большое дерево", translation: "Pohon besar" },
-      { sentence: "Кокосовая пальма", translation: "Pohon kelapa" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 264,
-    word: "цветок",
-    pronunciation: "/tsvjetok/",
-    translation: "bunga",
-    category: "noun",
-    frequency: 264,
-    examples: [
-      { sentence: "Красивый цветок", translation: "Bunga indah" },
-      { sentence: "Цветочный сад", translation: "Taman bunga" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 265,
-    word: "море",
-    pronunciation: "/morje/",
-    translation: "laut",
-    category: "noun",
-    frequency: 265,
-    examples: [
-      { sentence: "Синее море", translation: "Laut biru" },
-      { sentence: "К морю", translation: "Ke laut" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 266,
-    word: "гора",
-    pronunciation: "/ɡora/",
-    translation: "gunung",
-    category: "noun",
-    frequency: 266,
-    examples: [
-      { sentence: "Высокая гора", translation: "Gunung tinggi" },
-      { sentence: "Восхождение на гору", translation: "Naik gunung" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 267,
-    word: "река",
-    pronunciation: "/rjeka/",
-    translation: "sungai",
-    category: "noun",
-    frequency: 267,
-    examples: [
-      { sentence: "Большая река", translation: "Sungai besar" },
-      { sentence: "Плавать в реке", translation: "Berenang di sungai" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 268,
-    word: "озеро",
-    pronunciation: "/ozjero/",
-    translation: "danau",
-    category: "noun",
-    frequency: 268,
-    examples: [
-      { sentence: "Красивое озеро", translation: "Danau indah" },
-      { sentence: "Озеро Тоба", translation: "Danau Toba" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 269,
-    word: "пляж",
-    pronunciation: "/pljaʐ/",
-    translation: "pantai",
-    category: "noun",
-    frequency: 269,
-    examples: [
-      { sentence: "На пляж", translation: "Ke pantai" },
-      { sentence: "Пляж с белым песком", translation: "Pantai pasir putih" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 270,
-    word: "лес",
-    pronunciation: "/ljes/",
-    translation: "hutan",
-    category: "noun",
-    frequency: 270,
-    examples: [
-      { sentence: "Тропический лес", translation: "Hutan tropis" },
-      { sentence: "В лесу", translation: "Di dalam hutan" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 271,
-    word: "земля",
-    pronunciation: "/zjemlja/",
-    translation: "tanah",
-    category: "noun",
-    frequency: 271,
-    examples: [
-      { sentence: "Плодородная земля", translation: "Tanah subur" },
-      { sentence: "Родина", translation: "Tanah air" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 272,
-    word: "камень",
-    pronunciation: "/kamjenj/",
-    translation: "batu",
-    category: "noun",
-    frequency: 272,
-    examples: [
-      { sentence: "Большой камень", translation: "Batu besar" },
-      { sentence: "Каменная дорога", translation: "Jalan berbatu" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 273,
-    word: "песок",
-    pronunciation: "/pjesok/",
-    translation: "pasir",
-    category: "noun",
-    frequency: 273,
-    examples: [
-      { sentence: "Белый песок", translation: "Pasir putih" },
-      { sentence: "Песчаный пляж", translation: "Pantai pasir" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 274,
-    word: "огонь",
-    pronunciation: "/oɡonj/",
-    translation: "api",
-    category: "noun",
-    frequency: 274,
-    examples: [
-      { sentence: "Костёр", translation: "Api unggun" },
-      { sentence: "Осторожно с огнём", translation: "Hati-hati dengan api" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 275,
-    word: "воздух",
-    pronunciation: "/vozdux/",
-    translation: "udara",
-    category: "noun",
-    frequency: 275,
-    examples: [
-      { sentence: "Свежий воздух", translation: "Udara segar" },
-      { sentence: "Холодный воздух", translation: "Udara dingin" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 276,
-    word: "звезда",
-    pronunciation: "/zvjezda/",
-    translation: "bintang",
-    category: "noun",
-    frequency: 276,
-    examples: [
-      { sentence: "Звёзды на небе", translation: "Bintang di langit" },
-      { sentence: "Морская звезда", translation: "Bintang laut" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 277,
-    word: "луна",
-    pronunciation: "/luna/",
-    translation: "bulan",
-    category: "noun",
-    frequency: 277,
-    examples: [
-      { sentence: "Полнолуние", translation: "Bulan purnama" },
-      { sentence: "Лунный свет", translation: "Cahaya bulan" },
-    ],
-    lessonIds: [8, 14],
-  },
-
-  {
-    id: 278,
-    word: "небо",
-    pronunciation: "/njebo/",
-    translation: "langit",
-    category: "noun",
-    frequency: 278,
-    examples: [
-      { sentence: "Голубое небо", translation: "Langit biru" },
-      { sentence: "Ясное небо", translation: "Langit cerah" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 279,
-    word: "радуга",
-    pronunciation: "/raduɡa/",
-    translation: "pelangi",
-    category: "noun",
-    frequency: 279,
-    examples: [
-      { sentence: "Красивая радуга", translation: "Pelangi indah" },
-      { sentence: "Цвета радуги", translation: "Warna pelangi" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 280,
-    word: "землетрясение",
-    pronunciation: "/zjemljetrjasjenije/",
-    translation: "gempa bumi",
-    category: "noun",
-    frequency: 280,
-    examples: [
-      { sentence: "Большое землетрясение", translation: "Gempa bumi besar" },
-      { sentence: "Было землетрясение", translation: "Ada gempa" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 281,
-    word: "город",
-    pronunciation: "/ɡorod/",
-    translation: "kota",
-    category: "noun",
-    frequency: 281,
-    examples: [
-      { sentence: "Большой город", translation: "Kota besar" },
-      { sentence: "В городе", translation: "Di kota" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 282,
-    word: "улица",
-    pronunciation: "/ulitsa/",
-    translation: "jalan",
-    category: "noun",
-    frequency: 282,
-    examples: [
-      { sentence: "Шоссе", translation: "Jalan raya" },
-      { sentence: "Идти пешком", translation: "Jalan kaki" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 283,
-    word: "офис",
-    pronunciation: "/ofis/",
-    translation: "kantor",
-    category: "noun",
-    frequency: 283,
-    examples: [
-      { sentence: "В офис", translation: "Ke kantor" },
-      { sentence: "В офисе", translation: "Di kantor" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 284,
-    word: "школа",
-    pronunciation: "/ʂkola/",
-    translation: "sekolah",
-    category: "noun",
-    frequency: 284,
-    examples: [
-      { sentence: "Идти в школу", translation: "Pergi ke sekolah" },
-      { sentence: "В школе", translation: "Di sekolah" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 285,
-    word: "рынок",
-    pronunciation: "/rɨnok/",
-    translation: "pasar",
-    category: "noun",
-    frequency: 285,
-    examples: [
-      { sentence: "На рынок", translation: "Ke pasar" },
-      { sentence: "Традиционный рынок", translation: "Pasar tradisional" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 286,
-    word: "больница",
-    pronunciation: "/boljnitsa/",
-    translation: "rumah sakit",
-    category: "noun",
-    frequency: 286,
-    examples: [
-      { sentence: "В больницу", translation: "Ke rumah sakit" },
-      { sentence: "В больнице", translation: "Di rumah sakit" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 287,
-    word: "банк",
-    pronunciation: "/bank/",
-    translation: "bank",
-    category: "noun",
-    frequency: 287,
-    examples: [
-      { sentence: "В банк", translation: "Ke bank" },
-      { sentence: "Банк закрыт", translation: "Bank tutup" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 288,
-    word: "магазин",
-    pronunciation: "/maɡazin/",
-    translation: "toko",
-    category: "noun",
-    frequency: 288,
-    examples: [
-      { sentence: "Книжный магазин", translation: "Toko buku" },
-      { sentence: "В магазин", translation: "Ke toko" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 289,
-    word: "аптека",
-    pronunciation: "/aptjeka/",
-    translation: "apotek",
-    category: "noun",
-    frequency: 289,
-    examples: [
-      { sentence: "В аптеку", translation: "Ke apotek" },
-      { sentence: "Аптека открыта", translation: "Apotek buka" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 290,
-    word: "вокзал",
-    pronunciation: "/vokzal/",
-    translation: "stasiun",
-    category: "noun",
-    frequency: 290,
-    examples: [
-      { sentence: "Железнодорожный вокзал", translation: "Stasiun kereta" },
-      { sentence: "На вокзале", translation: "Di stasiun" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 291,
-    word: "аэропорт",
-    pronunciation: "/aɛroport/",
-    translation: "bandara",
-    category: "noun",
-    frequency: 291,
-    examples: [
-      { sentence: "В аэропорт", translation: "Ke bandara" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 292,
-    word: "порт",
-    pronunciation: "/port/",
-    translation: "pelabuhan",
-    category: "noun",
-    frequency: 292,
-    examples: [
-      { sentence: "Морской порт", translation: "Pelabuhan laut" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 293,
-    word: "парк",
-    pronunciation: "/park/",
-    translation: "taman",
-    category: "noun",
-    frequency: 293,
-    examples: [
-      { sentence: "Городской парк", translation: "Taman kota" },
-      { sentence: "Гулять в парке", translation: "Jalan-jalan di taman" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 294,
-    word: "мечеть",
-    pronunciation: "/mjetɕjetj/",
-    translation: "masjid",
-    category: "noun",
-    frequency: 294,
-    examples: [
-      { sentence: "Большая мечеть", translation: "Masjid besar" },
-      { sentence: "В мечеть", translation: "Ke masjid" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 295,
-    word: "церковь",
-    pronunciation: "/tsjerkovj/",
-    translation: "gereja",
-    category: "noun",
-    frequency: 295,
-    examples: [
-      { sentence: "В церковь", translation: "Ke gereja" },
-      { sentence: "Старая церковь", translation: "Gereja tua" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 296,
-    word: "левый",
-    pronunciation: "/ljevɨj/",
-    translation: "kiri",
-    category: "adverb",
-    frequency: 296,
-    examples: [
-      { sentence: "Поверните налево", translation: "Belok kiri" },
-      { sentence: "Слева", translation: "Di sebelah kiri" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 297,
-    word: "правый",
-    pronunciation: "/pravɨj/",
-    translation: "kanan",
-    category: "adverb",
-    frequency: 297,
-    examples: [
-      { sentence: "Поверните направо", translation: "Belok kanan" },
-      { sentence: "Справа", translation: "Di sebelah kanan" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 298,
-    word: "прямо",
-    pronunciation: "/prjamo/",
-    translation: "lurus",
-    category: "adverb",
-    frequency: 298,
-    examples: [
-      { sentence: "Идите прямо", translation: "Jalan lurus" },
-      { sentence: "Просто прямо", translation: "Lurus saja" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 299,
-    word: "близко",
-    pronunciation: "/blizko/",
-    translation: "dekat",
-    category: "adverb",
-    frequency: 299,
-    examples: [
-      { sentence: "Рядом с моим домом", translation: "Dekat rumah saya" },
-      { sentence: "Очень близко", translation: "Dekat sekali" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 300,
-    word: "далеко",
-    pronunciation: "/daljeko/",
-    translation: "jauh",
-    category: "adverb",
-    frequency: 300,
-    examples: [
-      { sentence: "Далеко отсюда", translation: "Jauh dari sini" },
-      { sentence: "Очень далеко", translation: "Jauh sekali" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 301,
-    word: "одежда",
-    pronunciation: "/odjeʐda/",
-    translation: "baju",
-    category: "noun",
-    frequency: 301,
-    examples: [
-      { sentence: "Новая одежда", translation: "Baju baru" },
-      { sentence: "Красная рубашка", translation: "Baju merah" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 302,
-    word: "цвет",
-    pronunciation: "/tsvjet/",
-    translation: "warna",
-    category: "noun",
-    frequency: 302,
-    examples: [
-      { sentence: "Какой это цвет?", translation: "Apa warna ini?" },
-      { sentence: "Красный цвет", translation: "Warna merah" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 303,
-    word: "красный",
-    pronunciation: "/krasnɨj/",
-    translation: "merah",
-    category: "adjective",
-    frequency: 303,
-    examples: [
-      { sentence: "Красная рубашка", translation: "Baju merah" },
-      { sentence: "Красная машина", translation: "Mobil merah" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 304,
-    word: "белый",
-    pronunciation: "/bjelɨj/",
-    translation: "putih",
-    category: "adjective",
-    frequency: 304,
-    examples: [
-      { sentence: "Вода (букв. 'белая вода')", translation: "Air putih" },
-      { sentence: "Белый цветок", translation: "Bunga putih" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 305,
-    word: "чёрный",
-    pronunciation: "/tɕjornɨj/",
-    translation: "hitam",
-    category: "adjective",
-    frequency: 305,
-    examples: [
-      { sentence: "Чёрная машина", translation: "Mobil hitam" },
-      { sentence: "Чёрный кот", translation: "Kucing hitam" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 306,
-    word: "синий",
-    pronunciation: "/sinij/",
-    translation: "biru",
-    category: "adjective",
-    frequency: 306,
-    examples: [
-      { sentence: "Синее море", translation: "Laut biru" },
-      { sentence: "Голубое небо", translation: "Langit biru" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 307,
-    word: "зелёный",
-    pronunciation: "/zjeljonɨj/",
-    translation: "hijau",
-    category: "adjective",
-    frequency: 307,
-    examples: [
-      { sentence: "Зелёное дерево", translation: "Pohon hijau" },
-      { sentence: "Зелёные рисовые поля", translation: "Sawah hijau" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 308,
-    word: "жёлтый",
-    pronunciation: "/ʐjoltɨj/",
-    translation: "kuning",
-    category: "adjective",
-    frequency: 308,
-    examples: [
-      { sentence: "Жёлтый цветок", translation: "Bunga kuning" },
-      { sentence: "Яичный желток", translation: "Kuning telur" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 309,
-    word: "коричневый",
-    pronunciation: "/koritɕnjevɨj/",
-    translation: "coklat",
-    category: "adjective",
-    frequency: 309,
-    examples: [
-      { sentence: "Коричневая машина", translation: "Mobil coklat" },
-      { sentence: "Коричневый цвет", translation: "Warna coklat" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 310,
-    word: "серый",
-    pronunciation: "/sjerɨj/",
-    translation: "abu-abu",
-    category: "adjective",
-    frequency: 310,
-    examples: [
-      { sentence: "Серое небо", translation: "Langit abu-abu" },
-      { sentence: "Серая рубашка", translation: "Baju abu-abu" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 311,
-    word: "брюки",
-    pronunciation: "/brjuki/",
-    translation: "celana",
-    category: "noun",
-    frequency: 311,
-    examples: [
-      { sentence: "Длинные брюки", translation: "Celana panjang" },
-      { sentence: "Шорты", translation: "Celana pendek" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 312,
-    word: "шляпа",
-    pronunciation: "/ʂljapa/",
-    translation: "topi",
-    category: "noun",
-    frequency: 312,
-    examples: [
-      { sentence: "Надеть шляпу", translation: "Pakai topi" },
-      { sentence: "Красная кепка", translation: "Topi merah" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 313,
-    word: "обувь",
-    pronunciation: "/obuvj/",
-    translation: "sepatu",
-    category: "noun",
-    frequency: 313,
-    examples: [
-      { sentence: "Новая обувь", translation: "Sepatu baru" },
-      { sentence: "Чёрные туфли", translation: "Sepatu hitam" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 314,
-    word: "футболка",
-    pronunciation: "/futbolka/",
-    translation: "kaus",
-    category: "noun",
-    frequency: 314,
-    examples: [
-      { sentence: "Белая футболка", translation: "Kaus putih" },
-      { sentence: "Футболка с коротким рукавом", translation: "Kaus oblong" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 315,
-    word: "куртка",
-    pronunciation: "/kurtka/",
-    translation: "jaket",
-    category: "noun",
-    frequency: 315,
-    examples: [
-      { sentence: "Тёплая куртка", translation: "Jaket hangat" },
-      { sentence: "Надеть куртку", translation: "Pakai jaket" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 316,
-    word: "одежда",
-    pronunciation: "/odjeʐda/",
-    translation: "pakaian",
-    category: "noun",
-    frequency: 316,
-    examples: [
-      { sentence: "Новая одежда", translation: "Pakaian baru" },
-      { sentence: "Магазин одежды", translation: "Toko pakaian" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 317,
-    word: "светлый",
-    pronunciation: "/svjetlɨj/",
-    translation: "terang",
-    category: "adjective",
-    frequency: 317,
-    examples: [
-      { sentence: "Яркий цвет", translation: "Warna terang" },
-      { sentence: "Яркий свет", translation: "Cahaya terang" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 318,
-    word: "тёмный",
-    pronunciation: "/tjomnɨj/",
-    translation: "gelap",
-    category: "adjective",
-    frequency: 318,
-    examples: [
-      { sentence: "Тёмный цвет", translation: "Warna gelap" },
-      { sentence: "Уже темно", translation: "Sudah gelap" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 319,
-    word: "тонкий",
-    pronunciation: "/tonkij/",
-    translation: "tipis",
-    category: "adjective",
-    frequency: 319,
-    examples: [
-      { sentence: "Тонкая ткань", translation: "Kain tipis" },
-      { sentence: "Тонкая книга", translation: "Buku tipis" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 320,
-    word: "толстый",
-    pronunciation: "/tolstɨj/",
-    translation: "tebal",
-    category: "adjective",
-    frequency: 320,
-    examples: [
-      { sentence: "Толстая книга", translation: "Buku tebal" },
-      { sentence: "Толстая куртка", translation: "Jaket tebal" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 321,
-    word: "радостный",
-    pronunciation: "/radostnɨj/",
-    translation: "senang",
-    category: "adjective",
-    frequency: 321,
-    examples: [
-      { sentence: "Я рад", translation: "Saya senang" },
-    ],
-    lessonIds: [13, 16],
-  },
-
-  {
-    id: 322,
-    word: "грустный",
-    pronunciation: "/ɡrustnɨj/",
-    translation: "sedih",
-    category: "adjective",
-    frequency: 322,
-    examples: [
-      { sentence: "Он грустный", translation: "Dia sedih" },
-      { sentence: "Не грусти", translation: "Jangan sedih" },
-    ],
-    lessonIds: [5, 13],
-  },
-
-  {
-    id: 323,
-    word: "сердитый",
-    pronunciation: "/sjerditɨj/",
-    translation: "marah",
-    category: "adjective",
-    frequency: 323,
-    examples: [
-      { sentence: "Он сердит", translation: "Dia marah" },
-      { sentence: "Не сердись", translation: "Jangan marah" },
-    ],
-    lessonIds: [5, 13],
-  },
-
-  {
-    id: 324,
-    word: "усталый",
-    pronunciation: "/ustalɨj/",
-    translation: "capek",
-    category: "adjective",
-    frequency: 324,
-    examples: [
-      { sentence: "Я устал", translation: "Saya capek" },
-      { sentence: "Очень устал", translation: "Capek sekali" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 325,
-    word: "больной",
-    pronunciation: "/boljnoj/",
-    translation: "sakit",
-    category: "adjective",
-    frequency: 325,
-    examples: [
-      { sentence: "Я болен", translation: "Saya sakit" },
-      { sentence: "Головная боль", translation: "Sakit kepala" },
-    ],
-    lessonIds: [15],
-  },
-
-  {
-    id: 326,
-    word: "весёлый",
-    pronunciation: "/vjesjolɨj/",
-    translation: "gembira",
-    category: "adjective",
-    frequency: 326,
-    examples: [
-      { sentence: "Дети радостны", translation: "Anak-anak gembira" },
-      { sentence: "Счастливый день", translation: "Hari yang gembira" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 327,
-    word: "бояться",
-    pronunciation: "/bojatjsja/",
-    translation: "takut",
-    category: "adjective",
-    frequency: 327,
-    examples: [
-      { sentence: "Я боюсь", translation: "Saya takut" },
-      { sentence: "Не бойся", translation: "Jangan takut" },
-    ],
-    lessonIds: [5, 13],
-  },
-
-  {
-    id: 328,
-    word: "смелый",
-    pronunciation: "/smjelɨj/",
-    translation: "berani",
-    category: "adjective",
-    frequency: 328,
-    examples: [
-      { sentence: "Он смелый", translation: "Dia berani" },
-      { sentence: "Смелый попробовать", translation: "Berani coba" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 329,
-    word: "ленивый",
-    pronunciation: "/ljenivɨj/",
-    translation: "malas",
-    category: "adjective",
-    frequency: 329,
-    examples: [
-      { sentence: "Мне лень учиться", translation: "Saya malas belajar" },
-      { sentence: "Ленивый человек", translation: "Orang malas" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 330,
-    word: "прилежный",
-    pronunciation: "/priljeʐnɨj/",
-    translation: "rajin",
-    category: "adjective",
-    frequency: 330,
-    examples: [
-      { sentence: "Прилежный ребёнок", translation: "Anak rajin" },
-      { sentence: "Усердно учиться", translation: "Rajin belajar" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 331,
-    word: "умный",
-    pronunciation: "/umnɨj/",
-    translation: "pintar",
-    category: "adjective",
-    frequency: 331,
-    examples: [
-      { sentence: "Он умный", translation: "Dia pintar" },
-      { sentence: "Очень умный", translation: "Pintar sekali" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 332,
-    word: "глупый",
-    pronunciation: "/ɡlupɨj/",
-    translation: "bodoh",
-    category: "adjective",
-    frequency: 332,
-    examples: [
-      { sentence: "Не будь глупым", translation: "Jangan bodoh" },
-      { sentence: "Это глупо", translation: "Itu bodoh" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 333,
-    word: "добрый",
-    pronunciation: "/dobrɨj/",
-    translation: "baik hati",
-    category: "adjective",
-    frequency: 333,
-    examples: [
-      { sentence: "Он добрый человек", translation: "Dia orang baik hati" },
-      { sentence: "Спасибо, вы добры", translation: "Terima kasih, baik hati" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 334,
-    word: "злой",
-    pronunciation: "/zloj/",
-    translation: "jahat",
-    category: "adjective",
-    frequency: 334,
-    examples: [
-      { sentence: "Злой человек", translation: "Orang jahat" },
-      { sentence: "Не будь злым", translation: "Jangan jahat" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 335,
-    word: "терпеливый",
-    pronunciation: "/tjerpjelivɨj/",
-    translation: "sabar",
-    category: "adjective",
-    frequency: 335,
-    examples: [
-      { sentence: "Будь терпелив", translation: "Sabar ya" },
-      { sentence: "Терпеливо ждать", translation: "Sabar menunggu" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 336,
-    word: "тревожный",
-    pronunciation: "/trjevoʐnɨj/",
-    translation: "cemas",
-    category: "adjective",
-    frequency: 336,
-    examples: [
-      { sentence: "Не волнуйся", translation: "Jangan cemas" },
-      { sentence: "Я волнуюсь", translation: "Saya cemas" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 337,
-    word: "удивлённый",
-    pronunciation: "/udivljonnɨj/",
-    translation: "kaget",
-    category: "adjective",
-    frequency: 337,
-    examples: [
-      { sentence: "Я удивлён", translation: "Saya kaget" },
-      { sentence: "Очень удивлён", translation: "Kaget sekali" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 338,
-    word: "гордый",
-    pronunciation: "/ɡordɨj/",
-    translation: "bangga",
-    category: "adjective",
-    frequency: 338,
-    examples: [
-      { sentence: "Я горжусь тобой", translation: "Saya bangga pada kamu" },
-      { sentence: "Очень горд", translation: "Bangga sekali" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 339,
-    word: "стеснительный",
-    pronunciation: "/stjesnitjeljnɨj/",
-    translation: "malu",
-    category: "adjective",
-    frequency: 339,
-    examples: [
-      { sentence: "Не стесняйся", translation: "Jangan malu" },
-      { sentence: "Мне стыдно", translation: "Saya malu" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 340,
-    word: "удивляться",
-    pronunciation: "/udivljatjsja/",
-    translation: "heran",
-    category: "adjective",
-    frequency: 340,
-    examples: [
-      { sentence: "Я удивляюсь", translation: "Saya heran" },
-      { sentence: "Удивительно, почему", translation: "Heran kenapa" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 341,
-    word: "мать",
-    pronunciation: "/matj/",
-    translation: "ibu",
-    category: "noun",
-    frequency: 341,
-    examples: [
-      { sentence: "Моя мама", translation: "Ibu saya" },
-      { sentence: "Госпожа учитель", translation: "Ibu guru" },
-    ],
-    lessonIds: [2, 6],
-  },
-
-  {
-    id: 342,
-    word: "отец",
-    pronunciation: "/otjets/",
-    translation: "bapak",
-    category: "noun",
-    frequency: 342,
-    examples: [
-      { sentence: "Мой отец", translation: "Bapak saya" },
-      { sentence: "Господин президент", translation: "Bapak presiden" },
-    ],
-    lessonIds: [2, 6],
-  },
-
-  {
-    id: 343,
-    word: "старший брат/сестра",
-    pronunciation: "/starʂij brat/sjestra/",
-    translation: "kakak",
-    category: "noun",
-    frequency: 343,
-    examples: [
-      { sentence: "Мой/моя старший/ая брат/сестра", translation: "Kakak saya" },
-      { sentence: "Старшая сестра", translation: "Kakak perempuan" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 344,
-    word: "младший брат/сестра",
-    pronunciation: "/mladʂij brat/sjestra/",
-    translation: "adik",
-    category: "noun",
-    frequency: 344,
-    examples: [
-      { sentence: "Младший брат", translation: "Adik laki-laki" },
-      { sentence: "Младшая сестра", translation: "Adik perempuan" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 345,
-    word: "ребёнок",
-    pronunciation: "/rjebjonok/",
-    translation: "anak",
-    category: "noun",
-    frequency: 345,
-    examples: [
-      { sentence: "Мой ребёнок", translation: "Anak saya" },
-      { sentence: "Школьник", translation: "Anak sekolah" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 346,
-    word: "дедушка",
-    pronunciation: "/djeduʂka/",
-    translation: "kakek",
-    category: "noun",
-    frequency: 346,
-    examples: [
-      { sentence: "Мой дедушка", translation: "Kakek saya" },
-      { sentence: "Бабушка и дедушка", translation: "Kakek nenek" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 347,
-    word: "бабушка",
-    pronunciation: "/babuʂka/",
-    translation: "nenek",
-    category: "noun",
-    frequency: 347,
-    examples: [
-      { sentence: "Моя бабушка", translation: "Nenek saya" },
-      { sentence: "Дом бабушки", translation: "Rumah nenek" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 348,
-    word: "муж",
-    pronunciation: "/muʐ/",
-    translation: "suami",
-    category: "noun",
-    frequency: 348,
-    examples: [
-      { sentence: "Мой муж", translation: "Suami saya" },
-      { sentence: "Муж и жена", translation: "Suami istri" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 349,
-    word: "жена",
-    pronunciation: "/ʐjena/",
-    translation: "istri",
-    category: "noun",
-    frequency: 349,
-    examples: [
-      { sentence: "Моя жена", translation: "Istri saya" },
-      { sentence: "Хорошая жена", translation: "Istri yang baik" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 350,
-    word: "дядя",
-    pronunciation: "/djadja/",
-    translation: "paman",
-    category: "noun",
-    frequency: 350,
-    examples: [
-      { sentence: "Мой дядя", translation: "Paman saya" },
-      { sentence: "Дядя живёт здесь", translation: "Paman tinggal di sini" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 351,
-    word: "тётя",
-    pronunciation: "/tjotja/",
-    translation: "bibi",
-    category: "noun",
-    frequency: 351,
-    examples: [
-      { sentence: "Тётя пришла", translation: "Bibi datang" },
-      { sentence: "Моя тётя", translation: "Bibi saya" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 352,
-    word: "племянник/племянница",
-    pronunciation: "/pljemjannik/pljemjannitsa/",
-    translation: "keponakan",
-    category: "noun",
-    frequency: 352,
-    examples: [
-      { sentence: "Мой племянник", translation: "Keponakan saya" },
-      { sentence: "Племянник", translation: "Keponakan laki-laki" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 353,
-    word: "двоюродный брат/сестра",
-    pronunciation: "/dvojurodnɨj brat/sjestra/",
-    translation: "sepupu",
-    category: "noun",
-    frequency: 353,
-    examples: [
-      { sentence: "Мой двоюродный брат", translation: "Sepupu saya" },
-      { sentence: "Двоюродные родственники", translation: "Keluarga sepupu" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 354,
-    word: "семья",
-    pronunciation: "/sjemjja/",
-    translation: "keluarga",
-    category: "noun",
-    frequency: 354,
-    examples: [
-      { sentence: "Моя семья", translation: "Keluarga saya" },
-      { sentence: "Большая семья", translation: "Keluarga besar" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 355,
-    word: "брат/сестра",
-    pronunciation: "/brat/sjestra/",
-    translation: "saudara",
-    category: "noun",
-    frequency: 355,
-    examples: [
-      { sentence: "Родной брат/сестра", translation: "Saudara kandung" },
-      { sentence: "Двоюродный брат/сестра", translation: "Saudara sepupu" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 356,
-    word: "старший брат",
-    pronunciation: "/starʂij brat/",
-    translation: "kakak laki-laki",
-    category: "noun",
-    frequency: 356,
-    examples: [
-      { sentence: "Мой старший брат", translation: "Kakak laki-laki saya" },
-      { sentence: "Он старший брат", translation: "Dia kakak laki-laki" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 357,
-    word: "старшая сестра",
-    pronunciation: "/starʂaja sjestra/",
-    translation: "kakak perempuan",
-    category: "noun",
-    frequency: 357,
-    examples: [
-      { sentence: "Моя старшая сестра", translation: "Kakak perempuan saya" },
-      { sentence: "Две старшие сестры", translation: "Dua kakak perempuan" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 358,
-    word: "сын",
-    pronunciation: "/sɨn/",
-    translation: "anak laki-laki",
-    category: "noun",
-    frequency: 358,
-    examples: [
-      { sentence: "Мой сын", translation: "Anak laki-laki saya" },
-      { sentence: "Два сына", translation: "Dua anak laki-laki" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 359,
-    word: "дочь",
-    pronunciation: "/dotɕj/",
-    translation: "anak perempuan",
-    category: "noun",
-    frequency: 359,
-    examples: [
-      { sentence: "Моя дочь", translation: "Anak perempuan saya" },
-      { sentence: "Красивая дочь", translation: "Cantik anak perempuan" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 360,
-    word: "домашнее хозяйство",
-    pronunciation: "/domaʂnjeje xozjajstvo/",
-    translation: "rumah tangga",
-    category: "noun",
-    frequency: 360,
-    examples: [
-      { sentence: "Домохозяйка", translation: "Ibu rumah tangga" },
-      { sentence: "Семейная жизнь", translation: "Kehidupan rumah tangga" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 361,
-    word: "учитель",
-    pronunciation: "/utɕitjelj/",
-    translation: "guru",
-    category: "noun",
-    frequency: 361,
-    examples: [
-      { sentence: "Он/она учитель", translation: "Dia guru" },
-      { sentence: "Учитель языка", translation: "Guru bahasa" },
-    ],
-    wordFamily: [
-      { word: "учить", translation: "mengajar" },
-      { word: "учиться", translation: "belajar" },
-      { word: "ученик", translation: "murid, pelajar" },
-      { word: "учение", translation: "ajaran, pelajaran" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 362,
-    word: "врач",
-    pronunciation: "/vratɕ/",
-    translation: "dokter",
-    category: "noun",
-    frequency: 362,
-    examples: [
-      { sentence: "Я врач", translation: "Saya dokter" },
-      { sentence: "К врачу", translation: "Ke dokter" },
-    ],
-    wordFamily: [
-      { word: "больница", translation: "rumah sakit" },
-      { word: "лечение", translation: "pengobatan" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 363,
-    word: "студент",
-    pronunciation: "/studjent/",
-    translation: "mahasiswa",
-    category: "noun",
-    frequency: 363,
-    examples: [
-      { sentence: "Я студент", translation: "Saya mahasiswa" },
-      { sentence: "Новый студент", translation: "Mahasiswa baru" },
-    ],
-    lessonIds: [2, 13],
-  },
-
-  {
-    id: 364,
-    word: "работа",
-    pronunciation: "/rabota/",
-    translation: "kerja",
-    category: "noun",
-    frequency: 364,
-    examples: [
-      { sentence: "Я работаю в офисе", translation: "Saya kerja di kantor" },
-      { sentence: "Удачи в работе", translation: "Selamat kerja" },
-    ],
-    wordFamily: [
-      { word: "работать", translation: "bekerja, kerja" },
-      { word: "работник", translation: "pekerja, karyawan" },
-      { word: "занятие", translation: "pekerjaan" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 365,
-    word: "задание",
-    pronunciation: "/zadanije/",
-    translation: "tugas",
-    category: "noun",
-    frequency: 365,
-    examples: [
-      { sentence: "Домашнее задание", translation: "Tugas rumah" },
-      { sentence: "Моя задача", translation: "Tugas saya" },
-    ],
-    lessonIds: [6],
-  },
-
-  {
-    id: 366,
-    word: "полицейский",
-    pronunciation: "/politsjejskij/",
-    translation: "polisi",
-    category: "noun",
-    frequency: 366,
-    examples: [
-      { sentence: "Полиция приехала", translation: "Polisi datang" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 367,
-    word: "водитель",
-    pronunciation: "/voditjelj/",
-    translation: "supir",
-    category: "noun",
-    frequency: 367,
-    examples: [
-      { sentence: "Таксист", translation: "Supir taksi" },
-      { sentence: "Водитель автобуса", translation: "Supir bus" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 368,
-    word: "повар",
-    pronunciation: "/povar/",
-    translation: "koki",
-    category: "noun",
-    frequency: 368,
-    examples: [
-      { sentence: "Искусный повар", translation: "Koki handal" },
-      { sentence: "Он повар", translation: "Dia koki" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 369,
-    word: "фермер",
-    pronunciation: "/fjermjer/",
-    translation: "petani",
-    category: "noun",
-    frequency: 369,
-    examples: [
-      { sentence: "Индонезийские фермеры", translation: "Petani Indonesia" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 370,
-    word: "рыбак",
-    pronunciation: "/rɨbak/",
-    translation: "nelayan",
-    category: "noun",
-    frequency: 370,
-    examples: [
-      { sentence: "Рыбак идёт в море", translation: "Nelayan pergi ke laut" },
-      { sentence: "Рыбацкая лодка", translation: "Kapal nelayan" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 371,
-    word: "торговец",
-    pronunciation: "/torɡovjets/",
-    translation: "pedagang",
-    category: "noun",
-    frequency: 371,
-    examples: [
-      { sentence: "Рыночный торговец", translation: "Pedagang pasar" },
-      { sentence: "Уличный торговец", translation: "Pedagang kaki lima" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 372,
-    word: "предприниматель",
-    pronunciation: "/prjedprinimatjelj/",
-    translation: "pengusaha",
-    category: "noun",
-    frequency: 372,
-    examples: [
-      { sentence: "Молодой предприниматель", translation: "Pengusaha muda" },
-      { sentence: "Успешный предприниматель", translation: "Pengusaha sukses" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 373,
-    word: "инженер",
-    pronunciation: "/inʐjenjer/",
-    translation: "insinyur",
-    category: "noun",
-    frequency: 373,
-    examples: [
-      { sentence: "Гражданский инженер", translation: "Insinyur sipil" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 374,
-    word: "медсестра",
-    pronunciation: "/mjedsjestra/",
-    translation: "perawat",
-    category: "noun",
-    frequency: 374,
-    examples: [
-      { sentence: "Добрая медсестра", translation: "Perawat baik" },
-      { sentence: "Она медсестра", translation: "Dia perawat" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 375,
-    word: "служащий",
-    pronunciation: "/sluʐaɕːij/",
-    translation: "karyawan",
-    category: "noun",
-    frequency: 375,
-    examples: [
-      { sentence: "Офисный сотрудник", translation: "Karyawan kantor" },
-      { sentence: "Новый сотрудник", translation: "Karyawan baru" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 376,
-    word: "пенсия",
-    pronunciation: "/pjensija/",
-    translation: "pensiun",
-    category: "noun",
-    frequency: 376,
-    examples: [
-      { sentence: "Он уже на пенсии", translation: "Dia sudah pensiun" },
-      { sentence: "Пенсионный возраст", translation: "Usia pensiun" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 377,
-    word: "зарплата",
-    pronunciation: "/zarplata/",
-    translation: "gaji",
-    category: "noun",
-    frequency: 377,
-    examples: [
-      { sentence: "Большая зарплата", translation: "Gaji besar" },
-      { sentence: "Ежемесячная зарплата", translation: "Gaji bulanan" },
-    ],
-    lessonIds: [2],
-  },
-
-  {
-    id: 378,
-    word: "выходной",
-    pronunciation: "/vɨxodnoj/",
-    translation: "libur",
-    category: "noun",
-    frequency: 378,
-    examples: [
-      { sentence: "Выходной день", translation: "Hari libur" },
-      { sentence: "Длинные каникулы", translation: "Libur panjang" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 379,
-    word: "отпуск",
-    pronunciation: "/otpusk/",
-    translation: "cuti",
-    category: "noun",
-    frequency: 379,
-    examples: [
-      { sentence: "Ежегодный отпуск", translation: "Cuti tahunan" },
-      { sentence: "В отпуске", translation: "Sedang cuti" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 380,
-    word: "собрание",
-    pronunciation: "/sobranije/",
-    translation: "rapat",
-    category: "noun",
-    frequency: 380,
-    examples: [
-      { sentence: "Офисное собрание", translation: "Rapat kantor" },
-      { sentence: "Есть собрание", translation: "Ada rapat" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 381,
-    word: "большой",
-    pronunciation: "/boljʂoj/",
-    translation: "besar",
-    category: "adjective",
-    frequency: 381,
-    examples: [
-      { sentence: "Большой дом", translation: "Rumah besar" },
-      { sentence: "Большой город", translation: "Kota besar" },
-    ],
-    wordFamily: [
-      { word: "больше", translation: "lebih besar" },
-      { word: "величие", translation: "kebesaran" },
-      { word: "увеличивать", translation: "memperbesar" },
-      { word: "крупнейший", translation: "terbesar" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 382,
-    word: "маленький",
-    pronunciation: "/maljenjkij/",
-    translation: "kecil",
-    category: "adjective",
-    frequency: 382,
-    examples: [
-      { sentence: "Маленький дом", translation: "Rumah kecil" },
-      { sentence: "Маленький ребёнок", translation: "Anak kecil" },
-    ],
-    wordFamily: [
-      { word: "меньше", translation: "lebih kecil" },
-      { word: "уменьшать", translation: "memperkecil" },
-      { word: "мелкий", translation: "kecil" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 383,
-    word: "длинный",
-    pronunciation: "/dlinnɨj/",
-    translation: "panjang",
-    category: "adjective",
-    frequency: 383,
-    examples: [
-      { sentence: "Длинная дорога", translation: "Jalan panjang" },
-      { sentence: "Длинные волосы", translation: "Rambut panjang" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 384,
-    word: "короткий",
-    pronunciation: "/korotkij/",
-    translation: "pendek",
-    category: "adjective",
-    frequency: 384,
-    examples: [
-      { sentence: "Короткие волосы", translation: "Rambut pendek" },
-      { sentence: "Короткая дорога", translation: "Jalan pendek" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 385,
-    word: "быстрый",
-    pronunciation: "/bɨstrɨj/",
-    translation: "cepat",
-    category: "adjective",
-    frequency: 385,
-    examples: [
-      { sentence: "Быстрая машина", translation: "Mobil cepat" },
-      { sentence: "Приходи быстрее!", translation: "Cepat datang!" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 386,
-    word: "медленный",
-    pronunciation: "/mjedljennɨj/",
-    translation: "lambat",
-    category: "adjective",
-    frequency: 386,
-    examples: [
-      { sentence: "Медленная машина", translation: "Mobil lambat" },
-      { sentence: "Не медли", translation: "Jangan lambat" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 387,
-    word: "высокий",
-    pronunciation: "/vɨsokij/",
-    translation: "tinggi",
-    category: "adjective",
-    frequency: 387,
-    examples: [
-      { sentence: "Высокая гора", translation: "Gunung tinggi" },
-      { sentence: "Он высокий", translation: "Dia tinggi" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 388,
-    word: "низкий",
-    pronunciation: "/nizkij/",
-    translation: "rendah",
-    category: "adjective",
-    frequency: 388,
-    examples: [
-      { sentence: "Низкий стол", translation: "Meja rendah" },
-      { sentence: "Низкая цена", translation: "Harga rendah" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 389,
-    word: "тяжёлый",
-    pronunciation: "/tjaʐjolɨj/",
-    translation: "berat",
-    category: "adjective",
-    frequency: 389,
-    examples: [
-      { sentence: "Тяжёлый предмет", translation: "Barang berat" },
-      { sentence: "Очень тяжёлый", translation: "Berat sekali" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 390,
-    word: "лёгкий",
-    pronunciation: "/ljoɡkij/",
-    translation: "ringan",
-    category: "adjective",
-    frequency: 390,
-    examples: [
-      { sentence: "Лёгкий предмет", translation: "Barang ringan" },
-      { sentence: "Тяжесть", translation: "Berat ringan" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 391,
-    word: "сильный",
-    pronunciation: "/siljnɨj/",
-    translation: "kuat",
-    category: "adjective",
-    frequency: 391,
-    examples: [
-      { sentence: "Он сильный", translation: "Dia kuat" },
-      { sentence: "Сильный ветер", translation: "Angin kuat" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 392,
-    word: "слабый",
-    pronunciation: "/slabɨj/",
-    translation: "lemah",
-    category: "adjective",
-    frequency: 392,
-    examples: [
-      { sentence: "Он слабый", translation: "Dia lemah" },
-      { sentence: "Очень слабый", translation: "Lemah sekali" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 393,
-    word: "твёрдый",
-    pronunciation: "/tvjordɨj/",
-    translation: "keras",
-    category: "adjective",
-    frequency: 393,
-    examples: [
-      { sentence: "Твёрдый камень", translation: "Batu keras" },
-      { sentence: "Громкий голос", translation: "Suara keras" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 394,
-    word: "мягкий",
-    pronunciation: "/mjaɡkij/",
-    translation: "lunak",
-    category: "adjective",
-    frequency: 394,
-    examples: [
-      { sentence: "Мягкая подушка", translation: "Bantal lunak" },
-      { sentence: "Мягкая ткань", translation: "Kain lunak" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 395,
-    word: "грубый",
-    pronunciation: "/ɡrubɨj/",
-    translation: "kasar",
-    category: "adjective",
-    frequency: 395,
-    examples: [
-      { sentence: "Грубая ткань", translation: "Kain kasar" },
-      { sentence: "Грубый человек", translation: "Orang kasar" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 396,
-    word: "гладкий",
-    pronunciation: "/ɡladkij/",
-    translation: "halus",
-    category: "adjective",
-    frequency: 396,
-    examples: [
-      { sentence: "Нежная кожа", translation: "Kulit halus" },
-      { sentence: "Мелкий песок", translation: "Pasir halus" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 397,
-    word: "чистый",
-    pronunciation: "/tɕistɨj/",
-    translation: "bersih",
-    category: "adjective",
-    frequency: 397,
-    examples: [
-      { sentence: "Чистый дом", translation: "Rumah bersih" },
-      { sentence: "Чистая вода", translation: "Air bersih" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 398,
-    word: "грязный",
-    pronunciation: "/ɡrjaznɨj/",
-    translation: "kotor",
-    category: "adjective",
-    frequency: 398,
-    examples: [
-      { sentence: "Грязная одежда", translation: "Baju kotor" },
-      { sentence: "Грязная комната", translation: "Kamar kotor" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 399,
-    word: "мокрый",
-    pronunciation: "/mokrɨj/",
-    translation: "basah",
-    category: "adjective",
-    frequency: 399,
-    examples: [
-      { sentence: "Мокрая одежда", translation: "Baju basah" },
-      { sentence: "Мокрая дорога", translation: "Jalan basah" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 400,
-    word: "сухой",
-    pronunciation: "/suxoj/",
-    translation: "kering",
-    category: "adjective",
-    frequency: 400,
-    examples: [
-      { sentence: "Сухая одежда", translation: "Baju kering" },
-      { sentence: "Сухой сезон", translation: "Musim kering" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 401,
-    word: "здесь",
-    pronunciation: "/zdjesj/",
-    translation: "sini",
-    category: "adverb",
-    frequency: 401,
-    examples: [
-      { sentence: "Иди сюда!", translation: "Datang sini!" },
-      { sentence: "Здесь", translation: "Di sini" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 402,
-    word: "там",
-    pronunciation: "/tam/",
-    translation: "situ",
-    category: "adverb",
-    frequency: 402,
-    examples: [
-      { sentence: "Там (у тебя)", translation: "Di situ" },
-      { sentence: "Сиди там", translation: "Duduk di situ" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 403,
-    word: "там",
-    pronunciation: "/tam/",
-    translation: "sana",
-    category: "adverb",
-    frequency: 403,
-    examples: [
-      { sentence: "Там (далеко)", translation: "Di sana" },
-      { sentence: "Иди туда", translation: "Pergi ke sana" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 404,
-    word: "верх",
-    pronunciation: "/vjerx/",
-    translation: "atas",
-    category: "preposition",
-    frequency: 404,
-    examples: [
-      { sentence: "На столе", translation: "Di atas meja" },
-      { sentence: "Наверх", translation: "Ke atas" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 405,
-    word: "низ",
-    pronunciation: "/niz/",
-    translation: "bawah",
-    category: "preposition",
-    frequency: 405,
-    examples: [
-      { sentence: "Под стулом", translation: "Di bawah kursi" },
-      { sentence: "Вниз", translation: "Ke bawah" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 406,
-    word: "в",
-    pronunciation: "/v/",
-    translation: "dalam",
-    category: "preposition",
-    frequency: 406,
-    examples: [
-      { sentence: "Внутри дома", translation: "Di dalam rumah" },
-      { sentence: "Войти внутрь", translation: "Masuk ke dalam" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 407,
-    word: "снаружи",
-    pronunciation: "/snaruʐi/",
-    translation: "luar",
-    category: "preposition",
-    frequency: 407,
-    examples: [
-      { sentence: "Снаружи", translation: "Di luar" },
-      { sentence: "Извне", translation: "Dari luar" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 408,
-    word: "перед",
-    pronunciation: "/pjerjed/",
-    translation: "depan",
-    category: "preposition",
-    frequency: 408,
-    examples: [
-      { sentence: "Перед домом", translation: "Di depan rumah" },
-      { sentence: "Вперёд", translation: "Ke depan" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 409,
-    word: "сзади",
-    pronunciation: "/szadi/",
-    translation: "belakang",
-    category: "preposition",
-    frequency: 409,
-    examples: [
-      { sentence: "Позади дома", translation: "Di belakang rumah" },
-      { sentence: "Назад", translation: "Ke belakang" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 410,
-    word: "рядом",
-    pronunciation: "/rjadom/",
-    translation: "samping",
-    category: "preposition",
-    frequency: 410,
-    examples: [
-      { sentence: "Рядом с домом", translation: "Di samping rumah" },
-      { sentence: "Рядом со мной", translation: "Di samping saya" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 411,
-    word: "напротив",
-    pronunciation: "/naprotiv/",
-    translation: "seberang",
-    category: "preposition",
-    frequency: 411,
-    examples: [
-      { sentence: "Через дорогу", translation: "Di seberang jalan" },
-      { sentence: "На той стороне", translation: "Seberang sana" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 412,
-    word: "край",
-    pronunciation: "/kraj/",
-    translation: "tepi",
-    category: "noun",
-    frequency: 412,
-    examples: [
-      { sentence: "Берег реки", translation: "Tepi sungai" },
-      { sentence: "Край дороги", translation: "Tepi jalan" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 413,
-    word: "конец",
-    pronunciation: "/konjets/",
-    translation: "ujung",
-    category: "noun",
-    frequency: 413,
-    examples: [
-      { sentence: "Конец улицы", translation: "Ujung jalan" },
-      { sentence: "В конце", translation: "Di ujung" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 414,
-    word: "окраина",
-    pronunciation: "/okraina/",
-    translation: "pinggir",
-    category: "noun",
-    frequency: 414,
-    examples: [
-      { sentence: "Окраина города", translation: "Pinggir kota" },
-      { sentence: "На краю", translation: "Di pinggir" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 415,
-    word: "вокруг",
-    pronunciation: "/vokruɡ/",
-    translation: "sekitar",
-    category: "preposition",
-    frequency: 415,
-    examples: [
-      { sentence: "Вокруг дома", translation: "Sekitar rumah" },
-      { sentence: "Около двух часов", translation: "Sekitar jam dua" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 416,
-    word: "угол",
-    pronunciation: "/uɡol/",
-    translation: "sudut",
-    category: "noun",
-    frequency: 416,
-    examples: [
-      { sentence: "Угол улицы", translation: "Sudut jalan" },
-      { sentence: "В углу комнаты", translation: "Di sudut kamar" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 417,
-    word: "место",
-    pronunciation: "/mjesto/",
-    translation: "tempat",
-    category: "noun",
-    frequency: 417,
-    examples: [
-      { sentence: "Это место", translation: "Tempat ini" },
-      { sentence: "Место (сиденье)", translation: "Tempat duduk" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 418,
-    word: "позиция",
-    pronunciation: "/pozitsija/",
-    translation: "posisi",
-    category: "noun",
-    frequency: 418,
-    examples: [
-      { sentence: "Моя позиция", translation: "Posisi saya" },
-      { sentence: "Положение сидя", translation: "Posisi duduk" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 419,
-    word: "направление",
-    pronunciation: "/napravljenije/",
-    translation: "arah",
-    category: "noun",
-    frequency: 419,
-    examples: [
-      { sentence: "В каком направлении?", translation: "Arah mana?" },
-      { sentence: "Следуйте за мной", translation: "Ikuti arah saya" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 420,
-    word: "направление",
-    pronunciation: "/napravljenije/",
-    translation: "jurusan",
-    category: "noun",
-    frequency: 420,
-    examples: [
-      { sentence: "Какое направление?", translation: "Jurusan apa?" },
-      { sentence: "Не то направление", translation: "Salah jurusan" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 421,
-    word: "спать",
-    pronunciation: "/spatj/",
-    translation: "tidur",
-    category: "verb",
-    frequency: 421,
-    examples: [
-      { sentence: "Спокойной ночи", translation: "Selamat tidur" },
-      { sentence: "Я хочу спать", translation: "Saya mau tidur" },
-    ],
-    wordFamily: [
-      { word: "поспать", translation: "tidur" },
-      { word: "сон", translation: "tidur, mimpi" },
-      { word: "заснуть", translation: "tertidur" },
-    ],
-    lessonIds: [10, 12],
-  },
-
-  {
-    id: 422,
-    word: "просыпаться",
-    pronunciation: "/prosɨpatjsja/",
-    translation: "bangun",
-    category: "verb",
-    frequency: 422,
-    examples: [
-      { sentence: "Я просыпаюсь утром", translation: "Saya bangun pagi" },
-      { sentence: "Проснуться", translation: "Bangun tidur" },
-    ],
-    wordFamily: [
-      { word: "проснуться", translation: "bangun" },
-      { word: "пробуждение", translation: "kebangkitan" },
-    ],
-    lessonIds: [8],
-  },
-
-  {
-    id: 423,
-    word: "купаться",
-    pronunciation: "/kupatjsja/",
-    translation: "mandi",
-    category: "verb",
-    frequency: 423,
-    examples: [
-      { sentence: "Утренний душ", translation: "Mandi pagi" },
-      { sentence: "Я принимаю душ", translation: "Saya mandi" },
-    ],
-    wordFamily: [
-      { word: "мыться", translation: "mandi" },
-      { word: "купание", translation: "pemandian" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 424,
-    word: "учиться",
-    pronunciation: "/utɕitjsja/",
-    translation: "belajar",
-    category: "verb",
-    frequency: 424,
-    examples: [
-      { sentence: "Я изучаю язык", translation: "Saya belajar bahasa" },
-      { sentence: "Учиться дома", translation: "Belajar di rumah" },
-    ],
-    lessonIds: [3, 10, 11, 12],
-  },
-
-  {
-    id: 425,
-    word: "читать",
-    pronunciation: "/tɕitatj/",
-    translation: "baca",
-    category: "verb",
-    frequency: 425,
-    examples: [
-      { sentence: "Читать книгу", translation: "Baca buku" },
-      { sentence: "Я читаю", translation: "Saya baca" },
-    ],
-    wordFamily: [
-      { word: "прочитать", translation: "membaca" },
-      { word: "прочтение", translation: "pembacaan" },
-      { word: "читатель", translation: "pembaca" },
-      { word: "чтение", translation: "bacaan" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 427,
-    word: "мыть",
-    pronunciation: "/mɨtj/",
-    translation: "cuci",
-    category: "verb",
-    frequency: 427,
-    examples: [
-      { sentence: "Мыть руки", translation: "Cuci tangan" },
-      { sentence: "Стирать одежду", translation: "Cuci baju" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 428,
-    word: "убирать",
-    pronunciation: "/ubiratj/",
-    translation: "bersihkan",
-    category: "verb",
-    frequency: 428,
-    examples: [
-      { sentence: "Убрать комнату", translation: "Bersihkan kamar" },
-      { sentence: "Протереть стол", translation: "Bersihkan meja" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 429,
-    word: "готово",
-    pronunciation: "/ɡotovo/",
-    translation: "beres",
-    category: "adjective",
-    frequency: 429,
-    examples: [
-      { sentence: "Уже готово", translation: "Sudah beres" },
-      { sentence: "Убери всё", translation: "Bereskan semua" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 430,
-    word: "использовать",
-    pronunciation: "/ispoljzovatj/",
-    translation: "pakai",
-    category: "verb",
-    frequency: 430,
-    examples: [
-      { sentence: "Надень эту рубашку", translation: "Pakai baju ini" },
-      { sentence: "Что надеть?", translation: "Pakai apa?" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 431,
-    word: "снимать",
-    pronunciation: "/snimatj/",
-    translation: "lepas",
-    category: "verb",
-    frequency: 431,
-    examples: [
-      { sentence: "Сними обувь", translation: "Lepas sepatu" },
-      { sentence: "Не отпускай", translation: "Jangan lepas" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 432,
-    word: "менять",
-    pronunciation: "/mjenjatj/",
-    translation: "ganti",
-    category: "verb",
-    frequency: 432,
-    examples: [
-      { sentence: "Переодеться", translation: "Ganti baju" },
-      { sentence: "Разменять деньги", translation: "Ganti uang" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 433,
-    word: "хранить",
-    pronunciation: "/xranitj/",
-    translation: "simpan",
-    category: "verb",
-    frequency: 433,
-    examples: [
-      { sentence: "Убери эту книгу", translation: "Simpan buku ini" },
-      { sentence: "Хранить аккуратно", translation: "Simpan rapi" },
-    ],
-    wordFamily: [
-      { word: "сохранять", translation: "menyimpan, memelihara" },
-      { word: "сохранение", translation: "penyimpanan, simpanan" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 434,
-    word: "провожать",
-    pronunciation: "/provoʐatj/",
-    translation: "antar",
-    category: "verb",
-    frequency: 434,
-    examples: [
-      { sentence: "Я провожу тебя", translation: "Saya antar kamu" },
-      { sentence: "Отвести в школу", translation: "Antar ke sekolah" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 435,
-    word: "встречать",
-    pronunciation: "/vstrjetɕatj/",
-    translation: "jemput",
-    category: "verb",
-    frequency: 435,
-    examples: [
-      { sentence: "Забери меня", translation: "Jemput saya" },
-      { sentence: "Я забираю ребёнка", translation: "Saya jemput anak" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 438,
-    word: "возвращаться домой",
-    pronunciation: "/vozvraɕːatjsja domoj/",
-    translation: "pulang",
-    category: "verb",
-    frequency: 438,
-    examples: [
-      { sentence: "Я иду домой", translation: "Saya pulang" },
-      { sentence: "Уже дома", translation: "Sudah pulang" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 439,
-    word: "отправляться",
-    pronunciation: "/otpravljatjsja/",
-    translation: "berangkat",
-    category: "verb",
-    frequency: 439,
-    examples: [
-      { sentence: "Пример с \"отправляться\"", translation: "berangkat" },
-    ],
-    lessonIds: [10, 14],
-  },
-
-  {
-    id: 440,
-    word: "готовый",
-    pronunciation: "/ɡotovɨj/",
-    translation: "siap",
-    category: "adjective",
-    frequency: 440,
-    examples: [
-      { sentence: "Я готов", translation: "Saya siap" },
-      { sentence: "Всё готово", translation: "Semua siap" },
-    ],
-    lessonIds: [10],
-  },
-
-  {
-    id: 441,
-    word: "кошка",
-    pronunciation: "/koʂka/",
-    translation: "kucing",
-    category: "noun",
-    frequency: 441,
-    examples: [
-      { sentence: "Моя кошка", translation: "Kucing saya" },
-      { sentence: "Маленькая кошка", translation: "Kucing kecil" },
-    ],
-    lessonIds: [6, 13],
-  },
-
-  {
-    id: 442,
-    word: "собака",
-    pronunciation: "/sobaka/",
-    translation: "anjing",
-    category: "noun",
-    frequency: 442,
-    examples: [
-      { sentence: "Большая собака", translation: "Anjing besar" },
-      { sentence: "Моя собака", translation: "Anjing saya" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 443,
-    word: "рыба",
-    pronunciation: "/rɨba/",
-    translation: "ikan",
-    category: "noun",
-    frequency: 443,
-    examples: [
-      { sentence: "Большая рыба", translation: "Ikan besar" },
-      { sentence: "Есть рыбу", translation: "Makan ikan" },
-    ],
-    lessonIds: [3],
-  },
-
-  {
-    id: 444,
-    word: "птица",
-    pronunciation: "/ptitsa/",
-    translation: "burung",
-    category: "noun",
-    frequency: 444,
-    examples: [
-      { sentence: "Птица летит", translation: "Burung terbang" },
-      { sentence: "Маленькая птица", translation: "Burung kecil" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 445,
-    word: "лошадь",
-    pronunciation: "/loʂadj/",
-    translation: "kuda",
-    category: "noun",
-    frequency: 445,
-    examples: [
-      { sentence: "Белая лошадь", translation: "Kuda putih" },
-      { sentence: "Ездить верхом", translation: "Naik kuda" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 446,
-    word: "курица",
-    pronunciation: "/kuritsa/",
-    translation: "ayam",
-    category: "noun",
-    frequency: 446,
-    examples: [
-      { sentence: "Жареная курица", translation: "Ayam goreng" },
-      { sentence: "Курятник", translation: "Kandang ayam" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 447,
-    word: "утка",
-    pronunciation: "/utka/",
-    translation: "bebek",
-    category: "noun",
-    frequency: 447,
-    examples: [
-      { sentence: "Утка плавает", translation: "Bebek berenang" },
-      { sentence: "Жареная утка", translation: "Bebek goreng" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 448,
-    word: "корова",
-    pronunciation: "/korova/",
-    translation: "sapi",
-    category: "noun",
-    frequency: 448,
-    examples: [
-      { sentence: "Дойная корова", translation: "Sapi perah" },
-      { sentence: "Говядина", translation: "Daging sapi" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 449,
-    word: "коза",
-    pronunciation: "/koza/",
-    translation: "kambing",
-    category: "noun",
-    frequency: 449,
-    examples: [
-      { sentence: "Горная коза", translation: "Kambing gunung" },
-      { sentence: "Козлятина", translation: "Daging kambing" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 450,
-    word: "змея",
-    pronunciation: "/zmjeja/",
-    translation: "ular",
-    category: "noun",
-    frequency: 450,
-    examples: [
-      { sentence: "Большая змея", translation: "Ular besar" },
-      { sentence: "Осторожно, змея", translation: "Hati-hati ular" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 451,
-    word: "тигр",
-    pronunciation: "/tiɡr/",
-    translation: "harimau",
-    category: "noun",
-    frequency: 451,
-    examples: [
-      { sentence: "Суматранский тигр", translation: "Harimau Sumatra" },
-      { sentence: "Большой тигр", translation: "Harimau besar" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 452,
-    word: "слон",
-    pronunciation: "/slon/",
-    translation: "gajah",
-    category: "noun",
-    frequency: 452,
-    examples: [
-      { sentence: "Большой слон", translation: "Gajah besar" },
-      { sentence: "Суматранский слон", translation: "Gajah Sumatra" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 453,
-    word: "обезьяна",
-    pronunciation: "/objezjjana/",
-    translation: "monyet",
-    category: "noun",
-    frequency: 453,
-    examples: [
-      { sentence: "Смешная обезьяна", translation: "Monyet lucu" },
-      { sentence: "Обезьяна в лесу", translation: "Monyet di hutan" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 454,
-    word: "комар",
-    pronunciation: "/komar/",
-    translation: "nyamuk",
-    category: "noun",
-    frequency: 454,
-    examples: [
-      { sentence: "Много комаров", translation: "Banyak nyamuk" },
-      { sentence: "Средство от комаров", translation: "Obat nyamuk" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 455,
-    word: "бабочка",
-    pronunciation: "/babotɕka/",
-    translation: "kupu-kupu",
-    category: "noun",
-    frequency: 455,
-    examples: [
-      { sentence: "Красивая бабочка", translation: "Kupu-kupu cantik" },
-      { sentence: "Бабочка летит", translation: "Kupu-kupu terbang" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 456,
-    word: "пчела",
-    pronunciation: "/ptɕjela/",
-    translation: "lebah",
-    category: "noun",
-    frequency: 456,
-    examples: [
-      { sentence: "Медовая пчела", translation: "Lebah madu" },
-      { sentence: "Укус пчелы", translation: "Sengatan lebah" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 457,
-    word: "муравей",
-    pronunciation: "/muravjej/",
-    translation: "semut",
-    category: "noun",
-    frequency: 457,
-    examples: [
-      { sentence: "Маленький муравей", translation: "Semut kecil" },
-      { sentence: "Красный муравей", translation: "Semut merah" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 458,
-    word: "черепаха",
-    pronunciation: "/tɕjerjepaxa/",
-    translation: "kura-kura",
-    category: "noun",
-    frequency: 458,
-    examples: [
-      { sentence: "Медленная черепаха", translation: "Kura-kura lambat" },
-      { sentence: "Морская черепаха", translation: "Kura-kura laut" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 459,
-    word: "крокодил",
-    pronunciation: "/krokodil/",
-    translation: "buaya",
-    category: "noun",
-    frequency: 459,
-    examples: [
-      { sentence: "Большой крокодил", translation: "Buaya besar" },
-      { sentence: "Крокодил в реке", translation: "Buaya di sungai" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 461,
-    word: "велосипед",
-    pronunciation: "/vjelosipjed/",
-    translation: "sepeda",
-    category: "noun",
-    frequency: 461,
-    examples: [
-      { sentence: "Ехать на велосипеде", translation: "Naik sepeda" },
-      { sentence: "Новый велосипед", translation: "Sepeda baru" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 462,
-    word: "поезд",
-    pronunciation: "/pojezd/",
-    translation: "kereta",
-    category: "noun",
-    frequency: 462,
-    examples: [
-      { sentence: "Ехать на поезде", translation: "Naik kereta" },
-      { sentence: "Железнодорожная станция", translation: "Stasiun kereta" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 463,
-    word: "самолёт",
-    pronunciation: "/samoljot/",
-    translation: "pesawat",
-    category: "noun",
-    frequency: 463,
-    examples: [
-      { sentence: "Лететь на самолёте", translation: "Naik pesawat" },
-      { sentence: "Самолёт летит", translation: "Pesawat terbang" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 464,
-    word: "корабль",
-    pronunciation: "/korablj/",
-    translation: "kapal",
-    category: "noun",
-    frequency: 464,
-    examples: [
-      { sentence: "Морской корабль", translation: "Kapal laut" },
-      { sentence: "Плыть на корабле", translation: "Naik kapal" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 465,
-    word: "автобус",
-    pronunciation: "/avtobus/",
-    translation: "bis",
-    category: "noun",
-    frequency: 465,
-    examples: [
-      { sentence: "Ехать на автобусе", translation: "Naik bis" },
-      { sentence: "Автобусная остановка", translation: "Halte bis" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 466,
-    word: "такси",
-    pronunciation: "/taksi/",
-    translation: "taksi",
-    category: "noun",
-    frequency: 466,
-    examples: [
-      { sentence: "Ехать на такси", translation: "Naik taksi" },
-      { sentence: "Вызвать такси", translation: "Panggil taksi" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 467,
-    word: "мотоцикл",
-    pronunciation: "/mototsikl/",
-    translation: "motor",
-    category: "noun",
-    frequency: 467,
-    examples: [
-      { sentence: "Ехать на мотоцикле", translation: "Naik motor" },
-      { sentence: "Новый мотоцикл", translation: "Motor baru" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 468,
-    word: "велорикша",
-    pronunciation: "/vjelorikʂa/",
-    translation: "becak",
-    category: "noun",
-    frequency: 468,
-    examples: [
-      { sentence: "Ехать на велорикше", translation: "Naik becak" },
-      { sentence: "Традиционная велорикша", translation: "Becak tradisional" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 469,
-    word: "мототакси",
-    pronunciation: "/mototaksi/",
-    translation: "ojek",
-    category: "noun",
-    frequency: 469,
-    examples: [
-      { sentence: "Ехать на мототакси", translation: "Naik ojek" },
-      { sentence: "Онлайн мототакси", translation: "Ojek online" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 470,
-    word: "бензин",
-    pronunciation: "/bjenzin/",
-    translation: "bensin",
-    category: "noun",
-    frequency: 470,
-    examples: [
-      { sentence: "Заправить бензин", translation: "Isi bensin" },
-      { sentence: "Цена бензина", translation: "Harga bensin" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 471,
-    word: "шина",
-    pronunciation: "/ʂina/",
-    translation: "ban",
-    category: "noun",
-    frequency: 471,
-    examples: [
-      { sentence: "Спущенная шина", translation: "Ban kempes" },
-      { sentence: "Заменить шину", translation: "Ganti ban" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 472,
-    word: "авария",
-    pronunciation: "/avarija/",
-    translation: "kecelakaan",
-    category: "noun",
-    frequency: 472,
-    examples: [
-      { sentence: "Дорожная авария", translation: "Kecelakaan lalu lintas" },
-      { sentence: "Осторожно, авария", translation: "Hati-hati kecelakaan" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 473,
-    word: "пробка",
-    pronunciation: "/probka/",
-    translation: "macet",
-    category: "adjective",
-    frequency: 473,
-    examples: [
-      { sentence: "Дорожная пробка", translation: "Jalan macet" },
-      { sentence: "Сильная пробка", translation: "Macet parah" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 474,
-    word: "билет",
-    pronunciation: "/biljet/",
-    translation: "tiket",
-    category: "noun",
-    frequency: 474,
-    examples: [
-      { sentence: "Купить билет", translation: "Beli tiket" },
-      { sentence: "Авиабилет", translation: "Tiket pesawat" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 475,
-    word: "чемодан",
-    pronunciation: "/tɕjemodan/",
-    translation: "koper",
-    category: "noun",
-    frequency: 475,
-    examples: [
-      { sentence: "Большой чемодан", translation: "Koper besar" },
-      { sentence: "Нести чемодан", translation: "Bawa koper" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 476,
-    word: "путешествие",
-    pronunciation: "/putjeʂjestvije/",
-    translation: "perjalanan",
-    category: "noun",
-    frequency: 476,
-    examples: [
-      { sentence: "Далёкая поездка", translation: "Perjalanan jauh" },
-      { sentence: "Счастливого пути", translation: "Selamat perjalanan" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 477,
-    word: "туризм",
-    pronunciation: "/turizm/",
-    translation: "wisata",
-    category: "noun",
-    frequency: 477,
-    examples: [
-      { sentence: "Природный туризм", translation: "Wisata alam" },
-      { sentence: "Туристическое место", translation: "Tempat wisata" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 478,
-    word: "карта",
-    pronunciation: "/karta/",
-    translation: "peta",
-    category: "noun",
-    frequency: 478,
-    examples: [
-      { sentence: "Карта города", translation: "Peta kota" },
-      { sentence: "Посмотреть на карту", translation: "Lihat peta" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 479,
-    word: "паспорт",
-    pronunciation: "/pasport/",
-    translation: "paspor",
-    category: "noun",
-    frequency: 479,
-    examples: [
-      { sentence: "Мой паспорт", translation: "Paspor saya" },
-      { sentence: "Проверка паспорта", translation: "Cek paspor" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 480,
-    word: "багаж",
-    pronunciation: "/baɡaʐ/",
-    translation: "bagasi",
-    category: "noun",
-    frequency: 480,
-    examples: [
-      { sentence: "Забрать багаж", translation: "Ambil bagasi" },
-      { sentence: "Тяжёлый багаж", translation: "Bagasi berat" },
-    ],
-    lessonIds: [14],
-  },
-
-  {
-    id: 481,
-    word: "жаркий",
-    pronunciation: "/ʐarkij/",
-    translation: "panas",
-    category: "adjective",
-    frequency: 481,
-    examples: [
-      { sentence: "Сегодня жарко", translation: "Hari ini panas" },
-      { sentence: "Горячий кофе", translation: "Kopi panas" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 482,
     word: "холодный",
     pronunciation: "/xolodnɨj/",
     translation: "dingin",
     category: "adjective",
-    frequency: 482,
+    frequency: 157,
     examples: [
       { sentence: "Холодная вода", translation: "Air dingin" },
-      { sentence: "Сегодня холодно", translation: "Hari ini dingin" },
+      { sentence: "Холодный ветер", translation: "Angin dingin" },
     ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 483,
-    word: "ветер",
-    pronunciation: "/vjetjer/",
-    translation: "angin",
-    category: "noun",
-    frequency: 483,
-    examples: [
-      { sentence: "Сильный ветер", translation: "Angin kencang" },
-      { sentence: "Ветрено", translation: "Ada angin" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 484,
-    word: "облако",
-    pronunciation: "/oblako/",
-    translation: "awan",
-    category: "noun",
-    frequency: 484,
-    examples: [
-      { sentence: "Белые облака", translation: "Awan putih" },
-      { sentence: "Тёмные облака", translation: "Awan gelap" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 485,
-    word: "землетрясение",
-    pronunciation: "/zjemljetrjasjenije/",
-    translation: "gempa",
-    category: "noun",
-    frequency: 485,
-    examples: [
-      { sentence: "Землетрясение", translation: "Gempa bumi" },
-      { sentence: "Было землетрясение", translation: "Ada gempa" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 486,
-    word: "ясный",
-    pronunciation: "/jasnɨj/",
-    translation: "cerah",
-    category: "adjective",
-    frequency: 486,
-    examples: [
-      { sentence: "Ясная погода", translation: "Cuaca cerah" },
-      { sentence: "Сегодня солнечно", translation: "Hari ini cerah" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 487,
-    word: "облачный",
-    pronunciation: "/oblatɕnɨj/",
-    translation: "mendung",
-    category: "adjective",
-    frequency: 487,
-    examples: [
-      { sentence: "Пасмурная погода", translation: "Cuaca mendung" },
-      { sentence: "Тёмные тучи", translation: "Mendung gelap" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 488,
-    word: "прохладный",
-    pronunciation: "/proxladnɨj/",
-    translation: "sejuk",
-    category: "adjective",
-    frequency: 488,
-    examples: [
-      { sentence: "Прохладный воздух", translation: "Udara sejuk" },
-      { sentence: "В горах прохладно", translation: "Di gunung sejuk" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 489,
-    word: "влажный",
-    pronunciation: "/vlaʐnɨj/",
-    translation: "lembab",
-    category: "adjective",
-    frequency: 489,
-    examples: [
-      { sentence: "Влажная погода", translation: "Cuaca lembab" },
-      { sentence: "Влажный воздух", translation: "Udara lembab" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 490,
-    word: "погода",
-    pronunciation: "/poɡoda/",
-    translation: "cuaca",
-    category: "noun",
-    frequency: 490,
-    examples: [
-      { sentence: "Хорошая погода", translation: "Cuaca baik" },
-      { sentence: "Плохая погода", translation: "Cuaca buruk" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 491,
-    word: "сезон",
-    pronunciation: "/sjezon/",
-    translation: "musim",
-    category: "noun",
-    frequency: 491,
-    examples: [
-      { sentence: "Сезон дождей", translation: "Musim hujan" },
-      { sentence: "Сухой сезон", translation: "Musim kemarau" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 492,
-    word: "лето",
-    pronunciation: "/ljeto/",
-    translation: "musim panas",
-    category: "noun",
-    frequency: 492,
-    examples: [
-      { sentence: "Прошлым летом", translation: "Musim panas lalu" },
-      { sentence: "Летние каникулы", translation: "Liburan musim panas" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 493,
-    word: "зима",
-    pronunciation: "/zima/",
-    translation: "musim dingin",
-    category: "noun",
-    frequency: 493,
-    examples: [
-      { sentence: "Зимой снег", translation: "Musim dingin salju" },
-      { sentence: "Зимняя куртка", translation: "Jaket musim dingin" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 494,
-    word: "весна",
-    pronunciation: "/vjesna/",
-    translation: "musim semi",
-    category: "noun",
-    frequency: 494,
-    examples: [
-      { sentence: "Цветы весной", translation: "Bunga di musim semi" },
-      { sentence: "Весна пришла", translation: "Musim semi tiba" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 495,
-    word: "осень",
-    pronunciation: "/osjenj/",
-    translation: "musim gugur",
-    category: "noun",
-    frequency: 495,
-    examples: [
-      { sentence: "Опавшие листья", translation: "Daun gugur" },
-      { sentence: "Осень красива", translation: "Musim gugur indah" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 496,
-    word: "климат",
-    pronunciation: "/klimat/",
-    translation: "iklim",
-    category: "noun",
-    frequency: 496,
-    examples: [
-      { sentence: "Тропический климат", translation: "Iklim tropis" },
-      { sentence: "Климат Индонезии", translation: "Iklim Indonesia" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 497,
-    word: "температура",
-    pronunciation: "/tjempjeratura/",
-    translation: "suhu",
-    category: "noun",
-    frequency: 497,
-    examples: [
-      { sentence: "Высокая температура", translation: "Suhu tinggi" },
-      { sentence: "Какая температура?", translation: "Suhu berapa?" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 498,
-    word: "градус",
-    pronunciation: "/ɡradus/",
-    translation: "derajat",
-    category: "noun",
-    frequency: 498,
-    examples: [
-      { sentence: "Тридцать градусов", translation: "Tiga puluh derajat" },
-    ],
-    lessonIds: [7, 13],
-  },
-
-  {
-    id: 499,
-    word: "тайфун",
-    pronunciation: "/tajfun/",
-    translation: "topan",
-    category: "noun",
-    frequency: 499,
-    examples: [
-      { sentence: "Большой тайфун", translation: "Topan besar" },
-      { sentence: "Предупреждение о тайфуне", translation: "Peringatan topan" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 500,
-    word: "наводнение",
-    pronunciation: "/navodnjenije/",
-    translation: "banjir",
-    category: "noun",
-    frequency: 500,
-    examples: [
-      { sentence: "Большое наводнение", translation: "Banjir besar" },
-    ],
-    lessonIds: [13],
-  },
-
-  {
-    id: 501,
-    word: "нога",
-    pronunciation: "/noɡa/",
-    translation: "kaki",
-    category: "noun",
-    frequency: 501,
-    examples: [
-      { sentence: "Идти пешком", translation: "Jalan kaki" },
-      { sentence: "Моя нога болит", translation: "Kaki saya sakit" },
+    wordFamily: [
+      { word: "холодно", translation: "dingin (adv)" },
+      { word: "холод", translation: "dingin, udara dingin" },
     ],
     lessonIds: [14],
   },
 
   {
-    id: 502,
-    word: "глаз",
-    pronunciation: "/ɡlaz/",
-    translation: "mata",
-    category: "noun",
-    frequency: 502,
+    id: 158,
+    word: "горячий",
+    pronunciation: "/ɡorjatɕij/",
+    translation: "panas",
+    category: "adjective",
+    frequency: 158,
     examples: [
-      { sentence: "Карие глаза", translation: "Mata coklat" },
-      { sentence: "Закрыть глаза", translation: "Tutup mata" },
+      { sentence: "Горячий чай", translation: "Teh panas" },
+      { sentence: "Горячая вода", translation: "Air panas" },
     ],
-    lessonIds: [13],
+    wordFamily: [
+      { word: "горячо", translation: "panas (adv)" },
+      { word: "жара", translation: "panas terik" },
+    ],
+    lessonIds: [14],
   },
 
   {
-    id: 503,
+    id: 159,
+    word: "лёгкий",
+    pronunciation: "/lёɡkij/",
+    translation: "ringan, mudah",
+    category: "adjective",
+    frequency: 159,
+    examples: [
+      { sentence: "Лёгкая сумка", translation: "Tas ringan" },
+      { sentence: "Лёгкий урок", translation: "Pelajaran mudah" },
+    ],
+    wordFamily: [
+      { word: "легко", translation: "ringan (adv)" },
+      { word: "легкость", translation: "keringanan" },
+    ],
+    lessonIds: [14],
+  },
+
+  {
+    id: 160,
+    word: "тяжёлый",
+    pronunciation: "/tjaʐёlɨj/",
+    translation: "berat, sulit",
+    category: "adjective",
+    frequency: 160,
+    examples: [
+      { sentence: "Тяжёлая работа", translation: "Pekerjaan berat" },
+      { sentence: "Тяжёлый чемодан", translation: "Koper berat" },
+    ],
+    wordFamily: [
+      { word: "тяжело", translation: "berat (adv)" },
+      { word: "тяжесть", translation: "kberatan" },
+    ],
+    lessonIds: [14],
+  },
+
+  {
+    id: 161,
+    word: "быстрый",
+    pronunciation: "/bɨstrɨj/",
+    translation: "cepat",
+    category: "adjective",
+    frequency: 161,
+    examples: [
+      { sentence: "Быстрая машина", translation: "Mobil cepat" },
+      { sentence: "Быстрый поезд", translation: "Kereta cepat" },
+    ],
+    wordFamily: [
+      { word: "быстро", translation: "cepat (adv)" },
+      { word: "скорость", translation: "kecepatan" },
+    ],
+    lessonIds: [14],
+  },
+
+  {
+    id: 162,
+    word: "медленный",
+    pronunciation: "/mjedljennɨj/",
+    translation: "lambat",
+    category: "adjective",
+    frequency: 162,
+    examples: [
+      { sentence: "Медленный танец", translation: "Tarian lambat" },
+      { sentence: "Медленная музыка", translation: "Musik lambat" },
+    ],
+    wordFamily: [
+      { word: "медленно", translation: "lambat (adv)" },
+    ],
+    lessonIds: [14],
+  },
+
+  {
+    id: 163,
+    word: "высокий",
+    pronunciation: "/vɨsokij/",
+    translation: "tinggi",
+    category: "adjective",
+    frequency: 163,
+    examples: [
+      { sentence: "Высокий человек", translation: "Orang tinggi" },
+      { sentence: "Высокое здание", translation: "Gedung tinggi" },
+    ],
+    wordFamily: [
+      { word: "высота", translation: "ketinggian" },
+    ],
+    lessonIds: [14],
+  },
+
+  {
+    id: 164,
+    word: "низкий",
+    pronunciation: "/nizkij/",
+    translation: "rendah",
+    category: "adjective",
+    frequency: 164,
+    examples: [
+      { sentence: "Низкий стол", translation: "Meja rendah" },
+      { sentence: "Низкая цена", translation: "Harga rendah" },
+    ],
+    wordFamily: [
+      { word: "низко", translation: "rendah (adv)" },
+    ],
+    lessonIds: [14],
+  },
+
+  {
+    id: 165,
+    word: "дорогой",
+    pronunciation: "/doroɡoj/",
+    translation: "mahal, sayang",
+    category: "adjective",
+    frequency: 165,
+    examples: [
+      { sentence: "Дорогой билет", translation: "Tiket mahal" },
+      { sentence: "Дорогой друг!", translation: "Teman terkasih!" },
+    ],
+    wordFamily: [
+      { word: "дорого", translation: "mahal (adv)" },
+      { word: "дороговизна", translation: "kemahalan" },
+    ],
+    lessonIds: [14],
+  },
+
+  {
+    id: 166,
+    word: "дешёвый",
+    pronunciation: "/djeʂёvɨj/",
+    translation: "murah",
+    category: "adjective",
+    frequency: 166,
+    examples: [
+      { sentence: "Дешёвый билет", translation: "Tiket murah" },
+      { sentence: "Дешёвая еда", translation: "Makanan murah" },
+    ],
+    wordFamily: [
+      { word: "дешево", translation: "murah (adv)" },
+    ],
+    lessonIds: [14],
+  },
+
+  {
+    id: 167,
+    word: "молодой",
+    pronunciation: "/molodoj/",
+    translation: "muda",
+    category: "adjective",
+    frequency: 167,
+    examples: [
+      { sentence: "Молодой человек", translation: "Pemuda" },
+      { sentence: "Молодая девушка", translation: "Gadis muda" },
+    ],
+    wordFamily: [
+      { word: "молодость", translation: "kemudaan, masa muda" },
+    ],
+    lessonIds: [14],
+  },
+
+  {
+    id: 168,
+    word: "старый",
+    pronunciation: "/starɨj/",
+    translation: "tua",
+    category: "adjective",
+    frequency: 168,
+    examples: [
+      { sentence: "Старый город", translation: "Kota tua" },
+      { sentence: "Старый друг", translation: "Teman lama" },
+    ],
+    wordFamily: [
+      { word: "старость", translation: "usia tua" },
+    ],
+    lessonIds: [14],
+  },
+
+  {
+    id: 169,
+    word: "светлый",
+    pronunciation: "/svjetlɨj/",
+    translation: "terang",
+    category: "adjective",
+    frequency: 169,
+    examples: [
+      { sentence: "Светлая комната", translation: "Kamar terang" },
+      { sentence: "Светлый цвет", translation: "Warna terang" },
+    ],
+    wordFamily: [
+      { word: "свет", translation: "cahaya" },
+      { word: "светло", translation: "terang (adv)" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 170,
+    word: "тёмный",
+    pronunciation: "/tёmnɨj/",
+    translation: "gelap",
+    category: "adjective",
+    frequency: 170,
+    examples: [
+      { sentence: "Тёмная комната", translation: "Kamar gelap" },
+      { sentence: "Тёмный цвет", translation: "Warna gelap" },
+    ],
+    wordFamily: [
+      { word: "темно", translation: "gelap (adv)" },
+      { word: "темнота", translation: "kegelapan" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 171,
+    word: "в",
+    pronunciation: "/v/",
+    translation: "di, ke (dalam)",
+    category: "preposition",
+    frequency: 171,
+    examples: [
+      { sentence: "Я в школе", translation: "Saya di sekolah" },
+      { sentence: "Иду в магазин", translation: "Pergi ke toko" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 172,
+    word: "на",
+    pronunciation: "/na/",
+    translation: "di, ke (atas)",
+    category: "preposition",
+    frequency: 172,
+    examples: [
+      { sentence: "На столе", translation: "Di atas meja" },
+      { sentence: "Иду на работу", translation: "Pergi ke kerja" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 173,
+    word: "из",
+    pronunciation: "/iz/",
+    translation: "dari (dalam)",
+    category: "preposition",
+    frequency: 173,
+    examples: [
+      { sentence: "Я из России", translation: "Saya dari Rusia" },
+      { sentence: "Из дома", translation: "Dari rumah" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 174,
+    word: "с",
+    pronunciation: "/s/",
+    translation: "dari (atas), dengan",
+    category: "preposition",
+    frequency: 174,
+    examples: [
+      { sentence: "С работы", translation: "Dari kerja" },
+      { sentence: "С другом", translation: "Dengan teman" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 175,
+    word: "у",
+    pronunciation: "/u/",
+    translation: "di (dekat), punya",
+    category: "preposition",
+    frequency: 175,
+    examples: [
+      { sentence: "У меня есть книга", translation: "Saya punya buku" },
+      { sentence: "У дома", translation: "Di dekat rumah" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 176,
+    word: "о",
+    pronunciation: "/o/",
+    translation: "tentang",
+    category: "preposition",
+    frequency: 176,
+    examples: [
+      { sentence: "О чём ты думаешь?", translation: "Tentang apa kamu berpikir?" },
+      { sentence: "Расскажи о себе", translation: "Ceritakan tentang dirimu" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 177,
+    word: "от",
+    pronunciation: "/ot/",
+    translation: "dari (sumber)",
+    category: "preposition",
+    frequency: 177,
+    examples: [
+      { sentence: "Письмо от друга", translation: "Surat dari teman" },
+      { sentence: "Отойди от окна", translation: "Menjauh dari jendela" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 178,
+    word: "до",
+    pronunciation: "/do/",
+    translation: "sampai",
+    category: "preposition",
+    frequency: 178,
+    examples: [
+      { sentence: "До встречи!", translation: "Sampai jumpa!" },
+      { sentence: "От Москвы до Питера", translation: "Dari Moskow sampai Peterburg" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 179,
+    word: "для",
+    pronunciation: "/dlja/",
+    translation: "untuk",
+    category: "preposition",
+    frequency: 179,
+    examples: [
+      { sentence: "Это для тебя", translation: "Ini untuk kamu" },
+      { sentence: "Для работы нужен компьютер", translation: "Untuk kerja perlu komputer" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 180,
+    word: "без",
+    pronunciation: "/bjez/",
+    translation: "tanpa",
+    category: "preposition",
+    frequency: 180,
+    examples: [
+      { sentence: "Без сахара", translation: "Tanpa gula" },
+      { sentence: "Без проблем", translation: "Tanpa masalah" },
+    ],
+    lessonIds: [15],
+  },
+
+  {
+    id: 181,
+    word: "через",
+    pronunciation: "/tɕjerjez/",
+    translation: "melewati, melalui",
+    category: "preposition",
+    frequency: 181,
+    examples: [
+      { sentence: "Через дорогу", translation: "Menyeberang jalan" },
+      { sentence: "Через час", translation: "Satu jam lagi" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 182,
+    word: "между",
+    pronunciation: "/mjeʐdu/",
+    translation: "antara",
+    category: "preposition",
+    frequency: 182,
+    examples: [
+      { sentence: "Между домом и школой", translation: "Antara rumah dan sekolah" },
+      { sentence: "Между нами", translation: "Di antara kita" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 183,
+    word: "перед",
+    pronunciation: "/pjerjed/",
+    translation: "sebelum, di depan",
+    category: "preposition",
+    frequency: 183,
+    examples: [
+      { sentence: "Перед домом", translation: "Di depan rumah" },
+      { sentence: "Перед уроком", translation: "Sebelum pelajaran" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 184,
+    word: "за",
+    pronunciation: "/za/",
+    translation: "di belakang, untuk",
+    category: "preposition",
+    frequency: 184,
+    examples: [
+      { sentence: "За домом", translation: "Di belakang rumah" },
+      { sentence: "Спасибо за помощь", translation: "Terima kasih atas bantuan" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 185,
+    word: "после",
+    pronunciation: "/poslje/",
+    translation: "setelah",
+    category: "preposition",
+    frequency: 185,
+    examples: [
+      { sentence: "После работы", translation: "Setelah kerja" },
+      { sentence: "После урока", translation: "Setelah pelajaran" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 186,
+    word: "который",
+    pronunciation: "/kotorɨj/",
+    translation: "yang (kata sambung)",
+    category: "pronoun",
+    frequency: 186,
+    examples: [
+      { sentence: "Человек, который пришёл", translation: "Orang yang datang" },
+      { sentence: "Книга, которую я читаю", translation: "Buku yang saya baca" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 187,
+    word: "весь",
+    pronunciation: "/vjesʲ/",
+    translation: "semua, seluruh",
+    category: "adjective",
+    frequency: 187,
+    examples: [
+      { sentence: "Весь день", translation: "Sepanjang hari" },
+      { sentence: "Всё хорошо", translation: "Semua baik" },
+    ],
+    wordFamily: [
+      { word: "всё", translation: "semua" },
+      { word: "все", translation: "semua orang" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 188,
+    word: "каждый",
+    pronunciation: "/kaʐdɨj/",
+    translation: "setiap",
+    category: "adjective",
+    frequency: 188,
+    examples: [
+      { sentence: "Каждый день", translation: "Setiap hari" },
+      { sentence: "Каждый человек", translation: "Setiap orang" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 189,
+    word: "сам",
+    pronunciation: "/sam/",
+    translation: "sendiri",
+    category: "pronoun",
+    frequency: 189,
+    examples: [
+      { sentence: "Я сам", translation: "Saya sendiri" },
+      { sentence: "Он сам сделал", translation: "Dia sendiri yang membuat" },
+    ],
+    wordFamily: [
+      { word: "самый", translation: "paling, sangat" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 190,
+    word: "самый",
+    pronunciation: "/samɨj/",
+    translation: "paling, sangat",
+    category: "adverb",
+    frequency: 190,
+    examples: [
+      { sentence: "Самый лучший", translation: "Yang terbaik" },
+      { sentence: "Самый большой", translation: "Yang terbesar" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 191,
+    word: "такой",
+    pronunciation: "/takoj/",
+    translation: "seperti itu, begitu",
+    category: "adjective",
+    frequency: 191,
+    examples: [
+      { sentence: "Такой же", translation: "Sama, serupa" },
+      { sentence: "Такой большой", translation: "Begitu besar" },
+    ],
+    wordFamily: [
+      { word: "так", translation: "begitu, demikian" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 192,
+    word: "очень",
+    pronunciation: "/otɕjenʲ/",
+    translation: "sangat",
+    category: "adverb",
+    frequency: 192,
+    examples: [
+      { sentence: "Очень хорошо", translation: "Sangat baik" },
+      { sentence: "Очень вкусно", translation: "Sangat enak" },
+    ],
+    lessonIds: [16],
+  },
+
+  {
+    id: 193,
+    word: "много",
+    pronunciation: "/mnoɡo/",
+    translation: "banyak",
+    category: "adverb",
+    frequency: 193,
+    examples: [
+      { sentence: "Много людей", translation: "Banyak orang" },
+      { sentence: "Много времени", translation: "Banyak waktu" },
+    ],
+    wordFamily: [
+      { word: "многие", translation: "banyak (orang)" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 194,
+    word: "мало",
+    pronunciation: "/malo/",
+    translation: "sedikit",
+    category: "adverb",
+    frequency: 194,
+    examples: [
+      { sentence: "Мало времени", translation: "Sedikit waktu" },
+      { sentence: "Мало денег", translation: "Sedikit uang" },
+    ],
+    wordFamily: [
+      { word: "меньше", translation: "kurang" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 195,
+    word: "тоже",
+    pronunciation: "/toʐje/",
+    translation: "juga",
+    category: "adverb",
+    frequency: 195,
+    examples: [
+      { sentence: "Я тоже", translation: "Saya juga" },
+      { sentence: "Он тоже студент", translation: "Dia juga mahasiswa" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 196,
+    word: "даже",
+    pronunciation: "/daʐje/",
+    translation: "bahkan",
+    category: "adverb",
+    frequency: 196,
+    examples: [
+      { sentence: "Даже дети знают", translation: "Bahkan anak-anak tahu" },
+      { sentence: "Даже не думай", translation: "Jangan berpikir sekalipun" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 197,
+    word: "только",
+    pronunciation: "/tolʲko/",
+    translation: "hanya",
+    category: "adverb",
+    frequency: 197,
+    examples: [
+      { sentence: "Только один", translation: "Hanya satu" },
+      { sentence: "Только что", translation: "Baru saja" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 198,
+    word: "уже",
+    pronunciation: "/uʐje/",
+    translation: "sudah",
+    category: "adverb",
+    frequency: 198,
+    examples: [
+      { sentence: "Уже поздно", translation: "Sudah larut" },
+      { sentence: "Я уже сделал", translation: "Saya sudah selesai" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 199,
+    word: "ещё",
+    pronunciation: "/jeɕːё/",
+    translation: "masih, lagi",
+    category: "adverb",
+    frequency: 199,
+    examples: [
+      { sentence: "Ещё раз", translation: "Sekali lagi" },
+      { sentence: "Он ещё спит", translation: "Dia masih tidur" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 200,
+    word: "уже",
+    pronunciation: "/uʐje/",
+    translation: "sudah (lagi)",
+    category: "adverb",
+    frequency: 200,
+    examples: [
+      { sentence: "Уже не надо", translation: "Sudah tidak perlu" },
+      { sentence: "Уже пришёл?", translation: "Sudah datang?" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 201,
+    word: "человек",
+    pronunciation: "/tɕjelovjek/",
+    translation: "orang",
+    category: "noun",
+    frequency: 201,
+    examples: [
+      { sentence: "Это хороший человек", translation: "Ini orang baik" },
+      { sentence: "Сколько человек?", translation: "Berapa orang?" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 202,
+    word: "мужчина",
+    pronunciation: "/muʐtɕina/",
+    translation: "laki-laki, pria",
+    category: "noun",
+    frequency: 202,
+    examples: [
+      { sentence: "Высокий мужчина", translation: "Pria tinggi" },
+      { sentence: "Молодой мужчина", translation: "Pria muda" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 203,
+    word: "женщина",
+    pronunciation: "/ʐjenɕːina/",
+    translation: "perempuan, wanita",
+    category: "noun",
+    frequency: 203,
+    examples: [
+      { sentence: "Красивая женщина", translation: "Wanita cantik" },
+      { sentence: "Молодая женщина", translation: "Wanita muda" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 204,
+    word: "ребёнок",
+    pronunciation: "/rjebёnok/",
+    translation: "anak-anak",
+    category: "noun",
+    frequency: 204,
+    examples: [
+      { sentence: "Маленький ребёнок", translation: "Anak kecil" },
+      { sentence: "Дети играют", translation: "Anak-anak bermain" },
+    ],
+    wordFamily: [
+      { word: "дети", translation: "anak-anak (jamak)" },
+    ],
+    lessonIds: [17],
+  },
+
+  {
+    id: 205,
+    word: "мама",
+    pronunciation: "/mama/",
+    translation: "ibu, mama",
+    category: "noun",
+    frequency: 205,
+    examples: [
+      { sentence: "Моя мама", translation: "Ibuku" },
+      { sentence: "Мама дома", translation: "Ibu di rumah" },
+    ],
+    lessonIds: [18],
+  },
+
+  {
+    id: 206,
+    word: "папа",
+    pronunciation: "/papa/",
+    translation: "ayah, papa",
+    category: "noun",
+    frequency: 206,
+    examples: [
+      { sentence: "Мой папа", translation: "Ayahku" },
+      { sentence: "Папа работает", translation: "Ayah bekerja" },
+    ],
+    lessonIds: [18],
+  },
+
+  {
+    id: 207,
+    word: "брат",
+    pronunciation: "/brat/",
+    translation: "saudara laki-laki",
+    category: "noun",
+    frequency: 207,
+    examples: [
+      { sentence: "Мой старший брат", translation: "Kakak laki-laki saya" },
+      { sentence: "У меня есть брат", translation: "Saya punya saudara laki-laki" },
+    ],
+    wordFamily: [
+      { word: "братский", translation: "persaudaraan" },
+    ],
+    lessonIds: [18],
+  },
+
+  {
+    id: 208,
+    word: "сестра",
+    pronunciation: "/sjestra/",
+    translation: "saudara perempuan",
+    category: "noun",
+    frequency: 208,
+    examples: [
+      { sentence: "Моя старшая сестра", translation: "Kakak perempuan saya" },
+      { sentence: "У неё есть сестра", translation: "Dia punya saudara perempuan" },
+    ],
+    lessonIds: [18],
+  },
+
+  {
+    id: 209,
+    word: "друг",
+    pronunciation: "/druɡ/",
+    translation: "teman",
+    category: "noun",
+    frequency: 209,
+    examples: [
+      { sentence: "Мой лучший друг", translation: "Teman terbaik saya" },
+      { sentence: "Друзья пришли", translation: "Teman-teman datang" },
+    ],
+    wordFamily: [
+      { word: "друзья", translation: "teman-teman (jamak)" },
+      { word: "дружба", translation: "persahabatan" },
+    ],
+    lessonIds: [18],
+  },
+
+  {
+    id: 210,
+    word: "семья",
+    pronunciation: "/sjemjja/",
+    translation: "keluarga",
+    category: "noun",
+    frequency: 210,
+    examples: [
+      { sentence: "Моя семья", translation: "Keluarga saya" },
+      { sentence: "Большая семья", translation: "Keluarga besar" },
+    ],
+    lessonIds: [18],
+  },
+
+  {
+    id: 211,
+    word: "голова",
+    pronunciation: "/ɡolova/",
+    translation: "kepala",
+    category: "noun",
+    frequency: 211,
+    examples: [
+      { sentence: "У меня болит голова", translation: "Saya sakit kepala" },
+      { sentence: "Она кивнула головой", translation: "Dia mengangguk" },
+    ],
+    lessonIds: [18],
+  },
+
+  {
+    id: 212,
     word: "рука",
     pronunciation: "/ruka/",
     translation: "tangan",
     category: "noun",
-    frequency: 503,
+    frequency: 212,
     examples: [
-      { sentence: "Мыть руки", translation: "Cuci tangan" },
+      { sentence: "Подними руку!", translation: "Angkat tangan!" },
       { sentence: "Правая рука", translation: "Tangan kanan" },
     ],
-    lessonIds: [10],
+    lessonIds: [18],
   },
 
   {
-    id: 504,
-    word: "напиток",
-    pronunciation: "/napitok/",
-    translation: "minuman",
+    id: 213,
+    word: "нога",
+    pronunciation: "/noɡa/",
+    translation: "kaki",
     category: "noun",
-    frequency: 504,
+    frequency: 213,
     examples: [
-      { sentence: "Холодный напиток", translation: "Minuman dingin" },
-      { sentence: "Сладкий напиток", translation: "Minuman manis" },
+      { sentence: "Левая нога", translation: "Kaki kiri" },
+      { sentence: "Он встал на ноги", translation: "Dia berdiri" },
     ],
-    lessonIds: [15],
+    lessonIds: [18],
   },
+
+  {
+    id: 214,
+    word: "глаз",
+    pronunciation: "/ɡlaz/",
+    translation: "mata",
+    category: "noun",
+    frequency: 214,
+    examples: [
+      { sentence: "Синие глаза", translation: "Mata biru" },
+      { sentence: "Закрой глаза!", translation: "Tutup mata!" },
+    ],
+    lessonIds: [18],
+  },
+
+  {
+    id: 215,
+    word: "рот",
+    pronunciation: "/rot/",
+    translation: "mulut",
+    category: "noun",
+    frequency: 215,
+    examples: [
+      { sentence: "Открой рот!", translation: "Buka mulut!" },
+      { sentence: "У неё красивый рот", translation: "Dia punya mulut cantik" },
+    ],
+    lessonIds: [18],
+  },
+
+  {
+    id: 216,
+    word: "нос",
+    pronunciation: "/nos/",
+    translation: "hidung",
+    category: "noun",
+    frequency: 216,
+    examples: [
+      { sentence: "У него большой нос", translation: "Dia berhidung besar" },
+      { sentence: "Носом чувствую запах", translation: "Mencium bau" },
+    ],
+    lessonIds: [18],
+  },
+
+  {
+    id: 217,
+    word: "ухо",
+    pronunciation: "/uxo/",
+    translation: "telinga",
+    category: "noun",
+    frequency: 217,
+    examples: [
+      { sentence: "Уши мёрзнут", translation: "Telinga dingin" },
+      { sentence: "Он шевелит ушами", translation: "Dia menggerakkan telinga" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 218,
+    word: "зуб",
+    pronunciation: "/zub/",
+    translation: "gigi",
+    category: "noun",
+    frequency: 218,
+    examples: [
+      { sentence: "Чистить зубы", translation: "Menggosok gigi" },
+      { sentence: "Белые зубы", translation: "Gigi putih" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 219,
+    word: "сердце",
+    pronunciation: "/sjerdtsje/",
+    translation: "jantung",
+    category: "noun",
+    frequency: 219,
+    examples: [
+      { sentence: "Моё сердце бьётся", translation: "Jantungku berdetak" },
+      { sentence: "От всего сердца", translation: "Dari lubuk hati" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 220,
+    word: "кровь",
+    pronunciation: "/krovʲ/",
+    translation: "darah",
+    category: "noun",
+    frequency: 220,
+    examples: [
+      { sentence: "Группа крови", translation: "Golongan darah" },
+      { sentence: "Идёт кровь", translation: "Berdarah" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 221,
+    word: "дом",
+    pronunciation: "/dom/",
+    translation: "rumah",
+    category: "noun",
+    frequency: 221,
+    examples: [
+      { sentence: "Я иду домой", translation: "Saya pulang" },
+      { sentence: "Большой дом", translation: "Rumah besar" },
+    ],
+    wordFamily: [
+      { word: "дома", translation: "di rumah" },
+      { word: "домашний", translation: "rumahan" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 222,
+    word: "квартира",
+    pronunciation: "/kvartira/",
+    translation: "apartemen",
+    category: "noun",
+    frequency: 222,
+    examples: [
+      { sentence: "Новая квартира", translation: "Apartemen baru" },
+      { sentence: "Снять квартиру", translation: "Menyewa apartemen" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 223,
+    word: "комната",
+    pronunciation: "/komnata/",
+    translation: "kamar",
+    category: "noun",
+    frequency: 223,
+    examples: [
+      { sentence: "Моя комната", translation: "Kamarku" },
+      { sentence: "Светлая комната", translation: "Kamar terang" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 224,
+    word: "кухня",
+    pronunciation: "/kuxnja/",
+    translation: "dapur",
+    category: "noun",
+    frequency: 224,
+    examples: [
+      { sentence: "Большая кухня", translation: "Dapur besar" },
+      { sentence: "Я на кухне", translation: "Saya di dapur" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 225,
+    word: "дверь",
+    pronunciation: "/dvjerʲ/",
+    translation: "pintu",
+    category: "noun",
+    frequency: 225,
+    examples: [
+      { sentence: "Открой дверь!", translation: "Buka pintu!" },
+      { sentence: "Закрой дверь", translation: "Tutup pintu" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 226,
+    word: "окно",
+    pronunciation: "/okno/",
+    translation: "jendela",
+    category: "noun",
+    frequency: 226,
+    examples: [
+      { sentence: "Открой окно!", translation: "Buka jendela!" },
+      { sentence: "За окном дождь", translation: "Di luar jendela hujan" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 227,
+    word: "стол",
+    pronunciation: "/stol/",
+    translation: "meja",
+    category: "noun",
+    frequency: 227,
+    examples: [
+      { sentence: "Книга на столе", translation: "Buku di meja" },
+      { sentence: "Письменный стол", translation: "Meja tulis" },
+    ],
+    wordFamily: [
+      { word: "столик", translation: "meja kecil" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 228,
+    word: "стул",
+    pronunciation: "/stul/",
+    translation: "kursi",
+    category: "noun",
+    frequency: 228,
+    examples: [
+      { sentence: "Сядь на стул!", translation: "Duduk di kursi!" },
+      { sentence: "Удобный стул", translation: "Kursi nyaman" },
+    ],
+    lessonIds: [19],
+  },
+
+  {
+    id: 229,
+    word: "кровать",
+    pronunciation: "/krovatʲ/",
+    translation: "tempat tidur",
+    category: "noun",
+    frequency: 229,
+    examples: [
+      { sentence: "Я лежу на кровати", translation: "Saya berbaring di tempat tidur" },
+      { sentence: "Утром встаю с кровати", translation: "Pagi bangun dari tempat tidur" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 230,
+    word: "лампа",
+    pronunciation: "/lampa/",
+    translation: "lampu",
+    category: "noun",
+    frequency: 230,
+    examples: [
+      { sentence: "Включи лампу!", translation: "Nyalakan lampu!" },
+      { sentence: "Настольная лампа", translation: "Lampu meja" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 231,
+    word: "город",
+    pronunciation: "/ɡorod/",
+    translation: "kota",
+    category: "noun",
+    frequency: 231,
+    examples: [
+      { sentence: "Большой город", translation: "Kota besar" },
+      { sentence: "Я живу в городе", translation: "Saya tinggal di kota" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 232,
+    word: "улица",
+    pronunciation: "/ulitsa/",
+    translation: "jalan",
+    category: "noun",
+    frequency: 232,
+    examples: [
+      { sentence: "На улице холодно", translation: "Di luar dingin" },
+      { sentence: "Главная улица", translation: "Jalan utama" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 233,
+    word: "площадь",
+    pronunciation: "/ploɕːadʲ/",
+    translation: "alun-alun",
+    category: "noun",
+    frequency: 233,
+    examples: [
+      { sentence: "Красная площадь", translation: "Lapangan Merah" },
+      { sentence: "Центральная площадь", translation: "Alun-alun pusat" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 234,
+    word: "магазин",
+    pronunciation: "/maɡazin/",
+    translation: "toko",
+    category: "noun",
+    frequency: 234,
+    examples: [
+      { sentence: "Продуктовый магазин", translation: "Toko makanan" },
+      { sentence: "Идти в магазин", translation: "Pergi ke toko" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 235,
+    word: "аптека",
+    pronunciation: "/aptjeka/",
+    translation: "apotek",
+    category: "noun",
+    frequency: 235,
+    examples: [
+      { sentence: "Где аптека?", translation: "Di mana apotek?" },
+      { sentence: "Круглосуточная аптека", translation: "Apotek 24 jam" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 236,
+    word: "больница",
+    pronunciation: "/bolʲnitsa/",
+    translation: "rumah sakit",
+    category: "noun",
+    frequency: 236,
+    examples: [
+      { sentence: "Он в больнице", translation: "Dia di rumah sakit" },
+      { sentence: "Пойти в больницу", translation: "Pergi ke rumah sakit" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 237,
+    word: "школа",
+    pronunciation: "/ʂkola/",
+    translation: "sekolah",
+    category: "noun",
+    frequency: 237,
+    examples: [
+      { sentence: "Я хожу в школу", translation: "Saya pergi ke sekolah" },
+      { sentence: "Школа рядом", translation: "Sekolah dekat" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 238,
+    word: "университет",
+    pronunciation: "/univjersitjet/",
+    translation: "universitas",
+    category: "noun",
+    frequency: 238,
+    examples: [
+      { sentence: "Я учусь в университете", translation: "Saya kuliah di universitas" },
+      { sentence: "Московский университет", translation: "Universitas Moskow" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 239,
+    word: "парк",
+    pronunciation: "/park/",
+    translation: "taman",
+    category: "noun",
+    frequency: 239,
+    examples: [
+      { sentence: "Гулять в парке", translation: "Jalan-jalan di taman" },
+      { sentence: "Центральный парк", translation: "Taman pusat" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 240,
+    word: "музей",
+    pronunciation: "/muzjej/",
+    translation: "museum",
+    category: "noun",
+    frequency: 240,
+    examples: [
+      { sentence: "Пойти в музей", translation: "Pergi ke museum" },
+      { sentence: "Исторический музей", translation: "Museum sejarah" },
+    ],
+    lessonIds: [20],
+  },
+
+  {
+    id: 241,
+    word: "машина",
+    pronunciation: "/maʂina/",
+    translation: "mobil",
+    category: "noun",
+    frequency: 241,
+    examples: [
+      { sentence: "У меня есть машина", translation: "Saya punya mobil" },
+      { sentence: "Новая машина", translation: "Mobil baru" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 242,
+    word: "поезд",
+    pronunciation: "/pojezd/",
+    translation: "kereta api",
+    category: "noun",
+    frequency: 242,
+    examples: [
+      { sentence: "Поезд пришёл", translation: "Kereta datang" },
+      { sentence: "На поезде", translation: "Naik kereta" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 243,
+    word: "самолёт",
+    pronunciation: "/samolёt/",
+    translation: "pesawat",
+    category: "noun",
+    frequency: 243,
+    examples: [
+      { sentence: "Лететь самолётом", translation: "Terbang naik pesawat" },
+      { sentence: "Время полёта", translation: "Waktu penerbangan" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 244,
+    word: "автобус",
+    pronunciation: "/avtobus/",
+    translation: "bus",
+    category: "noun",
+    frequency: 244,
+    examples: [
+      { sentence: "Автобус пришёл", translation: "Bus datang" },
+      { sentence: "На автобусе", translation: "Naik bus" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 245,
+    word: "такси",
+    pronunciation: "/taksi/",
+    translation: "taksi",
+    category: "noun",
+    frequency: 245,
+    examples: [
+      { sentence: "Вызвать такси", translation: "Panggil taksi" },
+      { sentence: "Сесть в такси", translation: "Naik taksi" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 246,
+    word: "метро",
+    pronunciation: "/mjetro/",
+    translation: "metro, kereta bawah tanah",
+    category: "noun",
+    frequency: 246,
+    examples: [
+      { sentence: "Метро близко", translation: "Metro dekat" },
+      { sentence: "Я езжу на метро", translation: "Saya naik metro" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 247,
+    word: "дорога",
+    pronunciation: "/doroɡa/",
+    translation: "jalan, perjalanan",
+    category: "noun",
+    frequency: 247,
+    examples: [
+      { sentence: "Долгая дорога", translation: "Perjalanan panjang" },
+      { sentence: "По дороге домой", translation: "Dalam perjalanan pulang" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 248,
+    word: "остановка",
+    pronunciation: "/ostanovka/",
+    translation: "halte, perhentian",
+    category: "noun",
+    frequency: 248,
+    examples: [
+      { sentence: "Автобусная остановка", translation: "Halte bus" },
+      { sentence: "Следующая остановка", translation: "Halte berikutnya" },
+    ],
+    wordFamily: [
+      { word: "останавливаться", translation: "berhenti" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 249,
+    word: "билет",
+    pronunciation: "/biljet/",
+    translation: "tiket",
+    category: "noun",
+    frequency: 249,
+    examples: [
+      { sentence: "Купить билет", translation: "Beli tiket" },
+      { sentence: "Билет в один конец", translation: "Tiket sekali jalan" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 250,
+    word: "вокзал",
+    pronunciation: "/vokzal/",
+    translation: "stasiun",
+    category: "noun",
+    frequency: 250,
+    examples: [
+      { sentence: "Прийти на вокзал", translation: "Datang ke stasiun" },
+      { sentence: "Железнодорожный вокзал", translation: "Stasiun kereta" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 251,
+    word: "одежда",
+    pronunciation: "/odjeʐda/",
+    translation: "pakaian",
+    category: "noun",
+    frequency: 251,
+    examples: [
+      { sentence: "Новая одежда", translation: "Pakaian baru" },
+      { sentence: "Магазин одежды", translation: "Toko pakaian" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 252,
+    word: "пальто",
+    pronunciation: "/palʲto/",
+    translation: "mantel",
+    category: "noun",
+    frequency: 252,
+    examples: [
+      { sentence: "Зимнее пальто", translation: "Mantel musim dingin" },
+      { sentence: "Надеть пальто", translation: "Memakai mantel" },
+    ],
+    lessonIds: [21],
+  },
+
+  {
+    id: 253,
+    word: "куртка",
+    pronunciation: "/kurtka/",
+    translation: "jaket",
+    category: "noun",
+    frequency: 253,
+    examples: [
+      { sentence: "Тёплая куртка", translation: "Jaket hangat" },
+      { sentence: "Кожаная куртка", translation: "Jaket kulit" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 254,
+    word: "платье",
+    pronunciation: "/platjje/",
+    translation: "gaun",
+    category: "noun",
+    frequency: 254,
+    examples: [
+      { sentence: "Красивое платье", translation: "Gaun cantik" },
+      { sentence: "Вечернее платье", translation: "Gaun malam" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 255,
+    word: "рубашка",
+    pronunciation: "/rubaʂka/",
+    translation: "kemeja",
+    category: "noun",
+    frequency: 255,
+    examples: [
+      { sentence: "Белая рубашка", translation: "Kemeja putih" },
+      { sentence: "Мужская рубашка", translation: "Kemeja pria" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 256,
+    word: "ботинки",
+    pronunciation: "/botinki/",
+    translation: "sepatu",
+    category: "noun",
+    frequency: 256,
+    examples: [
+      { sentence: "Новые ботинки", translation: "Sepatu baru" },
+      { sentence: "Зимние ботинки", translation: "Sepatu musim dingin" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 257,
+    word: "шапка",
+    pronunciation: "/ʂapka/",
+    translation: "topi (musim dingin)",
+    category: "noun",
+    frequency: 257,
+    examples: [
+      { sentence: "Вязаная шапка", translation: "Topi rajut" },
+      { sentence: "Надень шапку!", translation: "Pakai topi!" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 258,
+    word: "цвет",
+    pronunciation: "/tsvjet/",
+    translation: "warna",
+    category: "noun",
+    frequency: 258,
+    examples: [
+      { sentence: "Какой цвет?", translation: "Warna apa?" },
+      { sentence: "Красный цвет", translation: "Warna merah" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 259,
+    word: "природа",
+    pronunciation: "/priroda/",
+    translation: "alam",
+    category: "noun",
+    frequency: 259,
+    examples: [
+      { sentence: "Красивая природа", translation: "Alam indah" },
+      { sentence: "На природе", translation: "Di alam" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 260,
+    word: "лес",
+    pronunciation: "/ljes/",
+    translation: "hutan",
+    category: "noun",
+    frequency: 260,
+    examples: [
+      { sentence: "Гулять по лесу", translation: "Jalan di hutan" },
+      { sentence: "Тёмный лес", translation: "Hutan gelap" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 261,
+    word: "река",
+    pronunciation: "/rjeka/",
+    translation: "sungai",
+    category: "noun",
+    frequency: 261,
+    examples: [
+      { sentence: "Большая река", translation: "Sungai besar" },
+      { sentence: "Купаться в реке", translation: "Berenang di sungai" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 262,
+    word: "море",
+    pronunciation: "/morje/",
+    translation: "laut",
+    category: "noun",
+    frequency: 262,
+    examples: [
+      { sentence: "Чёрное море", translation: "Laut Hitam" },
+      { sentence: "Отдыхать на море", translation: "Berlibur ke laut" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 263,
+    word: "гора",
+    pronunciation: "/ɡora/",
+    translation: "gunung",
+    category: "noun",
+    frequency: 263,
+    examples: [
+      { sentence: "Высокая гора", translation: "Gunung tinggi" },
+      { sentence: "Кататься на горах", translation: "Bermain di gunung" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 264,
+    word: "небо",
+    pronunciation: "/njebo/",
+    translation: "langit",
+    category: "noun",
+    frequency: 264,
+    examples: [
+      { sentence: "Голубое небо", translation: "Langit biru" },
+      { sentence: "Звёздное небо", translation: "Langit berbintang" },
+    ],
+    lessonIds: [22],
+  },
+
+  {
+    id: 265,
+    word: "солнце",
+    pronunciation: "/solntsje/",
+    translation: "matahari",
+    category: "noun",
+    frequency: 265,
+    examples: [
+      { sentence: "Яркое солнце", translation: "Matahari cerah" },
+      { sentence: "Солнце встаёт", translation: "Matahari terbit" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 266,
+    word: "луна",
+    pronunciation: "/luna/",
+    translation: "bulan",
+    category: "noun",
+    frequency: 266,
+    examples: [
+      { sentence: "Полная луна", translation: "Bulan purnama" },
+      { sentence: "Свет луны", translation: "Cahaya bulan" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 267,
+    word: "звезда",
+    pronunciation: "/zvjezda/",
+    translation: "bintang",
+    category: "noun",
+    frequency: 267,
+    examples: [
+      { sentence: "Звёзды на небе", translation: "Bintang di langit" },
+      { sentence: "Падающая звезда", translation: "Bintang jatuh" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 268,
+    word: "дождь",
+    pronunciation: "/doʐdʲ/",
+    translation: "hujan",
+    category: "noun",
+    frequency: 268,
+    examples: [
+      { sentence: "Идёт дождь", translation: "Sedang hujan" },
+      { sentence: "Сильный дождь", translation: "Hujan deras" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 269,
+    word: "погода",
+    pronunciation: "/poɡoda/",
+    translation: "cuaca",
+    category: "noun",
+    frequency: 269,
+    examples: [
+      { sentence: "Хорошая погода", translation: "Cuaca baik" },
+      { sentence: "Какая сегодня погода?", translation: "Bagaimana cuaca hari ini?" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 270,
+    word: "ветер",
+    pronunciation: "/vjetjer/",
+    translation: "angin",
+    category: "noun",
+    frequency: 270,
+    examples: [
+      { sentence: "Сильный ветер", translation: "Angin kuat" },
+      { sentence: "Ветер дует", translation: "Angin bertiup" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 271,
+    word: "снег",
+    pronunciation: "/snjeɡ/",
+    translation: "salju",
+    category: "noun",
+    frequency: 271,
+    examples: [
+      { sentence: "Идёт снег", translation: "Turun salju" },
+      { sentence: "Белый снег", translation: "Salju putih" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 272,
+    word: "солнечно",
+    pronunciation: "/solnjetɕno/",
+    translation: "cerah",
+    category: "adjective",
+    frequency: 272,
+    examples: [
+      { sentence: "Сегодня солнечно", translation: "Hari ini cerah" },
+      { sentence: "Солнечный день", translation: "Hari yang cerah" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 273,
+    word: "облачно",
+    pronunciation: "/oblatɕno/",
+    translation: "berawan",
+    category: "adjective",
+    frequency: 273,
+    examples: [
+      { sentence: "Сегодня облачно", translation: "Hari ini berawan" },
+      { sentence: "Облачное небо", translation: "Langit berawan" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 274,
+    word: "минута",
+    pronunciation: "/minuta/",
+    translation: "menit",
+    category: "noun",
+    frequency: 274,
+    examples: [
+      { sentence: "Подожди минуту!", translation: "Tunggu sebentar!" },
+      { sentence: "Пять минут", translation: "Lima menit" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 275,
+    word: "час",
+    pronunciation: "/tɕas/",
+    translation: "jam",
+    category: "noun",
+    frequency: 275,
+    examples: [
+      { sentence: "Через час", translation: "Satu jam lagi" },
+      { sentence: "Который час?", translation: "Jam berapa?" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 276,
+    word: "год",
+    pronunciation: "/ɡod/",
+    translation: "tahun",
+    category: "noun",
+    frequency: 276,
+    examples: [
+      { sentence: "Новый год!", translation: "Tahun baru!" },
+      { sentence: "В этом году", translation: "Tahun ini" },
+    ],
+    lessonIds: [23],
+  },
+
+  {
+    id: 277,
+    word: "месяц",
+    pronunciation: "/mjesjats/",
+    translation: "bulan",
+    category: "noun",
+    frequency: 277,
+    examples: [
+      { sentence: "В прошлом месяце", translation: "Bulan lalu" },
+      { sentence: "Каждый месяц", translation: "Setiap bulan" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 278,
+    word: "раз",
+    pronunciation: "/raz/",
+    translation: "kali",
+    category: "noun",
+    frequency: 278,
+    examples: [
+      { sentence: "Ещё раз", translation: "Sekali lagi" },
+      { sentence: "Первый раз", translation: "Pertama kali" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 279,
+    word: "всегда",
+    pronunciation: "/vsjeɡda/",
+    translation: "selalu",
+    category: "adverb",
+    frequency: 279,
+    examples: [
+      { sentence: "Я всегда рад", translation: "Saya selalu senang" },
+      { sentence: "Он всегда опаздывает", translation: "Dia selalu terlambat" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 280,
+    word: "радость",
+    pronunciation: "/radostʲ/",
+    translation: "kegembiraan",
+    category: "noun",
+    frequency: 280,
+    examples: [
+      { sentence: "Какая радость!", translation: "Betapa senangnya!" },
+      { sentence: "Большая радость", translation: "Kegembiraan besar" },
+    ],
+    wordFamily: [
+      { word: "радостный", translation: "gembira" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 281,
+    word: "грусть",
+    pronunciation: "/ɡrustʲ/",
+    translation: "kesedihan",
+    category: "noun",
+    frequency: 281,
+    examples: [
+      { sentence: "Почему грусть?", translation: "Kenapa sedih?" },
+      { sentence: "Он с грустью смотрит", translation: "Dia melihat dengan sedih" },
+    ],
+    wordFamily: [
+      { word: "грустный", translation: "sedih" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 282,
+    word: "страх",
+    pronunciation: "/strax/",
+    translation: "ketakutan",
+    category: "noun",
+    frequency: 282,
+    examples: [
+      { sentence: "У него страх", translation: "Dia takut" },
+      { sentence: "Без страха", translation: "Tanpa takut" },
+    ],
+    wordFamily: [
+      { word: "страшный", translation: "menakutkan" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 283,
+    word: "любовь",
+    pronunciation: "/ljubovʲ/",
+    translation: "cinta",
+    category: "noun",
+    frequency: 283,
+    examples: [
+      { sentence: "Первая любовь", translation: "Cinta pertama" },
+      { sentence: "Любовь к жизни", translation: "Cinta pada kehidupan" },
+    ],
+    wordFamily: [
+      { word: "любимый", translation: "tercinta" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 284,
+    word: "надежда",
+    pronunciation: "/nadjeʐda/",
+    translation: "harapan",
+    category: "noun",
+    frequency: 284,
+    examples: [
+      { sentence: "Есть надежда", translation: "Ada harapan" },
+      { sentence: "Надежда умирает последней", translation: "Harapan mati terakhir" },
+    ],
+    wordFamily: [
+      { word: "надеяться", translation: "berharap" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 285,
+    word: "тарелка",
+    pronunciation: "/tarjelka/",
+    translation: "piring",
+    category: "noun",
+    frequency: 285,
+    examples: [
+      { sentence: "Глубокая тарелка", translation: "Piring sup" },
+      { sentence: "Мыть тарелки", translation: "Cuci piring" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 286,
+    word: "чашка",
+    pronunciation: "/tɕaʂka/",
+    translation: "cangkir",
+    category: "noun",
+    frequency: 286,
+    examples: [
+      { sentence: "Чашка чая", translation: "Secangkir teh" },
+      { sentence: "Кофейная чашка", translation: "Cangkir kopi" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 287,
+    word: "стакан",
+    pronunciation: "/stakan/",
+    translation: "gelas",
+    category: "noun",
+    frequency: 287,
+    examples: [
+      { sentence: "Стакан воды", translation: "Segelas air" },
+      { sentence: "Стакан сока", translation: "Segelas jus" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 288,
+    word: "ложка",
+    pronunciation: "/loʐka/",
+    translation: "sendok",
+    category: "noun",
+    frequency: 288,
+    examples: [
+      { sentence: "Чайная ложка", translation: "Sendok teh" },
+      { sentence: "Столовая ложка", translation: "Sendok makan" },
+    ],
+    lessonIds: [24],
+  },
+
+  {
+    id: 289,
+    word: "вилка",
+    pronunciation: "/vilka/",
+    translation: "garpu",
+    category: "noun",
+    frequency: 289,
+    examples: [
+      { sentence: "Вилка и нож", translation: "Garpu dan pisau" },
+      { sentence: "Положить вилку", translation: "Meletakkan garpu" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 290,
+    word: "нож",
+    pronunciation: "/noʐ/",
+    translation: "pisau",
+    category: "noun",
+    frequency: 290,
+    examples: [
+      { sentence: "Острый нож", translation: "Pisau tajam" },
+      { sentence: "Резать ножом", translation: "Memotong dengan pisau" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 291,
+    word: "завтрак",
+    pronunciation: "/zavtrak/",
+    translation: "sarapan",
+    category: "noun",
+    frequency: 291,
+    examples: [
+      { sentence: "Завтрак готов", translation: "Sarapan siap" },
+      { sentence: "Я завтракаю", translation: "Saya sarapan" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 292,
+    word: "обед",
+    pronunciation: "/objed/",
+    translation: "makan siang",
+    category: "noun",
+    frequency: 292,
+    examples: [
+      { sentence: "Время обеда", translation: "Waktu makan siang" },
+      { sentence: "Обедать в ресторане", translation: "Makan siang di restoran" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 293,
+    word: "ужин",
+    pronunciation: "/uʐin/",
+    translation: "makan malam",
+    category: "noun",
+    frequency: 293,
+    examples: [
+      { sentence: "Приготовить ужин", translation: "Siapkan makan malam" },
+      { sentence: "Ужин готов", translation: "Makan malam siap" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 294,
+    word: "ресторан",
+    pronunciation: "/rjestoran/",
+    translation: "restoran",
+    category: "noun",
+    frequency: 294,
+    examples: [
+      { sentence: "Пойти в ресторан", translation: "Pergi ke restoran" },
+      { sentence: "Хороший ресторан", translation: "Restoran bagus" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 295,
+    word: "Россия",
+    pronunciation: "/rossija/",
+    translation: "Rusia",
+    category: "noun",
+    frequency: 295,
+    examples: [
+      { sentence: "Я из России", translation: "Saya dari Rusia" },
+      { sentence: "Россия большая страна", translation: "Rusia negara besar" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 296,
+    word: "Москва",
+    pronunciation: "/moskva/",
+    translation: "Moskow",
+    category: "noun",
+    frequency: 296,
+    examples: [
+      { sentence: "Я живу в Москве", translation: "Saya tinggal di Moskow" },
+      { sentence: "Москва столица", translation: "Moskow ibu kota" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 297,
+    word: "русский",
+    pronunciation: "/russkij/",
+    translation: "bahasa Rusia, orang Rusia",
+    category: "adjective",
+    frequency: 297,
+    examples: [
+      { sentence: "Я говорю по-русски", translation: "Saya bicara bahasa Rusia" },
+      { sentence: "Русский язык", translation: "Bahasa Rusia" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 298,
+    word: "английский",
+    pronunciation: "/anɡlijskij/",
+    translation: "bahasa Inggris",
+    category: "adjective",
+    frequency: 298,
+    examples: [
+      { sentence: "Английский язык", translation: "Bahasa Inggris" },
+      { sentence: "Я учу английский", translation: "Saya belajar bahasa Inggris" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 299,
+    word: "страна",
+    pronunciation: "/strana/",
+    translation: "negara",
+    category: "noun",
+    frequency: 299,
+    examples: [
+      { sentence: "Моя страна", translation: "Negara saya" },
+      { sentence: "Другая страна", translation: "Negara lain" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 300,
+    word: "язык",
+    pronunciation: "/jazɨk/",
+    translation: "bahasa, lidah",
+    category: "noun",
+    frequency: 300,
+    examples: [
+      { sentence: "Изучать языки", translation: "Belajar bahasa" },
+      { sentence: "Индонезийский язык", translation: "Bahasa Indonesia" },
+    ],
+    lessonIds: [25],
+  },
+
+  {
+    id: 301,
+    word: "вставать",
+    pronunciation: "/vstavatʲ/",
+    translation: "bangun tidur",
+    category: "verb",
+    frequency: 301,
+    examples: [
+      { sentence: "Я встаю в 7 утра", translation: "Saya bangun jam 7 pagi" },
+      { sentence: "Вставай!", translation: "Bangun!" },
+    ],
+    wordFamily: [
+      { word: "встать", translation: "bangun (perfektif)" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 302,
+    word: "ложиться",
+    pronunciation: "/loʐitʲsja/",
+    translation: "pergi tidur",
+    category: "verb",
+    frequency: 302,
+    examples: [
+      { sentence: "Я ложусь в 11", translation: "Saya tidur jam 11" },
+      { sentence: "Ложись спать!", translation: "Pergi tidur!" },
+    ],
+    wordFamily: [
+      { word: "лечь", translation: "tidur (perfektif)" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 303,
+    word: "умываться",
+    pronunciation: "/umɨvatʲsja/",
+    translation: "cuci muka",
+    category: "verb",
+    frequency: 303,
+    examples: [
+      { sentence: "Я умываюсь утром", translation: "Saya cuci muka pagi" },
+      { sentence: "Умойся!", translation: "Cuci muka!" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 304,
+    word: "одеваться",
+    pronunciation: "/odjevatʲsja/",
+    translation: "berpakaian",
+    category: "verb",
+    frequency: 304,
+    examples: [
+      { sentence: "Я одеваюсь", translation: "Saya berpakaian" },
+      { sentence: "Оденься!", translation: "Pakailah baju!" },
+    ],
+    wordFamily: [
+      { word: "одеть", translation: "memakaikan" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 305,
+    word: "завтракать",
+    pronunciation: "/zavtrakatʲ/",
+    translation: "sarapan",
+    category: "verb",
+    frequency: 305,
+    examples: [
+      { sentence: "Я завтракаю в 8", translation: "Saya sarapan jam 8" },
+      { sentence: "Мы завтракаем вместе", translation: "Kami sarapan bersama" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 306,
+    word: "обедать",
+    pronunciation: "/objedatʲ/",
+    translation: "makan siang",
+    category: "verb",
+    frequency: 306,
+    examples: [
+      { sentence: "Где ты обедаешь?", translation: "Di mana kamu makan siang?" },
+      { sentence: "Я обедаю в столовой", translation: "Saya makan siang di kantin" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 307,
+    word: "ужинать",
+    pronunciation: "/uʐinatʲ/",
+    translation: "makan malam",
+    category: "verb",
+    frequency: 307,
+    examples: [
+      { sentence: "Мы ужинаем в 7", translation: "Kami makan malam jam 7" },
+      { sentence: "Приходи ужинать!", translation: "Datanglah untuk makan malam!" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 308,
+    word: "гулять",
+    pronunciation: "/ɡuljatʲ/",
+    translation: "jalan-jalan",
+    category: "verb",
+    frequency: 308,
+    examples: [
+      { sentence: "Я гуляю в парке", translation: "Saya jalan-jalan di taman" },
+      { sentence: "Пойдём гулять!", translation: "Ayo jalan-jalan!" },
+    ],
+    wordFamily: [
+      { word: "погулять", translation: "jalan-jalan sebentar" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 309,
+    word: "отдыхать",
+    pronunciation: "/otdɨxatʲ/",
+    translation: "beristirahat",
+    category: "verb",
+    frequency: 309,
+    examples: [
+      { sentence: "Я отдыхаю после работы", translation: "Saya istirahat setelah kerja" },
+      { sentence: "Отдыхай!", translation: "Beristirahatlah!" },
+    ],
+    wordFamily: [
+      { word: "отдохнуть", translation: "beristirahat (perfektif)" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 310,
+    word: "кушать",
+    pronunciation: "/kuʂatʲ/",
+    translation: "makan (informal)",
+    category: "verb",
+    frequency: 310,
+    examples: [
+      { sentence: "Я хочу кушать", translation: "Saya mau makan" },
+      { sentence: "Кушай!", translation: "Makanlah!" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 311,
+    word: "покупать",
+    pronunciation: "/pokupatʲ/",
+    translation: "membeli",
+    category: "verb",
+    frequency: 311,
+    examples: [
+      { sentence: "Я покупаю продукты", translation: "Saya membeli bahan makanan" },
+      { sentence: "Где ты покупаешь одежду?", translation: "Di mana kamu membeli pakaian?" },
+    ],
+    wordFamily: [
+      { word: "купить", translation: "beli (perfektif)" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 312,
+    word: "продавать",
+    pronunciation: "/prodavatʲ/",
+    translation: "menjual",
+    category: "verb",
+    frequency: 312,
+    examples: [
+      { sentence: "Они продают машины", translation: "Mereka menjual mobil" },
+      { sentence: "Это не продаётся", translation: "Ini tidak dijual" },
+    ],
+    wordFamily: [
+      { word: "продать", translation: "jual (perfektif)" },
+    ],
+    lessonIds: [26],
+  },
+
+  {
+    id: 313,
+    word: "цена",
+    pronunciation: "/tsjena/",
+    translation: "harga",
+    category: "noun",
+    frequency: 313,
+    examples: [
+      { sentence: "Цена билета", translation: "Harga tiket" },
+      { sentence: "Какая цена?", translation: "Berapa harganya?" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 314,
+    word: "деньги",
+    pronunciation: "/djenʲɡi/",
+    translation: "uang",
+    category: "noun",
+    frequency: 314,
+    examples: [
+      { sentence: "У меня нет денег", translation: "Saya tidak punya uang" },
+      { sentence: "Сколько денег?", translation: "Berapa uang?" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 315,
+    word: "карта",
+    pronunciation: "/karta/",
+    translation: "kartu, peta",
+    category: "noun",
+    frequency: 315,
+    examples: [
+      { sentence: "Кредитная карта", translation: "Kartu kredit" },
+      { sentence: "Карта города", translation: "Peta kota" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 316,
+    word: "сумка",
+    pronunciation: "/sumka/",
+    translation: "tas",
+    category: "noun",
+    frequency: 316,
+    examples: [
+      { sentence: "Моя сумка", translation: "Tas saya" },
+      { sentence: "Тяжёлая сумка", translation: "Tas berat" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 317,
+    word: "чемодан",
+    pronunciation: "/tɕjemodan/",
+    translation: "koper",
+    category: "noun",
+    frequency: 317,
+    examples: [
+      { sentence: "Упаковать чемодан", translation: "Mengemas koper" },
+      { sentence: "Большой чемодан", translation: "Koper besar" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 318,
+    word: "ключ",
+    pronunciation: "/kljutɕ/",
+    translation: "kunci",
+    category: "noun",
+    frequency: 318,
+    examples: [
+      { sentence: "Ключ от дома", translation: "Kunci rumah" },
+      { sentence: "Где мои ключи?", translation: "Di mana kunci saya?" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 319,
+    word: "телефон",
+    pronunciation: "/tjeljefon/",
+    translation: "telepon",
+    category: "noun",
+    frequency: 319,
+    examples: [
+      { sentence: "Мобильный телефон", translation: "Handphone" },
+      { sentence: "Номер телефона", translation: "Nomor telepon" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 320,
+    word: "компьютер",
+    pronunciation: "/kompjjutjer/",
+    translation: "komputer",
+    category: "noun",
+    frequency: 320,
+    examples: [
+      { sentence: "Работать на компьютере", translation: "Bekerja di komputer" },
+      { sentence: "Новый компьютер", translation: "Komputer baru" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 321,
+    word: "здоровье",
+    pronunciation: "/zdorovjje/",
+    translation: "kesehatan",
+    category: "noun",
+    frequency: 321,
+    examples: [
+      { sentence: "Как здоровье?", translation: "Bagaimana kesehatan?" },
+      { sentence: "Будь здоров!", translation: "Sehat selalu!" },
+    ],
+    wordFamily: [
+      { word: "здоровый", translation: "sehat" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 322,
+    word: "болезнь",
+    pronunciation: "/boljeznʲ/",
+    translation: "penyakit",
+    category: "noun",
+    frequency: 322,
+    examples: [
+      { sentence: "Серьёзная болезнь", translation: "Penyakit serius" },
+      { sentence: "Он пропустил работу из-за болезни", translation: "Dia tidak masuk kerja karena sakit" },
+    ],
+    wordFamily: [
+      { word: "болеть", translation: "sakit" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 323,
+    word: "врач",
+    pronunciation: "/vratɕ/",
+    translation: "dokter",
+    category: "noun",
+    frequency: 323,
+    examples: [
+      { sentence: "Пойти к врачу", translation: "Pergi ke dokter" },
+      { sentence: "Вызвать врача", translation: "Panggil dokter" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 324,
+    word: "аптека",
+    pronunciation: "/aptjeka/",
+    translation: "apotek",
+    category: "noun",
+    frequency: 324,
+    examples: [
+      { sentence: "Купить лекарство в аптеке", translation: "Beli obat di apotek" },
+      { sentence: "Ночная аптека", translation: "Apotek malam" },
+    ],
+    lessonIds: [27],
+  },
+
+  {
+    id: 325,
+    word: "лекарство",
+    pronunciation: "/ljekarstvo/",
+    translation: "obat",
+    category: "noun",
+    frequency: 325,
+    examples: [
+      { sentence: "Принять лекарство", translation: "Minum obat" },
+      { sentence: "Вкусное лекарство", translation: "Obat yang enak" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 326,
+    word: "боль",
+    pronunciation: "/bolʲ/",
+    translation: "sakit, nyeri",
+    category: "noun",
+    frequency: 326,
+    examples: [
+      { sentence: "У меня сильная боль", translation: "Saya sakit parah" },
+      { sentence: "Где болит?", translation: "Di mana sakitnya?" },
+    ],
+    wordFamily: [
+      { word: "больной", translation: "sakit" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 327,
+    word: "температура",
+    pronunciation: "/tjempjeratura/",
+    translation: "suhu, demam",
+    category: "noun",
+    frequency: 327,
+    examples: [
+      { sentence: "У него температура", translation: "Dia demam" },
+      { sentence: "Измерить температуру", translation: "Mengukur suhu" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 328,
+    word: "кашель",
+    pronunciation: "/kaʂjelʲ/",
+    translation: "batuk",
+    category: "noun",
+    frequency: 328,
+    examples: [
+      { sentence: "Сильный кашель", translation: "Batuk parah" },
+      { sentence: "Лекарство от кашля", translation: "Obat batuk" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 329,
+    word: "насморк",
+    pronunciation: "/nasmork/",
+    translation: "pilek",
+    category: "noun",
+    frequency: 329,
+    examples: [
+      { sentence: "У меня насморк", translation: "Saya pilek" },
+      { sentence: "Лечить насморк", translation: "Mengobati pilek" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 330,
+    word: "грипп",
+    pronunciation: "/ɡripp/",
+    translation: "flu",
+    category: "noun",
+    frequency: 330,
+    examples: [
+      { sentence: "Грипп опасен", translation: "Flu berbahaya" },
+      { sentence: "Прививка от гриппа", translation: "Vaksin flu" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 331,
+    word: "урок",
+    pronunciation: "/urok/",
+    translation: "pelajaran",
+    category: "noun",
+    frequency: 331,
+    examples: [
+      { sentence: "Интересный урок", translation: "Pelajaran menarik" },
+      { sentence: "Урок русского языка", translation: "Pelajaran bahasa Rusia" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 332,
+    word: "учитель",
+    pronunciation: "/utɕitjelʲ/",
+    translation: "guru",
+    category: "noun",
+    frequency: 332,
+    examples: [
+      { sentence: "Хороший учитель", translation: "Guru yang baik" },
+      { sentence: "Учитель русского языка", translation: "Guru bahasa Rusia" },
+    ],
+    wordFamily: [
+      { word: "учить", translation: "mengajar" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 333,
+    word: "ученик",
+    pronunciation: "/utɕjenik/",
+    translation: "murid",
+    category: "noun",
+    frequency: 333,
+    examples: [
+      { sentence: "Прилежный ученик", translation: "Murid rajin" },
+      { sentence: "Ученики слушают", translation: "Murid-murid mendengarkan" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 334,
+    word: "книга",
+    pronunciation: "/kniɡa/",
+    translation: "buku",
+    category: "noun",
+    frequency: 334,
+    examples: [
+      { sentence: "Интересная книга", translation: "Buku menarik" },
+      { sentence: "Читать книгу", translation: "Membaca buku" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 335,
+    word: "тетрадь",
+    pronunciation: "/tjetradʲ/",
+    translation: "buku catatan",
+    category: "noun",
+    frequency: 335,
+    examples: [
+      { sentence: "Новая тетрадь", translation: "Buku catatan baru" },
+      { sentence: "Писать в тетради", translation: "Menulis di buku catatan" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 336,
+    word: "ручка",
+    pronunciation: "/rutɕka/",
+    translation: "pulpen",
+    category: "noun",
+    frequency: 336,
+    examples: [
+      { sentence: "Синяя ручка", translation: "Pulpen biru" },
+      { sentence: "Писать ручкой", translation: "Menulis dengan pulpen" },
+    ],
+    lessonIds: [28],
+  },
+
+  {
+    id: 337,
+    word: "карандаш",
+    pronunciation: "/karandaʂ/",
+    translation: "pensil",
+    category: "noun",
+    frequency: 337,
+    examples: [
+      { sentence: "Простой карандаш", translation: "Pensil biasa" },
+      { sentence: "Рисовать карандашом", translation: "Menggambar dengan pensil" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 338,
+    word: "задание",
+    pronunciation: "/zadanije/",
+    translation: "tugas",
+    category: "noun",
+    frequency: 338,
+    examples: [
+      { sentence: "Домашнее задание", translation: "PR" },
+      { sentence: "Выполнить задание", translation: "Mengerjakan tugas" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 339,
+    word: "экзамен",
+    pronunciation: "/ɛkzamjen/",
+    translation: "ujian",
+    category: "noun",
+    frequency: 339,
+    examples: [
+      { sentence: "Сдать экзамен", translation: "Lulus ujian" },
+      { sentence: "Экзамен по русскому", translation: "Ujian bahasa Rusia" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 340,
+    word: "школа",
+    pronunciation: "/ʂkola/",
+    translation: "sekolah",
+    category: "noun",
+    frequency: 340,
+    examples: [
+      { sentence: "Я хожу в школу", translation: "Saya pergi ke sekolah" },
+      { sentence: "Школьный учитель", translation: "Guru sekolah" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 341,
+    word: "животное",
+    pronunciation: "/ʐivotnoje/",
+    translation: "binatang",
+    category: "noun",
+    frequency: 341,
+    examples: [
+      { sentence: "Домашнее животное", translation: "Hewan peliharaan" },
+      { sentence: "Дикое животное", translation: "Binatang liar" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 342,
+    word: "собака",
+    pronunciation: "/sobaka/",
+    translation: "anjing",
+    category: "noun",
+    frequency: 342,
+    examples: [
+      { sentence: "У меня есть собака", translation: "Saya punya anjing" },
+      { sentence: "Верная собака", translation: "Anjing setia" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 343,
+    word: "кошка",
+    pronunciation: "/koʂka/",
+    translation: "kucing",
+    category: "noun",
+    frequency: 343,
+    examples: [
+      { sentence: "Моя кошка", translation: "Kucingku" },
+      { sentence: "Маленький котёнок", translation: "Anak kucing kecil" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 344,
+    word: "птица",
+    pronunciation: "/ptitsa/",
+    translation: "burung",
+    category: "noun",
+    frequency: 344,
+    examples: [
+      { sentence: "Птицы поют", translation: "Burung bernyanyi" },
+      { sentence: "Перелётные птицы", translation: "Burung migran" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 345,
+    word: "рыба",
+    pronunciation: "/rɨba/",
+    translation: "ikan",
+    category: "noun",
+    frequency: 345,
+    examples: [
+      { sentence: "Ловить рыбу", translation: "Memancing ikan" },
+      { sentence: "Аквариумные рыбки", translation: "Ikan akuarium" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 346,
+    word: "лошадь",
+    pronunciation: "/loʂadʲ/",
+    translation: "kuda",
+    category: "noun",
+    frequency: 346,
+    examples: [
+      { sentence: "Красивая лошадь", translation: "Kuda indah" },
+      { sentence: "Кататься на лошади", translation: "Menunggang kuda" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 347,
+    word: "корова",
+    pronunciation: "/korova/",
+    translation: "sapi",
+    category: "noun",
+    frequency: 347,
+    examples: [
+      { sentence: "Корова даёт молоко", translation: "Sapi memberi susu" },
+      { sentence: "Стадо коров", translation: "Kawanan sapi" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 348,
+    word: "слон",
+    pronunciation: "/slon/",
+    translation: "gajah",
+    category: "noun",
+    frequency: 348,
+    examples: [
+      { sentence: "Большой слон", translation: "Gajah besar" },
+      { sentence: "Слон живёт в Африке", translation: "Gajah hidup di Afrika" },
+    ],
+    lessonIds: [29],
+  },
+
+  {
+    id: 349,
+    word: "медведь",
+    pronunciation: "/mjedvjedʲ/",
+    translation: "beruang",
+    category: "noun",
+    frequency: 349,
+    examples: [
+      { sentence: "Бурый медведь", translation: "Beruang coklat" },
+      { sentence: "Медведь зимой спит", translation: "Beruang tidur di musim dingin" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 350,
+    word: "волк",
+    pronunciation: "/volk/",
+    translation: "serigala",
+    category: "noun",
+    frequency: 350,
+    examples: [
+      { sentence: "Серый волк", translation: "Serigala abu-abu" },
+      { sentence: "Волк воет", translation: "Serigala melolong" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 351,
+    word: "деревня",
+    pronunciation: "/djerjevnja/",
+    translation: "desa",
+    category: "noun",
+    frequency: 351,
+    examples: [
+      { sentence: "Жить в деревне", translation: "Tinggal di desa" },
+      { sentence: "Маленькая деревня", translation: "Desa kecil" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 352,
+    word: "дача",
+    pronunciation: "/datɕa/",
+    translation: "dacha, rumah pedesaan",
+    category: "noun",
+    frequency: 352,
+    examples: [
+      { sentence: "Поехать на дачу", translation: "Pergi ke dacha" },
+      { sentence: "Дача за городом", translation: "Dacha di luar kota" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 353,
+    word: "работа",
+    pronunciation: "/rabota/",
+    translation: "pekerjaan",
+    category: "noun",
+    frequency: 353,
+    examples: [
+      { sentence: "Интересная работа", translation: "Pekerjaan menarik" },
+      { sentence: "Потерять работу", translation: "Kehilangan pekerjaan" },
+    ],
+    wordFamily: [
+      { word: "рабочий", translation: "pekerja" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 354,
+    word: "завод",
+    pronunciation: "/zavod/",
+    translation: "pabrik",
+    category: "noun",
+    frequency: 354,
+    examples: [
+      { sentence: "Работать на заводе", translation: "Bekerja di pabrik" },
+      { sentence: "Автомобильный завод", translation: "Pabrik mobil" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 355,
+    word: "офис",
+    pronunciation: "/ofis/",
+    translation: "kantor",
+    category: "noun",
+    frequency: 355,
+    examples: [
+      { sentence: "Работать в офисе", translation: "Bekerja di kantor" },
+      { sentence: "Офисное здание", translation: "Gedung kantor" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 356,
+    word: "компания",
+    pronunciation: "/kompanija/",
+    translation: "perusahaan",
+    category: "noun",
+    frequency: 356,
+    examples: [
+      { sentence: "Большая компания", translation: "Perusahaan besar" },
+      { sentence: "Иностранная компания", translation: "Perusahaan asing" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 357,
+    word: "деньги",
+    pronunciation: "/djenʲɡi/",
+    translation: "uang",
+    category: "noun",
+    frequency: 357,
+    examples: [
+      { sentence: "Зарабатывать деньги", translation: "Menghasilkan uang" },
+      { sentence: "Много денег", translation: "Banyak uang" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 358,
+    word: "зарплата",
+    pronunciation: "/zarplata/",
+    translation: "gaji",
+    category: "noun",
+    frequency: 358,
+    examples: [
+      { sentence: "Высокая зарплата", translation: "Gaji tinggi" },
+      { sentence: "Получить зарплату", translation: "Menerima gaji" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 359,
+    word: "отпуск",
+    pronunciation: "/otpusk/",
+    translation: "liburan, cuti",
+    category: "noun",
+    frequency: 359,
+    examples: [
+      { sentence: "Летний отпуск", translation: "Liburan musim panas" },
+      { sentence: "Я в отпуске", translation: "Saya sedang cuti" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 360,
+    word: "путешествие",
+    pronunciation: "/putjeʂjestvije/",
+    translation: "perjalanan",
+    category: "noun",
+    frequency: 360,
+    examples: [
+      { sentence: "Путешествие за границу", translation: "Perjalanan ke luar negeri" },
+      { sentence: "Интересное путешествие", translation: "Perjalanan menarik" },
+    ],
+    wordFamily: [
+      { word: "путешествовать", translation: "bepergian" },
+    ],
+    lessonIds: [30],
+  },
+
+  {
+    id: 361,
+    word: "спокойный",
+    pronunciation: "/spokojnɨj/",
+    translation: "tenang",
+    category: "adjective",
+    frequency: 361,
+    examples: [
+      { sentence: "Спокойная ночь", translation: "Malam tenang" },
+      { sentence: "Спокойный человек", translation: "Orang tenang" },
+    ],
+    wordFamily: [
+      { word: "спокойно", translation: "dengan tenang" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 362,
+    word: "весёлый",
+    pronunciation: "/vjesёlɨj/",
+    translation: "ceria, gembira",
+    category: "adjective",
+    frequency: 362,
+    examples: [
+      { sentence: "Весёлый праздник", translation: "Pesta meriah" },
+      { sentence: "Весёлая компания", translation: "Kelompok ceria" },
+    ],
+    wordFamily: [
+      { word: "веселье", translation: "kegembiraan" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 363,
+    word: "счастливый",
+    pronunciation: "/stɕastlivɨj/",
+    translation: "bahagia",
+    category: "adjective",
+    frequency: 363,
+    examples: [
+      { sentence: "Счастливый человек", translation: "Orang bahagia" },
+      { sentence: "Счастливая семья", translation: "Keluarga bahagia" },
+    ],
+    wordFamily: [
+      { word: "счастье", translation: "kebahagiaan" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 364,
+    word: "усталый",
+    pronunciation: "/ustalɨj/",
+    translation: "lelah",
+    category: "adjective",
+    frequency: 364,
+    examples: [
+      { sentence: "Я очень усталый", translation: "Saya sangat lelah" },
+      { sentence: "Усталый после работы", translation: "Lelah setelah kerja" },
+    ],
+    wordFamily: [
+      { word: "устать", translation: "menjadi lelah" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 365,
+    word: "сердитый",
+    pronunciation: "/sjerditɨj/",
+    translation: "marah",
+    category: "adjective",
+    frequency: 365,
+    examples: [
+      { sentence: "Он сердитый", translation: "Dia marah" },
+      { sentence: "Сердитый голос", translation: "Suara marah" },
+    ],
+    wordFamily: [
+      { word: "сердиться", translation: "marah" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 366,
+    word: "любопытный",
+    pronunciation: "/ljubopɨtnɨj/",
+    translation: "ingin tahu",
+    category: "adjective",
+    frequency: 366,
+    examples: [
+      { sentence: "Любопытный ребёнок", translation: "Anak yang ingin tahu" },
+      { sentence: "Любопытный взгляд", translation: "Pandangan penasaran" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 367,
+    word: "интересный",
+    pronunciation: "/intjerjesnɨj/",
+    translation: "menarik",
+    category: "adjective",
+    frequency: 367,
+    examples: [
+      { sentence: "Интересный фильм", translation: "Film menarik" },
+      { sentence: "Интересная книга", translation: "Buku menarik" },
+    ],
+    wordFamily: [
+      { word: "интерес", translation: "ketertarikan" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 368,
+    word: "скучный",
+    pronunciation: "/skutɕnɨj/",
+    translation: "membosankan",
+    category: "adjective",
+    frequency: 368,
+    examples: [
+      { sentence: "Скучный урок", translation: "Pelajaran membosankan" },
+      { sentence: "Очень скучно", translation: "Sangat membosankan" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 369,
+    word: "трудный",
+    pronunciation: "/trudnɨj/",
+    translation: "sulit",
+    category: "adjective",
+    frequency: 369,
+    examples: [
+      { sentence: "Трудный экзамен", translation: "Ujian sulit" },
+      { sentence: "Трудная задача", translation: "Tugas sulit" },
+    ],
+    wordFamily: [
+      { word: "трудно", translation: "sulit (adv)" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 370,
+    word: "простой",
+    pronunciation: "/prostoj/",
+    translation: "sederhana, mudah",
+    category: "adjective",
+    frequency: 370,
+    examples: [
+      { sentence: "Простой вопрос", translation: "Pertanyaan mudah" },
+      { sentence: "Простая задача", translation: "Tugas sederhana" },
+    ],
+    wordFamily: [
+      { word: "просто", translation: "mudah (adv)" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 371,
+    word: "начинать",
+    pronunciation: "/natɕinatʲ/",
+    translation: "mulai (imperfektif)",
+    category: "verb",
+    frequency: 371,
+    examples: [
+      { sentence: "Я начинаю урок", translation: "Saya mulai pelajaran" },
+      { sentence: "Начинаем!", translation: "Kita mulai!" },
+    ],
+    wordFamily: [
+      { word: "начать", translation: "mulai (perfektif)" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 372,
+    word: "кончать",
+    pronunciation: "/kontɕatʲ/",
+    translation: "selesai (imperfektif)",
+    category: "verb",
+    frequency: 372,
+    examples: [
+      { sentence: "Я кончаю работу", translation: "Saya selesai kerja" },
+      { sentence: "Кончай!", translation: "Hentikan!" },
+    ],
+    wordFamily: [
+      { word: "кончить", translation: "selesai (perfektif)" },
+    ],
+    lessonIds: [31],
+  },
+
+  {
+    id: 373,
+    word: "открывать",
+    pronunciation: "/otkrɨvatʲ/",
+    translation: "membuka (imperfektif)",
+    category: "verb",
+    frequency: 373,
+    examples: [
+      { sentence: "Я открываю дверь", translation: "Saya membuka pintu" },
+      { sentence: "Магазин открывается в 9", translation: "Toko buka jam 9" },
+    ],
+    wordFamily: [
+      { word: "открыть", translation: "buka (perfektif)" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 374,
+    word: "закрывать",
+    pronunciation: "/zakrɨvatʲ/",
+    translation: "menutup (imperfektif)",
+    category: "verb",
+    frequency: 374,
+    examples: [
+      { sentence: "Я закрываю окно", translation: "Saya menutup jendela" },
+      { sentence: "Магазин закрывается в 8", translation: "Toko tutup jam 8" },
+    ],
+    wordFamily: [
+      { word: "закрыть", translation: "tutup (perfektif)" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 375,
+    word: "класть",
+    pronunciation: "/klastʲ/",
+    translation: "meletakkan (imperfektif)",
+    category: "verb",
+    frequency: 375,
+    examples: [
+      { sentence: "Я кладу книгу на стол", translation: "Saya meletakkan buku di meja" },
+      { sentence: "Куда ты положил ключи?", translation: "Di mana kamu meletakkan kunci?" },
+    ],
+    wordFamily: [
+      { word: "положить", translation: "letakkan (perfektif)" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 376,
+    word: "брать",
+    pronunciation: "/bratʲ/",
+    translation: "mengambil (imperfektif)",
+    category: "verb",
+    frequency: 376,
+    examples: [
+      { sentence: "Я беру книгу", translation: "Saya mengambil buku" },
+      { sentence: "Возьми!", translation: "Ambil!" },
+    ],
+    wordFamily: [
+      { word: "взять", translation: "ambil (perfektif)" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 377,
+    word: "давать",
+    pronunciation: "/davatʲ/",
+    translation: "memberi (imperfektif)",
+    category: "verb",
+    frequency: 377,
+    examples: [
+      { sentence: "Я даю тебе книгу", translation: "Saya memberi kamu buku" },
+      { sentence: "Дай мне!", translation: "Berikan saya!" },
+    ],
+    wordFamily: [
+      { word: "дать", translation: "beri (perfektif)" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 378,
+    word: "держать",
+    pronunciation: "/djerʐatʲ/",
+    translation: "memegang",
+    category: "verb",
+    frequency: 378,
+    examples: [
+      { sentence: "Я держу сумку", translation: "Saya memegang tas" },
+      { sentence: "Держи!", translation: "Pegang!" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 379,
+    word: "нести",
+    pronunciation: "/njesti/",
+    translation: "membawa (berjalan)",
+    category: "verb",
+    frequency: 379,
+    examples: [
+      { sentence: "Я несу сумку", translation: "Saya membawa tas" },
+      { sentence: "Что ты несёшь?", translation: "Apa yang kamu bawa?" },
+    ],
+    wordFamily: [
+      { word: "принести", translation: "bawakan" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 380,
+    word: "везти",
+    pronunciation: "/vjezti/",
+    translation: "membawa (kendaraan)",
+    category: "verb",
+    frequency: 380,
+    examples: [
+      { sentence: "Я везу детей в школу", translation: "Saya antar anak ke sekolah" },
+      { sentence: "Поезд везёт груз", translation: "Kereta membawa barang" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 381,
+    word: "интернет",
+    pronunciation: "/intjernjet/",
+    translation: "internet",
+    category: "noun",
+    frequency: 381,
+    examples: [
+      { sentence: "Выйти в интернет", translation: "Online" },
+      { sentence: "Скорость интернета", translation: "Kecepatan internet" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 382,
+    word: "сайт",
+    pronunciation: "/sajt/",
+    translation: "situs web",
+    category: "noun",
+    frequency: 382,
+    examples: [
+      { sentence: "Интересный сайт", translation: "Situs menarik" },
+      { sentence: "Создать сайт", translation: "Membuat situs" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 383,
+    word: "почта",
+    pronunciation: "/potɕta/",
+    translation: "pos, surel",
+    category: "noun",
+    frequency: 383,
+    examples: [
+      { sentence: "Электронная почта", translation: "Surel" },
+      { sentence: "Почтовый ящик", translation: "Kotak pos" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 384,
+    word: "сообщение",
+    pronunciation: "/soobɕːjenije/",
+    translation: "pesan",
+    category: "noun",
+    frequency: 384,
+    examples: [
+      { sentence: "Отправить сообщение", translation: "Kirim pesan" },
+      { sentence: "Текстовое сообщение", translation: "Pesan teks" },
+    ],
+    lessonIds: [32],
+  },
+
+  {
+    id: 385,
+    word: "новость",
+    pronunciation: "/novostʲ/",
+    translation: "berita",
+    category: "noun",
+    frequency: 385,
+    examples: [
+      { sentence: "Хорошая новость!", translation: "Kabar baik!" },
+      { sentence: "Новости по телевизору", translation: "Berita di TV" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 386,
+    word: "телевизор",
+    pronunciation: "/tjeljevizor/",
+    translation: "televisi",
+    category: "noun",
+    frequency: 386,
+    examples: [
+      { sentence: "Смотреть телевизор", translation: "Menonton TV" },
+      { sentence: "Включить телевизор", translation: "Menyalakan TV" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 387,
+    word: "фильм",
+    pronunciation: "/filʲm/",
+    translation: "film",
+    category: "noun",
+    frequency: 387,
+    examples: [
+      { sentence: "Интересный фильм", translation: "Film menarik" },
+      { sentence: "Смотреть фильм", translation: "Menonton film" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 388,
+    word: "музыка",
+    pronunciation: "/muzɨka/",
+    translation: "musik",
+    category: "noun",
+    frequency: 388,
+    examples: [
+      { sentence: "Слушать музыку", translation: "Mendengarkan musik" },
+      { sentence: "Классическая музыка", translation: "Musik klasik" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 389,
+    word: "фото",
+    pronunciation: "/foto/",
+    translation: "foto",
+    category: "noun",
+    frequency: 389,
+    examples: [
+      { sentence: "Сделать фото", translation: "Ambil foto" },
+      { sentence: "Красивое фото", translation: "Foto indah" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 390,
+    word: "камера",
+    pronunciation: "/kamjera/",
+    translation: "kamera",
+    category: "noun",
+    frequency: 390,
+    examples: [
+      { sentence: "Цифровая камера", translation: "Kamera digital" },
+      { sentence: "Камера телефона", translation: "Kamera telepon" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 391,
+    word: "растение",
+    pronunciation: "/rastjenije/",
+    translation: "tanaman",
+    category: "noun",
+    frequency: 391,
+    examples: [
+      { sentence: "Комнатное растение", translation: "Tanaman hias" },
+      { sentence: "Поливать растения", translation: "Menyiram tanaman" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 392,
+    word: "дерево",
+    pronunciation: "/djerjevo/",
+    translation: "pohon",
+    category: "noun",
+    frequency: 392,
+    examples: [
+      { sentence: "Высокое дерево", translation: "Pohon tinggi" },
+      { sentence: "Зелёное дерево", translation: "Pohon hijau" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 393,
+    word: "цветок",
+    pronunciation: "/tsvjetok/",
+    translation: "bunga",
+    category: "noun",
+    frequency: 393,
+    examples: [
+      { sentence: "Красивый цветок", translation: "Bunga indah" },
+      { sentence: "Букет цветов", translation: "Karangan bunga" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 394,
+    word: "трава",
+    pronunciation: "/trava/",
+    translation: "rumput",
+    category: "noun",
+    frequency: 394,
+    examples: [
+      { sentence: "Зелёная трава", translation: "Rumput hijau" },
+      { sentence: "Стричь траву", translation: "Memotong rumput" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 395,
+    word: "поле",
+    pronunciation: "/polje/",
+    translation: "ladang",
+    category: "noun",
+    frequency: 395,
+    examples: [
+      { sentence: "Широкое поле", translation: "Ladang luas" },
+      { sentence: "Футбольное поле", translation: "Lapangan sepak bola" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 396,
+    word: "озеро",
+    pronunciation: "/ozjero/",
+    translation: "danau",
+    category: "noun",
+    frequency: 396,
+    examples: [
+      { sentence: "Глубокое озеро", translation: "Danau dalam" },
+      { sentence: "Купаться в озере", translation: "Berenang di danau" },
+    ],
+    lessonIds: [33],
+  },
+
+  {
+    id: 397,
+    word: "остров",
+    pronunciation: "/ostrov/",
+    translation: "pulau",
+    category: "noun",
+    frequency: 397,
+    examples: [
+      { sentence: "Необитаемый остров", translation: "Pulau tak berpenghuni" },
+      { sentence: "На острове тепло", translation: "Di pulau hangat" },
+    ],
+    lessonIds: [34],
+  },
+
+  {
+    id: 398,
+    word: "берег",
+    pronunciation: "/bjerjeɡ/",
+    translation: "tepi, pantai",
+    category: "noun",
+    frequency: 398,
+    examples: [
+      { sentence: "На берегу моря", translation: "Di tepi laut" },
+      { sentence: "Песчаный берег", translation: "Pantai berpasir" },
+    ],
+    lessonIds: [34],
+  },
+
+  {
+    id: 399,
+    word: "волна",
+    pronunciation: "/volna/",
+    translation: "gelombang",
+    category: "noun",
+    frequency: 399,
+    examples: [
+      { sentence: "Большая волна", translation: "Gelombang besar" },
+      { sentence: "Волны бьются о берег", translation: "Ombak menghantam pantai" },
+    ],
+    lessonIds: [34],
+  },
+
+  {
+    id: 400,
+    word: "камень",
+    pronunciation: "/kamjenʲ/",
+    translation: "batu",
+    category: "noun",
+    frequency: 400,
+    examples: [
+      { sentence: "Тяжёлый камень", translation: "Batu berat" },
+      { sentence: "Бросать камень", translation: "Melempar batu" },
+    ],
+    lessonIds: [34],
+  },
+
+  {
+    id: 401,
+    word: "космос",
+    pronunciation: "/kosmos/",
+    translation: "angkasa luar",
+    category: "noun",
+    frequency: 401,
+    examples: [
+      { sentence: "Полёт в космос", translation: "Penerbangan ke angkasa" },
+      { sentence: "Космическая станция", translation: "Stasiun luar angkasa" },
+    ],
+    lessonIds: [34],
+  },
+
+  {
+    id: 402,
+    word: "звезда",
+    pronunciation: "/zvjezda/",
+    translation: "bintang",
+    category: "noun",
+    frequency: 402,
+    examples: [
+      { sentence: "Звёзды на небе", translation: "Bintang di langit" },
+      { sentence: "Путеводная звезда", translation: "Bintang penuntun" },
+    ],
+    lessonIds: [34],
+  },
+
+  {
+    id: 403,
+    word: "планета",
+    pronunciation: "/planjeta/",
+    translation: "planet",
+    category: "noun",
+    frequency: 403,
+    examples: [
+      { sentence: "Земля — планета", translation: "Bumi adalah planet" },
+      { sentence: "Другая планета", translation: "Planet lain" },
+    ],
+    lessonIds: [34],
+  },
+
+  {
+    id: 404,
+    word: "мир",
+    pronunciation: "/mir/",
+    translation: "dunia, damai",
+    category: "noun",
+    frequency: 404,
+    examples: [
+      { sentence: "Весь мир", translation: "Seluruh dunia" },
+      { sentence: "Мир во всём мире", translation: "Perdamaian di seluruh dunia" },
+    ],
+    lessonIds: [34],
+  },
+
+  {
+    id: 405,
+    word: "земля",
+    pronunciation: "/zjemlja/",
+    translation: "bumi, tanah",
+    category: "noun",
+    frequency: 405,
+    examples: [
+      { sentence: "Земля круглая", translation: "Bumi bulat" },
+      { sentence: "Родная земля", translation: "Tanah air" },
+    ],
+    lessonIds: [34],
+  }
+
 ];
