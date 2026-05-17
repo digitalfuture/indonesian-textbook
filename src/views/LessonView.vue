@@ -3,6 +3,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useLesson } from "../composables/useLesson";
 import { useLanguageStore } from "../stores/language";
 import { useSpeech } from "../composables/useSpeech";
+import { useTranscription } from "../composables/useTranscription";
 import LessonHeader from "../components/lesson/LessonHeader.vue";
 import LessonTabs from "../components/lesson/LessonTabs.vue";
 import LessonExercises from "../components/lesson/LessonExercises.vue";
@@ -12,6 +13,7 @@ const route = useRoute();
 const router = useRouter();
 const langStore = useLanguageStore();
 const { speak } = useSpeech();
+const { transcribe } = useTranscription();
 const lessonId = parseInt(route.params.id as string);
 const {
   lesson,
@@ -53,7 +55,14 @@ function handleUncomplete() {
     <main class="lesson-content">
       <section v-if="currentStep === 'theory'" class="theory-section fade-in">
         <div class="content-card">
-          <h2>{{ $t('lesson.tabs.theory') }}</h2>
+          <h2>
+            {{ $t('lesson.tabs.theory') }}
+            <button
+              class="audio-btn-sm"
+              @click.stop="speak(lesson?.content?.theory || '')"
+              title="Прослушать теорию"
+            >🔊</button>
+          </h2>
           <div
             class="theory-text"
             v-html="lesson.content.theory.replace(/\n/g, '<br>')"
@@ -92,6 +101,9 @@ function handleUncomplete() {
                     @click.stop="speak(example.indonesian)"
                     title="Прослушать"
                   >🔊</button>
+                  <span class="example-phonetic" v-if="example.indonesian">
+                    {{ transcribe(example.indonesian, langStore.targetLang === 'id' ? 'id' : 'ru') }}
+                  </span>
                 </div>
                 <div class="example-russian">{{ example.russian }}</div>
                 <div v-if="example.notes" class="example-notes">
@@ -189,6 +201,14 @@ function handleUncomplete() {
 .audio-btn-sm:hover {
   opacity: 1;
 }
+
+.example-phonetic {
+  font-size: 0.78rem;
+  color: var(--text);
+  opacity: 0.45;
+  font-style: italic;
+}
+
 .example-russian {
   color: var(--text);
   margin-bottom: 0.5rem;
