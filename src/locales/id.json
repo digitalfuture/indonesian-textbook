@@ -126,14 +126,7 @@
   "grammar.backToList": "← Kembali ke daftar",
   "grammar.table.termColumn": "Istilah",
   "grammar.table.entryCount": "{count} entri",
-  "grammar.table.pronouns.title": "Kata Ganti Orang",
-  "grammar.table.tenses.title": "Kala dan Aspek",
-  "grammar.table.negation.title": "Negasi",
-  "grammar.table.prepositions.title": "Preposisi",
   "grammar.table.questionWords.title": "Kata Tanya",
-  "grammar.table.conjunctions.title": "Konjungsi",
-  "grammar.table.modals.title": "Kata Kerja Modal",
-  "grammar.table.numbers.title": "Angka dan Berhitung",
   "progress.title": "📈 Kemajuan Anda",
   "progress.stats.title": "Statistik Umum",
   "progress.stats.wordsLearned": "Kata dipelajari",
@@ -202,5 +195,12 @@
   "grammar.table.modals.description.id": "Ekspresi kemungkinan, keharusan, dan keinginan",
   "grammar.table.modals.description.ru": "Ekspresi kemungkinan, keharusan, dan keinginan",
   "grammar.table.numbers.description.id": "Angka dan penggolong",
-  "grammar.table.numbers.description.ru": "Angka dan penggolong"
+  "grammar.table.numbers.description.ru": "Angka dan penggolong",
+  "grammar.table.pronouns.title.id": "Kata Ganti Orang",
+  "grammar.table.tenses.title.id": "Kala dan Aspek",
+  "grammar.table.negation.title.id": "Negasi",
+  "grammar.table.prepositions.title.id": "Preposisi",
+  "grammar.table.conjunctions.title.id": "Konjungsi",
+  "grammar.table.modals.title.id": "Kata Kerja Modal",
+  "grammar.table.numbers.title.id": "Angka dan Berhitung"
 }

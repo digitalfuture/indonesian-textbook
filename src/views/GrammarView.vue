@@ -548,7 +548,7 @@ function goBack() {
       </button>
 
       <div class="table-card">
-        <h2>{{ selectedTable.icon }} {{ $t('grammar.table.' + selectedTable.id + '.title') }}</h2>
+        <h2>{{ selectedTable.icon }} {{ $t('grammar.table.' + selectedTable.id + '.title.' + langStore.targetLang) }}</h2>
         <p class="table-description">{{ $t('grammar.table.' + selectedTable.id + '.description.' + langStore.targetLang) }}</p>
 
         <div class="table-container">
@@ -582,7 +582,7 @@ function goBack() {
           @click="goToTable(table.id)"
         >
           <div class="table-icon">{{ table.icon }}</div>
-          <h3>{{ table.icon }} {{ $t('grammar.table.' + table.id + '.title') }}</h3>
+          <h3>{{ table.icon }} {{ $t('grammar.table.' + table.id + '.title.' + langStore.targetLang) }}</h3>
           <p>{{ $t('grammar.table.' + table.id + '.description.' + langStore.targetLang) }}</p>
           <div class="table-meta">
             <span>{{ $t('grammar.table.entryCount', { count: table.rows.length }) }}</span>
