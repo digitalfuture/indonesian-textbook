@@ -2,6 +2,7 @@
 import { useRoute, useRouter } from "vue-router";
 import { useLesson } from "../composables/useLesson";
 import { useLanguageStore } from "../stores/language";
+import { useSpeech } from "../composables/useSpeech";
 import LessonHeader from "../components/lesson/LessonHeader.vue";
 import LessonTabs from "../components/lesson/LessonTabs.vue";
 import LessonExercises from "../components/lesson/LessonExercises.vue";
@@ -10,6 +11,7 @@ import LessonCompletion from "../components/lesson/LessonCompletion.vue";
 const route = useRoute();
 const router = useRouter();
 const langStore = useLanguageStore();
+const { speak } = useSpeech();
 const lessonId = parseInt(route.params.id as string);
 const {
   lesson,
@@ -78,17 +80,24 @@ function handleUncomplete() {
         <div class="content-card">
           <h2>{{ $t('lesson.tabs.examples') }}</h2>
           <div class="examples-grid">
-            <div
-              v-for="(example, index) in lesson.content.examples"
-              :key="index"
-              class="example-card"
-            >
-              <div class="example-indonesian">{{ example.indonesian }}</div>
-              <div class="example-russian">{{ example.russian }}</div>
-              <div v-if="example.notes" class="example-notes">
-                {{ example.notes }}
+              <div
+                v-for="(example, index) in lesson.content.examples"
+                :key="index"
+                class="example-card"
+              >
+                <div class="example-indonesian">
+                  {{ example.indonesian }}
+                  <button
+                    class="audio-btn-sm"
+                    @click.stop="speak(example.indonesian)"
+                    title="Прослушать"
+                  >🔊</button>
+                </div>
+                <div class="example-russian">{{ example.russian }}</div>
+                <div v-if="example.notes" class="example-notes">
+                  {{ example.notes }}
+                </div>
               </div>
-            </div>
           </div>
         </div>
       </section>
@@ -161,6 +170,24 @@ function handleUncomplete() {
   font-weight: 500;
   color: var(--text-h);
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.audio-btn-sm {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  vertical-align: middle;
+}
+
+.audio-btn-sm:hover {
+  opacity: 1;
 }
 .example-russian {
   color: var(--text);
