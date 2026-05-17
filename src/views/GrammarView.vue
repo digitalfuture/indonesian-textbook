@@ -3,11 +3,20 @@ import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useLanguageStore } from "../stores/language";
 import { useSpeech } from "../composables/useSpeech";
+import { useTranscription } from "../composables/useTranscription";
 
 const route = useRoute();
 const router = useRouter();
 const langStore = useLanguageStore();
 const { speak } = useSpeech();
+const { transcribe } = useTranscription();
+
+function getPhonetic(label: string): string {
+  const lang = langStore.targetLang === "id" ? "id" : "ru";
+  const clean = label.replace(/\s*\[.*?\]/g, "").trim();
+  if (!clean) return "";
+  return transcribe(clean, lang);
+}
 
 function playWord(label: string) {
   const word = label.split(/\[|\{/)[0].trim();
@@ -480,47 +489,38 @@ const grammarTablesId = [
     icon: "🔢",
     headers: ["Число", "Индонезийский", "Примечание"],
     rows: [
-      {
-        label: "0",
-        cells: ["nol", "Заимствовано из голландского", "null/nul"],
-      },
+      { label: "0", cells: ["nol", "Заимствование", "nomor nol (номер ноль)"] },
       { label: "1", cells: ["satu", "Основа", "satu orang (один человек)"] },
       { label: "2", cells: ["dua", "Основа", "dua buku (две книги)"] },
       { label: "3", cells: ["tiga", "Основа", "tiga rumah (три дома)"] },
-      {
-        label: "10",
-        cells: [
-          "sepuluh",
-          "Префикс se- + puluh",
-          "sepuluh siswa (10 учеников)",
-        ],
-      },
-      {
-        label: "20",
-        cells: ["dua puluh", "Число + puluh", "dua puluh orang (20 человек)"],
-      },
-      {
-        label: "100",
-        cells: ["seratus", "Префикс se- + ratus", "seratus rupiah (100 рупий)"],
-      },
-      {
-        label: "1000",
-        cells: ["seribu", "Префикс se- + ribu", "seribu dolar (1000 долларов)"],
-      },
+      { label: "4", cells: ["empat", "Основа", "empat kursi (четыре стула)"] },
+      { label: "5", cells: ["lima", "Основа", "lima jari (пять пальцев)"] },
+      { label: "10", cells: ["sepuluh", "se- + puluh", "sepuluh siswa (10 учеников)"] },
+      { label: "11", cells: ["sebelas", "se- + belas", "sebelas orang (11 человек)"] },
+      { label: "12", cells: ["dua belas", "dua + belas", "dua belas jam (12 часов)"] },
+      { label: "20", cells: ["dua puluh", "dua + puluh", "dua puluh orang (20 человек)"] },
+      { label: "21", cells: ["dua puluh satu", "puluhan + satuan", "dua puluh satu buku (21 книга)"] },
+      { label: "100", cells: ["seratus", "se- + ratus", "seratus rupiah (100 рупий)"] },
+      { label: "101", cells: ["seratus satu", "ratus + satuan", "seratus satu orang (101 человек)"] },
+      { label: "1000", cells: ["seribu", "se- + ribu", "seribu dolar (1000 долларов)"] },
       {
         label: "orang",
-        cells: [
-          "Классификатор для людей",
-          "dua orang (два человека)",
-          "Обязателен при счёте людей",
-        ],
+        cells: ["Классификатор людей", "dua orang (два человека)", "Обязателен при счёте людей"],
       },
       {
         label: "buah",
+        cells: ["Классификатор предметов", "dua buah rumah (два дома)", "Общий для вещей"],
+      },
+      {
+        label: "ekor",
+        cells: ["Классификатор животных", "tiga ekor kucing (три кошки)", "Для животных"],
+      },
+      {
+        label: "Правила",
         cells: [
-          "Классификатор для предметов",
-          "dua buah rumah (два дома)",
-          "Общий классификатор для вещей",
+          "11-19: + belas\n20+: puluh\n100+: ratus\n1000+: ribu",
+          "11 = se-belas, 12 = dua belas\n20 = dua puluh, 21 = dua puluh satu",
+          "Порядок: angka + классификатор + benda",
         ],
       },
     ],
@@ -644,14 +644,36 @@ const grammarTablesRu = [
     icon: "🔢",
     headers: ["Angka", "Rusia", "Contoh"],
     rows: [
-      { label: "1", cells: ["один [a-DEEN]", "один билет (satu tiket)"] },
+      { label: "1", cells: ["один [aˈdʲin]", "один билет (satu tiket)"] },
       { label: "2", cells: ["два [dva]", "два билета (dua tiket)"] },
-      { label: "3", cells: ["три [tree]", "три рубля (tiga rubel)"] },
-      { label: "5", cells: ["пять [pyat]", "пять минут (lima menit)"] },
-      { label: "10", cells: ["десять [DYE-syat]", "десять рублей (sepuluh rubel)"] },
-      { label: "20", cells: ["двадцать [DVAd-tsat]", "двадцать лет (dua puluh tahun)"] },
+      { label: "3", cells: ["три [trʲi]", "три рубля (tiga rubel)"] },
+      { label: "4", cells: ["четыре [tɕiˈtɨrʲe]", "четыре рубля (empat rubel)"] },
+      { label: "5", cells: ["пять [pʲætʲ]", "пять минут (lima menit)"] },
+      { label: "6", cells: ["шесть [ʂɛsʲtʲ]", "шесть рублей (enam rubel)"] },
+      { label: "7", cells: ["семь [sʲemʲ]", "семь дней (tujuh hari)"] },
+      { label: "8", cells: ["восемь [ˈvo.sʲɪmʲ]", "восемь часов (delapan jam)"] },
+      { label: "9", cells: ["девять [ˈdʲe.vʲɪtʲ]", "девять рублей (sembilan rubel)"] },
+      { label: "10", cells: ["десять [ˈdʲe.sʲɪtʲ]", "десять рублей (sepuluh rubel)"] },
+      { label: "11", cells: ["одиннадцать [ɐˈdʲi.nət͡sətʲ]", "одиннадцать рублей (sebelas rubel)"] },
+      { label: "12", cells: ["двенадцать [dvʲɪˈnat͡sətʲ]", "двенадцать часов (dua belas jam)"] },
+      { label: "13", cells: ["тринадцать [trʲɪˈnat͡sətʲ]", "тринадцать рублей (tiga belas rubel)"] },
+      { label: "14", cells: ["четырнадцать [tɕɪˈtɨr.nət͡sətʲ]", "четырнадцать дней (empat belas hari)"] },
+      { label: "15", cells: ["пятнадцать [pʲɪtˈnat͡sətʲ]", "пятнадцать минут (lima belas menit)"] },
+      { label: "20", cells: ["двадцать [ˈdva.t͡sətʲ]", "двадцать лет (dua puluh tahun)"] },
+      { label: "21", cells: ["двадцать один [ˈdva.t͡sətʲ ɐˈdʲin]", "двадцать один рубль (dua puluh satu rubel)"] },
+      { label: "30", cells: ["тридцать [ˈtrʲi.t͡sətʲ]", "тридцать минут (tiga puluh menit)"] },
+      { label: "40", cells: ["сорок [ˈso.rək]", "сорок рублей (empat puluh rubel)"] },
+      { label: "50", cells: ["пятьдесят [pʲɪ.dʲɪˈsʲat]", "пятьдесят рублей (lima puluh rubel)"] },
       { label: "100", cells: ["сто [sto]", "сто рублей (seratus rubel)"] },
-      { label: "1000", cells: ["тысяча [TY-sya-cha]", "тысяча долларов (seribu dolar)"] },
+      { label: "1000", cells: ["тысяча [ˈtɨ.sʲɪ.tɕə]", "тысяча долларов (seribu dolar)"] },
+      {
+        label: "Aturan",
+        cells: [
+          "1: один/одна/одно (m/f/n)\n2-4: + bentuk gen. tunggal\n5-20: + bentuk gen. jamak\n21+: angka + puluh + aturan 1-20",
+          "1 rubel, 2 rubel-ya, 5 rubel-yey",
+          "Setelah 2,3,4 — genitif tunggal\nSetelah 5+ — genitif jamak",
+        ],
+      },
     ],
   },
 ];
@@ -704,9 +726,9 @@ function goBack() {
             <tbody>
               <tr v-for="row in selectedTable.rows" :key="row.label">
                 <td class="term-cell">
-                  {{ row.label }}
+                  <span class="term-word">{{ row.label }}</span>
+                  <span class="term-phonetic">{{ getPhonetic(row.label) }}</span>
                   <button
-                    v-if="langStore.targetLang === 'ru'"
                     class="audio-btn"
                     @click.stop="playWord(row.label)"
                     title="Прослушать"
@@ -850,9 +872,15 @@ function goBack() {
 
 .grammar-table th {
   background: var(--code-bg);
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-h);
   white-space: nowrap;
+  opacity: 0.85;
+}
+
+.grammar-table td {
+  color: var(--text-h);
+  font-weight: 400;
 }
 
 .grammar-table tr:hover td {
@@ -860,9 +888,22 @@ function goBack() {
 }
 
 .term-cell {
+  white-space: nowrap;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.term-word {
   font-weight: 600;
   color: var(--primary);
-  white-space: nowrap;
+}
+
+.term-phonetic {
+  font-size: 0.8rem;
+  color: var(--text);
+  opacity: 0.5;
+  font-style: italic;
 }
 
 .term-cell .audio-btn {
@@ -871,9 +912,10 @@ function goBack() {
   font-size: 0.8rem;
   cursor: pointer;
   padding: 0 0.2rem;
-  opacity: 0.5;
+  opacity: 0.45;
   transition: opacity 0.2s;
   vertical-align: middle;
+  line-height: 1;
 }
 
 .term-cell .audio-btn:hover {

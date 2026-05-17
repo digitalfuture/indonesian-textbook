@@ -28,7 +28,10 @@ const navItems = [
 
 function isActive(path: string): boolean {
   const prefix = `/${langStore.interfaceLang}/${langStore.targetLang}${path}`;
-  return route.path === prefix || route.path.startsWith(prefix + "/");
+  if (!path) {
+    return route.path === prefix;
+  }
+  return route.path.startsWith(prefix + "/") || route.path === prefix;
 }
 
 function navigate(path: string) {
