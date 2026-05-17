@@ -115,7 +115,7 @@ const stats = computed(() => ({
   <div class="dictionary-view">
     <header class="dictionary-header">
       <h1>{{ $t('dictionary.title') }}</h1>
-      <p class="dictionary-description">{{ $t('dictionary.description') }}</p>
+      <p class="dictionary-description">{{ $t('dictionary.description.' + langStore.targetLang) }}</p>
 
       <div class="dictionary-stats">
         <div class="stat">

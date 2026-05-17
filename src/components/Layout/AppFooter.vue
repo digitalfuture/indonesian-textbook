@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useProgressStore } from "../../stores/progress";
+import { useLanguageStore } from "../../stores/language";
 
 const progressStore = useProgressStore();
+const langStore = useLanguageStore();
 
 const stats = computed(() => progressStore.getLearningStats());
 const currentYear = new Date().getFullYear();
@@ -31,7 +33,7 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div class="footer-info">
-        <p class="footer-method">{{ $t('footer.method') }}</p>
+        <p class="footer-method">{{ $t('footer.method.' + langStore.targetLang) }}</p>
         <p class="footer-copyright">
           © {{ currentYear }} Indonesian Textbook. {{ $t('footer.copyright') }}
         </p>

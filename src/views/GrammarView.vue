@@ -538,7 +538,7 @@ function goBack() {
   <div class="grammar-view">
     <header class="grammar-header">
       <h1>{{ $t('grammar.title') }}</h1>
-      <p class="grammar-description">{{ $t('grammar.description') }}</p>
+      <p class="grammar-description">{{ $t('grammar.description.' + langStore.targetLang) }}</p>
     </header>
 
     <!-- Просмотр одной таблицы -->
@@ -549,7 +549,7 @@ function goBack() {
 
       <div class="table-card">
         <h2>{{ selectedTable.icon }} {{ $t('grammar.table.' + selectedTable.id + '.title') }}</h2>
-        <p class="table-description">{{ $t('grammar.table.' + selectedTable.id + '.description') }}</p>
+        <p class="table-description">{{ $t('grammar.table.' + selectedTable.id + '.description.' + langStore.targetLang) }}</p>
 
         <div class="table-container">
           <table class="grammar-table">
@@ -583,7 +583,7 @@ function goBack() {
         >
           <div class="table-icon">{{ table.icon }}</div>
           <h3>{{ table.icon }} {{ $t('grammar.table.' + table.id + '.title') }}</h3>
-          <p>{{ $t('grammar.table.' + table.id + '.description') }}</p>
+          <p>{{ $t('grammar.table.' + table.id + '.description.' + langStore.targetLang) }}</p>
           <div class="table-meta">
             <span>{{ $t('grammar.table.entryCount', { count: table.rows.length }) }}</span>
           </div>

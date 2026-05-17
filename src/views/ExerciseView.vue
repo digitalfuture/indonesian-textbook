@@ -166,7 +166,7 @@ const progress = computed(() => {
     <header class="exercise-header">
       <h1>{{ $t('exercise.title') }}</h1>
       <p class="exercise-description" v-if="!lessonId">
-        {{ $t('exercise.description') }}
+        {{ $t('exercise.description.' + langStore.targetLang) }}
       </p>
       <p class="exercise-description" v-else-if="currentExercise">
         {{ $t('exercise.forLesson', { title: $t('lesson.title.' + currentExercise.lessonId) }) }}

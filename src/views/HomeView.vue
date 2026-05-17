@@ -38,9 +38,9 @@ function goToDictionary() {
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>{{ $t('home.hero.title') }}</h1>
-        <p class="hero-subtitle">{{ $t('home.hero.subtitle') }}</p>
-        <p class="hero-description">{{ $t('home.hero.description') }}</p>
+        <h1>{{ $t('home.hero.title.' + langStore.targetLang) }}</h1>
+        <p class="hero-subtitle">{{ $t('home.hero.subtitle.' + langStore.targetLang) }}</p>
+        <p class="hero-description">{{ $t('home.hero.description.' + langStore.targetLang) }}</p>
         <div class="hero-buttons">
           <PButton :label="$t('home.hero.startLearning')" icon="pi pi-play" @click="goToLesson(1)" />
           <PButton :label="$t('home.hero.dictionary')" icon="pi pi-book" severity="secondary" @click="goToDictionary" />

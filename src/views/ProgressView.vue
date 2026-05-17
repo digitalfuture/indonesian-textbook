@@ -91,7 +91,7 @@ const achievementList = [
   <div class="progress-view">
     <header class="progress-header">
       <h1>{{ $t('progress.title') }}</h1>
-      <p class="progress-description">{{ $t('progress.description') }}</p>
+      <p class="progress-description">{{ $t('progress.description.' + langStore.targetLang) }}</p>
     </header>
 
     <section class="stats-section">
