@@ -175,6 +175,15 @@ const stats = computed(() => ({
           }"
           @click="toggleExpand(word.id)"
         >
+          <div class="word-card-corner">
+            <span class="word-frequency">{{ word.frequency }}</span>
+            <span
+              v-if="word.relatedWords && word.relatedWords.length > 0"
+              class="related-badge"
+            >
+              🔗 {{ word.relatedWords.length }}
+            </span>
+          </div>
           <div class="word-main">
             <h3 class="word-indonesian">
               {{ word.word }}
@@ -183,16 +192,15 @@ const stats = computed(() => ({
                 @click.stop="speak(word.word)"
                 title="Прослушать"
               >🔊</button>
+              <span class="word-pronunciation" v-if="word.pronunciation">{{
+                word.pronunciation
+              }}</span>
             </h3>
-            <span class="word-pronunciation" v-if="word.pronunciation">{{
-              word.pronunciation
-            }}</span>
             <p class="word-russian">{{ word.translation }}</p>
             <div class="word-meta">
               <span class="word-category">{{
                 $t(getCategoryLabel(word.category))
               }}</span>
-              <span class="word-frequency">№{{ word.frequency }}</span>
               <span
                 v-if="word.relatedWords && word.relatedWords.length > 0"
                 class="related-badge"
@@ -400,6 +408,7 @@ const stats = computed(() => ({
   align-items: center;
   justify-content: space-between;
   background: var(--bg);
+  position: relative;
   border-radius: 0.5rem;
   padding: 1rem 1.5rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -572,12 +581,20 @@ const stats = computed(() => ({
 }
 
 .word-pronunciation {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text);
   opacity: 0.45;
-  display: block;
-  margin-bottom: 0.25rem;
   font-style: italic;
+  margin-left: 0.3rem;
+}
+
+.word-card-corner {
+  position: absolute;
+  top: 0.6rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
 }
 
 .word-meta {
@@ -597,6 +614,7 @@ const stats = computed(() => ({
 .word-frequency {
   font-size: 0.75rem;
   color: var(--text);
+  opacity: 0.5;
 }
 
 .word-actions {
