@@ -21,15 +21,20 @@ function renderTheory(text: string): string {
     .map((line) => {
       if (!line.trim()) return "<br>";
 
+      // Find phonetic notation: /.../ or [...] and add audio button for the preceding text
       let processed = line;
-      // Add audio buttons after Russian words with phonetic notation
+
+      // Match: phrase /IPA/ or phrase [IPA] — everything before / or [ is the phrase to speak
       processed = processed.replace(
-        /([А-Яа-яЁё]+(?:-[А-Яа-яЁё]+)?)\s*\[([^\]]+)\]/g,
-        (match, word, phon) => {
-          const safe = word.replace(/'/g, "\\'");
-          return `${word} [${phon}] <button class="audio-btn-inline" data-word="${safe}">🔊</button>`;
+        /(.+?)\s*(\/[^\s/]+(?:\s+[^\s/]+)*\/|\[[^\]]+\])\s*/g,
+        (_match, phrase, _phon) => {
+          const trimmed = phrase.trim().replace(/^[-–—]\s*/, "").replace(/[–—].*$/, "").trim();
+          if (!trimmed || /^\d/.test(trimmed)) return _match;
+          const safe = trimmed.replace(/'/g, "\\'");
+          return `${trimmed} ${_phon} <button class="audio-btn-inline" data-word="${safe}">🔊</button> `;
         },
       );
+
       return processed;
     })
     .join("<br>");
