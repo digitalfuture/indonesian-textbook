@@ -185,6 +185,10 @@ function navigate(path: string) {
   .logo-text {
     font-size: 1rem;
   }
+
+  .logo {
+    margin-top: -5px;
+  }
 }
 
 @media (max-width: 480px) {
