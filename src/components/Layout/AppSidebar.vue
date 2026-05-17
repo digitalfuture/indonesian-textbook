@@ -77,7 +77,7 @@ function onMenuClick(item: any) {
     <template #header>
       <div class="drawer-header">
         <span class="drawer-flag">🇮🇩</span>
-        <span class="drawer-title">{{ $t('sidebar.title') }}</span>
+        <span class="drawer-title">{{ $t('sidebar.title.' + langStore.targetLang) }}</span>
       </div>
     </template>
 

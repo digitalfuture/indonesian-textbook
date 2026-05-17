@@ -51,7 +51,7 @@ function goToExercises() {
         </div>
       </div>
       <div class="hero-illustration">
-        <div class="flag">🇮🇩</div>
+        <div class="flag">{{ langStore.targetLang === 'id' ? '🇮🇩' : '🇷🇺' }}</div>
       </div>
     </section>
 
