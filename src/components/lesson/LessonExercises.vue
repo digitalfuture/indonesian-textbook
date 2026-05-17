@@ -24,12 +24,12 @@ function start() {
 
       <div class="exercises-list">
         <div
-          v-for="exerciseId in lesson?.exercises || []"
+          v-for="(exerciseId, index) in lesson?.exercises || []"
           :key="exerciseId"
           class="exercise-item"
         >
           <div class="exercise-info">
-            <span class="exercise-number">{{ $t('lesson.exercises.item', { id: exerciseId }) }}</span>
+            <span class="exercise-number">{{ $t('lesson.exercises.item', { id: index + 1 }) }}</span>
             <span
               v-if="lessonProgress?.completedExercises?.includes(exerciseId)"
               class="exercise-status"
