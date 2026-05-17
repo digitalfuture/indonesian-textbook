@@ -9,8 +9,8 @@ const langStore = useLanguageStore();
 
 const tableId = computed(() => route.params.tableId as string | undefined);
 
-// Грамматические таблицы
-const grammarTables = [
+// Грамматические таблицы для ID (RU->ID mode)
+const grammarTablesId = [
   {
     id: "pronouns",
     title: "Личные местоимения",
@@ -520,9 +520,142 @@ const grammarTables = [
   },
 ];
 
+// Грамматические таблицы для RU (ID->RU mode) — русский для индонезийцев
+const grammarTablesRu = [
+  {
+    id: "pronouns",
+    title: "Kata Ganti Orang Rusia",
+    description: "Semua kata ganti orang dalam bahasa Rusia",
+    icon: "👤",
+    headers: ["Kata Ganti", "Arti", "Contoh"],
+    rows: [
+      { label: "Я [ya]", cells: ["saya", "Я студент (Saya mahasiswa)"] },
+      { label: "Ты [ty]", cells: ["kamu (informal)", "Ты красивая (Kamu cantik)"] },
+      { label: "Вы [vy]", cells: ["Anda (formal) / kalian", "Вы говорите (Anda bicara)"] },
+      { label: "Он [on]", cells: ["dia (laki-laki)", "Он дома (Dia di rumah)"] },
+      { label: "Она [a-NA]", cells: ["dia (perempuan)", "Она учитель (Dia guru)"] },
+      { label: "Мы [my]", cells: ["kami/kita", "Мы вместе (Kita bersama)"] },
+      { label: "Они [a-NI]", cells: ["mereka", "Они пришли (Mereka datang)"] },
+    ],
+  },
+  {
+    id: "tenses",
+    title: "Waktu dalam Bahasa Rusia",
+    description: "Pengekspresian waktu dalam bahasa Rusia",
+    icon: "⏰",
+    headers: ["Bentuk", "Arti", "Contoh"],
+    rows: [
+      { label: "Sekarang", cells: ["kata kerja + akhiran", "Я читаю (Saya membaca)"] },
+      { label: "Lampau", cells: ["akhiran -л/-ла/-ли", "Я читал (Saya membaca)"] },
+      { label: "Masa Depan", cells: ["буду + infintif", "Я буду читать (Saya akan membaca)"] },
+      { label: "Perfektif", cells: ["telah selesai", "Я прочитал (Saya selesai membaca)"] },
+    ],
+  },
+  {
+    id: "negation",
+    title: "Negasi dalam Bahasa Rusia",
+    description: "Cara mengekspresikan negasi dalam bahasa Rusia",
+    icon: "❌",
+    headers: ["Kata", "Arti", "Contoh"],
+    rows: [
+      { label: "НЕ [nye]", cells: ["tidak (sebelum kata)", "Я не знаю (Saya tidak tahu)"] },
+      { label: "НЕТ [nyet]", cells: ["tidak (jawaban)", "Нет, спасибо (Tidak, trims)"] },
+      { label: "НЕЛЬЗЯ [nyel-ZYA]", cells: ["tidak boleh", "Нельзя курить (Dilarang merokok)"] },
+      { label: "НИ [nee]", cells: ["tidak satu pun", "Никто не пришёл (Tak seorang pun datang)"] },
+    ],
+  },
+  {
+    id: "prepositions",
+    title: "Preposisi Rusia",
+    description: "Preposisi tempat, arah dan waktu dalam bahasa Rusia",
+    icon: "📍",
+    headers: ["Preposisi", "Arti", "Contoh"],
+    rows: [
+      { label: "В [v]", cells: ["di, ke (dalam)", "Я в школе (Saya di sekolah)"] },
+      { label: "НА [na]", cells: ["di, ke (atas)", "На столе (Di atas meja)"] },
+      { label: "ИЗ [iz]", cells: ["dari (dalam)", "Я из России (Saya dari Rusia)"] },
+      { label: "С [s]", cells: ["dari (atas), dengan", "С работы (Dari kerja)"] },
+      { label: "У [oo]", cells: ["di dekat, punya", "У меня есть (Saya punya)"] },
+      { label: "ДЛЯ [dlya]", cells: ["untuk", "Это для тебя (Ini untukmu)"] },
+      { label: "БЕЗ [byez]", cells: ["tanpa", "Без сахара (Tanpa gula)"] },
+      { label: "ПОСЛЕ [POS-lye]", cells: ["setelah", "После работы (Setelah kerja)"] },
+    ],
+  },
+  {
+    id: "question-words",
+    title: "Kata Tanya Rusia",
+    description: "Kata tanya dalam bahasa Rusia",
+    icon: "❓",
+    headers: ["Kata", "Arti", "Contoh"],
+    rows: [
+      { label: "Кто? [kto]", cells: ["Siapa?", "Кто это? (Siapa ini?)"] },
+      { label: "Что? [shto]", cells: ["Apa?", "Что это? (Apa ini?)"] },
+      { label: "Где? [gdye]", cells: ["Di mana?", "Где туалет? (Di mana toilet?)"] },
+      { label: "Куда? [koo-DA]", cells: ["Ke mana?", "Куда ты идёшь? (Ke mana?)"] },
+      { label: "Откуда? [at-KOO-da]", cells: ["Dari mana?", "Откуда ты? (Dari mana?)"] },
+      { label: "Когда? [kag-DA]", cells: ["Kapan?", "Когда придёшь? (Kapan datang?)"] },
+      { label: "Почему? [pa-chee-MOO]", cells: ["Mengapa?", "Почему нет? (Kenapa tidak?)"] },
+      { label: "Сколько? [SKOL-ka]", cells: ["Berapa?", "Сколько стоит? (Berapa harganya?)"] },
+    ],
+  },
+  {
+    id: "conjunctions",
+    title: "Konjungsi Rusia",
+    description: "Kata sambung dalam bahasa Rusia",
+    icon: "🔗",
+    headers: ["Konjungsi", "Arti", "Contoh"],
+    rows: [
+      { label: "И [ee]", cells: ["dan", "Я и ты (Saya dan kamu)"] },
+      { label: "ИЛИ [EE-lee]", cells: ["atau", "Чай или кофе? (Teh atau kopi?)"] },
+      { label: "НО [no]", cells: ["tetapi", "Хорошо, но дорого (Baik tapi mahal)"] },
+      { label: "А [a]", cells: ["sedangkan", "Я здесь, а ты там (Saya di sini, kamu di sana)"] },
+      { label: "ЧТО [shto]", cells: ["bahwa", "Я знаю, что ты прав (Saya tahu kamu benar)"] },
+      { label: "ЧТОБЫ [shto-BY]", cells: ["agar, supaya", "Я хочу, чтобы ты помог (Saya ingin kamu bantu)"] },
+      { label: "ПОТОМУ ЧТО [pa-TO-moo shto]", cells: ["karena", "Он не пришёл, потому что занят (Dia tidak datang karena sibuk)"] },
+      { label: "ЕСЛИ [YES-lee]", cells: ["jika", "Если будет время (Jika ada waktu)"] },
+    ],
+  },
+  {
+    id: "modals",
+    title: "Kata Modal Rusia",
+    description: "Ekspresi kemungkinan, keharusan dan keinginan dalam bahasa Rusia",
+    icon: "💭",
+    headers: ["Kata", "Arti", "Contoh"],
+    rows: [
+      { label: "МОЖНО [MOZH-na]", cells: ["boleh, bisa", "Можно войти? (Boleh masuk?)"] },
+      { label: "НУЖНО [NOOZH-na]", cells: ["perlu, harus", "Нужно учиться (Harus belajar)"] },
+      { label: "НЕЛЬЗЯ [nyel-ZYA]", cells: ["tidak boleh", "Нельзя курить (Dilarang merokok)"] },
+      { label: "ДОЛЖЕН [DOL-zhen]", cells: ["harus (kewajiban)", "Я должен работать (Saya harus kerja)"] },
+      { label: "МОЧЬ [moch]", cells: ["bisa (mampu)", "Я могу помочь (Saya bisa bantu)"] },
+      { label: "ХОТЕТЬ [kha-TYET]", cells: ["mau, ingin", "Я хочу есть (Saya mau makan)"] },
+    ],
+  },
+  {
+    id: "numbers",
+    title: "Angka Rusia",
+    description: "Angka dan berhitung dalam bahasa Rusia",
+    icon: "🔢",
+    headers: ["Angka", "Rusia", "Contoh"],
+    rows: [
+      { label: "1", cells: ["один [a-DEEN]", "один билет (satu tiket)"] },
+      { label: "2", cells: ["два [dva]", "два билета (dua tiket)"] },
+      { label: "3", cells: ["три [tree]", "три рубля (tiga rubel)"] },
+      { label: "5", cells: ["пять [pyat]", "пять минут (lima menit)"] },
+      { label: "10", cells: ["десять [DYE-syat]", "десять рублей (sepuluh rubel)"] },
+      { label: "20", cells: ["двадцать [DVAd-tsat]", "двадцать лет (dua puluh tahun)"] },
+      { label: "100", cells: ["сто [sto]", "сто рублей (seratus rubel)"] },
+      { label: "1000", cells: ["тысяча [TY-sya-cha]", "тысяча долларов (seribu dolar)"] },
+    ],
+  },
+];
+
+const grammarTables = computed(() =>
+  langStore.targetLang === "id" ? grammarTablesId : grammarTablesRu,
+);
+
 const selectedTable = computed(() => {
   if (!tableId.value) return null;
-  return grammarTables.find((t) => t.id === tableId.value);
+  return grammarTables.value.find((t) => t.id === tableId.value);
 });
 
 function goToTable(tableId: string) {
@@ -548,8 +681,8 @@ function goBack() {
       </button>
 
       <div class="table-card">
-        <h2>{{ selectedTable.icon }} {{ $t('grammar.table.' + selectedTable.id + '.title.' + langStore.targetLang) }}</h2>
-        <p class="table-description">{{ $t('grammar.table.' + selectedTable.id + '.description.' + langStore.targetLang) }}</p>
+        <h2>{{ selectedTable.icon }} {{ selectedTable.title }}</h2>
+        <p class="table-description">{{ selectedTable.description }}</p>
 
         <div class="table-container">
           <table class="grammar-table">
@@ -582,8 +715,8 @@ function goBack() {
           @click="goToTable(table.id)"
         >
           <div class="table-icon">{{ table.icon }}</div>
-          <h3>{{ table.icon }} {{ $t('grammar.table.' + table.id + '.title.' + langStore.targetLang) }}</h3>
-          <p>{{ $t('grammar.table.' + table.id + '.description.' + langStore.targetLang) }}</p>
+          <h3>{{ table.icon }} {{ table.title }}</h3>
+          <p>{{ table.description }}</p>
           <div class="table-meta">
             <span>{{ $t('grammar.table.entryCount', { count: table.rows.length }) }}</span>
           </div>
