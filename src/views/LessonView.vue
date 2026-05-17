@@ -14,6 +14,34 @@ const router = useRouter();
 const langStore = useLanguageStore();
 const { speak } = useSpeech();
 const { transcribe } = useTranscription();
+
+function renderTheory(text: string): string {
+  return text
+    .split("\n")
+    .map((line) => {
+      if (!line.trim()) return "<br>";
+
+      let processed = line;
+      // Add audio buttons after Russian words with phonetic notation
+      processed = processed.replace(
+        /([А-Яа-яЁё]+(?:-[А-Яа-яЁё]+)?)\s*\[([^\]]+)\]/g,
+        (match, word, phon) => {
+          const safe = word.replace(/'/g, "\\'");
+          return `${word} [${phon}] <button class="audio-btn-inline" data-word="${safe}">🔊</button>`;
+        },
+      );
+      return processed;
+    })
+    .join("<br>");
+}
+
+function onTheoryClick(e: MouseEvent) {
+  const target = e.target as HTMLElement;
+  if (target.classList.contains("audio-btn-inline")) {
+    const word = target.getAttribute("data-word");
+    if (word) speak(word);
+  }
+}
 const lessonId = parseInt(route.params.id as string);
 const {
   lesson,
@@ -55,17 +83,11 @@ function handleUncomplete() {
     <main class="lesson-content">
       <section v-if="currentStep === 'theory'" class="theory-section fade-in">
         <div class="content-card">
-          <h2>
-            {{ $t('lesson.tabs.theory') }}
-            <button
-              class="audio-btn-sm"
-              @click.stop="speak(lesson?.content?.theory || '')"
-              title="Прослушать теорию"
-            >🔊</button>
-          </h2>
+          <h2>{{ $t('lesson.tabs.theory') }}</h2>
           <div
             class="theory-text"
-            v-html="lesson.content.theory.replace(/\n/g, '<br>')"
+            @click="onTheoryClick"
+            v-html="renderTheory(lesson?.content?.theory || '')"
           ></div>
 
           <div class="key-points">
@@ -199,6 +221,21 @@ function handleUncomplete() {
 }
 
 .audio-btn-sm:hover {
+  opacity: 1;
+}
+
+.audio-btn-inline {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0 0.15rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  vertical-align: middle;
+}
+
+.audio-btn-inline:hover {
   opacity: 1;
 }
 
