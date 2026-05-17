@@ -31,6 +31,10 @@ function goToGrammar() {
 function goToDictionary() {
   router.push(`${base.value}/dictionary`);
 }
+
+function goToExercises() {
+  router.push(`${base.value}/exercises`);
+}
 </script>
 
 <template>
@@ -55,22 +59,22 @@ function goToDictionary() {
     <section class="method-section">
       <h2>{{ $t('home.method.title') }}</h2>
       <div class="method-grid">
-        <div class="method-card">
+        <div class="method-card" @click="goToLesson(1)">
           <div class="method-icon">🎯</div>
           <h3>{{ $t('home.method.cards.lessons.title') }}</h3>
           <p>{{ $t('home.method.cards.lessons.description') }}</p>
         </div>
-        <div class="method-card">
+        <div class="method-card" @click="goToDictionary()">
           <div class="method-icon">📚</div>
           <h3>{{ $t('home.method.cards.words.title') }}</h3>
           <p>{{ $t('home.method.cards.words.description') }}</p>
         </div>
-        <div class="method-card">
+        <div class="method-card" @click="goToGrammar()">
           <div class="method-icon">🏗️</div>
           <h3>{{ $t('home.method.cards.system.title') }}</h3>
           <p>{{ $t('home.method.cards.system.description') }}</p>
         </div>
-        <div class="method-card">
+        <div class="method-card" @click="goToExercises()">
           <div class="method-icon">💪</div>
           <h3>{{ $t('home.method.cards.practice.title') }}</h3>
           <p>{{ $t('home.method.cards.practice.description') }}</p>
@@ -243,6 +247,7 @@ function goToDictionary() {
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .method-card:hover {
