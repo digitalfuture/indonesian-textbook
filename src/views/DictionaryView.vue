@@ -2,12 +2,14 @@
 import { ref, computed } from "vue";
 import { useProgressStore } from "../stores/progress";
 import { useLanguageStore } from "../stores/language";
+import { useSpeech } from "../composables/useSpeech";
 import { vocabulary as vocabId } from "../data/vocabulary";
 import { vocabularyRu as vocabRu } from "../data/vocabularyRu";
 import type { Category } from "../utils/types";
 
 const progressStore = useProgressStore();
 const langStore = useLanguageStore();
+const { speak } = useSpeech();
 
 const vocabulary = computed(() =>
   langStore.targetLang === "id" ? vocabId : vocabRu,
@@ -174,7 +176,14 @@ const stats = computed(() => ({
           @click="toggleExpand(word.id)"
         >
           <div class="word-main">
-            <h3 class="word-indonesian">{{ word.word }}</h3>
+            <h3 class="word-indonesian">
+              {{ word.word }}
+              <button
+                class="audio-btn"
+                @click.stop="speak(word.word)"
+                title="Прослушать"
+              >🔊</button>
+            </h3>
             <span class="word-pronunciation" v-if="word.pronunciation">{{
               word.pronunciation
             }}</span>
@@ -486,6 +495,24 @@ const stats = computed(() => ({
 
 .family-section {
   margin-top: 0.5rem;
+}
+
+.audio-btn {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.3rem;
+  transition: all 0.2s;
+  opacity: 0.6;
+  vertical-align: middle;
+  margin-left: 0.4rem;
+}
+
+.audio-btn:hover {
+  opacity: 1;
+  background: var(--accent-bg);
 }
 
 .family-list {
