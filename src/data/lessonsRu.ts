@@ -32,9 +32,9 @@ Memperkenalkan diri:
         { indonesian: "Меня зовут Анна", russian: "Nama saya Anna" },
       ],
       keyPoints: [
-        "Глагол → kata kerja. Спряжение: я говорю, ты говоришь",
-        "Имя → kata benda. Род: мужской (он), женский (она), средний (оно)",
-        "Прилагательное → kata sifat. Согласуется с существительным",
+        "Глагол (kata kerja) — konjugasi: я говорю (saya bicara), ты говоришь (kamu bicara)",
+        "Имя (kata benda) — gender: мужской (maskulin), женский (feminin), средний (netral)",
+        "Прилагательное (kata sifat) — setuju dengan kata benda dalam gender dan kasus",
       ],
       grammarNotes: [
         "В русском языке 3 рода: мужской, женский, средний",
@@ -157,8 +157,8 @@ Contoh:
         { indonesian: "Почему ты не идёшь?", russian: "Kenapa kamu tidak pergi?" },
       ],
       keyPoints: [
-        "Кто для orang, что untuk benda",
-        "Где untuk lokasi, куда untuk tujuan, откуда untuk asal",
+        "Кто (siapa) digunakan untuk orang, что (apa) untuk benda",
+        "Где (di mana), куда (ke mana), откуда (dari mana) — kata tanya tempat",
         "Kata tanya selalu di awal kalimat",
       ],
     },
@@ -195,8 +195,8 @@ Negasi ganda:
         { indonesian: "Он не пришёл", russian: "Dia tidak datang" },
       ],
       keyPoints: [
-        "НЕ diletakkan SEBELUM kata kerja",
-        "Dalam bahasa Rusia, negasi ganda itu benar (ni...ni...ne)",
+        "НЕ diletakkan SEBELUM kata kerja (seperti 'tidak' dalam bahasa Indonesia)",
+        "Dalam bahasa Rusia, negasi ganda itu benar (ни...ни...не = tidak ada satu pun)",
         "НЕТ = jawaban 'tidak', НЕ = negasi kata",
       ],
     },

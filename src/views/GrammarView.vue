@@ -2,10 +2,17 @@
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useLanguageStore } from "../stores/language";
+import { useSpeech } from "../composables/useSpeech";
 
 const route = useRoute();
 const router = useRouter();
 const langStore = useLanguageStore();
+const { speak } = useSpeech();
+
+function playWord(label: string) {
+  const word = label.split(/\[|\{/)[0].trim();
+  if (word) speak(word);
+}
 
 const tableId = computed(() => route.params.tableId as string | undefined);
 
@@ -696,7 +703,15 @@ function goBack() {
             </thead>
             <tbody>
               <tr v-for="row in selectedTable.rows" :key="row.label">
-                <td class="term-cell">{{ row.label }}</td>
+                <td class="term-cell">
+                  {{ row.label }}
+                  <button
+                    v-if="langStore.targetLang === 'ru'"
+                    class="audio-btn"
+                    @click.stop="playWord(row.label)"
+                    title="Прослушать"
+                  >🔊</button>
+                </td>
                 <td v-for="cell in row.cells" :key="cell">{{ cell }}</td>
               </tr>
             </tbody>
@@ -848,6 +863,21 @@ function goBack() {
   font-weight: 600;
   color: var(--primary);
   white-space: nowrap;
+}
+
+.term-cell .audio-btn {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  vertical-align: middle;
+}
+
+.term-cell .audio-btn:hover {
+  opacity: 1;
 }
 
 .mb-3 {
