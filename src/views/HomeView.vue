@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import { useProgressStore } from "../stores/progress";
 import { useLanguageStore } from "../stores/language";
 import { lessons } from "../data/lessons";
 import { useI18n } from "vue-i18n";
 
 const router = useRouter();
+const route = useRoute();
 const progressStore = useProgressStore();
 const langStore = useLanguageStore();
 const { t } = useI18n();
 
 const base = computed(() => `/${langStore.interfaceLang}/${langStore.targetLang}`);
+
+const showHero = computed(() => !route.meta?.hideHero);
+const showQuickLinks = computed(() => !route.meta?.hideQuickLinks);
 
 const completedLessons = computed(() =>
   lessons.map((lesson) => ({
@@ -40,7 +44,7 @@ function goToExercises() {
 <template>
   <div class="home">
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" v-if="showHero">
       <div class="hero-content">
         <h1>{{ $t('home.hero.title.' + langStore.targetLang) }}</h1>
         <p class="hero-subtitle">{{ $t('home.hero.subtitle.' + langStore.targetLang) }}</p>
@@ -56,7 +60,7 @@ function goToExercises() {
     </section>
 
     <!-- Метод Петрова -->
-    <section class="method-section">
+    <section class="method-section" v-if="showHero">
       <h2>{{ $t('home.method.title') }}</h2>
       <div class="method-grid">
         <div class="method-card" @click="goToLesson(1)">
@@ -113,7 +117,7 @@ function goToExercises() {
     </section>
 
     <!-- Быстрые ссылки -->
-    <section class="quick-links">
+    <section class="quick-links" v-if="showQuickLinks">
       <h2>{{ $t('home.quickLinks.title') }}</h2>
       <div class="quick-links-grid">
         <PCard class="quick-link-card" @click="goToGrammar">

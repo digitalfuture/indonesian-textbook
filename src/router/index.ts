@@ -23,6 +23,7 @@ const routes: RouteRecordRaw[] = [
         path: "lessons",
         name: "Lessons",
         component: HomeView,
+        meta: { hideHero: true, hideQuickLinks: true },
       },
       {
         path: "lesson/:id",
