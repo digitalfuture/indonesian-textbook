@@ -726,13 +726,15 @@ function goBack() {
             <tbody>
               <tr v-for="row in selectedTable.rows" :key="row.label">
                 <td class="term-cell">
-                  <span class="term-word">{{ row.label }}</span>
-                  <span class="term-phonetic">{{ getPhonetic(row.label) }}</span>
-                  <button
-                    class="audio-btn"
-                    @click.stop="playWord(row.label)"
-                    title="Прослушать"
-                  >🔊</button>
+                  <span class="term-cell-inner">
+                    <span class="term-word">{{ row.label }}</span>
+                    <span class="term-phonetic">{{ getPhonetic(row.label) }}</span>
+                    <button
+                      class="audio-btn"
+                      @click.stop="playWord(row.label)"
+                      title="Прослушать"
+                    >🔊</button>
+                  </span>
                 </td>
                 <td v-for="cell in row.cells" :key="cell">{{ cell }}</td>
               </tr>
@@ -889,7 +891,10 @@ function goBack() {
 
 .term-cell {
   white-space: nowrap;
-  display: flex;
+}
+
+.term-cell-inner {
+  display: inline-flex;
   align-items: baseline;
   gap: 0.4rem;
 }
