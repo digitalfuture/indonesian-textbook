@@ -195,5 +195,9 @@ function navigate(path: string) {
   .header-toolbar {
     padding: 0.5rem;
   }
+
+  .logo {
+    margin-top: -9px;
+  }
 }
 </style>
