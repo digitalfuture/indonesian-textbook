@@ -18,6 +18,26 @@ function getPhonetic(label: string): string {
   return transcribe(clean, lang);
 }
 
+function renderCell(text: string): string {
+  // Find word with phonetic [word phon] or just [phon] and add audio button
+  return text.replace(
+    /([А-Яа-яЁёA-Za-zÀ-ÿ]+(?:\s+[А-Яа-яЁёA-Za-zÀ-ÿ]+)*)\s*(\[[^\]]+\])/g,
+    (_match, word, phon) => {
+      const safe = word.replace(/'/g, "\\'");
+      return `${word} ${phon} <button class="audio-btn-inline" data-word="${safe}">🔊</button>`;
+    },
+  );
+  // Also handle simple words without phonetic (add audio button based on context)
+}
+
+function onTableClick(e: MouseEvent) {
+  const target = e.target as HTMLElement;
+  if (target.classList.contains("audio-btn-inline")) {
+    const word = target.getAttribute("data-word");
+    if (word) speak(word);
+  }
+}
+
 function playWord(label: string) {
   const word = label.split(/\[|\{/)[0].trim();
   if (word) speak(word);
@@ -713,7 +733,7 @@ function goBack() {
         <h2>{{ selectedTable.icon }} {{ selectedTable.title }}</h2>
         <p class="table-description">{{ selectedTable.description }}</p>
 
-        <div class="table-container">
+        <div class="table-container" @click="onTableClick">
           <table class="grammar-table">
             <thead>
               <tr>
@@ -726,17 +746,11 @@ function goBack() {
             <tbody>
               <tr v-for="row in selectedTable.rows" :key="row.label">
                 <td class="term-cell">
-                  <span class="term-cell-inner">
-                    <span class="term-word">{{ row.label }}</span>
-                    <span class="term-phonetic">{{ getPhonetic(row.label) }}</span>
-                    <button
-                      class="audio-btn"
-                      @click.stop="playWord(row.label)"
-                      title="Прослушать"
-                    >🔊</button>
-                  </span>
+                  <span class="term-word">{{ row.label }}</span>
                 </td>
-                <td v-for="cell in row.cells" :key="cell">{{ cell }}</td>
+                <td v-for="cell in row.cells" :key="cell">
+                  <span v-html="renderCell(cell)"></span>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -924,6 +938,21 @@ function goBack() {
 }
 
 .term-cell .audio-btn:hover {
+  opacity: 1;
+}
+
+.audio-btn-inline {
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding: 0 0.15rem;
+  opacity: 0.45;
+  transition: opacity 0.2s;
+  vertical-align: middle;
+}
+
+.audio-btn-inline:hover {
   opacity: 1;
 }
 
