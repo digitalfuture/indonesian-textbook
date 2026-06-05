@@ -69,6 +69,11 @@ const routes: RouteRecordRaw[] = [
         name: "Progress",
         component: ProgressView,
       },
+      {
+        path: "ai-chat",
+        name: "AIChat",
+        component: () => import("../views/AIChatView.vue"),
+      },
     ],
   },
   {

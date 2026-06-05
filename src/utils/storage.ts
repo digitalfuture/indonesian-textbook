@@ -161,6 +161,7 @@ export function createDefaultProgress(): UserProgress {
       darkMode: false,
     },
     achievements: [],
+    wordMastery: {},
   };
 }
 

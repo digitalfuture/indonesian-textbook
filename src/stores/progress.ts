@@ -114,6 +114,26 @@ export const useProgressStore = defineStore("progress", () => {
     saveProgress(progress.value);
   }
 
+  function resetLessonProgress(lessonId: number) {
+    const lesson = progress.value.lessons[lessonId];
+    if (!lesson) return;
+
+    progress.value.lessons[lessonId] = {
+      isCompleted: false,
+      completedExercises: [],
+      score: 0,
+    };
+
+    // Update lessonsCompleted count
+    progress.value = updateStatistics(progress.value, {
+      lessonsCompleted: Object.values(progress.value.lessons).filter(
+        (l) => l.isCompleted,
+      ).length,
+    });
+
+    saveProgress(progress.value);
+  }
+
   function completeExercise(
     lessonId: number,
     exerciseId: number,
@@ -201,6 +221,35 @@ export const useProgressStore = defineStore("progress", () => {
 
   function isFavoriteWord(wordId: number): boolean {
     return progress.value.favoriteWords.includes(wordId);
+  }
+
+  // Освоение слов для ИИ-чата
+  const wordMastery = computed(() => {
+    return progress.value.wordMastery || {};
+  });
+
+  function getWordMastery(word: string): number {
+    const key = word.toLowerCase().trim();
+    return wordMastery.value[key] || 0;
+  }
+
+  function incrementWordMastery(word: string) {
+    if (!progress.value.wordMastery) {
+      progress.value.wordMastery = {};
+    }
+    const key = word.toLowerCase().trim();
+    const current = progress.value.wordMastery[key] || 0;
+    progress.value.wordMastery[key] = Math.min(5, current + 1);
+    saveProgress(progress.value);
+  }
+
+  function resetWordMastery(word: string) {
+    if (!progress.value.wordMastery) {
+      progress.value.wordMastery = {};
+    }
+    const key = word.toLowerCase().trim();
+    progress.value.wordMastery[key] = 0;
+    saveProgress(progress.value);
   }
 
   // Настройки
@@ -336,11 +385,16 @@ export const useProgressStore = defineStore("progress", () => {
     isLessonCompleted,
     wordProgress,
     isWordLearned,
+    wordMastery,
 
     // Методы
     init,
+    getWordMastery,
+    incrementWordMastery,
+    resetWordMastery,
     completeLesson,
     uncompleteLesson,
+    resetLessonProgress,
     completeExercise,
     markWordAsLearned,
     practiceWord,

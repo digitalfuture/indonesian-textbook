@@ -12,19 +12,30 @@ const emit = defineEmits<{
   (e: "toggle-drawer"): void;
 }>();
 
+import { ref, onMounted } from "vue";
+import { useAIStore } from "../../stores/ai";
+
 const router = useRouter();
 const route = useRoute();
 const { theme, toggleTheme } = useTheme();
 const langStore = useLanguageStore();
+const aiStore = useAIStore();
 
-const navItems = [
+const navItems = ref([
   { labelKey: "nav.home", icon: "pi pi-home", path: "" },
   { labelKey: "nav.lessons", icon: "pi pi-book", path: "/lessons" },
   { labelKey: "nav.grammar", icon: "pi pi-table", path: "/grammar" },
   { labelKey: "nav.dictionary", icon: "pi pi-list", path: "/dictionary" },
   { labelKey: "nav.exercises", icon: "pi pi-pencil", path: "/exercises" },
   { labelKey: "nav.progress", icon: "pi pi-chart-bar", path: "/progress" },
-];
+]);
+
+onMounted(async () => {
+  await aiStore.initialize();
+  if (aiStore.isSupported) {
+    navItems.value.push({ labelKey: "nav.aiChat", icon: "pi pi-comments", path: "/ai-chat" });
+  }
+});
 
 function isActive(path: string): boolean {
   const prefix = `/${langStore.interfaceLang}/${langStore.targetLang}${path}`;

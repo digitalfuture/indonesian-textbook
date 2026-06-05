@@ -157,6 +157,9 @@ export interface UserProgress {
     description: string;
     unlockedAt?: string;
   }[];
+
+  // Освоение слов для ИИ-чата (слово -> уровень от 0 до 5)
+  wordMastery?: Record<string, number>;
 }
 
 // Интерфейс для экспорта/импорта прогресса

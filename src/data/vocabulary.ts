@@ -10,11 +10,11 @@ export const vocabulary: DictionaryWord[] = [
     frequency: 1,
     examples: [
       { sentence: "Selamat pagi!", translation: "Доброе утро!" },
-      { sentence: "Selamat datang", translation: "Добро пожаловать" },
+      { sentence: "Selamat datang", translation: "Добро пожаловать (букв. 'благополучный приход')" },
     ], // selamat jalan
     wordFamily: [
       { word: "selamat pagi", translation: "доброе утро" },
-      { word: "selamat jalan", translation: "счастливого пути" },
+      { word: "selamat jalan", translation: "счастливого пути (букв. 'благополучно идти/ехать')" },
       { word: "keselamatan", translation: "безопасность" },
       { word: "penyelamat", translation: "спасатель" },
       { word: "menyelamatkan", translation: "спасать" },
@@ -45,14 +45,14 @@ export const vocabulary: DictionaryWord[] = [
     id: 3,
     word: "terima kasih",
     pronunciation: "/tərima kasih/",
-    translation: "спасибо",
+    translation: "спасибо (букв. 'примите любовь/благодарность')",
     category: "interjection",
     frequency: 3,
     examples: [
-      { sentence: "Terima kasih banyak", translation: "Большое спасибо" },
+      { sentence: "Terima kasih banyak", translation: "Большое спасибо (букв. 'Примите много любви/благодарности')" },
       {
         sentence: "Terima kasih atas bantuannya",
-    translation: "Спасибо за помощь",
+    translation: "Спасибо за помощь (букв. 'Примите любовь за помощь')",
       },
     ], // terima
     wordFamily: [
@@ -68,22 +68,22 @@ export const vocabulary: DictionaryWord[] = [
     id: 4,
     word: "sama-sama",
     pronunciation: "/sama sama/",
-    translation: "пожалуйста (в ответ на спасибо)",
+    translation: "взаимно, вместе (пожалуйста, не за что; букв. 'одинаково-одинаково')",
     category: "interjection",
     frequency: 4,
     examples: [
       {
         sentence: "Terima kasih - Sama-sama",
-    translation: "Спасибо - Пожалуйста",
+    translation: "Спасибо - Пожалуйста (букв. 'Примите любовь - Взаимно')",
       },
       {
         sentence: "Sama-sama, senang bisa membantu",
-    translation: "Пожалуйста, рад помочь",
+    translation: "Пожалуйста, рад помочь (букв. 'Взаимно, рад помочь')",
       },
     ], // sama
     relatedWords: [134, 145],
     wordFamily: [
-      { word: "sama-sama", translation: "пожалуйста; вместе" },
+      { word: "sama-sama", translation: "пожалуйста; взаимно, вместе" },
       { word: "bersama", translation: "вместе" },
       { word: "menyamakan", translation: "уравнивать" },
       { word: "persamaan", translation: "равенство" },
@@ -185,7 +185,7 @@ export const vocabulary: DictionaryWord[] = [
     frequency: 10,
     examples: [
       { sentence: "Apa ini?", translation: "Что это?" },
-      { sentence: "Apa kabar?", translation: "Как дела?" },
+      { sentence: "Apa kabar?", translation: "Как дела? (букв. 'что за новости?')" },
     ],
     relatedWords: [110],
     wordFamily: [
@@ -244,7 +244,7 @@ export const vocabulary: DictionaryWord[] = [
     category: "noun",
     frequency: 13,
     examples: [
-      { sentence: "Apa kabar?", translation: "Как дела?" },
+      { sentence: "Apa kabar?", translation: "Как дела? (букв. 'что за новости?')" },
       { sentence: "Kabar baik", translation: "Дела хорошие" },
     ],
     wordFamily: [
@@ -490,7 +490,7 @@ export const vocabulary: DictionaryWord[] = [
     id: 29,
     word: "tinggal",
     pronunciation: "/tiŋɡal/",
-    translation: "жить, проживать",
+    translation: "оставаться, жить (букв. 'оставаться')",
     category: "verb",
     frequency: 29,
     examples: [
@@ -562,17 +562,17 @@ export const vocabulary: DictionaryWord[] = [
     id: 33,
     word: "selamat jalan",
     pronunciation: "/səlamat dʒalan/",
-    translation: "счастливого пути",
+    translation: "счастливого пути (букв. 'благополучно идти/ехать')",
     category: "interjection",
     frequency: 33,
     examples: [
       {
         sentence: "Selamat jalan, sampai jumpa!",
-    translation: "Счастливого пути, до встречи!",
+    translation: "Счастливого пути, до встречи! (букв. 'благополучно идти/ехать, до встречи')",
       },
       {
         sentence: "Selamat jalan, hati-hati!",
-    translation: "Счастливого пути, береги себя!",
+    translation: "Счастливого пути, береги себя! (букв. 'благополучно идти/ехать, будь осторожен')",
       },
     ],
     wordFamily: [
@@ -797,7 +797,7 @@ export const vocabulary: DictionaryWord[] = [
     frequency: 44,
     examples: [
       { sentence: "Dia datang besok", translation: "Он придёт завтра" },
-      { sentence: "Selamat datang!", translation: "Добро пожаловать!" },
+      { sentence: "Selamat datang!", translation: "Добро пожаловать! (букв. 'благополучный приход')" },
     ],
     wordFamily: [
       { word: "mendatang", translation: "грядущий" },
@@ -4774,7 +4774,7 @@ export const vocabulary: DictionaryWord[] = [
     id: 262,
     word: "matahari",
     pronunciation: "/matahari/",
-    translation: "солнце",
+    translation: "солнце (букв. 'глаз дня')",
     category: "noun",
     frequency: 262,
     examples: [
@@ -8408,7 +8408,7 @@ export const vocabulary: DictionaryWord[] = [
     frequency: 476,
     examples: [
       { sentence: "Perjalanan jauh", translation: "Далёкая поездка" },
-      { sentence: "Selamat perjalanan", translation: "Счастливого пути" },
+      { sentence: "Selamat perjalanan", translation: "Счастливого пути (букв. 'благополучного путешествия')" },
     ],
     relatedWords: [54, 282],
     wordFamily: [

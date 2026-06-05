@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { ref, watch } from "vue";
+import { ref, watch, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
 import { useLanguageStore } from "../../stores/language";
+import { useAIStore } from "../../stores/ai";
 
 const props = defineProps<{
   visible: boolean;
@@ -16,6 +17,7 @@ const router = useRouter();
 const route = useRoute();
 const { theme, toggleTheme } = useTheme();
 const langStore = useLanguageStore();
+const aiStore = useAIStore();
 const activeKey = ref<string>("0");
 
 const drawerVisible = ref(false);
@@ -40,6 +42,13 @@ const menuItems = ref([
   { key: "4", labelKey: "nav.exercises", icon: "pi pi-pencil", path: "/exercises" },
   { key: "5", labelKey: "nav.progress", icon: "pi pi-chart-bar", path: "/progress" },
 ]);
+
+onMounted(async () => {
+  await aiStore.initialize();
+  if (aiStore.isSupported) {
+    menuItems.value.push({ key: "6", labelKey: "nav.aiChat", icon: "pi pi-comments", path: "/ai-chat" });
+  }
+});
 
 watch(
   () => route.path,

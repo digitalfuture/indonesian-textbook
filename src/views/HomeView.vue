@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useProgressStore } from "../stores/progress";
 import { useLanguageStore } from "../stores/language";
+import { useAIStore } from "../stores/ai";
 import { lessons } from "../data/lessons";
 import { useI18n } from "vue-i18n";
 
@@ -10,19 +11,27 @@ const router = useRouter();
 const route = useRoute();
 const progressStore = useProgressStore();
 const langStore = useLanguageStore();
+const aiStore = useAIStore();
 const { t } = useI18n();
+
+onMounted(async () => {
+  await aiStore.initialize();
+});
 
 const base = computed(() => `/${langStore.interfaceLang}/${langStore.targetLang}`);
 
 const showHero = computed(() => !route.meta?.hideHero);
 const showQuickLinks = computed(() => !route.meta?.hideQuickLinks);
 
-const completedLessons = computed(() =>
-  lessons.map((lesson) => ({
-    ...lesson,
-    isCompleted: progressStore.isLessonCompleted(lesson.id),
-  }))
-);
+const completedLessons = computed(() => {
+  const isAISupported = aiStore.isSupported;
+  return lessons
+    .filter((lesson) => lesson.id !== 17 || isAISupported)
+    .map((lesson) => ({
+      ...lesson,
+      isCompleted: progressStore.isLessonCompleted(lesson.id),
+    }));
+});
 
 function goToLesson(id: number) {
   router.push(`${base.value}/lesson/${id}`);
@@ -38,6 +47,10 @@ function goToDictionary() {
 
 function goToExercises() {
   router.push(`${base.value}/exercises`);
+}
+
+function goToAIChat() {
+  router.push(`${base.value}/ai-chat`);
 }
 </script>
 
@@ -136,6 +149,15 @@ function goToExercises() {
           <template #title>{{ $t('home.quickLinks.dictionary') }}</template>
           <template #content>
             <p>{{ $t('home.quickLinks.dictionaryDescription') }}</p>
+          </template>
+        </PCard>
+        <PCard v-if="aiStore.isSupported" class="quick-link-card ai-card" @click="goToAIChat">
+          <template #header>
+            <div class="quick-link-icon">💬</div>
+          </template>
+          <template #title>{{ $t('home.quickLinks.aiChat') }}</template>
+          <template #content>
+            <p>{{ $t('home.quickLinks.aiChatDescription') }}</p>
           </template>
         </PCard>
       </div>
@@ -408,6 +430,29 @@ function goToExercises() {
 .quick-link-card p {
   color: var(--text);
   line-height: 1.5;
+}
+
+.ai-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(102, 126, 234, 0.25);
+  transition: all 0.3s ease;
+}
+
+.ai-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.ai-card:hover {
+  border-color: rgba(118, 75, 162, 0.5);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+  transform: translateY(-4px);
 }
 
 @media (max-width: 768px) {
