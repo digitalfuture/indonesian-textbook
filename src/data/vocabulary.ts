@@ -96,7 +96,7 @@ export const vocabulary: DictionaryWord[] = [
     id: 5,
     word: "maaf",
     pronunciation: "/maʔaf/",
-    translation: "извините, простите",
+    translation: "извините, простите (букв. 'прощение')",
     category: "interjection",
     frequency: 5,
     examples: [
@@ -115,7 +115,7 @@ export const vocabulary: DictionaryWord[] = [
     id: 6,
     word: "tolong",
     pronunciation: "/toloŋ/",
-    translation: "пожалуйста (просьба), помогите",
+    translation: "пожалуйста (при просьбе), помогите (букв. 'помощь / помогите')",
     category: "interjection",
     frequency: 6,
     examples: [
@@ -138,7 +138,7 @@ export const vocabulary: DictionaryWord[] = [
     id: 7,
     word: "sampai jumpa",
     pronunciation: "/sampai dʒumpa/",
-    translation: "до свидания",
+    translation: "до свидания, до встречи (букв. 'до встречи / дойти до встречи')",
     category: "interjection",
     frequency: 7,
     examples: [
@@ -240,7 +240,7 @@ export const vocabulary: DictionaryWord[] = [
     id: 13,
     word: "kabar",
     pronunciation: "/kabar/",
-    translation: "новости, дела",
+    translation: "новости, дела (букв. 'новости')",
     category: "noun",
     frequency: 13,
     examples: [

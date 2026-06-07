@@ -4,6 +4,7 @@ import { useProgressStore } from "../../stores/progress";
 import { useLanguageStore } from "../../stores/language";
 import type { PropType } from "vue";
 import type { Exercise } from "../../utils/types";
+import { vocabulary } from "../../data/vocabulary";
 
 const props = defineProps({
   exercises: {
@@ -29,8 +30,52 @@ const selectedOption = ref("");
 const showFeedback = ref(false);
 const isCorrect = ref(false);
 const isStage2 = ref(false);
+const showHint = ref(false);
 
 const completedExercises = ref<number[]>([]);
+
+// Reset hint on exercise change
+watch(currentExerciseIndex, () => {
+  showHint.value = false;
+});
+
+// Extract vocabulary words from dictionary relevant to the current exercise
+const exerciseVocabulary = computed(() => {
+  if (!currentExercise.value) return [];
+
+  const textToScan = [
+    currentExercise.value.question,
+    currentExercise.value.correctAnswer,
+    currentExercise.value.stage2Answer,
+  ]
+    .flat()
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+  // Remove punctuation (keeping hyphens for words like sama-sama)
+  const cleanText = textToScan.replace(/[^\p{L}\p{N}\s-]/gu, " ");
+
+  const sortedVocab = [...vocabulary].sort((a, b) => b.word.length - a.word.length);
+  const matched: typeof vocabulary = [];
+  const foundWords = new Set<string>();
+
+  for (const item of sortedVocab) {
+    const word = item.word.toLowerCase();
+    if (foundWords.has(word)) continue;
+
+    const escapedWord = word.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    const regex = new RegExp(`\\b${escapedWord}\\b`, 'i');
+
+    if (regex.test(cleanText)) {
+      matched.push(item);
+      foundWords.add(word);
+    }
+  }
+
+  return matched.sort((a, b) => a.id - b.id);
+});
+
 
 // Initialize completed exercises
 watch(
@@ -268,6 +313,23 @@ defineExpose({
           {{ currentExercise.question }}
         </p>
 
+        <!-- Кнопка подсказки из словаря -->
+        <div v-if="exerciseVocabulary.length > 0" class="hint-container">
+          <button class="btn-hint" @click="showHint = !showHint">
+            💡 {{ showHint ? $t('exercise.hint.hide') : $t('exercise.hint.show') }}
+          </button>
+          
+          <div v-if="showHint" class="vocab-hint-card fade-in">
+            <ul class="vocab-list">
+              <li v-for="word in exerciseVocabulary" :key="word.id" class="vocab-item">
+                <span class="vocab-word">{{ word.word }}</span>
+                <span class="vocab-pron" v-if="word.pronunciation"> {{ word.pronunciation }}</span>
+                <span class="vocab-trans"> — {{ word.translation }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <div
           v-if="
             currentExercise.type === 'translation' ||
@@ -286,8 +348,15 @@ defineExpose({
           />
         </div>
 
-        <div
-          v-else-if="
+        <div v-else-if="currentExercise.type === 'matching'" class="matching-section">
+          <!-- Matching component placeholder or content -->
+        </div>
+
+        <div v-else-if="currentExercise.type === 'sentenceBuilder'" class="sentence-builder-section">
+          <!-- Sentence builder component placeholder or content -->
+        </div>
+
+        <div v-else-if="
             currentExercise.type === 'multipleChoice' ||
             (currentExercise.type === 'twoStage' && !isStage2)
           "
@@ -354,6 +423,18 @@ defineExpose({
               }}</strong>
             </p>
             <p class="explanation">{{ currentExercise.explanation }}</p>
+
+            <!-- Выписка из словаря в ответах -->
+            <div v-if="exerciseVocabulary.length > 0" class="vocab-explanation">
+              <div class="vocab-title">{{ $t('exercise.vocab.title') }}</div>
+              <ul class="vocab-list">
+                <li v-for="word in exerciseVocabulary" :key="word.id" class="vocab-item">
+                  <span class="vocab-word">{{ word.word }}</span>
+                  <span class="vocab-pron" v-if="word.pronunciation"> {{ word.pronunciation }}</span>
+                  <span class="vocab-trans"> — {{ word.translation }}</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -624,5 +705,88 @@ defineExpose({
   font-style: italic;
   color: var(--muted);
   font-size: 1.05rem;
+}
+
+/* Подсказки и выписки из словаря в упражнении */
+.hint-container {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.btn-hint {
+  background: none;
+  border: 1px dashed var(--primary);
+  color: var(--primary);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.btn-hint:hover {
+  background: var(--accent-bg);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.vocab-hint-card {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--p-border-radius-md);
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vocab-explanation {
+  margin-top: 0.75rem;
+  border-top: 1px dashed var(--border);
+  padding-top: 0.75rem;
+  width: 100%;
+}
+
+.vocab-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-h);
+  margin-bottom: 0.4rem;
+}
+
+.vocab-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.vocab-item {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.vocab-word {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.vocab-pron {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.vocab-trans {
+  color: var(--text);
 }
 </style>

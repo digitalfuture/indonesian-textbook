@@ -49,17 +49,37 @@ function renderTheory(text: string): string {
       processed = processed.replace(
         /(.+?)\s*(\/[^\s/]+(?:\s+[^\s/]+)*\/|\[[^\]]+\])\s*/g,
         (_match, phrase, _phon) => {
-          const trimmed = phrase.trim().replace(/^[-–—]\s*/, "").replace(/[–—].*$/, "").trim();
-          if (!trimmed || /^\d/.test(trimmed)) return _match;
-          const safe = trimmed.replace(/'/g, "\\'");
-          return `${trimmed} ${_phon} <button class="audio-btn-inline" data-word="${safe}">🔊</button> `;
+          const trimmed = phrase.trim();
+          if (!trimmed) return _match;
+
+          // Check if there's a list prefix (e.g. "1. ", "- ") to keep it outside of the bold tag
+          const prefixMatch = trimmed.match(/^(\s*(?:\d+[\.)]\s*|[-–—]\s*))(.+)$/);
+          let displayText = "";
+          let speakText = "";
+
+          if (prefixMatch) {
+            const prefix = prefixMatch[1];
+            const content = prefixMatch[2].trim();
+            displayText = `${prefix}<strong>${content}</strong>`;
+            speakText = content;
+          } else {
+            displayText = `<strong>${trimmed}</strong>`;
+            speakText = trimmed;
+          }
+
+          const safe = speakText.replace(/'/g, "\\'");
+          return `${displayText} ${_phon} <button class="audio-btn-inline" data-word="${safe}">🔊</button> `;
         },
       );
+
+      // Support basic markdown bold: **text** -> <strong>text</strong>
+      processed = processed.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
 
       return processed;
     })
     .join("<br>");
 }
+
 
 function onTheoryClick(e: MouseEvent) {
   const target = e.target as HTMLElement;
@@ -276,6 +296,10 @@ watch(
   color: var(--text);
   margin-bottom: 2rem;
   white-space: pre-line;
+}
+.theory-text :deep(strong) {
+  color: var(--text-h);
+  font-weight: 600;
 }
 .examples-grid {
   display: grid;
