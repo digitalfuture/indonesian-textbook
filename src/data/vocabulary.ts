@@ -16,17 +16,17 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Selamat datang",
         "translation": "Добро пожаловать (букв. 'благополучный приход')"
-      }
-    ],
-    "wordFamily": [
+      },
       {
-        "word": "selamat pagi",
+        "sentence": "selamat pagi",
         "translation": "доброе утро"
       },
       {
-        "word": "selamat jalan",
+        "sentence": "selamat jalan",
         "translation": "счастливого пути (букв. 'благополучно идти/ехать')"
-      },
+      }
+    ],
+    "wordFamily": [
       {
         "word": "keselamatan",
         "translation": "безопасность"
@@ -59,6 +59,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Saya bangun pagi",
         "translation": "Я просыпаюсь утром"
+      },
+      {
+        "sentence": "pagi hari",
+        "translation": "утреннее время"
       }
     ],
     "wordFamily": [
@@ -69,10 +73,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "sepagi",
         "translation": "целое утро"
-      },
-      {
-        "word": "pagi hari",
-        "translation": "утреннее время"
       }
     ],
     "lessonIds": [
@@ -191,6 +191,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Maaf, bapak",
         "translation": "Извините, господин"
+      },
+      {
+        "sentence": "permintaan maaf",
+        "translation": "извинение"
       }
     ],
     "wordFamily": [
@@ -201,10 +205,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "dimaafkan",
         "translation": "быть прощённым"
-      },
-      {
-        "word": "permintaan maaf",
-        "translation": "извинение"
       }
     ],
     "lessonIds": [
@@ -245,6 +245,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "pertolongan",
         "translation": "помощь"
+      },
+      {
+        "word": "permintaan",
+        "translation": "permintaan"
       }
     ],
     "lessonIds": [
@@ -2526,6 +2530,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Tiada uang",
         "translation": "Нет денег"
+      },
+      {
+        "sentence": "seperti tiada",
+        "translation": "как ни в чём не бывало"
       }
     ],
     "wordFamily": [
@@ -2536,10 +2544,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "ketiadaan",
         "translation": "отсутствие"
-      },
-      {
-        "word": "seperti tiada",
-        "translation": "как ни в чём не бывало"
       }
     ],
     "lessonIds": [
@@ -3274,6 +3278,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Berenang di laut",
         "translation": "Плавать в море"
+      },
+      {
+        "sentence": "kolam renang",
+        "translation": "бассейн"
       }
     ],
     "wordFamily": [
@@ -3282,12 +3290,16 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "плавать"
       },
       {
-        "word": "kolam renang",
-        "translation": "бассейн"
-      },
-      {
         "word": "perenang",
         "translation": "пловец"
+      },
+      {
+        "word": "kolam",
+        "translation": "kolam"
+      },
+      {
+        "word": "renang",
+        "translation": "renang"
       }
     ],
     "lessonIds": [
@@ -8514,13 +8526,13 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Kemarin malam",
         "translation": "Вчера вечером"
+      },
+      {
+        "sentence": "kemarin dulu",
+        "translation": "позавчера"
       }
     ],
     "wordFamily": [
-      {
-        "word": "kemarin dulu",
-        "translation": "позавчера"
-      },
       {
         "word": "kemarin-kemarin",
         "translation": "последнее время"
@@ -8932,6 +8944,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Naik gunung",
         "translation": "Восхождение на гору"
+      },
+      {
+        "sentence": "mendaki gunung",
+        "translation": "восхождение"
       }
     ],
     "wordFamily": [
@@ -8940,8 +8956,8 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "горная местность"
       },
       {
-        "word": "mendaki gunung",
-        "translation": "восхождение"
+        "word": "mendaki",
+        "translation": "mendaki"
       }
     ],
     "lessonIds": [
@@ -9017,16 +9033,16 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Pantai pasir putih",
         "translation": "Пляж с белым песком"
+      },
+      {
+        "sentence": "tepian pantai",
+        "translation": "побережье"
       }
     ],
     "wordFamily": [
       {
         "word": "berpantai",
         "translation": "иметь пляж"
-      },
-      {
-        "word": "tepian pantai",
-        "translation": "побережье"
       }
     ],
     "lessonIds": [
@@ -13174,20 +13190,16 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Ke atas",
         "translation": "Наверх"
+      },
+      {
+        "sentence": "di atas",
+        "translation": "наверху"
       }
     ],
     "wordFamily": [
       {
-        "word": "ke atas",
-        "translation": "наверх"
-      },
-      {
         "word": "mengatasi",
         "translation": "преодолевать"
-      },
-      {
-        "word": "di atas",
-        "translation": "наверху"
       }
     ],
     "lessonIds": [
@@ -13212,10 +13224,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [
-      {
-        "word": "ke bawah",
-        "translation": "вниз"
-      },
       {
         "word": "membawahi",
         "translation": "подчиняться"
@@ -13445,8 +13453,8 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "отходить к краю"
       },
       {
-        "word": "tepi jalan",
-        "translation": "обочина"
+        "word": "tepian",
+        "translation": "tepian"
       }
     ],
     "lessonIds": [
@@ -15839,16 +15847,20 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Banjir",
         "translation": "Наводнение"
+      },
+      {
+        "sentence": "banjir bandang",
+        "translation": "внезапное наводнение"
       }
     ],
     "wordFamily": [
       {
-        "word": "banjir bandang",
-        "translation": "внезапное наводнение"
-      },
-      {
         "word": "kebanjiran",
         "translation": "затопленный"
+      },
+      {
+        "word": "bandang",
+        "translation": "bandang"
       }
     ],
     "lessonIds": [
