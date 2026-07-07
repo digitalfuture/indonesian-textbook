@@ -6766,8 +6766,8 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Кофе с молоком"
       },
       {
-        "sentence": "Susu",
-        "translation": "Молоко"
+        "sentence": "Saya minum susu",
+        "translation": "Я пью молоко"
       }
     ],
     "wordFamily": [
@@ -6793,8 +6793,8 @@ export const vocabulary: DictionaryWord[] = [
     "frequency": 209,
     "examples": [
       {
-        "sentence": "Roti",
-        "translation": "Хлеб"
+        "sentence": "Saya makan roti",
+        "translation": "Я ем хлеб"
       },
       {
         "sentence": "Roti bakar",
@@ -6815,8 +6815,8 @@ export const vocabulary: DictionaryWord[] = [
     "frequency": 210,
     "examples": [
       {
-        "sentence": "Sayur",
-        "translation": "Овощи"
+        "sentence": "Kami makan sayur",
+        "translation": "Мы едим овощи"
       },
       {
         "sentence": "Makan sayur",
@@ -6908,8 +6908,8 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Жареная рыба"
       },
       {
-        "sentence": "Ikan",
-        "translation": "Рыба"
+        "sentence": "Saya makan ikan",
+        "translation": "Я ем рыбу"
       }
     ],
     "lessonIds": [
