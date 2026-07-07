@@ -144,14 +144,6 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "word": "свидание",
         "translation": "pertemuan, kencan"
-      },
-      {
-        "word": "до",
-        "translation": "sampai jumpa (formal)"
-      },
-      {
-        "word": "свидания",
-        "translation": "sampai jumpa (formal)"
       }
     ],
     "lessonIds": [
@@ -370,7 +362,7 @@ export const vocabularyRu: DictionaryWord[] = [
       },
       {
         "sentence": "Я и ты",
-        "translation": "Saya dan kamu"
+        "translation": "Saya и kamu"
       }
     ],
     "wordFamily": [
@@ -3585,12 +3577,7 @@ export const vocabularyRu: DictionaryWord[] = [
         "translation": "Sudah"
       }
     ],
-    "wordFamily": [
-      {
-        "word": "уже",
-        "translation": "sudah"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       10
     ]
@@ -7319,7 +7306,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "examples": [
       {
         "sentence": "Где аптека?",
-        "translation": "Di mana apotek?"
+        "translation": "Di mana аптека?"
       },
       {
         "sentence": "Аптека",
@@ -7329,12 +7316,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "lessonIds": [
       20
     ],
-    "wordFamily": [
-      {
-        "word": "аптека",
-        "translation": "apotek"
-      }
-    ]
+    "wordFamily": []
   },
   {
     "id": 236,
@@ -7371,7 +7353,7 @@ export const vocabularyRu: DictionaryWord[] = [
       },
       {
         "sentence": "Где школа?",
-        "translation": "Di mana sekolah?"
+        "translation": "Di mana школа?"
       }
     ],
     "lessonIds": [
@@ -7388,10 +7370,6 @@ export const vocabularyRu: DictionaryWord[] = [
       },
       {
         "word": "школу",
-        "translation": "sekolah"
-      },
-      {
-        "word": "школа",
         "translation": "sekolah"
       }
     ]
@@ -7410,18 +7388,13 @@ export const vocabularyRu: DictionaryWord[] = [
       },
       {
         "sentence": "Где университет?",
-        "translation": "Di mana universitas?"
+        "translation": "Di mana университет?"
       }
     ],
     "lessonIds": [
       20
     ],
-    "wordFamily": [
-      {
-        "word": "университет",
-        "translation": "universitas"
-      }
-    ]
+    "wordFamily": []
   },
   {
     "id": 239,
@@ -7464,7 +7437,7 @@ export const vocabularyRu: DictionaryWord[] = [
       },
       {
         "sentence": "Где музей?",
-        "translation": "Di mana museum?"
+        "translation": "Di mana музей?"
       }
     ],
     "lessonIds": [
@@ -7477,10 +7450,6 @@ export const vocabularyRu: DictionaryWord[] = [
       },
       {
         "word": "музыка",
-        "translation": "museum"
-      },
-      {
-        "word": "музей",
         "translation": "museum"
       }
     ]
@@ -7631,12 +7600,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "lessonIds": [
       21
     ],
-    "wordFamily": [
-      {
-        "word": "такси",
-        "translation": "taksi"
-      }
-    ]
+    "wordFamily": []
   },
   {
     "id": 246,
@@ -7648,7 +7612,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "examples": [
       {
         "sentence": "Где метро?",
-        "translation": "Di mana metro?"
+        "translation": "Di mana метро?"
       },
       {
         "sentence": "Метро",
@@ -7658,12 +7622,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "lessonIds": [
       21
     ],
-    "wordFamily": [
-      {
-        "word": "метро",
-        "translation": "metro"
-      }
-    ]
+    "wordFamily": []
   },
   {
     "id": 247,
@@ -7702,7 +7661,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "examples": [
       {
         "sentence": "Где остановка?",
-        "translation": "Di mana halte?"
+        "translation": "Di mana остановка?"
       },
       {
         "sentence": "Остановка",
@@ -7721,10 +7680,6 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "word": "остров",
         "translation": "halte, perhentian"
-      },
-      {
-        "word": "остановка",
-        "translation": "halte"
       }
     ],
     "lessonIds": [
@@ -7755,10 +7710,6 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "word": "билета",
         "translation": "tiket"
-      },
-      {
-        "word": "билет",
-        "translation": "tiket"
       }
     ]
   },
@@ -7772,7 +7723,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "examples": [
       {
         "sentence": "Где вокзал?",
-        "translation": "Di mana stasiun?"
+        "translation": "Di mana вокзал?"
       },
       {
         "sentence": "Вокзал",
@@ -7782,12 +7733,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "lessonIds": [
       21
     ],
-    "wordFamily": [
-      {
-        "word": "вокзал",
-        "translation": "stasiun"
-      }
-    ]
+    "wordFamily": []
   },
   {
     "id": 251,
@@ -8974,7 +8920,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "examples": [
       {
         "sentence": "Я живу в России",
-        "translation": "Saya tinggal di Rusia"
+        "translation": "Saya tinggal в России"
       },
       {
         "sentence": "Россия",
@@ -9001,7 +8947,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "examples": [
       {
         "sentence": "Я живу в Москве",
-        "translation": "Saya tinggal di Moskow"
+        "translation": "Saya tinggal в Москве"
       },
       {
         "sentence": "Москва",
@@ -9141,7 +9087,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "examples": [
       {
         "sentence": "Я встаю в 7 утра",
-        "translation": "Saya bangun pada jam 7 pagi"
+        "translation": "Saya bangun pada jam 7 утра"
       },
       {
         "sentence": "Вставать утром",
@@ -11447,7 +11393,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "examples": [
       {
         "sentence": "Где почта?",
-        "translation": "Di mana kantor pos?"
+        "translation": "Di mana почта?"
       },
       {
         "sentence": "Почта",
@@ -11457,12 +11403,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "lessonIds": [
       32
     ],
-    "wordFamily": [
-      {
-        "word": "почта",
-        "translation": "kantor pos"
-      }
-    ]
+    "wordFamily": []
   },
   {
     "id": 384,

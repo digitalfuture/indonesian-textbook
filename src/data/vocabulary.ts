@@ -67,10 +67,6 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "wordFamily": [
       {
-        "word": "pagi-pagi",
-        "translation": "рано утром"
-      },
-      {
         "word": "sepagi",
         "translation": "целое утро"
       }
@@ -113,14 +109,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "penerimaan",
         "translation": "приём, получение"
-      },
-      {
-        "word": "terima",
-        "translation": "спасибо (букв. 'примите любовь/благодарность')"
-      },
-      {
-        "word": "kasih",
-        "translation": "спасибо (букв. 'примите любовь/благодарность')"
       }
     ],
     "lessonIds": [
@@ -150,10 +138,6 @@ export const vocabulary: DictionaryWord[] = [
       145
     ],
     "wordFamily": [
-      {
-        "word": "sama-sama",
-        "translation": "пожалуйста; взаимно, вместе"
-      },
       {
         "word": "bersama",
         "translation": "вместе"
@@ -191,10 +175,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Maaf, bapak",
         "translation": "Извините, господин"
-      },
-      {
-        "sentence": "permintaan maaf",
-        "translation": "извинение"
       }
     ],
     "wordFamily": [
@@ -276,16 +256,7 @@ export const vocabulary: DictionaryWord[] = [
     "lessonIds": [
       1
     ],
-    "wordFamily": [
-      {
-        "word": "sampai",
-        "translation": "до свидания, до встречи (букв. 'до встречи / дойти до встречи')"
-      },
-      {
-        "word": "jumpa",
-        "translation": "до свидания, до встречи (букв. 'до встречи / дойти до встречи')"
-      }
-    ]
+    "wordFamily": []
   },
   {
     "id": 8,
@@ -401,10 +372,6 @@ export const vocabulary: DictionaryWord[] = [
       111
     ],
     "wordFamily": [
-      {
-        "word": "siapa-siapa",
-        "translation": "кто угодно"
-      },
       {
         "word": "sesiapa",
         "translation": "кто-либо"
@@ -856,10 +823,6 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "быть узнанным, известный"
       },
       {
-        "word": "kenalan",
-        "translation": "знакомый"
-      },
-      {
         "word": "berkenalan",
         "translation": "знакомиться"
       },
@@ -1050,14 +1013,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "sejalan",
         "translation": "по пути, согласованно"
-      },
-      {
-        "word": "jalan-jalan",
-        "translation": "гулять"
-      },
-      {
-        "word": "jalan",
-        "translation": "счастливого пути (букв. 'благополучно идти/ехать')"
       }
     ],
     "lessonIds": [
@@ -1104,10 +1059,6 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "знакомиться"
       },
       {
-        "word": "perkenalan",
-        "translation": "представление"
-      },
-      {
         "word": "terkenal",
         "translation": "известный, знаменитый"
       }
@@ -1149,10 +1100,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "kenalan",
         "translation": "знакомый"
-      },
-      {
-        "word": "berkenalan",
-        "translation": "знакомиться"
       },
       {
         "word": "perkenalan",
@@ -1223,10 +1170,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [
-      {
-        "word": "bertemu",
-        "translation": "встречаться"
-      },
       {
         "word": "pertemuan",
         "translation": "встреча"
@@ -1366,10 +1309,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "termakan",
         "translation": "быть съеденным (нечаянно)"
-      },
-      {
-        "word": "makan-makan",
-        "translation": "застолье, пирушка"
       }
     ],
     "lessonIds": [
@@ -1900,10 +1839,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "sejalan",
         "translation": "по пути, согласованно"
-      },
-      {
-        "word": "jalan-jalan",
-        "translation": "гулять"
       }
     ],
     "lessonIds": [
@@ -2224,10 +2159,6 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "wordFamily": [
       {
-        "word": "buku-buku",
-        "translation": "книги"
-      },
-      {
         "word": "perbukuan",
         "translation": "книжное дело"
       },
@@ -2357,10 +2288,6 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "прошлой ночью"
       },
       {
-        "word": "malam-malam",
-        "translation": "поздно вечером"
-      },
-      {
         "word": "kemalaman",
         "translation": "слишком поздно"
       }
@@ -2389,10 +2316,6 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "wordFamily": [
       {
-        "word": "siang-siang",
-        "translation": "спозаранку"
-      },
-      {
         "word": "sesiang",
         "translation": "в полдень"
       }
@@ -2420,10 +2343,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [
-      {
-        "word": "sore-sore",
-        "translation": "ближе к вечеру"
-      },
       {
         "word": "sesore",
         "translation": "целый вечер"
@@ -2459,10 +2378,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "menginginkan",
         "translation": "хотеть, желать"
-      },
-      {
-        "word": "mau",
-        "translation": "я хочу, я собираюсь"
       }
     ],
     "lessonIds": [
@@ -2530,10 +2445,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Tiada uang",
         "translation": "Нет денег"
-      },
-      {
-        "sentence": "seperti tiada",
-        "translation": "как ни в чём не бывало"
       }
     ],
     "wordFamily": [
@@ -2571,10 +2482,6 @@ export const vocabulary: DictionaryWord[] = [
       425
     ],
     "wordFamily": [
-      {
-        "word": "membaca",
-        "translation": "читать"
-      },
       {
         "word": "bacaan",
         "translation": "чтение"
@@ -2615,10 +2522,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [
-      {
-        "word": "menulis",
-        "translation": "писать"
-      },
       {
         "word": "tulisan",
         "translation": "надпись, текст"
@@ -3286,10 +3189,6 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "wordFamily": [
       {
-        "word": "berenang",
-        "translation": "плавать"
-      },
-      {
         "word": "perenang",
         "translation": "пловец"
       },
@@ -3328,10 +3227,6 @@ export const vocabulary: DictionaryWord[] = [
       53
     ],
     "wordFamily": [
-      {
-        "word": "berlari",
-        "translation": "бежать, бегать"
-      },
       {
         "word": "pelari",
         "translation": "бегун"
@@ -3404,10 +3299,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [
-      {
-        "word": "berdiri",
-        "translation": "стоять"
-      },
       {
         "word": "mendirikan",
         "translation": "основывать"
@@ -3713,12 +3604,7 @@ export const vocabulary: DictionaryWord[] = [
     "relatedWords": [
       112
     ],
-    "wordFamily": [
-      {
-        "word": "kapan-kapan",
-        "translation": "когда-нибудь"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       4
     ]
@@ -3745,10 +3631,6 @@ export const vocabulary: DictionaryWord[] = [
       14
     ],
     "wordFamily": [
-      {
-        "word": "mana",
-        "translation": "где"
-      },
       {
         "word": "manakah",
         "translation": "где"
@@ -3859,12 +3741,7 @@ export const vocabulary: DictionaryWord[] = [
     "lessonIds": [
       4
     ],
-    "wordFamily": [
-      {
-        "word": "yang",
-        "translation": "который, какой (из)"
-      }
-    ]
+    "wordFamily": []
   },
   {
     "id": 107,
@@ -3911,10 +3788,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "caranya",
         "translation": "как (способ) (его/ее/их)"
-      },
-      {
-        "word": "cara",
-        "translation": "как (способ)"
       }
     ]
   },
@@ -3940,10 +3813,6 @@ export const vocabulary: DictionaryWord[] = [
       198
     ],
     "wordFamily": [
-      {
-        "word": "seberapa",
-        "translation": "насколько"
-      },
       {
         "word": "beberapa",
         "translation": "несколько"
@@ -3979,10 +3848,6 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "wordFamily": [
       {
-        "word": "apakah",
-        "translation": "ли (вопрос)"
-      },
-      {
         "word": "apapun",
         "translation": "что угодно"
       },
@@ -4017,10 +3882,6 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "wordFamily": [
       {
-        "word": "siapa-siapa",
-        "translation": "кто угодно"
-      },
-      {
         "word": "sesiapa",
         "translation": "кто-либо"
       },
@@ -4053,12 +3914,7 @@ export const vocabulary: DictionaryWord[] = [
     "relatedWords": [
       101
     ],
-    "wordFamily": [
-      {
-        "word": "kapan-kapan",
-        "translation": "когда-нибудь"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       4,
       11
@@ -4110,10 +3966,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [
-      {
-        "word": "macam-macam",
-        "translation": "разные, всякие"
-      },
       {
         "word": "bermacam",
         "translation": "разнообразный"
@@ -4171,12 +4023,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Неизвестно почему"
       }
     ],
-    "wordFamily": [
-      {
-        "word": "entah-entah",
-        "translation": "неизвестно кто/что"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       4
     ]
@@ -4268,10 +4115,6 @@ export const vocabulary: DictionaryWord[] = [
       32
     ],
     "wordFamily": [
-      {
-        "word": "bagaimanakah",
-        "translation": "как же"
-      },
       {
         "word": "bagaimanapun",
         "translation": "как бы то ни было"
@@ -4585,12 +4428,7 @@ export const vocabulary: DictionaryWord[] = [
       5,
       15
     ],
-    "wordFamily": [
-      {
-        "word": "saja",
-        "translation": "не только"
-      }
-    ]
+    "wordFamily": []
   },
   {
     "id": 133,
@@ -4637,10 +4475,6 @@ export const vocabulary: DictionaryWord[] = [
       145
     ],
     "wordFamily": [
-      {
-        "word": "sama-sama",
-        "translation": "пожалуйста; вместе"
-      },
       {
         "word": "bersama",
         "translation": "вместе"
@@ -4727,12 +4561,7 @@ export const vocabulary: DictionaryWord[] = [
       5,
       11
     ],
-    "wordFamily": [
-      {
-        "word": "bisa",
-        "translation": "может быть, возможно"
-      }
-    ]
+    "wordFamily": []
   },
   {
     "id": 137,
@@ -4763,14 +4592,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "perkalian",
         "translation": "умножение"
-      },
-      {
-        "word": "acap",
-        "translation": "часто, нередко"
-      },
-      {
-        "word": "kali",
-        "translation": "часто, нередко"
       },
       {
         "word": "kalinya",
@@ -4862,10 +4683,6 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "wordFamily": [
       {
-        "word": "sekali-sekali",
-        "translation": "время от времени"
-      },
-      {
         "word": "keseksian",
         "translation": "единственность"
       }
@@ -4933,10 +4750,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [
-      {
-        "word": "baru-baru",
-        "translation": "недавно"
-      },
       {
         "word": "memperbarui",
         "translation": "обновлять"
@@ -5055,10 +4868,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "sama-sama",
         "translation": "пожалуйста; вместе"
-      },
-      {
-        "word": "bersama",
-        "translation": "вместе"
       },
       {
         "word": "menyamakan",
@@ -5356,10 +5165,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "terdahulu",
         "translation": "предыдущий"
-      },
-      {
-        "word": "melalui",
-        "translation": "проходить через"
       }
     ],
     "lessonIds": [
@@ -5393,10 +5198,6 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "каждый"
       },
       {
-        "word": "tiap-tiap",
-        "translation": "каждый (по отдельности)"
-      },
-      {
         "word": "ketiapan",
         "translation": "регулярность"
       }
@@ -5427,10 +5228,6 @@ export const vocabulary: DictionaryWord[] = [
       157
     ],
     "wordFamily": [
-      {
-        "word": "setiap",
-        "translation": "каждый"
-      },
       {
         "word": "tiap-tiap",
         "translation": "каждый (по отдельности)"
@@ -5891,10 +5688,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "keduanya",
         "translation": "оба"
-      },
-      {
-        "word": "belas",
-        "translation": "двенадцать"
       }
     ],
     "lessonIds": [
@@ -5953,10 +5746,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "keduanya",
         "translation": "оба"
-      },
-      {
-        "word": "ratus",
-        "translation": "двести"
       }
     ],
     "lessonIds": [
@@ -6125,12 +5914,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Полкило"
       }
     ],
-    "wordFamily": [
-      {
-        "word": "setengah-setengah",
-        "translation": "наполовину"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       7,
       8
@@ -6635,10 +6419,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "diakhiri",
         "translation": "завершаться"
-      },
-      {
-        "word": "terakhir",
-        "translation": "последний"
       }
     ],
     "lessonIds": [
@@ -6671,10 +6451,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "seberapa",
         "translation": "насколько"
-      },
-      {
-        "word": "beberapa",
-        "translation": "несколько"
       },
       {
         "word": "memperberapa",
@@ -6774,12 +6550,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Жареный рис"
       }
     ],
-    "wordFamily": [
-      {
-        "word": "nasi-nasi",
-        "translation": "похожий на рис"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       3
     ]
@@ -6904,10 +6675,6 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "быть съеденным"
       },
       {
-        "word": "makanan",
-        "translation": "еда, пища"
-      },
-      {
         "word": "pemakan",
         "translation": "едок, пожиратель"
       },
@@ -6949,10 +6716,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "menggula",
         "translation": "засахариваться"
-      },
-      {
-        "word": "gula-gula",
-        "translation": "конфеты"
       }
     ],
     "lessonIds": [
@@ -7038,12 +6801,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Тост"
       }
     ],
-    "wordFamily": [
-      {
-        "word": "roti-roti",
-        "translation": "выпечка"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       15
     ]
@@ -7632,10 +7390,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "termakan",
         "translation": "быть съеденным (нечаянно)"
-      },
-      {
-        "word": "makan-makan",
-        "translation": "застолье, пирушка"
       }
     ],
     "lessonIds": [
@@ -7680,10 +7434,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "termakan",
         "translation": "быть съеденным (нечаянно)"
-      },
-      {
-        "word": "makan-makan",
-        "translation": "застолье, пирушка"
       }
     ],
     "lessonIds": [
@@ -8197,10 +7947,6 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "wordFamily": [
       {
-        "word": "jam-jam",
-        "translation": "часы, время"
-      },
-      {
         "word": "sejam",
         "translation": "один час"
       },
@@ -8247,10 +7993,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "keseharian",
         "translation": "повседневность"
-      },
-      {
-        "word": "senin",
-        "translation": "понедельник"
       }
     ],
     "lessonIds": [
@@ -8290,10 +8032,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "keseharian",
         "translation": "повседневность"
-      },
-      {
-        "word": "selasa",
-        "translation": "вторник"
       }
     ],
     "lessonIds": [
@@ -8333,10 +8071,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "keseharian",
         "translation": "повседневность"
-      },
-      {
-        "word": "rabu",
-        "translation": "среда"
       }
     ],
     "lessonIds": [
@@ -8376,10 +8110,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "keseharian",
         "translation": "повседневность"
-      },
-      {
-        "word": "kamis",
-        "translation": "четверг"
       }
     ],
     "lessonIds": [
@@ -8419,10 +8149,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "keseharian",
         "translation": "повседневность"
-      },
-      {
-        "word": "jumat",
-        "translation": "пятница"
       }
     ],
     "lessonIds": [
@@ -8462,10 +8188,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "keseharian",
         "translation": "повседневность"
-      },
-      {
-        "word": "sabtu",
-        "translation": "суббота"
       }
     ],
     "lessonIds": [
@@ -8532,12 +8254,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "позавчера"
       }
     ],
-    "wordFamily": [
-      {
-        "word": "kemarin-kemarin",
-        "translation": "последнее время"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       8,
       9
@@ -8561,10 +8278,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [
-      {
-        "word": "besok-besok",
-        "translation": "в будущем"
-      },
       {
         "word": "sehari",
         "translation": "завтра"
@@ -8592,12 +8305,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Сейчас"
       }
     ],
-    "wordFamily": [
-      {
-        "word": "sekarang-sekarang",
-        "translation": "в последнее время"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       8,
       10
@@ -8620,12 +8328,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "До встречи"
       }
     ],
-    "wordFamily": [
-      {
-        "word": "nanti-nanti",
-        "translation": "чуть позже"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       8,
       11
@@ -8648,12 +8351,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Сначала послушай"
       }
     ],
-    "wordFamily": [
-      {
-        "word": "dulu-dulu",
-        "translation": "когда-то, раньше"
-      }
-    ],
+    "wordFamily": [],
     "lessonIds": [
       8,
       9
@@ -8714,10 +8412,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [
-      {
-        "word": "awal-awal",
-        "translation": "в самом начале"
-      },
       {
         "word": "mengawali",
         "translation": "начинать"
@@ -8791,10 +8485,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "menghujani",
         "translation": "засыпать (градом)"
-      },
-      {
-        "word": "hujan-hujan",
-        "translation": "в дождь"
       }
     ],
     "lessonIds": [
@@ -8884,10 +8574,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "berbunga",
         "translation": "цветущий"
-      },
-      {
-        "word": "bunga-bunga",
-        "translation": "цветочки"
       },
       {
         "word": "perbungaan",
@@ -9380,14 +9066,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "gempabumi",
         "translation": "землетрясение"
-      },
-      {
-        "word": "gempa",
-        "translation": "землетрясение"
-      },
-      {
-        "word": "bumi",
-        "translation": "землетрясение"
       }
     ],
     "lessonIds": [
@@ -9466,10 +9144,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "sejalan",
         "translation": "по пути, согласованно"
-      },
-      {
-        "word": "jalan-jalan",
-        "translation": "гулять"
       }
     ],
     "lessonIds": [
@@ -9606,10 +9280,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "tersakiti",
         "translation": "обиженный"
-      },
-      {
-        "word": "sakit",
-        "translation": "больница"
       }
     ],
     "lessonIds": [
@@ -10447,10 +10117,6 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "используемый"
       },
       {
-        "word": "pakaian",
-        "translation": "одежда"
-      },
-      {
         "word": "pemakaian",
         "translation": "использование"
       },
@@ -11044,10 +10710,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "sebaik-baiknya",
         "translation": "как можно лучше"
-      },
-      {
-        "word": "hati",
-        "translation": "добрый, добросердечный"
       }
     ],
     "lessonIds": [
@@ -11732,10 +11394,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "berkakak",
         "translation": "иметь старшего брата/сестру"
-      },
-      {
-        "word": "perempuan",
-        "translation": "старшая сестра"
       }
     ],
     "lessonIds": [
@@ -11841,10 +11499,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "serumah",
         "translation": "в одном доме"
-      },
-      {
-        "word": "tangga",
-        "translation": "домашнее хозяйство, семья"
       }
     ],
     "lessonIds": [
@@ -12446,10 +12100,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "terkecil",
         "translation": "самый маленький"
-      },
-      {
-        "word": "kecil-kecil",
-        "translation": "мелкий, понемногу"
       }
     ],
     "lessonIds": [
@@ -12989,10 +12639,6 @@ export const vocabulary: DictionaryWord[] = [
       },
       {
         "word": "pembersihan",
-        "translation": "уборка"
-      },
-      {
-        "word": "bersih-bersih",
         "translation": "уборка"
       },
       {
@@ -13808,10 +13454,6 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "учить, преподавать"
       },
       {
-        "word": "belajar",
-        "translation": "учиться"
-      },
-      {
         "word": "pelajar",
         "translation": "ученик"
       },
@@ -14430,10 +14072,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [
-      {
-        "word": "burung-burung",
-        "translation": "птицы"
-      },
       {
         "word": "berburung",
         "translation": "охотиться на птиц"
@@ -15165,10 +14803,6 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "выполнять, запускать"
       },
       {
-        "word": "perjalanan",
-        "translation": "путешествие"
-      },
-      {
         "word": "pejalan",
         "translation": "пешеход"
       },
@@ -15698,10 +15332,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "semusim",
         "translation": "один сезон"
-      },
-      {
-        "word": "semi",
-        "translation": "весна"
       }
     ],
     "lessonIds": [
@@ -15733,10 +15363,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "semusim",
         "translation": "один сезон"
-      },
-      {
-        "word": "gugur",
-        "translation": "осень"
       }
     ],
     "lessonIds": [
@@ -15888,10 +15514,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "berkaki",
         "translation": "иметь ноги"
-      },
-      {
-        "word": "kaki-kaki",
-        "translation": "ножки (мебели)"
       }
     ],
     "lessonIds": [
@@ -15988,10 +15610,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "meminum",
         "translation": "пить, выпивать"
-      },
-      {
-        "word": "minuman",
-        "translation": "напиток"
       },
       {
         "word": "peminum",
