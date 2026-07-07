@@ -8802,7 +8802,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "examples": [
       {
         "sentence": "Вкусный завтрак",
-        "translation": "Sarapan enak"
+        "translation": "Sarapan очен вкусный"
       },
       {
         "sentence": "Мой завтрак",
@@ -8862,7 +8862,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "examples": [
       {
         "sentence": "Вкусный ужин",
-        "translation": "Makan malam enak"
+        "translation": "Makan malam очен вкусный"
       },
       {
         "sentence": "Мой ужин",

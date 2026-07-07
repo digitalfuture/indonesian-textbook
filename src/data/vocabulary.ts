@@ -6731,8 +6731,8 @@ export const vocabulary: DictionaryWord[] = [
     "frequency": 207,
     "examples": [
       {
-        "sentence": "Garam",
-        "translation": "Соль"
+        "sentence": "Ini garam",
+        "translation": "Это соль"
       },
       {
         "sentence": "Kurang garam",
@@ -14385,7 +14385,7 @@ export const vocabulary: DictionaryWord[] = [
       },
       {
         "sentence": "Kura-kura berjalan lambat",
-        "translation": "Черепаха ползет медленно"
+        "translation": "Cherepaha polzet medlenno"
       }
     ],
     "lessonIds": [
