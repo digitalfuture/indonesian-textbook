@@ -486,7 +486,7 @@ defineExpose({
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   color: var(--text);
 }
 
@@ -541,7 +541,7 @@ defineExpose({
   background: var(--primary-gradient);
   color: white;
   border-radius: 0.25rem;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
@@ -632,8 +632,12 @@ defineExpose({
 
 .feedback-text p {
   margin: 0.25rem 0;
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: var(--text);
+}
+
+.feedback-text p strong {
+  color: var(--translation-color);
 }
 
 .explanation {
@@ -721,7 +725,7 @@ defineExpose({
   color: var(--primary);
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
-  font-size: 0.85rem;
+  font-size: 1rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -755,7 +759,7 @@ defineExpose({
 
 .vocab-title {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   color: var(--text-h);
   margin-bottom: 0.4rem;
 }
@@ -770,7 +774,7 @@ defineExpose({
 }
 
 .vocab-item {
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   line-height: 1.4;
   color: var(--text);
 }
@@ -783,10 +787,11 @@ defineExpose({
 .vocab-pron {
   color: var(--muted);
   font-style: italic;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
 }
 
 .vocab-trans {
-  color: var(--text);
+  color: var(--translation-color);
+  font-weight: 500;
 }
 </style>

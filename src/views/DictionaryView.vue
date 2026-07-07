@@ -474,7 +474,7 @@ const stats = computed(() => ({
 .related-word-item {
   display: flex;
   gap: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 1.05rem;
   cursor: pointer;
   padding: 0.2rem 0.5rem;
   border-radius: 0.25rem;
@@ -491,11 +491,12 @@ const stats = computed(() => ({
 }
 
 .related-translation {
-  color: var(--text);
+  color: var(--translation-color);
+  font-weight: 500;
 }
 
 .related-badge {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: var(--text);
   background: var(--code-bg);
   padding: 0.1rem 0.4rem;
@@ -534,7 +535,7 @@ const stats = computed(() => ({
 .family-item {
   display: flex;
   gap: 0.5rem;
-  font-size: 0.85rem;
+  font-size: 1rem;
   padding: 0.15rem 0.5rem;
 }
 
@@ -545,19 +546,25 @@ const stats = computed(() => ({
 }
 
 .family-translation {
-  color: var(--text);
-  opacity: 0.7;
+  color: var(--translation-color);
+  opacity: 0.9;
+  font-weight: 500;
 }
 
 .quick-example {
-  font-size: 0.85rem;
+  font-size: 1rem;
   margin-bottom: 0.5rem;
   padding-left: 0.5rem;
   border-left: 2px solid var(--border);
 }
 
+.quick-example p:nth-child(2) {
+  color: var(--translation-color);
+  font-weight: 500;
+}
+
 .no-related {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--text-light);
   font-style: italic;
   margin-bottom: 1rem;
@@ -568,22 +575,23 @@ const stats = computed(() => ({
 }
 
 .word-indonesian {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-h);
   margin-bottom: 0.25rem;
 }
 
 .word-russian {
-  font-size: 0.95rem;
-  color: var(--text);
+  font-size: 1.15rem;
+  color: var(--translation-color);
+  font-weight: 500;
   margin-bottom: 0.25rem;
 }
 
 .word-pronunciation {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--text);
-  opacity: 0.45;
+  opacity: 0.6;
   font-style: italic;
   margin-left: 0.3rem;
 }
@@ -604,7 +612,7 @@ const stats = computed(() => ({
 }
 
 .word-category {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: #667eea;
   background: var(--accent-bg);
   padding: 0.25rem 0.5rem;
@@ -612,9 +620,9 @@ const stats = computed(() => ({
 }
 
 .word-frequency {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   color: var(--text);
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .word-actions {
@@ -687,14 +695,14 @@ const stats = computed(() => ({
 }
 
 .modal-translation {
-  font-size: 1.1rem;
-  color: var(--text);
+  font-size: 1.3rem;
+  color: var(--translation-color);
   margin-bottom: 1.5rem;
   font-weight: 500;
 }
 
 .modal-examples h3 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
   color: var(--text-h);
 }
@@ -710,11 +718,13 @@ const stats = computed(() => ({
   font-weight: 500;
   color: var(--text-h);
   margin-bottom: 0.25rem;
+  font-size: 1.1rem;
 }
 
 .example-ru {
-  color: var(--text);
-  font-size: 0.9rem;
+  color: var(--translation-color);
+  font-size: 1.05rem;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {

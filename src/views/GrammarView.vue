@@ -20,14 +20,19 @@ function getPhonetic(label: string): string {
 
 function renderCell(text: string): string {
   // Find word with phonetic [word phon] or just [phon] and add audio button
-  return text.replace(
+  let formatted = text.replace(
     /([А-Яа-яЁёA-Za-zÀ-ÿ]+(?:\s+[А-Яа-яЁёA-Za-zÀ-ÿ]+)*)\s*(\[[^\]]+\])/g,
     (_match, word, phon) => {
       const safe = word.replace(/'/g, "\\'");
       return `${word} ${phon} <button class="audio-btn-inline" data-word="${safe}">🔊</button>`;
     },
   );
-  // Also handle simple words without phonetic (add audio button based on context)
+  // Wrap parenthesized translations
+  formatted = formatted.replace(
+    /(\([^)]+\))/g,
+    '<span class="grammar-translation">$1</span>'
+  );
+  return formatted;
 }
 
 function onTableClick(e: MouseEvent) {
@@ -876,7 +881,7 @@ function goBack() {
 .grammar-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
 }
 
 .grammar-table th,
@@ -919,7 +924,7 @@ function goBack() {
 }
 
 .term-phonetic {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--text);
   opacity: 0.5;
   font-style: italic;
@@ -928,7 +933,7 @@ function goBack() {
 .term-cell .audio-btn {
   background: none;
   border: none;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   cursor: pointer;
   padding: 0 0.2rem;
   opacity: 0.45;
@@ -944,7 +949,7 @@ function goBack() {
 .audio-btn-inline {
   background: none;
   border: none;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   cursor: pointer;
   padding: 0 0.15rem;
   opacity: 0.45;
@@ -954,6 +959,11 @@ function goBack() {
 
 .audio-btn-inline:hover {
   opacity: 1;
+}
+
+.grammar-translation {
+  color: var(--translation-color);
+  font-weight: 500;
 }
 
 .mb-3 {
@@ -966,7 +976,7 @@ function goBack() {
   }
 
   .grammar-table {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
   }
 
   .grammar-table th,

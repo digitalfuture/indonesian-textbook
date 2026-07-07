@@ -312,7 +312,7 @@ watch(
   border-left: 4px solid var(--primary);
 }
 .example-indonesian {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 500;
   color: var(--text-h);
   margin-bottom: 0.5rem;
@@ -324,7 +324,7 @@ watch(
 .audio-btn-sm {
   background: none;
   border: none;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   cursor: pointer;
   padding: 0 0.2rem;
   opacity: 0.5;
@@ -339,7 +339,7 @@ watch(
 .audio-btn-inline {
   background: none;
   border: none;
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   cursor: pointer;
   padding: 0 0.15rem;
   opacity: 0.5;
@@ -352,18 +352,20 @@ watch(
 }
 
 .example-phonetic {
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   color: var(--text);
-  opacity: 0.45;
+  opacity: 0.6;
   font-style: italic;
 }
 
 .example-russian {
-  color: var(--text);
+  font-size: 1.15rem;
+  color: var(--translation-color);
+  font-weight: 500;
   margin-bottom: 0.5rem;
 }
 .example-notes {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--muted);
   font-style: italic;
 }

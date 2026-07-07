@@ -7,6 +7,7 @@
   /* Light theme defaults */
   --text: #6b6375;
   --text-h: #08060d;
+  --translation-color: #0f766e;
   --bg: #ffffff;
   --bg-card: #ffffff;
   --bg-elevated: #ffffff;
@@ -39,6 +40,7 @@
 :root.app-dark {
   --text: #9ca3af;
   --text-h: #f3f4f6;
+  --translation-color: #2dd4bf;
   --bg: #16171d;
   --bg-card: #22242e;
   --bg-elevated: #2a2c38;
@@ -193,7 +195,7 @@ p { margin-bottom: 1rem; color: var(--text); }
   border-color: var(--accent);
   color: var(--accent);
 }
-.btn-sm { padding: 0.5rem 1rem; font-size: 0.875rem; }
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.95rem; }
 .btn-lg { padding: 1rem 2rem; font-size: 1.125rem; }
 
 .card {

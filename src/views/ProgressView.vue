@@ -352,7 +352,7 @@ section h2 {
 }
 
 .stat-label {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #718096;
 }
 
@@ -362,7 +362,7 @@ section h2 {
 }
 
 .progress-text {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #667eea;
   font-weight: 500;
 }
@@ -418,7 +418,7 @@ section h2 {
 }
 
 .lesson-info p {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: #718096;
   margin: 0;
 }
@@ -468,13 +468,13 @@ section h2 {
 }
 
 .achievement-info h3 {
-  font-size: 0.95rem;
+  font-size: 1.1rem;
   color: #2d3748;
   margin-bottom: 0.25rem;
 }
 
 .achievement-info p {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: #718096;
   margin: 0;
 }
@@ -534,7 +534,7 @@ section h2 {
   border: 2px solid #e2e8f0;
   border-radius: 0.5rem;
   font-family: monospace;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   resize: vertical;
   margin-bottom: 1rem;
 }
