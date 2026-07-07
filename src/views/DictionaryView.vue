@@ -101,6 +101,23 @@ function toggleExpand(wordId: number) {
   }
 }
 
+function navigateToWord(wordId: number) {
+  // Clear search and category filters so the target word is guaranteed to be rendered
+  searchQuery.value = "";
+  selectedCategory.value = "all";
+  
+  // Set the expanded word ID
+  expandedWordId.value = wordId;
+  
+  // Scroll to the card smoothly after Vue re-renders the list
+  setTimeout(() => {
+    const el = document.querySelector(`[data-word-id="${wordId}"]`);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, 100);
+}
+
 function getRelatedWords(word: (typeof vocabulary.value)[0]) {
   if (!word.relatedWords) return [];
   return vocabulary.value.filter((w) => word.relatedWords?.includes(w.id));
@@ -166,6 +183,7 @@ const stats = computed(() => ({
         v-for="word in filteredDictionary"
         :key="word.id"
         class="word-card-wrapper"
+        :data-word-id="word.id"
       >
         <div
           class="word-card"
@@ -251,7 +269,7 @@ const stats = computed(() => ({
                 v-for="related in getRelatedWords(word)"
                 :key="related.id"
                 class="related-word-item"
-                @click="toggleExpand(related.id)"
+                @click.stop="navigateToWord(related.id)"
               >
                 <span class="related-word">{{ related.word }}</span>
                 <span class="related-translation"
