@@ -412,10 +412,6 @@ defineExpose({
           }}
         </h2>
 
-        <p v-if="currentExercise.type === 'twoStage' && isStage2" class="exercise-context">
-          {{ currentExercise.question }}
-        </p>
-
         <!-- Кнопка подсказки из словаря -->
         <div v-if="exerciseVocabulary.length > 0" class="hint-container">
           <button class="btn-hint" @click="showHint = !showHint">
@@ -764,14 +760,6 @@ defineExpose({
   border-bottom: none;
   padding-bottom: 0;
   background: transparent;
-}
-
-.exercise-context {
-  margin-top: -1rem;
-  margin-bottom: 1.5rem;
-  font-style: italic;
-  color: var(--muted);
-  font-size: 1.05rem;
 }
 
 .hint-container {

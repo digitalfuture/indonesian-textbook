@@ -554,7 +554,7 @@ export const exercises: Exercise[] = [
     question: 'Что означает фраза "Dia lagi baca buku"?',
     options: ["Он читает книгу (сейчас)", "Он купил книгу", "Это его книга", "Он пишет книгу"],
     correctAnswer: "Он читает книгу (сейчас)",
-    stage2Question: 'Напишите "Dia lagi baca buku" на индонезийском:',
+    stage2Question: 'Напишите "Он читает книгу (сейчас)" на индонезийском:',
     stage2Answer: "Dia lagi baca buku",
     explanation: "Lagi = в процессе (разг.), baca = читать, buku = книга.",
     difficulty: 2,
