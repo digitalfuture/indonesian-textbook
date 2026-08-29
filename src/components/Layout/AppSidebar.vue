@@ -4,6 +4,7 @@ import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
 import { useLanguageStore } from "../../stores/language";
 import { useAIStore } from "../../stores/ai";
+import CountryFlag from "../common/CountryFlag.vue";
 
 const props = defineProps<{
   visible: boolean;
@@ -85,7 +86,7 @@ function onMenuClick(item: any) {
   >
     <template #header>
       <div class="drawer-header">
-        <span class="drawer-flag">🇮🇩</span>
+        <CountryFlag :lang="langStore.targetLang" size="sm" />
         <span class="drawer-title">{{ $t('sidebar.title.' + langStore.targetLang) }}</span>
       </div>
     </template>

@@ -6,6 +6,7 @@ import { useLanguageStore } from "../stores/language";
 import { useI18n } from "vue-i18n";
 import { lessons as lessonsId } from "../data/lessons";
 import { lessonsRu } from "../data/lessonsRu";
+import CountryFlag from "../components/common/CountryFlag.vue";
 
 const router = useRouter();
 const progressStore = useProgressStore();
@@ -95,7 +96,10 @@ const achievementList = [
 <template>
   <div class="progress-view">
     <header class="progress-header">
-      <h1>{{ $t('progress.title') }}</h1>
+      <h1 class="progress-title-flex">
+        <CountryFlag :lang="langStore.targetLang" size="md" />
+        <span>{{ $t('progress.title') }}</span>
+      </h1>
       <p class="progress-description">{{ $t('progress.description.' + langStore.targetLang) }}</p>
     </header>
 
@@ -304,8 +308,16 @@ const achievementList = [
   text-align: center;
 }
 
-.progress-header h1 {
+.progress-title-flex {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: center;
   font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-header h1 {
   margin-bottom: 0.5rem;
 }
 

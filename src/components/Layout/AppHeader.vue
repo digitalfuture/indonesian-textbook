@@ -3,6 +3,7 @@ import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
 import { useLanguageStore } from "../../stores/language";
 import LanguageSwitcher from "./LanguageSwitcher.vue";
+import CountryFlag from "../common/CountryFlag.vue";
 
 defineProps<{
   drawerVisible: boolean;
@@ -65,7 +66,7 @@ function navigate(path: string) {
           @click="emit('toggle-drawer')"
         />
         <div class="logo" @click="navigate('')">
-          <span class="logo-flag">{{ langStore.targetLang === 'id' ? '🇮🇩' : '🇷🇺' }}</span>
+          <CountryFlag :lang="langStore.targetLang" size="sm" />
           <span class="logo-text">{{ $t('header.logo.' + langStore.targetLang) }}</span>
         </div>
       </template>

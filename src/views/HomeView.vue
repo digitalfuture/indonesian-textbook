@@ -7,6 +7,7 @@ import { useAIStore } from "../stores/ai";
 import { lessons as lessonsId } from "../data/lessons";
 import { lessonsRu } from "../data/lessonsRu";
 import { useI18n } from "vue-i18n";
+import CountryFlag from "../components/common/CountryFlag.vue";
 
 const router = useRouter();
 const route = useRoute();
@@ -91,7 +92,7 @@ function goToAIChat() {
         </div>
       </div>
       <div class="hero-illustration">
-        <div class="flag">{{ langStore.targetLang === 'id' ? '🇮🇩' : '🇷🇺' }}</div>
+        <CountryFlag :lang="langStore.targetLang" size="xl" />
       </div>
     </section>
 
