@@ -19,12 +19,12 @@ function getPhonetic(label: string): string {
 }
 
 function renderCell(text: string): string {
-  // Find word with phonetic [word phon] or just [phon] and add audio button
+  // Find word with phonetic [phon] or /phon/ and add audio button
   let formatted = text.replace(
-    /([А-Яа-яЁёA-Za-zÀ-ÿ]+(?:\s+[А-Яа-яЁёA-Za-zÀ-ÿ]+)*)\s*(\[[^\]]+\])/g,
+    /([А-Яа-яЁёA-Za-zÀ-ÿ0-9'-]+(?:\s+[А-Яа-яЁёA-Za-zÀ-ÿ0-9'-]+)*)\s*(\[[^\]]+\]|\/[^/]+\/)/g,
     (_match, word, phon) => {
       const safe = word.replace(/'/g, "\\'");
-      return `${word} ${phon} <button class="audio-btn-inline" data-word="${safe}">🔊</button>`;
+      return `<strong class="cell-term">${word}</strong> <span class="term-phonetic">${phon}</span> <button class="audio-btn-inline" data-word="${safe}" title="Прослушать">🔊</button>`;
     },
   );
   // Wrap parenthesized translations
@@ -918,9 +918,10 @@ function goBack() {
   gap: 0.4rem;
 }
 
-.term-word {
+.term-word,
+.cell-term {
   font-weight: 600;
-  color: var(--primary);
+  color: var(--text-h);
 }
 
 .term-phonetic {

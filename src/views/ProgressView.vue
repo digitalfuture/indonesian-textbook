@@ -4,12 +4,17 @@ import { useRouter } from "vue-router";
 import { useProgressStore } from "../stores/progress";
 import { useLanguageStore } from "../stores/language";
 import { useI18n } from "vue-i18n";
-import { lessons } from "../data/lessons";
+import { lessons as lessonsId } from "../data/lessons";
+import { lessonsRu } from "../data/lessonsRu";
 
 const router = useRouter();
 const progressStore = useProgressStore();
 const langStore = useLanguageStore();
 const { t } = useI18n();
+
+const lessons = computed(() =>
+  langStore.targetLang === "id" ? lessonsId : lessonsRu
+);
 
 const stats = computed(() => progressStore.getLearningStats());
 const wordsLearnedCount = computed(

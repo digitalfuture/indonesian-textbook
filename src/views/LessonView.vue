@@ -40,46 +40,79 @@ function renderTheory(text: string): string {
   return text
     .split("\n")
     .map((line) => {
-      if (!line.trim()) return "<br>";
+      const trimmedLine = line.trim();
+      if (!trimmedLine) return "<br>";
 
-      // Find phonetic notation: /.../ or [...] and add audio button for the preceding text
+      // 1. If line is a section heading (ends with : or starts with digits.)
+      if (/^([А-ЯЁA-Z\d][^:\n\r]*:)$/.test(trimmedLine) && !trimmedLine.includes("/") && !trimmedLine.includes("[")) {
+        return `<div class="theory-heading">${trimmedLine}</div>`;
+      }
+
       let processed = line;
 
-      // Match: phrase /IPA/ or phrase [IPA] — everything before / or [ is the phrase to speak
-      processed = processed.replace(
-        /(.+?)\s*(\/[^\s/]+(?:\s+[^\s/]+)*\/|\[[^\]]+\])\s*/g,
-        (_match, phrase, _phon) => {
-          const trimmed = phrase.trim();
-          if (!trimmed) return _match;
+      // 2. Find phonetic notation: /.../ or [...]
+      const phonRegex = /^(.*?)(\/[^\s/]+(?:\s+[^\s/]+)*\/|\[[^\]]+\])(.*)$/;
+      const match = processed.match(phonRegex);
 
-          // Check if there's a list prefix (e.g. "1. ", "- ") to keep it outside of the bold tag
-          const prefixMatch = trimmed.match(/^(\s*(?:\d+[\.)]\s*|[-–—]\s*))(.+)$/);
-          let displayText = "";
-          let speakText = "";
+      if (match) {
+        let beforePhon = match[1];
+        const phon = match[2];
+        let afterPhon = match[3];
 
-          if (prefixMatch) {
-            const prefix = prefixMatch[1];
-            const content = prefixMatch[2].trim();
-            displayText = `${prefix}<strong>${content}</strong>`;
-            speakText = content;
-          } else {
-            displayText = `<strong>${trimmed}</strong>`;
-            speakText = trimmed;
-          }
+        const prefixMatch = beforePhon.match(/^(\s*(?:\d+[\.)]\s*|[-–—•]\s*))(.+)$/);
+        let prefix = "";
+        let term = beforePhon.trim();
 
-          const safe = speakText.replace(/'/g, "\\'");
-          return `${displayText} ${_phon} <button class="audio-btn-inline" data-word="${safe}">🔊</button> `;
-        },
-      );
+        if (prefixMatch) {
+          prefix = prefixMatch[1];
+          term = prefixMatch[2].trim();
+        }
 
-      // Support basic markdown bold: **text** -> <strong>text</strong>
-      processed = processed.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+        const safeSpeak = term.replace(/'/g, "\\'");
+        let termHtml = `<strong class="theory-term">${term}</strong>`;
+        let phonHtml = `<span class="theory-phonetic">${phon}</span> <button class="audio-btn-inline" data-word="${safeSpeak}" title="Прослушать">🔊</button>`;
+
+        let afterHtml = afterPhon;
+        // Wrap notes in parentheses
+        afterHtml = afterHtml.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+
+        // Wrap translation after dash
+        afterHtml = afterHtml.replace(
+          /^(\s*[-–—:]\s*)([^(<]+)/,
+          '$1<span class="theory-translation">$2</span>'
+        );
+
+        processed = `${prefix}${termHtml} ${phonHtml}${afterHtml}`;
+      } else {
+        // Markdown bold
+        processed = processed.replace(/\*\*(.*?)\*\*/g, '<strong class="theory-term">$1</strong>');
+
+        // Match list items: "- term - translation"
+        if (/^\s*[-–—•]\s*[A-Za-zА-Яа-яЁё]/.test(processed)) {
+          processed = processed.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+          processed = processed.replace(
+            /^(\s*[-–—•]\s*)([A-Za-zА-Яа-яЁёÀ-ÿ0-9\s.'"-]+?)(\s*[-–—:]\s*)(.+)$/,
+            '$1<strong class="theory-term">$2</strong>$3<span class="theory-translation">$4</span>'
+          );
+        } else {
+          processed = processed.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+        }
+      }
 
       return processed;
     })
     .join("<br>");
 }
 
+function renderKeyPoint(point: string): string {
+  const parts = point.split(/\s*[-–—]\s*/);
+  if (parts.length >= 2) {
+    const term = parts[0];
+    const trans = parts.slice(1).join(" — ");
+    return `<strong class="kp-term">${term}</strong> <span class="kp-sep">—</span> <span class="kp-trans">${trans}</span>`;
+  }
+  return point;
+}
 
 function onTheoryClick(e: MouseEvent) {
   const target = e.target as HTMLElement;
@@ -135,13 +168,13 @@ watch(
 
           <div class="key-points">
             <h3>{{ $t('lesson.keyPoints') }}</h3>
-            <ul>
+            <ul class="key-points-list">
               <li
                 v-for="(point, index) in lesson.content.keyPoints"
                 :key="index"
-              >
-                {{ point }}
-              </li>
+                class="key-point-item"
+                v-html="renderKeyPoint(point)"
+              ></li>
             </ul>
           </div>
         </div>
@@ -161,7 +194,7 @@ watch(
               class="example-card"
             >
               <div class="example-indonesian">
-                {{ example.indonesian }}
+                <span class="example-term">{{ example.indonesian }}</span>
                 <button
                   class="audio-btn-sm"
                   @click.stop="speak(example.indonesian)"
@@ -291,97 +324,165 @@ watch(
   max-width: 900px;
   margin: 0 auto;
 }
+
 .theory-text {
   line-height: 1.8;
   color: var(--text);
   margin-bottom: 2rem;
+  font-size: 1.05rem;
   white-space: pre-line;
 }
-.theory-text :deep(strong) {
+
+.theory-text :deep(.theory-term) {
   color: var(--text-h);
   font-weight: 600;
 }
+
+.theory-text :deep(.theory-phonetic) {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.95em;
+}
+
+.theory-text :deep(.theory-translation) {
+  color: var(--translation-color);
+  font-weight: 500;
+}
+
+.theory-text :deep(.theory-note) {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.95em;
+}
+
+.theory-text :deep(.theory-heading) {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-h);
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+  border-left: 3px solid var(--primary);
+  padding-left: 0.6rem;
+  display: block;
+}
+
+.key-points {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.key-points h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-h);
+}
+
+.key-points-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.key-point-item {
+  font-size: 1.05rem;
+  padding: 0.4rem 0.75rem;
+  background: var(--code-bg);
+  border-radius: 0.35rem;
+  border-left: 3px solid var(--primary);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.key-point-item :deep(.kp-term) {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.key-point-item :deep(.kp-sep) {
+  color: var(--muted);
+}
+
+.key-point-item :deep(.kp-trans) {
+  color: var(--translation-color);
+  font-weight: 500;
+}
+
 .examples-grid {
   display: grid;
   gap: 1rem;
 }
+
 .example-card {
   background: var(--code-bg);
   border-radius: 0.5rem;
-  padding: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
   border-left: 4px solid var(--primary);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.example-card:hover {
+  transform: translateX(3px);
+  box-shadow: var(--shadow);
+}
+
 .example-indonesian {
-  font-size: 1.25rem;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--text-h);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
   display: flex;
   align-items: baseline;
   gap: 0.4rem;
+  flex-wrap: wrap;
 }
 
-.audio-btn-sm {
-  background: none;
-  border: none;
-  font-size: 0.95rem;
-  cursor: pointer;
-  padding: 0 0.2rem;
-  opacity: 0.5;
-  transition: opacity 0.2s;
-  vertical-align: middle;
-}
-
-.audio-btn-sm:hover {
-  opacity: 1;
-}
-
-.audio-btn-inline {
-  background: none;
-  border: none;
-  font-size: 0.9rem;
-  cursor: pointer;
-  padding: 0 0.15rem;
-  opacity: 0.5;
-  transition: opacity 0.2s;
-  vertical-align: middle;
-}
-
-.audio-btn-inline:hover {
-  opacity: 1;
+.example-term {
+  color: var(--text-h);
+  font-weight: 600;
 }
 
 .example-phonetic {
   font-size: 0.95rem;
-  color: var(--text);
-  opacity: 0.6;
+  color: var(--muted);
   font-style: italic;
+  font-weight: 400;
 }
 
 .example-russian {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--translation-color);
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
+
 .example-notes {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--muted);
   font-style: italic;
 }
+
 .lesson-footer {
   display: flex;
   justify-content: center;
   margin-top: 2.5rem;
 }
+
 .step-navigation-buttons {
   width: 100%;
 }
+
 .split-buttons {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
 }
+
 .completion-card {
   text-align: center;
   padding: 3rem;
@@ -391,20 +492,24 @@ watch(
   border: 1px solid var(--border);
   margin-top: 2rem;
 }
+
 .completion-card h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+
 .completion-card p {
   font-size: 1.1rem;
   color: var(--text);
   margin-bottom: 2rem;
 }
+
 .completion-actions {
   display: flex;
   gap: 1rem;
   justify-content: center;
 }
+
 .not-found {
   text-align: center;
   padding: 4rem 2rem;
@@ -412,6 +517,9 @@ watch(
 
 @media (max-width: 768px) {
   .completion-actions {
+    flex-direction: column;
+  }
+  .split-buttons {
     flex-direction: column;
   }
 }

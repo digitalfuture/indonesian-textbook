@@ -11,18 +11,28 @@ export const lessonsRu: Lesson[] = [
       theory: `Dalam bahasa Rusia, sapaan tergantung pada formalitas dan waktu hari.
 
 Sapaan umum:
-- Здравствуйте [zdra-stvooy-tye] — salam formal (sopan)
-- Привет [pri-vyet] — salam informal (teman)
-- Доброе утро [dob-ra-ye oot-ra] — selamat pagi
-- Добрый день [dob-ryy dyen'] — selamat siang
-- Добрый вечер [dob-ryy vye-cher] — selamat sore/malam
+- Здравствуйте [zdra-stvooy-tye] — halo / salam formal (sopan)
+- Привет [pri-vyet] — hai / salam informal (teman)
+- Доброе утро [dob-ra-ye oot-ra] — selamat pagi (pagi hari)
+- Добрый день [dob-ryy dyen'] — selamat siang (siang hari)
+- Добрый вечер [dob-ryy vye-cher] — selamat sore / malam
+
+Menanyakan kabar dan menjawab:
+- Как дела? [kak dye-la] — Apa kabar? (букв. "bagaimana urusan?")
+- Как [kak] — bagaimana
+- Дела [dye-la] — urusan / kabar
+- Хорошо [kha-ra-sho] — baik / bagus
+- Спасибо [spa-si-ba] — terima kasih
+- Хорошо, спасибо [kha-ra-sho spa-si-ba] — Baik, terima kasih
 
 Saat berpisah:
 - До свидания [da svi-da-ni-ya] — sampai jumpa (formal)
-- Пока [pa-ka] — sampai jumpa (informal)
+- Пока [pa-ka] — sampai jumpa / dah (informal)
 
 Memperkenalkan diri:
-- Меня зовут... [mye-nya zo-voot] — nama saya...
+- Меня зовут... [mye-nya zo-voot] — nama saya... (букв. "saya dipanggil...")
+- Меня зовут Анна [mye-nya zo-voot an-na] — Nama saya Anna
+- Анна [an-na] — Anna (nama orang)
 - Очень приятно [o-chen' pri-yat-na] — senang berkenalan`,
       examples: [
         { indonesian: "Здравствуйте!", russian: "Halo! (salam formal)" },
@@ -32,9 +42,12 @@ Memperkenalkan diri:
         { indonesian: "Меня зовут Анна", russian: "Nama saya Anna" },
       ],
       keyPoints: [
-        "Глагол (kata kerja) — konjugasi: я говорю (saya bicara), ты говоришь (kamu bicara)",
-        "Имя (kata benda) — gender: мужской (maskulin), женский (feminin), средний (netral)",
-        "Прилагательное (kata sifat) — setuju dengan kata benda dalam gender dan kasus",
+        "Здравствуйте — salam formal",
+        "Привет — salam informal",
+        "Как дела? — menanyakan kabar",
+        "Хорошо, спасибо — baik, terima kasih",
+        "Меня зовут... — memperkenalkan diri",
+        "До свидания — sampai jumpa",
       ],
       grammarNotes: [
         "В русском языке 3 рода: мужской, женский, средний",
@@ -54,7 +67,7 @@ Memperkenalkan diri:
       theory: `Kata ganti orang dalam bahasa Rusia:
 
 Saya — Я [ya]
-Kamu — Ты [ty] (informal), Вы [vy] (formal)
+Kamu — Ты [ty] (informal), Вы [vy] (formal / jamak)
 Dia (laki-laki) — Он [on]
 Dia (perempuan) — Она [a-na]
 Dia (benda) — Оно [a-no]
@@ -62,11 +75,26 @@ Kami/kita — Мы [my]
 Kalian — Вы [vy]
 Mereka — Они [a-ni]
 
-Contoh:
+Kosakata untuk contoh kalimat:
+- Говорить [ga-va-reet'] — bicara
+- Говорю [ga-va-ryoo] — saya bicara
+- Я говорю по-русски [ya ga-va-ryoo pa roos-ski] — saya bicara bahasa Rusia
+- По-русски [pa roos-ski] — dalam bahasa Rusia
+- Хороший [kha-ro-shiy] — baik, bagus
+- Друг [drook] — teman
+- Ты хороший друг [ty kha-ro-shiy drook] — Kamu teman yang baik
+- Красивая [kra-si-va-ya] — cantik
+- Она красивая [a-na kra-si-va-ya] — Dia cantik
+- Учиться [oo-chit'-sya] — belajar
+- Мы учимся [my oo-chim-sya] — Kami belajar
+- Прийти [pree-tyee] — datang
+- Пришли [pree-shlee] — datang (lampau jamak)
+- Они пришли [a-ni pree-shlee] — Mereka datang
+
+Contoh sederhana:
 - Я студент [ya stoo-dyent] — Saya mahasiswa
-- Ты красивая [ty kra-si-va-ya] — Kamu cantik
-- Он дома [on do-ma] — Dia (laki-laki) di rumah
-- Она учитель [a-na oo-chi-tyel'] — Dia (perempuan) guru
+- Он дома [on do-ma] — Dia di rumah
+- Она учитель [a-na oo-chi-tyel'] — Dia guru
 - Мы вместе [my vmyes-tye] — Kita bersama`,
       examples: [
         { indonesian: "Я говорю по-русски", russian: "Saya bicara bahasa Rusia" },
@@ -76,9 +104,9 @@ Contoh:
         { indonesian: "Они пришли", russian: "Mereka datang" },
       ],
       keyPoints: [
-        "Вы — формальное 'Anda', juga digunakan untuk 'kalian'",
-        "Он/она/оно — tiga jenis gender",
-        "Kata ganti berubah bentuk tergantung kasus",
+        "Я, ты, он, она, оно, мы, вы, они — kata ganti orang",
+        "Вы — formal 'Anda' atau jamak 'kalian'",
+        "Он / она / оно — tiga gender gramatikal",
       ],
     },
     exercises: [201, 202, 203, 204],
@@ -89,24 +117,27 @@ Contoh:
     id: 3,
     title: "Kata Kerja Dasar",
     description: "Kata kerja dasar dan cara menggunakannya dalam kalimat",
-    objectives: ["Mengenal kata kerja dasar", "Memahami konjugasi"],
+    objectives: ["Mengenal kata kerja dasar", "Memahami konjugasi dasar", "Negasi 'не'"],
     content: {
       theory: `Kata kerja dasar dalam bahasa Rusia:
 
-Говорить [ga-va-reet'] — bicara
-Делать [dye-lat'] — melakukan, membuat
-Знать [znat'] — tahu
-Понимать [pa-ni-mat'] — mengerti
-Хотеть [kha-tyet'] — mau, ingin
+- Говорить [ga-va-reet'] — bicara
+- Я говорю [ya ga-va-ryoo] — saya bicara
+- Ты говоришь [ty ga-va-reesh] — kamu bicara
+- Делать [dye-lat'] — melakukan, membuat
+- Мы делаем [my dye-la-yem] — kami mengerjakan / melakukan
+- Уроки [oo-ro-kee] — tugas / pelajaran (делать уроки = mengerjakan PR)
+- Знать [znat'] — tahu
+- Понимать [pa-ni-mat'] — mengerti
+- Я понимаю [ya pa-ni-ma-yoo] — saya mengerti
+- Не [nye] — tidak (partikel negasi di depan kata kerja: я не понимаю = saya tidak mengerti)
+- Хотеть [kha-tyet'] — mau, ingin
+- Она хочет [a-na kho-chyet] — dia mau / ingin
+- Есть [yest'] — makan (она хочет есть = dia mau makan)
 
-Konjugasi (я/ты/он/она/мы/вы/они):
-Говорить:
-- Я говорю [ya ga-va-ryu] — saya bicara
-- Ты говоришь [ty ga-va-reesh'] — kamu bicara
-- Он/она говорит [on/a-na ga-va-reet] — dia bicara
-- Мы говорим [my ga-va-reem] — kami bicara
-- Вы говорите [vy ga-va-ree-tye] — Anda bicara
-- Они говорят [a-ni ga-va-ryat] — mereka bicara`,
+Kosakata keterangan:
+- Хорошо [kha-ra-sho] — dengan baik (ты хорошо говоришь = kamu bicara dengan baik)
+- По-русски [pa roos-ski] — bahasa Rusia`,
       examples: [
         { indonesian: "Я говорю по-русски", russian: "Saya bicara bahasa Rusia" },
         { indonesian: "Ты хорошо говоришь", russian: "Kamu bicara dengan baik" },
@@ -115,40 +146,39 @@ Konjugasi (я/ты/он/она/мы/вы/они):
         { indonesian: "Она хочет есть", russian: "Dia mau makan" },
       ],
       keyPoints: [
-        "Kata kerja Rusia punya 2 bentuk: sempurna (selesai) dan tidak sempurna (proses)",
-        "Konjugasi tergantung pada orang (я, ты, он...)",
-        "Infinitif berakhiran -ть, -ти, -чь",
+        "Kata kerja dikonjugasikan sesuai subjek",
+        "Partikel 'не' untuk menyatakan negasi / tidak",
+        "Говорить, делать, знать, понимать, хотеть, есть — kata kerja dasar",
       ],
     },
-    exercises: [301, 302, 303, 304],
+    exercises: [],
     vocabulary: [17, 18, 19, 20, 21, 22, 23, 24],
-    estimatedTime: 30,
+    estimatedTime: 35,
   },
   {
     id: 4,
     title: "Kata Tanya",
-    description: "Kata tanya dalam bahasa Rusia",
-    objectives: ["Membentuk pertanyaan", "Menggunakan kata tanya"],
+    description: "Belajar membuat pertanyaan dalam bahasa Rusia",
+    objectives: ["Mengenal kata tanya", "Menyusun kalimat tanya"],
     content: {
       theory: `Kata tanya dalam bahasa Rusia:
 
-Кто? [kto] — Siapa?
-Что? [shto] — Apa?
-Где? [gdye] — Di mana?
-Куда? [koo-da] — Ke mana?
-Откуда? [at-koo-da] — Dari mana?
-Когда? [kag-da] — Kapan?
-Почему? [pa-chee-moo] — Mengapa?
-Зачем? [za-chem] — Untuk apa?
-Как? [kak] — Bagaimana?
-Сколько? [skol'-ka] — Berapa?
-Какой? [ka-koy] — Yang mana?
+- Кто [kto] — siapa
+- Что [shto] — apa
+- Где [gdye] — di mana
+- Куда [koo-da] — ke mana
+- Откуда [at-koo-da] — dari mana
+- Когда [kag-da] — kapan
+- Почему [pa-che-moo] — kenapa, mengapa
+- Как [kak] — bagaimana
+- Сколько [skol'-ka] — berapa
 
-Contoh:
-- Кто это? [kto e-ta] — Siapa ini?
-- Что это? [shto e-ta] — Apa ini?
-- Где туалет? [gdye too-a-lyet] — Di mana toilet?
-- Сколько стоит? [skol'-ka sto-eet] — Berapa harganya?`,
+Kata bantu dan kerja dalam pertanyaan:
+- Это [e-ta] — ini (кто это? = siapa ini?)
+- Делаешь [dye-la-yesh] — kamu lakukan (что ты делаешь? = apa yang kamu lakukan?)
+- Живёшь [zhy-vyosh'] — kamu tinggal (где ты живёшь? = di mana kamu tinggal?)
+- Придёт [pree-dyot] — dia akan datang (когда он придёт? = kapan dia datang?)
+- Идёшь [ee-dyosh'] — kamu pergi / jalan (почему ты не идёшь? = kenapa kamu tidak pergi?)`,
       examples: [
         { indonesian: "Кто это?", russian: "Siapa ini?" },
         { indonesian: "Что ты делаешь?", russian: "Apa yang kamu lakukan?" },
@@ -157,174 +187,176 @@ Contoh:
         { indonesian: "Почему ты не идёшь?", russian: "Kenapa kamu tidak pergi?" },
       ],
       keyPoints: [
-        "Кто (siapa) digunakan untuk orang, что (apa) untuk benda",
-        "Где (di mana), куда (ke mana), откуда (dari mana) — kata tanya tempat",
-        "Kata tanya selalu di awal kalimat",
+        "Kata tanya diletakkan di awal kalimat",
+        "Кто, Что, Где, Куда, Когда, Почему — kata tanya utama",
       ],
     },
-    exercises: [401, 402, 403, 404],
-    vocabulary: [25, 26, 27, 28, 29, 30, 31, 32],
+    exercises: [],
+    vocabulary: [25, 26, 27, 28, 29, 30, 31],
     estimatedTime: 30,
   },
   {
     id: 5,
     title: "Negasi",
-    description: "Cara mengekspresikan negasi dalam bahasa Rusia",
-    objectives: ["Menggunakan tidak", "Menggunakan bukan"],
+    description: "Menyatakan ketidaksetujuan dan negasi dalam bahasa Rusia",
+    objectives: ["Menggunakan 'не'", "Menggunakan 'нет'", "Kalimat negatif"],
     content: {
-      theory: `Negasi dalam bahasa Rusia:
+      theory: `Cara menyatakan negasi dalam bahasa Rusia:
 
-НЕТ [nyet] — tidak (jawaban)
-НЕ [nye] — tidak (sebelum kata kerja/kata sifat)
-НИ [nee] — tidak satu pun
+1. НЕ [nye] — diletakkan di depan kata kerja atau kata sifat (artinya 'tidak'):
+   - Я не понимаю [ya nye pa-ni-ma-yoo] — Saya tidak mengerti
+   - Это не мой дом [e-ta nye moy dom] — Ini bukan rumah saya
+   - Я не хочу есть [ya nye kha-chyoo yest'] — Saya tidak mau makan
+   - Он никогда не говорит [on nee-kag-da nye ga-va-reet] — Dia tidak pernah bicara
 
-Contoh:
-- Я не знаю [ya nye zna-yu] — Saya tidak tahu
-- Я не хочу [ya nye kha-choo] — Saya tidak mau
-- Это не моя книга [e-ta nye ma-ya knee-ga] — Ini bukan buku saya
-- Нет, спасибо [nyet spa-SEE-ba] — Tidak, terima kasih
+2. НЕТ [nyet] — berarti 'tidak' (sebagai jawaban) atau 'tidak ada':
+   - Нет, спасибо [nyet spa-si-ba] — Tidak, terima kasih
+   - У меня нет [oo mye-nya nyet] — Saya tidak punya
 
-Negasi ganda:
-- Я ничего не знаю [ya nee-che-VO nye zna-yu] — Saya tidak tahu apa-apa
-- Никто не пришёл [neek-TO nye pree-SHOL] — Tidak ada yang datang`,
+3. НИКОГДА [nee-kag-da] — tidak pernah:
+   - Он никогда не говорит [on nee-kag-da nye ga-va-reet] — Dia tidak pernah bicara
+
+Kosakata pendukung:
+- Мой [moy] — milik saya
+- Дом [dom] — rumah
+- Говорит [ga-va-reet] — berbicara / bicara`,
       examples: [
         { indonesian: "Я не понимаю", russian: "Saya tidak mengerti" },
         { indonesian: "Нет, спасибо", russian: "Tidak, terima kasih" },
         { indonesian: "Это не мой дом", russian: "Ini bukan rumah saya" },
         { indonesian: "Я не хочу есть", russian: "Saya tidak mau makan" },
-        { indonesian: "Он не пришёл", russian: "Dia tidak datang" },
+        { indonesian: "Он никогда не говорит", russian: "Dia tidak pernah bicara" },
       ],
       keyPoints: [
-        "НЕ diletakkan SEBELUM kata kerja (seperti 'tidak' dalam bahasa Indonesia)",
-        "Dalam bahasa Rusia, negasi ganda itu benar (ни...ни...не = tidak ada satu pun)",
-        "НЕТ = jawaban 'tidak', НЕ = negasi kata",
+        "Не = tidak (di depan kata)",
+        "Нет = tidak / tidak ada",
+        "Никогда не... = tidak pernah (dobel negasi adalah standar dalam bahasa Rusia)",
       ],
     },
-    exercises: [501, 502, 503, 504],
-    vocabulary: [33, 34, 35, 36, 37, 38, 39, 40],
+    exercises: [],
+    vocabulary: [32, 33, 34, 35],
     estimatedTime: 30,
   },
   {
     id: 6,
     title: "Kepemilikan",
     description: "Menyatakan kepemilikan dalam bahasa Rusia",
-    objectives: ["Menggunakan kata ganti kepemilikan", "Menyusun kalimat milik"],
+    objectives: ["Mengenal kata ganti kepemilikan", "Gender kata kepemilikan"],
     content: {
-      theory: `Kata ganti kepemilikan dalam bahasa Rusia:
+      theory: `Kata ganti kepemilikan dalam bahasa Rusia disesuaikan dengan gender benda:
 
-Мой [moy] — milik saya (laki-laki)
-Моя [ma-ya] — milik saya (perempuan)
-Моё [ma-yo] — milik saya (netral)
-Мои [ma-ee] — milik saya (jamak)
-Твой [tvoy] — milik kamu
-Его [ye-VO] — milik dia (laki-laki)
-Её [ye-YO] — milik dia (perempuan)
-Наш [nash] — milik kami
-Ваш [vash] — milik Anda/Кalian
-Их [eeh] — milik mereka
+Milik saya:
+- Мой [moy] — maskulin (мой дом = rumah saya, мой папа = ayah saya)
+- Моя [ma-ya] — feminin (моя мама = ibu saya, моя книга = buku saya)
+- Моё [ma-yo] — netral (моё окно = jendela saya)
+- Мои [ma-ee] — jamak (мои друзья = teman-teman saya)
 
-Contoh:
-- Это мой дом [e-ta moy dom] — Ini rumah saya (laki-laki)
-- Это моя книга [e-ta ma-YA KNEE-ga] — Ini buku saya (perempuan)
-- Это моё окно [e-ta ma-YO ak-NO] — Ini jendela saya (netral)
-- Это мои друзья [e-ta ma-ee drooz-YA] — Ini teman-teman saya (jamak)`,
+Milik kamu:
+- Твой [tvoy] — maskulin
+- Твоя [tva-ya] — feminin (твоя книга = buku kamu)
+- Твоё [tva-yo] — netral
+- Твои [tva-ee] — jamak
+
+Milik dia / mereka (bentuk tetap):
+- Его [ye-vo] — miliknya (laki-laki)
+- Её [ye-yo] — miliknya (perempuan)
+- Их [eekh] — milik mereka (их машина = mobil mereka)
+
+Kosakata keluarga dan benda:
+- Папа [pa-pa] — ayah
+- Мама [ma-ma] — ibu
+- Книга [kni-ga] — buku
+- Машина [ma-shi-na] — mobil`,
       examples: [
         { indonesian: "Это мой папа", russian: "Ini ayah saya" },
         { indonesian: "Это моя мама", russian: "Ini ibu saya" },
         { indonesian: "Это твоя книга?", russian: "Ini buku kamu?" },
-        { indonesian: "Где наш дом?", russian: "Di mana rumah kita?" },
+        { indonesian: "Это его дом", russian: "Ini rumahnya" },
         { indonesian: "Это их машина", russian: "Ini mobil mereka" },
       ],
       keyPoints: [
-        "Kata ganti kepemilikan setuju dengan gender BENDA yang dimiliki",
-        "Мой/моя/моё/мои — bentuk berbeda untuk gender & jumlah",
-        "Его, её, их — tidak berubah bentuk",
+        "Мой / моя / моё / мои — disesuaikan gender benda",
+        "Его / её / их — tidak berubah bentuk",
       ],
     },
-    exercises: [601, 602, 603, 604],
-    vocabulary: [41, 42, 43, 44, 45, 46, 47, 48],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [36, 37, 38, 39, 40, 41, 42],
+    estimatedTime: 35,
   },
   {
     id: 7,
-    title: "Angka",
-    description: "Angka dan berhitung dalam bahasa Rusia",
-    objectives: ["Menghitung 1-100", "Menggunakan angka dalam percakapan"],
+    title: "Angka dan Berhitung",
+    description: "Belajar angka dari 1 sampai 100",
+    objectives: ["Menghitung 1-100", "Menggunakan angka dalam kalimat"],
     content: {
       theory: `Angka dalam bahasa Rusia:
 
-1 — один [a-DEEN]
-2 — два [dva]
-3 — три [tree]
-4 — четыре [che-TY-rye]
-5 — пять [pyat']
-6 — шесть [shest']
-7 — семь [syem']
-8 — восемь [VO-syem']
-9 — девять [DYE-vyat']
-10 — десять [DYE-syat']
-11 — одиннадцать [a-DEEN-na-dtsat']
-12 — двенадцать [dvee-NA-dtsat']
-20 — двадцать [DVA-dtsat']
-30 — тридцать [TREE-dtsat']
-100 — сто [sto]
+0 — Ноль [nol']
+1 — Один [a-deen]
+2 — Два [dva]
+3 — Три [tree]
+4 — Четыre [che-ty-rye]
+5 — Пять [pyat']
+6 — Шесть [shest']
+7 — Семь [syem']
+8 — Восемь [vo-syem']
+9 — Девять [dye-vyat']
+10 — Десять [dye-syat']
 
-Contoh:
-- Сколько это стоит? — Berapa ini?
-- Один билет, пожалуйста — Satu tiket, tolong
-- Мне двадцать лет — Saya berusia 20 tahun`,
+Puluhan dan ratusan:
+- 20 — Двадцать [dvad-tsat']
+- 30 — Тридцать [treed-tsat']
+- 50 — Пятьдесят [pyat'-dye-syat]
+- 100 — Сто [sto]
+
+Kosakata berhitung dan usia:
+- Брат [brat] / брата [bra-ta] — saudara laki-laki (два брата = dua saudara laki-laki)
+- Стоит [sto-eet] — berharga, harganya (сколько это стоит? = berapa harganya?, это стоит сто рублей)
+- Рубль [roobl'] / рублей [roob-lyey] — rubel (mata uang Rusia)
+- Мне [mnye] — kepada saya / umur saya (мне двадцать лет = umur saya 20 tahun)
+- Лет [lyet] — tahun (untuk umur)`,
       examples: [
         { indonesian: "Один, два, три", russian: "Satu, dua, tiga" },
-        { indonesian: "Мне двадцать пять лет", russian: "Saya 25 tahun" },
+        { indonesian: "У меня два брата", russian: "Saya punya dua saudara laki-laki" },
         { indonesian: "Сколько это стоит?", russian: "Berapa harganya?" },
-        { indonesian: "Один билет, пожалуйста", russian: "Satu tiket, tolong" },
+        { indonesian: "Это стоит сто рублей", russian: "Ini harganya seratus rubel" },
+        { indonesian: "Мне двадцать лет", russian: "Umur saya dua puluh tahun" },
       ],
       keyPoints: [
-        "Angka 1 berubah gender: один (m), одна (f), одно (n)",
-        "Setelah 2,3,4 — kata benda bentuk genitif tunggal",
-        "Setelah 5+ — kata benda bentuk genitif jamak",
+        "Angka 1-10 adalah fondasi berhitung",
+        "Belas dan puluhan dibentuk dari angka dasar",
+        "Стоит — berharga / harganya",
       ],
     },
-    exercises: [701, 702, 703, 704],
-    vocabulary: [49, 50, 51, 52, 53, 54, 55, 56],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [43, 44, 45, 46, 47, 48, 49, 50],
+    estimatedTime: 40,
   },
   {
     id: 8,
     title: "Waktu",
-    description: "Mengungkapkan waktu dalam bahasa Rusia",
-    objectives: ["Menyebutkan waktu", "Menggunakan kata waktu"],
+    description: "Hari, bulan, dan cara menyebut jam",
+    objectives: ["Hari dalam seminggu", "Menyebutkan jam", "Keterangan waktu"],
     content: {
-      theory: `Waktu dalam bahasa Rusia:
+      theory: `Hari dalam seminggu:
+- Понедельник [pa-nye-dyel'-nik] — Senin
+- Вторник [ftor-nik] — Selasa
+- Среда [srye-da] — Rabu
+- Четверг [cheet-vyerk] — Kamis
+- Пятница [pyat-nee-tsa] — Jumat
+- Суббота [soob-bo-ta] — Sabtu
+- Воскресенье [vas-krye-syen'-ye] — Minggu
 
-Hari ini — сегодня [see-VOD-nya]
-Kemarin — вчера [fche-RA]
-Besok — завтра [ZAV-tra]
-Sekarang — сейчас [seey-CHAHS]
-Nanti — потом [pa-TOM]
-
-Hari:
-Понедельник — Senin
-Вторник — Selasa
-Среда — Rabu
-Четверг — Kamis
-Пятница — Jumat
-Суббота — Sabtu
-Воскресенье — Minggu
-
-Bulan:
-Январь — Januari
-Февраль — Februari
-Март — Maret
-Апрель — April
-Май — Mei
-Июнь — Juni
-Июль — Juli
-Август — Agustus
-Сентябрь — September
-Октябрь — Oktober
-Ноябрь — November
-Декабрь — Desember`,
+Keterangan waktu dan jam:
+- Сегодня [sye-vod-nya] — hari ini
+- Завтра [zaf-tra] — besok
+- Вчера [fche-ra] — kemarin
+- Сейчас [sye-chas] — sekarang
+- Будет [boo-dyet] — akan / besok akan (завтра будет вторник = besok hari Selasa)
+- Который [ka-to-ryy] — yang mana (который час? = jam berapa?)
+- Час [chas] — jam
+- Часа [cha-sa] — jam (три часа = jam tiga, sekarang jam tiga)
+- Приду [pree-doo] — saya akan datang (я приду завтра = saya datang besok)`,
       examples: [
         { indonesian: "Сегодня понедельник", russian: "Hari ini hari Senin" },
         { indonesian: "Завтра будет вторник", russian: "Besok hari Selasa" },
@@ -333,326 +365,320 @@ Bulan:
         { indonesian: "Я приду завтра", russian: "Saya datang besok" },
       ],
       keyPoints: [
-        "Hari dalam seminggu semuanya berakhiran konsonan",
-        "Nama bulan semuanya maskulin",
-        "Который час? — 'Jam berapa?' secara harfiah 'Yang ke berapa jam?'",
+        "Hari dalam seminggu dimulai dari Senin (Понедельник)",
+        "Который час? — jam berapa?",
+        "Сегодня = hari ini, Завтра = besok",
       ],
     },
-    exercises: [801, 802, 803, 804],
-    vocabulary: [57, 58, 59, 60, 61, 62, 63, 64],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [51, 52, 53, 54, 55, 56, 57],
+    estimatedTime: 35,
   },
   {
     id: 9,
     title: "Masa Lampau",
-    description: "Mengungkapkan kejadian di masa lampau",
-    objectives: ["Membentuk kalimat lampau", "Menggunakan kata lampau"],
+    description: "Membentuk kalimat dalam masa lampau",
+    objectives: ["Bentuk lampau kata kerja", "Gender dalam masa lampau"],
     content: {
-      theory: `Masa lampau dalam bahasa Rusia dibentuk dengan akhiran -Л:
+      theory: `Masa lampau dalam bahasa Rusia dibentuk berdasarkan gender subjek:
 
-Kata kerja bentuk lampau:
-Говорить → Говорил (laki-laki)
-               Говорила (perempuan)
-               Говорили (jamak)
+Akhiran bentuk lampau:
+- Maskulin: -л (был, читал, делал)
+- Feminin: -ла (была, читала, делала)
+- Netral: -ло (было)
+- Jamak: -ли (были, читали, делали)
 
-- Я говорил [ya ga-va-REEL] — Saya bicara (laki-laki)
-- Я говорила [ya ga-va-REE-la] — Saya bicara (perempuan)
-- Ты говорил [ty ga-va-REEL] — Kamu bicara (laki-laki)
-- Она говорила [a-NA ga-va-REE-la] — Dia bicara (perempuan)
-- Мы говорили [my ga-va-REE-lee] — Kami bicara
-
-Contoh kalimat:
-- Я вчера был дома — Saya kemarin di rumah
-- Она уже пришла — Dia sudah datang
-- Мы были в Москве — Kami berada di Moskow`,
+Bentuk kata kerja dan kosakata tempat:
+- Был [byl] — ada / berada (maskulin: я был в школе)
+- Была [by-la] — ada / berada (feminin: она была дома)
+- Были [by-lee] — ada / berada (jamak: мы были в кино)
+- Делал [dye-lal] — melakukan / mengerjakan (что ты делал?, я это делал)
+- Школа [shko-la] — sekolah
+- В школе [f shko-lye] — di sekolah (я был в школе)
+- Кино [kee-no] / в кино [f kee-no] — bioskop / di bioskop
+- Дома [do-ma] — di rumah`,
       examples: [
         { indonesian: "Я был в школе", russian: "Saya (laki-laki) ada di sekolah" },
         { indonesian: "Она была дома", russian: "Dia (perempuan) ada di rumah" },
         { indonesian: "Мы были в кино", russian: "Kami ada di bioskop" },
-        { indonesian: "Он уже пришёл", russian: "Dia sudah datang" },
+        { indonesian: "Что ты делал?", russian: "Apa yang kamu lakukan?" },
         { indonesian: "Я это делал", russian: "Saya melakukan ini" },
       ],
       keyPoints: [
-        "Bentuk lampau tidak berubah untuk orang (saya/kamu/dia — sama)",
-        "Yang berubah adalah gender: -л (m), -ла (f), -ло (n), -ли (pl)",
+        "Akhiran masa lampau berubah sesuai gender subjek",
+        "-л (laki-laki), -ла (perempuan), -ли (jamak)",
       ],
     },
-    exercises: [901, 902, 903, 904],
-    vocabulary: [65, 66, 67, 68, 69, 70, 71, 72],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [58, 59, 60, 61],
+    estimatedTime: 35,
   },
   {
     id: 10,
     title: "Waktu Sekarang",
-    description: "Mengungkapkan tindakan yang sedang berlangsung",
-    objectives: ["Menggunakan konjugasi sekarang", "Membentuk kalimat sekarang"],
+    description: "Aktivitas yang sedang berlangsung",
+    objectives: ["Konjugasi waktu sekarang", "Aktivitas sehari-hari"],
     content: {
-      theory: `Waktu sekarang dalam bahasa Rusia menggunakan bentuk dasar kata kerja.
+      theory: `Waktu sekarang menyatakan aksi saat ini atau rutinitas:
 
-Kata kerja kelompok 1 (akhiran -ать/-ять):
-Читать (membaca): я читаю, ты читаешь, он/она читает
-Делать (melakukan): я делаю, ты делаешь, он/она делает
-
-Kata kerja kelompok 2 (akhiran -ить):
-Говорить (bicara): я говорю, ты говоришь, он говорит
-Учить (belajar): я учу, ты учишь, он учит
-
-Kata kerja tidak beraturan:
-Хотеть (mau): я хочу, ты хочешь, он хочет
-Мочь (bisa): я могу, ты можешь, он может
-Есть (makan): я ем, ты ешь, он ест`,
+Konjugasi kata kerja dan kosakata:
+- Читать [chee-tat'] — membaca
+- Я читаю [ya chee-ta-yoo] — saya membaca
+- Книга [kni-ga] / книгу [kni-goo] — buku (я читаю книгу)
+- Учить [oo-cheet'] — belajar / mempelajari
+- Ты учишь [ty oo-chish] — kamu belajar (ты учишь русский?)
+- Русский [roos-skiy] — bahasa Rusia
+- Говорить [ga-va-reet'] — bicara (она говорит по-русски)
+- Делать уроки [dye-lat' oo-ro-kee] — mengerjakan tugas/PR
+- Мы делаем уроки [my dye-la-yem oo-ro-kee] — Kami mengerjakan PR
+- Смотреть [sma-tryet'] / смотрят [smot-ryat] — menonton / melihat
+- Фильм [feel'm] — film (они смотрят фильм = mereka menonton film)`,
       examples: [
         { indonesian: "Я читаю книгу", russian: "Saya membaca buku" },
         { indonesian: "Ты учишь русский?", russian: "Kamu belajar bahasa Rusia?" },
         { indonesian: "Она говорит по-русски", russian: "Dia bicara bahasa Rusia" },
         { indonesian: "Мы делаем уроки", russian: "Kami mengerjakan PR" },
-        { indonesian: "Что ты делаешь?", russian: "Apa yang kamu lakukan?" },
+        { indonesian: "Они смотрят фильм", russian: "Mereka menonton film" },
       ],
       keyPoints: [
-        "Dua kelompok konjugasi: -ать/-ять dan -ить",
-        "Akhiran berubah: -ю/-у, -ешь/-ишь, -ет/-ит, -ем/-им, -ете/-ите, -ют/-ат",
+        "Waktu sekarang menggunakan konjugasi kata kerja orang ke-1, 2, atau 3",
       ],
     },
-    exercises: [1001, 1002, 1003, 1004],
-    vocabulary: [73, 74, 75, 76, 77, 78, 79, 80],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [62, 63, 64, 65],
+    estimatedTime: 35,
   },
   {
     id: 11,
     title: "Masa Depan",
-    description: "Mengungkapkan kejadian di masa depan",
-    objectives: ["Membentuk kalimat masa depan", "Menggunakan kata буду"],
+    description: "Membentuk kalimat dalam masa depan",
+    objectives: ["Masa depan sederhana dan majemuk", "Kata bantu 'буду'"],
     content: {
-      theory: `Masa depan dalam bahasa Rusia ada 2 cara:
+      theory: `Masa depan dalam bahasa Rusia dapat dibentuk dengan kata bantu 'быть':
 
-1. Буду + infintif (akan + kata kerja):
-Я БУДУ + говорить — Saya akan bicara
-Ты БУДЕШЬ + говорить — Kamu akan bicara
-Он БУДЕТ + говорить — Dia akan bicara
+Bentuk 'буду' + kata kerja infinitif:
+- Я буду [ya boo-doo] — saya akan
+- Ты будешь [ty boo-dyesh] — kamu akan
+- Он / она будет [boo-dyet] — dia akan
+- Мы будем [my boo-dyem] — kami akan
+- Вы будете [boo-dye-tye] — kalian / Anda akan
+- Они будут [boo-doot] — mereka akan
 
-2. Kata kerja sempurna (perfektif):
-Я скажу — Saya akan mengatakan
-Я сделаю — Saya akan melakukan
-Я приду — Saya akan datang
-
-Contoh:
-- Я буду учить русский — Saya akan belajar bahasa Rusia
-- Завтра я буду дома — Besok saya akan di rumah
-- Я приду вечером — Saya akan datang sore`,
+Kosakata kegiatan dan arah:
+- Учиться [oo-chit'-sya] — belajar (я буду учиться = saya akan belajar)
+- Работать [ra-bo-tat'] — bekerja (она будет работать = dia akan bekerja)
+- Ждать [zhdat'] — menunggu (мы будем ждать = kami akan menunggu)
+- Поехать [pa-ye-khat'] / поеду [pa-ye-doo] — pergi berkendara (завтра я поеду = besok saya akan pergi)
+- Москва [mask-va] / в Москву [v mask-voo] — Moskow / ke Moskow (в Москву = ke Moskow)`,
       examples: [
         { indonesian: "Я буду учиться", russian: "Saya akan belajar" },
         { indonesian: "Она будет работать", russian: "Dia akan bekerja" },
         { indonesian: "Мы будем ждать", russian: "Kami akan menunggu" },
         { indonesian: "Завтра я поеду в Москву", russian: "Besok saya akan pergi ke Moskow" },
+        { indonesian: "Что ты будешь делать?", russian: "Apa yang akan kamu lakukan?" },
       ],
       keyPoints: [
-        "Буду + infinitif = akan melakukan (tidak sempurna)",
-        "Kata kerja perfektif = tindakan akan selesai",
-        "Буду berkonjugasi seperti kata kerja biasa",
+        "Буду + infinitif = masa depan majemuk",
       ],
     },
-    exercises: [1101, 1102, 1103, 1104],
-    vocabulary: [81, 82, 83, 84, 85, 86, 87, 88],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [66, 67, 68, 69],
+    estimatedTime: 35,
   },
   {
     id: 12,
     title: "Kata Modal",
-    description: "Mengungkapkan kemungkinan, keharusan, dan keinginan",
-    objectives: ["Menggunakan kata modal", "Menyusun kalimat modal"],
+    description: "Bisa, harus, boleh, mau",
+    objectives: ["Mengenal kata modal", "Menggunakan kata modal dalam kalimat"],
     content: {
       theory: `Kata modal dalam bahasa Rusia:
 
-МОЖНО [MOZH-na] — boleh, bisa (umum)
-НУЖНО [NOOZH-na] — perlu, harus (umum)
-НАДО [NA-da] — harus (perlu)
-НЕЛЬЗЯ [nyel-ZYA] — tidak boleh
-МОЧЬ [moch'] — bisa (mampu)
-ДОЛЖЕН [DOL-zhen] — harus (kewajiban)
-
-Contoh:
-- Можно войти? [MOZH-na voy-TEE] — Boleh masuk?
-- Нельзя курить [nyel-ZYA koo-REET'] — Tidak boleh merokok
-- Нужно учиться [NOOZH-na oo-CHEET-sya] — Harus belajar
-- Я должен идти [ya DOL-zhen eet-TEE] — Saya harus pergi
-- Я могу помочь [ya ma-GOO pa-MOCH'] — Saya bisa membantu`,
+- Мочь [moch'] / могу [ma-goo] — bisa, dapat
+- Помочь [pa-moch'] — membantu (я могу помочь = saya bisa membantu)
+- Должен [dol-zhen] — harus (maskulin: должен, feminin: должна, jamak: должны)
+- Я должен работать [ya dol-zhen ra-bo-tat'] — saya harus bekerja
+- Нужно [noozh-na] / Надо [na-da] — perlu, harus
+- Рано [ra-na] — pagi-pagi, lebih awal
+- Встать [fstat'] — bangun (нужно рано встать = harus bangun pagi)
+- Можно [mozh-na] — boleh, bisa (можно войти? = boleh masuk?)
+- Войти [vay-tee] — masuk
+- Хотеть [kha-tyet'] / хочу [kha-chyoo] — ingin, mau
+- Хочешь [kho-chyesh] — kamu mau (ты хочешь пить? = kamu mau minum?)
+- Пить [peet'] — minum`,
       examples: [
+        { indonesian: "Я могу помочь", russian: "Saya bisa membantu" },
         { indonesian: "Можно войти?", russian: "Boleh masuk?" },
-        { indonesian: "Нельзя курить", russian: "Tidak boleh merokok" },
         { indonesian: "Нужно рано встать", russian: "Harus bangun pagi" },
         { indonesian: "Я должен работать", russian: "Saya harus bekerja" },
+        { indonesian: "Ты хочешь пить?", russian: "Kamu mau minum?" },
       ],
       keyPoints: [
-        "Можно, нужно, нельзя — tidak berubah bentuk",
-        "Должен berubah gender: должен (m), должна (f), должно (n), должны (pl)",
-        "Мочь berkonjugasi: я могу, ты можешь, он может",
+        "Могу = kemampuan / izin",
+        "Должен / нужно = keharusan",
+        "Можно = izin / kemungkinan",
       ],
     },
-    exercises: [1201, 1202, 1203, 1204],
-    vocabulary: [89, 90, 91, 92, 93, 94, 95, 96],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [70, 71, 72, 73],
+    estimatedTime: 35,
   },
   {
     id: 13,
     title: "Kata Sifat",
-    description: "Kata sifat dalam bahasa Rusia dan penggunaannya",
-    objectives: ["Mengenal kata sifat", "Menggunakan kata sifat dengan benar"],
+    description: "Mendeskripsikan benda dan orang",
+    objectives: ["Gender kata sifat", "Posisi kata sifat", "Kata sifat umum"],
     content: {
-      theory: `Kata sifat dalam bahasa Rusia berakhiran:
+      theory: `Kata sifat dalam bahasa Rusia mendahului kata benda dan berpasangan dengan gender benda:
 
--ЫЙ [yy] — maskulin: новый (baru), большой (besar)
--АЯ [a-ya] — feminin: новая, большая
--ОЕ [o-ye] — netral: новое, большое
--ЫЕ [ye] — jamak: новые, большие
+Akhiran kata sifat:
+- Maskulin: -ый / -ий (большой город = kota besar, новый дом = rumah baru)
+- Feminin: -ая / -яя (красивая женщина = wanita cantik, хорошая погода = cuaca bagus)
+- Netral: -ое / -ее (маленькое окно = jendela kecil, новое = baru)
+- Jamak: -ые / -ие (хорошие друзья = teman-teman yang baik)
 
-Kata sifat umum:
-Хороший [kha-RO-shiy] — baik, bagus
-Плохой [pla-KHOY] — buruk
-Большой [bal'-SHOY] — besar
-Маленький [ma-LYEN'-kiy] — kecil
-Новый [NO-viy] — baru
-Старый [STA-riy] — lama
-Красивый [kra-SEE-viy] — cantik
-Умный [OOM-niy] — pintar
-
-Contoh:
-- Большой дом — Rumah besar
-- Красивая девушка — Gadis cantik
-- Новое платье — Gaun baru
-- Хорошие друзья — Teman baik`,
+Kosakata benda dan sifat:
+- Город [go-rat] — kota (большой город)
+- Женщина [zhen-shchi-na] — wanita (красивая женщина)
+- Окно [ak-no] — jendela (маленькое окно)
+- Погода [pa-go-da] — cuaca
+- Хорошая [kha-ro-sha-ya] — bagus, baik (хорошая погода = cuaca bagus)
+- Большой [bal'-shoy] — besar
+- Маленький / маленькое [ma-lyen'-ka-ye] — kecil
+- Красивый / красивая [kra-si-va-ya] — cantik / indah
+- Новый [no-vyy] — baru`,
       examples: [
         { indonesian: "Большой город", russian: "Kota besar" },
         { indonesian: "Красивая женщина", russian: "Wanita cantik" },
         { indonesian: "Маленькое окно", russian: "Jendela kecil" },
-        { indonesian: "Новые друзья", russian: "Teman baru" },
+        { indonesian: "Новый дом", russian: "Rumah baru" },
+        { indonesian: "Хорошая погода", russian: "Cuaca bagus" },
       ],
       keyPoints: [
-        "Kata sifat setuju dengan kata benda dalam gender dan jumlah",
-        "Akhiran -ый/-ая/-ое/-ые tergantung gender",
-        "Kata sifat letaknya SEBELUM kata benda",
+        "Kata sifat diletakkan SEBELUM kata benda",
+        "Akhiran kata sifat setuju dengan gender kata benda",
       ],
     },
-    exercises: [1301, 1302, 1303, 1304],
-    vocabulary: [97, 98, 99, 100, 101, 102, 103, 104],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [74, 75, 76, 77, 78],
+    estimatedTime: 35,
   },
   {
     id: 14,
     title: "Preposisi",
-    description: "Preposisi tempat, arah, dan waktu",
-    objectives: ["Menggunakan preposisi dengan benar", "Memahami kasus setelah preposisi"],
+    description: "Tempat, arah, dan waktu",
+    objectives: ["Preposisi tempat (в, на)", "Preposisi asal (из, от)", "Preposisi waktu"],
     content: {
-      theory: `Preposisi dalam bahasa Rusia:
+      theory: `Preposisi umum dalam bahasa Rusia:
 
-В [v] — di, ke (dalam)
-НА [na] — di, ke (atas)
-ИЗ [iz] — dari (dalam)
-С [s] / СО [so] — dari (atas)
-У [oo] — di (dekat)
-О [a] / ОБ [ob] — tentang
-ОТ [ot] — dari
-ДО [do] — sampai
-ПОСЛЕ [POS-lye] — setelah
-ДЛЯ [dlya] — untuk
+1. В [v / f] — di / ke (di dalam):
+   - В Москве [v mask-vye] — di Moskow (я живу в Москве = saya tinggal di Moskow)
+   - В школу [f shko-loo] — ke sekolah (я иду в школу = saya pergi ke sekolah)
 
-Contoh:
-- Я в школе [ya f SHKO-lye] — Saya di sekolah
-- Он идёт на работу [on ee-DYOT na ra-BO-too] — Dia pergi ke kerja
-- Я из России [ya iz ras-SEE-ee] — Saya dari Rusia
-- Книга на столе [KNEE-ga na sta-LE] — Buku di atas meja`,
+2. НА [na] — di / ke (di atas permukaan / acara):
+   - На столе [na sta-lye] — di atas meja (книга на столе)
+   - На работе [na ra-bo-tye] — di tempat kerja / di kantor (он на работе = dia di tempat kerja)
+
+3. ИЗ [eez] — dari:
+   - Мы из Индонезии [my eez in-da-nye-zi-ee] — Kami dari Indonesia
+   - Из дома [eez do-ma] — dari rumah
+
+Kosakata tempat dan tindakan:
+- Живу [zhy-voo] — saya tinggal / hidup (я живу в Москве)
+- Стол [stol] / на столе [na sta-lye] — meja / di atas meja
+- Работа [ra-bo-ta] — pekerjaan / tempat kerja
+- Индонезия [in-da-nye-zi-ya] — Indonesia
+- Иду [ee-doo] — saya berjalan / pergi`,
       examples: [
-        { indonesian: "Я в Москве", russian: "Saya di Moskow" },
+        { indonesian: "Книга на столе", russian: "Buku di atas meja" },
         { indonesian: "Он на работе", russian: "Dia di tempat kerja" },
         { indonesian: "Мы из Индонезии", russian: "Kami dari Indonesia" },
-        { indonesian: "Книга на столе", russian: "Buku di atas meja" },
+        { indonesian: "Я живу в Москве", russian: "Saya tinggal di Moskow" },
         { indonesian: "Я иду в школу", russian: "Saya pergi ke sekolah" },
       ],
       keyPoints: [
-        "Preposisi В dan НА diikuti kasus preposisional (lokasi) atau akusatif (tujuan)",
-        "В = di dalam, НА = di atas/pada",
-        "ИЗ = dari dalam, С = dari atas",
+        "В = di/ke dalam, На = di/ke atas permukaan atau kegiatan",
+        "Из = dari dalam tempat",
       ],
     },
-    exercises: [1401, 1402, 1403, 1404],
-    vocabulary: [105, 106, 107, 108, 109, 110, 111, 112],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [79, 80, 81, 82],
+    estimatedTime: 35,
   },
   {
     id: 15,
     title: "Kalimat Kompleks",
-    description: "Menyusun kalimat kompleks dengan konjungsi",
-    objectives: ["Menggunakan konjungsi", "Menyusun kalimat majemuk"],
+    description: "Menghubungkan klausa dan kalimat majemuk",
+    objectives: ["Kata hubung (и, но, а, потому что)", "Kalimat sebab-akibat"],
     content: {
-      theory: `Konjungsi dalam bahasa Rusia:
+      theory: `Kata hubung dalam bahasa Rusia:
 
-И [ee] — dan
-ИЛИ [EE-lee] — atau
-НО [no] — tetapi
-А [a] — sedangkan (kontras)
-ЧТО [shto] — bahwa
-ЧТОБЫ [shto-BY] — agar, supaya
-ПОТОМУ ЧТО [pa-ta-MOO shto] — karena
-ЕСЛИ [YES-lee] — jika
-КОГДА [kag-DA] — ketika
+- И [ee] — dan
+- А [a] — sedangkan / dan (kontras ringan)
+- Но [no] — tetapi, namun (он умный, но ленивый)
+- Что [shto] — bahwa (я знаю, что ты здесь = saya tahu bahwa kamu di sini)
+- Потому что [pa-ta-moo shto] — karena (он не пришёл, потому что был занят = dia tidak datang karena sibuk)
+- Чтобы [shto-by] — supaya, agar (я хочу, чтобы ты помог = saya ingin kamu membantu)
+- Если [yes-lee] — jika, kalau (если будет дождь, я останусь дома = jika hujan, saya tinggal di rumah)
 
-Contoh:
-- Я знаю, что ты прав — Saya tahu bahwa kamu benar
-- Я приду, если будет время — Saya datang jika ada waktu
-- Я учу русский, потому что хочу работать в России — Saya belajar bahasa Rusia karena ingin bekerja di Rusia`,
+Kosakata tambahan:
+- Умный [oom-nyy] — pintar, pandai
+- Ленивый [lye-nee-vyy] — malas
+- Здесь [zdyes'] — di sini
+- Занят [za-nyat] — sibuk
+- Помог [pa-mok] — membantu (lampau)
+- Дождь [dozhd'] — hujan
+- Останусь [as-ta-noos'] — saya akan tinggal / tetap berada`,
       examples: [
         { indonesian: "Я знаю, что ты здесь", russian: "Saya tahu bahwa kamu di sini" },
         { indonesian: "Он не пришёл, потому что был занят", russian: "Dia tidak datang karena sibuk" },
         { indonesian: "Я хочу, чтобы ты помог", russian: "Saya ingin kamu membantu" },
         { indonesian: "Если будет дождь, я останусь дома", russian: "Jika hujan, saya tinggal di rumah" },
+        { indonesian: "Он умный, но ленивый", russian: "Dia pintar tapi malas" },
       ],
       keyPoints: [
-        "ЧТО = 'bahwa' (fakta), ЧТОБЫ = 'agar' (tujuan)",
-        "ПОТОМУ ЧТО = karena (alasan)",
-        "Setelah ЧТОБЫ kata kerja dalam bentuk lampau",
+        "Koma diletakkan sebelum kata hubung dalam bahasa Rusia",
+        "Потому что = karena, Если = jika",
       ],
     },
-    exercises: [1501, 1502, 1503, 1504],
-    vocabulary: [113, 114, 115, 116, 117, 118, 119, 120],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [83, 84, 85, 86],
+    estimatedTime: 40,
   },
   {
     id: 16,
     title: "Praktik Percakapan",
-    description: "Percakapan sehari-hari dalam bahasa Rusia",
-    objectives: ["Bercakap dalam situasi nyata", "Menguasai frasa umum"],
+    description: "Percakapan sehari-hari dan ungkapan penting",
+    objectives: ["Ungkapan sopan santun", "Situasi sehari-hari"],
     content: {
-      theory: `Frasa percakapan sehari-hari:
+      theory: `Ungkapan percakapan sehari-hari:
 
-Sapaan dan basa-basi:
-- Как дела? [kak dee-LA] — Apa kabar?
-- Хорошо, а у вас? [kha-ra-SHO a oo VAS] — Baik, dan Anda?
-- Что нового? [shto NO-va-va] — Apa yang baru?
-- Ничего [nee-che-VO] — Biasa saja
-
-Di restoran:
-- Можно меню? [MOZH-na mye-NYU] — Boleh minta menu?
-- Я буду кофе [ya BOO-doo KO-fye] — Saya akan pesan kopi
-- Счёт, пожалуйста [SCHOT pa-ZHA-loo-sta] — Minta bill, tolong
-
-Di toko:
-- Сколько стоит? [SKOL'-ka STO-eet] — Berapa harganya?
-- Это дорого [E-ta DO-ra-ga] — Ini mahal
-- Спасибо, я просто смотрю [spa-SEE-ba ya PRO-sta smat-RYU] — Terima kasih, saya lihat-lihat`,
+- Пожалуйста [pa-zhal-sta] — tolong / silakan / sama-sama
+- Извините [eez-vee-nee-tye] — maaf / permisi
+- Приятно познакомиться [pree-yat-na paz-na-ko-mit'-sya] — senang berkenalan
+- Познакомиться [paz-na-ko-mit'-sya] — berkenalan
+- Повторите пожалуйста [paf-ta-ree-tye pa-zhal-sta] — tolong ulangi
+- Повторить [paf-ta-reet'] — mengulangi
+- Где находится...? [gdye na-kho-deet-sya] — di mana letak...?
+- Находится [na-kho-deet-sya] — berada / terletak
+- Туалет [too-a-lyet] — toilet (где находится туалет?)
+- Помощь [po-moshch'] — bantuan
+- Большое спасибо за помощь [bal'-sho-ye spa-si-ba za po-moshch'] — terima kasih banyak atas bantuannya
+- За помощь [za po-moshch'] — atas bantuannya
+- Всего хорошего [fsye-vo kha-ro-sha-va] — semoga sukses / segala yang terbaik`,
       examples: [
         { indonesian: "Здравствуйте! Меня зовут Анна", russian: "Halo! Nama saya Anna" },
         { indonesian: "Приятно познакомиться!", russian: "Senang berkenalan!" },
         { indonesian: "Я не понимаю, повторите пожалуйста", russian: "Saya tidak mengerti, ulangi tolong" },
-        { indonesian: "Сколько стоит билет?", russian: "Berapa harga tiket?" },
+        { indonesian: "Где находится туалет?", russian: "Di mana letak toilet?" },
         { indonesian: "Большое спасибо за помощь!", russian: "Terima kasih banyak atas bantuannya!" },
       ],
       keyPoints: [
-        "Пожалуйста digunakan untuk tolong dan sama-sama",
-        "Извините = maaf (permisi), Простите = maaf (permohonan maaf)",
-        "Да/Нет — ya/tidak",
+        "Пожалуйста — multi-fungsi: tolong, silakan, sama-sama",
+        "Приятно познакомиться — diucapkan saat perkenalan",
       ],
     },
-    exercises: [1601, 1602, 1603, 1604],
-    vocabulary: [121, 122, 123, 124, 125, 126, 127, 128],
-    estimatedTime: 30,
+    exercises: [],
+    vocabulary: [87, 88, 89, 90],
+    estimatedTime: 40,
   },
 ];

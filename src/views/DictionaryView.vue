@@ -608,8 +608,7 @@ const stats = computed(() => ({
 
 .word-pronunciation {
   font-size: 0.95rem;
-  color: var(--text);
-  opacity: 0.6;
+  color: var(--muted);
   font-style: italic;
   margin-left: 0.3rem;
 }

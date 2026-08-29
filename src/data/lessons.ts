@@ -5,19 +5,35 @@ export const lessons: Lesson[] = [
     id: 1,
     title: "Знакомство и базовые фразы",
     description: "Научитесь приветствовать людей и представляться",
-    objectives: ["Приветствия", "Представление", "Прощания"],
+    objectives: ["Приветствия", "Представление", "Прощания", "Вежливые слова"],
     content: {
       theory: `В индонезийском языке нет спряжения глаголов, множественное число образуется повторением слова, а времена выражаются с помощью частиц. Это делает язык относительно простым для изучения.
 
-Основные приветствия:
-- Selamat pagi /səlamat/ /paɡi/ - Доброе утро (до 11:00)
-- Selamat siang /səlamat/ /siaŋ/ - Добрый день (11:00-15:00)
-- Selamat sore /səlamat/ /sorə/ - Добрый вечер (15:00-19:00)
-- Selamat malam /səlamat/ /malam/ - Добрый вечер/ночь (после 19:00)
+Основные приветствия по времени суток:
+- Selamat pagi /səlamat paɡi/ - Доброе утро (до 11:00)
+- Selamat siang /səlamat siaŋ/ - Добрый день (11:00-15:00)
+- Selamat sore /səlamat sorə/ - Добрый вечер (15:00-19:00)
+- Selamat malam /səlamat malam/ - Добрый вечер / ночь (после 19:00)
+- Selamat /səlamat/ - приветствие / благополучный, мирный
 
-Для представления себя используется конструкция:
-- Nama saya... (Нама сайа...) - Меня зовут...
-- Saya dari... (Сайа дари...) - Я из...`,
+Для представления себя используются слова и конструкции:
+- saya /saja/ - я (официально/нейтрально)
+- nama /nama/ - имя
+- Nama saya... /nama saja/ - Меня зовут... (букв. "имя моё...")
+- dari /dari/ - из, от
+- Saya dari... /saja dari/ - Я из...
+- Rusia /rusia/ - Россия
+- Indonesia /indonəsia/ - Индонезия
+- Siapa nama Anda? /siapa nama anda/ - Как вас зовут? (официально)
+
+Вежливые слова и полезные выражения:
+- Terima kasih /tərima kasih/ - Спасибо (букв. "примите благодарность")
+- Sama-sama /sama-sama/ - Пожалуйста / не за что / взаимно (букв. "одинаково")
+- Sampai jumpa /sampaj dʒumpa/ - До свидания / до встречи (букв. "до встречи")
+- Apa kabar? /apa kabar/ - Как дела? (букв. "что за новости?")
+- Kabar /kabar/ - новости, дела
+- Baik /baik/ - хороший, хорошо, в порядке
+- Kabar baik /kabar baik/ - Хорошо / всё в порядке (букв. "новости хорошие")`,
       examples: [
         {
           indonesian: "Selamat pagi, nama saya Ivan",
@@ -30,13 +46,15 @@ export const lessons: Lesson[] = [
         { indonesian: "Kabar baik", russian: "Хорошо (букв. 'дела хорошие')" },
       ],
       keyPoints: [
-        "Selamat - здравствуйте/привет",
-        "saya - я (официально)",
+        "Selamat - здравствуйте / привет / благополучный",
+        "saya - я (официально / нейтрально)",
         "nama - имя",
-        "dari - из",
-        "terima kasih - спасибо (букв. 'примите любовь/благодарность')",
+        "dari - из / от",
+        "terima kasih - спасибо",
+        "sama-sama - пожалуйста / не за что",
         "sampai jumpa - до свидания",
-        "apa kabar - как дела (букв. 'что за новости?')",
+        "apa kabar - как дела",
+        "kabar baik - дела хорошо",
       ],
     },
     exercises: [1, 2, 3, 4, 65, 66, 67, 68, 73, 74, 75, 76, 77, 78],
@@ -50,7 +68,7 @@ export const lessons: Lesson[] = [
     objectives: [
       "Личные местоимения",
       "Притяжательные местоимения",
-      "Конструкция 'это'",
+      "Указательные местоимения ini/itu",
     ],
     content: {
       theory: `Индонезийские местоимения различаются по степени официальности:
@@ -59,15 +77,28 @@ export const lessons: Lesson[] = [
 - saya /saja/ - я (официально/нейтрально)
 - aku /aku/ - я (неформально, с друзьями)
 - kamu /kamu/ - ты (неформально)
-- Anda /anda/ - Вы (официально)
-- dia /dia/ - он/она
-- kami /kami/ - мы (без собеседника)
-- kita /kita/ - мы (включая собеседника)
+- Anda /anda/ - Вы (официально, с уважением)
+- dia /dia/ - он / она
+- kami /kami/ - мы (без собеседника, эксклюзивное)
+- kita /kita/ - мы (включая собеседника, инклюзивное)
 - mereka /mərəka/ - они
 
+Указательные слова:
+- ini /ini/ - это, этот, эта
+- itu /itu/ - то, тот, та
+
+Базовая лексика для описания людей и предметов:
+- buku /buku/ - книга
+- rumah /rumah/ - дом
+- siswa /siswa/ - ученик, студент
+- guru /ɡuru/ - учитель, преподаватель
+- teman /təman/ - друг, друзья
+- Indonesia /indonəsia/ - Индонезия
+
 Притяжательность выражается простым добавлением местоимения после существительного:
-- buku saya /buku/ /saja/ - моя книга (букв. "книга я")
-- rumah dia /rumah/ /dia/ - его/её дом`,
+- buku saya /buku saja/ - моя книга (букв. "книга я")
+- rumah dia /rumah dia/ - его/её дом
+- teman saya /təman saja/ - мои друзья / мой друг`,
       examples: [
         { indonesian: "Saya siswa", russian: "Я ученик" },
         { indonesian: "Dia guru", russian: "Он/она учитель" },
@@ -80,10 +111,15 @@ export const lessons: Lesson[] = [
         "saya/aku - я",
         "kamu/Anda - ты/Вы",
         "dia - он/она",
-        "kami/kita - мы",
+        "kami/kita - мы (без/включая собеседника)",
         "mereka - они",
-        "ini - это",
-        "itu - то",
+        "ini - это, этот",
+        "itu - то, тот",
+        "buku - книга",
+        "rumah - дом",
+        "siswa - ученик",
+        "guru - учитель",
+        "teman - друг",
       ],
     },
     exercises: [5, 6, 7, 8, 69, 70, 71, 72, 79, 80, 81, 82],
@@ -97,20 +133,31 @@ export const lessons: Lesson[] = [
     id: 3,
     title: "Простые предложения",
     description: "Строим простые предложения с глаголами",
-    objectives: ["Порядок слов", "Основные глаголы", "Отрицание 'tidak'"],
+    objectives: ["Порядок слов SVO", "Основные глаголы", "Отрицание 'tidak'", "Базовые существительные"],
     content: {
-      theory: `Порядок слов в индонезийском языке: Подлежащее + Сказуемое + Дополнение (как в русском).
+      theory: `Порядок слов в индонезийском языке: Подлежащее + Сказуемое + Дополнение (SVO - как в русском).
 
-Отрицание образуется с помощью частицы 'tidak' (тидак) перед глаголом или прилагательным:
-- Saya tidak tahu /tidaʔ/ /tahu/ - Я не знаю
-- Dia tidak besar /tidaʔ/ /bəsar/ - Он/она не большой
-
-Основные глаголы не спрягаются:
-- makan /makan/ - есть
+Основные глаголы не спрягаются по лицам и числам:
+- makan /makan/ - есть, кушать
 - minum /minum/ - пить
-- pergi /pərɡi/ - идти
-- datang /dataŋ/ - приходить
-- lihat /lihat/ - видеть`,
+- pergi /pərɡi/ - идти, уходить, ехать
+- datang /dataŋ/ - приходить, приезжать
+- lihat /lihat/ - видеть, смотреть
+- tahu /tahu/ - знать
+- beli /bəli/ - покупать
+- jual /dʒual/ - продавать
+
+Отрицание образуется с помощью частицы 'tidak' перед глаголом или прилагательным:
+- tidak /tidaʔ/ - не, нет
+- Saya tidak tahu /saja tidaʔ tahu/ - Я не знаю
+- Saya tidak pergi /saja tidaʔ pərɡi/ - Я не иду
+- Dia tidak besar /dia tidaʔ bəsar/ - Он не большой
+
+Полезные существительные и наречия времени:
+- nasi /nasi/ - варёный рис
+- air /air/ - вода
+- besok /besok/ - завтра
+- besar /bəsar/ - большой`,
       examples: [
         { indonesian: "Saya makan nasi", russian: "Я ем рис" },
         { indonesian: "Dia minum air", russian: "Он/она пьёт воду" },
@@ -119,12 +166,16 @@ export const lessons: Lesson[] = [
         { indonesian: "Kami tidak lihat", russian: "Мы не видим" },
       ],
       keyPoints: [
-        "Порядок слов: SVO",
-        "tidak - отрицание",
+        "Порядок слов: SVO (Подлежащее + Сказуемое + Дополнение)",
+        "tidak - частица отрицания 'не'",
         "makan - есть",
         "minum - пить",
-        "pergi - идти",
-        "datang - приходить",
+        "pergi - идти / ехать",
+        "datang - приходить / приезжать",
+        "lihat - видеть",
+        "nasi - рис",
+        "air - вода",
+        "besok - завтра",
       ],
     },
     exercises: [9, 10, 11, 12],
@@ -138,22 +189,29 @@ export const lessons: Lesson[] = [
     objectives: [
       "Вопросительные слова",
       "Построение вопросов",
-      "Вопросы с 'apa'",
+      "Вопросы о цене и местоположении",
     ],
     content: {
-      theory: `Вопросительные слова в индонезийском:
-
-- apa /apa/ - что
+      theory: `Вопросительные слова в индонезийском языке:
+- apa /apa/ - что, какой
 - siapa /siapa/ - кто
-- di mana /di/ /mana/ - где
-- ke mana /kə/ /mana/ - куда
-- dari mana /dari/ /mana/ - откуда
+- di mana /di mana/ - где
+- ke mana /kə mana/ - куда
+- dari mana /dari mana/ - откуда
 - kapan /kapan/ - когда
-- mengapa /məŋapa/ - почему
-- bagaimana /baɡaimana/ - как
+- mengapa /məŋapa/ - почему (также kenapa /kənapa/)
+- bagaimana /baɡaimana/ - как, каким образом
 - berapa /bərapa/ - сколько
 
-Вопросы строятся просто: вопросительное слово + остальная часть предложения.`,
+Слова для вопросов о покупках и состоянии:
+- harga /harɡa/ - цена, стоимость
+- harganya /harɡaɲa/ - её/его цена, стоимость
+- kabar /kabar/ - дела, новости
+
+Вопросы строятся прямолинейно: вопросительное слово ставится в начале предложения либо на место заменяемого члена предложения.
+- Apa ini? /apa ini/ - Что это?
+- Siapa nama kamu? /siapa nama kamu/ - Как тебя зовут? (букв. "Кто твоё имя?")
+- Berapa harganya? /bərapa harɡaɲa/ - Сколько это стоит? (букв. "Сколько её цена?")`,
       examples: [
         { indonesian: "Apa ini?", russian: "Что это?" },
         {
@@ -166,12 +224,14 @@ export const lessons: Lesson[] = [
         { indonesian: "Bagaimana kabar kamu?", russian: "Как твои дела?" },
       ],
       keyPoints: [
-        "apa - что",
+        "apa - что / какой",
         "siapa - кто",
         "di mana - где",
+        "ke mana - куда",
         "kapan - когда",
         "berapa - сколько",
         "bagaimana - как",
+        "harganya - его/её цена, стоимость",
       ],
     },
     exercises: [13, 14, 15, 16],
@@ -182,25 +242,33 @@ export const lessons: Lesson[] = [
     id: 5,
     title: "Отрицания",
     description: "Изучаем различные способы отрицания",
-    objectives: ["tidak vs bukan", "belum", "jangan"],
+    objectives: ["tidak vs bukan", "belum", "jangan", "Полезная лексика"],
     content: {
-      theory: `В индонезийском несколько видов отрицания:
+      theory: `В индонезийском языке используются 4 основных вида отрицания:
 
-1. TIDAK - отрицание глаголов и прилагательных:
-   - Saya tidak tahu /tidaʔ/ /tahu/
-   - Dia tidak besar /tidaʔ/ /bəsar/
+1. TIDAK /tidaʔ/ - отрицание действий (глаголов) и признаков (прилагательных):
+   - Saya tidak mengerti /saja tidaʔ məŋərti/ - Я не понимаю
+   - Rumah ini tidak besar /rumah ini tidaʔ bəsar/ - Этот дом не большой
 
-2. BUKAN - отрицание существительных:
-   - Ini bukan buku saya /buku/ /saja/
-   - Dia bukan guru /bukan/ /ɡuru/
+2. BUKAN /bukan/ - отрицание сущности и существительных ("не является"):
+   - Ini bukan masalah /ini bukan masalah/ - Это не проблема
+   - Dia bukan orang Indonesia /dia bukan oraŋ indonəsia/ - Он не индонезиец (букв. "не человек Индонезии")
+   - Dia bukan guru /dia bukan ɡuru/ - Он не учитель
 
-3. BELUM - ещё не (отрицание завершённости):
-   - Saya belum makan /bəlum/ /makan/
-   - Dia belum datang /bəlum/ /dataŋ/
+3. BELUM /bəlum/ - ещё не (действие не произошло к настоящему моменту, но возможно в будущем):
+   - Saya belum siap /saja bəlum siap/ - Я ещё не готов
+   - Saya belum makan /saja bəlum makan/ - Я ещё не ел
 
-4. JANGAN - запрет (не делай!):
-   - Jangan pergi! (Не уходи!)
-   - Jangan bicara! (Не разговаривай!)`,
+4. JANGAN /dʒaŋan/ - запрет ("не делай!", "нельзя"):
+   - Jangan lupa! /dʒaŋan lupa/ - Не забудь!
+   - Jangan pergi! /dʒaŋan pərɡi/ - Не уходи!
+
+Новая лексика урока:
+- mengerti /məŋərti/ - понимать
+- masalah /masalah/ - проблема
+- siap /siap/ - готовый, готов
+- lupa /lupa/ - забывать
+- orang /oraŋ/ - человек, люди`,
       examples: [
         { indonesian: "Saya tidak mengerti", russian: "Я не понимаю" },
         { indonesian: "Ini bukan masalah", russian: "Это не проблема" },
@@ -212,10 +280,15 @@ export const lessons: Lesson[] = [
         },
       ],
       keyPoints: [
-        "tidak - не (с глаголами/прилагательными)",
+        "tidak - не (с глаголами и прилагательными)",
         "bukan - не (с существительными)",
         "belum - ещё не",
-        "jangan - не (запрет)",
+        "jangan - не делай (запрет)",
+        "mengerti - понимать",
+        "masalah - проблема",
+        "siap - готов",
+        "lupa - забывать",
+        "orang - человек",
       ],
     },
     exercises: [17, 18, 19, 20],
@@ -229,23 +302,29 @@ export const lessons: Lesson[] = [
     objectives: [
       "Конструкция с -nya",
       "Притяжательные местоимения",
-      "Kepunyaan",
+      "Глагол punya",
     ],
     content: {
-      theory: `Притяжательность в индонезийском выражается просто:
+      theory: `Притяжательность в индонезийском выражается несколькими способами:
 
-1. Местоимение после существительного:
-   - buku saya /buku/ /saja/
-   - rumah dia (его/её дом)
-   - mobil kami /mobil/ /kami/
+1. Местоимение ставится сразу после существительного:
+   - buku saya /buku saja/ - моя книга
+   - rumah dia /rumah dia/ - его/её дом
+   - mobil kami /mobil kami/ - наша машина
 
-2. Суффикс -nya (его/её/их):
-   - bukunya (его/её книга)
-   - rumahnya (его/её дом)
-   - mobilnya (его/её машина)
+2. Суффикс -nya /ɲa/ (его / её / их):
+   - mobilnya /mobilɲa/ - его/её машина
+   - bukunya /bukuɲa/ - его/её книга
+   - temannya /təmanɲa/ - его/её друг
 
-3. Конструкция dengan /dəŋan/ или punya /puɲa/:
-   - buku dengan saya / buku saya punya /saja/ /puɲa/`,
+3. Слово punya /puɲa/ (иметь, владеть, принадлежать):
+   - Ini punya saya /ini puɲa saja/ - Это моё (принадлежит мне)
+   - punya /puɲa/ - иметь, владеть, принадлежать
+
+Новые слова урока:
+- mobil /mobil/ - автомобиль, машина
+- baru /baru/ - новый
+- baik /baik/ - хороший, добрый`,
       examples: [
         { indonesian: "Ini buku saya", russian: "Это моя книга" },
         { indonesian: "Rumah dia besar", russian: "Его/её дом большой" },
@@ -254,9 +333,12 @@ export const lessons: Lesson[] = [
         { indonesian: "Ini punya saya", russian: "Это моё (принадлежит мне)" },
       ],
       keyPoints: [
-        "-nya - его/её/их",
-        "punya - иметь/принадлежать",
-        "dengan - с",
+        "Существительное + местоимение = принадлежность (buku saya)",
+        "-nya - суффикс принадлежности 'его/её/их'",
+        "punya - иметь / принадлежать (Ini punya saya)",
+        "mobil - машина",
+        "baru - новый",
+        "baik - хороший / добрый",
       ],
     },
     exercises: [21, 22, 23, 24],
@@ -267,24 +349,37 @@ export const lessons: Lesson[] = [
     id: 7,
     title: "Числа и счёт",
     description: "Учимся считать и использовать числа",
-    objectives: ["Числа 1-100", "Счёт существительных", "Harga /harɡa/"],
+    objectives: ["Числа 0-1000", "Счётные слова (классификаторы)", "Количественные конструкции"],
     content: {
-      theory: `Числа в индонезийском:
+      theory: `Числа в индонезийском языке:
 
-0-10: nol, satu, dua, tiga, empat, lima, enam, tujuh, delapan, sembilan, sepuluh
+0-10:
+- nol /nol/ - 0
+- satu /satu/ - 1
+- dua /dua/ - 2
+- tiga /tiɡa/ - 3
+- empat /əmpat/ - 4
+- lima /lima/ - 5
+- enam /ənam/ - 6
+- tujuh /tudʒuh/ - 7
+- delapan /dəlapan/ - 8
+- sembilan /səmbilan/ - 9
+- sepuluh /səpuluh/ - 10
 
-Десятки образуются: число + puluh
-- 20 = dua puluh
-- 30 = tiga puluh
-- 100 = seratus
+Десятки, сотни, тысячи:
+- puluh /puluh/ - десяток (dua puluh = 20, tiga puluh = 30)
+- ratus /ratus/ - сотня (seratus /səratus/ = 100, dua ratus = 200)
+- ribu /ribu/ - тысяча (seribu /səribu/ = 1000, dua ribu = 2000)
 
-Для счёта людей используется classifier 'orang':
-- satu orang /satu/ /oraŋ/
-- dua orang /dua/ /oraŋ/
+Счётные классификаторы:
+- orang /oraŋ/ - человек (classifier для людей: satu orang, dua orang)
+- buah /buah/ - штука (classifier для предметов: satu buah rumah, dua buah mobil)
 
-Для предметов - 'buah':
-- satu buah rumah /buah/ /rumah/
-- dua buah mobil /buah/ /mobil/`,
+Полезные слова урока:
+- ada /ada/ - есть, имеется, присутствовать
+- saudara /saudara/ - брат/сестра, родственник
+- butuh /butuh/ - нуждаться, нужно, требоваться
+- rupiah /rupiah/ - рупия (валюта Индонезии)`,
       examples: [
         {
           indonesian: "Saya punya dua saudara",
@@ -296,11 +391,16 @@ export const lessons: Lesson[] = [
         { indonesian: "Rumah itu besar", russian: "Тот дом большой" },
       ],
       keyPoints: [
-        "satu, dua, tiga... - один, два, три...",
-        "puluh - десяток",
-        "ratus - сотня",
-        "orang - человек (classifier)",
-        "buah - предмет (classifier)",
+        "satu, dua, tiga, empat, lima... - числительные",
+        "puluh - десятки",
+        "ratus - сотни",
+        "ribu - тысячи",
+        "orang - классификатор для людей",
+        "buah - классификатор для предметов",
+        "ada - есть / имеется",
+        "saudara - брат/сестра",
+        "butuh - нужно / нуждаться",
+        "rupiah - рупия",
       ],
     },
     exercises: [25, 26, 27, 28],
@@ -311,7 +411,7 @@ export const lessons: Lesson[] = [
     id: 8,
     title: "Время и даты",
     description: "Говорим о времени, днях и датах",
-    objectives: ["Дни недели", "Время суток", "Даты"],
+    objectives: ["Дни недели", "Время суток", "Часы и выражение времени", "Действия по времени"],
     content: {
       theory: `Дни недели:
 - Senin /sənin/ - понедельник
@@ -320,17 +420,28 @@ export const lessons: Lesson[] = [
 - Kamis /kamis/ - четверг
 - Jumat /dʒumat/ - пятница
 - Sabtu /sabtu/ - суббота
-- Minggu /miŋɡu/ - воскресенье
+- Minggu /miŋɡu/ - воскресенье / неделя
 
-Время суток:
+Временные понятия и время суток:
+- hari /hari/ - день
+- hari ini /hari ini/ - сегодня
+- besok /besok/ - завтра
+- kemarin /kəmarin/ - вчера
+- sekarang /səkaraŋ/ - сейчас
 - pagi /paɡi/ - утро
-- siang /siaŋ/ - день
-- sore /sorə/ - вечер (до темноты)
-- malam /malam/ - ночь
+- siang /siaŋ/ - день (с 11:00 до 15:00)
+- sore /sorə/ - вечер (до заката, 15:00-19:00)
+- malam /malam/ - ночь / поздний вечер (после 19:00)
 
-Для указания времени используется jam /dʒam/:
-- Jam berapa? (Джам бэрапа?) - Который час?
-- Jam dua /dʒam/ /dua/ - Два часа`,
+Указание времени:
+- jam /dʒam/ - час / время / часы
+- Jam berapa? /dʒam bərapa/ - Который час?
+- Jam dua /dʒam dua/ - Два часа
+- Jam tiga /dʒam tiɡa/ - Три часа
+
+Глаголы распорядка дня:
+- bangun /baŋun/ - просыпаться, вставать
+- bertemu /bərtəmu/ - встречаться`,
       examples: [
         { indonesian: "Hari ini Senin", russian: "Сегодня понедельник" },
         { indonesian: "Besok hari Selasa", russian: "Завтра вторник" },
@@ -339,11 +450,14 @@ export const lessons: Lesson[] = [
         { indonesian: "Kita bertemu besok", russian: "Мы встретимся завтра" },
       ],
       keyPoints: [
-        "hari - день",
-        "jam - час/время",
-        "sekarang - сейчас",
+        "Senin, Selasa, Rabu, Kamis, Jumat, Sabtu, Minggu - дни недели",
+        "hari ini - сегодня",
         "besok - завтра",
         "kemarin - вчера",
+        "sekarang - сейчас",
+        "jam - час / время",
+        "bangun - просыпаться",
+        "bertemu - встречаться",
       ],
     },
     exercises: [29, 30, 31, 32],
@@ -354,22 +468,28 @@ export const lessons: Lesson[] = [
     id: 9,
     title: "Прошедшее время",
     description: "Выражаем завершённые действия",
-    objectives: ["sudah", "telah", "pernah"],
+    objectives: ["Частица sudah", "Частица telah", "Частица pernah", "Лексика завершенности"],
     content: {
-      theory: `В индонезийском нет грамматического прошедшего времени. Вместо этого используются частицы:
+      theory: `В индонезийском языке глаголы не изменяются по временам. Вместо этого используются специальные маркеры (частицы):
 
-1. SUDAH /sudah/ - уже (разговорное):
-   - Saya sudah makan /sudah/ /makan/
-   - Dia sudah pergi /sudah/ /pərɡi/
+1. SUDAH /sudah/ - уже (наиболее употребительное в разговорной и нейтральной речи):
+   - Saya sudah makan /saja sudah makan/ - Я уже поел
+   - Saya sudah selesai /saja sudah sələsai/ - Я уже закончил
+   - Dia sudah pulang /dia sudah pulaŋ/ - Он уже вернулся домой
+   - Sudah makan? /sudah makan/ - Уже ел?
 
-2. TELAH /təlah/ - уже (более формальное):
-   - Dia telah selesai /təlah/ /sələsai/
+2. TELAH /təlah/ - уже (формальный, книжный аналог sudah):
+   - Mereka telah tiba /mərəka təlah tiba/ - Они уже прибыли
 
-3. PERNAH /pərnah/ - когда-либо (опыт):
-   - Saya pernah ke Bali (Я когда-либо был на Бали)
-   - Pernah makan nasi goreng? (Ты когда-нибудь ел жареный рис?)
+3. PERNAH /pərnah/ - когда-либо, бывал (указывает на наличие жизненного опыта в прошлом):
+   - Saya pernah ke Jakarta /saja pərnah kə dʒakarta/ - Я бывал в Джакарте
+   - Saya pernah ke Bali /saja pərnah kə bali/ - Я бывал на Бали
 
-Вопрос о завершённости: Sudah? (Уже?)`,
+Новая лексика урока:
+- selesai /sələsai/ - закончить, завершить, готово
+- pulang /pulaŋ/ - возвращаться (домой)
+- tiba /tiba/ - прибывать, приезжать
+- Jakarta /dʒakarta/ - Джакарта (столица Индонезии)`,
       examples: [
         { indonesian: "Saya sudah selesai", russian: "Я уже закончил" },
         { indonesian: "Dia sudah pulang", russian: "Он уже вернулся домой" },
@@ -378,10 +498,12 @@ export const lessons: Lesson[] = [
         { indonesian: "Mereka telah tiba", russian: "Они уже прибыли" },
       ],
       keyPoints: [
-        "sudah - уже",
-        "telah - уже (формально)",
-        "pernah - когда-либо",
+        "sudah - уже (завершённость действия)",
+        "telah - уже (формальное)",
+        "pernah - когда-либо (наличие опыта)",
         "selesai - закончить",
+        "pulang - возвращаться домой",
+        "tiba - прибывать",
       ],
     },
     exercises: [33, 34, 35, 36],
@@ -392,21 +514,27 @@ export const lessons: Lesson[] = [
     id: 10,
     title: "Настоящее продолженное",
     description: "Действия в процессе",
-    objectives: ["sedang", "lagi", "masih"],
+    objectives: ["sedang", "lagi", "masih", "Действия в момент речи"],
     content: {
-      theory: `Для выражения процесса в настоящем времени используются:
+      theory: `Для выражения действия, происходящего прямо сейчас (в процессе), используются следующие частицы:
 
-1. SEDANG /sədaŋ/ - в процессе:
-   - Saya sedang makan /sədaŋ/ /makan/
-   - Dia sedang belajar /sədaŋ/ /bəladʒar/
+1. SEDANG /sədaŋ/ - в процессе, прямо сейчас (нейтральное и официальное):
+   - Saya sedang bekerja /saja sədaŋ bəkərdʒa/ - Я работаю (прямо сейчас)
+   - Kami sedang makan siang /kami sədaŋ makan siaŋ/ - Мы обедаем
 
-2. LAGI /laɡi/ - тоже означает процесс (разговорное):
-   - Saya lagi kerja /laɡi/ /kərdʒa/
-   - Dia lagi tidur /laɡi/ /tidur/
+2. LAGI /laɡi/ - в процессе (разговорное):
+   - Dia lagi baca buku /dia laɡi batʃa buku/ - Он читает книгу (сейчас)
 
-3. MASIH /masih/ - всё ещё:
-   - Saya masih di rumah /di/ /rumah/
-   - Dia masih tidur /masih/ /tidur/`,
+3. MASIH /masih/ - всё ещё (действие или состояние продолжается):
+   - Mereka masih di kantor /mərəka masih di kantor/ - Они всё ещё в офисе
+   - Apa kamu masih di sini? /apa kamu masih di sini/ - Ты всё ещё здесь?
+
+Новая лексика урока:
+- bekerja /bəkərdʒa/ - работать (также kerja)
+- baca /batʃa/ - читать (также membaca)
+- kantor /kantor/ - офис, учреждение
+- makan siang /makan siaŋ/ - обедать (букв. "есть дневное")
+- di sini /di sini/ - здесь`,
       examples: [
         { indonesian: "Saya sedang bekerja", russian: "Я работаю (сейчас)" },
         {
@@ -421,9 +549,13 @@ export const lessons: Lesson[] = [
         { indonesian: "Apa kamu masih di sini?", russian: "Ты всё ещё здесь?" },
       ],
       keyPoints: [
-        "sedang - в процессе",
-        "lagi - тоже процесс (разг.)",
+        "sedang - в процессе (прямо сейчас)",
+        "lagi - в процессе (разговорное)",
         "masih - всё ещё",
+        "bekerja - работать",
+        "baca - читать",
+        "kantor - офис",
+        "di sini - здесь",
       ],
     },
     exercises: [37, 38, 39, 40],
@@ -434,23 +566,26 @@ export const lessons: Lesson[] = [
     id: 11,
     title: "Будущее время",
     description: "Выражаем будущие действия",
-    objectives: ["akan", "mau", "hendak"],
+    objectives: ["akan", "mau", "hendak", "Выражение намерений и времени в будущем"],
     content: {
-      theory: `Будущее время выражается с помощью частиц:
+      theory: `Будущее время в индонезийском языке выражается специальными частицами перед глаголом:
 
-1. AKAN /akan/ - буду (нейтральное):
-   - Saya akan pergi /akan/ /pərɡi/
-   - Dia akan datang /akan/ /dataŋ/
+1. AKAN /akan/ - будет, буду (нейтральный маркер будущего времени):
+   - Saya akan belajar besok /saja akan bəladʒar besok/ - Я буду учиться завтра
+   - Dia akan pulang minggu depan /dia akan pulaŋ miŋɡu dəpan/ - Он вернётся на следующей неделе
+   - Kami akan bertemu jam 5 /kami akan bərtəmu dʒam lima/ - Мы встретимся в 5 часов
 
-2. MAU /mau/ - собираюсь/хочу (разговорное):
-   - Saya mau tidur /mau/ /tidur/
-   - Mau ke mana? (Куда идёшь?)
+2. MAU /mau/ - собираться, хотеть (разговорный маркер ближайшего будущего и желания):
+   - Mau pergi ke mana? /mau pərɡi kə mana/ - Куда хочешь пойти? / Куда идёшь?
+   - Mereka mau makan /mərəka mau makan/ - Они хотят есть / собираются поесть
 
-3. HENDAK /həndaʔ/ - намерен (более формальное):
-   - Saya hendak belajar /həndaʔ/ /bəladʒar/
+3. HENDAK /həndaʔ/ - намереваться (более формальное):
+   - Saya hendak belajar /saja həndaʔ bəladʒar/ - Я намерен учиться
 
-Также можно использовать waktu (вaktu) + время:
-- Besok saya akan datang /akan/ /dataŋ/`,
+Новая лексика урока:
+- belajar /bəladʒar/ - учиться, изучать
+- minggu depan /miŋɡu dəpan/ - на следующей неделе
+- depan /dəpan/ - передний, следующий`,
       examples: [
         {
           indonesian: "Saya akan belajar besok",
@@ -468,10 +603,12 @@ export const lessons: Lesson[] = [
         { indonesian: "Mereka mau makan", russian: "Они хотят есть" },
       ],
       keyPoints: [
-        "akan - буду (нейтр.)",
-        "mau - собираюсь/хочу",
-        "hendak - намерен",
-        "besok - завтра",
+        "akan - буду / будет (нейтральное)",
+        "mau - собираюсь / хочу (разговорное)",
+        "hendak - намерен (формальное)",
+        "belajar - учиться",
+        "minggu depan - на следующей неделе",
+        "depan - следующий / впереди",
       ],
     },
     exercises: [41, 42, 43, 44],
@@ -482,25 +619,33 @@ export const lessons: Lesson[] = [
     id: 12,
     title: "Модальные глаголы",
     description: "Может, должен, хочет",
-    objectives: ["bisa", "harus", "mau", "ingin"],
+    objectives: ["bisa", "harus", "mau / ingin", "Вежливые просьбы"],
     content: {
-      theory: `Модальные глаголы в индонезийском:
+      theory: `Модальные глаголы выражают возможность, необходимость и желание:
 
-1. BISA /bisa/ - мочь/уметь:
-   - Saya bisa bicara Inggris (Я могу говорить по-английски)
-   - Bisa bantu saya? (Можете помочь мне?)
+1. BISA /bisa/ - мочь, уметь:
+   - Saya bisa berenang /saja bisa bərənaŋ/ - Я умею плавать
+   - Bisa bantu saya? /bisa bantu saja/ - Можете помочь мне?
 
-2. HARUS /harus/ - должен:
-   - Saya harus pergi /harus/ /pərɡi/
-   - Kamu harus belajar /harus/ /bəladʒar/
+2. HARUS /harus/ - должен, обязан:
+   - Kamu harus datang tepat waktu /kamu harus dataŋ təpat waktu/ - Ты должен прийти вовремя
+   - Saya harus pergi /saja harus pərɡi/ - Я должен идти
 
-3. MAU /mau/ - хотеть (разговорное):
-   - Saya mau makan /mau/ /makan/
-   - Mau kopi? (Хочешь кофе?)
+3. MAU /mau/ - хотеть (повседневное):
+   - Saya mau kopi /saja mau kopi/ - Я хочу кофе
 
-4. INGIN /iŋin/ - хотеть (более формальное):
-   - Saya ingin belajar /iŋin/ /bəladʒar/
-   - Apa yang kamu inginkan? (Чего ты хочешь?)`,
+4. INGIN /iŋin/ - хотеть, желать (более вежливое и формальное):
+   - Dia ingin pergi ke Bali /dia iŋin pərɡi kə bali/ - Он хочет поехать на Бали
+   - Apa yang kamu inginkan? /apa jaŋ kamu iŋinkan/ - Чего ты желаешь?
+
+Новые слова урока:
+- berenang /bərənaŋ/ - плавать
+- tepat /təpat/ - точный
+- waktu /waktu/ - время
+- tepat waktu /təpat waktu/ - вовремя
+- kopi /kopi/ - кофе
+- bantu /bantu/ - помогать (также membantu)
+- Bali /bali/ - Бали`,
       examples: [
         { indonesian: "Saya bisa berenang", russian: "Я умею плавать" },
         {
@@ -515,10 +660,14 @@ export const lessons: Lesson[] = [
         { indonesian: "Bisa bantu saya?", russian: "Можете помочь мне?" },
       ],
       keyPoints: [
-        "bisa - мочь/уметь",
-        "harus - должен",
-        "mau - хотеть (разг.)",
-        "ingin - хотеть (форм.)",
+        "bisa - мочь / уметь",
+        "harus - должен / обязан",
+        "mau - хотеть (разговорное)",
+        "ingin - хотеть / желать (вежливое)",
+        "berenang - плавать",
+        "tepat waktu - вовремя",
+        "kopi - кофе",
+        "bantu - помогать",
       ],
     },
     exercises: [45, 46, 47, 48],
@@ -529,24 +678,32 @@ export const lessons: Lesson[] = [
     id: 13,
     title: "Прилагательные",
     description: "Описываем предметы и людей",
-    objectives: ["Прилагательные", "Степени сравнения", "Порядок слов"],
+    objectives: ["Позиция прилагательных", "lebih (более)", "paling (самый)", "sangat (очень)"],
     content: {
-      theory: `Прилагательные в индонезийском ставятся ПОСЛЕ существительного:
-- rumah besar /rumah/ /bəsar/ - большой дом (букв. "дом большой")
-- mobil baru /mobil/ /baru/ - новая машина
+      theory: `Правило: В индонезийском языке прилагательное всегда ставится ПОСЛЕ определяемого существительного:
+- rumah besar /rumah bəsar/ - большой дом (букв. "дом большой")
+- mobil baru /mobil baru/ - новая машина
+- buku kecil /buku kətʃil/ - маленькая книга
 
-Степени сравнения:
-1. Lebih /ləbih/ - более:
-   - lebih besar /ləbih/ /bəsar/
-   - lebih baik /ləbih/ /baiʔ/
+Степени сравнения и усиления:
+1. Lebih /ləbih/ - более (сравнительная степень):
+   - lebih baik /ləbih baik/ - лучше (более хороший)
+   - lebih besar /ləbih bəsar/ - больше
 
-2. Paling /paliŋ/ - самый:
-   - paling besar /paliŋ/ /bəsar/
-   - paling baik /paliŋ/ /baiʔ/
+2. Paling /paliŋ/ - самый (превосходная степень):
+   - paling pintar /paliŋ pintar/ - самый умный
+   - paling besar /paliŋ bəsar/ - самый большой
 
 3. Sangat /saŋat/ - очень:
-   - sangat baik /saŋat/ /baiʔ/
-   - sangat besar /saŋat/ /bəsar/`,
+   - sangat enak /saŋat enak/ - очень вкусный
+   - sangat baik /saŋat baik/ - очень хороший
+
+Новые слова урока:
+- pintar /pintar/ - умный, способный
+- enak /enak/ - вкусный, приятный
+- makanan /makanan/ - еда, пища, блюдо
+- kecil /kətʃil/ - маленький
+- besar /bəsar/ - большой`,
       examples: [
         { indonesian: "Rumah itu besar", russian: "Тот дом большой" },
         { indonesian: "Mobil ini lebih baik", russian: "Эта машина лучше" },
@@ -558,10 +715,14 @@ export const lessons: Lesson[] = [
         { indonesian: "Buku itu kecil", russian: "Та книга маленькая" },
       ],
       keyPoints: [
-        "Прилагательное после существительного",
-        "lebih - более",
-        "paling - самый",
-        "sangat - очень",
+        "Прилагательное ставится ПОСЛЕ существительного (rumah besar)",
+        "lebih - более / ...-ее (lebih baik - лучше)",
+        "paling - самый (paling pintar - самый умный)",
+        "sangat - очень (sangat enak - очень вкусный)",
+        "pintar - умный",
+        "enak - вкусный",
+        "makanan - еда",
+        "kecil - маленький",
       ],
     },
     exercises: [49, 50, 51, 52],
@@ -576,28 +737,37 @@ export const lessons: Lesson[] = [
     id: 14,
     title: "Предлоги",
     description: "Место, направление, время",
-    objectives: ["di, ke, dari", "в пространстве", "во времени"],
+    objectives: ["di (место)", "ke (направление)", "dari (исходная точка)", "pada (время)", "di atas / di bawah"],
     content: {
-      theory: `Основные предлоги:
+      theory: `Основные предлоги в индонезийском языке:
 
-1. DI /di/ - в/на (место):
-   - di rumah /di/ /rumah/
-   - di Jakarta /di/ /dʒakarta/
-   - di meja /di/ /mədʒa/
+1. DI /di/ - в, на (указывает на местонахождение, где?):
+   - di rumah /di rumah/ - дома / в доме
+   - di Jakarta /di dʒakarta/ - в Джакарте
 
-2. KE /kə/ - в/на (направление):
-   - ke rumah /kə/ /rumah/
-   - ke Jakarta /kə/ /dʒakarta/
-   - ke sekolah /kə/ /səkolah/
+2. KE /kə/ - в, на, к (указывает на направление движения, куда?):
+   - ke kantor /kə kantor/ - в офис / на работу
+   - ke rumah /kə rumah/ - домой
 
-3. DARI /dari/ - из/от:
-   - dari rumah /dari/ /rumah/
-   - dari Indonesia /dari/ /indonəsia/
-   - dari saya /dari/ /saja/
+3. DARI /dari/ - из, от, с (указывает на источник / происхождение, откуда?):
+   - dari Rusia /dari rusia/ - из России
+   - dari rumah /dari rumah/ - из дома
 
-4. PADA /pada/ - в (время):
-   - pada jam 5 (в 5 часов)
-   - pada hari Senin /hari/ /sənin/`,
+4. PADA /pada/ - в, на (указывает на точное время или дни):
+   - pada jam 3 /pada dʒam tiɡa/ - в 3 часа
+   - pada hari Senin /pada hari sənin/ - в понедельник
+
+5. Пространственные конструкции:
+   - di atas /di atas/ - на, над (положение сверху)
+   - di atas meja /di atas medʒa/ - на столе
+   - di bawah /di bawah/ - под
+   - di dalam /di dalam/ - внутри, в
+
+Новые слова урока:
+- kantor /kantor/ - офис, служба
+- meja /medʒa/ - стол
+- atas /atas/ - верх
+- bawah /bawah/ - низ`,
       examples: [
         { indonesian: "Saya di rumah", russian: "Я дома" },
         { indonesian: "Dia pergi ke kantor", russian: "Он идёт в офис" },
@@ -609,10 +779,13 @@ export const lessons: Lesson[] = [
         { indonesian: "Buku di atas meja", russian: "Книга на столе" },
       ],
       keyPoints: [
-        "di - в/на (место)",
-        "ke - в/на (направление)",
-        "dari - из/от",
-        "pada - в (время)",
+        "di - в / на (место)",
+        "ke - в / к (направление)",
+        "dari - из / от (исходная точка)",
+        "pada - в (время: pada jam 3)",
+        "di atas meja - на столе",
+        "kantor - офис",
+        "meja - стол",
       ],
     },
     exercises: [53, 54, 55, 56],
@@ -626,27 +799,33 @@ export const lessons: Lesson[] = [
     id: 15,
     title: "Сложные предложения",
     description: "Соединяем простые предложения",
-    objectives: ["dan, atau, tapi", "karena, jadi", "yang"],
+    objectives: ["Союзы dan, atau, tapi", "karena, jadi", "yang (который)"],
     content: {
-      theory: `Союзы для соединения предложений:
+      theory: `Основные союзы для соединения слов и предложений:
 
 1. DAN /dan/ - и:
-   - Saya makan dan minum /dan/ /minum/
+   - Saya makan nasi dan minum air /saja makan nasi dan minum air/ - Я ем рис и пью воду
 
 2. ATAU /atau/ - или:
-   - Mau kopi atau teh? (Хочешь кофе или чай?)
+   - Mau teh atau kopi? /mau teh atau kopi/ - Хочешь чай или кофе?
 
-3. TAPI /tapi/ - но:
-   - Saya mau pergi tapi tidak punya waktu (Я хочу уйти, но нет времени)
+3. TAPI /tapi/ - но (также tetapi /tətapi/):
+   - Dia pintar tapi malas /dia pintar tapi malas/ - Он умный, но ленивый
 
-4. KARENA /karəna/ - потому что:
-   - Saya tidak datang karena sakit (Я не пришёл, потому что заболел)
+4. KARENA /karəna/ - потому что, так как:
+   - Saya tidak pergi karena hujan /saja tidaʔ pərɡi karəna hudʒan/ - Я не пошёл, потому что дождь
 
-5. JADI /dʒadi/ - поэтому:
-   - Saya sakit jadi tidak datang (Я заболел, поэтому не пришёл)
+5. JADI /dʒadi/ - поэтому, так что:
+   - Saya sakit jadi tidak datang /saja sakit dʒadi tidaʔ dataŋ/ - Я заболел, поэтому не пришёл
 
-6. YANG /jaŋ/ - который:
-   - Orang yang baik (Хороший человек, букв. "человек который хороший")`,
+6. YANG /jaŋ/ - который, которая, которое:
+   - Orang yang saya lihat /oraŋ jaŋ saja lihat/ - Человек, которого я видел
+
+Новая лексика урока:
+- teh /teh/ - чай
+- malas /malas/ - ленивый
+- hujan /hudʒan/ - дождь
+- sakit /sakit/ - больной, болеть`,
       examples: [
         {
           indonesian: "Saya makan nasi dan minum air",
@@ -672,7 +851,10 @@ export const lessons: Lesson[] = [
         "tapi - но",
         "karena - потому что",
         "jadi - поэтому",
-        "yang - который",
+        "yang - который / которая",
+        "teh - чай",
+        "malas - ленивый",
+        "hujan - дождь",
       ],
     },
     exercises: [57, 58, 59, 60],
@@ -683,23 +865,26 @@ export const lessons: Lesson[] = [
     id: 16,
     title: "Разговорная практика",
     description: "Идиомы и полезные фразы",
-    objectives: ["Идиомы", "Разговорные фразы", "Культурные особенности"],
+    objectives: ["Разговорные формулы", "Вежливость и этикет", "Полезные выражения"],
     content: {
-      theory: `Полезные разговорные фразы и идиомы:
+      theory: `Полезные разговорные фразы и формулы вежливости:
 
-1. Tidak apa-apa (тидак апа-апа) - ничего страшного
-2. Sama-sama (сама-сама) - взаимно, вместе (пожалуйста, не за что; букв. 'одинаково-одинаково')
-3. Tolong /toloŋ/ - пожалуйста (просьба) / помогите
-4. Maaf /maaf/ - извините
-5. Permisi /pərmisi/ - разрешите / извините (чтобы пройти)
-6. Silakan /silakan/ - пожалуйста (приглашение)
-7. Terima kasih banyak /kasih/ /baɲaʔ/ - большое спасибо
-8. Sampai jumpa lagi /dʒumpa/ /laɡi/ - до встречи снова
+1. Tidak apa-apa /tidaʔ apa-apa/ - Ничего страшного / всё в порядке
+2. Sama-sama /sama-sama/ - Пожалуйста, не за что / взаимно (в ответ на спасибо)
+3. Tolong /toloŋ/ - Пожалуйста (просьба) / помогите
+4. Maaf /maaf/ - Извините, прости
+5. Permisi /pərmisi/ - Разрешите / извините (чтобы пройти или обратиться)
+6. Silakan /silakan/ - Пожалуйста, добро пожаловать (вежливое приглашение)
+7. Terima kasih banyak /tərima kasih baɲaʔ/ - Большое спасибо
+8. Sampai jumpa lagi /sampaj dʒumpa laɡi/ - До скорой встречи снова
 
-Культурные особенности:
-- Индонезийцы очень вежливы
-- Часто используют титулы (Pak, Bu, Mas, Mbak)
-- Прямой отказ считается невежливым`,
+Полезная лексика урока:
+- khawatir /khawatir/ - волноваться, беспокоиться (jangan khawatir - не волнуйся)
+- senang /sənaŋ/ - рад, приятно (senang bisa membantu - рад помочь)
+- membantu /məmbantu/ - помогать
+- ambilkan /ambilkan/ - взять, принести, подать (tolong ambilkan buku itu)
+- terlambat /tərlambat/ - опоздать, с опозданием (maaf, saya terlambat)
+- masuk /masuk/ - входить (silakan masuk - пожалуйста, входите)`,
       examples: [
         {
           indonesian: "Tidak apa-apa, jangan khawatir",
@@ -718,10 +903,14 @@ export const lessons: Lesson[] = [
       ],
       keyPoints: [
         "tidak apa-apa - ничего страшного",
-        "sama-sama - взаимно, вместе (пожалуйста, не за что; букв. 'одинаково-одинаково')",
+        "sama-sama - пожалуйста (в ответ на спасибо)",
         "tolong - пожалуйста (просьба)",
         "maaf - извините",
         "silakan - пожалуйста (приглашение)",
+        "jangan khawatir - не волнуйтесь",
+        "senang bisa membantu - рад помочь",
+        "terlambat - опоздать",
+        "masuk - входить",
       ],
     },
     exercises: [61, 62, 63, 64],
@@ -738,6 +927,11 @@ export const lessons: Lesson[] = [
       
 В этом уроке вам предстоит пообщаться с искусственным интеллектом, встроенным прямо в ваш браузер Google Chrome (Gemini Nano).
 
+Приветствия и вводные фразы:
+- Halo /halo/ - Привет / алло
+- Apa kabar? /apa kabar/ - Как дела?
+- Kabar baik /kabar baik/ - Всё хорошо
+
 Правила практики:
 1. ИИ будет общаться с вами преимущественно на индонезийском языке.
 2. Старайтесь использовать слова и конструкции, которые вы выучили в предыдущих 16 уроках.
@@ -751,9 +945,10 @@ export const lessons: Lesson[] = [
         "Общайтесь вежливо",
         "Используйте выученные местоимения и глаголы",
         "Не бойтесь совершать ошибки",
+        "Halo - привет",
       ],
     },
-    exercises: [], // Нет стандартных упражнений, встроен специальный чат
+    exercises: [],
     vocabulary: [],
     estimatedTime: 15,
   },

@@ -4,7 +4,8 @@ import { useRouter, useRoute } from "vue-router";
 import { useProgressStore } from "../stores/progress";
 import { useLanguageStore } from "../stores/language";
 import { useAIStore } from "../stores/ai";
-import { lessons } from "../data/lessons";
+import { lessons as lessonsId } from "../data/lessons";
+import { lessonsRu } from "../data/lessonsRu";
 import { useI18n } from "vue-i18n";
 
 const router = useRouter();
@@ -23,14 +24,32 @@ const base = computed(() => `/${langStore.interfaceLang}/${langStore.targetLang}
 const showHero = computed(() => !route.meta?.hideHero);
 const showQuickLinks = computed(() => !route.meta?.hideQuickLinks);
 
+const currentLessons = computed(() =>
+  langStore.targetLang === "id" ? lessonsId : lessonsRu
+);
+
 const completedLessons = computed(() => {
   const isAISupported = aiStore.isSupported;
-  return lessons
+  return currentLessons.value
     .filter((lesson) => lesson.id !== 17 || isAISupported)
     .map((lesson) => ({
       ...lesson,
       isCompleted: progressStore.isLessonCompleted(lesson.id),
     }));
+});
+
+const nextLessonId = computed(() => {
+  const uncompleted = completedLessons.value.find((l) => !l.isCompleted);
+  return uncompleted ? uncompleted.id : 1;
+});
+
+const hasStartedLearning = computed(() => {
+  const anyCompleted = completedLessons.value.some((l) => l.isCompleted);
+  const anyProgress =
+    progressStore.totalPoints > 0 ||
+    progressStore.exercisesCompleted > 0 ||
+    progressStore.wordsLearned > 0;
+  return anyCompleted || anyProgress;
 });
 
 function goToLesson(id: number) {
@@ -63,7 +82,11 @@ function goToAIChat() {
         <p class="hero-subtitle">{{ $t('home.hero.subtitle.' + langStore.targetLang) }}</p>
         <p class="hero-description">{{ $t('home.hero.description.' + langStore.targetLang) }}</p>
         <div class="hero-buttons">
-          <PButton :label="$t('home.hero.startLearning')" icon="pi pi-play" @click="goToLesson(1)" />
+          <PButton
+            :label="hasStartedLearning ? $t('home.hero.continueLearning') : $t('home.hero.startLearning')"
+            icon="pi pi-play"
+            @click="goToLesson(nextLessonId)"
+          />
           <PButton :label="$t('home.hero.dictionary')" icon="pi pi-book" severity="secondary" @click="goToDictionary" />
         </div>
       </div>
@@ -76,7 +99,7 @@ function goToAIChat() {
     <section class="method-section" v-if="showHero">
       <h2>{{ $t('home.method.title') }}</h2>
       <div class="method-grid">
-        <div class="method-card" @click="goToLesson(1)">
+        <div class="method-card" @click="goToLesson(nextLessonId)">
           <div class="method-icon">🎯</div>
           <h3>{{ $t('home.method.cards.lessons.title') }}</h3>
           <p>{{ $t('home.method.cards.lessons.description') }}</p>

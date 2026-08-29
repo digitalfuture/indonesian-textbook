@@ -5,35 +5,35 @@
 
 :root {
   /* Light theme defaults */
-  --text: #6b6375;
-  --text-h: #08060d;
+  --text: #4b5563;
+  --text-h: #111827;
   --translation-color: #0f766e;
   --bg: #ffffff;
   --bg-card: #ffffff;
   --bg-elevated: #ffffff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
+  --border: #e5e7eb;
+  --code-bg: #f8fafc;
+  --accent: #9333ea;
+  --accent-bg: rgba(147, 51, 234, 0.08);
+  --accent-border: rgba(147, 51, 234, 0.4);
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-  --primary: #667eea;
-  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --footer-bg: #2d3748;
-  --footer-text: #a0aec0;
-  --stat-color: #63b3ed;
-  --card-bg: #f7fafc;
-  --card-text: #4a5568;
-  --muted: #718096;
-  --option-correct-bg: #f0fff4;
-  --option-correct-border: #48bb78;
-  --option-wrong-bg: #fff5f5;
-  --option-wrong-border: #f56565;
-  --feedback-correct-bg: #f0fff4;
-  --feedback-correct-border: #48bb78;
-  --feedback-wrong-bg: #fff5f5;
-  --feedback-wrong-border: #f56565;
+    rgba(0, 0, 0, 0.08) 0 10px 15px -3px, rgba(0, 0, 0, 0.04) 0 4px 6px -2px;
+  --primary: #4f46e5;
+  --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  --footer-bg: #1e293b;
+  --footer-text: #94a3b8;
+  --stat-color: #3b82f6;
+  --card-bg: #f8fafc;
+  --card-text: #334155;
+  --muted: #64748b;
+  --option-correct-bg: #f0fdf4;
+  --option-correct-border: #22c55e;
+  --option-wrong-bg: #fef2f2;
+  --option-wrong-border: #ef4444;
+  --feedback-correct-bg: #f0fdf4;
+  --feedback-correct-border: #22c55e;
+  --feedback-wrong-bg: #fef2f2;
+  --feedback-wrong-border: #ef4444;
   color-scheme: light;
 }
 
@@ -41,11 +41,11 @@
   --text: #9ca3af;
   --text-h: #f3f4f6;
   --translation-color: #2dd4bf;
-  --bg: #16171d;
-  --bg-card: #22242e;
-  --bg-elevated: #2a2c38;
-  --border: #2e303a;
-  --code-bg: #1f2028;
+  --bg: #111827;
+  --bg-card: #1f2937;
+  --bg-elevated: #374151;
+  --border: #374151;
+  --code-bg: #1e293b;
   --accent: #c084fc;
   --accent-bg: rgba(192, 132, 252, 0.15);
   --accent-border: rgba(192, 132, 252, 0.5);
@@ -53,20 +53,20 @@
     rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   --primary: #818cf8;
   --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  --footer-bg: #111118;
-  --footer-text: #71717a;
+  --footer-bg: #0f172a;
+  --footer-text: #64748b;
   --stat-color: #60a5fa;
-  --card-bg: #1e2028;
-  --card-text: #a1a1aa;
-  --muted: #71717a;
-  --option-correct-bg: rgba(72, 187, 120, 0.15);
-  --option-correct-border: #48bb78;
-  --option-wrong-bg: rgba(245, 101, 101, 0.15);
-  --option-wrong-border: #f56565;
-  --feedback-correct-bg: rgba(72, 187, 120, 0.1);
-  --feedback-correct-border: #48bb78;
-  --feedback-wrong-bg: rgba(245, 101, 101, 0.1);
-  --feedback-wrong-border: #f56565;
+  --card-bg: #1f2937;
+  --card-text: #9ca3af;
+  --muted: #94a3b8;
+  --option-correct-bg: rgba(34, 197, 94, 0.15);
+  --option-correct-border: #22c55e;
+  --option-wrong-bg: rgba(239, 68, 68, 0.15);
+  --option-wrong-border: #ef4444;
+  --feedback-correct-bg: rgba(34, 197, 94, 0.1);
+  --feedback-correct-border: #22c55e;
+  --feedback-wrong-bg: rgba(239, 68, 68, 0.1);
+  --feedback-wrong-border: #ef4444;
   color-scheme: dark;
 }
 
@@ -111,7 +111,7 @@ a:hover {
 }
 
 /* ============================================
-   Typography
+   Typography & Highlights
    ============================================ */
 
 h1, h2, h3, h4 {
@@ -119,16 +119,98 @@ h1, h2, h3, h4 {
   font-weight: 600;
   line-height: 1.2;
 }
-h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-h2 { font-size: 2rem; margin-bottom: 0.75rem; }
-h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
-h4 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+h1 { font-size: 2.25rem; margin-bottom: 1rem; }
+h2 { font-size: 1.75rem; margin-bottom: 0.75rem; }
+h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+h4 { font-size: 1.15rem; margin-bottom: 0.5rem; }
 
 p { margin-bottom: 1rem; color: var(--text); }
+
+strong, b {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+em, i {
+  font-style: italic;
+}
 
 ::selection {
   background: var(--accent-bg);
   color: var(--text-h);
+}
+
+/* Unified formatting tokens */
+.theory-term,
+.term-highlight {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.theory-phonetic,
+.phonetic-text,
+.example-phonetic,
+.term-phonetic,
+.word-pronunciation,
+.vocab-pron {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.95em;
+  opacity: 0.85;
+}
+
+.theory-translation,
+.translation-text,
+.grammar-translation,
+.example-russian,
+.word-russian,
+.vocab-trans,
+.example-ru,
+.modal-translation {
+  color: var(--translation-color);
+  font-weight: 500;
+}
+
+.theory-note,
+.note-text,
+.example-notes {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.95em;
+}
+
+.theory-heading {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-h);
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+  border-left: 3px solid var(--primary);
+  padding-left: 0.5rem;
+  display: block;
+}
+
+/* Unified Audio Button Styles */
+.audio-btn-inline,
+.audio-btn-sm,
+.audio-btn {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.25rem;
+  opacity: 0.55;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.audio-btn-inline:hover,
+.audio-btn-sm:hover,
+.audio-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
 }
 
 /* ============================================
@@ -184,7 +266,7 @@ p { margin-bottom: 1rem; color: var(--text); }
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
 }
 .btn-outline {
   background: transparent;
@@ -300,8 +382,8 @@ p { margin-bottom: 1rem; color: var(--text); }
    ============================================ */
 
 @media (max-width: 768px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
+  h1 { font-size: 1.85rem; }
+  h2 { font-size: 1.45rem; }
+  h3 { font-size: 1.2rem; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
 }
