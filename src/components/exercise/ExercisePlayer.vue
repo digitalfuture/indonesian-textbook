@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import { useProgressStore } from "../../stores/progress";
 import { useLanguageStore } from "../../stores/language";
 import type { PropType } from "vue";
@@ -53,7 +53,6 @@ const exerciseVocabulary = computed(() => {
     .join(" ")
     .toLowerCase();
 
-  // Remove punctuation (keeping hyphens for words like sama-sama)
   const cleanText = textToScan.replace(/[^\p{L}\p{N}\s-]/gu, " ");
 
   const sortedVocab = [...vocabulary].sort((a, b) => b.word.length - a.word.length);
@@ -76,6 +75,56 @@ const exerciseVocabulary = computed(() => {
   return matched.sort((a, b) => a.id - b.id);
 });
 
+// Web Audio sound effects synthesizer
+function playSound(type: "success" | "error" | "complete") {
+  try {
+    const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+
+    if (type === "success") {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12); // A5
+      gain.gain.setValueAtTime(0.12, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.25);
+    } else if (type === "error") {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(220, ctx.currentTime); // A3
+      osc.frequency.exponentialRampToValueAtTime(164.81, ctx.currentTime + 0.18); // E3
+      gain.gain.setValueAtTime(0.15, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.22);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.22);
+    } else if (type === "complete") {
+      [523.25, 659.25, 783.99, 1046.5].forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = "sine";
+        osc.frequency.value = freq;
+        const startTime = ctx.currentTime + i * 0.09;
+        gain.gain.setValueAtTime(0.12, startTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, startTime + 0.3);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(startTime);
+        osc.stop(startTime + 0.3);
+      });
+    }
+  } catch {
+    // Ignore audio policy restrictions
+  }
+}
 
 // Initialize completed exercises
 watch(
@@ -127,11 +176,13 @@ watch(
     ) {
       progressStore.completeLesson(props.lessonId, 100);
       progressStore.checkAchievements();
+      playSound("complete");
       emit("completed");
     } else if (
       newVal.length === props.exercises.length &&
       props.exercises.length > 0
     ) {
+      playSound("complete");
       emit("completed");
     }
   },
@@ -189,17 +240,22 @@ function checkAnswer() {
   isCorrect.value = correct;
   showFeedback.value = true;
 
-  if (correct && !completedExercises.value.includes(currentExercise.value.id)) {
-    if (currentExercise.value.type === "twoStage" && !isStage2.value) {
-      // Just wait for stage 2
-    } else {
-      completedExercises.value.push(currentExercise.value.id);
-      progressStore.completeExercise(
-        currentExercise.value.lessonId,
-        currentExercise.value.id,
-        currentExercise.value.points,
-      );
+  if (correct) {
+    playSound("success");
+    if (!completedExercises.value.includes(currentExercise.value.id)) {
+      if (currentExercise.value.type === "twoStage" && !isStage2.value) {
+        // Just wait for stage 2
+      } else {
+        completedExercises.value.push(currentExercise.value.id);
+        progressStore.completeExercise(
+          currentExercise.value.lessonId,
+          currentExercise.value.id,
+          currentExercise.value.points,
+        );
+      }
     }
+  } else {
+    playSound("error");
   }
 }
 
@@ -241,6 +297,53 @@ function resetExerciseState() {
 const progress = computed(() => {
   if (props.exercises.length === 0) return 0;
   return (completedExercises.value.length / props.exercises.length) * 100;
+});
+
+// Keyboard shortcuts support
+function handleKeydown(e: KeyboardEvent) {
+  const isInputFocused = e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement;
+
+  if (e.key === "Enter") {
+    e.preventDefault();
+    if (!showFeedback.value) {
+      if (
+        (currentExercise.value?.type === "multipleChoice" || (currentExercise.value?.type === "twoStage" && !isStage2.value)) &&
+        selectedOption.value
+      ) {
+        checkAnswer();
+      } else if (userAnswer.value) {
+        checkAnswer();
+      }
+    } else {
+      if (isCorrect.value && currentExercise.value?.type === "twoStage" && !isStage2.value) {
+        nextStage();
+      } else if (isCorrect.value && currentExerciseIndex.value < props.exercises.length - 1) {
+        nextExercise();
+      } else if (!isCorrect.value) {
+        resetExerciseState();
+      }
+    }
+    return;
+  }
+
+  if (isInputFocused) return;
+
+  // Number keys 1-4 for option selection
+  if (!showFeedback.value && currentExercise.value?.options) {
+    const num = parseInt(e.key);
+    if (!isNaN(num) && num >= 1 && num <= currentExercise.value.options.length) {
+      e.preventDefault();
+      selectedOption.value = currentExercise.value.options[num - 1];
+    }
+  }
+}
+
+onMounted(() => {
+  window.addEventListener("keydown", handleKeydown);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("keydown", handleKeydown);
 });
 
 defineExpose({
@@ -344,16 +447,9 @@ defineExpose({
             :placeholder="$t('exercise.answerPlaceholder')"
             class="form-input"
             :disabled="showFeedback"
+            autofocus
             @keyup.enter="!showFeedback && userAnswer && checkAnswer()"
           />
-        </div>
-
-        <div v-else-if="currentExercise.type === 'matching'" class="matching-section">
-          <!-- Matching component placeholder or content -->
-        </div>
-
-        <div v-else-if="currentExercise.type === 'sentenceBuilder'" class="sentence-builder-section">
-          <!-- Sentence builder component placeholder or content -->
         </div>
 
         <div v-else-if="
@@ -363,7 +459,7 @@ defineExpose({
           class="options-section"
         >
           <div
-            v-for="option in currentExercise.options"
+            v-for="(option, idx) in currentExercise.options"
             :key="option"
             class="option"
             :class="{
@@ -373,7 +469,8 @@ defineExpose({
             }"
             @click="!showFeedback && (selectedOption = option)"
           >
-            {{ option }}
+            <span class="option-key-badge">{{ idx + 1 }}</span>
+            <span class="option-text">{{ option }}</span>
           </div>
         </div>
 
@@ -389,24 +486,24 @@ defineExpose({
                 : !userAnswer
             "
           >
-            {{ $t('exercise.check') }}
+            {{ $t('exercise.check') }} ↵
           </button>
           <button
             v-else-if="showFeedback && isCorrect && currentExercise.type === 'twoStage' && !isStage2"
             class="btn btn-primary"
             @click="nextStage"
           >
-            {{ $t('exercise.nextStage') }}
+            {{ $t('exercise.nextStage') }} ↵
           </button>
           <button
             v-else-if="showFeedback && isCorrect && currentExerciseIndex < exercises.length - 1"
             class="btn btn-primary"
             @click="nextExercise"
           >
-            {{ $t('exercise.next') }}
+            {{ $t('exercise.next') }} ↵
           </button>
           <button v-else-if="showFeedback && !isCorrect" class="btn btn-outline" @click="resetExerciseState">
-            {{ $t('exercise.retry') }}
+            {{ $t('exercise.retry') }} ↵
           </button>
         </div>
 
@@ -460,40 +557,31 @@ defineExpose({
       </div>
     </div>
 
-    <!-- Slot for completion card to be customized by parents, otherwise default UI -->
-    <div v-else class="completion-container fade-in">
-      <slot name="completion">
-        <div class="completion-card">
-          <h2>{{ $t('exercise.completion.title') }}</h2>
-          <p>{{ $t('exercise.completion.message') }}</p>
-        </div>
-      </slot>
-    </div>
-  </div>
-  <div v-else class="empty-state">
-    <h2>{{ $t('exercise.empty.title') }}</h2>
-    <p v-if="lessonId">{{ $t('exercise.empty.message') }}</p>
+    <slot name="completion" v-else></slot>
   </div>
 </template>
 
 <style scoped>
+.exercise-player {
+  width: 100%;
+}
+
 .progress-container {
-  max-width: 400px;
-  margin: 0 auto 2rem;
+  margin-bottom: 2rem;
 }
 
 .progress-info {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--text);
 }
 
 .progress {
   width: 100%;
   height: 8px;
-  background: var(--border);
+  background: var(--code-bg);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -541,12 +629,13 @@ defineExpose({
   background: var(--primary-gradient);
   color: white;
   border-radius: 0.25rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
 }
 
 .question {
   font-size: 1.25rem;
+  font-weight: 600;
   color: var(--text-h);
   margin-bottom: 1.5rem;
   line-height: 1.4;
@@ -563,14 +652,31 @@ defineExpose({
 }
 
 .option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   padding: 1rem 1.5rem;
   background: var(--code-bg);
   border: 2px solid var(--border);
   border-radius: 0.5rem;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1rem;
+  transition: all 0.2s ease;
+  font-size: 1.05rem;
   color: var(--text-h);
+}
+
+.option-key-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--border);
+  color: var(--text);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  flex-shrink: 0;
 }
 
 .option:hover:not(.selected):not(.correct):not(.wrong) {
@@ -579,17 +685,22 @@ defineExpose({
 }
 
 .option.selected {
-  border-color: var(--accent);
+  border-color: var(--primary);
   background: var(--accent-bg);
 }
 
+.option.selected .option-key-badge {
+  background: var(--primary);
+  color: white;
+}
+
 .option.correct {
-  border-color: #48bb78;
+  border-color: #22c55e;
   background: var(--option-correct-bg);
 }
 
 .option.wrong {
-  border-color: #f56565;
+  border-color: #ef4444;
   background: var(--option-wrong-bg);
 }
 
@@ -632,7 +743,7 @@ defineExpose({
 
 .feedback-text p {
   margin: 0.25rem 0;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: var(--text);
 }
 
@@ -647,60 +758,12 @@ defineExpose({
   padding-top: 0.5rem;
 }
 
-.completion-card {
-  text-align: center;
-  padding: 3rem;
-  background: var(--bg-card);
-  border-radius: 0.75rem;
-  box-shadow: var(--shadow);
-  border: 1px solid var(--border);
-}
-
-.completion-card h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.completion-card p {
-  font-size: 1.1rem;
-  color: var(--text);
-}
-
-.empty-state {
-  text-align: center;
-  padding: 4rem 2rem;
-  color: var(--text);
-}
-
-.empty-state h2 {
-  margin-bottom: 1rem;
-}
-
-.empty-state p {
-  margin-bottom: 2rem;
-}
-
 .exercise-nav-bottom {
   margin-top: 1.5rem;
   border-top: 1px solid var(--border);
   border-bottom: none;
   padding-bottom: 0;
   background: transparent;
-}
-
-@media (max-width: 768px) {
-  .exercise-nav {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .exercise-body {
-    padding: 1.5rem;
-  }
-
-  .question {
-    font-size: 1.1rem;
-  }
 }
 
 .exercise-context {
@@ -711,7 +774,6 @@ defineExpose({
   font-size: 1.05rem;
 }
 
-/* Подсказки и выписки из словаря в упражнении */
 .hint-container {
   margin: 1rem 0;
   display: flex;
@@ -725,7 +787,7 @@ defineExpose({
   color: var(--primary);
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -743,7 +805,7 @@ defineExpose({
 .vocab-hint-card {
   background: var(--code-bg);
   border: 1px solid var(--border);
-  border-radius: var(--p-border-radius-md);
+  border-radius: 0.5rem;
   padding: 0.75rem 1rem;
   margin-top: 0.5rem;
   width: 100%;
@@ -793,5 +855,24 @@ defineExpose({
 .vocab-trans {
   color: var(--translation-color);
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .exercise-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .exercise-body {
+    padding: 1.25rem;
+  }
+
+  .question {
+    font-size: 1.15rem;
+  }
+
+  .option-key-badge {
+    display: none;
+  }
 }
 </style>

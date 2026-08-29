@@ -550,6 +550,87 @@ const grammarTablesId = [
       },
     ],
   },
+  {
+    id: "affixes",
+    title: "Аффиксы и словообразование",
+    description: "Приставки и суффиксы: me-, ber-, di-, pe-, ter-, -an, ke-...-an",
+    icon: "🧩",
+    headers: ["Корень", "Аффикс", "Производное", "Значение"],
+    rows: [
+      {
+        label: "ajar",
+        cells: ["ber-", "belajar", "учиться / заниматься"],
+      },
+      {
+        label: "ajar",
+        cells: ["me-", "mengajar", "преподавать / обучать"],
+      },
+      {
+        label: "ajar",
+        cells: ["pe- + -an", "pelajaran", "урок / учебный предмет"],
+      },
+      {
+        label: "tulis",
+        cells: ["me-", "menulis", "писать что-либо"],
+      },
+      {
+        label: "tulis",
+        cells: ["di-", "ditulis", "написан (пассивный залог)"],
+      },
+      {
+        label: "tulis",
+        cells: ["pe-", "penulis", "писатель / автор"],
+      },
+      {
+        label: "tulis",
+        cells: ["-an", "tulisan", "надпись / текст / почерк"],
+      },
+      {
+        label: "baca",
+        cells: ["me-", "membaca", "читать"],
+      },
+      {
+        label: "baca",
+        cells: ["pe-", "pembaca", "читатель"],
+      },
+      {
+        label: "baca",
+        cells: ["-an", "bacaan", "чтиво / материалы для чтения"],
+      },
+      {
+        label: "makan",
+        cells: ["-an", "makanan", "еда / пища"],
+      },
+      {
+        label: "makan",
+        cells: ["ter-", "termakan", "случайно съеденный"],
+      },
+      {
+        label: "jalan",
+        cells: ["ber-", "berjalan", "идти пешком / гулять"],
+      },
+      {
+        label: "jalan",
+        cells: ["per- + -an", "perjalanan", "путешествие / поездка"],
+      },
+      {
+        label: "buat",
+        cells: ["me-", "membuat", "делать / изготавливать"],
+      },
+      {
+        label: "buat",
+        cells: ["di-", "dibuat", "сделан (пассив)"],
+      },
+      {
+        label: "buat",
+        cells: ["pe-", "pembuat", "создатель / изготовитель"],
+      },
+      {
+        label: "buat",
+        cells: ["-an", "buatan", "изделие / сделано в... (buatan Rusia)"],
+      },
+    ],
+  },
 ];
 
 // Грамматические таблицы для RU (ID->RU mode) — русский для индонезийцев

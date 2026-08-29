@@ -116,6 +116,7 @@ export interface UserProgress {
       completedAt?: string;
       completedExercises: number[];
       score: number;
+      currentStep?: "theory" | "examples" | "exercises";
     };
   };
 

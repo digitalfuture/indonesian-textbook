@@ -134,14 +134,6 @@ function resetLessonProgress() {
     exercisePlayerRef.value.resetAll();
   }
 }
-
-// Reset step to theory when lesson ID changes
-watch(
-  () => route.params.id,
-  () => {
-    currentStep.value = "theory";
-  }
-);
 </script>
 
 <template>

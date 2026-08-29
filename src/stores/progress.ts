@@ -134,6 +134,24 @@ export const useProgressStore = defineStore("progress", () => {
     saveProgress(progress.value);
   }
 
+  function setLessonStep(
+    lessonId: number,
+    step: "theory" | "examples" | "exercises",
+  ) {
+    const lesson = progress.value.lessons[lessonId] || {
+      isCompleted: false,
+      completedExercises: [],
+      score: 0,
+    };
+
+    progress.value.lessons[lessonId] = {
+      ...lesson,
+      currentStep: step,
+    };
+
+    saveProgress(progress.value);
+  }
+
   function completeExercise(
     lessonId: number,
     exerciseId: number,
@@ -395,6 +413,7 @@ export const useProgressStore = defineStore("progress", () => {
     completeLesson,
     uncompleteLesson,
     resetLessonProgress,
+    setLessonStep,
     completeExercise,
     markWordAsLearned,
     practiceWord,
