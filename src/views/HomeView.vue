@@ -57,6 +57,13 @@ function goToLesson(id: number) {
   router.push(`${base.value}/lesson/${id}`);
 }
 
+function restartLearning() {
+  if (confirm(t("home.hero.restartConfirm"))) {
+    progressStore.resetProgress();
+    goToLesson(1);
+  }
+}
+
 function goToGrammar() {
   router.push(`${base.value}/grammar`);
 }
@@ -87,6 +94,14 @@ function goToAIChat() {
             :label="hasStartedLearning ? $t('home.hero.continueLearning') : $t('home.hero.startLearning')"
             icon="pi pi-play"
             @click="goToLesson(nextLessonId)"
+          />
+          <PButton
+            v-if="hasStartedLearning"
+            :label="$t('home.hero.restartLearning')"
+            icon="pi pi-refresh"
+            severity="secondary"
+            variant="outlined"
+            @click="restartLearning"
           />
           <PButton :label="$t('home.hero.dictionary')" icon="pi pi-book" severity="secondary" @click="goToDictionary" />
         </div>

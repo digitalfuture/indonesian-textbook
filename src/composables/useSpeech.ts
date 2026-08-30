@@ -1,9 +1,14 @@
 import { useLanguageStore } from "../stores/language";
+import { useSound } from "./useSound";
 
 export function useSpeech() {
   const langStore = useLanguageStore();
+  const { isSoundEnabled } = useSound();
 
   function speak(text: string) {
+    if (!isSoundEnabled.value) {
+      return;
+    }
     if (typeof window === "undefined" || !("speechSynthesis" in window)) {
       return;
     }

@@ -2,6 +2,7 @@
 import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import { useProgressStore } from "../../stores/progress";
 import { useLanguageStore } from "../../stores/language";
+import { useSound } from "../../composables/useSound";
 import type { PropType } from "vue";
 import type { Exercise } from "../../utils/types";
 import { vocabulary } from "../../data/vocabulary";
@@ -23,6 +24,7 @@ const emit = defineEmits<{
 
 const progressStore = useProgressStore();
 const langStore = useLanguageStore();
+const { isSoundEnabled, toggleSound } = useSound();
 
 const currentExerciseIndex = ref(0);
 const userAnswer = ref("");
@@ -77,6 +79,7 @@ const exerciseVocabulary = computed(() => {
 
 // Web Audio sound effects synthesizer
 function playSound(type: "success" | "error" | "complete") {
+  if (!isSoundEnabled.value) return;
   try {
     const AudioCtx = window.AudioContext || (window as any).webkitAudioContext;
     if (!AudioCtx) return;
@@ -376,9 +379,19 @@ defineExpose({
         >
           {{ $t('exercise.previous') }}
         </button>
-        <span class="exercise-number">
-          {{ $t('exercise.number', { current: currentExerciseIndex + 1, total: exercises.length }) }}
-        </span>
+        <div class="exercise-nav-center">
+          <span class="exercise-number">
+            {{ $t('exercise.number', { current: currentExerciseIndex + 1, total: exercises.length }) }}
+          </span>
+          <button
+            class="sound-toggle-btn"
+            :title="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
+            :aria-label="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
+            @click="toggleSound"
+          >
+            <i :class="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
+          </button>
+        </div>
         <button
           class="btn btn-sm btn-outline"
           @click="nextExercise"
@@ -539,9 +552,19 @@ defineExpose({
           >
             {{ $t('exercise.previous') }}
           </button>
-          <span class="exercise-number">
-            {{ $t('exercise.number', { current: currentExerciseIndex + 1, total: exercises.length }) }}
-          </span>
+          <div class="exercise-nav-center">
+            <span class="exercise-number">
+              {{ $t('exercise.number', { current: currentExerciseIndex + 1, total: exercises.length }) }}
+            </span>
+            <button
+              class="sound-toggle-btn"
+              :title="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
+              :aria-label="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
+              @click="toggleSound"
+            >
+              <i :class="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
+            </button>
+          </div>
           <button
             class="btn btn-sm btn-outline"
             @click="nextExercise"
@@ -604,6 +627,31 @@ defineExpose({
   padding: 1rem 1.5rem;
   background: var(--code-bg);
   border-bottom: 1px solid var(--border);
+}
+
+.exercise-nav-center {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sound-toggle-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.4rem;
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.sound-toggle-btn:hover {
+  color: var(--text-h);
+  background: var(--accent-bg);
 }
 
 .exercise-number {

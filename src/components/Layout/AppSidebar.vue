@@ -2,6 +2,7 @@
 import { ref, watch, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
+import { useSound } from "../../composables/useSound";
 import { useLanguageStore } from "../../stores/language";
 import { useAIStore } from "../../stores/ai";
 import CountryFlag from "../common/CountryFlag.vue";
@@ -17,6 +18,7 @@ const emit = defineEmits<{
 const router = useRouter();
 const route = useRoute();
 const { theme, toggleTheme } = useTheme();
+const { isSoundEnabled, toggleSound } = useSound();
 const langStore = useLanguageStore();
 const aiStore = useAIStore();
 const activeKey = ref<string>("0");
@@ -106,7 +108,11 @@ function onMenuClick(item: any) {
       </div>
 
       <div class="drawer-footer-section">
-        <div class="drawer-theme-toggle" @click="toggleTheme">
+        <div class="drawer-action-toggle" @click="toggleSound">
+          <i :class="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
+          <span>{{ $t(isSoundEnabled ? 'sound.enabled' : 'sound.disabled') }}</span>
+        </div>
+        <div class="drawer-action-toggle" @click="toggleTheme">
           <i :class="theme === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"></i>
           <span>{{ $t(theme === 'dark' ? 'theme.light' : 'theme.dark') }}</span>
         </div>
@@ -184,8 +190,12 @@ function onMenuClick(item: any) {
   border-top: 1px solid var(--p-content-border-color);
   padding-top: 0.75rem;
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
+.drawer-action-toggle,
 .drawer-theme-toggle {
   display: flex;
   align-items: center;
@@ -198,11 +208,13 @@ function onMenuClick(item: any) {
   font-size: 0.95rem;
 }
 
+.drawer-action-toggle:hover,
 .drawer-theme-toggle:hover {
   background: var(--p-content-hover-background);
   color: var(--p-text-color);
 }
 
+.drawer-action-toggle i,
 .drawer-theme-toggle i {
   font-size: 1.15rem;
   width: 1.5rem;

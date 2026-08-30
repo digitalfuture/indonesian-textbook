@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
+import { useSound } from "../../composables/useSound";
 import { useLanguageStore } from "../../stores/language";
 import LanguageSwitcher from "./LanguageSwitcher.vue";
 import CountryFlag from "../common/CountryFlag.vue";
@@ -19,6 +20,7 @@ import { useAIStore } from "../../stores/ai";
 const router = useRouter();
 const route = useRoute();
 const { theme, toggleTheme } = useTheme();
+const { isSoundEnabled, toggleSound } = useSound();
 const langStore = useLanguageStore();
 const aiStore = useAIStore();
 
@@ -89,6 +91,15 @@ function navigate(path: string) {
       <template #end>
         <div class="header-end">
           <LanguageSwitcher />
+          <PButton
+            :icon="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"
+            severity="secondary"
+            text
+            rounded
+            :aria-label="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
+            v-tooltip.top="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
+            @click="toggleSound"
+          />
           <PButton
             :icon="theme === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"
             severity="secondary"

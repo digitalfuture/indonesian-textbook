@@ -213,6 +213,20 @@ em, i {
   transform: scale(1.15);
 }
 
+.sound-muted .audio-btn-inline,
+.sound-muted .audio-btn-sm,
+.sound-muted .audio-btn {
+  opacity: 0.25;
+  filter: grayscale(1);
+}
+
+.sound-muted .audio-btn-inline:hover,
+.sound-muted .audio-btn-sm:hover,
+.sound-muted .audio-btn:hover {
+  opacity: 0.5;
+  transform: none;
+}
+
 /* ============================================
    Scrollbar
    ============================================ */

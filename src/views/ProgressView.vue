@@ -3,6 +3,7 @@ import { computed, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useProgressStore } from "../stores/progress";
 import { useLanguageStore } from "../stores/language";
+import { useSound } from "../composables/useSound";
 import { useI18n } from "vue-i18n";
 import { lessons as lessonsId } from "../data/lessons";
 import { lessonsRu } from "../data/lessonsRu";
@@ -11,6 +12,7 @@ import CountryFlag from "../components/common/CountryFlag.vue";
 const router = useRouter();
 const progressStore = useProgressStore();
 const langStore = useLanguageStore();
+const { isSoundEnabled, toggleSound } = useSound();
 const { t } = useI18n();
 
 const lessons = computed(() =>
@@ -234,6 +236,14 @@ const achievementList = [
     <section class="settings-section">
       <h2>{{ $t('progress.settings.title') }}</h2>
       <div class="settings-grid">
+        <button
+          class="btn"
+          :class="isSoundEnabled ? 'btn-secondary' : 'btn-outline'"
+          @click="toggleSound"
+        >
+          <i :class="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
+          {{ $t(isSoundEnabled ? 'sound.enabled' : 'sound.disabled') }}
+        </button>
         <button class="btn btn-primary" @click="showExportModal = true">
           {{ $t('progress.settings.export') }}
         </button>
