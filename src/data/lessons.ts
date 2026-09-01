@@ -16,15 +16,17 @@ export const lessons: Lesson[] = [
 - Selamat malam /səlamat malam/ - Добрый вечер / ночь (после 19:00)
 - Selamat /səlamat/ - приветствие / благополучный, мирный
 
-Для представления себя используются слова и конструкции:
+Для представления и знакомства используются слова и конструкции:
 - saya /saja/ - я (официально/нейтрально)
+- Anda /anda/ - Вы (вежливо/официально)
 - nama /nama/ - имя
+- siapa /siapa/ - кто
 - Nama saya... /nama saja/ - Меня зовут... (букв. "имя моё...")
+- Siapa nama Anda? /siapa nama anda/ - Как вас зовут? (букв. "Кто ваше имя?")
 - dari /dari/ - из, от
 - Saya dari... /saja dari/ - Я из...
 - Rusia /rusia/ - Россия
 - Indonesia /indonəsia/ - Индонезия
-- Siapa nama Anda? /siapa nama anda/ - Как вас зовут? (официально)
 
 Вежливые слова и полезные выражения:
 - Terima kasih /tərima kasih/ - Спасибо (букв. "примите благодарность")
@@ -39,6 +41,10 @@ export const lessons: Lesson[] = [
           indonesian: "Selamat pagi, nama saya Ivan",
           russian: "Доброе утро, меня зовут Иван",
         },
+        {
+          indonesian: "Siapa nama Anda?",
+          russian: "Как вас зовут? (букв. 'Кто ваше имя?')",
+        },
         { indonesian: "Saya dari Rusia", russian: "Я из России" },
         { indonesian: "Terima kasih", russian: "Спасибо (букв. 'примите любовь/благодарность')" },
         { indonesian: "Sampai jumpa", russian: "До свидания" },
@@ -48,7 +54,10 @@ export const lessons: Lesson[] = [
       keyPoints: [
         "Selamat - здравствуйте / привет / благополучный",
         "saya - я (официально / нейтрально)",
+        "Anda - Вы (вежливо / официально)",
         "nama - имя",
+        "siapa - кто",
+        "Siapa nama Anda? - Как вас зовут?",
         "dari - из / от",
         "terima kasih - спасибо",
         "sama-sama - пожалуйста / не за что",
@@ -58,7 +67,7 @@ export const lessons: Lesson[] = [
       ],
     },
     exercises: [1, 2, 3, 4, 65, 66, 67, 68, 73, 74, 75, 76, 77, 78],
-    vocabulary: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15],
+    vocabulary: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 22],
     estimatedTime: 45,
   },
   {

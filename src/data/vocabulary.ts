@@ -678,6 +678,7 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "lessonIds": [
+      1,
       2
     ],
     "wordFamily": []
