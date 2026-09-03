@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onUnmounted } from "vue";
+import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue";
 import { useProgressStore } from "../../stores/progress";
 import { useLanguageStore } from "../../stores/language";
 import { useSound } from "../../composables/useSound";
@@ -26,6 +26,8 @@ const progressStore = useProgressStore();
 const langStore = useLanguageStore();
 const { isSoundEnabled, toggleSound } = useSound();
 
+const playerRef = ref<HTMLElement | null>(null);
+
 const currentExerciseIndex = ref(0);
 const userAnswer = ref("");
 const selectedOption = ref("");
@@ -36,9 +38,25 @@ const showHint = ref(false);
 
 const completedExercises = ref<number[]>([]);
 
-// Reset hint on exercise change
+function scrollToTop() {
+  nextTick(() => {
+    if (playerRef.value) {
+      const headerOffset = 75;
+      const elementPosition = playerRef.value.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: "smooth",
+      });
+    }
+  });
+}
+
+// Reset hint and scroll to top on exercise change
 watch(currentExerciseIndex, () => {
   showHint.value = false;
+  scrollToTop();
 });
 
 // Extract vocabulary words from dictionary relevant to the current exercise
@@ -272,6 +290,7 @@ function nextStage() {
     showFeedback.value = false;
     isCorrect.value = false;
     selectedOption.value = "";
+    scrollToTop();
   }
 }
 
@@ -359,7 +378,7 @@ defineExpose({
 </script>
 
 <template>
-  <div class="exercise-player" v-if="exercises.length > 0">
+  <div class="exercise-player" ref="playerRef" v-if="exercises.length > 0">
     <div class="progress-container">
       <div class="progress-info">
         <span>{{ $t('exercise.progress', { completed: completedExercises.length, total: exercises.length }) }}</span>
@@ -544,6 +563,7 @@ defineExpose({
 <style scoped>
 .exercise-player {
   width: 100%;
+  scroll-margin-top: 80px;
 }
 
 .progress-container {
@@ -579,6 +599,7 @@ defineExpose({
   box-shadow: var(--shadow);
   overflow: hidden;
   border: 1px solid var(--border);
+  scroll-margin-top: 80px;
 }
 
 .exercise-nav {
