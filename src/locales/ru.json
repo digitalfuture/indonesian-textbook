@@ -139,6 +139,7 @@
   "exercise.twoStage.choice": "Выбор",
   "exercise.answerPlaceholder": "Введите ваш ответ...",
   "exercise.check": "Проверить",
+  "exercise.continue": "Продолжить →",
   "exercise.nextStage": "Следующий этап →",
   "exercise.retry": "Попробовать снова",
   "exercise.feedback.correct": "Правильно!",

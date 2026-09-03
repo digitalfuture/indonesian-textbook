@@ -379,25 +379,16 @@ defineExpose({
         >
           {{ $t('exercise.previous') }}
         </button>
-        <div class="exercise-nav-center">
-          <span class="exercise-number">
-            {{ $t('exercise.number', { current: currentExerciseIndex + 1, total: exercises.length }) }}
-          </span>
-          <button
-            class="sound-toggle-btn"
-            :title="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
-            :aria-label="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
-            @click="toggleSound"
-          >
-            <i :class="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
-          </button>
-        </div>
+        <span class="exercise-number">
+          {{ $t('exercise.number', { current: currentExerciseIndex + 1, total: exercises.length }) }}
+        </span>
         <button
-          class="btn btn-sm btn-outline"
-          @click="nextExercise"
-          :disabled="currentExerciseIndex === exercises.length - 1"
+          class="sound-toggle-btn"
+          :title="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
+          :aria-label="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
+          @click="toggleSound"
         >
-          {{ $t('exercise.next') }}
+          <i :class="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
         </button>
       </div>
 
@@ -483,39 +474,6 @@ defineExpose({
           </div>
         </div>
 
-        <div class="action-buttons">
-          <button
-            v-if="!showFeedback"
-            class="btn btn-primary"
-            @click="checkAnswer"
-            :disabled="
-              currentExercise.type === 'multipleChoice' ||
-              (currentExercise.type === 'twoStage' && !isStage2)
-                ? !selectedOption
-                : !userAnswer
-            "
-          >
-            {{ $t('exercise.check') }} ↵
-          </button>
-          <button
-            v-else-if="showFeedback && isCorrect && currentExercise.type === 'twoStage' && !isStage2"
-            class="btn btn-primary"
-            @click="nextStage"
-          >
-            {{ $t('exercise.nextStage') }} ↵
-          </button>
-          <button
-            v-else-if="showFeedback && isCorrect && currentExerciseIndex < exercises.length - 1"
-            class="btn btn-primary"
-            @click="nextExercise"
-          >
-            {{ $t('exercise.next') }} ↵
-          </button>
-          <button v-else-if="showFeedback && !isCorrect" class="btn btn-outline" @click="resetExerciseState">
-            {{ $t('exercise.retry') }} ↵
-          </button>
-        </div>
-
         <div v-if="showFeedback" class="feedback" :class="{ correct: isCorrect, wrong: !isCorrect }">
           <div class="feedback-icon">{{ isCorrect ? "✅" : "❌" }}</div>
           <div class="feedback-text">
@@ -544,33 +502,36 @@ defineExpose({
           </div>
         </div>
 
-        <div class="exercise-nav exercise-nav-bottom">
+        <div class="action-buttons">
           <button
-            class="btn btn-sm btn-outline"
-            @click="prevExercise"
-            :disabled="currentExerciseIndex === 0"
+            v-if="!showFeedback"
+            class="btn btn-primary btn-lg"
+            @click="checkAnswer"
+            :disabled="
+              currentExercise.type === 'multipleChoice' ||
+              (currentExercise.type === 'twoStage' && !isStage2)
+                ? !selectedOption
+                : !userAnswer
+            "
           >
-            {{ $t('exercise.previous') }}
+            {{ $t('exercise.check') }} ↵
           </button>
-          <div class="exercise-nav-center">
-            <span class="exercise-number">
-              {{ $t('exercise.number', { current: currentExerciseIndex + 1, total: exercises.length }) }}
-            </span>
-            <button
-              class="sound-toggle-btn"
-              :title="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
-              :aria-label="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
-              @click="toggleSound"
-            >
-              <i :class="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
-            </button>
-          </div>
           <button
-            class="btn btn-sm btn-outline"
-            @click="nextExercise"
-            :disabled="currentExerciseIndex === exercises.length - 1"
+            v-else-if="showFeedback && isCorrect && currentExercise.type === 'twoStage' && !isStage2"
+            class="btn btn-primary btn-lg"
+            @click="nextStage"
           >
-            {{ $t('exercise.next') }}
+            {{ $t('exercise.continue') }} ↵
+          </button>
+          <button
+            v-else-if="showFeedback && isCorrect && currentExerciseIndex < exercises.length - 1"
+            class="btn btn-primary btn-lg"
+            @click="nextExercise"
+          >
+            {{ $t('exercise.continue') }} ↵
+          </button>
+          <button v-else-if="showFeedback && !isCorrect" class="btn btn-outline btn-lg" @click="resetExerciseState">
+            {{ $t('exercise.retry') }} ↵
           </button>
         </div>
       </div>
@@ -749,7 +710,9 @@ defineExpose({
 }
 
 .action-buttons {
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .feedback {
@@ -800,14 +763,6 @@ defineExpose({
   margin-top: 0.5rem;
   border-top: 1px solid var(--border);
   padding-top: 0.5rem;
-}
-
-.exercise-nav-bottom {
-  margin-top: 1.5rem;
-  border-top: 1px solid var(--border);
-  border-bottom: none;
-  padding-bottom: 0;
-  background: transparent;
 }
 
 .hint-container {
