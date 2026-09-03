@@ -514,24 +514,24 @@ defineExpose({
                 : !userAnswer
             "
           >
-            {{ $t('exercise.check') }} ↵
+            {{ $t('exercise.check') }}
           </button>
           <button
             v-else-if="showFeedback && isCorrect && currentExercise.type === 'twoStage' && !isStage2"
             class="btn btn-primary btn-lg"
             @click="nextStage"
           >
-            {{ $t('exercise.continue') }} ↵
+            {{ $t('exercise.continue') }}
           </button>
           <button
             v-else-if="showFeedback && isCorrect && currentExerciseIndex < exercises.length - 1"
             class="btn btn-primary btn-lg"
             @click="nextExercise"
           >
-            {{ $t('exercise.continue') }} ↵
+            {{ $t('exercise.continue') }}
           </button>
           <button v-else-if="showFeedback && !isCorrect" class="btn btn-outline btn-lg" @click="resetExerciseState">
-            {{ $t('exercise.retry') }} ↵
+            {{ $t('exercise.retry') }}
           </button>
         </div>
       </div>
