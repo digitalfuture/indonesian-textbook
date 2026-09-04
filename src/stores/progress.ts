@@ -12,6 +12,9 @@ import {
   createDefaultProgress,
   exportProgress,
 } from "../utils/storage";
+import { lessons as lessonsId } from "../data/lessons";
+import { lessonsRu } from "../data/lessonsRu";
+import { useLanguageStore } from "./language";
 
 export const useProgressStore = defineStore("progress", () => {
   // Состояние
@@ -21,6 +24,8 @@ export const useProgressStore = defineStore("progress", () => {
   // Инициализация
   function init() {
     progress.value = getOrCreateProgress();
+    syncLearnedWordsFromLessons();
+    checkAchievements();
     isInitialized.value = true;
   }
 
@@ -63,6 +68,55 @@ export const useProgressStore = defineStore("progress", () => {
     };
   });
 
+  // Вспомогательные функции для синхронизации слов из уроков
+  function getLessonWords(lessonId: number): number[] {
+    const langStore = useLanguageStore();
+    const allLessons = langStore.targetLang === "id" ? lessonsId : lessonsRu;
+    const lesson = allLessons.find((l) => l.id === lessonId);
+    return lesson?.vocabulary || [];
+  }
+
+  function syncLearnedWordsFromLessons() {
+    let updated = false;
+    const langStore = useLanguageStore();
+    const allLessons = langStore.targetLang === "id" ? lessonsId : lessonsRu;
+
+    for (const [lessonIdStr, lProgress] of Object.entries(progress.value.lessons)) {
+      if (lProgress.isCompleted) {
+        const lId = parseInt(lessonIdStr);
+        const lesson = allLessons.find((l) => l.id === lId);
+        if (lesson?.vocabulary) {
+          for (const wordId of lesson.vocabulary) {
+            const currentWord = progress.value.vocabulary[wordId];
+            if (!currentWord?.isLearned) {
+              progress.value.vocabulary[wordId] = {
+                isLearned: true,
+                learnedAt: lProgress.completedAt || new Date().toISOString(),
+                timesPracticed: currentWord?.timesPracticed || 1,
+              };
+              updated = true;
+            }
+          }
+        }
+      }
+    }
+
+    const currentLearnedCount = Object.values(progress.value.vocabulary).filter(
+      (w) => w.isLearned,
+    ).length;
+
+    if (progress.value.statistics.wordsLearned !== currentLearnedCount) {
+      progress.value = updateStatistics(progress.value, {
+        wordsLearned: currentLearnedCount,
+      });
+      updated = true;
+    }
+
+    if (updated) {
+      saveProgress(progress.value);
+    }
+  }
+
   // Методы для работы с уроками
   function completeLesson(lessonId: number, score: number = 0) {
     const lesson = progress.value.lessons[lessonId] || {
@@ -78,16 +132,37 @@ export const useProgressStore = defineStore("progress", () => {
       score: Math.max(lesson.score, score),
     };
 
+    // Автоматически помечаем словарный запас этого урока как изученный
+    const lessonWords = getLessonWords(lessonId);
+    for (const wordId of lessonWords) {
+      const currentWord = progress.value.vocabulary[wordId];
+      if (!currentWord?.isLearned) {
+        progress.value.vocabulary[wordId] = {
+          isLearned: true,
+          learnedAt: new Date().toISOString(),
+          timesPracticed: currentWord?.timesPracticed || 1,
+        };
+      }
+    }
+
+    const totalWordsLearned = Object.values(progress.value.vocabulary).filter(
+      (w) => w.isLearned,
+    ).length;
+
     // Обновляем статистику
     progress.value = updateStatistics(progress.value, {
       lessonsCompleted: Object.values(progress.value.lessons).filter(
         (l) => l.isCompleted,
       ).length,
       totalPoints: progress.value.statistics.totalPoints + score,
+      wordsLearned: totalWordsLearned,
     });
 
     // Обновляем серию
     progress.value = updateStreak(progress.value);
+
+    // Проверяем достижения
+    checkAchievements();
 
     saveProgress(progress.value);
   }
@@ -371,8 +446,9 @@ export const useProgressStore = defineStore("progress", () => {
   }
 
   function getLearningStats() {
-    const totalLessons = 16;
-    const totalWords = 500;
+    const langStore = useLanguageStore();
+    const totalLessons = langStore.targetLang === "id" ? 17 : 16;
+    const totalWords = langStore.targetLang === "id" ? 500 : 405;
 
     return {
       lessonProgress: (lessonsCompleted.value / totalLessons) * 100,
@@ -429,6 +505,7 @@ export const useProgressStore = defineStore("progress", () => {
     resetProgress,
     addTimeSpent,
     markMultipleWordsAsLearned,
+    syncLearnedWordsFromLessons,
     getLearningStats,
   };
 });
