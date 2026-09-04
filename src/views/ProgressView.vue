@@ -221,8 +221,8 @@ const achievementList = [
             {{ achievement.icon }}
           </div>
           <div class="achievement-info">
-            <h3>{{ $t('progress.achievement.' + achievement.id + '.name') }}</h3>
-            <p>{{ $t('progress.achievement.' + achievement.id + '.description') }}</p>
+            <h3>{{ $te('progress.achievement.' + achievement.id + '.name') ? $t('progress.achievement.' + achievement.id + '.name') : achievement.name }}</h3>
+            <p>{{ $te('progress.achievement.' + achievement.id + '.description') ? $t('progress.achievement.' + achievement.id + '.description') : achievement.description }}</p>
           </div>
           <div class="achievement-status">
             {{ progressStore.hasAchievement(achievement.id) ? "🏆" : "🔒" }}
