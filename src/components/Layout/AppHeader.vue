@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
 import { useSound } from "../../composables/useSound";
 import { useLanguageStore } from "../../stores/language";
+import { useAIStore } from "../../stores/ai";
 import LanguageSwitcher from "./LanguageSwitcher.vue";
 import CountryFlag from "../common/CountryFlag.vue";
 
@@ -14,15 +16,16 @@ const emit = defineEmits<{
   (e: "toggle-drawer"): void;
 }>();
 
-import { ref, onMounted } from "vue";
-import { useAIStore } from "../../stores/ai";
-
 const router = useRouter();
 const route = useRoute();
 const { theme, toggleTheme } = useTheme();
 const { isSoundEnabled, toggleSound } = useSound();
 const langStore = useLanguageStore();
 const aiStore = useAIStore();
+
+const isVisible = ref(true);
+let lastScrollY = 0;
+const SCROLL_THRESHOLD = 10;
 
 const navItems = ref([
   { labelKey: "nav.home", icon: "pi pi-home", path: "" },
@@ -33,11 +36,44 @@ const navItems = ref([
   { labelKey: "nav.progress", icon: "pi pi-chart-bar", path: "/progress" },
 ]);
 
+function handleScroll() {
+  const currentScrollY = window.scrollY;
+
+  // Always show near top
+  if (currentScrollY <= 60) {
+    isVisible.value = true;
+    lastScrollY = currentScrollY;
+    return;
+  }
+
+  // Check scroll direction with threshold to prevent jitter
+  if (Math.abs(currentScrollY - lastScrollY) < SCROLL_THRESHOLD) {
+    return;
+  }
+
+  if (currentScrollY > lastScrollY) {
+    // Scrolling down -> hide
+    isVisible.value = false;
+  } else {
+    // Scrolling up -> show
+    isVisible.value = true;
+  }
+
+  lastScrollY = currentScrollY;
+}
+
 onMounted(async () => {
+  lastScrollY = window.scrollY;
+  window.addEventListener("scroll", handleScroll, { passive: true });
+
   await aiStore.initialize();
   if (aiStore.isSupported) {
     navItems.value.push({ labelKey: "nav.aiChat", icon: "pi pi-comments", path: "/ai-chat" });
   }
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
 });
 
 function isActive(path: string): boolean {
@@ -55,7 +91,7 @@ function navigate(path: string) {
 </script>
 
 <template>
-  <header class="app-header">
+  <header class="app-header" :class="{ 'header-hidden': !isVisible }">
     <PToolbar class="header-toolbar">
       <template #start>
         <PButton
@@ -120,6 +156,12 @@ function navigate(path: string) {
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.app-header.header-hidden {
+  transform: translateY(-100%);
 }
 
 .header-toolbar {

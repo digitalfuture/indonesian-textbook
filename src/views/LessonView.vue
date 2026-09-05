@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch, nextTick } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useLesson } from "../composables/useLesson";
 import { useLanguageStore } from "../stores/language";
@@ -128,6 +128,29 @@ function navigateLesson(id: number) {
 
 const exercisePlayerRef = ref<any>(null);
 
+function goToStep(step: "theory" | "examples" | "exercises") {
+  currentStep.value = step;
+  nextTick(() => {
+    const targetElement =
+      step === "exercises"
+        ? (document.querySelector(".exercises-section") || document.querySelector(".lesson-tabs"))
+        : step === "examples"
+        ? (document.querySelector(".examples-section") || document.querySelector(".lesson-tabs"))
+        : (document.querySelector(".theory-section") || document.querySelector(".lesson-tabs"));
+
+    if (targetElement) {
+      const headerOffset = 75;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: "smooth",
+      });
+    }
+  });
+}
+
 function resetLessonProgress() {
   progressStore.resetLessonProgress(lessonId.value);
   if (exercisePlayerRef.value) {
@@ -145,7 +168,7 @@ function resetLessonProgress() {
       @navigate="navigateLesson"
     />
 
-    <LessonTabs v-model:currentStep="currentStep" />
+    <LessonTabs :currentStep="currentStep" @update:currentStep="goToStep" />
 
     <main class="lesson-content">
       <!-- THEORY STEP -->
@@ -268,7 +291,7 @@ function resetLessonProgress() {
         <button
           v-if="currentStep === 'theory'"
           class="btn btn-primary"
-          @click="currentStep = 'examples'"
+          @click="goToStep('examples')"
         >
           {{ $t('lesson.continueToExamples') }}
         </button>
@@ -277,13 +300,13 @@ function resetLessonProgress() {
         <div v-else-if="currentStep === 'examples'" class="split-buttons">
           <button
             class="btn btn-outline"
-            @click="currentStep = 'theory'"
+            @click="goToStep('theory')"
           >
             {{ $t('lesson.backToTheory') }}
           </button>
           <button
             class="btn btn-primary"
-            @click="currentStep = 'exercises'"
+            @click="goToStep('exercises')"
           >
             {{ $t('lesson.continueToExercises') }}
           </button>
@@ -293,7 +316,7 @@ function resetLessonProgress() {
         <div v-else-if="currentStep === 'exercises' && !isCompleted" class="split-buttons">
           <button
             class="btn btn-outline"
-            @click="currentStep = 'examples'"
+            @click="goToStep('examples')"
           >
             {{ $t('lesson.backToExamples') }}
           </button>
