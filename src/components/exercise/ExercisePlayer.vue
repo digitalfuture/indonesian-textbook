@@ -27,6 +27,7 @@ const langStore = useLanguageStore();
 const { isSoundEnabled, toggleSound } = useSound();
 
 const playerRef = ref<HTMLElement | null>(null);
+const feedbackRef = ref<HTMLElement | null>(null);
 
 const currentExerciseIndex = ref(0);
 const userAnswer = ref("");
@@ -43,6 +44,21 @@ function scrollToTop() {
     if (playerRef.value) {
       const headerOffset = 75;
       const elementPosition = playerRef.value.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: "smooth",
+      });
+    }
+  });
+}
+
+function scrollToFeedback() {
+  nextTick(() => {
+    if (feedbackRef.value) {
+      const headerOffset = 75;
+      const elementPosition = feedbackRef.value.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
       window.scrollTo({
@@ -260,6 +276,7 @@ function checkAnswer() {
 
   isCorrect.value = correct;
   showFeedback.value = true;
+  scrollToFeedback();
 
   if (correct) {
     playSound("success");
@@ -493,7 +510,7 @@ defineExpose({
           </div>
         </div>
 
-        <div v-if="showFeedback" class="feedback" :class="{ correct: isCorrect, wrong: !isCorrect }">
+        <div v-if="showFeedback" ref="feedbackRef" class="feedback" :class="{ correct: isCorrect, wrong: !isCorrect }">
           <div class="feedback-icon">{{ isCorrect ? "✅" : "❌" }}</div>
           <div class="feedback-text">
             <strong>{{ isCorrect ? $t('exercise.feedback.correct') : $t('exercise.feedback.wrong') }}</strong>
