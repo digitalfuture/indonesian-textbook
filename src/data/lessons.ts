@@ -7,35 +7,51 @@ export const lessons: Lesson[] = [
     description: "Научитесь приветствовать людей и представляться",
     objectives: ["Приветствия", "Представление", "Прощания", "Вежливые слова"],
     content: {
-      theory: `В индонезийском языке нет спряжения глаголов, множественное число образуется повторением слова, а времена выражаются с помощью частиц. Это делает язык относительно простым для изучения.
+      theory: `В индонезийском языке нет спряжения глаголов, множественное число часто образуется простым повторением слова, а времена выражаются с помощью частиц. Это делает язык очень логичным и доступным для изучения.
 
 Основные приветствия по времени суток:
 - Selamat pagi /səlamat paɡi/ - Доброе утро (до 11:00)
 - Selamat siang /səlamat siaŋ/ - Добрый день (11:00-15:00)
-- Selamat sore /səlamat sorə/ - Добрый вечер (15:00-19:00)
+- Selamat sore /səlamat sorə/ - Добрый вечер (до заката, 15:00-19:00)
 - Selamat malam /səlamat malam/ - Добрый вечер / ночь (после 19:00)
-- Selamat /səlamat/ - приветствие / благополучный, мирный
+- Selamat /səlamat/ - приветствие / благополучный, безопасный
 
-Для представления и знакомства используются слова и конструкции:
+Знакомство и представление (perkenalan & berkenalan):
 - saya /saja/ - я (официально/нейтрально)
 - Anda /anda/ - Вы (вежливо/официально)
 - nama /nama/ - имя
 - siapa /siapa/ - кто
 - Nama saya... /nama saja/ - Меня зовут... (букв. "имя моё...")
 - Siapa nama Anda? /siapa nama anda/ - Как вас зовут? (букв. "Кто ваше имя?")
+- kenalan /kənalan/ - знакомиться, знакомый
+- berkenalan /bərkənalan/ - знакомиться друг с другом
+- senang /sənaŋ/ - рад, приятно (Senang bertemu dengan Anda - Приятно познакомиться с Вами)
+- bertemu /bərtəmu/ - встречать, встречаться
+- berkenan /bərkənan/ - соблаговолить, быть любезным
+
+Происхождение и место проживания:
 - dari /dari/ - из, от
-- Saya dari... /saja dari/ - Я из...
+- asal /asal/ - происхождение, родом (Dari mana asal Anda? - Откуда вы родом?)
+- tinggal /tiŋɡal/ - жить, оставаться (Saya tinggal di sini - Я живу здесь)
 - Rusia /rusia/ - Россия
 - Indonesia /indonəsia/ - Индонезия
 
 Вежливые слова и полезные выражения:
-- Terima kasih /tərima kasih/ - Спасибо (букв. "примите благодарность")
+- Terima kasih /tərima kasih/ - Спасибо (букв. "примите любовь/благодарность")
+- terima /tərima/ - принимать, получать
 - Sama-sama /sama-sama/ - Пожалуйста / не за что / взаимно (букв. "одинаково")
-- Sampai jumpa /sampaj dʒumpa/ - До свидания / до встречи (букв. "до встречи")
+- tolong /toloŋ/ - пожалуйста (при просьбе), помогите
+- maaf /maaf/ - извините, простите
+- silakan /silakan/ - пожалуйста (приглашение к действию: Silakan masuk)
+- ya /ya/ - да
+- tidak /tidaʔ/ - нет, не
+- apa /apa/ - что (вопросительная частица)
 - Apa kabar? /apa kabar/ - Как дела? (букв. "что за новости?")
-- Kabar /kabar/ - новости, дела
-- Baik /baik/ - хороший, хорошо, в порядке
-- Kabar baik /kabar baik/ - Хорошо / всё в порядке (букв. "новости хорошие")`,
+- kabar /kabar/ - новости, дела
+- baik /baik/ - хороший, хорошо, в порядке
+- Kabar baik /kabar baik/ - Всё хорошо (букв. "новости хорошие")
+- Sampai jumpa /sampaj dʒumpa/ - До свидания, до встречи (букв. "до встречи")
+- Selamat jalan /səlamat dʒalan/ - Счастливого пути (букв. "благополучно идти/ехать")`,
       examples: [
         {
           indonesian: "Selamat pagi, nama saya Ivan",
@@ -45,22 +61,27 @@ export const lessons: Lesson[] = [
           indonesian: "Siapa nama Anda?",
           russian: "Как вас зовут? (букв. 'Кто ваше имя?')",
         },
-        { indonesian: "Saya dari Rusia", russian: "Я из России" },
-        { indonesian: "Terima kasih", russian: "Спасибо (букв. 'примите любовь/благодарность')" },
-        { indonesian: "Sampai jumpa", russian: "До свидания" },
-        { indonesian: "Apa kabar?", russian: "Как дела? (букв. 'что за новости?')" },
-        { indonesian: "Kabar baik", russian: "Хорошо (букв. 'дела хорошие')" },
+        { indonesian: "Senang bertemu dengan Anda", russian: "Приятно познакомиться с Вами" },
+        { indonesian: "Saya dari Rusia, asal saya dari Moskow", russian: "Я из России, родом из Москвы" },
+        { indonesian: "Saya tinggal di Indonesia", russian: "Я живу в Индонезии" },
+        { indonesian: "Terima kasih banyak", russian: "Большое спасибо" },
+        { indonesian: "Sama-sama, silakan duduk", russian: "Пожалуйста, присаживайтесь" },
+        { indonesian: "Maaf, tolong bantu saya", russian: "Извините, пожалуйста, помогите мне" },
+        { indonesian: "Sampai jumpa dan selamat jalan!", russian: "До свидания и счастливого пути!" },
       ],
       keyPoints: [
         "Приветствия по времени суток — начинаются с 'Selamat' (Selamat pagi — доброе утро, Selamat siang — добрый день)",
         "Формула представления — Nama saya... (Nama saya Ivan — меня зовут Иван)",
         "Вопрос о знакомстве — Siapa nama Anda? (букв. 'Кто ваше имя?')",
-        "Происхождение через 'dari' — Saya dari Rusia (Я из России)",
+        "Происхождение через 'dari' и 'asal' — Saya dari Rusia (Я из России, Asal saya — родом из...)",
         "Благодарность и вежливый ответ — Terima kasih (Спасибо) / Sama-sama (Пожалуйста)",
       ],
     },
-    exercises: [1, 2, 3, 4, 65, 66, 67, 68],
-    vocabulary: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 22],
+    exercises: [1, 2, 3, 4, 65, 66, 67, 68, 1001, 1002, 1003, 1004],
+    vocabulary: [
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 22, 28, 29, 30,
+      33, 34, 35, 36, 37, 38, 39, 40, 66, 67, 68,
+    ],
     estimatedTime: 45,
   },
   {
@@ -71,6 +92,7 @@ export const lessons: Lesson[] = [
       "Личные местоимения",
       "Притяжательные местоимения",
       "Указательные местоимения ini/itu",
+      "Профессии и статус людей",
     ],
     content: {
       theory: `Индонезийские местоимения различаются по степени официальности:
@@ -79,35 +101,54 @@ export const lessons: Lesson[] = [
 - saya /saja/ - я (официально/нейтрально)
 - aku /aku/ - я (неформально, с друзьями)
 - kamu /kamu/ - ты (неформально)
+- engkau /əŋkau/ - ты (поэтично/архаично)
 - Anda /anda/ - Вы (официально, с уважением)
-- dia /dia/ - он / она
+- dia /dia/ - он / она (нейтрально)
+- beliau /bəliau/ - он / она (уважительно, о старших или руководителях)
 - kami /kami/ - мы (без собеседника, эксклюзивное)
 - kita /kita/ - мы (включая собеседника, инклюзивное)
 - mereka /mərəka/ - они
 
 Указательные слова:
-- ini /ini/ - это, этот, эта
-- itu /itu/ - то, тот, та
+- ini /ini/ - это, этот, эта (близко к говорящему)
+- itu /itu/ - то, тот, та (далеко от говорящего)
 
-Базовая лексика для описания людей и предметов:
+Семья и статус:
+- ibu /ibu/ - мама, мать; госпожа (уважительное обращение к женщине)
+- bapak /bapaʔ/ - папа, отец; господин (уважительное обращение к мужчине)
+- teman /təman/ - друг, товарищ
 - buku /buku/ - книга
-- rumah /rumah/ - дом
-- siswa /siswa/ - ученик, студент
+
+Профессии и работа:
 - guru /ɡuru/ - учитель, преподаватель
-- teman /təman/ - друг, друзья
-- Indonesia /indonəsia/ - Индонезия
+- dokter /dɔktər/ - врач, доктор
+- perawat /pərawat/ - медсестра, медбрат
+- mahasiswa /mahasiswa/ - студент (университета)
+- polisi /polisi/ - полицейский
+- supir /supir/ - водитель, шофёр
+- koki /koki/ - повар
+- petani /pətani/ - фермер, крестьянин
+- nelayan /nəlajan/ - рыбак
+- pedagang /pədaɡaŋ/ - торговец, продавец
+- pengusaha /pəŋusaha/ - предприниматель, бизнесмен
+- insinyur /insiɲur/ - инженер
+- karyawan /karjawan/ - служащий, сотрудник компании
+- pensiun /pənsiun/ - пенсия, на пенсии
+- gaji /ɡadʒi/ - зарплата
 
 Притяжательность выражается простым добавлением местоимения после существительного:
 - buku saya /buku saja/ - моя книга (букв. "книга я")
 - rumah dia /rumah dia/ - его/её дом
 - teman saya /təman saja/ - мои друзья / мой друг`,
       examples: [
-        { indonesian: "Saya siswa", russian: "Я ученик" },
-        { indonesian: "Dia guru", russian: "Он/она учитель" },
-        { indonesian: "Ini buku saya", russian: "Это моя книга" },
-        { indonesian: "Itu rumah dia", russian: "То его/её дом" },
-        { indonesian: "Kami dari Indonesia", russian: "Мы из Индонезии" },
-        { indonesian: "Mereka teman saya", russian: "Они мои друзья" },
+        { indonesian: "Saya mahasiswa", russian: "Я студент" },
+        { indonesian: "Dia dokter, bukan perawat", russian: "Он врач, а не медбрат" },
+        { indonesian: "Beliau guru saya", russian: "Он (уважительно) мой учитель" },
+        { indonesian: "Ini buku teman saya", russian: "Это книга моего друга" },
+        { indonesian: "Bapak saya seorang pengusaha", russian: "Мой отец — предприниматель" },
+        { indonesian: "Ibu bekerja sebagai karyawan", russian: "Мама работает сотрудницей" },
+        { indonesian: "Supir itu teman kami", russian: "Тот водитель — наш друг" },
+        { indonesian: "Kakek sudah pensiun", russian: "Дедушка уже на пенсии" },
       ],
       keyPoints: [
         "Личное местоимение как подлежащее — глагол-связка 'быть' не нужен (Saya siswa — Я ученик, Dia guru — Он учитель)",
@@ -116,10 +157,10 @@ export const lessons: Lesson[] = [
         "Указательные местоимения ini (этот/это) и itu (тот/то) — ставятся в начале или после слова (Ini buku saya — Это моя книга)",
       ],
     },
-    exercises: [5, 6, 7, 8, 69, 70, 71, 72],
+    exercises: [5, 6, 7, 8, 69, 70, 71, 72, 1005, 1006, 1007, 1008],
     vocabulary: [
-      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 341, 342, 343, 344, 345, 361, 362,
-      363,
+      16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 62, 65, 341, 342, 361,
+      362, 363, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377,
     ],
     estimatedTime: 40,
   },
@@ -127,37 +168,82 @@ export const lessons: Lesson[] = [
     id: 3,
     title: "Простые предложения",
     description: "Строим простые предложения с глаголами",
-    objectives: ["Порядок слов SVO", "Основные глаголы", "Отрицание 'tidak'", "Базовые существительные"],
+    objectives: ["Порядок слов SVO", "Основные глаголы действия", "Отрицание 'tidak'", "Базовые существительные"],
     content: {
       theory: `Порядок слов в индонезийском языке: Подлежащее + Сказуемое + Дополнение (SVO - как в русском).
 
-Основные глаголы не спрягаются по лицам и числам:
+Глаголы действия (глаголы не спрягаются по лицам и числам):
 - makan /makan/ - есть, кушать
 - minum /minum/ - пить
 - pergi /pərɡi/ - идти, уходить, ехать
 - datang /dataŋ/ - приходить, приезжать
 - lihat /lihat/ - видеть, смотреть
 - tahu /tahu/ - знать
+- mengerti /məŋərti/ - понимать
+- bicara /bitʃara/ - говорить, разговаривать
+- dengar /dəŋar/ - слушать, слышать
+- membaca /məmbatʃa/ - читать, прочитать
+- menulis /mənulis/ - писать, написать
+- belajar /bəladʒar/ - учиться, изучать
+- ajar /adʒar/ - учить, обучать
+- pikir /pikir/ - думать
+- ingat /iŋat/ - помнить, вспоминать
+- lupa /lupa/ - забывать
+- coba /tʃoba/ - пробовать, пытаться
+
+Глаголы перемещения и физических действий:
+- jalan-jalan /dʒalan-dʒalan/ - гулять, прогуливаться
+- lari /lari/, berlari /bərlari/ - бежать, бегать
+- berenang /bərənaŋ/ - плавать
+- duduk /duduk/ - сидеть, садиться
+- berdiri /bərdiri/ - стоять, вставать
+- masuk /masuk/ - входить, заходить
+- keluar /kəluar/ - выходить, выйти
+- naik /naik/ - подниматься, садиться в транспорт
+- turun /turun/ - спускаться, выходить из транспорта
+- terbang /tərbaŋ/ - летать, лететь
+- main /main/ - играть
+- nyanyi /ɲaɲi/ - петь
+
+Глаголы манипуляции с предметами и быта:
+- ambil /ambil/ - брать, взять
+- bawa /bawa/ - нести, приносить
+- taruh /taruh/ - класть, ставить
+- pegang /pəɡaŋ/ - держать, трогать
+- lempar /lèmpar/ - бросать, кидать
+- pukul /pukul/ - бить, ударять
+- buka /buka/ - открывать
+- tutup /tutup/ - закрывать
+- beri /bəri/ - давать, дать
+- minta /minta/ - просить, попросить
+- cari /tʃari/ - искать, найти
+- tunggu /tuŋɡu/ - ждать, подождать
+- kirim /kirim/ - посылать, отправлять
+- simpan /simpan/ - хранить, сохранять
+- buat /buat/ - делать, создавать
 - beli /bəli/ - покупать
 - jual /dʒual/ - продавать
+- mulai /mulai/ - начинать, начать
+- selesai /sələsai/ - заканчивать, завершать
+- habis /habis/ - кончаться, закончиться
 
-Отрицание образуется с помощью частицы 'tidak' перед глаголом или прилагательным:
-- tidak /tidaʔ/ - не, нет
-- Saya tidak tahu /saja tidaʔ tahu/ - Я не знаю
-- Saya tidak pergi /saja tidaʔ pərɡi/ - Я не иду
-- Dia tidak besar /dia tidaʔ bəsar/ - Он не большой
-
-Полезные существительные и наречия времени:
+Полезные служебные слова и существительные:
+- tidak /tidaʔ/ - не, нет (отрицание перед глаголом/прилагательным)
+- ada /ada/ - есть, имеется, существовать
+- saya mau /saja mau/ - я хочу, я собираюсь
+- sendiri /səndiri/ - сам, самостоятельно
 - nasi /nasi/ - варёный рис
 - air /air/ - вода
-- besok /besok/ - завтра
-- besar /bəsar/ - большой`,
+- ikan /ikan/ - рыба`,
       examples: [
-        { indonesian: "Saya makan nasi", russian: "Я ем рис" },
-        { indonesian: "Dia minum air", russian: "Он/она пьёт воду" },
-        { indonesian: "Saya tidak pergi", russian: "Я не иду" },
-        { indonesian: "Mereka datang besok", russian: "Они придут завтра" },
-        { indonesian: "Kami tidak lihat", russian: "Мы не видим" },
+        { indonesian: "Saya makan nasi dan minum air", russian: "Я ем рис и пью воду" },
+        { indonesian: "Dia membaca buku di rumah", russian: "Он читает книгу дома" },
+        { indonesian: "Kami belajar bahasa Indonesia", russian: "Мы учим индонезийский язык" },
+        { indonesian: "Saya tidak tahu, coba tanya dia", russian: "Я не знаю, попробуй спросить его" },
+        { indonesian: "Mereka jalan-jalan sore", russian: "Они гуляют вечером" },
+        { indonesian: "Tolong buka pintu itu", russian: "Пожалуйста, открой ту дверь" },
+        { indonesian: "Saya mau beli ikan di pasar", russian: "Я хочу купить рыбу на рынке" },
+        { indonesian: "Jangan lupa bawa air minum", russian: "Не забудь взять питьевую воду" },
       ],
       keyPoints: [
         "Порядок слов SVO — Подлежащее + Сказуемое + Дополнение (Saya makan nasi — Я ем рис)",
@@ -166,8 +252,13 @@ export const lessons: Lesson[] = [
         "Время действия через контекст и наречия — форма глагола не требует окончаний (Mereka datang besok — Они придут завтра)",
       ],
     },
-    exercises: [9, 10, 11, 12],
-    vocabulary: [41, 42, 43, 44, 45, 201, 202, 424, 443],
+    exercises: [9, 10, 11, 12, 1009, 1010, 1011, 1012],
+    vocabulary: [
+      9, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58,
+      59, 60, 69, 70, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85,
+      86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 144, 201,
+      202, 424, 443,
+    ],
     estimatedTime: 45,
   },
   {
@@ -176,40 +267,54 @@ export const lessons: Lesson[] = [
     description: "Учимся задавать вопросы",
     objectives: [
       "Вопросительные слова",
-      "Построение вопросов",
-      "Вопросы о цене и местоположении",
+      "Построение вопросов с частицей -kah",
+      "Вопросы о цене, местоположении и качестве",
     ],
     content: {
       theory: `Вопросительные слова в индонезийском языке:
 - apa /apa/ - что, какой
+- apakah /apakah/ - ли, вопросительная частица в начале общего вопроса
 - siapa /siapa/ - кто
+- siapa-siapa /siapa-siapa/ - кто вообще, кто-либо (во множественном числе)
 - di mana /di mana/ - где
 - ke mana /kə mana/ - куда
 - dari mana /dari mana/ - откуда
+- manakah /manakah/ - который же (вопросительное усиление)
+- yang mana /jaŋ mana/ - который, какой именно из нескольких
 - kapan /kapan/ - когда
-- mengapa /məŋapa/ - почему (также kenapa /kənapa/)
+- kapan-kapan /kapan-kapan/ - когда-нибудь, в другой раз
+- bilakah /bilakah/ - когда же (формальный / литературный вариант)
+- mengapa /məŋapa/ - почему (официально / литературно)
+- kenapa /kənapa/ - почему, зачем (разговорно)
 - bagaimana /baɡaimana/ - как, каким образом
+- bagaimanakah /baɡaimanaka/ - как же именно (формально)
+- bagaimana cara /baɡaimana tʃara/ - как (каким способом/методом)
 - berapa /bərapa/ - сколько
+- seberapa /səbərapa/ - насколько (в какой степени)
 
-Слова для вопросов о покупках и состоянии:
-- harga /harɡa/ - цена, стоимость
-- harganya /harɡaɲa/ - её/его цена, стоимость
-- kabar /kabar/ - дела, новости
+Слова для описания выбора, видов и неопределённости:
+- asal /asal/ - происхождение, родом (Dari mana asal Anda? - Откуда вы родом?)
+- macam /matʃam/ - вид, тип, сорт (Macam apa? - Какого рода?)
+- jenis /dʒənis/ - тип, сорт, разновидность (Jenis ini - Этот тип)
+- begitu /bəɡitu/ - так, таким образом
+- ataukah /ataukah/ - или же (в вопросах с выбором)
+- entah /əntah/ - неизвестно, не знаю (Entah di mana - Неизвестно где)
 
-Вопросы строятся прямолинейно: вопросительное слово ставится в начале предложения либо на место заменяемого члена предложения.
+Построение вопросов:
+Вопросительное слово обычно ставится в начале предложения либо на месте члена предложения, к которому задаётся вопрос:
 - Apa ini? /apa ini/ - Что это?
-- Siapa nama kamu? /siapa nama kamu/ - Как тебя зовут? (букв. "Кто твоё имя?")
-- Berapa harganya? /bərapa harɡaɲa/ - Сколько это стоит? (букв. "Сколько её цена?")`,
+- Siapa nama kamu? /siapa nama kamu/ - Как тебя зовут?
+- Di mana stasiun? /di mana stasiun/ - Где вокзал?
+- Berapa harganya? /bərapa harɡaɲa/ - Сколько это стоит?`,
       examples: [
         { indonesian: "Apa ini?", russian: "Что это?" },
-        {
-          indonesian: "Siapa nama kamu?",
-          russian: "Как тебя зовут? (букв. 'Кто имя твой?')",
-        },
-        { indonesian: "Di mana rumah kamu?", russian: "Где твой дом?" },
-        { indonesian: "Kapan kamu datang?", russian: "Когда ты придёшь?" },
+        { indonesian: "Apakah Anda mengerti?", russian: "Вы понимаете?" },
+        { indonesian: "Siapa guru bahasa Indonesia Anda?", russian: "Кто ваш учитель индонезийского языка?" },
+        { indonesian: "Di mana Anda tinggal?", russian: "Где вы живёте?" },
+        { indonesian: "Ke mana kamu mau pergi?", russian: "Куда ты хочешь пойти?" },
+        { indonesian: "Dari mana asal Anda?", russian: "Откуда вы родом?" },
+        { indonesian: "Buku yang mana yang Anda beli?", russian: "Какую именно книгу вы купили?" },
         { indonesian: "Berapa harganya?", russian: "Сколько это стоит?" },
-        { indonesian: "Bagaimana kabar kamu?", russian: "Как твои дела?" },
       ],
       keyPoints: [
         "Прямой порядок в вопросах — вопросительное слово ставится в начале или на место нужного члена предложения (Apa ini? — Что это?)",
@@ -218,8 +323,11 @@ export const lessons: Lesson[] = [
         "Вопросы о количестве и цене — 'berapa' (Berapa harganya? — Сколько это стоит?)",
       ],
     },
-    exercises: [13, 14, 15, 16],
-    vocabulary: [101, 102, 103, 104, 105, 11, 10],
+    exercises: [13, 14, 15, 16, 1013, 1014, 1015, 1016],
+    vocabulary: [
+      10, 11, 30, 31, 32, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110,
+      111, 112, 113, 114, 115, 116, 117, 118, 119, 120,
+    ],
     estimatedTime: 40,
   },
   {
