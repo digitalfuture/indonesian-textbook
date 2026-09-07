@@ -142,6 +142,7 @@
   "exercise.continue": "Lanjut →",
   "exercise.nextStage": "Tahap Berikutnya →",
   "exercise.retry": "Coba Lagi",
+  "exercise.retryLater": "Ulangi di akhir →",
   "exercise.feedback.correct": "Benar!",
   "exercise.feedback.wrong": "Salah",
   "exercise.feedback.correctAnswer": "Jawaban benar:",

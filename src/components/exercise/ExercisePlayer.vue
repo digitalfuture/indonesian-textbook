@@ -177,29 +177,33 @@ watch(
   { immediate: true },
 );
 
-// Watch for initial load to skip completed exercises
+// Queue of exercises to solve; wrong exercises get moved/appended to the end
+const activeQueue = ref<Exercise[]>([]);
+
+function initQueue() {
+  const baseExercises = props.exercises ? [...props.exercises] : [];
+  if (baseExercises.length === 0) {
+    activeQueue.value = [];
+    currentExerciseIndex.value = 0;
+    return;
+  }
+  // Filter out exercises that are already completed
+  const uncompleted = baseExercises.filter(e => !completedExercises.value.includes(e.id));
+  activeQueue.value = uncompleted.length > 0 ? uncompleted : [...baseExercises];
+  currentExerciseIndex.value = 0;
+}
+
+// Watch for changes in props.exercises to initialize or update queue
 watch(
-  [() => props.exercises, completedExercises],
-  ([newExercises, newCompleted], [oldExercises, oldCompleted]) => {
-    if (newExercises && newExercises.length > 0) {
-      const hasCompletedChanged = !oldCompleted || oldCompleted.length === 0;
-      const hasExercisesChanged = !oldExercises || oldExercises.length === 0;
-      
-      if (hasCompletedChanged || hasExercisesChanged) {
-        const firstUncompleted = newExercises.findIndex(
-          (e) => !newCompleted.includes(e.id)
-        );
-        if (firstUncompleted !== -1) {
-          currentExerciseIndex.value = firstUncompleted;
-        }
-      }
-    }
+  () => props.exercises,
+  () => {
+    initQueue();
   },
-  { immediate: true }
+  { immediate: true, deep: true }
 );
 
 const currentExercise = computed(
-  () => props.exercises[currentExerciseIndex.value],
+  () => activeQueue.value[currentExerciseIndex.value],
 );
 
 // Auto-complete lesson when all exercises are done
@@ -294,6 +298,10 @@ function checkAnswer() {
     }
   } else {
     playSound("error");
+    // Move/re-queue exercise to end of activeQueue so user must solve it later
+    if (currentExercise.value) {
+      activeQueue.value.push({ ...currentExercise.value });
+    }
   }
 }
 
@@ -311,8 +319,21 @@ function nextStage() {
   }
 }
 
+function retryExerciseNow() {
+  resetExerciseState();
+}
+
+function continueAfterWrong() {
+  // Current failed exercise was already pushed to end of activeQueue in checkAnswer.
+  // Advance to the next exercise.
+  if (currentExerciseIndex.value < activeQueue.value.length - 1) {
+    currentExerciseIndex.value++;
+  }
+  resetExerciseState();
+}
+
 function nextExercise() {
-  if (currentExerciseIndex.value < props.exercises.length - 1) {
+  if (currentExerciseIndex.value < activeQueue.value.length - 1) {
     currentExerciseIndex.value++;
     resetExerciseState();
   }
@@ -356,10 +377,14 @@ function handleKeydown(e: KeyboardEvent) {
     } else {
       if (isCorrect.value && currentExercise.value?.type === "twoStage" && !isStage2.value) {
         nextStage();
-      } else if (isCorrect.value && currentExerciseIndex.value < props.exercises.length - 1) {
+      } else if (isCorrect.value && currentExerciseIndex.value < activeQueue.value.length - 1) {
         nextExercise();
       } else if (!isCorrect.value) {
-        resetExerciseState();
+        if (currentExerciseIndex.value < activeQueue.value.length - 1) {
+          continueAfterWrong();
+        } else {
+          retryExerciseNow();
+        }
       }
     }
     return;
@@ -560,13 +585,24 @@ defineExpose({
             {{ $t('exercise.continue') }}
           </button>
           <button
-            v-else-if="showFeedback && isCorrect && currentExerciseIndex < exercises.length - 1"
+            v-else-if="showFeedback && isCorrect && currentExerciseIndex < activeQueue.length - 1"
             class="btn btn-primary btn-lg"
             @click="nextExercise"
           >
             {{ $t('exercise.continue') }}
           </button>
-          <button v-else-if="showFeedback && !isCorrect" class="btn btn-outline btn-lg" @click="resetExerciseState">
+          <button
+            v-else-if="showFeedback && !isCorrect && currentExerciseIndex < activeQueue.length - 1"
+            class="btn btn-primary btn-lg"
+            @click="continueAfterWrong"
+          >
+            {{ $t('exercise.retryLater') }}
+          </button>
+          <button
+            v-else-if="showFeedback && !isCorrect"
+            class="btn btn-outline btn-lg"
+            @click="retryExerciseNow"
+          >
             {{ $t('exercise.retry') }}
           </button>
         </div>

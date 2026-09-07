@@ -142,6 +142,7 @@
   "exercise.continue": "Продолжить →",
   "exercise.nextStage": "Следующий этап →",
   "exercise.retry": "Попробовать снова",
+  "exercise.retryLater": "Повторить в конце →",
   "exercise.feedback.correct": "Правильно!",
   "exercise.feedback.wrong": "Неправильно",
   "exercise.feedback.correctAnswer": "Правильный ответ:",

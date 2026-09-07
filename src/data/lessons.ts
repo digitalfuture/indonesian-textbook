@@ -338,48 +338,69 @@ export const lessons: Lesson[] = [
     content: {
       theory: `В индонезийском языке используются 4 основных вида отрицания:
 
-1. TIDAK /tidaʔ/ - отрицание действий (глаголов) и признаков (прилагательных):
-   - Saya tidak mengerti /saja tidaʔ məŋərti/ - Я не понимаю
+1. TIDAK /tidaʔ/ (кратко tak /tak/) - отрицание действий (глаголов) и качеств (прилагательных):
+   - Saya tidak tahu /saja tidaʔ tahu/ - Я не знаю
+   - Dia tidak mengerti /dia tidaʔ məŋərti/ - Он не понимает
    - Rumah ini tidak besar /rumah ini tidaʔ bəsar/ - Этот дом не большой
+   - tak mungkin /tak muŋkin/ - невозможно
 
 2. BUKAN /bukan/ - отрицание сущности и существительных ("не является"):
    - Ini bukan masalah /ini bukan masalah/ - Это не проблема
-   - Dia bukan orang Indonesia /dia bukan oraŋ indonəsia/ - Он не индонезиец (букв. "не человек Индонезии")
-   - Dia bukan guru /dia bukan ɡuru/ - Он не учитель
+   - Dia bukan orang Indonesia /dia bukan oraŋ indonəsia/ - Он не индонезиец
+   - bukan saja ... melainkan ... /bukan sadʒa ... məlainkan/ - не только ..., но и (а напротив) ...
 
-3. BELUM /bəlum/ - ещё не (действие не произошло к настоящему моменту, но возможно в будущем):
+3. BELUM /bəlum/ - ещё не (действие не свершилось, но ожидается или возможно):
    - Saya belum siap /saja bəlum siap/ - Я ещё не готов
    - Saya belum makan /saja bəlum makan/ - Я ещё не ел
+   - belum pernah /bəlum pərnah/ - ещё никогда
 
-4. JANGAN /dʒaŋan/ - запрет ("не делай!", "нельзя"):
+4. JANGAN /dʒaŋan/ - запрет и категорическое "не делай":
    - Jangan lupa! /dʒaŋan lupa/ - Не забудь!
-   - Jangan pergi! /dʒaŋan pərɡi/ - Не уходи!
+   - Jangan takut! /dʒaŋan takut/ - Не бойся!
+   - Jangan marah! /dʒaŋan marah/ - Не сердись!
 
-Новая лексика урока:
-- mengerti /məŋərti/ - понимать
-- masalah /masalah/ - проблема
-- siap /siap/ - готовый, готов
+Отрицание наличия и устойчивые сочетания:
+- tidak ada /tidaʔ ada/ - нет, не имеется, отсутствует
+- tiada /tiada/ - нет, не существует (поэтично / возвышенно)
+- tanpa /tanpa/ - без (tanpa gula - без сахара)
+- kecuali /kətʃuali/ - кроме, за исключением
+- hampir /hampir/ - почти (hampir tidak - почти не)
+- tetap /tətap/ - всё ещё, оставаться прежним
+- jadi /dʒadi/ - поэтому, так что; становиться
+- bisa jadi /bisa dʒadi/ - может быть, возможно
+- sama /sama/ - с, вместе; одинаковый
+
+Глаголы и эмоции урока:
+- pegang /pəɡaŋ/ - держать, трогать
+- lempar /ləmpar/ - бросать, кидать
+- pukul /pukul/ - бить, ударять
 - lupa /lupa/ - забывать
-- orang /oraŋ/ - человек, люди`,
+- sedih /sədih/ - грустный, печальный
+- marah /marah/ - сердитый, злой
+- takut /takut/ - бояться, страшный`,
       examples: [
-        { indonesian: "Saya tidak mengerti", russian: "Я не понимаю" },
-        { indonesian: "Ini bukan masalah", russian: "Это не проблема" },
-        { indonesian: "Saya belum siap", russian: "Я ещё не готов" },
-        { indonesian: "Jangan lupa!", russian: "Не забудь!" },
-        {
-          indonesian: "Dia bukan orang Indonesia",
-          russian: "Он не индонезиец",
-        },
+        { indonesian: "Saya tidak mengerti bahasa ini", russian: "Я не понимаю этот язык" },
+        { indonesian: "Ini bukan buku saya", russian: "Это не моя книга" },
+        { indonesian: "Dia belum pernah makan di sini", russian: "Он ещё никогда не ел здесь" },
+        { indonesian: "Jangan marah dan jangan takut", russian: "Не сердись и не бойся" },
+        { indonesian: "Di sini tidak ada orang", russian: "Здесь никого нет (нет людей)" },
+        { indonesian: "Kopi ini tanpa gula", russian: "Этот кофе без сахара" },
+        { indonesian: "Semua datang kecuali dia", russian: "Все пришли, кроме него" },
+        { indonesian: "Bisa jadi dia lupa", russian: "Возможно, он забыл" },
       ],
       keyPoints: [
-        "tidak — отрицание действий и качеств (Saya tidak mengerti — Я не понимаю, tidak besar — не большой)",
-        "bukan — отрицание сущности и существительных (Ini bukan masalah — Это не проблема, Dia bukan guru — Он не учитель)",
-        "belum — ещё не произошло, но ожидается (Saya belum siap — Я ещё не готов, belum makan — ещё не ел)",
-        "jangan — запрет и повелительное отрицание (Jangan lupa! — Не забудь!, Jangan pergi! — Не уходи!)",
+        "tidak (tak) — отрицание действий и качеств (Saya tidak mengerti — Я не понимаю, tidak sedih — не грустный)",
+        "bukan — отрицание существительных и сущности (Ini bukan masalah — Это не проблема, Dia bukan guru — Он не учитель)",
+        "belum — ещё не произошло, но ожидается (Saya belum siap — Я ещё не готов, belum pernah — ещё ни разу)",
+        "jangan — запретительное повеление (Jangan lupa! — Не забудь!, Jangan takut! — Не бойся!)",
+        "tidak ada / tanpa / kecuali — отсутствие и исключение (tidak ada uang — нет денег, tanpa masalah — без проблем, semua kecuali saya — все кроме меня)",
       ],
     },
-    exercises: [17, 18, 19, 20],
-    vocabulary: [121, 122, 123, 124, 322, 323],
+    exercises: [17, 18, 19, 20, 1017, 1018, 1019, 1020],
+    vocabulary: [
+      9, 46, 47, 48, 57, 71, 75, 77, 121, 122, 123, 124, 127, 128, 129, 130,
+      131, 132, 133, 134, 135, 136, 139, 322, 323, 327,
+    ],
     estimatedTime: 40,
   },
   {
@@ -392,42 +413,83 @@ export const lessons: Lesson[] = [
       "Глагол punya",
     ],
     content: {
-      theory: `Притяжательность в индонезийском выражается несколькими способами:
+      theory: `Притяжательность и принадлежность в индонезийском языке:
 
-1. Местоимение ставится сразу после существительного:
+1. Существительное + местоимение (порядок "предмет + владелец"):
    - buku saya /buku saja/ - моя книга
    - rumah dia /rumah dia/ - его/её дом
    - mobil kami /mobil kami/ - наша машина
+   - rumah tangga /rumah taŋɡa/ - домашнее хозяйство, семья
 
-2. Суффикс -nya /ɲa/ (его / её / их):
+2. Суффикс -nya /ɲa/ (универсальный показатель "его / её / их"):
    - mobilnya /mobilɲa/ - его/её машина
    - bukunya /bukuɲa/ - его/её книга
    - temannya /təmanɲa/ - его/её друг
+   - kucingnya /kutʃiŋɲa/ - его/её кошка
 
-3. Слово punya /puɲa/ (иметь, владеть, принадлежать):
+3. Глагол punya /puɲa/ и существительное milik /milik/:
+   - Saya punya kucing baru /saja puɲa kutʃiŋ baru/ - У меня есть новая кошка
    - Ini punya saya /ini puɲa saja/ - Это моё (принадлежит мне)
-   - punya /puɲa/ - иметь, владеть, принадлежать
+   - Buku ini milik saya /buku ini milik saja/ - Эта книга — моя собственность
+   - sendiri /səndiri/ - сам, собственный (rumah sendiri - собственный дом)
 
-Новые слова урока:
-- mobil /mobil/ - автомобиль, машина
-- baru /baru/ - новый
-- baik /baik/ - хороший, добрый`,
+4. Члены семьи (keluarga /kəluarɡa/):
+   - bapak /bapak/, ayah /ayah/ - отец, папа; господин
+   - ibu /ibu/ - мать, мама; госпожа
+   - kakek /kakək/ - дедушка
+   - nenek /nenek/ - бабушка
+   - suami /suami/ - муж
+   - istri /istri/ - жена
+   - anak /anak/ - ребёнок; anak laki-laki - сын; anak perempuan - дочь
+   - kakak /kakak/ - старший брат/сестра; kakak laki-laki - старший брат; kakak perempuan - старшая сестра
+   - adik /adik/ - младший брат/сестра
+   - saudara /saudara/ - брат/сестра, родственник
+   - paman /paman/ - дядя
+   - bibi /bibi/ - тётя
+   - keponakan /kəponakan/ - племянник/племянница
+   - sepupu /səpupu/ - двоюродный брат/сестра
+
+5. Служебные слова отношений, предлоги и квантификаторы:
+   - untuk /untuk/, bagi /baɡi/ - для, ради
+   - dengan /dəŋan/ - с, вместе с
+   - bersama /bərsama/ - вместе, совместно
+   - oleh /oləh/ - от, кем-то (деятель)
+   - tentang /təntaŋ/ - о, об, относительно
+   - antara /antara/ - между, среди
+   - terhadap /tərhadap/ - к, по отношению к
+   - seperti /səpərti/ - как, подобно
+   - melalui /məlalui/ - через, посредством
+   - secara /sətʃara/ - способом, в виде
+   - tiap /tiap/, setiap /sətiap/ - каждый, любой
+   - masing-masing /masiŋ-masiŋ/ - каждый по отдельности
+   - semua /səmua/, seluruh /səluruh/ - все, всё, целый
+   - tugas /tuɡas/ - задание, задача`,
       examples: [
-        { indonesian: "Ini buku saya", russian: "Это моя книга" },
-        { indonesian: "Rumah dia besar", russian: "Его/её дом большой" },
-        { indonesian: "Mobilnya baru", russian: "Его/её машина новая" },
-        { indonesian: "Temannya baik", russian: "Его/её друг хороший" },
-        { indonesian: "Ini punya saya", russian: "Это моё (принадлежит мне)" },
+        { indonesian: "Ini rumah keluarga kami", russian: "Это дом нашей семьи" },
+        { indonesian: "Saya punya kucing baru", russian: "У меня новая кошка" },
+        { indonesian: "Mobil ini milik bapak saya", russian: "Эта машина принадлежит моему отцу" },
+        { indonesian: "Kakak laki-laki saya tinggal sendiri", russian: "Мой старший брат живёт отдельно (сам)" },
+        { indonesian: "Buku ini untuk anak perempuan dia", russian: "Эта книга для его дочери" },
+        { indonesian: "Kita belajar bersama teman", russian: "Мы учимся вместе с другом" },
+        { indonesian: "Semua anggota keluarga punya tugas masing-masing", russian: "У всех членов семьи есть свои отдельные задачи" },
+        { indonesian: "Kakek dan nenek membaca buku tentang sejarah", russian: "Дедушка и бабушка читают книгу об истории" },
       ],
       keyPoints: [
-        "Существительное + местоимение — базовый способ выразить чьё-то (buku saya — моя книга, rumah dia — его дом)",
-        "Суффикс -nya — универсальное 'его / её / их' (Mobilnya baru — Его машина новая, temannya baik — её друг хороший)",
-        "Конструкция с punya — владение или принадлежность (Saya punya mobil — У меня есть машина; Ini punya saya — Это моё)",
+        "Существительное + обладатель — базовый порядок притяжания (buku saya — моя книга, rumah bapak — дом отца)",
+        "Суффикс -nya — заменяет 'его / её / их' (Mobilnya baru — Его машина новая, temannya baik — её друг хороший)",
+        "punya и milik — владение и принадлежность (Saya punya kucing — У меня есть кошка, Rumah ini milik saya — Этот дом мой)",
+        "Термины родства семьи — bapak (папа), ibu (мама), kakak (старший), adik (младший), anak (ребёнок), kakek/nenek (дедушка/бабушка)",
+        "Определители и предлоги — untuk (для), dengan (с), bersama (вместе), setiap/semua (каждый/все)",
       ],
     },
-    exercises: [21, 22, 23, 24],
-    vocabulary: [141, 142, 61, 62, 63, 64, 65, 365, 441, 345],
-    estimatedTime: 35,
+    exercises: [21, 22, 23, 24, 1021, 1022, 1023, 1024],
+    vocabulary: [
+      24, 25, 61, 62, 63, 65, 70, 141, 142, 143, 144, 145, 146, 147, 148, 149,
+      150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 341, 342, 343,
+      344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357,
+      358, 359, 360, 365, 441,
+    ],
+    estimatedTime: 45,
   },
   {
     id: 7,
@@ -435,54 +497,86 @@ export const lessons: Lesson[] = [
     description: "Учимся считать и использовать числа",
     objectives: ["Числа 0-1000", "Счётные слова (классификаторы)", "Количественные конструкции"],
     content: {
-      theory: `Числа в индонезийском языке:
+      theory: `Числа, счёт, меры и порядковые числительные в индонезийском языке:
 
-0-10:
-- nol /nol/ - 0
-- satu /satu/ - 1
-- dua /dua/ - 2
-- tiga /tiɡa/ - 3
-- empat /əmpat/ - 4
-- lima /lima/ - 5
-- enam /ənam/ - 6
-- tujuh /tudʒuh/ - 7
-- delapan /dəlapan/ - 8
-- sembilan /səmbilan/ - 9
-- sepuluh /səpuluh/ - 10
+1. Базовые числа 0–10:
+   - nol /nol/ - 0
+   - satu /satu/ - 1
+   - dua /dua/ - 2
+   - tiga /tiɡa/ - 3
+   - empat /əmpat/ - 4
+   - lima /lima/ - 5
+   - enam /ənam/ - 6
+   - tujuh /tudʒuh/ - 7
+   - delapan /dəlapan/ - 8
+   - sembilan /səmbilan/ - 9
+   - sepuluh /səpuluh/ - 10
 
-Десятки, сотни, тысячи:
-- puluh /puluh/ - десяток (dua puluh = 20, tiga puluh = 30)
-- ratus /ratus/ - сотня (seratus /səratus/ = 100, dua ratus = 200)
-- ribu /ribu/ - тысяча (seribu /səribu/ = 1000, dua ribu = 2000)
+2. Числа от 11 до миллионов:
+   - sebelas /səbəlas/ - 11, dua belas /dua bəlas/ - 12 (суффикс -belas от 11 до 19)
+   - dua puluh /dua puluh/ - 20 (суффикс -puluh для десятков)
+   - seratus /səratus/ - 100, dua ratus /dua ratus/ - 200 (разряд -ratus)
+   - seribu /səribu/ - 1 000 (разряд -ribu)
+   - sejuta /sədʒuta/ - 1 000 000 (разряд -juta)
 
-Счётные классификаторы:
-- orang /oraŋ/ - человек (classifier для людей: satu orang, dua orang)
-- buah /buah/ - штука (classifier для предметов: satu buah rumah, dua buah mobil)
+3. Порядковые числительные (префикс ke-):
+   - pertama /pərtama/ - первый
+   - kedua /kədua/ - второй
+   - ketiga /kətiɡa/ - третий
+   - terakhir /təraxir/ - последний
 
-Полезные слова урока:
-- ada /ada/ - есть, имеется, присутствовать
-- saudara /saudara/ - брат/сестра, родственник
-- butuh /butuh/ - нуждаться, нужно, требоваться
-- rupiah /rupiah/ - рупия (валюта Индонезии)`,
+4. Дроби, кратность и математические понятия:
+   - setengah /sətəŋah/, separuh /səparuh/ - половина
+   - sepertiga /səpərtiɡa/ - одна треть
+   - seperempat /səpərəmpat/ - одна четверть
+   - kali /kali/ - раз; умножить на (tiga kali - три раза)
+   - sekali /səkali/ - один раз; очень (усиление)
+   - lipat /lipat/ - складывать; раз (кратность: dua kali lipat - в два раза больше)
+   - ganda /ɡanda/ - двойной, вдвойне
+   - hitung /hituŋ/ - считать, подсчитывать
+   - nomor /nomor/ - номер
+   - angka /aŋka/ - цифра, число
+   - jumlah /dʒumlah/ - количество, сумма
+   - total /total/ - итог, всего
+
+5. Количественные наречия, меры и деньги:
+   - banyak /baɲak/ - много
+   - sedikit /sədikit/ - мало, немного
+   - beberapa /bəbərapa/ - несколько
+   - lebih /ləbih/ - больше, более
+   - kurang /kuraŋ/ - меньше, менее, не хватает
+   - kilo /kilo/ - килограмм
+   - meter /meter/ - метр
+   - liter /litər/ - литр
+   - derajat /dəradʒat/ - градус
+   - uang /uaŋ/ - деньги
+   - orang /oraŋ/ - человек (классификатор людей: tiga orang)
+   - berapa /bərapa/ - сколько`,
       examples: [
-        {
-          indonesian: "Saya punya dua saudara",
-          russian: "У меня два брата/сестры",
-        },
-        { indonesian: "Ada sepuluh orang", russian: "Есть десять человек" },
-        { indonesian: "Harganya seribu rupiah", russian: "Цена тысяча рупий" },
-        { indonesian: "Saya butuh tiga buku", russian: "Мне нужно три книги" },
-        { indonesian: "Rumah itu besar", russian: "Тот дом большой" },
+        { indonesian: "Saya punya dua ratus ribu rupiah", russian: "У меня двести тысяч рупий" },
+        { indonesian: "Ini buku pertama saya", russian: "Это моя первая книга" },
+        { indonesian: "Dia minum satu setengah liter air", russian: "Он выпил полтора (один с половиной) литра воды" },
+        { indonesian: "Ada tiga orang di dalam mobil", russian: "В машине три человека" },
+        { indonesian: "Berapa total jumlah uang ini?", russian: "Какова общая сумма этих денег?" },
+        { indonesian: "Saya mau beli dua kilo ikan", russian: "Я хочу купить два килограмма рыбы" },
+        { indonesian: "Suhu hari ini tiga puluh derajat", russian: "Температура сегодня тридцать градусов" },
+        { indonesian: "Uang saya kurang sedikit", russian: "Моих денег немного не хватает" },
       ],
       keyPoints: [
-        "Образование десятков, сотен и тысяч — число + разряд (dua puluh — 20, seratus — 100, seribu — 1000)",
-        "Счётные слова (классификаторы) — orang для людей, buah для предметов (satu orang — один человек, dua buah mobil — две машины)",
-        "Выражение наличия с 'ada' — есть / имеется (Ada sepuluh orang — Есть десять человек)",
-        "Количественные фразы — число ставится перед предметом (dua saudara — два брата, tiga buku — три книги)",
+        "Числа от единиц до миллионов строятся регулярно: belas (11-19), puluh (десятки), ratus (сотни), ribu (тысячи), juta (миллионы)",
+        "Порядковые числительные образуются с префиксом ke- (kedua — второй, ketiga — третий; исключение: pertama — первый)",
+        "Дроби образуются с префиксом seper- (setengah — 1/2, sepertiga — 1/3, seperempat — 1/4)",
+        "Счёт и измерения — число + единица измерения (dua kilo — 2 кг, tiga orang — 3 человека, empat meter — 4 метра)",
+        "Слова количества — banyak (много), sedikit (мало), beberapa (несколько), lebih (больше), kurang (меньше/не хватает)",
       ],
     },
-    exercises: [25, 26, 27, 28],
-    vocabulary: [161, 162, 163, 164, 165, 64, 105],
+    exercises: [25, 26, 27, 28, 1025, 1026, 1027, 1028],
+    vocabulary: [
+      64, 105, 140, 141, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170,
+      171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184,
+      185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198,
+      199, 200, 240, 498,
+    ],
     estimatedTime: 45,
   },
   {
@@ -491,52 +585,81 @@ export const lessons: Lesson[] = [
     description: "Говорим о времени, днях и датах",
     objectives: ["Дни недели", "Время суток", "Часы и выражение времени", "Действия по времени"],
     content: {
-      theory: `Дни недели:
-- Senin /sənin/ - понедельник
-- Selasa /səlasa/ - вторник
-- Rabu /rabu/ - среда
-- Kamis /kamis/ - четверг
-- Jumat /dʒumat/ - пятница
-- Sabtu /sabtu/ - суббота
-- Minggu /miŋɡu/ - воскресенье / неделя
+      theory: `Время, дни недели, календарь и распорядок дня:
 
-Временные понятия и время суток:
-- hari /hari/ - день
-- hari ini /hari ini/ - сегодня
-- besok /besok/ - завтра
-- kemarin /kəmarin/ - вчера
-- sekarang /səkaraŋ/ - сейчас
-- pagi /paɡi/ - утро
-- siang /siaŋ/ - день (с 11:00 до 15:00)
-- sore /sorə/ - вечер (до заката, 15:00-19:00)
-- malam /malam/ - ночь / поздний вечер (после 19:00)
+1. Дни недели (hari /hari/):
+   - hari Senin /hari sənin/ - понедельник
+   - hari Selasa /hari səlasa/ - вторник
+   - hari Rabu /hari rabu/ - среда
+   - hari Kamis /hari kamis/ - четверг
+   - hari Jumat /hari dʒumat/ - пятница
+   - hari Sabtu /hari sabtu/ - суббота
+   - hari Minggu /hari miŋɡu/ - воскресенье (minggu также означает "неделя")
 
-Указание времени:
-- jam /dʒam/ - час / время / часы
-- Jam berapa? /dʒam bərapa/ - Который час?
-- Jam dua /dʒam dua/ - Два часа
-- Jam tiga /dʒam tiɡa/ - Три часа
+2. Календарные периоды и природа:
+   - hari /hari/ - день
+   - minggu /miŋɡu/ - неделя
+   - bulan /bulan/ - месяц; луна
+   - tahun /tahun/ - год
+   - matahari /matahari/ - солнце (букв. "глаз дня")
+   - libur /libur/, cuti /tʃuti/ - выходной, отпуск
+   - awal /awal/ - начало, ранний (awal bulan - начало месяца)
+   - akhir /axir/ - конец, последний (akhir tahun - конец года)
 
-Глаголы распорядка дня:
-- bangun /baŋun/ - просыпаться, вставать
-- bertemu /bərtəmu/ - встречаться`,
+3. Время суток (bagian hari):
+   - pagi /paɡi/ - утро (05:00 - 11:00)
+   - siang /siaŋ/ - день (11:00 - 15:00)
+   - sore /sorə/ - вечер до заката (15:00 - 18:30)
+   - malam /malam/ - ночь, поздний вечер (после 18:30)
+
+4. Указание точного времени (jam /dʒam/):
+   - jam /dʒam/ - час; часы (прибор)
+   - Jam berapa? /dʒam bərapa/ - Который час?
+   - jam tiga /dʒam tiɡa/ - три часа
+   - jam setengah delapan /dʒam sətəŋah dəlapan/ - половина восьмого (07:30)
+   - jam sepuluh lewat seperempat /dʒam səpuluh lewat səpərəmpat/ - 10:15 (четверть одиннадцатого)
+
+5. Временные ориентиры и наречия:
+   - sekarang /səkaraŋ/ - сейчас, теперь
+   - kemarin /kəmarin/ - вчера
+   - besok /besok/ - завтра
+   - nanti /nanti/ - потом, позже
+   - dulu /dulu/ - раньше, сначала
+   - lalu /lalu/ - потом, затем; прошлый (minggu lalu - прошлая неделя)
+   - tiap /tiap/, setiap /sətiap/ - каждый (setiap hari - каждый день)
+   - kali /kali/ - раз (tiga kali sehari - три раза в день)
+
+6. Распорядок дня и приёмы пищи:
+   - bangun /baŋun/ - просыпаться, вставать ото сна
+   - sarapan /sarapan/ - завтрак, завтракать
+   - makan siang /makan siaŋ/ - обед, обедать
+   - makan malam /makan malam/ - ужин, ужинать`,
       examples: [
-        { indonesian: "Hari ini Senin", russian: "Сегодня понедельник" },
-        { indonesian: "Besok hari Selasa", russian: "Завтра вторник" },
-        { indonesian: "Sekarang jam tiga", russian: "Сейчас три часа" },
-        { indonesian: "Saya bangun pagi", russian: "Я просыпаюсь утром" },
-        { indonesian: "Kita bertemu besok", russian: "Мы встретимся завтра" },
+        { indonesian: "Sekarang jam delapan pagi, waktu sarapan", russian: "Сейчас восемь утра, время завтракать" },
+        { indonesian: "Kemarin hari Minggu, kami libur", russian: "Вчера было воскресенье, у нас был выходной" },
+        { indonesian: "Besok saya bangun pagi jam enam", russian: "Завтра я проснусь рано утром в шесть часов" },
+        { indonesian: "Setiap hari kami makan siang jam satu", russian: "Каждый день мы обедаем в час дня" },
+        { indonesian: "Nanti malam kita makan malam bersama", russian: "Позже вечером мы поужинаем вместе" },
+        { indonesian: "Dulu dia tinggal di sini, lalu pindah", russian: "Раньше он жил здесь, затем переехал" },
+        { indonesian: "Pada awal bulan depan saya cuti", russian: "В начале следующего месяца я в отпуске" },
+        { indonesian: "Bulan dan matahari sangat indah", russian: "Луна и солнце очень красивы" },
       ],
       keyPoints: [
-        "Указание точного часа — слово 'jam' + число (jam tiga — три часа, Jam berapa? — Который час?)",
-        "Время суток уточняет время — pagi (утро), siang (день), sore (вечер), malam (ночь) (jam tujuh malam — семь вечера)",
-        "Ориентация по дням — hari ini (сегодня), kemarin (вчера), besok (завтра) (Hari ini Senin — Сегодня понедельник)",
-        "Действие во времени без предлога — время ставится в начале или в конце (Saya bangun pagi — Я просыпаюсь утром, Kita bertemu besok — Мы встретимся завтра)",
+        "Названия дней недели употребляются со словом 'hari' или самостоятельно (hari Senin — понедельник, hari Minggu — воскресенье)",
+        "Время суток уточняет час: jam delapan pagi (8 утра), jam satu siang (13:00), jam tujuh malam (19:00)",
+        "Обозначение половины через 'setengah' к следующему часу (jam setengah delapan — 7:30)",
+        "Временные ориентиры — sekarang (сейчас), kemarin (вчера), besok (завтра), nanti (потом), dulu (раньше)",
+        "Приёмы пищи привязаны ко времени суток — sarapan (завтрак), makan siang (обед), makan malam (ужин)",
       ],
     },
-    exercises: [29, 30, 31, 32],
-    vocabulary: [241, 242, 243, 244, 245, 2, 262, 163, 165, 105],
-    estimatedTime: 40,
+    exercises: [29, 30, 31, 32, 1029, 1030, 1031, 1032],
+    vocabulary: [
+      2, 66, 67, 68, 105, 157, 158, 163, 165, 166, 167, 168, 169, 170, 172,
+      180, 183, 188, 226, 227, 228, 241, 242, 243, 244, 245, 246, 247, 248,
+      249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 262, 277,
+      378, 379, 422,
+    ],
+    estimatedTime: 45,
   },
   {
     id: 9,
