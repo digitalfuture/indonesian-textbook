@@ -667,42 +667,52 @@ export const lessons: Lesson[] = [
     description: "Выражаем завершённые действия",
     objectives: ["Частица sudah", "Частица telah", "Частица pernah", "Лексика завершенности"],
     content: {
-      theory: `В индонезийском языке глаголы не изменяются по временам. Вместо этого используются специальные маркеры (частицы):
+      theory: `В индонезийском языке глаголы не изменяются по лицам, числам и временам. Завершённость действия в прошлом передаётся специальными маркерами и наречиями времени:
 
 1. SUDAH /sudah/ - уже (наиболее употребительное в разговорной и нейтральной речи):
    - Saya sudah makan /saja sudah makan/ - Я уже поел
    - Saya sudah selesai /saja sudah sələsai/ - Я уже закончил
    - Dia sudah pulang /dia sudah pulaŋ/ - Он уже вернулся домой
-   - Sudah makan? /sudah makan/ - Уже ел?
+   - Sudah makan? /sudah makan/ - Уже поел?
 
 2. TELAH /təlah/ - уже (формальный, книжный аналог sudah):
    - Mereka telah tiba /mərəka təlah tiba/ - Они уже прибыли
 
-3. PERNAH /pərnah/ - когда-либо, бывал (указывает на наличие жизненного опыта в прошлом):
+3. PERNAH /pərnah/ - когда-либо, случалось (наличие жизненного опыта в прошлом):
    - Saya pernah ke Jakarta /saja pərnah kə dʒakarta/ - Я бывал в Джакарте
-   - Saya pernah ke Bali /saja pərnah kə bali/ - Я бывал на Бали
+   - belum pernah /bəlum pərnah/ - ещё никогда не случалось / ни разу не был
 
-Новая лексика урока:
-- selesai /sələsai/ - закончить, завершить, готово
-- pulang /pulaŋ/ - возвращаться (домой)
-- tiba /tiba/ - прибывать, приезжать
-- Jakarta /dʒakarta/ - Джакарта (столица Индонезии)`,
+4. Завершение и исчерпанность (habis и selesai):
+   - selesai /sələsai/ - заканчивать, завершать, готово (Tugas saya sudah selesai - Моё задание уже завершено)
+   - habis /habis/ - заканчиваться, исчерпаться, весь до конца (Uang saya sudah habis - Мои деньги кончились)
+
+5. Временные ориентиры прошлого и частотность:
+   - kemarin /kəmarin/ - вчера
+   - dulu /dulu/ - раньше, прежде, сначала (Dulu saya tinggal di Bandung - Раньше я жил в Бандунге)
+   - lalu /lalu/ - прошлый; затем, потом (minggu lalu - прошлая неделя, bulan lalu - прошлый месяц)
+   - selalu /səlalu/ - всегда, постоянно
+   - acap kali /atʃap kali/ - часто, нередко
+   - jarang /dʒaraŋ/ - редко`,
       examples: [
-        { indonesian: "Saya sudah selesai", russian: "Я уже закончил" },
-        { indonesian: "Dia sudah pulang", russian: "Он уже вернулся домой" },
-        { indonesian: "Sudah makan?", russian: "Уже ел?" },
-        { indonesian: "Saya pernah ke Jakarta", russian: "Я бывал в Джакарте" },
-        { indonesian: "Mereka telah tiba", russian: "Они уже прибыли" },
+        { indonesian: "Saya sudah selesai makan", russian: "Я уже закончил есть" },
+        { indonesian: "Kemarin uang kami sudah habis", russian: "Вчера наши деньги уже кончились" },
+        { indonesian: "Dia pernah tinggal di sini dulu", russian: "Он когда-то раньше жил здесь" },
+        { indonesian: "Minggu lalu kami jarang pergi", russian: "На прошлой неделе мы редко уходили" },
+        { indonesian: "Dia selalu ingat masa lalu", russian: "Он всегда помнит прошлое" },
+        { indonesian: "Mereka telah tiba kemarin sore", russian: "Они прибыли вчера вечером" },
+        { indonesian: "Acap kali saya lupa bawa buku", russian: "Я нередко забывал взять книгу" },
+        { indonesian: "Sudah makan malam?", russian: "Ты уже поужинал?" },
       ],
       keyPoints: [
-        "Частицы времени перед глаголом — глагол не меняет форму (Saya sudah makan — Я уже поел)",
-        "sudah — завершённое действие или результат (Dia sudah pulang — Он уже вернулся домой, Sudah makan? — Уже ел?)",
-        "telah — формальный / книжный аналог sudah (Mereka telah tiba — Они прибыли)",
-        "pernah — прошлый жизненный опыт 'когда-либо бывал / делал' (Saya pernah ke Jakarta — Я бывал в Джакарте)",
+        "Частицы времени перед глаголом — глагол не изменяется (Saya sudah makan — Я уже поел)",
+        "sudah — совершённое действие или результат (Dia sudah pulang — Он уже вернулся домой)",
+        "pernah — жизненный опыт 'когда-либо бывал / делал' (Saya pernah ke Jakarta — Я бывал в Джакарте)",
+        "selesai vs habis — завершение действия (selesai — закончить процесс) и исчерпанность запаса (habis — кончилось, больше нет)",
+        "Временные маркеры прошлого — kemarin (вчера), dulu (раньше), minggu lalu (на прошлой неделе)",
       ],
     },
-    exercises: [33, 34, 35, 36],
-    vocabulary: [486, 487, 490, 44],
+    exercises: [33, 34, 35, 36, 1033, 1034, 1035, 1036],
+    vocabulary: [98, 99, 126, 127, 137, 138, 253, 257, 258],
     estimatedTime: 40,
   },
   {
@@ -711,47 +721,63 @@ export const lessons: Lesson[] = [
     description: "Действия в процессе",
     objectives: ["sedang", "lagi", "masih", "Действия в момент речи"],
     content: {
-      theory: `Для выражения действия, происходящего прямо сейчас (в процессе), используются следующие частицы:
+      theory: `Для выражения действия, происходящего прямо сейчас (в процессе), используются маркеры длительности:
 
 1. SEDANG /sədaŋ/ - в процессе, прямо сейчас (нейтральное и официальное):
    - Saya sedang bekerja /saja sədaŋ bəkərdʒa/ - Я работаю (прямо сейчас)
-   - Kami sedang makan siang /kami sədaŋ makan siaŋ/ - Мы обедаем
+   - Kami sedang belajar /kami sədaŋ bəladʒar/ - Мы учимся
+   - Ibu sedang masak di dapur /ibu sədaŋ masak di dapur/ - Мама готовит на кухне
 
-2. LAGI /laɡi/ - в процессе (разговорное):
+2. LAGI /laɡi/ - в процессе (живая разговорная речь):
    - Dia lagi baca buku /dia laɡi batʃa buku/ - Он читает книгу (сейчас)
+   - Mereka lagi rapat /mərəka laɡi rapat/ - У них сейчас собрание / совещание
+   - Dia lagi tidur /dia laɡi tidur/ - Он спит
 
 3. MASIH /masih/ - всё ещё (действие или состояние продолжается):
-   - Mereka masih di kantor /mərəka masih di kantor/ - Они всё ещё в офисе
+   - Mereka masih kerja /mərəka masih kərdʒa/ - Они всё ещё работают
    - Apa kamu masih di sini? /apa kamu masih di sini/ - Ты всё ещё здесь?
 
-Новая лексика урока:
-- bekerja /bəkərdʒa/ - работать (также kerja)
-- baca /batʃa/ - читать (также membaca)
-- kantor /kantor/ - офис, учреждение
-- makan siang /makan siaŋ/ - обедать (букв. "есть дневное")
-- di sini /di sini/ - здесь`,
+4. Глаголы повседневных действий, гигиены и быта:
+   - kerja /kərdʒa/, bekerja /bəkərdʒa/ - работать, работа
+   - rapat /rapat/ - собрание, совещание
+   - tidur /tidur/ - спать
+   - mandi /mandi/ - купаться, принимать душ
+   - cuci /tʃutʃi/ - мыть, стирать (cuci tangan - мыть руки)
+   - bersihkan /bərsihkan/ - чистить, наводить порядок
+   - beres /bərəs/ - в порядке, сделано, готово
+   - pakai /pakai/ - надевать, носить, использовать
+   - lepas /ləpas/ - снимать (одежду), отпускать
+   - ganti /ɡanti/ - менять, заменять, переодеваться
+   - simpan /simpan/ - сохранять, убирать на место
+   - antar /antar/ - провожать, отвозить
+   - jemput /dʒəmput/ - встречать, забирать
+   - berangkat /bəraŋkat/ - отправляться, уезжать
+   - pulang /pulaŋ/ - возвращаться домой
+   - siap /siap/ - готовый, готов`,
       examples: [
-        { indonesian: "Saya sedang bekerja", russian: "Я работаю (сейчас)" },
-        {
-          indonesian: "Dia lagi baca buku",
-          russian: "Он читает книгу (сейчас)",
-        },
-        {
-          indonesian: "Mereka masih di kantor",
-          russian: "Они всё ещё в офисе",
-        },
-        { indonesian: "Kami sedang makan siang", russian: "Мы обедаем" },
-        { indonesian: "Apa kamu masih di sini?", russian: "Ты всё ещё здесь?" },
+        { indonesian: "Saya sedang cuci tangan sekarang", russian: "Я сейчас мою руки" },
+        { indonesian: "Dia lagi masak untuk makan malam", russian: "Она сейчас готовит на ужин" },
+        { indonesian: "Bapak masih rapat di kantor", russian: "Папа всё ещё на совещании в офисе" },
+        { indonesian: "Saya sedang bersihkan kamar, semua beres", russian: "Я убираю комнату, всё в порядке" },
+        { indonesian: "Kakak sedang jemput adik di sekolah", russian: "Старший брат забирает младшего из школы" },
+        { indonesian: "Kami baru ganti baju dan siap berangkat", russian: "Мы только что переоделись и готовы ехать" },
+        { indonesian: "Dia lagi baca buku sambil menunggu", russian: "Он читает книгу в ожидании" },
+        { indonesian: "Adik sedang mandi di kamar mandi", russian: "Младший брат принимает душ в ванной" },
       ],
       keyPoints: [
-        "sedang — действие происходит прямо сейчас, нейтральный стиль (Saya sedang bekerja — Я работаю прямо сейчас)",
-        "lagi — разговорный маркер текущего действия (Dia lagi baca buku — Он сейчас читает книгу)",
-        "masih — продолжение действия или состояния 'всё ещё' (Mereka masih di kantor — Они всё ещё в офисе)",
+        "sedang — нейтральный маркер длительного действия в момент речи (Saya sedang bekerja — Я работаю прямо сейчас)",
+        "lagi — разговорный эквивалент sedang (Dia lagi tidur — Он сейчас спит)",
+        "masih — продолжение процесса 'всё ещё' (Bapak masih rapat — Папа всё ещё на совещании)",
+        "Бытовые глаголы в процессе — cuci tangan (мыть руки), masak (готовить), bersihkan (убирать), jemput (забирать)",
+        "beres и siap — фиксация готовности (Semua sudah beres — Всё уже в порядке/готово)",
       ],
     },
-    exercises: [37, 38, 39, 40],
-    vocabulary: [489, 62, 421, 423, 364, 424, 425, 283],
-    estimatedTime: 35,
+    exercises: [37, 38, 39, 40, 1037, 1038, 1039, 1040],
+    vocabulary: [
+      62, 72, 220, 255, 364, 380, 421, 423, 424, 425, 427, 428, 429, 430,
+      431, 432, 433, 434, 435, 438, 439, 440, 503,
+    ],
+    estimatedTime: 45,
   },
   {
     id: 11,
@@ -759,50 +785,50 @@ export const lessons: Lesson[] = [
     description: "Выражаем будущие действия",
     objectives: ["akan", "mau", "hendak", "Выражение намерений и времени в будущем"],
     content: {
-      theory: `Будущее время в индонезийском языке выражается специальными частицами перед глаголом:
+      theory: `Будущее время в индонезийском языке выражается специальными частицами перед глаголом, а также маркерами времени и вероятности:
 
 1. AKAN /akan/ - будет, буду (нейтральный маркер будущего времени):
    - Saya akan belajar besok /saja akan bəladʒar besok/ - Я буду учиться завтра
-   - Dia akan pulang minggu depan /dia akan pulaŋ miŋɡu dəpan/ - Он вернётся на следующей неделе
-   - Kami akan bertemu jam 5 /kami akan bərtəmu dʒam lima/ - Мы встретимся в 5 часов
+   - Dia akan datang minggu depan /dia akan dataŋ miŋɡu dəpan/ - Он приедет на следующей неделе
+   - Kami akan bertemu jam lima /kami akan bərtəmu dʒam lima/ - Мы встретимся в 5 часов
 
-2. MAU /mau/ - собираться, хотеть (разговорный маркер ближайшего будущего и желания):
-   - Mau pergi ke mana? /mau pərɡi kə mana/ - Куда хочешь пойти? / Куда идёшь?
-   - Mereka mau makan /mərəka mau makan/ - Они хотят есть / собираются поесть
+2. MAU /mau/ (saya mau) - собираться, намереваться, хотеть:
+   - Mau pergi ke mana? /mau pərɡi kə mana/ - Куда собираешься пойти?
+   - Saya mau belajar sekarang /saja mau bəladʒar səkaraŋ/ - Я собираюсь учиться сейчас
 
-3. HENDAK /həndaʔ/ - намереваться (более формальное):
-   - Saya hendak belajar /saja həndaʔ bəladʒar/ - Я намерен учиться
+3. HENDAK /həndaʔ/ - намереваться (книжный, более официальный стиль):
+   - Kami hendak berangkat /kami həndaʔ bəraŋkat/ - Мы намерены отправиться в путь
 
-Новая лексика урока:
-- belajar /bəladʒar/ - учиться, изучать
-- minggu depan /miŋɡu dəpan/ - на следующей неделе
-- depan /dəpan/ - передний, следующий`,
+4. Временные ориентиры будущего:
+   - besok /besok/ - завтра (besok pagi - завтра утром)
+   - nanti /nanti/ - потом, позже, скоро (nanti malam - сегодня вечером)
+   - minggu /miŋɡu/ - неделя (minggu depan - следующая неделя)
+   - kapan-kapan /kapan-kapan/ - когда-нибудь, при случае, в другой раз
+
+5. Выражение вероятности и возможности в будущем:
+   - mungkin /muŋkin/ - возможно, может быть
+   - bisa jadi /bisa dʒadi/ - может быть, вполне вероятно
+   - datang /dataŋ/ - приходить, приезжать, наступать`,
       examples: [
-        {
-          indonesian: "Saya akan belajar besok",
-          russian: "Я буду учиться завтра",
-        },
-        { indonesian: "Mau pergi ke mana?", russian: "Куда хочешь пойти?" },
-        {
-          indonesian: "Dia akan pulang minggu depan",
-          russian: "Он вернётся на следующей неделе",
-        },
-        {
-          indonesian: "Kami akan bertemu jam 5",
-          russian: "Мы встретимся в 5 часов",
-        },
-        { indonesian: "Mereka mau makan", russian: "Они хотят есть" },
+        { indonesian: "Saya akan belajar bahasa Indonesia besok", russian: "Я буду учить индонезийский язык завтра" },
+        { indonesian: "Mungkin dia akan datang nanti sore", russian: "Возможно, он придёт позже вечером" },
+        { indonesian: "Bisa jadi kami pindah minggu depan", russian: "Может случиться, что мы переедем на следующей неделе" },
+        { indonesian: "Kapan-kapan kita bertemu lagi", russian: "Когда-нибудь мы встретимся снова" },
+        { indonesian: "Nanti saya mau makan malam dengan keluarga", russian: "Позже я собираюсь поужинать с семьёй" },
+        { indonesian: "Mau pergi ke mana besok pagi?", russian: "Куда собираешься пойти завтра утром?" },
+        { indonesian: "Mereka hendak berangkat besok", russian: "Они намереваются уехать завтра" },
+        { indonesian: "Saya akan datang tepat waktu", russian: "Я приду вовремя" },
       ],
       keyPoints: [
         "akan — нейтральный маркер будущего времени (Saya akan belajar besok — Я буду учиться завтра)",
-        "mau — намерение, ближайшее будущее и желание в разговорной речи (Mereka mau makan — Они собираются / хотят поесть)",
-        "hendak — книжное и формальное намерение (Saya hendak belajar — Я намерен учиться)",
-        "Указатели будущего времени — depan ставится после единицы времени (minggu depan — на следующей неделе, tahun depan — в следующем году)",
+        "mau — намерение, ближайшее будущее и желание в живой речи (Saya mau datang — Я собираюсь прийти)",
+        "вероятность будущего — mungkin и bisa jadi (Mungkin dia akan datang — Возможно, он придёт)",
+        "ориентиры будущего — besok (завтра), nanti (позже), minggu depan (на следующей неделе), kapan-kapan (когда-нибудь)",
       ],
     },
-    exercises: [41, 42, 43, 44],
-    vocabulary: [488, 493, 424, 242, 44, 41],
-    estimatedTime: 35,
+    exercises: [41, 42, 43, 44, 1041, 1042, 1043, 1044],
+    vocabulary: [44, 69, 112, 125, 136, 242, 254, 256, 424],
+    estimatedTime: 40,
   },
   {
     id: 12,
@@ -810,53 +836,49 @@ export const lessons: Lesson[] = [
     description: "Может, должен, хочет",
     objectives: ["bisa", "harus", "mau / ingin", "Вежливые просьбы"],
     content: {
-      theory: `Модальные глаголы выражают возможность, необходимость и желание:
+      theory: `Модальные глаголы выражают возможность, способность, необходимость и желание:
 
-1. BISA /bisa/ - мочь, уметь:
+1. BISA /bisa/ - мочь, уметь (физическая способность или умение):
    - Saya bisa berenang /saja bisa bərənaŋ/ - Я умею плавать
+   - Saya bisa main gitar /saja bisa main ɡitar/ - Я умею играть на гитаре
    - Bisa bantu saya? /bisa bantu saja/ - Можете помочь мне?
 
-2. HARUS /harus/ - должен, обязан:
+2. HARUS /harus/, PERLU /pərlu/ - должен, обязан, нужно:
+   - Kamu harus tidur sekarang /kamu harus tidur səkaraŋ/ - Ты должен спать сейчас
+   - Kita harus belajar /kita harus bəladʒar/ - Мы должны учиться
    - Kamu harus datang tepat waktu /kamu harus dataŋ təpat waktu/ - Ты должен прийти вовремя
-   - Saya harus pergi /saja harus pərɡi/ - Я должен идти
 
-3. MAU /mau/ - хотеть (повседневное):
+3. MAU /mau/ (saya mau) - хотеть, собираться (повседневное):
    - Saya mau kopi /saja mau kopi/ - Я хочу кофе
+   - Saya mau makan nasi goreng /saja mau makan nasi ɡoreŋ/ - Я хочу поесть жареный рис
 
-4. INGIN /iŋin/ - хотеть, желать (более вежливое и формальное):
+4. INGIN /iŋin/ - хотеть, желать (вежливое, душевное желание):
    - Dia ingin pergi ke Bali /dia iŋin pərɡi kə bali/ - Он хочет поехать на Бали
-   - Apa yang kamu inginkan? /apa jaŋ kamu iŋinkan/ - Чего ты желаешь?
+   - Saya ingin tidur /saja iŋin tidur/ - Я хочу спать
 
-Новые слова урока:
-- berenang /bərənaŋ/ - плавать
-- tepat /təpat/ - точный
-- waktu /waktu/ - время
-- tepat waktu /təpat waktu/ - вовремя
-- kopi /kopi/ - кофе
-- bantu /bantu/ - помогать (также membantu)
-- Bali /bali/ - Бали`,
+5. BOLEH /boleh/ - можно, разрешено:
+   - Boleh saya minum kopi ini? /boleh saja minum kopi ini/ - Можно мне выпить этот кофе?
+   - Boleh /boleh/ - можно, разрешается`,
       examples: [
-        { indonesian: "Saya bisa berenang", russian: "Я умею плавать" },
-        {
-          indonesian: "Kamu harus datang tepat waktu",
-          russian: "Ты должен прийти вовремя",
-        },
-        { indonesian: "Saya mau kopi", russian: "Я хочу кофе" },
-        {
-          indonesian: "Dia ingin pergi ke Bali",
-          russian: "Он хочет поехать на Бали",
-        },
-        { indonesian: "Bisa bantu saya?", russian: "Можете помочь мне?" },
+        { indonesian: "Saya bisa berenang dan main di pantai", russian: "Я умею плавать и играть на пляже" },
+        { indonesian: "Saya mau minum kopi hangat", russian: "Я хочу выпить горячего кофе" },
+        { indonesian: "Kamu harus tidur, besok harus bangun pagi", russian: "Ты должен спать, завтра нужно проснуться рано" },
+        { indonesian: "Dia ingin belajar bahasa baru", russian: "Он хочет изучать новый язык" },
+        { indonesian: "Bisa tolong bantu saya?", russian: "Не могли бы вы мне помочь?" },
+        { indonesian: "Boleh saya makan di sini?", russian: "Можно мне поесть здесь?" },
+        { indonesian: "Anak-anak mau main bersama di luar", russian: "Дети хотят играть вместе на улице" },
+        { indonesian: "Kita harus datang tepat waktu", russian: "Мы должны прийти вовремя" },
       ],
       keyPoints: [
-        "bisa — физическая возможность, навык или вежливая просьба (Saya bisa berenang — Я умею плавать; Bisa bantu saya? — Можете помочь?)",
-        "harus — долженствование и обязательство (Kamu harus datang tepat waktu — Ты должен прийти вовремя)",
-        "mau vs ingin — повседневное 'mau' против более вежливого и глубокого желания 'ingin' (Saya mau kopi — Я хочу кофе; Dia ingin pergi ke Bali — Он мечтает/хочет поехать на Бали)",
-        "Модальный глагол ставится перед смысловым глаголом (Saya harus pergi — Я должен идти)",
+        "bisa — способность, навык или вежливая просьба (Saya bisa berenang — Я умею плавать; Bisa bantu? — Можешь помочь?)",
+        "harus — долженствование и строгая необходимость (Kamu harus tidur — Ты должен спать)",
+        "mau vs ingin — повседневное 'mau' против более вежливого 'ingin' (Saya mau kopi — Я хочу кофе; Dia ingin belajar — Он хочет учиться)",
+        "boleh — разрешение и вопрос 'можно?' (Boleh saya makan? — Можно мне поесть?)",
+        "Модальный глагол всегда предшествует основному действию (Saya harus pergi — Я должен идти)",
       ],
     },
-    exercises: [45, 46, 47, 48],
-    vocabulary: [491, 492, 493, 203, 421, 424, 41],
+    exercises: [45, 46, 47, 48, 1045, 1046, 1047, 1048],
+    vocabulary: [41, 52, 69, 90, 203, 421, 424],
     estimatedTime: 40,
   },
   {
