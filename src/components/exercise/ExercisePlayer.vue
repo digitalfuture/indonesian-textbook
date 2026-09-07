@@ -319,10 +319,6 @@ function nextStage() {
   }
 }
 
-function retryExerciseNow() {
-  resetExerciseState();
-}
-
 function continueAfterWrong() {
   // Current failed exercise was already pushed to end of activeQueue in checkAnswer.
   // Advance to the next exercise.
@@ -380,11 +376,7 @@ function handleKeydown(e: KeyboardEvent) {
       } else if (isCorrect.value && currentExerciseIndex.value < activeQueue.value.length - 1) {
         nextExercise();
       } else if (!isCorrect.value) {
-        if (currentExerciseIndex.value < activeQueue.value.length - 1) {
-          continueAfterWrong();
-        } else {
-          retryExerciseNow();
-        }
+        continueAfterWrong();
       }
     }
     return;
@@ -592,18 +584,11 @@ defineExpose({
             {{ $t('exercise.continue') }}
           </button>
           <button
-            v-else-if="showFeedback && !isCorrect && currentExerciseIndex < activeQueue.length - 1"
+            v-else-if="showFeedback && !isCorrect"
             class="btn btn-primary btn-lg"
             @click="continueAfterWrong"
           >
-            {{ $t('exercise.retryLater') }}
-          </button>
-          <button
-            v-else-if="showFeedback && !isCorrect"
-            class="btn btn-outline btn-lg"
-            @click="retryExerciseNow"
-          >
-            {{ $t('exercise.retry') }}
+            {{ $t('exercise.continue') }}
           </button>
         </div>
       </div>
