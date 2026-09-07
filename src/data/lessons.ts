@@ -887,54 +887,88 @@ export const lessons: Lesson[] = [
     description: "Описываем предметы и людей",
     objectives: ["Позиция прилагательных", "lebih (более)", "paling (самый)", "sangat (очень)"],
     content: {
-      theory: `Правило: В индонезийском языке прилагательное всегда ставится ПОСЛЕ определяемого существительного:
-- rumah besar /rumah bəsar/ - большой дом (букв. "дом большой")
-- mobil baru /mobil baru/ - новая машина
-- buku kecil /buku kətʃil/ - маленькая книга
+      theory: `Прилагательные в индонезийском языке (описания, свойства, цвета, характер, животные и погода):
 
-Степени сравнения и усиления:
-1. Lebih /ləbih/ - более (сравнительная степень):
-   - lebih baik /ləbih baik/ - лучше (более хороший)
-   - lebih besar /ləbih bəsar/ - больше
+1. Порядок слов:
+   Прилагательное ВСЕГДА ставится ПОСЛЕ существительного:
+   - rumah besar /rumah bəsar/ - большой дом (букв. "дом большой")
+   - mobil baru /mobil baru/ - новая машина
+   - baju putih /badʒu putih/ - белая рубашка / одежда
+   - anjing pintar /andʒiŋ pintar/ - умная собака
 
-2. Paling /paliŋ/ - самый (превосходная степень):
-   - paling pintar /paliŋ pintar/ - самый умный
-   - paling besar /paliŋ bəsar/ - самый большой
+2. Степени сравнения и усиления:
+   - lebih /ləbih/ - более, лучше (lebih baik - лучше, lebih besar - больше)
+   - kurang /kuraŋ/ - менее (kurang manis - менее сладкий)
+   - paling /paliŋ/ - самый (paling pintar - самый умный, paling tinggi - самый высокий)
+   - sangat /saŋat/, sekali /səkali/ - очень (sangat enak / enak sekali - очень вкусный)
 
-3. Sangat /saŋat/ - очень:
-   - sangat enak /saŋat enak/ - очень вкусный
-   - sangat baik /saŋat baik/ - очень хороший
+3. Физические свойства, размер и форма:
+   - besar /bəsar/ - большой; kecil /kətʃil/ - маленький
+   - panjang /pandʒaŋ/ - длинный; pendek /pəndək/ - короткий
+   - tinggi /tiŋɡi/ - высокий; rendah /rendah/ - низкий
+   - berat /bərat/ - тяжёлый; ringan /riŋan/ - лёгкий
+   - kuat /kuat/ - сильный; lemah /lemah/ - слабый
+   - keras /kəras/ - твёрдый, громкий; lunak /lunak/ - мягкий
+   - kasar /kasar/ - грубый, шершавый; halus /halus/ - гладкий, нежный
+   - bersih /bersih/ - чистый; kotor /kotor/ - грязный
+   - basah /basah/ - мокрый; kering /kəriŋ/ - сухой
+   - cepat /tʃəpat/ - быстрый; lambat /lambat/ - медленный
+   - tebal /təbal/ - толстый; tipis /tipis/ - тонкий
+   - terang /teraŋ/ - светлый, яркий; gelap /ɡelap/ - тёмный
 
-Новые слова урока:
-- pintar /pintar/ - умный, способный
-- enak /enak/ - вкусный, приятный
-- makanan /makanan/ - еда, пища, блюдо
-- kecil /kətʃil/ - маленький
-- besar /bəsar/ - большой`,
+4. Цвета (warna /warna/) и одежда (pakaian /pakaian/):
+   - merah /merah/ - красный, putih /putih/ - белый
+   - hitam /hitam/ - чёрный, biru /biru/ - синий
+   - hijau /hidʒau/ - зелёный, kuning /kuniŋ/ - жёлтый
+   - coklat /tʃoklat/ - коричневый, abu-abu /abu-abu/ - серый
+   - baju /badʒu/ - одежда, рубашка; celana /tʃəlana/ - брюки
+   - sepatu /sepatu/ - обувь; topi /topi/ - шляпа/кепка; jaket /dʒakət/ - куртка; kaus /kaus/ - футболка
+
+5. Характер, чувства и эмоции:
+   - senang /sənaŋ/, gembira /ɡəmbira/ - радостный, весёлый
+   - sedih /sədih/ - грустный; marah /marah/ - сердитый; takut /takut/ - напуганный
+   - capek /tʃapək/ - усталый; cemas /tʃəmas/ - тревожный; kaget /kaɡət/ - удивлённый
+   - bangga /baŋɡa/ - гордый; malu /malu/ - стеснительный, стыдный; heran /həran/ - поражённый
+   - pintar /pintar/ - умный; bodoh /bodoh/ - глупый
+   - rajin /radʒin/ - прилежный; malas /malas/ - ленивый
+   - baik hati /baiʔ hati/ - добрый; jahat /dʒahat/ - злой; sabar /sabar/ - терпеливый; berani /bərani/ - смелый
+
+6. Вкусы, животные и природные явления:
+   - enak /enak/ - вкусный; manis /manis/ - сладкий; asin /asin/ - солёный; pedas /pədas/ - острый; pahit /pahit/ - горький
+   - lapar /lapar/ - голодный; haus /haus/ - испытывающий жажду; murah /murah/ - дешёвый; mahal /mahal/ - дорогой
+   - kucing, anjing, burung, kuda, ayam, bebek, sapi, kambing, ular, harimau, gajah, monyet, buaya, kura-kura
+   - cuaca /tʃuatʃa/ - погода; panas /panas/ - жаркий; dingin /diŋin/ - холодный; sejuk /sedʒuk/ - прохладный; cerah /tʃerah/ - ясный; mendung /mənduŋ/ - пасмурный; lembab /lembab/ - влажный; angin, awan, musim, iklim, suhu, gempa, topan, banjir`,
       examples: [
-        { indonesian: "Rumah itu besar", russian: "Тот дом большой" },
-        { indonesian: "Mobil ini lebih baik", russian: "Эта машина лучше" },
-        { indonesian: "Dia paling pintar", russian: "Он самый умный" },
-        {
-          indonesian: "Makanan ini sangat enak",
-          russian: "Эта еда очень вкусная",
-        },
-        { indonesian: "Buku itu kecil", russian: "Та книга маленькая" },
+        { indonesian: "Mobil baru ini lebih cepat dan sangat bersih", russian: "Эта новая машина быстрее и очень чистая" },
+        { indonesian: "Kucing putih itu sangat lucu dan manis", russian: "Та белая кошка очень милая и ласковая" },
+        { indonesian: "Makanan pedas ini enak sekali, tapi saya haus", russian: "Эта острая еда очень вкусная, но я хочу пить" },
+        { indonesian: "Hari ini cuaca cerah dan angin sejuk", russian: "Сегодня солнечная погода и прохладный ветер" },
+        { indonesian: "Gajah adalah binatang paling besar dan kuat", russian: "Слон — самое большое и сильное животное" },
+        { indonesian: "Dia rajin dan pintar, tidak pernah malas", russian: "Он прилежный и умный, никогда не ленится" },
+        { indonesian: "Baju merah ini murah, tapi jaket hitam itu mahal", russian: "Эта красная рубашка дешёвая, а та чёрная куртка дорогая" },
+        { indonesian: "Jangan takut dan tetap sabar", russian: "Не бойся и оставайся терпеливым" },
       ],
       keyPoints: [
-        "Порядок слов с признаком — прилагательное всегда ставится ПОСЛЕ определяемого существительного (rumah besar — большой дом, mobil baru — новая машина)",
-        "Сравнительная степень через 'lebih' — более / -ее (Mobil ini lebih baik — Эта машина лучше)",
-        "Превосходная степень через 'paling' — самый (Dia paling pintar — Он самый умный)",
-        "Усиление признака через 'sangat' — очень (Makanan ini sangat enak — Эта еда очень вкусная)",
+        "Позиция признака — прилагательное всегда ставится ПОСЛЕ определяемого существительного (baju merah — красная одежда, kucing kecil — маленькая кошка)",
+        "Степени сравнения — lebih (более / -ее: lebih baik), paling (самый: paling pintar)",
+        "Усилители качества — sangat (перед прилагательным: sangat enak) или sekali (после прилагательного: enak sekali)",
+        "Цвета и одежда — warna (цвет), merah, putih, hitam, biru, hijau, kuning, baju, celana, sepatu",
+        "Чувства и черты характера — senang, sedih, marah, takut, capek, rajin, malas, sabar, berani",
       ],
     },
-    exercises: [49, 50, 51, 52],
+    exercises: [49, 50, 51, 52, 1049, 1050, 1051, 1052],
     vocabulary: [
-      381, 382, 383, 384, 385, 14, 142, 205, 264, 303, 304, 305, 321, 322, 323,
-      324, 481, 482, 483, 484, 485, 494, 495, 496, 63, 65, 61, 263, 363, 301,
-      302, 441, 442, 444, 445, 461,
+      14, 36, 63, 65, 91, 140, 142, 181, 182, 197, 199, 200, 205, 215, 216,
+      217, 218, 219, 224, 225, 238, 239, 263, 264, 301, 302, 303, 304, 305,
+      306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319,
+      320, 321, 322, 323, 324, 326, 327, 328, 329, 330, 331, 332, 333, 334,
+      335, 336, 337, 338, 339, 340, 363, 381, 382, 383, 384, 385, 386, 387,
+      388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 441,
+      442, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456,
+      457, 458, 459, 461, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490,
+      491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 502,
     ],
-    estimatedTime: 40,
+    estimatedTime: 50,
   },
   {
     id: 14,
@@ -942,59 +976,71 @@ export const lessons: Lesson[] = [
     description: "Место, направление, время",
     objectives: ["di (место)", "ke (направление)", "dari (исходная точка)", "pada (время)", "di atas / di bawah"],
     content: {
-      theory: `Основные предлоги в индонезийском языке:
+      theory: `Предлоги места, направления, времени, транспорт и ориентация в городе:
 
-1. DI /di/ - в, на (указывает на местонахождение, где?):
-   - di rumah /di rumah/ - дома / в доме
-   - di Jakarta /di dʒakarta/ - в Джакарте
+1. Базовые предлоги направления и места:
+   - DI /di/ - в, на (местонахождение, "где?"): di rumah, di kantor, di pasar
+   - KE /kə/ - в, на, к (направление, "куда?"): ke sekolah, ke bandara, ke stasiun
+   - DARI /dari/ - из, от, с (исходная точка, "откуда?"): dari rumah sakit, dari Rusia
+   - PADA /pada/ - в, на (время или абстрактное положение): pada jam tiga, pada hari Senin
 
-2. KE /kə/ - в, на, к (указывает на направление движения, куда?):
-   - ke kantor /kə kantor/ - в офис / на работу
-   - ke rumah /kə rumah/ - домой
+2. Пространственная ориентация:
+   - atas /atas/ - верх (di atas - на/над); bawah /bawah/ - низ (di bawah - под)
+   - dalam /dalam/ - внутри (di dalam); luar /luar/ - снаружи (di luar)
+   - depan /dəpan/ - спереди (di depan); belakang /bəlakaŋ/ - сзади (di belakang)
+   - samping /sampiŋ/ - сбоку, рядом; seberang /seberaŋ/ - напротив, через дорогу
+   - sekitar /sekitar/ - вокруг, около; antara /antara/ - между, среди
+   - tepi /təpi/, pinggir /piŋɡir/, ujung /udʒuŋ/ - край, побережье, конец
+   - sudut /sudut/ - угол; tempat /tempat/ - место; posisi /posisi/ - положение
+   - sini /sini/ - здесь, сюда; situ /situ/ - там (поблизости); sana /sana/ - вон там (далеко)
 
-3. DARI /dari/ - из, от, с (указывает на источник / происхождение, откуда?):
-   - dari Rusia /dari rusia/ - из России
-   - dari rumah /dari rumah/ - из дома
+3. Направления движения и городская среда:
+   - kiri /kiri/ - налево, левый; kanan /kanan/ - направо, правый; lurus /lurus/ - прямо
+   - dekat /dəkat/ - близко, рядом; jauh /dʒauh/ - далеко
+   - kota, jalan, kantor, sekolah, pasar, rumah sakit, bank, toko, apotek, stasiun, bandara, pelabuhan, taman, masjid, gereja, restoran
 
-4. PADA /pada/ - в, на (указывает на точное время или дни):
-   - pada jam 3 /pada dʒam tiɡa/ - в 3 часа
-   - pada hari Senin /pada hari sənin/ - в понедельник
+4. Транспорт (kendaraan) и путешествия:
+   - naik /naik/ - садиться (в транспорт), ехать на (naik bis, naik kereta)
+   - turun /turun/ - выходить (из транспорта), спускаться
+   - mobil, motor, ojek, bis, taksi, kereta, pesawat, kapal, sepeda, becak
+   - jalan kaki /dʒalan kaki/ - идти пешком (kaki - нога)
+   - bensin, ban, tiket, koper, paspor, bagasi, perjalanan, wisata, peta, macet, kecelakaan
 
-5. Пространственные конструкции:
-   - di atas /di atas/ - на, над (положение сверху)
-   - di atas meja /di atas medʒa/ - на столе
-   - di bawah /di bawah/ - под
-   - di dalam /di dalam/ - внутри, в
-
-Новые слова урока:
-- kantor /kantor/ - офис, служба
-- meja /medʒa/ - стол
-- atas /atas/ - верх
-- bawah /bawah/ - низ`,
+5. Предлоги отношений и связи:
+   - dengan /dəŋan/, sama /sama/ - с, вместе
+   - untuk /untuk/, bagi /baɡi/ - для, ради
+   - tentang /təntaŋ/ - о, про; terhadap /tərhadap/ - по отношению к
+   - tanpa /tanpa/ - без; кроме /kətʃuali/ - кроме, за исключением; melalui /məlalui/ - через, сквозь`,
       examples: [
-        { indonesian: "Saya di rumah", russian: "Я дома" },
-        { indonesian: "Dia pergi ke kantor", russian: "Он идёт в офис" },
-        { indonesian: "Saya dari Rusia", russian: "Я из России" },
-        {
-          indonesian: "Kita bertemu pada jam 3",
-          russian: "Мы встретимся в 3 часа",
-        },
-        { indonesian: "Buku di atas meja", russian: "Книга на столе" },
+        { indonesian: "Saya pergi ke kantor naik motor karena jalan macet", russian: "Я еду в офис на мотоцикле, потому что на дороге пробка" },
+        { indonesian: "Buku itu ada di atas meja di dalam kamar", russian: "Та книга на столе внутри комнаты" },
+        { indonesian: "Dari bandara ke hotel cukup dekat, bisa jalan kaki", russian: "От аэропорта до гостиницы довольно близко, можно дойти пешком" },
+        { indonesian: "Tolong belok ke kiri, lalu jalan lurus", russian: "Пожалуйста, поверните налево, затем идите прямо" },
+        { indonesian: "Kami naik kereta dari stasiun menuju ke kota", russian: "Мы сели на поезд на вокзале по направлению в город" },
+        { indonesian: "Jangan lupa bawa paspor, tiket, dan koper Anda", russian: "Не забудьте взять ваш паспорт, билет и чемодан" },
+        { indonesian: "Toko dan apotek ada di seberang rumah sakit", russian: "Магазин и аптека находятся напротив больницы" },
+        { indonesian: "Mereka duduk bersama di tepi pantai", russian: "Они сидят вместе на берегу моря" },
       ],
       keyPoints: [
-        "di — местонахождение 'где?' (Saya di rumah — Я дома, di Jakarta — в Джакарте)",
-        "ke — направление движения 'куда?' (Dia pergi ke kantor — Он идёт в офис)",
-        "dari — точка отправления или происхождение 'откуда?' (Saya dari Rusia — Я из России, dari rumah — из дома)",
-        "pada — указание времени и дней недели (pada jam 3 — в 3 часа, pada hari Senin — в понедельник)",
-        "Пространственные связки di atas / di bawah / di dalam — положение предмета (Buku di atas meja — Книга на столе)",
+        "Тройка базовых предлогов — di (где?), ke (куда?), dari (откуда?)",
+        "Пространственные конструкции — предлог + ориентир (di atas — сверху, di bawah — снизу, di depan — спереди, di belakang — сзади)",
+        "Транспортные фразы — naik + вид транспорта (naik kereta — ехать на поезде, naik pesawat — лететь на самолёте), jalan kaki (пешком)",
+        "Ориентация в пространстве — belok kiri (налево), belok kanan (направо), jalan lurus (прямо)",
+        "Указатели местоположения — di sini (здесь), di situ (там рядом), di sana (вон там далеко)",
       ],
     },
-    exercises: [53, 54, 55, 56],
+    exercises: [53, 54, 55, 56, 1053, 1054, 1055, 1056],
     vocabulary: [
-      15, 43, 61, 102, 103, 245, 265, 281, 282, 283, 284, 285, 401, 402, 403,
-      404, 405, 462, 463, 464, 465,
+      15, 29, 43, 49, 54, 61, 84, 85, 86, 87, 92, 102, 103, 130, 133, 134,
+      147, 148, 149, 150, 151, 152, 153, 154, 156, 233, 245, 265, 266, 267,
+      268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281,
+      282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295,
+      296, 297, 298, 299, 300, 401, 402, 403, 404, 405, 406, 407, 408, 409,
+      410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 439, 462, 463,
+      464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477,
+      478, 479, 480, 501,
     ],
-    estimatedTime: 40,
+    estimatedTime: 50,
   },
   {
     id: 15,
@@ -1002,108 +1048,133 @@ export const lessons: Lesson[] = [
     description: "Соединяем простые предложения",
     objectives: ["Союзы dan, atau, tapi", "karena, jadi", "yang (который)"],
     content: {
-      theory: `Основные союзы для соединения слов и предложений:
+      theory: `Сложные предложения, союзы, логические связки, заказ еды и гастрономия:
 
-1. DAN /dan/ - и:
-   - Saya makan nasi dan minum air /saja makan nasi dan minum air/ - Я ем рис и пью воду
+1. Сочинительные и противительные союзы:
+   - dan /dan/ - и (saya makan nasi dan minum air)
+   - atau /atau/, ataukah /ataukah/ - или, или же (mau kopi atau teh?)
+   - tapi /tapi/, tetapi /tətapi/ - но, однако (dia pintar tapi malas)
+   - melainkan /məlainkan/ - а (напротив) (bukan kopi melainkan teh)
+   - bukan saja ... melainkan ... - не только ..., но и (напротив) ...
 
-2. ATAU /atau/ - или:
-   - Mau teh atau kopi? /mau teh atau kopi/ - Хочешь чай или кофе?
+2. Причинно-следственные и определительные союзы:
+   - karena /karəna/, sebab /səbab/ - потому что, так как (tidak datang karena hujan)
+   - jadi /dʒadi/ - поэтому, так что; становиться (saya sakit jadi tinggal di rumah)
+   - yang /jaŋ/ - который, которая, то что (orang yang saya lihat; makanan yang enak)
+   - begitu /bəɡitu/ - так, таким образом; как только (begitu dia datang)
+   - lalu /lalu/ - затем, потом (makan dulu, lalu minum)
 
-3. TAPI /tapi/ - но (также tetapi /tətapi/):
-   - Dia pintar tapi malas /dia pintar tapi malas/ - Он умный, но ленивый
+3. В ресторане (restoran /restoran/), заказ и посуда:
+   - menu /mənu/ - меню; pesan /pəsan/ - заказывать, сообщение
+   - piring /piriŋ/ - тарелка; gelas /ɡəlas/ - стакан; sendok /səndok/ - ложка; garpu /ɡarpu/ - вилка
+   - makanan /makanan/ - еда; minuman /minuman/ - напиток
+   - kopi /kopi/ - кофе; teh /teh/ - чай; susu /susu/ - молоко; gula /ɡula/ - сахар; garam /ɡaram/ - соль
+   - roti /roti/ - хлеб; sayur /sajur/ - овощи; buah /buah/ - фрукты
+   - daging /daɡiŋ/ - мясо; ikan /ikan/ - рыба; telur /təlur/ - яйцо
 
-4. KARENA /karəna/ - потому что, так как:
-   - Saya tidak pergi karena hujan /saja tidaʔ pərɡi karəna hudʒan/ - Я не пошёл, потому что дождь
-
-5. JADI /dʒadi/ - поэтому, так что:
-   - Saya sakit jadi tidak datang /saja sakit dʒadi tidaʔ dataŋ/ - Я заболел, поэтому не пришёл
-
-6. YANG /jaŋ/ - который, которая, которое:
-   - Orang yang saya lihat /oraŋ jaŋ saja lihat/ - Человек, которого я видел
-
-Новая лексика урока:
-- teh /teh/ - чай
-- malas /malas/ - ленивый
-- hujan /hudʒan/ - дождь
-- sakit /sakit/ - больной, болеть`,
+4. Приготовление еды (masak /masak/) и вкусы:
+   - goreng /ɡorəŋ/ - жарить, жареный (nasi goreng, ayam goreng)
+   - rebus /rəbus/ - варить, варёный (telur rebus)
+   - bakar /bakar/ - жарить на углях, запекать (ikan bakar)
+   - enak /enak/ - вкусный; manis /manis/ - сладкий; asin /asin/ - солёный; pedas /pədas/ - острый; pahit /pahit/ - горький
+   - lapar /lapar/ - голодный; haus /haus/ - испытывающий жажду; sakit /sakit/ - больной; hujan /hudʒan/ - дождь`,
       examples: [
-        {
-          indonesian: "Saya makan nasi dan minum air",
-          russian: "Я ем рис и пью воду",
-        },
-        { indonesian: "Mau teh atau kopi?", russian: "Хочешь чай или кофе?" },
-        {
-          indonesian: "Dia pintar tapi malas",
-          russian: "Он умный, но ленивый",
-        },
-        {
-          indonesian: "Saya tidak pergi karena hujan",
-          russian: "Я не пошёл, потому что дождь",
-        },
-        {
-          indonesian: "Orang yang saya lihat",
-          russian: "Человек, которого я видел",
-        },
+        { indonesian: "Saya lapar jadi saya mau pesan nasi goreng dan teh manis", russian: "Я голоден, поэтому хочу заказать жареный рис и сладкий чай" },
+        { indonesian: "Dia tidak datang karena hujan sangat deras dan dia sakit", russian: "Он не пришёл, потому что дождь очень сильный и он заболел" },
+        { indonesian: "Orang yang duduk di restoran itu memesan ikan bakar", russian: "Человек, который сидит в том ресторане, заказал рыбу на углях" },
+        { indonesian: "Ini bukan saja enak, melainkan juga sehat", russian: "Это не только вкусно, но и полезно для здоровья" },
+        { indonesian: "Tolong beri saya sendok, garpu, dan piring bersih", russian: "Пожалуйста, дайте мне ложку, вилку и чистую тарелку" },
+        { indonesian: "Mau minum kopi dengan susu atau teh tanpa gula?", russian: "Хотите выпить кофе с молоком или чай без сахара?" },
+        { indonesian: "Makanan yang terlalu pedas tidak baik untuk anak-anak", russian: "Еда, которая слишком острая, не полезна детям" },
+        { indonesian: "Setelah makan malam, kami minum minuman hangat", russian: "После ужина мы выпили тёплый напиток" },
       ],
       keyPoints: [
-        "dan / atau / tapi — базовые соединительные и противительные союзы (nasi dan air — рис и вода; pintar tapi malas — умный, но ленивый)",
-        "Причинно-следственная связь через karena и jadi — причина и следствие (tidak pergi karena hujan — не пошёл, так как дождь; sakit jadi tidak datang — заболел, поэтому не пришёл)",
-        "Определительное союзное слово yang — аналог 'который' (Orang yang saya lihat — Человек, которого я видел)",
+        "Базовые союзы — dan (и), atau (или), tapi/tetapi (но), melainkan (а напротив)",
+        "Причина и следствие — karena (потому что) и jadi (поэтому)",
+        "Определительное 'yang' — соединяет определяемое слово с признаком или придаточным (makanan yang enak — вкусная еда, orang yang saya lihat — человек, которого я видел)",
+        "Заказ в ресторане — pesan (заказывать), menu (меню), piring (тарелка), gelas (стакан), sendok (ложка), garpu (вилка)",
+        "Способы готовки — goreng (жареный), rebus (варёный), bakar (на углях)",
       ],
     },
-    exercises: [57, 58, 59, 60],
-    vocabulary: [497, 498, 499, 500, 124, 45, 64, 203, 204, 261, 325],
-    estimatedTime: 45,
+    exercises: [57, 58, 59, 60, 1057, 1058, 1059, 1060],
+    vocabulary: [
+      45, 64, 113, 117, 124, 131, 132, 203, 204, 206, 207, 208, 209, 210,
+      211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224,
+      225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 258, 261, 325,
+      504,
+    ],
+    estimatedTime: 50,
   },
   {
     id: 16,
-    title: "Разговорная практика",
-    description: "Идиомы и полезные фразы",
-    objectives: ["Разговорные формулы", "Вежливость и этикет", "Полезные выражения"],
+    title: "Разговорная практика и этикет",
+    description: "Формулы вежливости, знакомство, покупки и расчеты",
+    objectives: ["Разговорные формулы и вежливость", "Знакомство и прощание", "Покупки, деньги и цены", "Просьбы и разрешения"],
     content: {
-      theory: `Полезные разговорные фразы и формулы вежливости:
+      theory: `Разговорные формулы вежливости, этикет, покупки и расчёты:
 
-1. Tidak apa-apa /tidaʔ apa-apa/ - Ничего страшного / всё в порядке
-2. Sama-sama /sama-sama/ - Пожалуйста, не за что / взаимно (в ответ на спасибо)
-3. Tolong /toloŋ/ - Пожалуйста (просьба) / помогите
-4. Maaf /maaf/ - Извините, прости
-5. Permisi /pərmisi/ - Разрешите / извините (чтобы пройти или обратиться)
-6. Silakan /silakan/ - Пожалуйста, добро пожаловать (вежливое приглашение)
-7. Terima kasih banyak /tərima kasih baɲaʔ/ - Большое спасибо
-8. Sampai jumpa lagi /sampaj dʒumpa laɡi/ - До скорой встречи снова
+1. Формулы вежливости и извинения:
+   - terima kasih /tərima kasih/ - спасибо (terima kasih banyak - большое спасибо)
+   - sama-sama /sama sama/ - пожалуйста, не за что, взаимно (букв. "одинаково-одинаково")
+   - maaf /maʔaf/ - извините, простите
+   - tolong /toloŋ/ - пожалуйста (просьба помочь); помогите!
+   - permisi /pərmisi/ - разрешите, простите (чтобы пройти или привлечь внимание)
+   - silakan /silakan/ - пожалуйста (приглашение сделать что-то: silakan masuk - входите, пожалуйста)
+   - berkenan /bərkənan/ - соблаговолить, быть любезным
 
-Полезная лексика урока:
-- khawatir /khawatir/ - волноваться, беспокоиться (jangan khawatir - не волнуйся)
-- senang /sənaŋ/ - рад, приятно (senang bisa membantu - рад помочь)
-- membantu /məmbantu/ - помогать
-- ambilkan /ambilkan/ - взять, принести, подать (tolong ambilkan buku itu)
-- terlambat /tərlambat/ - опоздать, с опозданием (maaf, saya terlambat)
-- masuk /masuk/ - входить (silakan masuk - пожалуйста, входите)`,
+2. Знакомство, общение и пожелания:
+   - kenalan /kənalan/ - знакомиться, знакомство
+   - berkenalan /bərkənalan/ - знакомиться друг с другом (Senang berkenalan dengan Anda - Рад познакомиться с вами)
+   - bertemu /bərtəmu/ - встречать, встречаться (senang bertemu dengan Anda - приятно встретиться с вами)
+   - senang /sənaŋ/ - рад, приятный, счастливый
+   - selamat jalan /səlamat dʒalan/ - счастливого пути (говорят уходящему)
+   - sampai jumpa lagi /sampaj dʒumpa laɡi/ - до скорой встречи
+
+3. Глаголы взаимодействия и просьб:
+   - minta /minta/ - просить, заказывать (minta tolong - просить о помощи)
+   - ambil /ambil/ - брать, взять (tolong ambil buku itu - пожалуйста, возьми ту книгу)
+   - masuk /masuk/ - входить, заходить (silakan masuk ke dalam - пожалуйста, заходите внутрь)
+
+4. Деньги, покупки и торговля:
+   - uang /uaŋ/ - деньги
+   - harga /harɡa/ - цена, стоимость (Berapa harganya? - Какова цена? Сколько стоит?)
+   - murah /murah/ - дешёвый (Harga ini sangat murah - Эта цена очень низкая/дешёвая)
+   - mahal /mahal/ - дорогой (Ini terlalu mahal - Это слишком дорого)
+   - bayar /bajar/ - платить, оплачивать (Saya mau bayar - Я хочу оплатить / расплатиться)`,
       examples: [
         {
-          indonesian: "Tidak apa-apa, jangan khawatir",
-          russian: "Ничего страшного, не волнуйся",
+          indonesian: "Senang berkenalan dengan Anda, sampai jumpa lagi!",
+          russian: "Приятно познакомиться с вами, до скорой встречи!",
         },
         {
-          indonesian: "Sama-sama, senang bisa membantu",
-          russian: "Пожалуйста, рад помочь (букв. 'Взаимно, рад помочь')",
+          indonesian: "Tolong ambilkan uang di atas meja",
+          russian: "Пожалуйста, возьми деньги на столе",
         },
         {
-          indonesian: "Tolong ambilkan buku itu",
-          russian: "Пожалуйста, подай ту книгу",
+          indonesian: "Berapa harga baju ini? Murah atau mahal?",
+          russian: "Сколько стоит эта одежда? Дёшево или дорого?",
         },
-        { indonesian: "Maaf, saya terlambat", russian: "Извините, я опоздал" },
-        { indonesian: "Silakan masuk", russian: "Пожалуйста, входите" },
+        {
+          indonesian: "Saya mau bayar sekarang, terima kasih banyak!",
+          russian: "Я хочу заплатить сейчас, большое спасибо!",
+        },
+        {
+          indonesian: "Silakan masuk dan duduk di sini",
+          russian: "Пожалуйста, входите и садитесь сюда",
+        },
       ],
       keyPoints: [
-        "Разница оттенков вежливости — tolong (просьба помочь: tolong ambilkan buku), silakan (приглашение сделать: silakan masuk), sama-sama (в ответ на спасибо)",
-        "Извинения и реакция — maaf (извинение за поступок: maaf, saya terlambat), tidak apa-apa (успокоение: не переживай, ничего страшного)",
-        "Permisi — вежливое обращение к незнакомцу или просьба пропустить (Permisi, saya mau lewat)",
+        "Разница между tolong и silakan — tolong выражает просьбу о помощи или действии (Tolong bantu saya), а silakan — вежливое приглашение или разрешение (Silakan duduk)",
+        "Ответ на благодарность — sama-sama (взаимно, не за что) на terima kasih (спасибо)",
+        "Торговля и покупки — слова harga (цена), mahal (дорогой), murah (дешёвый) и глагол bayar (платить): Berapa harganya? Saya mau bayar",
+        "Приветствия и знакомство — senang berkenalan / senang bertemu (приятно познакомиться/встретиться), selamat jalan (счастливого пути уходящему)",
       ],
     },
-    exercises: [61, 62, 63, 64],
-    vocabulary: [3, 4, 5, 6, 321],
+    exercises: [61, 62, 63, 64, 1061, 1062, 1063, 1064],
+    vocabulary: [
+      3, 4, 5, 6, 28, 33, 35, 36, 37, 38, 39, 83, 84, 96, 236, 237, 238, 239,
+      240, 321,
+    ],
     estimatedTime: 50,
   },
   {
