@@ -105,13 +105,41 @@ function renderTheory(text: string): string {
 }
 
 function renderKeyPoint(point: string): string {
-  const parts = point.split(/\s*[-–—]\s*/);
-  if (parts.length >= 2) {
-    const term = parts[0];
-    const trans = parts.slice(1).join(" — ");
-    return `<strong class="kp-term">${term}</strong> <span class="kp-sep">—</span> <span class="kp-trans">${trans}</span>`;
+  // Check if string contains rule and description separated by em-dash
+  const dashIndex = point.search(/\s*[-–—]\s*/);
+  if (dashIndex === -1) {
+    return point;
   }
-  return point;
+
+  const term = point.slice(0, dashIndex).trim();
+  const rest = point.slice(dashIndex).replace(/^\s*[-–—]\s*/, "").trim();
+
+  // Extract examples in parentheses if present, e.g. "(Saya makan — я ем, Mereka datang — они приходят)"
+  const exampleMatch = rest.match(/\(([^()]+)\)$/);
+  if (exampleMatch) {
+    const desc = rest.slice(0, exampleMatch.index).trim();
+    const rawExamples = exampleMatch[1];
+
+    // Format examples: split by semicolon or comma where each item can have '—'
+    const formattedExamples = rawExamples
+      .split(/;\s*|,\s*(?=[A-ZА-Яa-zа-я])/g)
+      .map((ex) => {
+        const parts = ex.split(/\s*[-–—]\s*/);
+        if (parts.length >= 2) {
+          const phrase = parts[0].trim();
+          const tr = parts.slice(1).join(" — ").trim();
+          return `<span class="kp-ex-item"><span class="kp-ex-phrase">${phrase}</span> <span class="kp-ex-sep">—</span> <span class="kp-ex-tr">${tr}</span></span>`;
+        }
+        return `<span class="kp-ex-item">${ex}</span>`;
+      })
+      .join('<span class="kp-ex-delim">; </span>');
+
+    const descHtml = desc ? `<span class="kp-desc">${desc}</span> ` : "";
+    return `<strong class="kp-term">${term}</strong> <span class="kp-sep">—</span> ${descHtml}<span class="kp-examples">(${formattedExamples})</span>`;
+  }
+
+  // Fallback for simple term - translation format
+  return `<strong class="kp-term">${term}</strong> <span class="kp-sep">—</span> <span class="kp-trans">${rest}</span>`;
 }
 
 function onTheoryClick(e: MouseEvent) {
@@ -420,6 +448,47 @@ function resetLessonProgress() {
 
 .key-point-item :deep(.kp-sep) {
   color: var(--muted);
+}
+
+.key-point-item :deep(.kp-desc) {
+  color: var(--text);
+  font-weight: 400;
+}
+
+.key-point-item :deep(.kp-examples) {
+  color: var(--muted);
+  font-size: 0.96em;
+}
+
+.key-point-item :deep(.kp-ex-item) {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.1rem 0.35rem;
+  background: var(--bg-card);
+  border-radius: 0.25rem;
+  border: 1px solid var(--border);
+}
+
+.key-point-item :deep(.kp-ex-phrase) {
+  color: var(--text-h);
+  font-weight: 600;
+  font-style: italic;
+}
+
+.key-point-item :deep(.kp-ex-sep) {
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+.key-point-item :deep(.kp-ex-tr) {
+  color: var(--translation-color);
+  font-weight: 500;
+}
+
+.key-point-item :deep(.kp-ex-delim) {
+  color: var(--muted);
+  margin-right: 0.2rem;
 }
 
 .key-point-item :deep(.kp-trans) {
