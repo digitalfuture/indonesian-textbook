@@ -98,7 +98,12 @@ const router = createRouter({
   },
 });
 
+import { useLoadingBar } from "../composables/useLoadingBar";
+
 router.beforeEach((to, _from, next) => {
+  const { start } = useLoadingBar();
+  start();
+
   const langStore = useLanguageStore();
   const il = to.params.interfaceLang as string;
   const tl = to.params.targetLang as string;
@@ -127,5 +132,36 @@ router.beforeEach((to, _from, next) => {
     : defaultTitle;
   next();
 });
+
+router.afterEach(() => {
+  const { finish } = useLoadingBar();
+  finish();
+});
+
+router.onError(() => {
+  const { finish } = useLoadingBar();
+  finish();
+});
+
+// Idle prefetch for lazy chunks so menu clicks are immediate
+if (typeof window !== "undefined") {
+  const prefetchViews = () => {
+    // Preload views in background when network / CPU is idle
+    const views = [DictionaryView, GrammarView, ExerciseView, LessonView, ProgressView];
+    for (const view of views) {
+      try {
+        view();
+      } catch (_e) {
+        // ignore prefetch errors
+      }
+    }
+  };
+
+  if ("requestIdleCallback" in window) {
+    (window as any).requestIdleCallback(prefetchViews, { timeout: 3000 });
+  } else {
+    setTimeout(prefetchViews, 1200);
+  }
+}
 
 export default router;

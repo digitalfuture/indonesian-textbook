@@ -174,6 +174,11 @@ function onMenuClick(item: any) {
   color: var(--p-text-color);
 }
 
+.drawer-menu-item:active {
+  transform: scale(0.98);
+  opacity: 0.8;
+}
+
 .drawer-menu-item.active {
   background: var(--p-primary-color);
   color: var(--p-primary-contrast-color);

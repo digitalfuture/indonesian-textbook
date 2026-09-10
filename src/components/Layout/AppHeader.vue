@@ -216,6 +216,11 @@ function navigate(path: string) {
   color: var(--p-text-color);
 }
 
+.nav-link:active {
+  transform: scale(0.96);
+  opacity: 0.8;
+}
+
 .nav-link.active {
   background: var(--p-primary-color);
   color: var(--p-primary-contrast-color);
