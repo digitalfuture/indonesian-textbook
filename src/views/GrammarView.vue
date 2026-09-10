@@ -520,14 +520,23 @@ const grammarTablesId = [
       { label: "3", cells: ["tiga", "Основа", "tiga rumah (три дома)"] },
       { label: "4", cells: ["empat", "Основа", "empat kursi (четыре стула)"] },
       { label: "5", cells: ["lima", "Основа", "lima jari (пять пальцев)"] },
+      { label: "6", cells: ["enam", "Основа", "enam hari (шесть дней)"] },
+      { label: "7", cells: ["tujuh", "Основа", "tujuh orang (семь человек)"] },
+      { label: "8", cells: ["delapan", "Основа", "delapan jam (восемь часов)"] },
+      { label: "9", cells: ["sembilan", "Основа", "sembilan bulan (девять месяцев)"] },
       { label: "10", cells: ["sepuluh", "se- + puluh", "sepuluh siswa (10 учеников)"] },
-      { label: "11", cells: ["sebelas", "se- + belas", "sebelas orang (11 человек)"] },
+      { label: "11", cells: ["sebelas", "Исключение: se- + belas", "sebelas orang (11 человек)"] },
       { label: "12", cells: ["dua belas", "dua + belas", "dua belas jam (12 часов)"] },
+      { label: "13", cells: ["tiga belas", "tiga + belas", "tiga belas hari (13 дней)"] },
+      { label: "14–19", cells: ["[число] + belas", "empat belas, lima belas, enam belas, tujuh belas, delapan belas, sembilan belas", "Регулярно: цифра 4–9 + belas"] },
       { label: "20", cells: ["dua puluh", "dua + puluh", "dua puluh orang (20 человек)"] },
       { label: "21", cells: ["dua puluh satu", "puluhan + satuan", "dua puluh satu buku (21 книга)"] },
+      { label: "30, 40...", cells: ["[число] + puluh", "tiga puluh (30), empat puluh (40), lima puluh (50)...", "Регулярно: цифра + puluh"] },
       { label: "100", cells: ["seratus", "se- + ratus", "seratus rupiah (100 рупий)"] },
       { label: "101", cells: ["seratus satu", "ratus + satuan", "seratus satu orang (101 человек)"] },
+      { label: "200...", cells: ["[число] + ratus", "dua ratus (200), tiga ratus (300)...", "Регулярно: цифра + ratus"] },
       { label: "1000", cells: ["seribu", "se- + ribu", "seribu dolar (1000 долларов)"] },
+      { label: "1 000 000", cells: ["sejuta", "se- + juta", "sejuta rupiah (миллион рупий)"] },
       {
         label: "orang",
         cells: ["Классификатор людей", "dua orang (два человека)", "Обязателен при счёте людей"],
@@ -541,11 +550,11 @@ const grammarTablesId = [
         cells: ["Классификатор животных", "tiga ekor kucing (три кошки)", "Для животных"],
       },
       {
-        label: "Правила",
+        label: "Правило",
         cells: [
-          "11-19: + belas\n20+: puluh\n100+: ratus\n1000+: ribu",
-          "11 = se-belas, 12 = dua belas\n20 = dua puluh, 21 = dua puluh satu",
-          "Порядок: angka + классификатор + benda",
+          "11–19 образуются через суффикс belas (-надцать):\n• 11 = sebelas (se- вместо satu)\n• 12 = dua belas\n• 13 = tiga belas\n• 14 = empat belas\n• 15 = lima belas\n• 16 = enam belas\n• 17 = tujuh belas\n• 18 = delapan belas\n• 19 = sembilan belas",
+          "Десятки образуются через puluh:\n• 10 = sepuluh\n• 20 = dua puluh\n• 30 = tiga puluh\n• 25 = dua puluh lima",
+          "Сотни/тысячи: se-ratus (100), se-ribu (1000), se-juta (1 000 000).\nФормула счёта предметов: число + классификатор + существительное (dua orang guru).",
         ],
       },
     ],
@@ -983,6 +992,7 @@ function goBack() {
 .grammar-table td {
   color: var(--text-h);
   font-weight: 400;
+  white-space: pre-line;
 }
 
 .grammar-table tr:hover td {
