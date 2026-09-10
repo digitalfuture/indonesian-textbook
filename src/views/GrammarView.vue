@@ -854,7 +854,7 @@ function goBack() {
           @click="goToTable(table.id)"
         >
           <div class="table-icon">{{ table.icon }}</div>
-          <h3>{{ table.icon }} {{ table.title }}</h3>
+          <h3>{{ table.title }}</h3>
           <p>{{ table.description }}</p>
           <div class="table-meta">
             <span>{{ $t('grammar.table.entryCount', { count: table.rows.length }) }}</span>
