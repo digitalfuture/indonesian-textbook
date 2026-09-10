@@ -300,7 +300,12 @@ onUnmounted(() => {
           <span class="flashcard-counter">
             {{ $t('dictionary.flashcards.progress', { current: flashcardIndex + 1, total: flashcardDeck.length }) }}
           </span>
-          <span class="word-category">{{ $t(getCategoryLabel(currentFlashcard.category)) }}</span>
+          <div class="flashcard-tags">
+            <span class="word-category">{{ $t(getCategoryLabel(currentFlashcard.category)) }}</span>
+            <span v-if="currentFlashcard.word.trim().includes(' ')" class="phrase-badge">
+              💬 {{ $t('dictionary.phrase') }}
+            </span>
+          </div>
         </div>
 
         <div
@@ -457,6 +462,9 @@ onUnmounted(() => {
                 <span class="word-category">{{
                   $t(getCategoryLabel(word.category))
                 }}</span>
+                <span v-if="word.word.trim().includes(' ')" class="phrase-badge">
+                  💬 {{ $t('dictionary.phrase') }}
+                </span>
                 <span
                   v-if="word.relatedWords && word.relatedWords.length > 0"
                   class="related-badge"
@@ -1117,6 +1125,21 @@ onUnmounted(() => {
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   font-weight: 500;
+}
+
+.phrase-badge {
+  font-size: 0.85rem;
+  color: #0284c7;
+  background: rgba(2, 132, 199, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+.flashcard-tags {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
 }
 
 .word-frequency {
