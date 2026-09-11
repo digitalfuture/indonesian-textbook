@@ -256,7 +256,7 @@ function playWholeDialogue(dialogue: DialogueItem) {
     </div>
 
     <!-- Category Tabs -->
-    <div class="category-tabs-scroll">
+    <div class="category-tabs-wrap">
       <div class="category-tabs">
         <button
           v-for="cat in phraseCategories"
@@ -594,24 +594,22 @@ function playWholeDialogue(dialogue: DialogueItem) {
 }
 
 /* Category Tabs */
-.category-tabs-scroll {
-  overflow-x: auto;
+.category-tabs-wrap {
   margin-bottom: 1.75rem;
-  padding-bottom: 0.5rem;
-  -webkit-overflow-scrolling: touch;
 }
 
 .category-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  white-space: nowrap;
 }
 
 .cat-tab-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.55rem 1rem;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.95rem;
   border-radius: 20px;
   border: 1px solid var(--border);
   background: var(--bg);
@@ -620,6 +618,22 @@ function playWholeDialogue(dialogue: DialogueItem) {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.cat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  line-height: 1;
+  transform: translateY(-0.5px);
+}
+
+.cat-label {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.2;
 }
 
 .cat-tab-btn:hover {
