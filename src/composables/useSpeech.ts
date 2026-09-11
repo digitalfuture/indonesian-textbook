@@ -67,7 +67,10 @@ export function useSpeech() {
     if (options.pitch !== undefined) {
       utterance.pitch = options.pitch;
     } else if (options.gender === "male") {
-      utterance.pitch = 0.78; // Deeper pitch for male characters
+      utterance.pitch = 0.65; // Significantly deeper pitch for male characters
+      if (options.rate === undefined) {
+        utterance.rate = 0.85; // Slightly calmer tempo for deeper natural resonance
+      }
     } else if (options.gender === "female") {
       utterance.pitch = 1.22; // Brighter pitch for female characters
     } else {
