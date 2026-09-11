@@ -4,6 +4,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useAIStore } from "../stores/ai";
 import { useProgressStore } from "../stores/progress";
 import { useLanguageStore } from "../stores/language";
+import { useSpeech } from "../composables/useSpeech";
 import { vocabulary } from "../data/vocabulary";
 
 const props = defineProps<{
@@ -13,6 +14,15 @@ const props = defineProps<{
 const aiStore = useAIStore();
 const progressStore = useProgressStore();
 const langStore = useLanguageStore();
+const { speak } = useSpeech();
+
+function speakAIMessage(content: string) {
+  // Strip HTML tags
+  const plainText = content.replace(/<[^>]*>/g, "");
+  // If text has / translation separator (e.g. Indonesian / Russian), speak only Indonesian part
+  const indonesianPart = plainText.split(/\s*\/\s*/)[0].trim();
+  speak(indonesianPart || plainText);
+}
 const route = useRoute();
 const router = useRouter();
 
@@ -200,7 +210,17 @@ function handleCompleteLesson() {
           :class="msg.role"
         >
           <div class="message-bubble" :class="{ 'error-bubble': msg.error }">
-            <span class="avatar-tag">{{ msg.role === 'user' ? 'Я' : 'AI' }}</span>
+            <div class="bubble-header">
+              <span class="avatar-tag">{{ msg.role === 'user' ? 'Я' : 'AI' }}</span>
+              <button
+                v-if="msg.role === 'model'"
+                class="bubble-audio-btn"
+                @click.stop="speakAIMessage(msg.content)"
+                title="Прослушать ответ"
+              >
+                🔊
+              </button>
+            </div>
             <div class="message-content" v-html="msg.content"></div>
           </div>
 
@@ -220,6 +240,13 @@ function handleCompleteLesson() {
               <span class="wrong-phrase">«{{ corr.word }}»</span>
               <i class="pi pi-arrow-right"></i>
               <span class="right-phrase">{{ corr.correctForm }}</span>
+              <button
+                class="audio-btn-inline"
+                @click.stop="speak(corr.correctForm)"
+                title="Прослушать"
+              >
+                🔊
+              </button>
               <p class="correction-explain">{{ corr.explanation }}</p>
             </div>
           </div>
@@ -265,6 +292,11 @@ function handleCompleteLesson() {
               @click="insertWord(word)"
             >
               <span class="chip-word">{{ word }}</span>
+              <button
+                class="chip-audio-btn"
+                @click.stop="speak(word)"
+                title="Прослушать"
+              >🔊</button>
               <span class="chip-mastery-dot" :class="'level-' + progressStore.getWordMastery(word)"></span>
             </div>
           </div>
@@ -508,13 +540,54 @@ function handleCompleteLesson() {
   border-color: rgba(var(--p-red-900-rgb), 0.4);
 }
 
+.bubble-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+  gap: 0.5rem;
+}
+
+.bubble-audio-btn {
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.1rem 0.25rem;
+  border-radius: 4px;
+  opacity: 0.55;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.bubble-audio-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.chip-audio-btn {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0 0.15rem;
+  border-radius: 4px;
+  opacity: 0.55;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+.chip-audio-btn:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
 .avatar-tag {
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--p-text-muted-color);
   display: block;
-  margin-bottom: 0.25rem;
 }
 
 .user .avatar-tag {

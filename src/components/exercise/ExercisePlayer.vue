@@ -3,6 +3,7 @@ import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue";
 import { useProgressStore } from "../../stores/progress";
 import { useLanguageStore } from "../../stores/language";
 import { useSound } from "../../composables/useSound";
+import { useSpeech } from "../../composables/useSpeech";
 import type { PropType } from "vue";
 import type { Exercise } from "../../utils/types";
 import { vocabulary } from "../../data/vocabulary";
@@ -25,6 +26,16 @@ const emit = defineEmits<{
 const progressStore = useProgressStore();
 const langStore = useLanguageStore();
 const { isSoundEnabled, toggleSound } = useSound();
+const { speak } = useSpeech();
+
+function getSpokenQuestionText(text: string): string {
+  // If text contains quotes "...", extract the target language inside quotes e.g. 'Что означает фраза "Terima kasih"?' -> 'Terima kasih'
+  const quoteMatch = text.match(/["«]([^"»]+)["»]/);
+  if (quoteMatch) {
+    return quoteMatch[1];
+  }
+  return text;
+}
 
 const playerRef = ref<HTMLElement | null>(null);
 const feedbackRef = ref<HTMLElement | null>(null);
@@ -462,11 +473,16 @@ defineExpose({
         </div>
 
         <h2 class="question">
-          {{
+          <span>{{
             isStage2 && currentExercise.stage2Question
               ? currentExercise.stage2Question
               : currentExercise.question
-          }}
+          }}</span>
+          <button
+            class="audio-btn"
+            @click.stop="speak(getSpokenQuestionText(isStage2 && currentExercise.stage2Question ? currentExercise.stage2Question : currentExercise.question))"
+            title="Прослушать"
+          >🔊</button>
         </h2>
 
         <!-- Кнопка подсказки из словаря -->
@@ -479,6 +495,11 @@ defineExpose({
             <ul class="vocab-list">
               <li v-for="word in exerciseVocabulary" :key="word.id" class="vocab-item">
                 <span class="vocab-word">{{ word.word }}</span>
+                <button
+                  class="audio-btn-inline"
+                  @click.stop="speak(word.word)"
+                  title="Прослушать"
+                >🔊</button>
                 <span class="vocab-pron" v-if="word.pronunciation"> {{ word.pronunciation }}</span>
                 <span class="vocab-trans"> — {{ word.translation }}</span>
               </li>
@@ -524,6 +545,11 @@ defineExpose({
           >
             <span class="option-key-badge">{{ idx + 1 }}</span>
             <span class="option-text">{{ option }}</span>
+            <button
+              class="audio-btn option-audio-btn"
+              @click.stop="speak(option)"
+              title="Прослушать"
+            >🔊</button>
           </div>
         </div>
 
@@ -538,6 +564,11 @@ defineExpose({
                   ? currentExercise.stage2Answer
                   : currentExercise.correctAnswer
               }}</strong>
+              <button
+                class="audio-btn-inline"
+                @click.stop="speak(String(isStage2 && currentExercise.stage2Answer ? currentExercise.stage2Answer : currentExercise.correctAnswer).split('|')[0])"
+                title="Прослушать правильный ответ"
+              >🔊</button>
             </p>
             <p class="explanation">{{ currentExercise.explanation }}</p>
 
@@ -547,6 +578,11 @@ defineExpose({
               <ul class="vocab-list">
                 <li v-for="word in exerciseVocabulary" :key="word.id" class="vocab-item">
                   <span class="vocab-word">{{ word.word }}</span>
+                  <button
+                    class="audio-btn-inline"
+                    @click.stop="speak(word.word)"
+                    title="Прослушать"
+                  >🔊</button>
                   <span class="vocab-pron" v-if="word.pronunciation"> {{ word.pronunciation }}</span>
                   <span class="vocab-trans"> — {{ word.translation }}</span>
                 </li>
@@ -741,6 +777,20 @@ defineExpose({
   font-size: 0.8rem;
   font-weight: 600;
   flex-shrink: 0;
+}
+
+.option-text {
+  flex: 1;
+}
+
+.option-audio-btn {
+  margin-left: auto;
+  font-size: 1.05rem;
+  opacity: 0.55;
+}
+
+.option-audio-btn:hover {
+  opacity: 1;
 }
 
 .option:hover:not(.selected):not(.correct):not(.wrong) {

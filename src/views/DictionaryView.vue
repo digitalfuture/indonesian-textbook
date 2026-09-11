@@ -356,11 +356,25 @@ onUnmounted(() => {
               </div>
 
               <div class="card-main-content">
-                <h2 class="card-word-small">{{ currentFlashcard.word }}</h2>
+                <h2 class="card-word-small">
+                  {{ currentFlashcard.word }}
+                  <button
+                    class="audio-btn"
+                    @click.stop="speak(currentFlashcard.word)"
+                    title="Прослушать"
+                  >🔊</button>
+                </h2>
                 <p class="card-translation">{{ currentFlashcard.translation }}</p>
 
                 <div v-if="currentFlashcard.examples && currentFlashcard.examples.length > 0" class="card-example">
-                  <p class="ex-target"><strong>{{ currentFlashcard.examples[0].sentence }}</strong></p>
+                  <p class="ex-target">
+                    <strong>{{ currentFlashcard.examples[0].sentence }}</strong>
+                    <button
+                      class="audio-btn"
+                      @click.stop="speak(currentFlashcard.examples[0].sentence)"
+                      title="Прослушать"
+                    >🔊</button>
+                  </p>
                   <p class="ex-trans">{{ currentFlashcard.examples[0].translation }}</p>
                 </div>
               </div>
@@ -518,6 +532,11 @@ onUnmounted(() => {
                   @click.stop="navigateToWord(related.id)"
                 >
                   <span class="related-word">{{ related.word }}</span>
+                  <button
+                    class="audio-btn"
+                    @click.stop="speak(related.word)"
+                    title="Прослушать"
+                  >🔊</button>
                   <span class="related-translation"
                     >— {{ related.translation }}</span
                   >
@@ -538,6 +557,11 @@ onUnmounted(() => {
                   class="family-item"
                 >
                   <span class="family-word">{{ fw.word }}</span>
+                  <button
+                    class="audio-btn"
+                    @click.stop="speak(fw.word)"
+                    title="Прослушать"
+                  >🔊</button>
                   <span class="family-translation">— {{ fw.translation }}</span>
                 </div>
               </div>
@@ -555,6 +579,11 @@ onUnmounted(() => {
               >
                 <p>
                   <strong>{{ ex.sentence }}</strong>
+                  <button
+                    class="audio-btn"
+                    @click.stop="speak(ex.sentence)"
+                    title="Прослушать"
+                  >🔊</button>
                 </p>
                 <p>{{ ex.translation }}</p>
               </div>
@@ -578,7 +607,14 @@ onUnmounted(() => {
         <button class="modal-close" @click="showExamplesModal = false">
           ✕
         </button>
-        <h2>{{ selectedWord.word }}</h2>
+        <h2>
+          {{ selectedWord.word }}
+          <button
+            class="audio-btn"
+            @click.stop="speak(selectedWord.word)"
+            title="Прослушать"
+          >🔊</button>
+        </h2>
         <p class="modal-translation">{{ selectedWord.translation }}</p>
         <div class="modal-examples">
           <h3>{{ $t('dictionary.examples') }}:</h3>
@@ -587,7 +623,14 @@ onUnmounted(() => {
             :key="i"
             class="modal-example"
           >
-            <p class="example-indo">{{ example.sentence }}</p>
+            <p class="example-indo">
+              <span>{{ example.sentence }}</span>
+              <button
+                class="audio-btn"
+                @click.stop="speak(example.sentence)"
+                title="Прослушать"
+              >🔊</button>
+            </p>
             <p class="example-ru">{{ example.translation }}</p>
           </div>
         </div>

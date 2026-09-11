@@ -128,7 +128,8 @@ function renderKeyPoint(point: string): string {
         if (parts.length >= 2) {
           const phrase = parts[0].trim();
           const tr = parts.slice(1).join(" — ").trim();
-          return `<span class="kp-ex-item"><span class="kp-ex-phrase">${phrase}</span> <span class="kp-ex-sep">—</span> <span class="kp-ex-tr">${tr}</span></span>`;
+          const safePhrase = phrase.replace(/'/g, "\\'");
+          return `<span class="kp-ex-item"><span class="kp-ex-phrase">${phrase}</span> <button class="audio-btn-inline" data-word="${safePhrase}" title="Прослушать">🔊</button> <span class="kp-ex-sep">—</span> <span class="kp-ex-tr">${tr}</span></span>`;
         }
         return `<span class="kp-ex-item">${ex}</span>`;
       })
@@ -139,7 +140,8 @@ function renderKeyPoint(point: string): string {
   }
 
   // Fallback for simple term - translation format
-  return `<strong class="kp-term">${term}</strong> <span class="kp-sep">—</span> <span class="kp-trans">${rest}</span>`;
+  const safeTerm = term.replace(/'/g, "\\'");
+  return `<strong class="kp-term">${term}</strong> <button class="audio-btn-inline" data-word="${safeTerm}" title="Прослушать">🔊</button> <span class="kp-sep">—</span> <span class="kp-trans">${rest}</span>`;
 }
 
 function onTheoryClick(e: MouseEvent) {
@@ -211,7 +213,7 @@ function resetLessonProgress() {
 
           <div class="key-points">
             <h3>{{ $t('lesson.keyPoints') }}</h3>
-            <ul class="key-points-list">
+            <ul class="key-points-list" @click="onTheoryClick">
               <li
                 v-for="(point, index) in lesson.content.keyPoints"
                 :key="index"
