@@ -146,6 +146,34 @@ function playPhrase(phrase: string) {
   speak(phrase);
 }
 
+function getLineGender(line: DialogueLine): "male" | "female" {
+  if (line.gender) return line.gender;
+  const role = `${line.speakerRoleRu || ""} ${line.speakerRoleId || ""} ${line.speaker || ""}`.toLowerCase();
+  if (
+    /\b(иван|ivan|mas|мужчина|парень|budi|буди|павел|dmitry|дедушка|папа|отец|супруг|водитель|supir|пешеход|гость|турист|прохожий|клиент|пациент|официант|pelayan|pelanggan|turis|warga|penjual|mas)\b/i.test(
+      role,
+    )
+  ) {
+    return "male";
+  }
+  if (
+    /\b(сити|siti|bu|ibu|женщина|девушка|девочка|anna|анна|elena|tatyana|мама|мать|супруга|аптекарь|apoteker|resepsionis|администратор|сестра|дочь|взрослая|продавщица)\b/i.test(
+      role,
+    )
+  ) {
+    return "female";
+  }
+  // Default alternating speakers A (male) and B (female)
+  return line.speaker === "A" ? "male" : "female";
+}
+
+function speakLine(line: DialogueLine) {
+  stopDialogueAudio();
+  speak(line.text, {
+    gender: getLineGender(line),
+  });
+}
+
 function stopDialogueAudio() {
   if (dialogueTimeout) {
     clearTimeout(dialogueTimeout);
@@ -178,15 +206,18 @@ function playWholeDialogue(dialogue: DialogueItem) {
     }
     currentPlayingLineIndex.value = index;
     const line = dialogue.lines[index];
-    speak(line.text);
+    const gender = getLineGender(line);
 
-    // Approximate duration from length of line text, minimum 2.5s
-    const wordCount = line.text.split(/\s+/).length;
-    const estimatedMs = Math.max(2600, wordCount * 550);
-
-    dialogueTimeout = setTimeout(() => {
-      step(index + 1);
-    }, estimatedMs);
+    speak(line.text, {
+      gender,
+      onEnd: () => {
+        if (playingDialogueId.value !== dialogue.id) return;
+        // Pause slightly between speakers so it sounds natural
+        dialogueTimeout = setTimeout(() => {
+          step(index + 1);
+        }, 500);
+      },
+    });
   }
 
   step(0);
@@ -451,7 +482,7 @@ function playWholeDialogue(dialogue: DialogueItem) {
                   <span>{{ line.text }}</span>
                   <button
                     class="bubble-speak-btn"
-                    @click.stop="stopDialogueAudio(); speak(line.text)"
+                    @click.stop="speakLine(line)"
                     title="Прослушать реплику"
                   >
                     🔊

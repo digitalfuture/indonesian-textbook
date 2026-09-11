@@ -3,6 +3,7 @@ export interface DialogueLine {
   speakerRoleRu?: string;
   speakerRoleId?: string;
   avatar?: string;
+  gender?: "male" | "female";
   text: string;
   pronunciation?: string;
   translation: string;
