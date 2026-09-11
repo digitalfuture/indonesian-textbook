@@ -26,10 +26,26 @@ const searchQuery = ref<string>("");
 const favoritesOnly = ref<boolean>(false);
 const favoriteIds = ref<number[]>([]);
 
-// Dialogues playback state
+// Dialogues playback and collapse state
 const playingDialogueId = ref<string | null>(null);
 const currentPlayingLineIndex = ref<number>(-1);
 let dialogueTimeout: any = null;
+
+// Collapsed/expanded dialogues: all collapsed by default (empty set)
+const expandedDialogueIds = ref<string[]>([]);
+
+function toggleDialogueExpand(id: string) {
+  const idx = expandedDialogueIds.value.indexOf(id);
+  if (idx >= 0) {
+    expandedDialogueIds.value.splice(idx, 1);
+  } else {
+    expandedDialogueIds.value.push(id);
+  }
+}
+
+function isDialogueExpanded(id: string): boolean {
+  return expandedDialogueIds.value.includes(id);
+}
 
 // Load favorites from localStorage
 const STORAGE_KEY = "phrasebook_favorites";
@@ -149,6 +165,9 @@ function playWholeDialogue(dialogue: DialogueItem) {
   }
 
   stopDialogueAudio();
+  if (!expandedDialogueIds.value.includes(dialogue.id)) {
+    expandedDialogueIds.value.push(dialogue.id);
+  }
   playingDialogueId.value = dialogue.id;
   currentPlayingLineIndex.value = 0;
 
@@ -350,9 +369,12 @@ function playWholeDialogue(dialogue: DialogueItem) {
           v-for="d in filteredDialogues"
           :key="d.id"
           class="dialogue-card"
-          :class="{ 'dialogue-playing': playingDialogueId === d.id }"
+          :class="{
+            'dialogue-playing': playingDialogueId === d.id,
+            'dialogue-collapsed': !isDialogueExpanded(d.id)
+          }"
         >
-          <div class="dialogue-header">
+          <div class="dialogue-header" @click="toggleDialogueExpand(d.id)">
             <div class="dialogue-meta-left">
               <div class="dialogue-icon">{{ d.icon }}</div>
               <div>
@@ -365,24 +387,48 @@ function playWholeDialogue(dialogue: DialogueItem) {
               </div>
             </div>
 
-            <div class="dialogue-header-actions">
+            <div class="dialogue-header-actions" @click.stop>
               <span class="dialogue-lines-badge">
                 {{ $t('phrasebook.dialogue.linesCount', { count: d.lines.length }) }}
               </span>
+
               <button
                 class="dialogue-play-all-btn"
                 :class="{ active: playingDialogueId === d.id }"
-                @click="playWholeDialogue(d)"
+                @click.stop="playWholeDialogue(d)"
                 :title="playingDialogueId === d.id ? $t('phrasebook.dialogue.stopAudio') : $t('phrasebook.dialogue.playAll')"
               >
                 <span>{{ playingDialogueId === d.id ? '⏹️' : '▶️' }}</span>
                 <span>{{ playingDialogueId === d.id ? $t('phrasebook.dialogue.stopAudio') : $t('phrasebook.dialogue.playAll') }}</span>
               </button>
+
+              <button
+                class="dialogue-toggle-btn"
+                @click.stop="toggleDialogueExpand(d.id)"
+                :title="isDialogueExpanded(d.id) ? $t('phrasebook.dialogue.collapse') : $t('phrasebook.dialogue.expand')"
+              >
+                <span>{{ isDialogueExpanded(d.id) ? '▲' : '▼' }}</span>
+              </button>
             </div>
           </div>
 
-          <!-- Chat-style lines in the dialogue -->
-          <div class="dialogue-chat">
+          <!-- Snippet preview when collapsed -->
+          <div
+            v-if="!isDialogueExpanded(d.id)"
+            class="dialogue-preview-snippet"
+            @click="toggleDialogueExpand(d.id)"
+          >
+            <div class="snippet-line">
+              <span class="snippet-speaker">{{ d.lines[0]?.avatar }} {{ langStore.interfaceLang === 'ru' ? (d.lines[0]?.speakerRoleRu || d.lines[0]?.speaker) : (d.lines[0]?.speakerRoleId || d.lines[0]?.speaker) }}:</span>
+              <span class="snippet-text">«{{ d.lines[0]?.text }}»</span>
+            </div>
+            <div class="snippet-expand-prompt">
+              <span>{{ $t('phrasebook.dialogue.expand') }}...</span>
+            </div>
+          </div>
+
+          <!-- Chat-style lines in the dialogue when expanded -->
+          <div v-if="isDialogueExpanded(d.id)" class="dialogue-chat fade-in">
             <div
               v-for="(line, lidx) in d.lines"
               :key="lidx"
@@ -911,6 +957,17 @@ function playWholeDialogue(dialogue: DialogueItem) {
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
   flex-wrap: wrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dialogue-card.dialogue-collapsed .dialogue-header {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+}
+
+.dialogue-header:hover .dialogue-title {
+  color: var(--primary);
 }
 
 .dialogue-meta-left {
@@ -938,6 +995,7 @@ function playWholeDialogue(dialogue: DialogueItem) {
   font-weight: 700;
   color: var(--text-h);
   margin-bottom: 0.25rem;
+  transition: color 0.2s ease;
 }
 
 .dialogue-desc {
@@ -949,7 +1007,7 @@ function playWholeDialogue(dialogue: DialogueItem) {
 .dialogue-header-actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
 .dialogue-lines-badge {
@@ -986,12 +1044,76 @@ function playWholeDialogue(dialogue: DialogueItem) {
   background: #ef4444;
 }
 
+.dialogue-toggle-btn {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dialogue-toggle-btn:hover {
+  color: var(--text-h);
+  border-color: var(--primary);
+}
+
+/* Snippet preview */
+.dialogue-preview-snippet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.85rem;
+  background: var(--code-bg);
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px dashed var(--border);
+  transition: all 0.2s ease;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.dialogue-preview-snippet:hover {
+  border-color: var(--primary);
+  background: rgba(34, 197, 94, 0.05);
+}
+
+.snippet-line {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.snippet-speaker {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.snippet-text {
+  font-style: italic;
+  color: var(--muted);
+}
+
+.snippet-expand-prompt {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
 /* Chat Bubbles in Dialogue */
 .dialogue-chat {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .chat-bubble-row {

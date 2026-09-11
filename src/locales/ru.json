@@ -294,5 +294,7 @@
   "phrasebook.tabs.dialogues": "Живые диалоги",
   "phrasebook.dialogue.playAll": "Воспроизвести диалог",
   "phrasebook.dialogue.stopAudio": "Остановить",
-  "phrasebook.dialogue.linesCount": "{count} реплик"
+  "phrasebook.dialogue.linesCount": "{count} реплик",
+  "phrasebook.dialogue.expand": "Развернуть диалог",
+  "phrasebook.dialogue.collapse": "Свернуть диалог"
 }
