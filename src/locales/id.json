@@ -289,5 +289,10 @@
   "phrasebook.literalPrefix": "Secara harfiah",
   "phrasebook.emptyTitle": "Tidak ada hasil",
   "phrasebook.emptyDesc": "Coba ubah kata kunci pencarian atau pilih kategori lain.",
-  "phrasebook.resetFilters": "Atur Ulang Filter"
+  "phrasebook.resetFilters": "Atur Ulang Filter",
+  "phrasebook.tabs.phrases": "Frasa per Topik",
+  "phrasebook.tabs.dialogues": "Dialog Interaktif",
+  "phrasebook.dialogue.playAll": "Putar Percakapan",
+  "phrasebook.dialogue.stopAudio": "Hentikan",
+  "phrasebook.dialogue.linesCount": "{count} kalimat"
 }
