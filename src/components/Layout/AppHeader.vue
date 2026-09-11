@@ -32,6 +32,7 @@ const navItems = ref([
   { labelKey: "nav.lessons", icon: "pi pi-book", path: "/lessons" },
   { labelKey: "nav.grammar", icon: "pi pi-table", path: "/grammar" },
   { labelKey: "nav.dictionary", icon: "pi pi-list", path: "/dictionary" },
+  { labelKey: "nav.phrasebook", icon: "pi pi-comments", path: "/phrasebook" },
   { labelKey: "nav.exercises", icon: "pi pi-pencil", path: "/exercises" },
   { labelKey: "nav.progress", icon: "pi pi-chart-bar", path: "/progress" },
 ]);

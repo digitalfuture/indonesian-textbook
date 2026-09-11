@@ -7,6 +7,7 @@ const HomeView = () => import("../views/HomeView.vue");
 const LessonView = () => import("../views/LessonView.vue");
 const GrammarView = () => import("../views/GrammarView.vue");
 const DictionaryView = () => import("../views/DictionaryView.vue");
+const PhrasebookView = () => import("../views/PhrasebookView.vue");
 const ExerciseView = () => import("../views/ExerciseView.vue");
 const ProgressView = () => import("../views/ProgressView.vue");
 
@@ -52,6 +53,11 @@ const routes: RouteRecordRaw[] = [
         name: "WordDetails",
         component: DictionaryView,
         props: true,
+      },
+      {
+        path: "phrasebook",
+        name: "Phrasebook",
+        component: PhrasebookView,
       },
       {
         path: "exercises",
@@ -124,6 +130,7 @@ router.beforeEach((to, _from, next) => {
     Lesson: "Pelajaran",
     Grammar: "Tata Bahasa",
     Dictionary: "Kamus",
+    Phrasebook: "Buku Frasa",
     Exercises: "Latihan",
     Progress: "Kemajuan",
   };
@@ -147,7 +154,7 @@ router.onError(() => {
 if (typeof window !== "undefined") {
   const prefetchViews = () => {
     // Preload views in background when network / CPU is idle
-    const views = [DictionaryView, GrammarView, ExerciseView, LessonView, ProgressView];
+    const views = [DictionaryView, PhrasebookView, GrammarView, ExerciseView, LessonView, ProgressView];
     for (const view of views) {
       try {
         view();

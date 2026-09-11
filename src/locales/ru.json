@@ -4,6 +4,7 @@
   "nav.lessons": "Уроки",
   "nav.grammar": "Грамматика",
   "nav.dictionary": "Словарь",
+  "nav.phrasebook": "Разговорник",
   "nav.exercises": "Упражнения",
   "nav.progress": "Прогресс",
   "header.menu": "Меню",
@@ -275,5 +276,18 @@
   "aiChat.howItWorksTitle": "Инновационный тренажёр подсказок:",
   "aiChat.howItWorksDesc": "Подсказки ниже имеют разную степень прозрачности. Правильные слова постепенно затухают (запоминаются), а ошибочные слова сбрасывают прогресс освоения и горят ярко, пока вы их не исправите!",
   "home.quickLinks.aiChat": "Разговорный ИИ",
-  "home.quickLinks.aiChatDescription": "Практикуйте индонезийский язык в живом диалоге со встроенным Gemini Nano"
+  "home.quickLinks.aiChatDescription": "Практикуйте индонезийский язык в живом диалоге со встроенным Gemini Nano",
+  "phrasebook.title": "Разговорник",
+  "phrasebook.description.id": "Готовые фразы и речевые конструкции для реального общения в Индонезии",
+  "phrasebook.description.ru": "Готовые фразы и речевые конструкции для общения на русском языке",
+  "phrasebook.searchPlaceholder": "Поиск по фразам, переводу или смыслу...",
+  "phrasebook.favoritesOnly": "Избранные",
+  "phrasebook.toggleFavorite": "В избранное",
+  "phrasebook.stats.total": "Фраз",
+  "phrasebook.stats.categories": "Категорий",
+  "phrasebook.stats.favorites": "В избранном",
+  "phrasebook.literalPrefix": "Буквально",
+  "phrasebook.emptyTitle": "Ничего не найдено",
+  "phrasebook.emptyDesc": "Попробуйте изменить поисковый запрос или выбрать другую тему.",
+  "phrasebook.resetFilters": "Сбросить фильтры"
 }

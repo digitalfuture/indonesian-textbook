@@ -42,8 +42,9 @@ const menuItems = ref([
   { key: "1", labelKey: "nav.lessons", icon: "pi pi-book", path: "/lessons" },
   { key: "2", labelKey: "nav.grammar", icon: "pi pi-table", path: "/grammar" },
   { key: "3", labelKey: "nav.dictionary", icon: "pi pi-list", path: "/dictionary" },
-  { key: "4", labelKey: "nav.exercises", icon: "pi pi-pencil", path: "/exercises" },
-  { key: "5", labelKey: "nav.progress", icon: "pi pi-chart-bar", path: "/progress" },
+  { key: "4", labelKey: "nav.phrasebook", icon: "pi pi-comments", path: "/phrasebook" },
+  { key: "5", labelKey: "nav.exercises", icon: "pi pi-pencil", path: "/exercises" },
+  { key: "6", labelKey: "nav.progress", icon: "pi pi-chart-bar", path: "/progress" },
 ]);
 
 onMounted(async () => {

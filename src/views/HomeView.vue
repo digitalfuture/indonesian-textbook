@@ -79,6 +79,10 @@ function goToExercises() {
 function goToAIChat() {
   router.push(`${base.value}/ai-chat`);
 }
+
+function goToPhrasebook() {
+  router.push(`${base.value}/phrasebook`);
+}
 </script>
 
 <template>
@@ -188,6 +192,15 @@ function goToAIChat() {
           <template #title>{{ $t('home.quickLinks.dictionary') }}</template>
           <template #content>
             <p>{{ $t('home.quickLinks.dictionaryDescription') }}</p>
+          </template>
+        </PCard>
+        <PCard class="quick-link-card" @click="goToPhrasebook">
+          <template #header>
+            <div class="quick-link-icon">🗣️</div>
+          </template>
+          <template #title>{{ $t('phrasebook.title') }}</template>
+          <template #content>
+            <p>{{ $t('phrasebook.description.' + langStore.targetLang) }}</p>
           </template>
         </PCard>
         <PCard v-if="aiStore.isSupported" class="quick-link-card ai-card" @click="goToAIChat">

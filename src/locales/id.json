@@ -4,6 +4,7 @@
   "nav.lessons": "Pelajaran",
   "nav.grammar": "Tata Bahasa",
   "nav.dictionary": "Kamus",
+  "nav.phrasebook": "Buku Frasa",
   "nav.exercises": "Latihan",
   "nav.progress": "Kemajuan",
   "header.menu": "Menu",
@@ -275,5 +276,18 @@
   "aiChat.howItWorksTitle": "Petunjuk Transparansi Inovatif:",
   "aiChat.howItWorksDesc": "Kata-kata di bawah ini memiliki tingkat transparansi yang berbeda. Kata-kata yang benar akan memudar secara bertahap, sementara kata-kata yang salah akan menyala terang hingga Anda memperbaikinya!",
   "home.quickLinks.aiChat": "AI Percakapan",
-  "home.quickLinks.aiChatDescription": "Latih bahasa Indonesia Anda dalam dialog langsung dengan Gemini Nano"
+  "home.quickLinks.aiChatDescription": "Latih bahasa Indonesia Anda dalam dialog langsung dengan Gemini Nano",
+  "phrasebook.title": "Buku Frasa",
+  "phrasebook.description.id": "Ungkapan dan frasa siap pakai untuk percakapan sehari-hari di Indonesia",
+  "phrasebook.description.ru": "Ungkapan dan frasa siap pakai untuk percakapan sehari-hari dalam bahasa Rusia",
+  "phrasebook.searchPlaceholder": "Cari frasa, terjemahan, atau topik...",
+  "phrasebook.favoritesOnly": "Favorit",
+  "phrasebook.toggleFavorite": "Simpan ke favorit",
+  "phrasebook.stats.total": "Frasa",
+  "phrasebook.stats.categories": "Kategori",
+  "phrasebook.stats.favorites": "Favorit",
+  "phrasebook.literalPrefix": "Secara harfiah",
+  "phrasebook.emptyTitle": "Tidak ada hasil",
+  "phrasebook.emptyDesc": "Coba ubah kata kunci pencarian atau pilih kategori lain.",
+  "phrasebook.resetFilters": "Atur Ulang Filter"
 }
