@@ -96,48 +96,50 @@ function renderTheory(text: string): string {
         return `<div class="theory-heading">${trimmedLine}</div>`;
       }
 
-      let processed = line;
-      const phonRegex = /^(.*?)(\/[^\s/]+(?:\s+[^\s/]+)*\/|\[[^\]]+\])(.*)$/;
-      const match = processed.match(phonRegex);
+      const hasPhon = /(\/[^\s/]+(?:\s+[^\s/]+)*\/|\[[^\]]+\])/.test(line);
 
-      if (match) {
-        const beforePhon = match[1];
-        const phon = match[2];
-        const afterPhon = match[3];
+      if (hasPhon) {
+        const prefixMatch = line.match(/^(\s*(?:\d+[\.)]\s*|[-–—•]\s*))(.*)$/);
+        const prefix = prefixMatch ? prefixMatch[1] : "";
+        let body = prefixMatch ? prefixMatch[2] : line;
 
-        const prefixMatch = beforePhon.match(/^(\s*(?:\d+[\.)]\s*|[-–—•]\s*))(.+)$/);
-        let prefix = "";
-        let term = beforePhon.trim();
+        // 1. Replace every `<term> /phon/` or `<term> [phon]` pair (handles multiple terms on one line)
+        const phonPairRegex =
+          /(^|[,;(]\s*|\s\/\s+|\s[-–—]\s+)([A-Za-zА-Яа-яЁёÀ-ÿ0-9-]+(?:[A-Za-zА-Яа-яЁёÀ-ÿ0-9\s.'"?-]*?[A-Za-zА-Яа-яЁёÀ-ÿ0-9.?"'])?)\s+(\/[^\s/]+(?:\s+[^\s/]+)*\/|\[[^\]]+\])/g;
 
-        if (prefixMatch) {
-          prefix = prefixMatch[1];
-          term = prefixMatch[2].trim();
-        }
+        body = body.replace(phonPairRegex, (_m, sep, rawTerm, phon) => {
+          const term = rawTerm.trim();
+          const safeSpeak = term.replace(/"/g, "&quot;");
+          return `${sep}<strong class="theory-term">${term}</strong> <span class="theory-phonetic">${phon}</span> <button class="audio-btn-inline" data-word="${safeSpeak}" title="🔊">🔊</button>`;
+        });
 
-        const safeSpeak = term.replace(/"/g, "&quot;");
-        const termHtml = `<strong class="theory-term">${term}</strong>`;
-        const phonHtml = `<span class="theory-phonetic">${phon}</span> <button class="audio-btn-inline" data-word="${safeSpeak}" title="🔊">🔊</button>`;
+        // 2. Wrap parenthetical notes `(...)`
+        body = body.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
 
-        let afterHtml = afterPhon;
-        afterHtml = afterHtml.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
-        afterHtml = afterHtml.replace(
-          /^(\s*[-–—:]\s*)([^(<]+)/,
-          '$1<span class="theory-translation">$2</span>',
+        // 3. Wrap translations following `</button>` (optionally after a note) + dash
+        body = body.replace(
+          /(<\/button>(?:\s*<span class="theory-note">.*?<\/span>)?\s*[-–—]\s*)((?:(?!<strong class="theory-term">).)+)/g,
+          (_m, before, trans) => {
+            const trimmedTrans = trans.replace(/,\s*$/, "");
+            const trailing = trans.slice(trimmedTrans.length);
+            return `${before}<span class="theory-translation">${trimmedTrans}</span>${trailing}`;
+          },
         );
 
-        processed = `${prefix}${termHtml} ${phonHtml}${afterHtml}`;
-      } else {
-        processed = processed.replace(/\*\*(.*?)\*\*/g, '<strong class="theory-term">$1</strong>');
+        return `${prefix}${body}`;
+      }
 
-        if (/^\s*[-–—•]\s*[A-Za-zА-Яа-яЁё]/.test(processed)) {
-          processed = processed.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
-          processed = processed.replace(
-            /^(\s*[-–—•]\s*)([A-Za-zА-Яа-яЁёÀ-ÿ0-9\s.'"-]+?)(\s*[-–—:]\s*)(.+)$/,
-            '$1<strong class="theory-term">$2</strong>$3<span class="theory-translation">$4</span>',
-          );
-        } else {
-          processed = processed.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
-        }
+      let processed = line;
+      processed = processed.replace(/\*\*(.*?)\*\*/g, '<strong class="theory-term">$1</strong>');
+
+      if (/^\s*[-–—•]\s*[A-Za-zА-Яа-яЁё]/.test(processed)) {
+        processed = processed.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+        processed = processed.replace(
+          /^(\s*[-–—•]\s*)([A-Za-zА-Яа-яЁёÀ-ÿ0-9\s.'"-]+?)(\s*[-–—:]\s*)(.+)$/,
+          '$1<strong class="theory-term">$2</strong>$3<span class="theory-translation">$4</span>',
+        );
+      } else {
+        processed = processed.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
       }
 
       return processed;
