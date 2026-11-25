@@ -820,9 +820,25 @@ function goBack() {
 
     <!-- Просмотр одной таблицы -->
     <div v-if="selectedTable" class="table-detail fade-in">
-      <button class="btn btn-outline btn-sm mb-3" @click="goBack">
-        {{ $t('grammar.backToList') }}
-      </button>
+      <div class="table-detail-nav">
+        <button class="btn btn-outline btn-sm" @click="goBack" type="button">
+          {{ $t('grammar.backToList') }}
+        </button>
+
+        <div class="table-pills">
+          <button
+            v-for="table in grammarTables"
+            :key="table.id"
+            class="grammar-pill"
+            :class="{ active: table.id === selectedTable.id }"
+            @click="goToTable(table.id)"
+            type="button"
+          >
+            <span>{{ table.icon }}</span>
+            <span>{{ table.title }}</span>
+          </button>
+        </div>
+      </div>
 
       <div class="table-card">
         <h2>{{ selectedTable.icon }} {{ selectedTable.title }}</h2>
@@ -1063,6 +1079,50 @@ function goBack() {
 
 .mb-3 {
   margin-bottom: 1.5rem;
+}
+
+.table-detail-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.table-detail-nav > .btn {
+  align-self: flex-start;
+}
+
+.table-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.grammar-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.84rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.grammar-pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.grammar-pill.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {

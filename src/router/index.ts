@@ -122,21 +122,47 @@ router.beforeEach((to, _from, next) => {
     i18n.global.locale.value = i;
   }
 
-  const defaultTitle = "Belajar Bahasa";
+  const isRu = langStore.interfaceLang === "ru";
+  const brandTitle =
+    langStore.targetLang === "id"
+      ? isRu
+        ? "Индонезийский за 16 уроков"
+        : "Bahasa Indonesia dalam 16 Pelajaran"
+      : isRu
+        ? "Русский за 16 уроков"
+        : "Bahasa Rusia dalam 16 Pelajaran";
+
   const routeName = to.name as string;
-  const titleMap: Record<string, string> = {
-    Home: "Belajar Bahasa",
+  const titleMapRu: Record<string, string> = {
+    Home: "",
+    Lessons: "Уроки",
+    Lesson: "Урок",
+    Grammar: "Грамматика",
+    GrammarTable: "Грамматика",
+    Dictionary: "Словарь",
+    WordDetails: "Словарь",
+    Phrasebook: "Разговорник",
+    Exercises: "Практика",
+    LessonExercises: "Практика",
+    Progress: "Прогресс",
+    AIChat: "Диалог с ИИ",
+  };
+  const titleMapId: Record<string, string> = {
+    Home: "",
     Lessons: "Pelajaran",
     Lesson: "Pelajaran",
     Grammar: "Tata Bahasa",
+    GrammarTable: "Tata Bahasa",
     Dictionary: "Kamus",
+    WordDetails: "Kamus",
     Phrasebook: "Buku Frasa",
     Exercises: "Latihan",
+    LessonExercises: "Latihan",
     Progress: "Kemajuan",
+    AIChat: "Dialog AI",
   };
-  document.title = titleMap[routeName]
-    ? `${titleMap[routeName]} - Belajar Bahasa`
-    : defaultTitle;
+  const sectionTitle = (isRu ? titleMapRu : titleMapId)[routeName];
+  document.title = sectionTitle ? `${sectionTitle} — ${brandTitle}` : brandTitle;
   next();
 });
 

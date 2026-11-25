@@ -1,147 +1,570 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useLanguageStore } from "../stores/language";
+import { useProgressStore } from "../stores/progress";
 import { useExerciseData } from "../composables/useExercises";
+import { useLessonData } from "../composables/useLessons";
 import ExercisePlayer from "../components/exercise/ExercisePlayer.vue";
+import type { Exercise } from "../utils/types";
 
 const router = useRouter();
 const route = useRoute();
 const langStore = useLanguageStore();
+const progressStore = useProgressStore();
 const { allExercises } = useExerciseData();
+const { lessons } = useLessonData();
 
-// Get lessonId from route params (if navigating from a lesson)
-const lessonId = computed(() => {
+const base = computed(() => `/${langStore.interfaceLang}/${langStore.targetLang}`);
+
+const routeLessonId = computed(() => {
   const id = route.params.lessonId;
   return id ? parseInt(id as string) : null;
 });
 
-// Filter exercises by lesson if lessonId is provided
-const exercises = computed(() => {
-  const data = allExercises.value;
-  if (lessonId.value) {
-    return data
-      .filter((e) => e.lessonId === lessonId.value)
+type PracticeMode = "hub" | "smart" | "blitz" | "lesson";
+const activeMode = ref<PracticeMode>(routeLessonId.value ? "lesson" : "hub");
+const selectedLessonId = ref<number | null>(routeLessonId.value);
+const customExercises = ref<Exercise[]>([]);
+
+watch(routeLessonId, (val) => {
+  if (val) {
+    selectedLessonId.value = val;
+    activeMode.value = "lesson";
+  } else if (activeMode.value === "lesson") {
+    activeMode.value = "hub";
+    selectedLessonId.value = null;
+  }
+});
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+const practiceLessons = computed(() => {
+  return lessons.value
+    .filter((l) => l.id !== 17)
+    .map((lesson) => {
+      const exList = allExercises.value.filter((e) => e.lessonId === lesson.id);
+      const done = progressStore.lessonProgress(lesson.id)?.completedExercises?.length || 0;
+      const completed = progressStore.isLessonCompleted(lesson.id);
+      return {
+        ...lesson,
+        totalExercises: exList.length,
+        doneExercises: Math.min(done, exList.length),
+        isCompleted: completed,
+      };
+    })
+    .filter((l) => l.totalExercises > 0);
+});
+
+const completedLessonIds = computed(() =>
+  practiceLessons.value
+    .filter((l) => l.isCompleted || l.doneExercises > 0)
+    .map((l) => l.id),
+);
+
+function startSmartReview() {
+  const poolLessonIds =
+    completedLessonIds.value.length > 0 ? completedLessonIds.value : [1, 2];
+  const pool = allExercises.value.filter((e) => poolLessonIds.includes(e.lessonId));
+  customExercises.value = shuffleArray(pool).slice(0, 10);
+  selectedLessonId.value = null;
+  activeMode.value = "smart";
+}
+
+function startBlitz() {
+  customExercises.value = shuffleArray(allExercises.value).slice(0, 10);
+  selectedLessonId.value = null;
+  activeMode.value = "blitz";
+}
+
+function startLessonPractice(lessonId: number) {
+  selectedLessonId.value = lessonId;
+  activeMode.value = "lesson";
+}
+
+function backToHub() {
+  if (routeLessonId.value) {
+    router.push(`${base.value}/exercises`);
+  }
+  activeMode.value = "hub";
+  selectedLessonId.value = null;
+  customExercises.value = [];
+}
+
+const activeExercises = computed<Exercise[]>(() => {
+  if (activeMode.value === "lesson" && selectedLessonId.value) {
+    return allExercises.value
+      .filter((e) => e.lessonId === selectedLessonId.value)
       .sort((a, b) => a.id - b.id);
   }
-  return data;
+  if (activeMode.value === "smart" || activeMode.value === "blitz") {
+    return customExercises.value;
+  }
+  return [];
 });
+
+function restartCurrentSession() {
+  if (activeMode.value === "smart") startSmartReview();
+  else if (activeMode.value === "blitz") startBlitz();
+  else if (selectedLessonId.value) {
+    progressStore.resetLessonProgress(selectedLessonId.value);
+  }
+}
 </script>
 
 <template>
-  <div class="exercise-view">
-    <header class="exercise-header">
-      <h1>{{ $t('exercise.title') }}</h1>
-      <p class="exercise-description" v-if="!lessonId">
-        {{ $t('exercise.description.' + langStore.targetLang) }}
-      </p>
-      <p class="exercise-description" v-else-if="exercises.length > 0">
-        {{ $t('exercise.forLesson', { title: $t('lesson.title.' + lessonId) }) }}
-      </p>
-    </header>
+  <div class="exercise-view fade-in">
+    <!-- PRACTICE HUB -->
+    <template v-if="activeMode === 'hub'">
+      <header class="hub-header">
+        <h1>{{ $t('practice.hubTitle') }}</h1>
+        <p class="hub-subtitle">{{ $t('exercise.description.' + langStore.targetLang) }}</p>
+      </header>
 
-    <main class="exercise-content" v-if="exercises.length > 0">
-      <ExercisePlayer :exercises="exercises" :lessonId="lessonId">
-        <template #completion>
-          <div class="completion-card">
-            <h2>{{ $t('exercise.completion.title') }}</h2>
-            <p>{{ $t('exercise.completion.message') }}</p>
-            <div class="completion-actions">
-              <button class="btn btn-primary" @click="router.push('/' + langStore.interfaceLang + '/' + langStore.targetLang + '/progress')">
-                {{ $t('exercise.completion.viewProgress') }}
-              </button>
-              <button
-                v-if="lessonId && lessonId < 16"
-                class="btn btn-outline"
-                @click="router.push('/' + langStore.interfaceLang + '/' + langStore.targetLang + '/lesson/' + (lessonId! + 1))"
-              >
-                {{ $t('exercise.completion.nextLesson') }}
-              </button>
-            </div>
+      <!-- Smart Quick Sessions -->
+      <section class="quick-modes-grid">
+        <button class="mode-card featured" @click="startSmartReview" type="button">
+          <div class="mode-icon indigo"><i class="pi pi-sparkles"></i></div>
+          <div class="mode-body">
+            <span class="mode-tag">{{ $t('practice.smartTag') }}</span>
+            <h3>{{ $t('practice.smartTitle') }}</h3>
+            <p>{{ $t('practice.smartDesc') }}</p>
           </div>
-        </template>
-      </ExercisePlayer>
-    </main>
+          <span class="mode-cta">
+            {{ $t('practice.start10') }} <i class="pi pi-arrow-right"></i>
+          </span>
+        </button>
 
-    <div v-else class="empty-state">
-      <h2>{{ $t('exercise.empty.title') }}</h2>
-      <p v-if="lessonId">{{ $t('exercise.empty.message') }}</p>
-      <button class="btn btn-primary" @click="router.push('/' + langStore.interfaceLang + '/' + langStore.targetLang)">
-        {{ $t('exercise.empty.goToLessons') }}
-      </button>
-    </div>
+        <button class="mode-card" @click="startBlitz" type="button">
+          <div class="mode-icon amber"><i class="pi pi-bolt"></i></div>
+          <div class="mode-body">
+            <span class="mode-tag">{{ $t('practice.blitzTag') }}</span>
+            <h3>{{ $t('practice.blitzTitle') }}</h3>
+            <p>{{ $t('practice.blitzDesc') }}</p>
+          </div>
+          <span class="mode-cta">
+            {{ $t('practice.start10') }} <i class="pi pi-arrow-right"></i>
+          </span>
+        </button>
+
+        <button
+          class="mode-card"
+          @click="router.push({ path: `${base}/dictionary`, query: { mode: 'flashcards' } })"
+          type="button"
+        >
+          <div class="mode-icon teal"><i class="pi pi-clone"></i></div>
+          <div class="mode-body">
+            <span class="mode-tag">{{ $t('practice.flashcardsTag') }}</span>
+            <h3>{{ $t('practice.flashcardsTitle') }}</h3>
+            <p>{{ $t('practice.flashcardsDesc') }}</p>
+          </div>
+          <span class="mode-cta">
+            {{ $t('practice.openFlashcards') }} <i class="pi pi-arrow-right"></i>
+          </span>
+        </button>
+      </section>
+
+      <!-- Practice by Lesson -->
+      <section class="by-lesson-section">
+        <div class="section-top">
+          <h2>{{ $t('practice.byLessonTitle') }}</h2>
+          <p class="section-desc">{{ $t('practice.byLessonDesc') }}</p>
+        </div>
+
+        <div class="lesson-practice-grid">
+          <button
+            v-for="lesson in practiceLessons"
+            :key="lesson.id"
+            class="lp-card"
+            :class="{ done: lesson.isCompleted }"
+            @click="startLessonPractice(lesson.id)"
+            type="button"
+          >
+            <div class="lp-top">
+              <span class="lp-num">{{ lesson.id }}</span>
+              <span class="lp-count" :class="{ done: lesson.doneExercises === lesson.totalExercises }">
+                {{ lesson.doneExercises }}/{{ lesson.totalExercises }}
+              </span>
+            </div>
+            <div class="lp-title">{{ $t('lesson.title.' + lesson.id) }}</div>
+            <div class="lp-bar">
+              <div
+                class="lp-bar-fill"
+                :style="{ width: Math.round((lesson.doneExercises / lesson.totalExercises) * 100) + '%' }"
+              ></div>
+            </div>
+          </button>
+        </div>
+      </section>
+    </template>
+
+    <!-- ACTIVE PRACTICE SESSION -->
+    <template v-else>
+      <div class="session-topbar">
+        <button class="back-btn" @click="backToHub" type="button">
+          <i class="pi pi-arrow-left"></i>
+          <span>{{ $t('practice.backToHub') }}</span>
+        </button>
+
+        <span class="session-pill">
+          <template v-if="activeMode === 'lesson' && selectedLessonId">
+            {{ $t('lesson.header.number', { id: selectedLessonId }) }}: {{ $t('lesson.title.' + selectedLessonId) }}
+          </template>
+          <template v-else-if="activeMode === 'smart'">
+            {{ $t('practice.smartTitle') }}
+          </template>
+          <template v-else>
+            {{ $t('practice.blitzTitle') }}
+          </template>
+        </span>
+      </div>
+
+      <main class="exercise-content" v-if="activeExercises.length > 0">
+        <ExercisePlayer :exercises="activeExercises" :lessonId="selectedLessonId">
+          <template #completion>
+            <div class="completion-card fade-in">
+              <div class="completion-icon"><i class="pi pi-trophy"></i></div>
+              <h2>{{ $t('exercise.completion.title') }}</h2>
+              <p>{{ $t('exercise.completion.message') }}</p>
+              <div class="completion-actions">
+                <button class="btn btn-primary" @click="restartCurrentSession">
+                  <i class="pi pi-refresh"></i>
+                  <span>{{ $t('practice.anotherRound') }}</span>
+                </button>
+                <button class="btn btn-outline" @click="backToHub">
+                  {{ $t('practice.backToHub') }}
+                </button>
+                <button
+                  v-if="selectedLessonId && selectedLessonId < 16"
+                  class="btn btn-secondary"
+                  @click="router.push(`${base}/lesson/${selectedLessonId + 1}`)"
+                >
+                  {{ $t('exercise.completion.nextLesson') }}
+                </button>
+              </div>
+            </div>
+          </template>
+        </ExercisePlayer>
+      </main>
+
+      <div v-else class="empty-state content-card">
+        <h2>{{ $t('exercise.empty.title') }}</h2>
+        <p>{{ $t('exercise.empty.message') }}</p>
+        <button class="btn btn-primary" @click="backToHub">
+          {{ $t('practice.backToHub') }}
+        </button>
+      </div>
+    </template>
   </div>
 </template>
 
 <style scoped>
 .exercise-view {
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
 }
 
-.exercise-header {
-  margin-bottom: 2rem;
+.hub-header {
   text-align: center;
-}
-
-.exercise-header h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.exercise-description {
-  font-size: 1.1rem;
-  color: var(--text);
-  margin-bottom: 1.5rem;
-}
-
-.exercise-content {
   margin-bottom: 2rem;
+}
+
+.hub-header h1 {
+  margin-bottom: 0.4rem;
+}
+
+.hub-subtitle {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.quick-modes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.15rem;
+  margin-bottom: 2.5rem;
+}
+
+.mode-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 1.4rem;
+  border-radius: var(--radius-xl);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.mode-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.mode-card.featured {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-soft), var(--shadow-sm);
+}
+
+.mode-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.mode-icon.indigo { background: var(--primary-soft); color: var(--primary); }
+.mode-icon.amber { background: var(--warning-soft); color: var(--warning); }
+.mode-icon.teal { background: rgba(13, 148, 136, 0.12); color: var(--translation-color); }
+
+.mode-body {
+  flex: 1;
+}
+
+.mode-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  margin-bottom: 0.35rem;
+}
+
+.mode-body h3 {
+  font-size: 1.12rem;
+  margin-bottom: 0.35rem;
+}
+
+.mode-body p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.mode-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.section-top {
+  margin-bottom: 1.15rem;
+}
+
+.section-top h2 {
+  margin-bottom: 0.2rem;
+}
+
+.section-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.lesson-practice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.lp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.lp-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.lp-card.done {
+  border-color: rgba(22, 163, 74, 0.35);
+}
+
+.lp-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lp-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lp-card.done .lp-num {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.lp-count {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.lp-count.done {
+  color: var(--success);
+}
+
+.lp-title {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text-h);
+  line-height: 1.35;
+}
+
+.lp-bar {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.lp-bar-fill {
+  height: 100%;
+  background: var(--primary-gradient);
+  border-radius: 999px;
+}
+
+/* Session view */
+.session-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.35rem 0.6rem;
+  border-radius: var(--radius-sm);
+  transition: color 0.16s ease, background 0.16s ease;
+}
+
+.back-btn:hover {
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.session-pill {
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .completion-card {
   text-align: center;
-  padding: 3rem;
+  padding: 2.5rem 2rem;
   background: var(--bg-card);
-  border-radius: 0.75rem;
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.completion-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: var(--warning-soft);
+  color: var(--warning);
+  font-size: 1.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .completion-card h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
 .completion-card p {
-  font-size: 1.1rem;
+  margin: 0;
   color: var(--text);
-  margin-bottom: 2rem;
 }
 
 .completion-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
 }
 
 .empty-state {
   text-align: center;
-  padding: 4rem 2rem;
-  color: var(--text);
+  padding: 3rem 2rem;
 }
 
-.empty-state h2 {
-  margin-bottom: 1rem;
+@media (max-width: 820px) {
+  .quick-modes-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.empty-state p {
-  margin-bottom: 2rem;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .completion-actions {
     flex-direction: column;
+    width: 100%;
+  }
+
+  .completion-actions .btn {
+    width: 100%;
   }
 }
 </style>

@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { computed, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
 import { useSound } from "../../composables/useSound";
 import { useLanguageStore } from "../../stores/language";
+import { useProgressStore } from "../../stores/progress";
 import { useAIStore } from "../../stores/ai";
 import LanguageSwitcher from "./LanguageSwitcher.vue";
 import CountryFlag from "../common/CountryFlag.vue";
@@ -21,134 +22,110 @@ const route = useRoute();
 const { theme, toggleTheme } = useTheme();
 const { isSoundEnabled, toggleSound } = useSound();
 const langStore = useLanguageStore();
+const progressStore = useProgressStore();
 const aiStore = useAIStore();
 
-const isVisible = ref(true);
-let lastScrollY = 0;
-const SCROLL_THRESHOLD = 10;
-
-const navItems = ref([
-  { labelKey: "nav.home", icon: "pi pi-home", path: "" },
-  { labelKey: "nav.lessons", icon: "pi pi-book", path: "/lessons" },
-  { labelKey: "nav.grammar", icon: "pi pi-table", path: "/grammar" },
-  { labelKey: "nav.dictionary", icon: "pi pi-list", path: "/dictionary" },
-  { labelKey: "nav.phrasebook", icon: "pi pi-comments", path: "/phrasebook" },
-  { labelKey: "nav.exercises", icon: "pi pi-pencil", path: "/exercises" },
-  { labelKey: "nav.progress", icon: "pi pi-chart-bar", path: "/progress" },
-]);
-
-function handleScroll() {
-  const currentScrollY = window.scrollY;
-
-  // Always show near top
-  if (currentScrollY <= 60) {
-    isVisible.value = true;
-    lastScrollY = currentScrollY;
-    return;
+const navItems = computed(() => {
+  const items = [
+    { labelKey: "nav.course", icon: "pi pi-compass", path: "", matchPrefix: ["/lessons", "/lesson"] },
+    { labelKey: "nav.exercises", icon: "pi pi-bolt", path: "/exercises", matchPrefix: ["/exercises"] },
+    { labelKey: "nav.dictionary", icon: "pi pi-book", path: "/dictionary", matchPrefix: ["/dictionary"] },
+    { labelKey: "nav.grammar", icon: "pi pi-table", path: "/grammar", matchPrefix: ["/grammar"] },
+    { labelKey: "nav.phrasebook", icon: "pi pi-comments", path: "/phrasebook", matchPrefix: ["/phrasebook"] },
+    { labelKey: "nav.progress", icon: "pi pi-chart-line", path: "/progress", matchPrefix: ["/progress"] },
+  ];
+  if (aiStore.isSupported) {
+    items.push({ labelKey: "nav.aiChat", icon: "pi pi-sparkles", path: "/ai-chat", matchPrefix: ["/ai-chat"] });
   }
-
-  // Check scroll direction with threshold to prevent jitter
-  if (Math.abs(currentScrollY - lastScrollY) < SCROLL_THRESHOLD) {
-    return;
-  }
-
-  if (currentScrollY > lastScrollY) {
-    // Scrolling down -> hide
-    isVisible.value = false;
-  } else {
-    // Scrolling up -> show
-    isVisible.value = true;
-  }
-
-  lastScrollY = currentScrollY;
-}
+  return items;
+});
 
 onMounted(async () => {
-  lastScrollY = window.scrollY;
-  window.addEventListener("scroll", handleScroll, { passive: true });
-
   await aiStore.initialize();
-  if (aiStore.isSupported) {
-    navItems.value.push({ labelKey: "nav.aiChat", icon: "pi pi-comments", path: "/ai-chat" });
-  }
 });
 
-onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll);
-});
-
-function isActive(path: string): boolean {
-  const prefix = `/${langStore.interfaceLang}/${langStore.targetLang}${path}`;
-  if (!path) {
-    return route.path === prefix;
+function isActive(item: { path: string; matchPrefix: string[] }): boolean {
+  const base = `/${langStore.interfaceLang}/${langStore.targetLang}`;
+  const current = route.path;
+  if (item.path === "") {
+    if (current === base || current === base + "/") return true;
+    return item.matchPrefix.some((p) => current === base + p || current.startsWith(base + p + "/"));
   }
-  return route.path.startsWith(prefix + "/") || route.path === prefix;
+  return current === base + item.path || current.startsWith(base + item.path + "/");
 }
 
 function navigate(path: string) {
-  const to = `/${langStore.interfaceLang}/${langStore.targetLang}${path}`;
-  router.push(to);
+  router.push(`/${langStore.interfaceLang}/${langStore.targetLang}${path}`);
 }
 </script>
 
 <template>
-  <header class="app-header" :class="{ 'header-hidden': !isVisible }">
-    <PToolbar class="header-toolbar">
-      <template #start>
-        <PButton
-          class="hamburger-btn"
-          icon="pi pi-bars"
-          severity="secondary"
-          text
-          rounded
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-left">
+        <button
+          class="icon-btn hamburger-btn"
           :aria-label="$t('header.menu')"
           @click="emit('toggle-drawer')"
-        />
-        <div class="logo" @click="navigate('')">
+        >
+          <i class="pi pi-bars"></i>
+        </button>
+
+        <button class="logo" @click="navigate('')" type="button">
           <CountryFlag :lang="langStore.targetLang" size="sm" />
           <span class="logo-text">{{ $t('header.logo.' + langStore.targetLang) }}</span>
-        </div>
-      </template>
+        </button>
+      </div>
 
-      <template #center>
-        <nav class="desktop-nav">
-            <button
-              v-for="item in navItems"
-              :key="item.path"
-              class="nav-link"
-              :class="{ active: isActive(item.path) }"
-              @click="navigate(item.path)"
-            >
-              <i :class="item.icon"></i>
-              <span>{{ $t(item.labelKey) }}</span>
-            </button>
-        </nav>
-      </template>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <button
+          v-for="item in navItems"
+          :key="item.path"
+          class="nav-link"
+          :class="{ active: isActive(item) }"
+          @click="navigate(item.path)"
+          type="button"
+        >
+          <i :class="item.icon"></i>
+          <span>{{ $t(item.labelKey) }}</span>
+        </button>
+      </nav>
 
-      <template #end>
-        <div class="header-end">
-          <LanguageSwitcher />
-          <PButton
-            :icon="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"
-            severity="secondary"
-            text
-            rounded
-            :aria-label="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
-            v-tooltip.top="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
-            @click="toggleSound"
-          />
-          <PButton
-            :icon="theme === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"
-            severity="secondary"
-            text
-            rounded
-            :aria-label="$t(theme === 'dark' ? 'theme.light' : 'theme.dark')"
-            v-tooltip.top="$t(theme === 'dark' ? 'theme.light' : 'theme.dark')"
-            @click="toggleTheme"
-          />
-        </div>
-      </template>
-    </PToolbar>
+      <div class="header-end">
+        <button
+          v-if="progressStore.streakDays > 0"
+          class="streak-pill"
+          @click="navigate('/progress')"
+          :title="$t('progress.stats.streakDays')"
+          type="button"
+        >
+          <span class="streak-flame">🔥</span>
+          <span>{{ progressStore.streakDays }}</span>
+        </button>
+
+        <LanguageSwitcher />
+
+        <button
+          class="icon-btn"
+          :aria-label="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
+          v-tooltip.bottom="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
+          @click="toggleSound"
+          type="button"
+        >
+          <i :class="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
+        </button>
+
+        <button
+          class="icon-btn"
+          :aria-label="$t(theme === 'dark' ? 'theme.light' : 'theme.dark')"
+          v-tooltip.bottom="$t(theme === 'dark' ? 'theme.light' : 'theme.dark')"
+          @click="toggleTheme"
+          type="button"
+        >
+          <i :class="theme === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"></i>
+        </button>
+      </div>
+    </div>
   </header>
 </template>
 
@@ -157,83 +134,149 @@ function navigate(path: string) {
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: transform 0.3s ease;
-  will-change: transform;
+  background: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
 }
 
-.app-header.header-hidden {
-  transform: translateY(-100%);
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
 }
 
-.header-toolbar {
-  border-radius: 0;
-  padding: 0.5rem 1rem;
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
 }
 
 .logo {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: none;
+  border: none;
   cursor: pointer;
-  user-select: none;
+  padding: 0.25rem 0.35rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-h);
+  transition: opacity 0.18s ease;
 }
 
-.logo-flag {
-  font-size: 1.5rem;
-  line-height: 1;
-  display: flex;
-  align-items: center;
+.logo:hover {
+  opacity: 0.85;
 }
 
 .logo-text {
-  font-size: 1.1rem;
+  font-family: var(--font-display);
+  font-size: 1rem;
   font-weight: 700;
   white-space: nowrap;
+  letter-spacing: -0.02em;
 }
 
 .desktop-nav {
   display: none;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.2rem;
+  padding: 0.22rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 999px;
 }
 
 .nav-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.5rem 0.85rem;
+  padding: 0.42rem 0.85rem;
   border: none;
   background: transparent;
-  color: var(--p-text-muted-color);
-  font-size: 0.9rem;
-  border-radius: var(--p-border-radius-md);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.18s ease;
   white-space: nowrap;
 }
 
 .nav-link:hover {
-  background: var(--p-content-hover-background);
-  color: var(--p-text-color);
-}
-
-.nav-link:active {
-  transform: scale(0.96);
-  opacity: 0.8;
+  color: var(--text-h);
+  background: var(--bg-card);
 }
 
 .nav-link.active {
-  background: var(--p-primary-color);
-  color: var(--p-primary-contrast-color);
-  font-weight: 500;
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.28);
 }
 
 .nav-link i {
+  font-size: 0.88rem;
+}
+
+.header-end {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+
+.streak-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 119, 6, 0.3);
+  background: var(--warning-soft);
+  color: var(--warning);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.streak-pill:hover {
+  transform: translateY(-1px);
+}
+
+.streak-flame {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.18s ease;
   font-size: 1rem;
 }
 
-/* Show desktop nav on larger screens */
-@media (min-width: 768px) {
+.icon-btn:hover {
+  background: var(--bg-subtle);
+  color: var(--text-h);
+  border-color: var(--border);
+}
+
+@media (min-width: 1024px) {
   .hamburger-btn {
     display: none;
   }
@@ -241,41 +284,26 @@ function navigate(path: string) {
   .desktop-nav {
     display: flex;
   }
-
-  .header-toolbar :deep(.p-toolbar-center) {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-  }
 }
 
-.header-end {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-@media (max-width: 1024px) {
+@media (max-width: 1120px) and (min-width: 1024px) {
   .logo-text {
-    font-size: 1rem;
+    font-size: 0.92rem;
   }
 
-  .logo {
-    margin-top: -5px;
+  .nav-link {
+    padding: 0.4rem 0.68rem;
+    font-size: 0.82rem;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .logo-text {
     display: none;
   }
 
-  .header-toolbar {
-    padding: 0.5rem;
-  }
-
-  .logo {
-    margin-top: -9px;
+  .header-inner {
+    padding: 0.55rem 0.75rem;
   }
 }
 </style>

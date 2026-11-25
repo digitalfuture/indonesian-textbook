@@ -66,7 +66,7 @@ const isRu = computed(() => props.lang?.toLowerCase() === "ru");
   box-sizing: border-box;
 }
 
-:global(.dark) .country-flag {
+:global(.app-dark) .country-flag {
   border-color: rgba(255, 255, 255, 0.2);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
@@ -112,7 +112,7 @@ const isRu = computed(() => props.lang?.toLowerCase() === "ru");
   border-width: 2px;
 }
 
-:global(.dark) .flag-xl {
+:global(.app-dark) .flag-xl {
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
 }
 

@@ -939,9 +939,9 @@ function playWholeDialogue(dialogue: DialogueItem) {
 }
 
 .section-btn.active {
-  background: var(--bg);
+  background: var(--bg-card);
   color: var(--primary);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-xs);
 }
 
 .count-pill {
@@ -954,7 +954,7 @@ function playWholeDialogue(dialogue: DialogueItem) {
 }
 
 .section-btn.active .count-pill {
-  background: rgba(34, 197, 94, 0.15);
+  background: var(--primary-soft);
   color: var(--primary);
 }
 
@@ -962,21 +962,21 @@ function playWholeDialogue(dialogue: DialogueItem) {
 .dialogues-stack {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .dialogue-card {
-  background: var(--bg);
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius-xl);
   padding: 1.5rem;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-xs);
   transition: all 0.25s ease;
 }
 
 .dialogue-card.dialogue-playing {
   border-color: var(--primary);
-  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.15);
+  box-shadow: 0 0 0 3px var(--primary-soft), var(--shadow);
 }
 
 .dialogue-header {
@@ -1068,7 +1068,7 @@ function playWholeDialogue(dialogue: DialogueItem) {
 
 .dialogue-play-all-btn:hover {
   transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+  box-shadow: 0 4px 14px var(--primary-soft-strong);
 }
 
 .dialogue-play-all-btn.active {
@@ -1112,7 +1112,7 @@ function playWholeDialogue(dialogue: DialogueItem) {
 
 .dialogue-preview-snippet:hover {
   border-color: var(--primary);
-  background: rgba(34, 197, 94, 0.05);
+  background: var(--primary-soft);
 }
 
 .snippet-line {
@@ -1193,15 +1193,15 @@ function playWholeDialogue(dialogue: DialogueItem) {
 
 .speaker-b .chat-bubble {
   border-top-right-radius: 2px;
-  background: rgba(34, 197, 94, 0.08);
-  border-color: rgba(34, 197, 94, 0.25);
+  background: var(--primary-soft);
+  border-color: var(--primary-soft-strong);
 }
 
 .active-speech-line .chat-bubble {
   border-color: var(--primary);
-  background: rgba(34, 197, 94, 0.16);
+  background: var(--primary-soft-strong);
   transform: scale(1.02);
-  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.2);
+  box-shadow: 0 4px 14px var(--primary-soft-strong);
 }
 
 .bubble-speaker-name {

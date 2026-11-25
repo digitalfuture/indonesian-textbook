@@ -211,7 +211,7 @@ export const useProgressStore = defineStore("progress", () => {
 
   function setLessonStep(
     lessonId: number,
-    step: "theory" | "examples" | "exercises",
+    step: "theory" | "vocabulary" | "examples" | "exercises",
   ) {
     const lesson = progress.value.lessons[lessonId] || {
       isCompleted: false,
@@ -238,20 +238,23 @@ export const useProgressStore = defineStore("progress", () => {
       score: 0,
     };
 
-    if (!lesson.completedExercises.includes(exerciseId)) {
+    const isNewCompletion = !lesson.completedExercises.includes(exerciseId);
+    if (isNewCompletion) {
       lesson.completedExercises.push(exerciseId);
     }
 
     progress.value.lessons[lessonId] = {
       ...lesson,
-      score: lesson.score + score,
+      score: isNewCompletion ? lesson.score + score : lesson.score,
     };
 
-    // Обновляем статистику
-    progress.value = updateStatistics(progress.value, {
-      exercisesCompleted: progress.value.statistics.exercisesCompleted + 1,
-      totalPoints: progress.value.statistics.totalPoints + score,
-    });
+    // Обновляем статистику только для новых выполненных упражнений
+    if (isNewCompletion) {
+      progress.value = updateStatistics(progress.value, {
+        exercisesCompleted: progress.value.statistics.exercisesCompleted + 1,
+        totalPoints: progress.value.statistics.totalPoints + score,
+      });
+    }
 
     // Обновляем серию
     progress.value = updateStreak(progress.value);
@@ -280,8 +283,34 @@ export const useProgressStore = defineStore("progress", () => {
         ).length,
       });
 
+      checkAchievements();
       saveProgress(progress.value);
     }
+  }
+
+  function toggleWordLearned(wordId: number) {
+    const word = progress.value.vocabulary[wordId] || {
+      isLearned: false,
+      timesPracticed: 0,
+    };
+
+    const nextLearned = !word.isLearned;
+    progress.value.vocabulary[wordId] = {
+      ...word,
+      isLearned: nextLearned,
+      learnedAt: nextLearned ? new Date().toISOString() : undefined,
+    };
+
+    progress.value = updateStatistics(progress.value, {
+      wordsLearned: Object.values(progress.value.vocabulary).filter(
+        (w) => w.isLearned,
+      ).length,
+    });
+
+    if (nextLearned) {
+      checkAchievements();
+    }
+    saveProgress(progress.value);
   }
 
   function practiceWord(wordId: number) {
@@ -447,12 +476,12 @@ export const useProgressStore = defineStore("progress", () => {
 
   function getLearningStats() {
     const langStore = useLanguageStore();
-    const totalLessons = langStore.targetLang === "id" ? 17 : 16;
+    const totalLessons = 16;
     const totalWords = langStore.targetLang === "id" ? 500 : 405;
 
     return {
-      lessonProgress: (lessonsCompleted.value / totalLessons) * 100,
-      wordProgress: (wordsLearned.value / totalWords) * 100,
+      lessonProgress: Math.min(100, (lessonsCompleted.value / totalLessons) * 100),
+      wordProgress: Math.min(100, (wordsLearned.value / totalWords) * 100),
       exerciseProgress: exercisesCompleted.value,
       totalPoints: totalPoints.value,
       streakDays: streakDays.value,
@@ -492,6 +521,7 @@ export const useProgressStore = defineStore("progress", () => {
     setLessonStep,
     completeExercise,
     markWordAsLearned,
+    toggleWordLearned,
     practiceWord,
     toggleFavoriteWord,
     isFavoriteWord,

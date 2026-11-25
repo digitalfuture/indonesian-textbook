@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted, nextTick } from "vue";
 import { useProgressStore } from "../../stores/progress";
-import { useLanguageStore } from "../../stores/language";
 import { useSound } from "../../composables/useSound";
 import { useSpeech } from "../../composables/useSpeech";
+import { useVocabulary } from "../../composables/useVocabulary";
 import type { PropType } from "vue";
 import type { Exercise } from "../../utils/types";
-import { vocabulary } from "../../data/vocabulary";
 
 const props = defineProps({
   exercises: {
@@ -24,12 +23,11 @@ const emit = defineEmits<{
 }>();
 
 const progressStore = useProgressStore();
-const langStore = useLanguageStore();
 const { isSoundEnabled, toggleSound } = useSound();
 const { speak } = useSpeech();
+const { vocabulary } = useVocabulary();
 
 function getSpokenQuestionText(text: string): string {
-  // If text contains quotes "...", extract the target language inside quotes e.g. 'Что означает фраза "Terima kasih"?' -> 'Terima kasih'
   const quoteMatch = text.match(/["«]([^"»]+)["»]/);
   if (quoteMatch) {
     return quoteMatch[1];
@@ -49,11 +47,12 @@ const isStage2 = ref(false);
 const showHint = ref(false);
 
 const completedExercises = ref<number[]>([]);
+const initialQueueLength = ref(0);
 
 function scrollToTop() {
   nextTick(() => {
     if (playerRef.value) {
-      const headerOffset = 75;
+      const headerOffset = 80;
       const elementPosition = playerRef.value.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -68,7 +67,7 @@ function scrollToTop() {
 function scrollToFeedback() {
   nextTick(() => {
     if (feedbackRef.value) {
-      const headerOffset = 75;
+      const headerOffset = 80;
       const elementPosition = feedbackRef.value.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -80,13 +79,11 @@ function scrollToFeedback() {
   });
 }
 
-// Reset hint and scroll to top on exercise change
 watch(currentExerciseIndex, () => {
   showHint.value = false;
   scrollToTop();
 });
 
-// Extract vocabulary words from dictionary relevant to the current exercise
 const exerciseVocabulary = computed(() => {
   if (!currentExercise.value) return [];
 
@@ -101,17 +98,16 @@ const exerciseVocabulary = computed(() => {
     .toLowerCase();
 
   const cleanText = textToScan.replace(/[^\p{L}\p{N}\s-]/gu, " ");
-
-  const sortedVocab = [...vocabulary].sort((a, b) => b.word.length - a.word.length);
-  const matched: typeof vocabulary = [];
+  const sortedVocab = [...vocabulary.value].sort((a, b) => b.word.length - a.word.length);
+  const matched: typeof vocabulary.value = [];
   const foundWords = new Set<string>();
 
   for (const item of sortedVocab) {
     const word = item.word.toLowerCase();
     if (foundWords.has(word)) continue;
 
-    const escapedWord = word.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-    const regex = new RegExp(`\\b${escapedWord}\\b`, 'i');
+    const escapedWord = word.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
+    const regex = new RegExp(`(?:^|\\s)${escapedWord}(?:$|\\s)`, "i");
 
     if (regex.test(cleanText)) {
       matched.push(item);
@@ -122,7 +118,6 @@ const exerciseVocabulary = computed(() => {
   return matched.sort((a, b) => a.id - b.id);
 });
 
-// Web Audio sound effects synthesizer
 function playSound(type: "success" | "error" | "complete") {
   if (!isSoundEnabled.value) return;
   try {
@@ -134,8 +129,8 @@ function playSound(type: "success" | "error" | "complete") {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.type = "sine";
-      osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
-      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12); // A5
+      osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.12);
       gain.gain.setValueAtTime(0.12, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.25);
       osc.connect(gain);
@@ -146,8 +141,8 @@ function playSound(type: "success" | "error" | "complete") {
       const osc = ctx.createOscillator();
       const gain = ctx.createGain();
       osc.type = "triangle";
-      osc.frequency.setValueAtTime(220, ctx.currentTime); // A3
-      osc.frequency.exponentialRampToValueAtTime(164.81, ctx.currentTime + 0.18); // E3
+      osc.frequency.setValueAtTime(220, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(164.81, ctx.currentTime + 0.18);
       gain.gain.setValueAtTime(0.15, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.22);
       osc.connect(gain);
@@ -174,7 +169,6 @@ function playSound(type: "success" | "error" | "complete") {
   }
 }
 
-// Initialize completed exercises
 watch(
   [() => props.lessonId, () => progressStore.isInitialized],
   ([newLessonId]) => {
@@ -184,40 +178,40 @@ watch(
     } else {
       completedExercises.value = [];
     }
+    initQueue();
   },
   { immediate: true },
 );
 
-// Queue of exercises to solve; wrong exercises get moved/appended to the end
 const activeQueue = ref<Exercise[]>([]);
 
 function initQueue() {
   const baseExercises = props.exercises ? [...props.exercises] : [];
   if (baseExercises.length === 0) {
     activeQueue.value = [];
+    initialQueueLength.value = 0;
     currentExerciseIndex.value = 0;
     return;
   }
-  // Filter out exercises that are already completed
-  const uncompleted = baseExercises.filter(e => !completedExercises.value.includes(e.id));
+  const uncompleted = baseExercises.filter((e) => !completedExercises.value.includes(e.id));
   activeQueue.value = uncompleted.length > 0 ? uncompleted : [...baseExercises];
+  initialQueueLength.value = activeQueue.value.length;
   currentExerciseIndex.value = 0;
+  resetExerciseState();
 }
 
-// Watch for changes in props.exercises to initialize or update queue
 watch(
   () => props.exercises,
   () => {
     initQueue();
   },
-  { immediate: true, deep: true }
+  { deep: true },
 );
 
-const currentExercise = computed(
-  () => activeQueue.value[currentExerciseIndex.value],
-);
+const currentExercise = computed(() => activeQueue.value[currentExerciseIndex.value]);
+const isRetryRound = computed(() => currentExerciseIndex.value >= initialQueueLength.value);
+const remainingCount = computed(() => Math.max(0, props.exercises.length - completedExercises.value.length));
 
-// Auto-complete lesson when all exercises are done
 watch(
   completedExercises,
   (newVal) => {
@@ -230,10 +224,7 @@ watch(
       progressStore.checkAchievements();
       playSound("complete");
       emit("completed");
-    } else if (
-      newVal.length === props.exercises.length &&
-      props.exercises.length > 0
-    ) {
+    } else if (newVal.length === props.exercises.length && props.exercises.length > 0) {
       playSound("complete");
       emit("completed");
     }
@@ -271,19 +262,18 @@ function checkAnswer() {
     correct = selectedOption.value === answer;
   } else if (currentExercise.value.type === "twoStage" && isStage2.value) {
     const userNormalized = normalizeText(userAnswer.value);
-    const answer2 =
-      currentExercise.value.stage2Answer || currentExercise.value.correctAnswer;
+    const answer2 = currentExercise.value.stage2Answer || currentExercise.value.correctAnswer;
     if (typeof answer2 === "string") {
-      const acceptableAnswers = answer2.split(/[|/;]/).map(ans => normalizeText(ans));
-      correct = acceptableAnswers.some(ans => ans === userNormalized);
+      const acceptableAnswers = answer2.split(/[|/;]/).map((ans) => normalizeText(ans));
+      correct = acceptableAnswers.some((ans) => ans === userNormalized);
     } else {
       correct = false;
     }
   } else {
     const userNormalized = normalizeText(userAnswer.value);
     if (typeof answer === "string") {
-      const acceptableAnswers = answer.split(/[|/;]/).map(ans => normalizeText(ans));
-      correct = acceptableAnswers.some(ans => ans === userNormalized);
+      const acceptableAnswers = answer.split(/[|/;]/).map((ans) => normalizeText(ans));
+      correct = acceptableAnswers.some((ans) => ans === userNormalized);
     } else {
       correct = false;
     }
@@ -297,7 +287,7 @@ function checkAnswer() {
     playSound("success");
     if (!completedExercises.value.includes(currentExercise.value.id)) {
       if (currentExercise.value.type === "twoStage" && !isStage2.value) {
-        // Just wait for stage 2
+        // Wait for stage 2
       } else {
         completedExercises.value.push(currentExercise.value.id);
         progressStore.completeExercise(
@@ -309,7 +299,6 @@ function checkAnswer() {
     }
   } else {
     playSound("error");
-    // Move/re-queue exercise to end of activeQueue so user must solve it later
     if (currentExercise.value) {
       activeQueue.value.push({ ...currentExercise.value });
     }
@@ -318,7 +307,7 @@ function checkAnswer() {
 
 function nextStage() {
   if (
-    currentExercise.value.type === "twoStage" &&
+    currentExercise.value?.type === "twoStage" &&
     !isStage2.value &&
     isCorrect.value
   ) {
@@ -331,8 +320,6 @@ function nextStage() {
 }
 
 function continueAfterWrong() {
-  // Current failed exercise was already pushed to end of activeQueue in checkAnswer.
-  // Advance to the next exercise.
   if (currentExerciseIndex.value < activeQueue.value.length - 1) {
     currentExerciseIndex.value++;
   }
@@ -366,15 +353,16 @@ const progress = computed(() => {
   return (completedExercises.value.length / props.exercises.length) * 100;
 });
 
-// Keyboard shortcuts support
 function handleKeydown(e: KeyboardEvent) {
-  const isInputFocused = e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement;
+  const isInputFocused =
+    e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement;
 
   if (e.key === "Enter") {
     e.preventDefault();
     if (!showFeedback.value) {
       if (
-        (currentExercise.value?.type === "multipleChoice" || (currentExercise.value?.type === "twoStage" && !isStage2.value)) &&
+        (currentExercise.value?.type === "multipleChoice" ||
+          (currentExercise.value?.type === "twoStage" && !isStage2.value)) &&
         selectedOption.value
       ) {
         checkAnswer();
@@ -395,7 +383,6 @@ function handleKeydown(e: KeyboardEvent) {
 
   if (isInputFocused) return;
 
-  // Number keys 1-4 for option selection
   if (!showFeedback.value && currentExercise.value?.options) {
     const num = parseInt(e.key);
     if (!isNaN(num) && num >= 1 && num <= currentExercise.value.options.length) {
@@ -416,9 +403,8 @@ onUnmounted(() => {
 defineExpose({
   resetAll() {
     completedExercises.value = [];
-    currentExerciseIndex.value = 0;
-    resetExerciseState();
-  }
+    initQueue();
+  },
 });
 </script>
 
@@ -427,37 +413,50 @@ defineExpose({
     <div class="progress-container">
       <div class="progress-info">
         <span>{{ $t('exercise.progress', { completed: completedExercises.length, total: exercises.length }) }}</span>
-        <span>{{ Math.round(progress) }}%</span>
+        <strong>{{ Math.round(progress) }}%</strong>
       </div>
       <div class="progress">
         <div class="progress-bar" :style="{ width: progress + '%' }"></div>
       </div>
     </div>
 
-    <div v-if="completedExercises.length < exercises.length" class="exercise-card fade-in">
+    <div
+      v-if="completedExercises.length < exercises.length && currentExercise"
+      class="exercise-card fade-in"
+    >
       <div class="exercise-nav">
         <button
           class="btn btn-sm btn-outline"
           @click="prevExercise"
           :disabled="currentExerciseIndex === 0"
+          type="button"
         >
           {{ $t('exercise.previous') }}
         </button>
-        <span class="exercise-number">
-          {{ $t('exercise.number', { current: currentExerciseIndex + 1, total: exercises.length }) }}
-        </span>
+
+        <div class="exercise-nav-center">
+          <span v-if="isRetryRound" class="retry-pill">
+            <i class="pi pi-replay"></i>
+            {{ $t('exercise.retryRound') }}
+          </span>
+          <span v-else class="exercise-number">
+            {{ $t('exercise.remaining', { count: remainingCount }) }}
+          </span>
+        </div>
+
         <button
           class="sound-toggle-btn"
           :title="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
           :aria-label="$t(isSoundEnabled ? 'sound.mute' : 'sound.unmute')"
           @click="toggleSound"
+          type="button"
         >
           <i :class="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
         </button>
       </div>
 
       <div class="exercise-body">
-        <div class="exercise-type">
+        <div class="exercise-type-row">
           <span v-if="currentExercise.type === 'translation'" class="type-badge">
             {{ $t('exercise.type.translation') }}
           </span>
@@ -470,6 +469,11 @@ defineExpose({
           <span v-else-if="currentExercise.type === 'twoStage'" class="type-badge">
             {{ $t('exercise.type.twoStage', { stage: isStage2 ? $t('exercise.twoStage.input') : $t('exercise.twoStage.choice') }) }}
           </span>
+
+          <span v-if="currentExercise.type === 'twoStage'" class="stage-dots">
+            <span class="stage-dot active"></span>
+            <span class="stage-dot" :class="{ active: isStage2 }"></span>
+          </span>
         </div>
 
         <h2 class="question">
@@ -481,16 +485,20 @@ defineExpose({
           <button
             class="audio-btn"
             @click.stop="speak(getSpokenQuestionText(isStage2 && currentExercise.stage2Question ? currentExercise.stage2Question : currentExercise.question))"
-            title="Прослушать"
-          >🔊</button>
+            title="🔊"
+            type="button"
+          >
+            🔊
+          </button>
         </h2>
 
-        <!-- Кнопка подсказки из словаря -->
+        <!-- Vocabulary hint -->
         <div v-if="exerciseVocabulary.length > 0" class="hint-container">
-          <button class="btn-hint" @click="showHint = !showHint">
-            💡 {{ showHint ? $t('exercise.hint.hide') : $t('exercise.hint.show') }}
+          <button class="btn-hint" @click="showHint = !showHint" type="button">
+            <i class="pi pi-lightbulb"></i>
+            <span>{{ showHint ? $t('exercise.hint.hide') : $t('exercise.hint.show') }}</span>
           </button>
-          
+
           <div v-if="showHint" class="vocab-hint-card fade-in">
             <ul class="vocab-list">
               <li v-for="word in exerciseVocabulary" :key="word.id" class="vocab-item">
@@ -498,8 +506,11 @@ defineExpose({
                 <button
                   class="audio-btn-inline"
                   @click.stop="speak(word.word)"
-                  title="Прослушать"
-                >🔊</button>
+                  title="🔊"
+                  type="button"
+                >
+                  🔊
+                </button>
                 <span class="vocab-pron" v-if="word.pronunciation"> {{ word.pronunciation }}</span>
                 <span class="vocab-trans"> — {{ word.translation }}</span>
               </li>
@@ -507,6 +518,7 @@ defineExpose({
           </div>
         </div>
 
+        <!-- Text input -->
         <div
           v-if="
             currentExercise.type === 'translation' ||
@@ -519,20 +531,22 @@ defineExpose({
             v-model="userAnswer"
             type="text"
             :placeholder="$t('exercise.answerPlaceholder')"
-            class="form-input"
+            class="form-input answer-input"
             :disabled="showFeedback"
             autofocus
             @keyup.enter="!showFeedback && userAnswer && checkAnswer()"
           />
         </div>
 
-        <div v-else-if="
+        <!-- Multiple choice options -->
+        <div
+          v-else-if="
             currentExercise.type === 'multipleChoice' ||
             (currentExercise.type === 'twoStage' && !isStage2)
           "
           class="options-section"
         >
-          <div
+          <button
             v-for="(option, idx) in currentExercise.options"
             :key="option"
             class="option"
@@ -542,22 +556,34 @@ defineExpose({
               wrong: showFeedback && selectedOption === option && option !== currentExercise.correctAnswer,
             }"
             @click="!showFeedback && (selectedOption = option)"
+            type="button"
           >
             <span class="option-key-badge">{{ idx + 1 }}</span>
             <span class="option-text">{{ option }}</span>
-            <button
+            <span
               class="audio-btn option-audio-btn"
+              role="button"
               @click.stop="speak(option)"
-              title="Прослушать"
-            >🔊</button>
-          </div>
+              title="🔊"
+            >
+              🔊
+            </span>
+          </button>
         </div>
 
-        <div v-if="showFeedback" ref="feedbackRef" class="feedback" :class="{ correct: isCorrect, wrong: !isCorrect }">
-          <div class="feedback-icon">{{ isCorrect ? "✅" : "❌" }}</div>
+        <!-- Feedback box -->
+        <div
+          v-if="showFeedback"
+          ref="feedbackRef"
+          class="feedback fade-in"
+          :class="{ correct: isCorrect, wrong: !isCorrect }"
+        >
+          <div class="feedback-icon">
+            <i :class="isCorrect ? 'pi pi-check-circle' : 'pi pi-times-circle'"></i>
+          </div>
           <div class="feedback-text">
             <strong>{{ isCorrect ? $t('exercise.feedback.correct') : $t('exercise.feedback.wrong') }}</strong>
-            <p v-if="!isCorrect">
+            <p v-if="!isCorrect" class="correct-answer-line">
               {{ $t('exercise.feedback.correctAnswer') }}
               <strong>{{
                 isStage2 && currentExercise.stage2Answer
@@ -567,12 +593,14 @@ defineExpose({
               <button
                 class="audio-btn-inline"
                 @click.stop="speak(String(isStage2 && currentExercise.stage2Answer ? currentExercise.stage2Answer : currentExercise.correctAnswer).split('|')[0])"
-                title="Прослушать правильный ответ"
-              >🔊</button>
+                title="🔊"
+                type="button"
+              >
+                🔊
+              </button>
             </p>
             <p class="explanation">{{ currentExercise.explanation }}</p>
 
-            <!-- Выписка из словаря в ответах -->
             <div v-if="exerciseVocabulary.length > 0" class="vocab-explanation">
               <div class="vocab-title">{{ $t('exercise.vocab.title') }}</div>
               <ul class="vocab-list">
@@ -581,8 +609,11 @@ defineExpose({
                   <button
                     class="audio-btn-inline"
                     @click.stop="speak(word.word)"
-                    title="Прослушать"
-                  >🔊</button>
+                    title="🔊"
+                    type="button"
+                  >
+                    🔊
+                  </button>
                   <span class="vocab-pron" v-if="word.pronunciation"> {{ word.pronunciation }}</span>
                   <span class="vocab-trans"> — {{ word.translation }}</span>
                 </li>
@@ -594,7 +625,7 @@ defineExpose({
         <div class="action-buttons">
           <button
             v-if="!showFeedback"
-            class="btn btn-primary btn-lg"
+            class="btn btn-primary btn-lg action-cta"
             @click="checkAnswer"
             :disabled="
               currentExercise.type === 'multipleChoice' ||
@@ -602,29 +633,33 @@ defineExpose({
                 ? !selectedOption
                 : !userAnswer
             "
+            type="button"
           >
             {{ $t('exercise.check') }}
           </button>
           <button
             v-else-if="showFeedback && isCorrect && currentExercise.type === 'twoStage' && !isStage2"
-            class="btn btn-primary btn-lg"
+            class="btn btn-primary btn-lg action-cta"
             @click="nextStage"
+            type="button"
           >
-            {{ $t('exercise.continue') }}
+            {{ $t('exercise.nextStage') }}
           </button>
           <button
             v-else-if="showFeedback && isCorrect && currentExerciseIndex < activeQueue.length - 1"
-            class="btn btn-primary btn-lg"
+            class="btn btn-primary btn-lg action-cta"
             @click="nextExercise"
+            type="button"
           >
             {{ $t('exercise.continue') }}
           </button>
           <button
             v-else-if="showFeedback && !isCorrect"
-            class="btn btn-primary btn-lg"
+            class="btn btn-primary btn-lg action-cta"
             @click="continueAfterWrong"
+            type="button"
           >
-            {{ $t('exercise.continue') }}
+            {{ $t('exercise.retryLater') }}
           </button>
         </div>
       </div>
@@ -637,52 +672,41 @@ defineExpose({
 <style scoped>
 .exercise-player {
   width: 100%;
-  scroll-margin-top: 80px;
+  scroll-margin-top: 84px;
 }
 
 .progress-container {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .progress-info {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-  color: var(--text);
+  margin-bottom: 0.45rem;
+  font-size: 0.9rem;
+  color: var(--muted);
 }
 
-.progress {
-  width: 100%;
-  height: 8px;
-  background: var(--code-bg);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.progress-bar {
-  height: 100%;
-  background: var(--primary-gradient);
-  border-radius: 4px;
-  transition: width 0.3s ease;
+.progress-info strong {
+  color: var(--primary);
 }
 
 .exercise-card {
   background: var(--bg-card);
-  border-radius: 0.75rem;
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow);
   overflow: hidden;
   border: 1px solid var(--border);
-  scroll-margin-top: 80px;
 }
 
 .exercise-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
-  background: var(--code-bg);
+  padding: 0.85rem 1.35rem;
+  background: var(--bg-subtle);
   border-bottom: 1px solid var(--border);
+  gap: 0.75rem;
 }
 
 .exercise-nav-center {
@@ -691,239 +715,125 @@ defineExpose({
   gap: 0.5rem;
 }
 
+.retry-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: var(--warning-soft);
+  color: var(--warning);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.exercise-number {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
 .sound-toggle-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  padding: 0.25rem 0.4rem;
-  border-radius: 4px;
   color: var(--muted);
   font-size: 1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all 0.18s ease;
 }
 
 .sound-toggle-btn:hover {
   color: var(--text-h);
-  background: var(--accent-bg);
-}
-
-.exercise-number {
-  font-weight: 500;
-  color: var(--text);
+  background: var(--bg-card);
+  border-color: var(--border);
 }
 
 .exercise-body {
-  padding: 2rem;
+  padding: 1.75rem 2rem;
 }
 
-.exercise-type {
-  margin-bottom: 1rem;
+.exercise-type-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
 }
 
 .type-badge {
   display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: var(--primary-gradient);
-  color: white;
-  border-radius: 0.25rem;
-  font-size: 0.95rem;
-  font-weight: 500;
+  padding: 0.24rem 0.72rem;
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.stage-dots {
+  display: inline-flex;
+  gap: 0.35rem;
+}
+
+.stage-dot {
+  width: 24px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--border);
+  transition: background 0.2s ease;
+}
+
+.stage-dot.active {
+  background: var(--primary);
 }
 
 .question {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.32rem;
+  font-weight: 700;
   color: var(--text-h);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   line-height: 1.4;
-}
-
-.answer-section {
-  margin-bottom: 1.5rem;
-}
-
-.options-section {
-  display: grid;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.option {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 1.5rem;
-  background: var(--code-bg);
-  border: 2px solid var(--border);
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 1.05rem;
-  color: var(--text-h);
-}
-
-.option-key-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background: var(--border);
-  color: var(--text);
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  flex-shrink: 0;
-}
-
-.option-text {
-  flex: 1;
-}
-
-.option-audio-btn {
-  margin-left: auto;
-  font-size: 1.05rem;
-  opacity: 0.55;
-}
-
-.option-audio-btn:hover {
-  opacity: 1;
-}
-
-.option:hover:not(.selected):not(.correct):not(.wrong) {
-  border-color: var(--accent);
-  background: var(--accent-bg);
-}
-
-.option.selected {
-  border-color: var(--primary);
-  background: var(--accent-bg);
-}
-
-.option.selected .option-key-badge {
-  background: var(--primary);
-  color: white;
-}
-
-.option.correct {
-  border-color: #22c55e;
-  background: var(--option-correct-bg);
-}
-
-.option.wrong {
-  border-color: #ef4444;
-  background: var(--option-wrong-bg);
-}
-
-.action-buttons {
-  margin-top: 1.5rem;
-  display: flex;
-  justify-content: flex-start;
-}
-
-.feedback {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  margin-top: 1.5rem;
-}
-
-.feedback.correct {
-  background: var(--feedback-correct-bg);
-  border: 1px solid var(--feedback-correct-border);
-}
-
-.feedback.wrong {
-  background: var(--feedback-wrong-bg);
-  border: 1px solid var(--feedback-wrong-border);
-}
-
-.feedback-icon {
-  font-size: 1.5rem;
-}
-
-.feedback-text {
-  flex: 1;
-}
-
-.feedback-text strong {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: var(--text-h);
-}
-
-.feedback-text p {
-  margin: 0.25rem 0;
-  font-size: 1.05rem;
-  color: var(--text);
-}
-
-.feedback-text p strong {
-  color: var(--translation-color);
-}
-
-.explanation {
-  font-style: italic;
-  margin-top: 0.5rem;
-  border-top: 1px solid var(--border);
-  padding-top: 0.5rem;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .hint-container {
-  margin: 1rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  margin-bottom: 1.25rem;
 }
 
 .btn-hint {
-  background: none;
-  border: 1px dashed var(--primary);
-  color: var(--primary);
-  padding: 0.4rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.95rem;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  transition: all 0.2s ease;
-  font-weight: 500;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  color: var(--text);
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.16s ease;
 }
 
 .btn-hint:hover {
-  background: var(--accent-bg);
-  border-color: var(--accent);
-  color: var(--accent);
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 .vocab-hint-card {
-  background: var(--code-bg);
+  margin-top: 0.65rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  margin-top: 0.5rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.vocab-explanation {
-  margin-top: 0.75rem;
-  border-top: 1px dashed var(--border);
-  padding-top: 0.75rem;
-  width: 100%;
-}
-
-.vocab-title {
-  font-weight: 600;
-  font-size: 1.05rem;
-  color: var(--text-h);
-  margin-bottom: 0.4rem;
 }
 
 .vocab-list {
@@ -936,9 +846,11 @@ defineExpose({
 }
 
 .vocab-item {
-  font-size: 1.05rem;
-  line-height: 1.4;
-  color: var(--text);
+  font-size: 0.92rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem;
 }
 
 .vocab-word {
@@ -946,33 +858,180 @@ defineExpose({
   color: var(--text-h);
 }
 
-.vocab-pron {
-  color: var(--muted);
-  font-style: italic;
-  font-size: 0.95rem;
+.answer-section {
+  margin-bottom: 1.25rem;
 }
 
-.vocab-trans {
-  color: var(--translation-color);
+.answer-input {
+  font-size: 1.08rem;
+  padding: 0.85rem 1.1rem;
+}
+
+.options-section {
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 1.35rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.95rem 1.2rem;
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.16s ease;
+  font-size: 1.02rem;
+  color: var(--text-h);
+  text-align: left;
+  width: 100%;
+}
+
+.option-key-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  color: var(--muted);
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.option-text {
+  flex: 1;
   font-weight: 500;
 }
 
-@media (max-width: 768px) {
-  .exercise-nav {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+.option-audio-btn {
+  margin-left: auto;
+}
 
+.option:hover:not(.selected):not(.correct):not(.wrong) {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.option.selected {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+  box-shadow: 0 0 0 2px var(--primary-soft);
+}
+
+.option.selected .option-key-badge {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+.option.correct {
+  border-color: var(--option-correct-border);
+  background: var(--option-correct-bg);
+}
+
+.option.wrong {
+  border-color: var(--option-wrong-border);
+  background: var(--option-wrong-bg);
+}
+
+.feedback {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.35rem;
+  border: 1.5px solid transparent;
+}
+
+.feedback.correct {
+  background: var(--feedback-correct-bg);
+  border-color: var(--feedback-correct-border);
+}
+
+.feedback.wrong {
+  background: var(--feedback-wrong-bg);
+  border-color: var(--feedback-wrong-border);
+}
+
+.feedback-icon {
+  font-size: 1.45rem;
+  line-height: 1;
+  padding-top: 0.1rem;
+}
+
+.feedback.correct .feedback-icon {
+  color: var(--success);
+}
+
+.feedback.wrong .feedback-icon {
+  color: var(--danger);
+}
+
+.feedback-text {
+  flex: 1;
+}
+
+.feedback-text > strong {
+  font-size: 1.05rem;
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.correct-answer-line {
+  margin-bottom: 0.45rem;
+}
+
+.explanation {
+  margin-bottom: 0;
+  font-size: 0.94rem;
+}
+
+.vocab-explanation {
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-strong);
+}
+
+.vocab-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-cta {
+  min-width: 190px;
+}
+
+@media (max-width: 640px) {
   .exercise-body {
     padding: 1.25rem;
+  }
+
+  .exercise-nav {
+    padding: 0.75rem 1rem;
   }
 
   .question {
     font-size: 1.15rem;
   }
 
-  .option-key-badge {
-    display: none;
+  .action-cta {
+    width: 100%;
   }
 }
 </style>

@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, watch, onMounted } from "vue";
+import { ref, computed, watch, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
 import { useSound } from "../../composables/useSound";
 import { useLanguageStore } from "../../stores/language";
+import { useProgressStore } from "../../stores/progress";
 import { useAIStore } from "../../stores/ai";
 import CountryFlag from "../common/CountryFlag.vue";
 
@@ -20,8 +21,8 @@ const route = useRoute();
 const { theme, toggleTheme } = useTheme();
 const { isSoundEnabled, toggleSound } = useSound();
 const langStore = useLanguageStore();
+const progressStore = useProgressStore();
 const aiStore = useAIStore();
-const activeKey = ref<string>("0");
 
 const drawerVisible = ref(false);
 
@@ -37,44 +38,40 @@ watch(drawerVisible, (val) => {
   emit("update:visible", val);
 });
 
-const menuItems = ref([
-  { key: "0", labelKey: "nav.home", icon: "pi pi-home", path: "" },
-  { key: "1", labelKey: "nav.lessons", icon: "pi pi-book", path: "/lessons" },
-  { key: "2", labelKey: "nav.grammar", icon: "pi pi-table", path: "/grammar" },
-  { key: "3", labelKey: "nav.dictionary", icon: "pi pi-list", path: "/dictionary" },
-  { key: "4", labelKey: "nav.phrasebook", icon: "pi pi-comments", path: "/phrasebook" },
-  { key: "5", labelKey: "nav.exercises", icon: "pi pi-pencil", path: "/exercises" },
-  { key: "6", labelKey: "nav.progress", icon: "pi pi-chart-bar", path: "/progress" },
-]);
+const menuItems = computed(() => {
+  const items = [
+    { key: "course", labelKey: "nav.course", icon: "pi pi-compass", path: "", matchPrefix: ["/lessons", "/lesson"] },
+    { key: "exercises", labelKey: "nav.exercises", icon: "pi pi-bolt", path: "/exercises", matchPrefix: ["/exercises"] },
+    { key: "dictionary", labelKey: "nav.dictionary", icon: "pi pi-book", path: "/dictionary", matchPrefix: ["/dictionary"] },
+    { key: "grammar", labelKey: "nav.grammar", icon: "pi pi-table", path: "/grammar", matchPrefix: ["/grammar"] },
+    { key: "phrasebook", labelKey: "nav.phrasebook", icon: "pi pi-comments", path: "/phrasebook", matchPrefix: ["/phrasebook"] },
+    { key: "progress", labelKey: "nav.progress", icon: "pi pi-chart-line", path: "/progress", matchPrefix: ["/progress"] },
+  ];
+  if (aiStore.isSupported) {
+    items.push({ key: "ai-chat", labelKey: "nav.aiChat", icon: "pi pi-sparkles", path: "/ai-chat", matchPrefix: ["/ai-chat"] });
+  }
+  return items;
+});
+
+const stats = computed(() => progressStore.getLearningStats());
 
 onMounted(async () => {
   await aiStore.initialize();
-  if (aiStore.isSupported) {
-    menuItems.value.push({ key: "6", labelKey: "nav.aiChat", icon: "pi pi-comments", path: "/ai-chat" });
-  }
 });
 
-watch(
-  () => route.path,
-  (path) => {
-    const prefix = `/${langStore.interfaceLang}/${langStore.targetLang}`;
-    const item = menuItems.value.find((m) => {
-      const fullPath = prefix + m.path;
-      return path === fullPath || path.startsWith(fullPath + "/");
-    });
-    if (item) {
-      activeKey.value = item.key;
-    }
-  },
-  { immediate: true },
-);
-
-function onMenuClick(item: any) {
-  if (item.path !== undefined) {
-    const to = `/${langStore.interfaceLang}/${langStore.targetLang}${item.path}`;
-    router.push(to);
-    drawerVisible.value = false;
+function isItemActive(item: { path: string; matchPrefix: string[] }): boolean {
+  const base = `/${langStore.interfaceLang}/${langStore.targetLang}`;
+  const current = route.path;
+  if (item.path === "") {
+    if (current === base || current === base + "/") return true;
+    return item.matchPrefix.some((p) => current === base + p || current.startsWith(base + p + "/"));
   }
+  return current === base + item.path || current.startsWith(base + item.path + "/");
+}
+
+function onMenuClick(path: string) {
+  router.push(`/${langStore.interfaceLang}/${langStore.targetLang}${path}`);
+  drawerVisible.value = false;
 }
 </script>
 
@@ -95,28 +92,43 @@ function onMenuClick(item: any) {
     </template>
 
     <div class="drawer-body">
-      <div class="menu-section">
-        <div
-          v-for="item in menuItems"
-          :key="item.key"
-          class="drawer-menu-item"
-          :class="{ active: activeKey === item.key }"
-          @click="onMenuClick(item)"
-        >
-          <i :class="item.icon"></i>
-          <span>{{ $t(item.labelKey) }}</span>
+      <div class="drawer-progress-card">
+        <div class="drawer-progress-top">
+          <span>{{ $t('home.dashboard.courseProgress') }}</span>
+          <strong>{{ Math.round(stats.lessonProgress) }}%</strong>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" :style="{ width: Math.min(100, stats.lessonProgress) + '%' }"></div>
+        </div>
+        <div class="drawer-progress-meta">
+          <span>🔥 {{ stats.streakDays }}</span>
+          <span>⭐ {{ stats.totalPoints }}</span>
         </div>
       </div>
 
+      <nav class="menu-section">
+        <button
+          v-for="item in menuItems"
+          :key="item.key"
+          class="drawer-menu-item"
+          :class="{ active: isItemActive(item) }"
+          @click="onMenuClick(item.path)"
+          type="button"
+        >
+          <i :class="item.icon"></i>
+          <span>{{ $t(item.labelKey) }}</span>
+        </button>
+      </nav>
+
       <div class="drawer-footer-section">
-        <div class="drawer-action-toggle" @click="toggleSound">
+        <button class="drawer-action-toggle" @click="toggleSound" type="button">
           <i :class="isSoundEnabled ? 'pi pi-volume-up' : 'pi pi-volume-off'"></i>
           <span>{{ $t(isSoundEnabled ? 'sound.enabled' : 'sound.disabled') }}</span>
-        </div>
-        <div class="drawer-action-toggle" @click="toggleTheme">
+        </button>
+        <button class="drawer-action-toggle" @click="toggleTheme" type="button">
           <i :class="theme === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"></i>
           <span>{{ $t(theme === 'dark' ? 'theme.light' : 'theme.dark') }}</span>
-        </div>
+        </button>
       </div>
     </div>
   </PDrawer>
@@ -131,24 +143,50 @@ function onMenuClick(item: any) {
 .drawer-header {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0;
-}
-
-.drawer-flag {
-  font-size: 1.5rem;
+  gap: 0.6rem;
 }
 
 .drawer-title {
+  font-family: var(--font-display);
   font-size: 1rem;
   font-weight: 700;
+  color: var(--text-h);
 }
 
 .drawer-body {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding-top: 0.5rem;
+  gap: 1rem;
+}
+
+.drawer-progress-card {
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.drawer-progress-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.drawer-progress-top strong {
+  color: var(--primary);
+}
+
+.drawer-progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .menu-section {
@@ -162,38 +200,38 @@ function onMenuClick(item: any) {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: var(--p-border-radius-md);
+  padding: 0.72rem 0.95rem;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: all 0.15s ease;
-  color: var(--p-text-muted-color);
+  transition: all 0.16s ease;
+  color: var(--text);
+  background: transparent;
+  border: none;
   font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
 }
 
 .drawer-menu-item:hover {
-  background: var(--p-content-hover-background);
-  color: var(--p-text-color);
-}
-
-.drawer-menu-item:active {
-  transform: scale(0.98);
-  opacity: 0.8;
+  background: var(--bg-subtle);
+  color: var(--text-h);
 }
 
 .drawer-menu-item.active {
-  background: var(--p-primary-color);
-  color: var(--p-primary-contrast-color);
-  font-weight: 500;
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .drawer-menu-item i {
-  font-size: 1.15rem;
-  width: 1.5rem;
+  font-size: 1.05rem;
+  width: 1.3rem;
   text-align: center;
 }
 
 .drawer-footer-section {
-  border-top: 1px solid var(--p-content-border-color);
+  border-top: 1px solid var(--border);
   padding-top: 0.75rem;
   margin-top: auto;
   display: flex;
@@ -201,29 +239,30 @@ function onMenuClick(item: any) {
   gap: 0.25rem;
 }
 
-.drawer-action-toggle,
-.drawer-theme-toggle {
+.drawer-action-toggle {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  border-radius: var(--p-border-radius-md);
+  padding: 0.7rem 0.95rem;
+  border-radius: var(--radius-md);
   cursor: pointer;
   transition: all 0.15s ease;
-  color: var(--p-text-muted-color);
-  font-size: 0.95rem;
+  color: var(--text);
+  background: transparent;
+  border: none;
+  font-size: 0.92rem;
+  width: 100%;
+  text-align: left;
 }
 
-.drawer-action-toggle:hover,
-.drawer-theme-toggle:hover {
-  background: var(--p-content-hover-background);
-  color: var(--p-text-color);
+.drawer-action-toggle:hover {
+  background: var(--bg-subtle);
+  color: var(--text-h);
 }
 
-.drawer-action-toggle i,
-.drawer-theme-toggle i {
-  font-size: 1.15rem;
-  width: 1.5rem;
+.drawer-action-toggle i {
+  font-size: 1.05rem;
+  width: 1.3rem;
   text-align: center;
 }
 </style>
