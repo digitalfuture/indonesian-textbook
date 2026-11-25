@@ -1,7 +1,13 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import { copyFileSync, mkdirSync } from "fs";
+import { copyFileSync, mkdirSync, readFileSync } from "fs";
 import { resolve } from "path";
+
+const pkg = JSON.parse(
+  readFileSync(resolve(__dirname, "package.json"), "utf-8"),
+);
+const appVersion: string = pkg.version || "0.0.0";
+const buildTime: string = new Date().toISOString();
 
 const spaStaticRoutes = [
   "ru/id",
@@ -24,6 +30,10 @@ const spaStaticRoutes = [
 
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify(appVersion),
+    __BUILD_TIME__: JSON.stringify(buildTime),
+  },
   plugins: [
     vue(),
     {

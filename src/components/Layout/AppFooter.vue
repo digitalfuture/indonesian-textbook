@@ -8,6 +8,8 @@ const langStore = useLanguageStore();
 
 const stats = computed(() => progressStore.getLearningStats());
 const currentYear = new Date().getFullYear();
+const appVersion = __APP_VERSION__;
+const buildTime = __BUILD_TIME__;
 </script>
 
 <template>
@@ -36,6 +38,7 @@ const currentYear = new Date().getFullYear();
         <p class="footer-method">{{ $t('footer.method.' + langStore.targetLang) }}</p>
         <p class="footer-copyright">
           © {{ currentYear }} Indonesian Textbook. {{ $t('footer.copyright') }}
+          <span class="footer-version" :title="`Build: ${buildTime}`">v{{ appVersion }}</span>
         </p>
       </div>
     </div>
@@ -103,6 +106,21 @@ const currentYear = new Date().getFullYear();
 .footer-copyright {
   margin: 0.2rem 0 0;
   font-size: 0.76rem;
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.footer-version {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
   color: var(--muted);
 }
 

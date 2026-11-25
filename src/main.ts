@@ -77,4 +77,10 @@ app.component("PToast", Toast);
 // PrimeVue directives
 app.directive("tooltip", Tooltip);
 
+console.info(
+  `%cIndonesian Textbook v${__APP_VERSION__}%c · built ${__BUILD_TIME__}`,
+  "color: #4f46e5; font-weight: 700;",
+  "color: #64748b;",
+);
+
 app.mount("#app");

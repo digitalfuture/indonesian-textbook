@@ -141,9 +141,9 @@ function navigate(path: string) {
 }
 
 .header-inner {
-  max-width: 1180px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0.65rem 1rem;
+  padding: 0.6rem 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -155,19 +155,24 @@ function navigate(path: string) {
   align-items: center;
   gap: 0.5rem;
   min-width: 0;
+  flex-shrink: 1;
+  overflow: hidden;
 }
 
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.5rem;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.25rem 0.35rem;
+  padding: 0.25rem 0.3rem;
   border-radius: var(--radius-sm);
   color: var(--text-h);
   transition: opacity 0.18s ease;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .logo:hover {
@@ -176,31 +181,34 @@ function navigate(path: string) {
 
 .logo-text {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 0.94rem;
   font-weight: 700;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   letter-spacing: -0.02em;
 }
 
 .desktop-nav {
   display: none;
   align-items: center;
-  gap: 0.2rem;
-  padding: 0.22rem;
+  gap: 0.15rem;
+  padding: 0.2rem;
   background: var(--bg-subtle);
   border: 1px solid var(--border);
   border-radius: 999px;
+  flex-shrink: 0;
 }
 
 .nav-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.42rem 0.85rem;
+  gap: 0.35rem;
+  padding: 0.38rem 0.7rem;
   border: none;
   background: transparent;
   color: var(--text);
-  font-size: 0.875rem;
+  font-size: 0.84rem;
   font-weight: 500;
   border-radius: 999px;
   cursor: pointer;
@@ -221,13 +229,13 @@ function navigate(path: string) {
 }
 
 .nav-link i {
-  font-size: 0.88rem;
+  font-size: 0.84rem;
 }
 
 .header-end {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   flex-shrink: 0;
 }
 
@@ -235,12 +243,12 @@ function navigate(path: string) {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.3rem 0.65rem;
+  padding: 0.28rem 0.6rem;
   border-radius: 999px;
   border: 1px solid rgba(217, 119, 6, 0.3);
   background: var(--warning-soft);
   color: var(--warning);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.15s ease;
@@ -259,15 +267,15 @@ function navigate(path: string) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 999px;
   border: 1px solid transparent;
   background: transparent;
   color: var(--text);
   cursor: pointer;
   transition: all 0.18s ease;
-  font-size: 1rem;
+  font-size: 0.98rem;
 }
 
 .icon-btn:hover {
@@ -276,7 +284,7 @@ function navigate(path: string) {
   border-color: var(--border);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1120px) {
   .hamburger-btn {
     display: none;
   }
@@ -286,14 +294,14 @@ function navigate(path: string) {
   }
 }
 
-@media (max-width: 1120px) and (min-width: 1024px) {
-  .logo-text {
-    font-size: 0.92rem;
+@media (max-width: 1220px) and (min-width: 1120px) {
+  .nav-link {
+    padding: 0.36rem 0.58rem;
+    font-size: 0.81rem;
   }
 
-  .nav-link {
-    padding: 0.4rem 0.68rem;
-    font-size: 0.82rem;
+  .nav-link i {
+    display: none;
   }
 }
 
