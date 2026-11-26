@@ -105,8 +105,10 @@ const router = createRouter({
 });
 
 import { useLoadingBar } from "../composables/useLoadingBar";
+import { stopSpeech } from "../composables/useSpeech";
 
 router.beforeEach((to, _from, next) => {
+  stopSpeech();
   const { start } = useLoadingBar();
   start();
 

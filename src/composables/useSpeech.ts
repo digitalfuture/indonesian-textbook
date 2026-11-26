@@ -9,18 +9,35 @@ export interface SpeechOptions {
   cancelCurrent?: boolean;
 }
 
-// Module-level reference to prevent Chromium/WebKit Garbage Collection
-// from prematurely stopping utterances mid-speech
+// Module-level references to prevent Chromium/WebKit GC and allow clean global cancellation
 let globalActiveUtterance: SpeechSynthesisUtterance | null = null;
-let resumeInterval: any = null;
+let resumeInterval: ReturnType<typeof setInterval> | null = null;
+let activeCancelCleanup: (() => void) | null = null;
+
+export function stopSpeech() {
+  if (activeCancelCleanup) {
+    activeCancelCleanup();
+    activeCancelCleanup = null;
+  }
+  if (resumeInterval) {
+    clearInterval(resumeInterval);
+    resumeInterval = null;
+  }
+  globalActiveUtterance = null;
+  if (typeof window !== "undefined" && "speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+}
 
 function keepSpeechAlive() {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   if (resumeInterval) clearInterval(resumeInterval);
   resumeInterval = setInterval(() => {
     if (!window.speechSynthesis.speaking) {
-      clearInterval(resumeInterval);
-      resumeInterval = null;
+      if (resumeInterval) {
+        clearInterval(resumeInterval);
+        resumeInterval = null;
+      }
     } else if (window.speechSynthesis.paused) {
       window.speechSynthesis.resume();
     }
@@ -49,15 +66,10 @@ export function useSpeech() {
     const targetLangCode = langMap[langStore.targetLang] || "id-ID";
 
     if (options.cancelCurrent !== false) {
-      window.speechSynthesis.cancel();
-      if (resumeInterval) {
-        clearInterval(resumeInterval);
-        resumeInterval = null;
-      }
+      stopSpeech();
     }
 
     const utterance = new SpeechSynthesisUtterance(text);
-    // Retain global reference so V8/Chromium doesn't GC the utterance before completion
     globalActiveUtterance = utterance;
 
     utterance.lang = targetLangCode;
@@ -67,17 +79,16 @@ export function useSpeech() {
     if (options.pitch !== undefined) {
       utterance.pitch = options.pitch;
     } else if (options.gender === "male") {
-      utterance.pitch = 0.65; // Significantly deeper pitch for male characters
+      utterance.pitch = 0.65;
       if (options.rate === undefined) {
-        utterance.rate = 0.85; // Slightly calmer tempo for deeper natural resonance
+        utterance.rate = 0.85;
       }
     } else if (options.gender === "female") {
-      utterance.pitch = 1.22; // Brighter pitch for female characters
+      utterance.pitch = 1.22;
     } else {
       utterance.pitch = 1.0;
     }
 
-    // Try to find a native voice matching the language and requested gender
     const voices = window.speechSynthesis.getVoices();
     const matchingLangVoices = voices.filter((v) =>
       v.lang.replace(/_/g, "-").toLowerCase().startsWith(targetLangCode.toLowerCase()),
@@ -99,16 +110,31 @@ export function useSpeech() {
       }
     }
 
-    let timer: any = null;
+    let timer: ReturnType<typeof setTimeout> | null = null;
     let completed = false;
+    let cancelled = false;
 
-    const finish = () => {
-      if (completed) return;
-      completed = true;
-      if (timer) clearTimeout(timer);
+    const cleanup = () => {
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
       if (globalActiveUtterance === utterance) {
         globalActiveUtterance = null;
       }
+    };
+
+    activeCancelCleanup = () => {
+      cancelled = true;
+      completed = true;
+      cleanup();
+    };
+
+    const finish = () => {
+      if (completed || cancelled) return;
+      completed = true;
+      cleanup();
+      if (activeCancelCleanup) activeCancelCleanup = null;
       if (options.onEnd) {
         options.onEnd();
       }
@@ -116,13 +142,14 @@ export function useSpeech() {
 
     utterance.onend = finish;
     utterance.onerror = (e) => {
-      // Don't treat cancel as an unexpected crash callback if it was already handled
+      if (cancelled || e.error === "canceled" || e.error === "interrupted") {
+        completed = true;
+        cleanup();
+        return;
+      }
       finish();
     };
 
-    // Very generous fallback timeout (25 seconds minimum, 1.5s per word)
-    // to strictly prevent cutting off speech mid-sentence in auto-dialogues.
-    // The primary completion driver is always utterance.onend.
     const wordCount = text.split(/\s+/).length;
     const safetyTimeoutMs = Math.max(15000, wordCount * 1500);
     timer = setTimeout(finish, safetyTimeoutMs);
@@ -131,5 +158,5 @@ export function useSpeech() {
     window.speechSynthesis.speak(utterance);
   }
 
-  return { speak };
+  return { speak, stop: stopSpeech };
 }

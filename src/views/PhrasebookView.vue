@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, watch, onBeforeUnmount } from "vue";
+import { onBeforeRouteLeave } from "vue-router";
 import { useLanguageStore } from "../stores/language";
 import { useSpeech } from "../composables/useSpeech";
 import {
@@ -16,7 +17,7 @@ import {
 } from "../data/dialogues";
 
 const langStore = useLanguageStore();
-const { speak } = useSpeech();
+const { speak, stop: stopSpeech } = useSpeech();
 
 // Active section: 'phrases' | 'dialogues'
 const activeSection = ref<"phrases" | "dialogues">("phrases");
@@ -181,10 +182,23 @@ function stopDialogueAudio() {
   }
   playingDialogueId.value = null;
   currentPlayingLineIndex.value = -1;
-  if (typeof window !== "undefined" && "speechSynthesis" in window) {
-    window.speechSynthesis.cancel();
-  }
+  stopSpeech();
 }
+
+onBeforeRouteLeave(() => {
+  stopDialogueAudio();
+});
+
+onBeforeUnmount(() => {
+  stopDialogueAudio();
+});
+
+watch(
+  () => langStore.targetLang,
+  () => {
+    stopDialogueAudio();
+  },
+);
 
 function playWholeDialogue(dialogue: DialogueItem) {
   if (playingDialogueId.value === dialogue.id) {
