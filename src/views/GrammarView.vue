@@ -714,7 +714,7 @@ const grammarTablesRu = [
     rows: [
       { label: "Sekarang", cells: ["kata kerja + akhiran", "Я читаю (Saya membaca)"] },
       { label: "Lampau", cells: ["akhiran -л/-ла/-ли", "Я читал (Saya membaca)"] },
-      { label: "Masa Depan", cells: ["буду + infintif", "Я буду читать (Saya akan membaca)"] },
+      { label: "Masa Depan", cells: ["буду + infinitif", "Я буду читать (Saya akan membaca)"] },
       { label: "Perfektif", cells: ["telah selesai", "Я прочитал (Saya selesai membaca)"] },
     ],
   },

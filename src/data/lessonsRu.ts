@@ -18,7 +18,7 @@ Sapaan umum:
 - Добрый вечер [dob-ryy vye-cher] — selamat sore / malam
 
 Menanyakan kabar dan menjawab:
-- Как дела? [kak dye-la] — Apa kabar? (букв. "bagaimana urusan?")
+- Как дела? [kak dye-la] — Apa kabar? (harfiah: "bagaimana urusan?")
 - Как [kak] — bagaimana
 - Дела [dye-la] — urusan / kabar
 - Хорошо [kha-ra-sho] — baik / bagus
@@ -30,7 +30,7 @@ Saat berpisah:
 - Пока [pa-ka] — sampai jumpa / dah (informal)
 
 Memperkenalkan diri:
-- Меня зовут... [mye-nya zo-voot] — nama saya... (букв. "saya dipanggil...")
+- Меня зовут... [mye-nya zo-voot] — nama saya... (harfiah: "saya dipanggil...")
 - Меня зовут Анна [mye-nya zo-voot an-na] — Nama saya Anna
 - Анна [an-na] — Anna (nama orang)
 - Очень приятно [o-chen' pri-yat-na] — senang berkenalan`,
@@ -50,8 +50,8 @@ Memperkenalkan diri:
         "До свидания — sampai jumpa",
       ],
       grammarNotes: [
-        "В русском языке 3 рода: мужской, женский, средний",
-        "Падежи: именительный, родительный, дательный, винительный, творительный, предложный",
+        "Dalam bahasa Rusia ada 3 gender: maskulin, feminin, netral",
+        "Kasus tata bahasa: nominatif, genitif, datif, akusatif, instrumental, preposisional",
       ],
     },
     exercises: [101, 102, 103, 104],
@@ -295,7 +295,7 @@ Kosakata keluarga dan benda:
 1 — Один [a-deen]
 2 — Два [dva]
 3 — Три [tree]
-4 — Четыre [che-ty-rye]
+4 — Четыре [che-ty-rye]
 5 — Пять [pyat']
 6 — Шесть [shest']
 7 — Семь [syem']

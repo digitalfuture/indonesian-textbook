@@ -14,7 +14,7 @@ export const exercisesRu: Exercise[] = [
     correctAnswer: "Здравствуйте",
     stage2Question: "Tulis salam formal 'halo' dalam bahasa Rusia:",
     stage2Answer: "Здравствуйте",
-    explanation: "Здравствуйте adalah salam formal dan sopan (букв. 'sehatlah').",
+    explanation: "Здравствуйте adalah salam formal dan sopan (harfiah: 'sehatlah').",
     difficulty: 1,
     points: 10,
   },
