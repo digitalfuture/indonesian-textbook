@@ -12,7 +12,7 @@ export const lessons: Lesson[] = [
 Основные приветствия по времени суток:
 - Selamat pagi /səlamat paɡi/ - Доброе утро (до 11:00)
 - Selamat siang /səlamat siaŋ/ - Добрый день (11:00-15:00)
-- Selamat sore /səlamat sorə/ - Добрый вечер (до заката, 15:00-19:00)
+- Selamat sore /səlamat sore/ - Добрый вечер (до заката, 15:00-19:00)
 - Selamat malam /səlamat malam/ - Добрый вечер / ночь (после 19:00)
 - Selamat /səlamat/ - приветствие / благополучный, безопасный
 
@@ -64,8 +64,16 @@ export const lessons: Lesson[] = [
         { indonesian: "Senang bertemu dengan Anda", russian: "Приятно познакомиться с Вами" },
         { indonesian: "Saya dari Rusia, asal saya dari Moskow", russian: "Я из России, родом из Москвы" },
         { indonesian: "Saya tinggal di Indonesia", russian: "Я живу в Индонезии" },
-        { indonesian: "Terima kasih banyak", russian: "Большое спасибо" },
-        { indonesian: "Sama-sama, silakan duduk", russian: "Пожалуйста, присаживайтесь" },
+        {
+          indonesian: "Terima kasih banyak! — Sama-sama!",
+          russian: "Большое спасибо! — Не за что!",
+          notes: "Sama-sama используется только как ответ на благодарность",
+        },
+        {
+          indonesian: "Silakan masuk, silakan duduk",
+          russian: "Пожалуйста, проходите, присаживайтесь",
+          notes: "Silakan — вежливое приглашение или разрешение к действию",
+        },
         { indonesian: "Maaf, tolong bantu saya", russian: "Извините, пожалуйста, помогите мне" },
         { indonesian: "Sampai jumpa dan selamat jalan!", russian: "До свидания и счастливого пути!" },
       ],
@@ -107,7 +115,7 @@ export const lessons: Lesson[] = [
 - beliau /bəliau/ - он / она (уважительно, о старших или руководителях)
 - kami /kami/ - мы (без собеседника, эксклюзивное)
 - kita /kita/ - мы (включая собеседника, инклюзивное)
-- mereka /mərəka/ - они
+- mereka /məreka/ - они
 
 Указательные слова:
 - ini /ini/ - это, этот, эта (близко к говорящему)
@@ -133,7 +141,7 @@ export const lessons: Lesson[] = [
 - pengusaha /pəŋusaha/ - предприниматель, бизнесмен
 - insinyur /insiɲur/ - инженер
 - karyawan /karjawan/ - служащий, сотрудник компании
-- pensiun /pənsiun/ - пенсия, на пенсии
+- pensiun /pensiun/ - пенсия, на пенсии
 - gaji /ɡadʒi/ - зарплата
 
 Притяжательность выражается простым добавлением местоимения после существительного:
@@ -210,7 +218,7 @@ export const lessons: Lesson[] = [
 - bawa /bawa/ - нести, приносить
 - taruh /taruh/ - класть, ставить
 - pegang /pəɡaŋ/ - держать, трогать
-- lempar /lèmpar/ - бросать, кидать
+- lempar /lempar/ - бросать, кидать
 - pukul /pukul/ - бить, ударять
 - buka /buka/ - открывать
 - tutup /tutup/ - закрывать
@@ -287,7 +295,7 @@ export const lessons: Lesson[] = [
 - mengapa /məŋapa/ - почему (официально / литературно)
 - kenapa /kənapa/ - почему, зачем (разговорно)
 - bagaimana /baɡaimana/ - как, каким образом
-- bagaimanakah /baɡaimanaka/ - как же именно (формально)
+- bagaimanakah /baɡaimanakah/ - как же именно (формально)
 - bagaimana cara /baɡaimana tʃara/ - как (каким способом/методом)
 - berapa /bərapa/ - сколько
 - seberapa /səbərapa/ - насколько (в какой степени)
@@ -372,7 +380,7 @@ export const lessons: Lesson[] = [
 
 Глаголы и эмоции урока:
 - pegang /pəɡaŋ/ - держать, трогать
-- lempar /ləmpar/ - бросать, кидать
+- lempar /lempar/ - бросать, кидать
 - pukul /pukul/ - бить, ударять
 - lupa /lupa/ - забывать
 - sedih /sədih/ - грустный, печальный
@@ -436,7 +444,7 @@ export const lessons: Lesson[] = [
 4. Члены семьи (keluarga /kəluarɡa/):
    - bapak /bapak/, ayah /ayah/ - отец, папа; господин
    - ibu /ibu/ - мать, мама; госпожа
-   - kakek /kakək/ - дедушка
+   - kakek /kakek/ - дедушка
    - nenek /nenek/ - бабушка
    - suami /suami/ - муж
    - istri /istri/ - жена
@@ -453,7 +461,7 @@ export const lessons: Lesson[] = [
    - untuk /untuk/, bagi /baɡi/ - для, ради
    - dengan /dəŋan/ - с, вместе с
    - bersama /bərsama/ - вместе, совместно
-   - oleh /oləh/ - от, кем-то (деятель)
+   - oleh /oleh/ - от, кем-то (деятель)
    - tentang /təntaŋ/ - о, об, относительно
    - antara /antara/ - между, среди
    - terhadap /tərhadap/ - к, по отношению к
@@ -609,7 +617,7 @@ export const lessons: Lesson[] = [
 3. Время суток (bagian hari):
    - pagi /paɡi/ - утро (05:00 - 11:00)
    - siang /siaŋ/ - день (11:00 - 15:00)
-   - sore /sorə/ - вечер до заката (15:00 - 18:30)
+   - sore /sore/ - вечер до заката (15:00 - 18:30)
    - malam /malam/ - ночь, поздний вечер (после 18:30)
 
 4. Указание точного времени (jam /dʒam/):
@@ -676,7 +684,7 @@ export const lessons: Lesson[] = [
    - Sudah makan? /sudah makan/ - Уже поел?
 
 2. TELAH /təlah/ - уже (формальный, книжный аналог sudah):
-   - Mereka telah tiba /mərəka təlah tiba/ - Они уже прибыли
+   - Mereka telah tiba /məreka təlah tiba/ - Они уже прибыли
 
 3. PERNAH /pərnah/ - когда-либо, случалось (наличие жизненного опыта в прошлом):
    - Saya pernah ke Jakarta /saja pərnah kə dʒakarta/ - Я бывал в Джакарте
@@ -691,7 +699,8 @@ export const lessons: Lesson[] = [
    - dulu /dulu/ - раньше, прежде, сначала (Dulu saya tinggal di Bandung - Раньше я жил в Бандунге)
    - lalu /lalu/ - прошлый; затем, потом (minggu lalu - прошлая неделя, bulan lalu - прошлый месяц)
    - selalu /səlalu/ - всегда, постоянно
-   - acap kali /atʃap kali/ - часто, нередко
+   - sering /səriŋ/ - часто (основное повседневное слово)
+   - acap kali /atʃap kali/ - часто, нередко (книжное/литературное)
    - jarang /dʒaraŋ/ - редко`,
       examples: [
         { indonesian: "Saya sudah selesai makan", russian: "Я уже закончил есть" },
@@ -730,11 +739,11 @@ export const lessons: Lesson[] = [
 
 2. LAGI /laɡi/ - в процессе (живая разговорная речь):
    - Dia lagi baca buku /dia laɡi batʃa buku/ - Он читает книгу (сейчас)
-   - Mereka lagi rapat /mərəka laɡi rapat/ - У них сейчас собрание / совещание
+   - Mereka lagi rapat /məreka laɡi rapat/ - У них сейчас собрание / совещание
    - Dia lagi tidur /dia laɡi tidur/ - Он спит
 
 3. MASIH /masih/ - всё ещё (действие или состояние продолжается):
-   - Mereka masih kerja /mərəka masih kərdʒa/ - Они всё ещё работают
+   - Mereka masih kerja /məreka masih kərdʒa/ - Они всё ещё работают
    - Apa kamu masih di sini? /apa kamu masih di sini/ - Ты всё ещё здесь?
 
 4. Глаголы повседневных действий, гигиены и быта:
@@ -744,7 +753,7 @@ export const lessons: Lesson[] = [
    - mandi /mandi/ - купаться, принимать душ
    - cuci /tʃutʃi/ - мыть, стирать (cuci tangan - мыть руки)
    - bersihkan /bərsihkan/ - чистить, наводить порядок
-   - beres /bərəs/ - в порядке, сделано, готово
+   - beres /beres/ - в порядке, сделано, готово
    - pakai /pakai/ - надевать, носить, использовать
    - lepas /ləpas/ - снимать (одежду), отпускать
    - ganti /ɡanti/ - менять, заменять, переодеваться
@@ -861,7 +870,7 @@ export const lessons: Lesson[] = [
    - Boleh /boleh/ - можно, разрешается`,
       examples: [
         { indonesian: "Saya bisa berenang dan main di pantai", russian: "Я умею плавать и играть на пляже" },
-        { indonesian: "Saya mau minum kopi hangat", russian: "Я хочу выпить горячего кофе" },
+        { indonesian: "Saya mau minum kopi hangat", russian: "Я хочу выпить тёплого кофе" },
         { indonesian: "Kamu harus tidur, besok harus bangun pagi", russian: "Ты должен спать, завтра нужно проснуться рано" },
         { indonesian: "Dia ingin belajar bahasa baru", russian: "Он хочет изучать новый язык" },
         { indonesian: "Bisa tolong bantu saya?", russian: "Не могли бы вы мне помочь?" },
@@ -904,7 +913,7 @@ export const lessons: Lesson[] = [
 
 3. Физические свойства, размер и форма:
    - besar /bəsar/ - большой; kecil /kətʃil/ - маленький
-   - panjang /pandʒaŋ/ - длинный; pendek /pəndək/ - короткий
+   - panjang /pandʒaŋ/ - длинный; pendek /pendek/ - короткий
    - tinggi /tiŋɡi/ - высокий; rendah /rendah/ - низкий
    - berat /bərat/ - тяжёлый; ringan /riŋan/ - лёгкий
    - kuat /kuat/ - сильный; lemah /lemah/ - слабый
@@ -922,13 +931,13 @@ export const lessons: Lesson[] = [
    - hijau /hidʒau/ - зелёный, kuning /kuniŋ/ - жёлтый
    - coklat /tʃoklat/ - коричневый, abu-abu /abu-abu/ - серый
    - baju /badʒu/ - одежда, рубашка; celana /tʃəlana/ - брюки
-   - sepatu /sepatu/ - обувь; topi /topi/ - шляпа/кепка; jaket /dʒakət/ - куртка; kaus /kaus/ - футболка
+   - sepatu /sepatu/ - обувь; topi /topi/ - шляпа/кепка; jaket /dʒaket/ - куртка; kaus /kaus/ - футболка
 
 5. Характер, чувства и эмоции:
    - senang /sənaŋ/, gembira /ɡəmbira/ - радостный, весёлый
    - sedih /sədih/ - грустный; marah /marah/ - сердитый; takut /takut/ - напуганный
-   - capek /tʃapək/ - усталый; cemas /tʃəmas/ - тревожный; kaget /kaɡət/ - удивлённый
-   - bangga /baŋɡa/ - гордый; malu /malu/ - стеснительный, стыдный; heran /həran/ - поражённый
+   - capek /tʃapek/ - усталый; cemas /tʃəmas/ - тревожный; kaget /kaɡet/ - удивлённый
+   - bangga /baŋɡa/ - гордый; malu /malu/ - стеснительный, стыдный; heran /heran/ - поражённый
    - pintar /pintar/ - умный; bodoh /bodoh/ - глупый
    - rajin /radʒin/ - прилежный; malas /malas/ - ленивый
    - baik hati /baiʔ hati/ - добрый; jahat /dʒahat/ - злой; sabar /sabar/ - терпеливый; berani /bərani/ - смелый
@@ -1010,7 +1019,7 @@ export const lessons: Lesson[] = [
    - dengan /dəŋan/, sama /sama/ - с, вместе
    - untuk /untuk/, bagi /baɡi/ - для, ради
    - tentang /təntaŋ/ - о, про; terhadap /tərhadap/ - по отношению к
-   - tanpa /tanpa/ - без; кроме /kətʃuali/ - кроме, за исключением; melalui /məlalui/ - через, сквозь`,
+   - tanpa /tanpa/ - без; kecuali /kətʃuali/ - кроме, за исключением; melalui /məlalui/ - через, сквозь`,
       examples: [
         { indonesian: "Saya pergi ke kantor naik motor karena jalan macet", russian: "Я еду в офис на мотоцикле, потому что на дороге пробка" },
         { indonesian: "Buku itu ada di atas meja di dalam kamar", russian: "Та книга на столе внутри комнаты" },
@@ -1066,14 +1075,14 @@ export const lessons: Lesson[] = [
 
 3. В ресторане (restoran /restoran/), заказ и посуда:
    - menu /mənu/ - меню; pesan /pəsan/ - заказывать, сообщение
-   - piring /piriŋ/ - тарелка; gelas /ɡəlas/ - стакан; sendok /səndok/ - ложка; garpu /ɡarpu/ - вилка
+   - piring /piriŋ/ - тарелка; gelas /ɡəlas/ - стакан; sendok /sendok/ - ложка; garpu /ɡarpu/ - вилка
    - makanan /makanan/ - еда; minuman /minuman/ - напиток
    - kopi /kopi/ - кофе; teh /teh/ - чай; susu /susu/ - молоко; gula /ɡula/ - сахар; garam /ɡaram/ - соль
    - roti /roti/ - хлеб; sayur /sajur/ - овощи; buah /buah/ - фрукты
    - daging /daɡiŋ/ - мясо; ikan /ikan/ - рыба; telur /təlur/ - яйцо
 
 4. Приготовление еды (masak /masak/) и вкусы:
-   - goreng /ɡorəŋ/ - жарить, жареный (nasi goreng, ayam goreng)
+   - goreng /ɡoreŋ/ - жарить, жареный (nasi goreng, ayam goreng)
    - rebus /rəbus/ - варить, варёный (telur rebus)
    - bakar /bakar/ - жарить на углях, запекать (ikan bakar)
    - enak /enak/ - вкусный; manis /manis/ - сладкий; asin /asin/ - солёный; pedas /pədas/ - острый; pahit /pahit/ - горький

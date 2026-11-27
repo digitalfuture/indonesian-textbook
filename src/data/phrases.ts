@@ -49,7 +49,7 @@ export const phrasesId: PhraseItem[] = [
   {
     id: 3,
     phrase: "Selamat sore",
-    pronunciation: "/səlamat sorə/",
+    pronunciation: "/səlamat sore/",
     translation: "Добрый вечер",
     literal: "благополучное предвечернее время (15:00 – 19:00)",
     category: "greetings",
@@ -314,7 +314,7 @@ export const phrasesId: PhraseItem[] = [
   {
     id: 32,
     phrase: "Belok kanan / Belok kiri",
-    pronunciation: "/bəlok kanan / bəlok kiri/",
+    pronunciation: "/belok kanan / belok kiri/",
     translation: "Поверните направо / Поверните налево",
     literal: "поворот право / поворот лево",
     category: "questions",

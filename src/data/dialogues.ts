@@ -112,7 +112,7 @@ export const dialoguesId: DialogueItem[] = [
         speakerRoleId: "Pelanggan",
         avatar: "🧑",
         text: "Saya mau satu nasi goreng ayam. Tolong jangan pedas ya!",
-        pronunciation: "/saya mau satu nasi ɡorəŋ ajam toloŋ dʒaŋan pədas ja/",
+        pronunciation: "/saya mau satu nasi ɡoreŋ ajam toloŋ dʒaŋan pədas ja/",
         translation: "Я хочу одну порцию жареного риса с курицей. Пожалуйста, не острое!",
       },
       {
@@ -121,7 +121,7 @@ export const dialoguesId: DialogueItem[] = [
         speakerRoleId: "Pelayan",
         avatar: "👨‍🍳",
         text: "Baik, nasi goreng tanpa cabai. Untuk minumnya apa?",
-        pronunciation: "/baik nasi ɡorəŋ tanpa tʃabai untuk minumɲa apa/",
+        pronunciation: "/baik nasi ɡoreŋ tanpa tʃabai untuk minumɲa apa/",
         translation: "Хорошо, жареный рис без перца чили. А что из напитков?",
       },
       {
@@ -234,7 +234,7 @@ export const dialoguesId: DialogueItem[] = [
         speakerRoleId: "Turis",
         avatar: "🎒",
         text: "Permisi, Pak, numpang tanya. Di mana apotek terdekat?",
-        pronunciation: "/pərmisi pak numpaŋ taɲa di mana apotək tərdəkat/",
+        pronunciation: "/pərmisi pak numpaŋ taɲa di mana apotek tərdəkat/",
         translation: "Извините, господин, разрешите спросить. Где ближайшая аптека?",
         note: "Numpang tanya — очень вежливый оборот «разрешите спросить»",
       },
@@ -244,7 +244,7 @@ export const dialoguesId: DialogueItem[] = [
         speakerRoleId: "Warga",
         avatar: "🚶",
         text: "Oh, jalan lurus terus sampai lampu merah, lalu belok kiri.",
-        pronunciation: "/oh dʒalan lurus tərus sampai lampu merah lalu bəlok kiri/",
+        pronunciation: "/oh dʒalan lurus tərus sampai lampu merah lalu belok kiri/",
         translation: "О, идите прямо до светофора, затем поверните налево.",
       },
       {
@@ -309,7 +309,7 @@ export const dialoguesId: DialogueItem[] = [
         speakerRoleId: "Supir",
         avatar: "🚕",
         text: "Baik, lewat jalan tol ya supaya lebih cepat dan tidak macet?",
-        pronunciation: "/baik lewat dʒalan tol ja supaya ləbih tʃəpat dan tidak madʒət/",
+        pronunciation: "/baik lewat dʒalan tol ja supaya ləbih tʃəpat dan tidak matʃət/",
         translation: "Хорошо, поедем по платной скоростной дороге, чтобы быстрее и без пробок?",
       },
       {
@@ -365,7 +365,7 @@ export const dialoguesId: DialogueItem[] = [
         speakerRoleId: "Tamu",
         avatar: "🧳",
         text: "Selamat sore, saya mau check-in. Saya sudah pesan kamar secara online.",
-        pronunciation: "/səlamat sorə saya mau tʃɛk in saya sudah pəsan kamar sətʃara onlain/",
+        pronunciation: "/səlamat sore saya mau tʃɛk in saya sudah pəsan kamar sətʃara onlain/",
         translation: "Добрый вечер, я хочу заселиться. Я уже забронировал номер онлайн.",
       },
       {
@@ -374,7 +374,7 @@ export const dialoguesId: DialogueItem[] = [
         speakerRoleId: "Resepsionis",
         avatar: "💁‍♀️",
         text: "Selamat sore! Boleh saya lihat paspor dan konfirmasi pesanannya?",
-        pronunciation: "/səlamat sorə boleh saya lihat paspor dan konfirmasi pəsananɲa/",
+        pronunciation: "/səlamat sore boleh saya lihat paspor dan konfirmasi pəsananɲa/",
         translation: "Добрый вечер! Можно ваш паспорт и подтверждение бронирования?",
       },
       {
@@ -430,7 +430,7 @@ export const dialoguesId: DialogueItem[] = [
         speakerRoleId: "Pasien",
         avatar: "🤕",
         text: "Selamat siang. Badan saya kurang enak sejak kemarin malam.",
-        pronunciation: "/səlamat siaŋ badan saya kuraŋ ənak sədʒak kəmarin malam/",
+        pronunciation: "/səlamat siaŋ badan saya kuraŋ enak sədʒak kəmarin malam/",
         translation: "Добрый день. Я неважно себя чувствую со вчерашнего вечера.",
       },
       {
@@ -475,7 +475,7 @@ export const dialoguesId: DialogueItem[] = [
         speakerRoleId: "Apoteker",
         avatar: "👩‍⚕️",
         text: "Semuanya lima puluh ribu rupiah. Semoga lekas sembuh ya!",
-        pronunciation: "/səmuaɲa lima puluh ribu rupiah səmoɡa ləkas səmduh ja/",
+        pronunciation: "/səmuaɲa lima puluh ribu rupiah səmoɡa ləkas səmbuh ja/",
         translation: "Всего пятьдесят тысяч рупий. Скорейшего вам выздоровления!",
       },
     ],
@@ -611,7 +611,7 @@ export const dialoguesRu: DialogueItem[] = [
         avatar: "🎒",
         text: "Извините, пожалуйста! Где здесь ближайшая станция метро?",
         pronunciation: "/izvʲinʲitʲe paʐalujstə ɡdʲe zdʲesʲ blʲiʐajʂəjə stantsɨjə mʲɛtro/",
-        translation: "Permisi, tolong tanya! Di mana stasiun metro terdekat di sini?",
+        translation: "Permisi, numpang tanya! Di mana stasiun metro terdekat di sini?",
       },
       {
         speaker: "B",
