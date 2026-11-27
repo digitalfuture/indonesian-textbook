@@ -11,7 +11,7 @@ import type { Category, DictionaryWord } from "../utils/types";
 const route = useRoute();
 const progressStore = useProgressStore();
 const langStore = useLanguageStore();
-const { speak } = useSpeech();
+const { speak, speakSlow } = useSpeech();
 
 const vocabulary = computed(() =>
   langStore.targetLang === "id" ? vocabId : vocabRu,
@@ -27,14 +27,34 @@ const statusFilter = ref<"all" | "unlearned" | "learned" | "favorite">("all");
 const sortBy = ref<"frequency" | "alphabetical">("frequency");
 const visibleLimit = ref(60);
 
-// Flashcards session state
-const flashcardFilter = ref<"all" | "unlearned" | "favorite">("unlearned");
+// Flashcards session state (with SRS & direction)
+const initialFilter = route.query.filter as string | undefined;
+const flashcardFilter = ref<"due" | "unlearned" | "all" | "favorite">(
+  initialFilter === "due" || initialFilter === "all" || initialFilter === "favorite"
+    ? initialFilter
+    : progressStore.dueWordIds.length > 0
+      ? "due"
+      : "unlearned",
+);
+const cardDirection = ref<"targetToNative" | "nativeToTarget" | "mixed">("targetToNative");
 const sessionQueue = ref<DictionaryWord[]>([]);
 const flashcardIndex = ref(0);
 const isCardFlipped = ref(false);
 const sessionKnownCount = ref(0);
 const sessionRepeatCount = ref(0);
 const sessionFinished = ref(false);
+
+const dueCount = computed(() => {
+  const validIds = new Set(vocabulary.value.map((w) => w.id));
+  return progressStore.dueWordIds.filter((id) => validIds.has(id)).length;
+});
+
+const isCurrentCardReversed = computed(() => {
+  if (cardDirection.value === "nativeToTarget") return true;
+  if (cardDirection.value === "targetToNative") return false;
+  // Mixed: deterministic alternate based on index
+  return flashcardIndex.value % 2 === 1;
+});
 
 const lessonNumbers = Array.from({ length: 16 }, (_, i) => i + 1);
 
@@ -94,7 +114,10 @@ function buildFlashcardSession(shuffle = false) {
     const lId = selectedLesson.value;
     deck = deck.filter((w) => w.lessonIds?.includes(lId));
   }
-  if (flashcardFilter.value === "unlearned") {
+  if (flashcardFilter.value === "due") {
+    const dueSet = new Set(progressStore.dueWordIds);
+    deck = deck.filter((w) => dueSet.has(w.id));
+  } else if (flashcardFilter.value === "unlearned") {
     deck = deck.filter((w) => !isWordLearned(w.id));
   } else if (flashcardFilter.value === "favorite") {
     deck = deck.filter((w) => isWordFavorite(w.id));
@@ -148,24 +171,24 @@ function prevCard() {
   }
 }
 
-function handleCardKnow() {
-  if (currentFlashcard.value) {
-    progressStore.markWordAsLearned(currentFlashcard.value.id);
-    progressStore.practiceWord(currentFlashcard.value.id);
+function handleCardRate(quality: "again" | "hard" | "good" | "easy") {
+  if (!currentFlashcard.value) return;
+  const word = currentFlashcard.value;
+  progressStore.reviewWordSRS(word.id, quality);
+
+  if (quality === "again") {
+    sessionRepeatCount.value++;
+    const insertAt = Math.min(sessionQueue.value.length, flashcardIndex.value + 3);
+    sessionQueue.value.splice(insertAt, 0, word);
+  } else {
     sessionKnownCount.value++;
   }
   advanceCard();
 }
 
-function handleCardRepeat() {
-  if (currentFlashcard.value) {
-    progressStore.practiceWord(currentFlashcard.value.id);
-    sessionRepeatCount.value++;
-    // Re-insert the card a few positions ahead so the user actively recalls it again
-    const insertAt = Math.min(sessionQueue.value.length, flashcardIndex.value + 4);
-    sessionQueue.value.splice(insertAt, 0, currentFlashcard.value);
-  }
-  advanceCard();
+function getPreviewDays(quality: "hard" | "good" | "easy"): number {
+  if (!currentFlashcard.value) return 1;
+  return progressStore.getNextReviewIntervalPreview(currentFlashcard.value.id, quality);
 }
 
 function shuffleFlashcards() {
@@ -267,12 +290,15 @@ function handleKeyDown(e: KeyboardEvent) {
   if (e.key === " " || e.key === "Enter") {
     e.preventDefault();
     flipCard();
-  } else if (e.key === "ArrowRight") {
+  } else if (e.key === "1" || e.key === "ArrowLeft") {
     e.preventDefault();
-    handleCardKnow();
-  } else if (e.key === "ArrowLeft") {
+    handleCardRate("again");
+  } else if (e.key === "2") {
     e.preventDefault();
-    handleCardRepeat();
+    handleCardRate("hard");
+  } else if (e.key === "3" || e.key === "ArrowRight") {
+    e.preventDefault();
+    handleCardRate("good");
   }
 }
 
@@ -335,6 +361,13 @@ onUnmounted(() => {
     <section v-if="viewMode === 'flashcards'" class="flashcards-section fade-in">
       <div class="flashcards-controls">
         <div class="flashcard-filters">
+          <select v-model="flashcardFilter" class="form-input">
+            <option value="due">{{ $t('dictionary.flashcards.filterDue', { count: dueCount }) }}</option>
+            <option value="unlearned">{{ $t('dictionary.flashcards.filterUnlearned') }}</option>
+            <option value="all">{{ $t('dictionary.flashcards.filterAll') }}</option>
+            <option value="favorite">{{ $t('dictionary.flashcards.filterFavorites') }}</option>
+          </select>
+
           <select v-model="selectedLesson" class="form-input">
             <option value="all">{{ $t('dictionary.allLessons') }}</option>
             <option v-for="n in lessonNumbers" :key="n" :value="n">
@@ -347,18 +380,41 @@ onUnmounted(() => {
               {{ $t(cat.labelKey) }}
             </option>
           </select>
-
-          <select v-model="flashcardFilter" class="form-input">
-            <option value="unlearned">{{ $t('dictionary.flashcards.filterUnlearned') }}</option>
-            <option value="all">{{ $t('dictionary.flashcards.filterAll') }}</option>
-            <option value="favorite">{{ $t('dictionary.flashcards.filterFavorites') }}</option>
-          </select>
         </div>
 
-        <button class="btn btn-outline btn-sm" @click="shuffleFlashcards" type="button">
-          <i class="pi pi-sync"></i>
-          <span>{{ $t('dictionary.flashcards.shuffle') }}</span>
-        </button>
+        <div class="direction-bar">
+          <div class="direction-pills">
+            <button
+              class="dir-pill"
+              :class="{ active: cardDirection === 'targetToNative' }"
+              @click="cardDirection = 'targetToNative'; isCardFlipped = false"
+              type="button"
+            >
+              {{ langStore.targetLang.toUpperCase() }} → {{ langStore.interfaceLang.toUpperCase() }}
+            </button>
+            <button
+              class="dir-pill"
+              :class="{ active: cardDirection === 'nativeToTarget' }"
+              @click="cardDirection = 'nativeToTarget'; isCardFlipped = false"
+              type="button"
+            >
+              {{ langStore.interfaceLang.toUpperCase() }} → {{ langStore.targetLang.toUpperCase() }}
+            </button>
+            <button
+              class="dir-pill"
+              :class="{ active: cardDirection === 'mixed' }"
+              @click="cardDirection = 'mixed'; isCardFlipped = false"
+              type="button"
+            >
+              {{ $t('dictionary.flashcards.directionMixed') }}
+            </button>
+          </div>
+
+          <button class="btn btn-outline btn-sm" @click="shuffleFlashcards" type="button">
+            <i class="pi pi-sync"></i>
+            <span>{{ $t('dictionary.flashcards.shuffle') }}</span>
+          </button>
+        </div>
       </div>
 
       <!-- Active Flashcard -->
@@ -395,20 +451,34 @@ onUnmounted(() => {
               </div>
 
               <div class="card-main-content">
-                <h2 class="card-word">
-                  <span>{{ currentFlashcard.word }}</span>
-                  <button
-                    class="audio-btn"
-                    @click.stop="speak(currentFlashcard.word)"
-                    title="🔊"
-                    type="button"
-                  >
-                    🔊
-                  </button>
-                </h2>
-                <p class="word-pronunciation" v-if="currentFlashcard.pronunciation">
-                  {{ currentFlashcard.pronunciation }}
-                </p>
+                <template v-if="!isCurrentCardReversed">
+                  <h2 class="card-word">
+                    <span>{{ currentFlashcard.word }}</span>
+                    <button
+                      class="audio-btn"
+                      @click.stop="speak(currentFlashcard.word)"
+                      title="🔊"
+                      type="button"
+                    >
+                      🔊
+                    </button>
+                    <button
+                      class="audio-btn slow-btn"
+                      @click.stop="speakSlow(currentFlashcard.word)"
+                      :title="$t('sound.slow')"
+                      type="button"
+                    >
+                      🐢
+                    </button>
+                  </h2>
+                  <p class="word-pronunciation" v-if="currentFlashcard.pronunciation">
+                    {{ currentFlashcard.pronunciation }}
+                  </p>
+                </template>
+                <template v-else>
+                  <span class="recall-badge">{{ $t('dictionary.flashcards.recallPrompt') }}</span>
+                  <h2 class="card-word card-word-native">{{ currentFlashcard.translation }}</h2>
+                </template>
                 <span class="tap-hint">{{ $t('dictionary.flashcards.flip') }}</span>
               </div>
             </div>
@@ -428,7 +498,7 @@ onUnmounted(() => {
               </div>
 
               <div class="card-main-content">
-                <h3 class="card-word-small">
+                <h3 class="card-word-small" :class="{ 'card-word-highlight': isCurrentCardReversed }">
                   <span>{{ currentFlashcard.word }}</span>
                   <button
                     class="audio-btn"
@@ -438,7 +508,18 @@ onUnmounted(() => {
                   >
                     🔊
                   </button>
+                  <button
+                    class="audio-btn slow-btn"
+                    @click.stop="speakSlow(currentFlashcard.word)"
+                    :title="$t('sound.slow')"
+                    type="button"
+                  >
+                    🐢
+                  </button>
                 </h3>
+                <p v-if="isCurrentCardReversed && currentFlashcard.pronunciation" class="word-pronunciation">
+                  {{ currentFlashcard.pronunciation }}
+                </p>
                 <p class="card-translation">{{ currentFlashcard.translation }}</p>
 
                 <div
@@ -463,27 +544,34 @@ onUnmounted(() => {
           </div>
         </div>
 
-        <!-- Flashcard Actions -->
-        <div class="flashcard-actions">
+        <!-- SRS Rating Actions -->
+        <div class="flashcard-actions srs-actions">
           <button
-            class="btn btn-outline btn-sm"
+            class="btn btn-outline btn-sm prev-btn"
             @click="prevCard"
             :disabled="flashcardIndex === 0"
             type="button"
           >
             <i class="pi pi-arrow-left"></i>
           </button>
-          <button class="btn btn-repeat" @click="handleCardRepeat" type="button">
-            <i class="pi pi-replay"></i>
-            <span>{{ $t('dictionary.flashcards.repeat') }}</span>
+
+          <button class="btn srs-btn btn-repeat" @click="handleCardRate('again')" type="button">
+            <span class="srs-btn-label">{{ $t('dictionary.flashcards.srsAgain') }}</span>
+            <span class="srs-btn-sub">{{ $t('dictionary.flashcards.srsNow') }}</span>
           </button>
-          <button class="btn btn-know" @click="handleCardKnow" type="button">
-            <i class="pi pi-check"></i>
-            <span>{{ $t('dictionary.flashcards.know') }}</span>
+
+          <button class="btn srs-btn btn-hard" @click="handleCardRate('hard')" type="button">
+            <span class="srs-btn-label">{{ $t('dictionary.flashcards.srsHard') }}</span>
+            <span class="srs-btn-sub">{{ $t('dictionary.flashcards.srsDays', { n: getPreviewDays('hard') }) }}</span>
+          </button>
+
+          <button class="btn srs-btn btn-know" @click="handleCardRate('good')" type="button">
+            <span class="srs-btn-label">{{ $t('dictionary.flashcards.srsGood') }}</span>
+            <span class="srs-btn-sub">{{ $t('dictionary.flashcards.srsDays', { n: getPreviewDays('good') }) }}</span>
           </button>
         </div>
 
-        <p class="keyboard-hint">{{ $t('dictionary.flashcards.keyboardHint') }}</p>
+        <p class="keyboard-hint">{{ $t('dictionary.flashcards.srsKeyboardHint') }}</p>
       </div>
 
       <!-- Session Finished -->
@@ -805,9 +893,9 @@ onUnmounted(() => {
 }
 
 .mode-btn.active {
-  background: var(--primary);
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.28);
 }
 
 /* Controls */
@@ -1073,10 +1161,8 @@ onUnmounted(() => {
 /* Flashcards Mode */
 .flashcards-controls {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 0.75rem;
-  flex-wrap: wrap;
   margin-bottom: 1.5rem;
 }
 
@@ -1091,6 +1177,94 @@ onUnmounted(() => {
   width: auto;
   min-width: 150px;
   flex: 1;
+}
+
+.direction-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.direction-pills {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.22rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.dir-pill {
+  padding: 0.34rem 0.85rem;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.dir-pill.active {
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
+}
+
+.recall-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  background: var(--primary-soft);
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+}
+
+.card-word-native {
+  color: var(--translation-color);
+  font-size: 1.65rem;
+}
+
+.card-word-highlight {
+  font-size: 1.75rem !important;
+  color: var(--text-h) !important;
+}
+
+.srs-actions {
+  align-items: stretch;
+}
+
+.srs-btn {
+  flex: 1;
+  flex-direction: column;
+  gap: 0.12rem;
+  padding: 0.6rem 0.75rem;
+}
+
+.srs-btn-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.srs-btn-sub {
+  font-size: 0.72rem;
+  opacity: 0.82;
+  font-weight: 500;
+}
+
+.btn-hard {
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-color: var(--primary-soft-strong);
+}
+
+.btn-hard:hover {
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
 }
 
 .flashcard-container {
@@ -1244,7 +1418,7 @@ onUnmounted(() => {
 }
 
 .btn-repeat:hover {
-  background: var(--warning);
+  background: var(--warning-solid);
   color: #ffffff;
 }
 
@@ -1256,7 +1430,7 @@ onUnmounted(() => {
 }
 
 .btn-know:hover {
-  background: var(--success);
+  background: var(--success-solid);
   color: #ffffff;
 }
 

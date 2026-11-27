@@ -219,8 +219,8 @@ function onMenuClick(path: string) {
 }
 
 .drawer-menu-item.active {
-  background: var(--primary);
-  color: #ffffff;
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
   font-weight: 600;
 }
 

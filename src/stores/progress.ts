@@ -270,10 +270,15 @@ export const useProgressStore = defineStore("progress", () => {
     };
 
     if (!word.isLearned) {
+      const nextReview = new Date();
+      nextReview.setDate(nextReview.getDate() + 1);
       progress.value.vocabulary[wordId] = {
         ...word,
         isLearned: true,
         learnedAt: new Date().toISOString(),
+        intervalDays: word.intervalDays || 1,
+        ease: word.ease || 2.5,
+        nextReviewAt: word.nextReviewAt || nextReview.toISOString(),
       };
 
       // Обновляем статистику
@@ -295,10 +300,14 @@ export const useProgressStore = defineStore("progress", () => {
     };
 
     const nextLearned = !word.isLearned;
+    const nextReview = new Date();
+    nextReview.setDate(nextReview.getDate() + 1);
     progress.value.vocabulary[wordId] = {
       ...word,
       isLearned: nextLearned,
       learnedAt: nextLearned ? new Date().toISOString() : undefined,
+      intervalDays: nextLearned ? word.intervalDays || 1 : undefined,
+      nextReviewAt: nextLearned ? nextReview.toISOString() : undefined,
     };
 
     progress.value = updateStatistics(progress.value, {
@@ -312,6 +321,151 @@ export const useProgressStore = defineStore("progress", () => {
     }
     saveProgress(progress.value);
   }
+
+  // SRS: интервальное повторение слова (again / hard / good / easy)
+  function reviewWordSRS(
+    wordId: number,
+    quality: "again" | "hard" | "good" | "easy",
+  ): number {
+    const prev = progress.value.vocabulary[wordId] || {
+      isLearned: false,
+      timesPracticed: 0,
+    };
+
+    const currentInterval = prev.intervalDays || 0;
+    let ease = prev.ease || 2.5;
+    let lapses = prev.lapses || 0;
+    let nextInterval = 1;
+
+    if (quality === "again") {
+      nextInterval = 0;
+      ease = Math.max(1.3, ease - 0.2);
+      lapses += 1;
+    } else if (quality === "hard") {
+      nextInterval = currentInterval <= 1 ? 1 : Math.max(2, Math.round(currentInterval * 1.2));
+      ease = Math.max(1.3, ease - 0.1);
+    } else if (quality === "good") {
+      if (currentInterval === 0) nextInterval = 1;
+      else if (currentInterval === 1) nextInterval = 3;
+      else if (currentInterval <= 3) nextInterval = 7;
+      else nextInterval = Math.min(60, Math.round(currentInterval * ease));
+    } else {
+      // easy
+      if (currentInterval === 0) nextInterval = 4;
+      else if (currentInterval <= 3) nextInterval = 10;
+      else nextInterval = Math.min(90, Math.round(currentInterval * ease * 1.3));
+      ease = Math.min(3.0, ease + 0.15);
+    }
+
+    const nextDate = new Date();
+    if (nextInterval > 0) {
+      nextDate.setDate(nextDate.getDate() + nextInterval);
+    }
+
+    const nowLearned = quality !== "again" ? true : prev.isLearned;
+
+    progress.value.vocabulary[wordId] = {
+      ...prev,
+      isLearned: nowLearned,
+      learnedAt: prev.learnedAt || (nowLearned ? new Date().toISOString() : undefined),
+      timesPracticed: (prev.timesPracticed || 0) + 1,
+      lastPracticed: new Date().toISOString(),
+      intervalDays: nextInterval,
+      ease,
+      lapses,
+      nextReviewAt: nextDate.toISOString(),
+    };
+
+    progress.value = updateStatistics(progress.value, {
+      wordsLearned: Object.values(progress.value.vocabulary).filter(
+        (w) => w.isLearned,
+      ).length,
+    });
+    progress.value = updateStreak(progress.value);
+    checkAchievements();
+    saveProgress(progress.value);
+
+    return nextInterval;
+  }
+
+  function getNextReviewIntervalPreview(
+    wordId: number,
+    quality: "hard" | "good" | "easy",
+  ): number {
+    const prev = progress.value.vocabulary[wordId];
+    const currentInterval = prev?.intervalDays || 0;
+    const ease = prev?.ease || 2.5;
+    if (quality === "hard") {
+      return currentInterval <= 1 ? 1 : Math.max(2, Math.round(currentInterval * 1.2));
+    }
+    if (quality === "good") {
+      if (currentInterval === 0) return 1;
+      if (currentInterval === 1) return 3;
+      if (currentInterval <= 3) return 7;
+      return Math.min(60, Math.round(currentInterval * ease));
+    }
+    if (currentInterval === 0) return 4;
+    if (currentInterval <= 3) return 10;
+    return Math.min(90, Math.round(currentInterval * ease * 1.3));
+  }
+
+  const dueWordIds = computed<number[]>(() => {
+    const now = Date.now();
+    const oneDayMs = 24 * 60 * 60 * 1000;
+    const ids: number[] = [];
+    for (const [idStr, entry] of Object.entries(progress.value.vocabulary)) {
+      if (!entry) continue;
+      if (entry.nextReviewAt) {
+        if (new Date(entry.nextReviewAt).getTime() <= now) {
+          ids.push(Number(idStr));
+        }
+      } else if (entry.isLearned) {
+        // Legacy learned words without nextReviewAt: due if learned > 1 day ago (or no date)
+        const learnedTs = entry.learnedAt ? new Date(entry.learnedAt).getTime() : 0;
+        if (!learnedTs || now - learnedTs >= oneDayMs) {
+          ids.push(Number(idStr));
+        }
+      }
+    }
+    return ids;
+  });
+
+  // Журнал ошибок по упражнениям
+  function recordExerciseMistake(exerciseId: number) {
+    if (!progress.value.exerciseMistakes) {
+      progress.value.exerciseMistakes = {};
+    }
+    const prev = progress.value.exerciseMistakes[exerciseId];
+    progress.value.exerciseMistakes[exerciseId] = {
+      count: (prev?.count || 0) + 1,
+      lastMistakeAt: new Date().toISOString(),
+    };
+    saveProgress(progress.value);
+  }
+
+  function resolveExerciseMistake(exerciseId: number) {
+    if (!progress.value.exerciseMistakes || !progress.value.exerciseMistakes[exerciseId]) {
+      return;
+    }
+    const current = progress.value.exerciseMistakes[exerciseId];
+    if (current.count <= 1) {
+      delete progress.value.exerciseMistakes[exerciseId];
+    } else {
+      progress.value.exerciseMistakes[exerciseId] = {
+        ...current,
+        count: current.count - 1,
+      };
+    }
+    saveProgress(progress.value);
+  }
+
+  const mistakeExerciseIds = computed<number[]>(() => {
+    const map = progress.value.exerciseMistakes || {};
+    return Object.entries(map)
+      .filter(([, v]) => v && v.count > 0)
+      .sort((a, b) => b[1].count - a[1].count)
+      .map(([idStr]) => Number(idStr));
+  });
 
   function practiceWord(wordId: number) {
     const word = progress.value.vocabulary[wordId] || {
@@ -509,6 +663,8 @@ export const useProgressStore = defineStore("progress", () => {
     wordProgress,
     isWordLearned,
     wordMastery,
+    dueWordIds,
+    mistakeExerciseIds,
 
     // Методы
     init,
@@ -522,6 +678,10 @@ export const useProgressStore = defineStore("progress", () => {
     completeExercise,
     markWordAsLearned,
     toggleWordLearned,
+    reviewWordSRS,
+    getNextReviewIntervalPreview,
+    recordExerciseMistake,
+    resolveExerciseMistake,
     practiceWord,
     toggleFavoriteWord,
     isFavoriteWord,

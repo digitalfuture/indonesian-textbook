@@ -84,3 +84,11 @@ console.info(
 );
 
 app.mount("#app");
+
+if (import.meta.env.PROD && "serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/indonesian-textbook/sw.js", { scope: "/indonesian-textbook/" })
+      .catch(() => {});
+  });
+}

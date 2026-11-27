@@ -4,6 +4,7 @@ import { useProgressStore } from "../../stores/progress";
 import { useSound } from "../../composables/useSound";
 import { useSpeech } from "../../composables/useSpeech";
 import { useVocabulary } from "../../composables/useVocabulary";
+import { evaluateTextAnswer } from "../../utils/textMatch";
 import type { PropType } from "vue";
 import type { Exercise } from "../../utils/types";
 
@@ -43,6 +44,7 @@ const userAnswer = ref("");
 const selectedOption = ref("");
 const showFeedback = ref(false);
 const isCorrect = ref(false);
+const isTypoAccepted = ref(false);
 const isStage2 = ref(false);
 const showHint = ref(false);
 
@@ -232,28 +234,11 @@ watch(
   { deep: true },
 );
 
-function normalizeText(s: string) {
-  if (!s) return "";
-  const v = s.normalize ? s.normalize("NFKC") : s;
-  try {
-    return v
-      .toLowerCase()
-      .replace(/[^\p{L}\p{N}\s]/gu, "")
-      .replace(/\s+/g, " ")
-      .trim();
-  } catch {
-    return v
-      .toLowerCase()
-      .replace(/[^\w\s]|_/g, "")
-      .replace(/\s+/g, " ")
-      .trim();
-  }
-}
-
 function checkAnswer() {
   if (!currentExercise.value) return;
 
   let correct = false;
+  let typoAccepted = false;
   const answer = currentExercise.value.correctAnswer;
 
   if (currentExercise.value.type === "multipleChoice") {
@@ -261,34 +246,30 @@ function checkAnswer() {
   } else if (currentExercise.value.type === "twoStage" && !isStage2.value) {
     correct = selectedOption.value === answer;
   } else if (currentExercise.value.type === "twoStage" && isStage2.value) {
-    const userNormalized = normalizeText(userAnswer.value);
     const answer2 = currentExercise.value.stage2Answer || currentExercise.value.correctAnswer;
     if (typeof answer2 === "string") {
-      const acceptableAnswers = answer2.split(/[|/;]/).map((ans) => normalizeText(ans));
-      correct = acceptableAnswers.some((ans) => ans === userNormalized);
-    } else {
-      correct = false;
+      const res = evaluateTextAnswer(userAnswer.value, answer2);
+      correct = res.isCorrect;
+      typoAccepted = res.isTypoAccepted;
     }
-  } else {
-    const userNormalized = normalizeText(userAnswer.value);
-    if (typeof answer === "string") {
-      const acceptableAnswers = answer.split(/[|/;]/).map((ans) => normalizeText(ans));
-      correct = acceptableAnswers.some((ans) => ans === userNormalized);
-    } else {
-      correct = false;
-    }
+  } else if (typeof answer === "string") {
+    const res = evaluateTextAnswer(userAnswer.value, answer);
+    correct = res.isCorrect;
+    typoAccepted = res.isTypoAccepted;
   }
 
   isCorrect.value = correct;
+  isTypoAccepted.value = typoAccepted;
   showFeedback.value = true;
   scrollToFeedback();
 
   if (correct) {
     playSound("success");
-    if (!completedExercises.value.includes(currentExercise.value.id)) {
-      if (currentExercise.value.type === "twoStage" && !isStage2.value) {
-        // Wait for stage 2
-      } else {
+    if (currentExercise.value.type === "twoStage" && !isStage2.value) {
+      // Wait for stage 2
+    } else {
+      progressStore.resolveExerciseMistake(currentExercise.value.id);
+      if (!completedExercises.value.includes(currentExercise.value.id)) {
         completedExercises.value.push(currentExercise.value.id);
         progressStore.completeExercise(
           currentExercise.value.lessonId,
@@ -299,6 +280,7 @@ function checkAnswer() {
     }
   } else {
     playSound("error");
+    progressStore.recordExerciseMistake(currentExercise.value.id);
     if (currentExercise.value) {
       activeQueue.value.push({ ...currentExercise.value });
     }
@@ -345,6 +327,7 @@ function resetExerciseState() {
   selectedOption.value = "";
   showFeedback.value = false;
   isCorrect.value = false;
+  isTypoAccepted.value = false;
   isStage2.value = false;
 }
 
@@ -582,8 +565,14 @@ defineExpose({
             <i :class="isCorrect ? 'pi pi-check-circle' : 'pi pi-times-circle'"></i>
           </div>
           <div class="feedback-text">
-            <strong>{{ isCorrect ? $t('exercise.feedback.correct') : $t('exercise.feedback.wrong') }}</strong>
-            <p v-if="!isCorrect" class="correct-answer-line">
+            <strong>{{
+              isCorrect
+                ? isTypoAccepted
+                  ? $t('exercise.feedback.typoAccepted')
+                  : $t('exercise.feedback.correct')
+                : $t('exercise.feedback.wrong')
+            }}</strong>
+            <p v-if="!isCorrect || isTypoAccepted" class="correct-answer-line">
               {{ $t('exercise.feedback.correctAnswer') }}
               <strong>{{
                 isStage2 && currentExercise.stage2Answer
@@ -925,9 +914,9 @@ defineExpose({
 }
 
 .option.selected .option-key-badge {
-  background: var(--primary);
-  color: #ffffff;
-  border-color: var(--primary);
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
+  border-color: var(--primary-solid);
 }
 
 .option.correct {

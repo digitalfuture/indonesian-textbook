@@ -3,6 +3,7 @@ import { computed, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useTheme } from "../../composables/useTheme";
 import { useSound } from "../../composables/useSound";
+import { useSpeech } from "../../composables/useSpeech";
 import { useLanguageStore } from "../../stores/language";
 import { useProgressStore } from "../../stores/progress";
 import { useAIStore } from "../../stores/ai";
@@ -21,6 +22,7 @@ const router = useRouter();
 const route = useRoute();
 const { theme, toggleTheme } = useTheme();
 const { isSoundEnabled, toggleSound } = useSound();
+const { speechRate, cycleSpeechRate } = useSpeech();
 const langStore = useLanguageStore();
 const progressStore = useProgressStore();
 const aiStore = useAIStore();
@@ -104,6 +106,17 @@ function navigate(path: string) {
         </button>
 
         <LanguageSwitcher />
+
+        <button
+          v-if="isSoundEnabled"
+          class="speed-pill"
+          :aria-label="$t('sound.speed')"
+          v-tooltip.bottom="$t('sound.speedTooltip')"
+          @click="cycleSpeechRate"
+          type="button"
+        >
+          {{ speechRate }}×
+        </button>
 
         <button
           class="icon-btn"
@@ -222,10 +235,10 @@ function navigate(path: string) {
 }
 
 .nav-link.active {
-  background: var(--primary);
-  color: #ffffff;
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.28);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
 }
 
 .nav-link i {
@@ -261,6 +274,26 @@ function navigate(path: string) {
 .streak-flame {
   font-size: 0.85rem;
   line-height: 1;
+}
+
+.speed-pill {
+  height: 30px;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  color: var(--text);
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.speed-pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-soft);
 }
 
 .icon-btn {

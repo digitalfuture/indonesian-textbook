@@ -27,10 +27,63 @@ const searchQuery = ref<string>("");
 const favoritesOnly = ref<boolean>(false);
 const favoriteIds = ref<number[]>([]);
 
-// Dialogues playback and collapse state
+// Dialogues playback, collapse, and roleplay state
 const playingDialogueId = ref<string | null>(null);
 const currentPlayingLineIndex = ref<number>(-1);
+const waitingUserTurn = ref<boolean>(false);
 let dialogueTimeout: any = null;
+
+// Roleplay state per dialogue id: 'none' | 'A' | 'B'
+const dialogueRoles = ref<Record<string, "none" | "A" | "B">>({});
+const revealedLines = ref<Record<string, number[]>>({});
+
+function getDialogueRole(id: string): "none" | "A" | "B" {
+  return dialogueRoles.value[id] || "none";
+}
+
+function setDialogueRole(d: DialogueItem, role: "none" | "A" | "B") {
+  stopDialogueAudio();
+  dialogueRoles.value[d.id] = role;
+  revealedLines.value[d.id] = [];
+}
+
+function isLineHiddenForUser(d: DialogueItem, lineIdx: number, speaker: string): boolean {
+  const role = getDialogueRole(d.id);
+  if (role === "none" || speaker !== role) return false;
+  return !(revealedLines.value[d.id] || []).includes(lineIdx);
+}
+
+function revealRoleLine(d: DialogueItem, lineIdx: number, line: DialogueLine, autoContinue = false) {
+  if (!revealedLines.value[d.id]) {
+    revealedLines.value[d.id] = [];
+  }
+  if (!revealedLines.value[d.id].includes(lineIdx)) {
+    revealedLines.value[d.id].push(lineIdx);
+  }
+
+  if (autoContinue && playingDialogueId.value === d.id && waitingUserTurn.value) {
+    waitingUserTurn.value = false;
+    speak(line.text, {
+      gender: getLineGender(line),
+      onEnd: () => {
+        if (playingDialogueId.value !== d.id) return;
+        dialogueTimeout = setTimeout(() => {
+          advanceDialogueStep(d, lineIdx + 1);
+        }, 550);
+      },
+    });
+  } else {
+    speakLine(line);
+  }
+}
+
+function getSpeakerLabel(d: DialogueItem, speaker: "A" | "B"): string {
+  const found = d.lines.find((l) => l.speaker === speaker);
+  if (!found) return speaker;
+  return langStore.interfaceLang === "ru"
+    ? found.speakerRoleRu || speaker
+    : found.speakerRoleId || speaker;
+}
 
 // Collapsed/expanded dialogues: all collapsed by default (empty set)
 const expandedDialogueIds = ref<string[]>([]);
@@ -182,6 +235,7 @@ function stopDialogueAudio() {
   }
   playingDialogueId.value = null;
   currentPlayingLineIndex.value = -1;
+  waitingUserTurn.value = false;
   stopSpeech();
 }
 
@@ -200,6 +254,35 @@ watch(
   },
 );
 
+function advanceDialogueStep(dialogue: DialogueItem, index: number) {
+  if (playingDialogueId.value !== dialogue.id || index >= dialogue.lines.length) {
+    stopDialogueAudio();
+    return;
+  }
+  currentPlayingLineIndex.value = index;
+  const line = dialogue.lines[index];
+  const role = getDialogueRole(dialogue.id);
+
+  // In Roleplay mode, pause on the user's own lines so they speak aloud first!
+  if (role !== "none" && line.speaker === role) {
+    waitingUserTurn.value = true;
+    return;
+  }
+
+  waitingUserTurn.value = false;
+  const gender = getLineGender(line);
+
+  speak(line.text, {
+    gender,
+    onEnd: () => {
+      if (playingDialogueId.value !== dialogue.id) return;
+      dialogueTimeout = setTimeout(() => {
+        advanceDialogueStep(dialogue, index + 1);
+      }, 500);
+    },
+  });
+}
+
 function playWholeDialogue(dialogue: DialogueItem) {
   if (playingDialogueId.value === dialogue.id) {
     stopDialogueAudio();
@@ -210,31 +293,11 @@ function playWholeDialogue(dialogue: DialogueItem) {
   if (!expandedDialogueIds.value.includes(dialogue.id)) {
     expandedDialogueIds.value.push(dialogue.id);
   }
-  playingDialogueId.value = dialogue.id;
-  currentPlayingLineIndex.value = 0;
-
-  function step(index: number) {
-    if (playingDialogueId.value !== dialogue.id || index >= dialogue.lines.length) {
-      stopDialogueAudio();
-      return;
-    }
-    currentPlayingLineIndex.value = index;
-    const line = dialogue.lines[index];
-    const gender = getLineGender(line);
-
-    speak(line.text, {
-      gender,
-      onEnd: () => {
-        if (playingDialogueId.value !== dialogue.id) return;
-        // Pause slightly between speakers so it sounds natural
-        dialogueTimeout = setTimeout(() => {
-          step(index + 1);
-        }, 500);
-      },
-    });
+  if (getDialogueRole(dialogue.id) !== "none") {
+    revealedLines.value[dialogue.id] = [];
   }
-
-  step(0);
+  playingDialogueId.value = dialogue.id;
+  advanceDialogueStep(dialogue, 0);
 }
 </script>
 
@@ -474,46 +537,115 @@ function playWholeDialogue(dialogue: DialogueItem) {
 
           <!-- Chat-style lines in the dialogue when expanded -->
           <div v-if="isDialogueExpanded(d.id)" class="dialogue-chat fade-in">
+            <!-- Roleplay Mode Bar -->
+            <div class="roleplay-bar">
+              <span class="roleplay-label">
+                <i class="pi pi-microphone"></i>
+                {{ $t('phrasebook.roleplay.label') }}:
+              </span>
+              <div class="roleplay-pills">
+                <button
+                  class="role-pill"
+                  :class="{ active: getDialogueRole(d.id) === 'none' }"
+                  @click="setDialogueRole(d, 'none')"
+                  type="button"
+                >
+                  {{ $t('phrasebook.roleplay.listen') }}
+                </button>
+                <button
+                  class="role-pill"
+                  :class="{ active: getDialogueRole(d.id) === 'A' }"
+                  @click="setDialogueRole(d, 'A')"
+                  type="button"
+                >
+                  {{ $t('phrasebook.roleplay.playAs', { role: getSpeakerLabel(d, 'A') }) }}
+                </button>
+                <button
+                  class="role-pill"
+                  :class="{ active: getDialogueRole(d.id) === 'B' }"
+                  @click="setDialogueRole(d, 'B')"
+                  type="button"
+                >
+                  {{ $t('phrasebook.roleplay.playAs', { role: getSpeakerLabel(d, 'B') }) }}
+                </button>
+              </div>
+            </div>
+
             <div
               v-for="(line, lidx) in d.lines"
               :key="lidx"
               class="chat-bubble-row"
               :class="[
                 line.speaker === 'A' ? 'speaker-a' : 'speaker-b',
-                { 'active-speech-line': playingDialogueId === d.id && currentPlayingLineIndex === lidx }
+                {
+                  'active-speech-line': playingDialogueId === d.id && currentPlayingLineIndex === lidx,
+                  'user-turn-line': playingDialogueId === d.id && currentPlayingLineIndex === lidx && waitingUserTurn,
+                }
               ]"
             >
               <div class="speaker-avatar" :title="langStore.interfaceLang === 'ru' ? (line.speakerRoleRu || line.speaker) : (line.speakerRoleId || line.speaker)">
                 {{ line.avatar || (line.speaker === 'A' ? '👤' : '👥') }}
               </div>
 
-              <div class="chat-bubble">
+              <div
+                class="chat-bubble"
+                :class="{ 'role-hidden-bubble': isLineHiddenForUser(d, lidx, line.speaker) }"
+                @click="isLineHiddenForUser(d, lidx, line.speaker) && revealRoleLine(d, lidx, line, playingDialogueId === d.id && currentPlayingLineIndex === lidx && waitingUserTurn)"
+              >
                 <div class="bubble-speaker-name">
                   {{ langStore.interfaceLang === 'ru' ? (line.speakerRoleRu || line.speaker) : (line.speakerRoleId || line.speaker) }}
+                  <span v-if="getDialogueRole(d.id) === line.speaker" class="your-role-tag">
+                    {{ $t('phrasebook.roleplay.yourRole') }}
+                  </span>
                 </div>
 
-                <div class="bubble-target-text">
-                  <span>{{ line.text }}</span>
-                  <button
-                    class="bubble-speak-btn"
-                    @click.stop="speakLine(line)"
-                    title="Прослушать реплику"
-                  >
-                    🔊
-                  </button>
-                </div>
+                <!-- Hidden state for Roleplay user turn -->
+                <template v-if="isLineHiddenForUser(d, lidx, line.speaker)">
+                  <div class="bubble-translation role-cue">
+                    {{ line.translation }}
+                  </div>
+                  <div class="role-prompt-row">
+                    <span class="role-hint">{{ $t('phrasebook.roleplay.speakPrompt') }}</span>
+                    <button
+                      class="btn btn-primary btn-sm"
+                      @click.stop="revealRoleLine(d, lidx, line, playingDialogueId === d.id && currentPlayingLineIndex === lidx && waitingUserTurn)"
+                      type="button"
+                    >
+                      {{
+                        playingDialogueId === d.id && currentPlayingLineIndex === lidx && waitingUserTurn
+                          ? $t('phrasebook.roleplay.checkAndContinue')
+                          : $t('phrasebook.roleplay.checkLine')
+                      }}
+                    </button>
+                  </div>
+                </template>
 
-                <div v-if="line.pronunciation" class="bubble-pron">
-                  {{ line.pronunciation }}
-                </div>
+                <!-- Normal / revealed line -->
+                <template v-else>
+                  <div class="bubble-target-text">
+                    <span>{{ line.text }}</span>
+                    <button
+                      class="bubble-speak-btn"
+                      @click.stop="speakLine(line)"
+                      title="🔊"
+                      type="button"
+                    >
+                      🔊
+                    </button>
+                  </div>
 
-                <div class="bubble-translation">
-                  {{ line.translation }}
-                </div>
+                  <div v-if="line.pronunciation" class="bubble-pron">
+                    {{ line.pronunciation }}
+                  </div>
 
-                <div v-if="line.note" class="bubble-note">
-                  💡 {{ line.note }}
-                </div>
+                  <div class="bubble-translation">
+                    {{ line.translation }}
+                  </div>
+
+                  <div v-if="line.note" class="bubble-note">
+                    💡 {{ line.note }}
+                  </div>
+                </template>
               </div>
             </div>
           </div>
@@ -833,8 +965,8 @@ function playWholeDialogue(dialogue: DialogueItem) {
 }
 
 .phrase-audio-btn:hover {
-  background: var(--primary);
-  color: white;
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
   border-color: transparent;
   transform: scale(1.08);
 }
@@ -1278,6 +1410,102 @@ function playWholeDialogue(dialogue: DialogueItem) {
   margin-top: 0.35rem;
   padding-top: 0.35rem;
   border-top: 1px dashed var(--border);
+  font-style: italic;
+}
+
+/* Roleplay bar & hidden bubbles */
+.roleplay-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.65rem 0.9rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  margin-bottom: 0.35rem;
+}
+
+.roleplay-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.roleplay-label i {
+  color: var(--primary);
+}
+
+.roleplay-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.role-pill {
+  padding: 0.3rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.role-pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.role-pill.active {
+  background: var(--primary-solid);
+  border-color: var(--primary-solid);
+  color: var(--primary-on-solid);
+}
+
+.your-role-tag {
+  margin-left: 0.4rem;
+  padding: 0.08rem 0.45rem;
+  border-radius: 999px;
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
+  font-size: 0.68rem;
+  vertical-align: middle;
+}
+
+.role-hidden-bubble {
+  cursor: pointer;
+  border-style: dashed !important;
+  border-color: var(--primary) !important;
+}
+
+.user-turn-line .chat-bubble {
+  box-shadow: 0 0 0 3px var(--primary-soft-strong);
+}
+
+.role-cue {
+  font-size: 1.02rem;
+  font-weight: 600;
+  margin-bottom: 0.55rem;
+}
+
+.role-prompt-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.role-hint {
+  font-size: 0.8rem;
+  color: var(--muted);
   font-style: italic;
 }
 

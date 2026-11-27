@@ -120,13 +120,25 @@ export interface UserProgress {
     };
   };
 
-  // Прогресс по словам
+  // Прогресс по словам (с поддержкой SRS)
   vocabulary: {
     [wordId: number]: {
       isLearned: boolean;
       learnedAt?: string;
       timesPracticed: number;
       lastPracticed?: string;
+      intervalDays?: number;
+      nextReviewAt?: string;
+      ease?: number;
+      lapses?: number;
+    };
+  };
+
+  // Журнал ошибок по упражнениям (exerciseId -> счётчик и дата)
+  exerciseMistakes?: {
+    [exerciseId: number]: {
+      count: number;
+      lastMistakeAt: string;
     };
   };
 

@@ -65,6 +65,8 @@ const activeLesson = computed(() => {
 const nextLessonId = computed(() => activeLesson.value?.id || 1);
 
 const stats = computed(() => progressStore.getLearningStats());
+const dueWordsCount = computed(() => progressStore.dueWordIds.length);
+const mistakesCount = computed(() => progressStore.mistakeExerciseIds.length);
 
 const completedCount = computed(
   () => visibleLessons.value.filter((l) => l.isCompleted).length,
@@ -255,6 +257,83 @@ function navigateTo(path: string) {
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- Daily Focus & Quick Drills Bar -->
+    <section v-if="showHero" class="daily-focus-bar">
+      <button
+        class="focus-action primary-focus"
+        @click="router.push({ path: `${base}/exercises`, query: { mode: 'daily' } })"
+        type="button"
+      >
+        <span class="fa-icon indigo"><i class="pi pi-sparkles"></i></span>
+        <div class="fa-text">
+          <strong>{{ $t('home.daily.mixTitle') }}</strong>
+          <span>{{ $t('home.daily.mixSub') }}</span>
+        </div>
+        <i class="pi pi-arrow-right fa-arrow"></i>
+      </button>
+
+      <button
+        class="focus-action"
+        @click="router.push({ path: `${base}/dictionary`, query: { mode: 'flashcards', filter: dueWordsCount > 0 ? 'due' : 'unlearned' } })"
+        type="button"
+      >
+        <span class="fa-icon teal"><i class="pi pi-clock"></i></span>
+        <div class="fa-text">
+          <strong>{{ $t('home.daily.srsTitle') }}</strong>
+          <span>
+            {{
+              dueWordsCount > 0
+                ? $t('home.daily.srsDue', { count: dueWordsCount })
+                : $t('home.daily.srsAllClear')
+            }}
+          </span>
+        </div>
+        <span v-if="dueWordsCount > 0" class="fa-badge teal">{{ dueWordsCount }}</span>
+        <i v-else class="pi pi-arrow-right fa-arrow"></i>
+      </button>
+
+      <button
+        v-if="mistakesCount > 0"
+        class="focus-action"
+        @click="router.push({ path: `${base}/exercises`, query: { mode: 'mistakes' } })"
+        type="button"
+      >
+        <span class="fa-icon danger"><i class="pi pi-exclamation-circle"></i></span>
+        <div class="fa-text">
+          <strong>{{ $t('practice.mistakesTitle') }}</strong>
+          <span>{{ $t('home.daily.mistakesSub', { count: mistakesCount }) }}</span>
+        </div>
+        <span class="fa-badge danger">{{ mistakesCount }}</span>
+      </button>
+
+      <button
+        v-else-if="langStore.targetLang === 'id'"
+        class="focus-action"
+        @click="router.push({ path: `${base}/exercises`, query: { mode: 'matrix' } })"
+        type="button"
+      >
+        <span class="fa-icon violet"><i class="pi pi-th-large"></i></span>
+        <div class="fa-text">
+          <strong>{{ $t('matrix.title') }}</strong>
+          <span>{{ $t('home.daily.matrixSub') }}</span>
+        </div>
+        <i class="pi pi-arrow-right fa-arrow"></i>
+      </button>
+
+      <button
+        class="focus-action"
+        @click="router.push({ path: `${base}/exercises`, query: { mode: 'listening' } })"
+        type="button"
+      >
+        <span class="fa-icon sky"><i class="pi pi-headphones"></i></span>
+        <div class="fa-text">
+          <strong>{{ $t('listening.title') }}</strong>
+          <span>{{ $t('home.daily.listeningSub') }}</span>
+        </div>
+        <i class="pi pi-arrow-right fa-arrow"></i>
+      </button>
     </section>
 
     <!-- Compact Stats Strip when user has started -->
@@ -541,8 +620,8 @@ function navigateTo(path: string) {
   width: 22px;
   height: 22px;
   border-radius: 999px;
-  background: var(--primary);
-  color: #ffffff;
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
   font-size: 0.74rem;
   font-weight: 700;
   display: inline-flex;
@@ -656,6 +735,96 @@ function navigateTo(path: string) {
 
 .secondary-actions .btn {
   flex: 1;
+}
+
+/* Daily Focus & Quick Drills Bar */
+.daily-focus-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.85rem;
+}
+
+.focus-action {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.95rem 1.05rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  cursor: pointer;
+  text-align: left;
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.focus-action:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.focus-action.primary-focus {
+  border-color: var(--primary);
+  background: linear-gradient(135deg, var(--primary-soft) 0%, var(--bg-card) 100%);
+}
+
+.fa-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.08rem;
+  flex-shrink: 0;
+}
+
+.fa-icon.indigo { background: var(--primary-soft); color: var(--primary); }
+.fa-icon.teal { background: rgba(13, 148, 136, 0.14); color: var(--translation-color); }
+.fa-icon.violet { background: var(--accent-bg); color: var(--accent); }
+.fa-icon.danger { background: var(--danger-soft); color: var(--danger); }
+.fa-icon.sky { background: rgba(14, 165, 233, 0.14); color: #0ea5e9; }
+
+.fa-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+
+.fa-text strong {
+  font-size: 0.9rem;
+  color: var(--text-h);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fa-text span {
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fa-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+
+.fa-badge.teal { background: rgba(13, 148, 136, 0.16); color: var(--translation-color); }
+.fa-badge.danger { background: var(--danger-soft); color: var(--danger); }
+
+.fa-arrow {
+  color: var(--muted);
+  font-size: 0.82rem;
+  flex-shrink: 0;
 }
 
 /* Stats Strip */
@@ -877,8 +1046,8 @@ function navigateTo(path: string) {
 }
 
 .lesson-card.current .lesson-num {
-  background: var(--primary);
-  color: #ffffff;
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
 }
 
 .lesson-num.done {
@@ -1047,8 +1216,15 @@ function navigateTo(path: string) {
     padding: 1.5rem;
   }
 
+  .daily-focus-bar,
   .stats-strip {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .daily-focus-bar {
+    grid-template-columns: 1fr;
   }
 }
 

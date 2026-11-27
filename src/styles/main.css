@@ -7,17 +7,22 @@
   /* Palette */
   --primary: #4f46e5;
   --primary-hover: #4338ca;
+  --primary-solid: #4f46e5;
+  --primary-solid-hover: #4338ca;
+  --primary-on-solid: #ffffff;
   --primary-soft: rgba(79, 70, 229, 0.08);
   --primary-soft-strong: rgba(79, 70, 229, 0.14);
-  --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #6366f1 55%, #0ea5e9 100%);
+  --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #4338ca 55%, #0284c7 100%);
   --accent: #7c3aed;
   --accent-bg: rgba(124, 58, 237, 0.08);
   --accent-border: rgba(124, 58, 237, 0.35);
 
   /* Semantic Status */
   --success: #16a34a;
+  --success-solid: #16a34a;
   --success-soft: rgba(22, 163, 74, 0.1);
   --warning: #d97706;
+  --warning-solid: #d97706;
   --warning-soft: rgba(217, 119, 6, 0.12);
   --danger: #dc2626;
   --danger-soft: rgba(220, 38, 38, 0.1);
@@ -74,16 +79,21 @@
 :root.app-dark {
   --primary: #818cf8;
   --primary-hover: #a5b4fc;
+  --primary-solid: #4f46e5;
+  --primary-solid-hover: #6366f1;
+  --primary-on-solid: #ffffff;
   --primary-soft: rgba(129, 140, 248, 0.14);
   --primary-soft-strong: rgba(129, 140, 248, 0.22);
-  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #818cf8 55%, #38bdf8 100%);
+  --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #5b50e6 55%, #0369a1 100%);
   --accent: #a78bfa;
   --accent-bg: rgba(167, 139, 250, 0.16);
   --accent-border: rgba(167, 139, 250, 0.45);
 
   --success: #4ade80;
+  --success-solid: #15803d;
   --success-soft: rgba(74, 222, 128, 0.14);
   --warning: #fbbf24;
+  --warning-solid: #b45309;
   --warning-soft: rgba(251, 191, 36, 0.15);
   --danger: #f87171;
   --danger-soft: rgba(248, 113, 113, 0.15);
@@ -357,16 +367,16 @@ em, i {
   box-shadow: none !important;
 }
 .btn-primary {
-  background: var(--primary);
-  color: #ffffff;
-  border-color: var(--primary);
-  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.22);
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
+  border-color: var(--primary-solid);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.28);
 }
 .btn-primary:hover:not(:disabled) {
-  background: var(--primary-hover);
-  border-color: var(--primary-hover);
+  background: var(--primary-solid-hover);
+  border-color: var(--primary-solid-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.36);
 }
 .btn-secondary {
   background: var(--primary-soft);

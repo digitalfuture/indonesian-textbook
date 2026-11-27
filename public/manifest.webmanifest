@@ -1,0 +1,18 @@
+{
+  "name": "Индонезийский за 16 уроков",
+  "short_name": "Indo 16",
+  "description": "Интерактивный учебник индонезийского языка с SRS-карточками, тренажёром Петрова, аудированием и диалогами.",
+  "start_url": "/indonesian-textbook/ru/id/",
+  "scope": "/indonesian-textbook/",
+  "display": "standalone",
+  "background_color": "#0b1120",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/indonesian-textbook/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

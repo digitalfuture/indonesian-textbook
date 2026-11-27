@@ -114,9 +114,9 @@ function setStep(step: LessonStep) {
 }
 
 .step-btn.active {
-  background: var(--primary);
-  color: #ffffff;
-  box-shadow: 0 3px 10px rgba(79, 70, 229, 0.25);
+  background: var(--primary-solid);
+  color: var(--primary-on-solid);
+  box-shadow: 0 3px 10px rgba(79, 70, 229, 0.28);
 }
 
 .step-btn.passed:not(.active) {

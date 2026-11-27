@@ -564,7 +564,7 @@ const grammarTablesId = [
     title: "Аффиксы и словообразование",
     description: "Приставки и суффиксы: me-, ber-, di-, pe-, ter-, -an, ke-...-an",
     icon: "🧩",
-    headers: ["Корень", "Аффикс", "Производное", "Значение"],
+    headers: ["Аффикс", "Производное", "Значение"],
     rows: [
       {
         label: "ajar",
@@ -637,6 +637,51 @@ const grammarTablesId = [
       {
         label: "buat",
         cells: ["-an", "buatan", "изделие / сделано в... (buatan Rusia)"],
+      },
+    ],
+  },
+  {
+    id: "men-prefix",
+    title: "Приставка meN- (правило K-P-S-T)",
+    description: "Как меняется приставка meN- и почему в живой речи выпадают буквы K, P, S, T",
+    icon: "⚡",
+    headers: ["Начальная буква корня", "Изменение", "Примеры"],
+    rows: [
+      {
+        label: "me-",
+        cells: ["l, m, n, r, w, y", "Без изменений", "lihat → melihat (видеть), masak → memasak (готовить)"],
+      },
+      {
+        label: "mem-",
+        cells: ["b, f, v", "Добавляется mem-", "beli → membeli (покупать), baca → membaca (читать)"],
+      },
+      {
+        label: "mem- (P выпадает!)",
+        cells: ["p → m", "Буква p исчезает", "pakai → memakai (носить/использовать), pilih → memilih (выбирать)"],
+      },
+      {
+        label: "men-",
+        cells: ["c, d, j", "Добавляется men-", "cari → mencari (искать), dengar → mendengar (слышать)"],
+      },
+      {
+        label: "men- (T выпадает!)",
+        cells: ["t → n", "Буква t исчезает", "tulis → menulis (писать), tolong → menolong (помогать)"],
+      },
+      {
+        label: "meny- (S выпадает!)",
+        cells: ["s → ny", "Буква s исчезает", "sapu → menyapu (подметать), sewa → menyewa (арендовать)"],
+      },
+      {
+        label: "meng-",
+        cells: ["гласные (a,e,i,o,u), g, h", "Добавляется meng-", "ambil → mengambil (брать), ajar → mengajar (учить кого-то)"],
+      },
+      {
+        label: "meng- (K выпадает!)",
+        cells: ["k → ng", "Буква k исчезает", "kirim → mengirim (отправлять), kunci → mengunci (запирать)"],
+      },
+      {
+        label: "menge-",
+        cells: ["1 слог", "Односложные корни", "cek → mengecek (проверять), cat → mengecat (красить)"],
       },
     ],
   },
@@ -1119,9 +1164,9 @@ function goBack() {
 }
 
 .grammar-pill.active {
-  background: var(--primary);
-  border-color: var(--primary);
-  color: #ffffff;
+  background: var(--primary-solid);
+  border-color: var(--primary-solid);
+  color: var(--primary-on-solid);
   font-weight: 600;
 }
 
