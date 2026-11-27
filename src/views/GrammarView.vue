@@ -57,7 +57,7 @@ const grammarTablesId = [
     title: "Личные местоимения",
     description: "Все личные местоимения индонезийского языка",
     icon: "👤",
-    headers: ["Местоимение", "Значение", "Использование"],
+    headers: ["Местоимение", "Значение", "Использование", "Пример"],
     rows: [
       {
         label: "saya",
@@ -110,7 +110,7 @@ const grammarTablesId = [
     title: "Времена и аспекты",
     description: "Выражение времени в индонезийском языке",
     icon: "⏰",
-    headers: ["Частица", "Значение", "Пример"],
+    headers: ["Частица", "Значение", "Пример", "Примечание"],
     rows: [
       {
         label: "sudah",
@@ -183,7 +183,7 @@ const grammarTablesId = [
     title: "Отрицания",
     description: "Способы выражения отрицания",
     icon: "❌",
-    headers: ["Отрицание", "Использование", "Пример"],
+    headers: ["Отрицание", "Использование", "Пример", "Примечание"],
     rows: [
       {
         label: "tidak",
@@ -224,7 +224,7 @@ const grammarTablesId = [
     title: "Предлоги",
     description: "Основные предлоги места, направления и времени",
     icon: "📍",
-    headers: ["Предлог", "Значение", "Пример"],
+    headers: ["Предлог", "Значение", "Пример 1", "Пример 2"],
     rows: [
       {
         label: "di",
@@ -293,7 +293,7 @@ const grammarTablesId = [
     title: "Вопросительные слова",
     description: "Слова для построения вопросов",
     icon: "❓",
-    headers: ["Слово", "Значение", "Пример"],
+    headers: ["Слово", "Значение", "Пример 1", "Пример 2"],
     rows: [
       {
         label: "apa",
@@ -374,7 +374,7 @@ const grammarTablesId = [
     title: "Союзы",
     description: "Слова для соединения предложений",
     icon: "🔗",
-    headers: ["Союз", "Значение", "Пример"],
+    headers: ["Союз", "Значение", "Пример", "Примечание"],
     rows: [
       {
         label: "dan",
@@ -447,7 +447,7 @@ const grammarTablesId = [
     title: "Модальные глаголы",
     description: "Выражение возможности, необходимости и желания",
     icon: "💭",
-    headers: ["Глагол", "Значение", "Пример"],
+    headers: ["Глагол", "Значение", "Пример 1", "Пример 2"],
     rows: [
       {
         label: "bisa",
@@ -512,7 +512,7 @@ const grammarTablesId = [
     title: "Числа и счёт",
     description: "Числительные и классификаторы",
     icon: "🔢",
-    headers: ["Число", "Индонезийский", "Примечание"],
+    headers: ["Число", "Индонезийский", "Примечание", "Пример"],
     rows: [
       { label: "0", cells: ["nol", "Заимствование", "nomor nol (номер ноль)"] },
       { label: "1", cells: ["satu", "Основа", "satu orang (один человек)"] },
@@ -564,7 +564,7 @@ const grammarTablesId = [
     title: "Аффиксы и словообразование",
     description: "Приставки и суффиксы: me-, ber-, di-, pe-, ter-, -an, ke-...-an",
     icon: "🧩",
-    headers: ["Аффикс", "Производное", "Значение"],
+    headers: ["Корень", "Аффикс", "Производное", "Значение"],
     rows: [
       {
         label: "ajar",
@@ -645,7 +645,7 @@ const grammarTablesId = [
     title: "Приставка meN- (правило K-P-S-T)",
     description: "Как меняется приставка meN- и почему в живой речи выпадают буквы K, P, S, T",
     icon: "⚡",
-    headers: ["Начальная буква корня", "Изменение", "Примеры"],
+    headers: ["Приставка", "Начальная буква корня", "Изменение", "Примеры"],
     rows: [
       {
         label: "me-",
@@ -829,9 +829,8 @@ const grammarTablesRu = [
       {
         label: "Aturan",
         cells: [
-          "1: один/одна/одно (m/f/n)\n2-4: + bentuk gen. tunggal\n5-20: + bentuk gen. jamak\n21+: angka + puluh + aturan 1-20",
-          "1 rubel, 2 rubel-ya, 5 rubel-yey",
-          "Setelah 2,3,4 — genitif tunggal\nSetelah 5+ — genitif jamak",
+          "1: один/одна/одно (m/f/n)\n2-4: + gen. tunggal\n5-20: + gen. jamak",
+          "1 рубль, 2 рубля, 5 рублей",
         ],
       },
     ],
@@ -893,7 +892,6 @@ function goBack() {
           <table class="grammar-table">
             <thead>
               <tr>
-                <th>{{ $t('grammar.table.termColumn') }}</th>
                 <th v-for="header in selectedTable.headers" :key="header">
                   {{ header }}
                 </th>
