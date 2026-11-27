@@ -95,6 +95,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Terima hadiah",
         "translation": "Получать подарок"
+      },
+      {
+        "sentence": "Saya terima",
+        "translation": "Я принимаю"
       }
     ],
     "wordFamily": [
@@ -1132,8 +1136,8 @@ export const vocabulary: DictionaryWord[] = [
   {
     "id": 36,
     "word": "senang",
-    "pronunciation": "/senaŋ/",
-    "translation": "рад, приятно",
+    "pronunciation": "/sənaŋ/",
+    "translation": "рад, радостный, приятно, счастливый",
     "category": "adjective",
     "frequency": 36,
     "examples": [
@@ -1144,6 +1148,14 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Saya senang sekali",
         "translation": "Я очень рад"
+      },
+      {
+        "sentence": "Saya senang",
+        "translation": "Я рад"
+      },
+      {
+        "sentence": "Senang bertemu denganmu",
+        "translation": "Рад встрече с тобой"
       }
     ],
     "wordFamily": [
@@ -1243,45 +1255,6 @@ export const vocabulary: DictionaryWord[] = [
       16
     ],
     "wordFamily": []
-  },
-  {
-    "id": 40,
-    "word": "terima",
-    "pronunciation": "/terima/",
-    "translation": "принимать, получать",
-    "category": "verb",
-    "frequency": 40,
-    "examples": [
-      {
-        "sentence": "Saya terima",
-        "translation": "Я принимаю"
-      },
-      {
-        "sentence": "Saya terima buku",
-        "translation": "Я получаю книгу"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "menerima",
-        "translation": "принимать, получать"
-      },
-      {
-        "word": "diterima",
-        "translation": "быть принятым"
-      },
-      {
-        "word": "penerima",
-        "translation": "получатель"
-      },
-      {
-        "word": "penerimaan",
-        "translation": "приём, получение"
-      }
-    ],
-    "lessonIds": [
-      1
-    ]
   },
   {
     "id": 41,
@@ -2118,7 +2091,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 61,
     "word": "rumah",
     "pronunciation": "/rumah/",
-    "translation": "дом",
+    "translation": "дом, здание",
     "category": "noun",
     "frequency": 61,
     "examples": [
@@ -2129,6 +2102,14 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Di rumah",
         "translation": "Дома"
+      },
+      {
+        "sentence": "Rumah sakit",
+        "translation": "Больница (букв. 'дом больных')"
+      },
+      {
+        "sentence": "Ke rumah sakit",
+        "translation": "В больницу"
       }
     ],
     "wordFamily": [
@@ -2147,6 +2128,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "rumahmu",
         "translation": "дом (твой/твоя)"
+      },
+      {
+        "word": "rumah sakit",
+        "translation": "больница"
       }
     ],
     "lessonIds": [
@@ -2279,7 +2264,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 66,
     "word": "malam",
     "pronunciation": "/malam/",
-    "translation": "ночь, вечер",
+    "translation": "ночь, вечер (после 19:00)",
     "category": "noun",
     "frequency": 66,
     "examples": [
@@ -2290,6 +2275,14 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Malam ini",
         "translation": "Сегодня вечером"
+      },
+      {
+        "sentence": "Makan malam",
+        "translation": "Ужин (вечерняя трапеза)"
+      },
+      {
+        "sentence": "Kemarin malam",
+        "translation": "Вчера вечером"
       }
     ],
     "wordFamily": [
@@ -2308,14 +2301,15 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "lessonIds": [
       1,
-      8
+      8,
+      15
     ]
   },
   {
     "id": 67,
     "word": "siang",
     "pronunciation": "/siaŋ/",
-    "translation": "день (время суток)",
+    "translation": "день, дневное время (11:00–15:00)",
     "category": "noun",
     "frequency": 67,
     "examples": [
@@ -2326,17 +2320,30 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Makan siang",
         "translation": "Обед"
+      },
+      {
+        "sentence": "Makan siang bersama",
+        "translation": "Обед (дневная трапеза) вместе"
+      },
+      {
+        "sentence": "Siang hari",
+        "translation": "В дневное время"
       }
     ],
     "wordFamily": [
       {
         "word": "sesiang",
         "translation": "в полдень"
+      },
+      {
+        "word": "kesiangan",
+        "translation": "проспать / запоздать"
       }
     ],
     "lessonIds": [
       1,
-      8
+      8,
+      15
     ]
   },
   {
@@ -2408,7 +2415,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 70,
     "word": "ada",
     "pronunciation": "/ada/",
-    "translation": "есть, имеется, существовать",
+    "translation": "есть, быть, иметься, существовать",
     "category": "verb",
     "frequency": 70,
     "examples": [
@@ -2419,6 +2426,14 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Ada apa?",
         "translation": "Что случилось?"
+      },
+      {
+        "sentence": "Tidak ada",
+        "translation": "Нету / отсутствует"
+      },
+      {
+        "sentence": "Tidak ada makanan",
+        "translation": "Нет еды"
       }
     ],
     "wordFamily": [
@@ -2445,6 +2460,7 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "lessonIds": [
       3,
+      5,
       6
     ]
   },
@@ -3460,7 +3476,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 97,
     "word": "simpan",
     "pronunciation": "/simpan/",
-    "translation": "хранить, сохранять",
+    "translation": "хранить, сохранять, убирать",
     "category": "verb",
     "frequency": 97,
     "examples": [
@@ -3471,6 +3487,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Simpan uang",
         "translation": "Хранить деньги"
+      },
+      {
+        "sentence": "Saya simpan di tas",
+        "translation": "Я уберу в сумку"
       }
     ],
     "wordFamily": [
@@ -3492,7 +3512,8 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "lessonIds": [
-      3
+      3,
+      10
     ]
   },
   {
@@ -3771,7 +3792,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 106,
     "word": "manakah",
     "pronunciation": "/manakah/",
-    "translation": "который же, где именно (вопрос с выделением)",
+    "translation": "который же, где именно (усиленный вопрос)",
     "category": "adverb",
     "frequency": 106,
     "examples": [
@@ -3782,6 +3803,14 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Manakah pilihanmu?",
         "translation": "Который твой выбор?"
+      },
+      {
+        "sentence": "Manakah ini?",
+        "translation": "Который этот?"
+      },
+      {
+        "sentence": "Manakah itu?",
+        "translation": "Который тот?"
       }
     ],
     "lessonIds": [
@@ -4107,27 +4136,6 @@ export const vocabulary: DictionaryWord[] = [
     "wordFamily": []
   },
   {
-    "id": 118,
-    "word": "manakah",
-    "pronunciation": "/manakah/",
-    "translation": "который же (усиление)",
-    "category": "adverb",
-    "frequency": 118,
-    "examples": [
-      {
-        "sentence": "Manakah ini?",
-        "translation": "Который этот?"
-      },
-      {
-        "sentence": "Manakah itu?",
-        "translation": "Который тот?"
-      }
-    ],
-    "lessonIds": [
-      4
-    ]
-  },
-  {
     "id": 119,
     "word": "bilakah",
     "pronunciation": "/bilakah/",
@@ -4254,7 +4262,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 124,
     "word": "jadi",
     "pronunciation": "/dʒadi/",
-    "translation": "поэтому, так что",
+    "translation": "поэтому, так что; становиться, получаться",
     "category": "conjunction",
     "frequency": 124,
     "examples": [
@@ -4265,13 +4273,35 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Jadi, kita pergi",
         "translation": "Итак, мы идём"
+      },
+      {
+        "sentence": "Bisa jadi",
+        "translation": "Может быть / возможно"
+      },
+      {
+        "sentence": "Bisa jadi dia lupa",
+        "translation": "Может быть, он забыл"
       }
     ],
     "lessonIds": [
       5,
+      11,
       15
     ],
-    "wordFamily": []
+    "wordFamily": [
+      {
+        "word": "menjadi",
+        "translation": "становиться"
+      },
+      {
+        "word": "terjadi",
+        "translation": "происходить, случаться"
+      },
+      {
+        "word": "kejadian",
+        "translation": "событие, происшествие"
+      }
+    ]
   },
   {
     "id": 125,
@@ -4559,85 +4589,6 @@ export const vocabulary: DictionaryWord[] = [
     "lessonIds": [
       5,
       14
-    ]
-  },
-  {
-    "id": 135,
-    "word": "ada",
-    "pronunciation": "/ada/",
-    "translation": "быть, иметься, присутствовать",
-    "category": "verb",
-    "frequency": 135,
-    "examples": [
-      {
-        "sentence": "Tidak ada",
-        "translation": "Нету / отсутствует"
-      },
-      {
-        "sentence": "Tidak ada makanan",
-        "translation": "Нет еды"
-      },
-      {
-        "sentence": "Ada apa?",
-        "translation": "Что случилось?"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "berada",
-        "translation": "находиться"
-      },
-      {
-        "word": "mengadakan",
-        "translation": "проводить, устраивать"
-      },
-      {
-        "word": "keadaan",
-        "translation": "состояние, обстановка"
-      }
-    ],
-    "lessonIds": [
-      5
-    ]
-  },
-  {
-    "id": 136,
-    "word": "jadi",
-    "pronunciation": "/dʒadi/",
-    "translation": "становиться, получаться; итак, следовательно",
-    "category": "verb",
-    "frequency": 136,
-    "examples": [
-      {
-        "sentence": "Bisa jadi",
-        "translation": "Может быть / возможно"
-      },
-      {
-        "sentence": "Bisa jadi dia lupa",
-        "translation": "Может быть, он забыл"
-      },
-      {
-        "sentence": "Jadi guru",
-        "translation": "Стать учителем"
-      }
-    ],
-    "lessonIds": [
-      5,
-      11
-    ],
-    "wordFamily": [
-      {
-        "word": "menjadi",
-        "translation": "становиться"
-      },
-      {
-        "word": "terjadi",
-        "translation": "происходить, случаться"
-      },
-      {
-        "word": "kejadian",
-        "translation": "событие, происшествие"
-      }
     ]
   },
   {
@@ -6983,9 +6934,18 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Saya makan ikan",
         "translation": "Я ем рыбу"
+      },
+      {
+        "sentence": "Ikan besar",
+        "translation": "Большая рыба"
+      },
+      {
+        "sentence": "Makan ikan",
+        "translation": "Есть рыбу"
       }
     ],
     "lessonIds": [
+      3,
       15
     ],
     "wordFamily": []
@@ -7427,74 +7387,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 227,
-    "word": "siang",
-    "pronunciation": "/siaŋ/",
-    "translation": "день, дневное время (11:00-15:00)",
-    "category": "noun",
-    "frequency": 227,
-    "examples": [
-      {
-        "sentence": "Makan siang bersama",
-        "translation": "Обед (дневная трапеза) вместе"
-      },
-      {
-        "sentence": "Selamat siang",
-        "translation": "Добрый день"
-      },
-      {
-        "sentence": "Siang hari",
-        "translation": "В дневное время"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "kesiangan",
-        "translation": "проспать / запоздать"
-      }
-    ],
-    "lessonIds": [
-      8,
-      15
-    ]
-  },
-  {
-    "id": 228,
-    "word": "malam",
-    "pronunciation": "/malam/",
-    "translation": "вечер, ночь (после 19:00)",
-    "category": "noun",
-    "frequency": 228,
-    "examples": [
-      {
-        "sentence": "Makan malam",
-        "translation": "Ужин (вечерняя трапеза)"
-      },
-      {
-        "sentence": "Selamat malam",
-        "translation": "Добрый вечер / спокойной ночи"
-      },
-      {
-        "sentence": "Kemarin malam",
-        "translation": "Вчера вечером"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "semalam",
-        "translation": "прошлой ночью / всю ночь"
-      },
-      {
-        "word": "bermalam",
-        "translation": "ночевать"
-      }
-    ],
-    "lessonIds": [
-      8,
-      15
-    ]
-  },
-  {
     "id": 229,
     "word": "piring",
     "pronunciation": "/piriŋ/",
@@ -7883,7 +7775,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 242,
     "word": "minggu",
     "pronunciation": "/miŋɡu/",
-    "translation": "неделя; воскресенье",
+    "translation": "неделя; воскресенье (hari Minggu)",
     "category": "noun",
     "frequency": 242,
     "examples": [
@@ -7894,6 +7786,14 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Hari Minggu",
         "translation": "Воскресенье"
+      },
+      {
+        "sentence": "Hari Minggu gereja",
+        "translation": "В воскресенье в церковь"
+      },
+      {
+        "sentence": "Akhir minggu",
+        "translation": "Выходные"
       }
     ],
     "wordFamily": [
@@ -7926,6 +7826,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Bulan ini",
         "translation": "В этом месяце"
+      },
+      {
+        "sentence": "Bulan besar",
+        "translation": "Большая луна"
       }
     ],
     "wordFamily": [
@@ -7943,7 +7847,8 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "lessonIds": [
-      8
+      8,
+      14
     ]
   },
   {
@@ -8169,41 +8074,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "hari Sabtu",
         "translation": "в субботу"
-      }
-    ],
-    "lessonIds": [
-      8
-    ]
-  },
-  {
-    "id": 252,
-    "word": "Minggu",
-    "pronunciation": "/miŋɡu/",
-    "translation": "воскресенье; неделя",
-    "category": "noun",
-    "frequency": 252,
-    "examples": [
-      {
-        "sentence": "Hari Minggu gereja",
-        "translation": "В воскресенье в церковь"
-      },
-      {
-        "sentence": "Akhir minggu",
-        "translation": "Выходные"
-      },
-      {
-        "sentence": "Satu minggu",
-        "translation": "Одна неделя"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "mingguan",
-        "translation": "еженедельный"
-      },
-      {
-        "word": "berminggu-minggu",
-        "translation": "неделями"
       }
     ],
     "lessonIds": [
@@ -8938,42 +8808,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 277,
-    "word": "bulan",
-    "pronunciation": "/bulan/",
-    "translation": "луна, месяц",
-    "category": "noun",
-    "frequency": 277,
-    "examples": [
-      {
-        "sentence": "Bulan besar",
-        "translation": "Большая луна"
-      },
-      {
-        "sentence": "Bulan ini",
-        "translation": "В этом месяце"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "bulanan",
-        "translation": "ежемесячный"
-      },
-      {
-        "word": "berbulan-bulan",
-        "translation": "месяцами"
-      },
-      {
-        "word": "sebulan",
-        "translation": "один месяц"
-      }
-    ],
-    "lessonIds": [
-      8,
-      14
-    ]
-  },
-  {
     "id": 278,
     "word": "langit",
     "pronunciation": "/laŋit/",
@@ -9026,7 +8860,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 280,
     "word": "gempa",
     "pronunciation": "/ɡəmpa/",
-    "translation": "землетрясение, толчок",
+    "translation": "землетрясение",
     "category": "noun",
     "frequency": 280,
     "examples": [
@@ -9037,15 +8871,24 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Ada gempa",
         "translation": "Было землетрясение"
+      },
+      {
+        "sentence": "Gempa bumi",
+        "translation": "Землетрясение"
       }
     ],
     "wordFamily": [
       {
         "word": "gempa bumi",
         "translation": "землетрясение"
+      },
+      {
+        "word": "gempabumi",
+        "translation": "землетрясение"
       }
     ],
     "lessonIds": [
+      13,
       14
     ]
   },
@@ -9222,45 +9065,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "pemasaran",
         "translation": "маркетинг"
-      }
-    ],
-    "lessonIds": [
-      14
-    ]
-  },
-  {
-    "id": 286,
-    "word": "rumah",
-    "pronunciation": "/rumah/",
-    "translation": "дом, здание; учреждение",
-    "category": "noun",
-    "frequency": 286,
-    "examples": [
-      {
-        "sentence": "Rumah sakit",
-        "translation": "Больница (букв. 'дом больных')"
-      },
-      {
-        "sentence": "Ke rumah sakit",
-        "translation": "В больницу"
-      },
-      {
-        "sentence": "Di rumah",
-        "translation": "Дома"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "perumahan",
-        "translation": "жильё, посёлок"
-      },
-      {
-        "word": "berumah",
-        "translation": "иметь дом"
-      },
-      {
-        "word": "rumah sakit",
-        "translation": "больница"
       }
     ],
     "lessonIds": [
@@ -10251,42 +10055,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 321,
-    "word": "senang",
-    "pronunciation": "/senaŋ/",
-    "translation": "радостный, счастливый",
-    "category": "adjective",
-    "frequency": 321,
-    "examples": [
-      {
-        "sentence": "Saya senang",
-        "translation": "Я рад"
-      },
-      {
-        "sentence": "Senang bertemu denganmu",
-        "translation": "Рад встрече с тобой"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "kesenangan",
-        "translation": "удовольствие"
-      },
-      {
-        "word": "menyenangkan",
-        "translation": "радовать, приятный"
-      },
-      {
-        "word": "bersenang-senang",
-        "translation": "веселиться"
-      }
-    ],
-    "lessonIds": [
-      13,
-      16
-    ]
-  },
-  {
     "id": 322,
     "word": "sedih",
     "pronunciation": "/sədih/",
@@ -10990,7 +10758,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 343,
     "word": "kakak",
     "pronunciation": "/kakak/",
-    "translation": "старший брат/сестра",
+    "translation": "старший брат / старшая сестра",
     "category": "noun",
     "frequency": 343,
     "examples": [
@@ -11001,12 +10769,24 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Kakak perempuan",
         "translation": "Старшая сестра"
+      },
+      {
+        "sentence": "Kakak perempuan saya",
+        "translation": "Моя старшая сестра"
+      },
+      {
+        "sentence": "Dua kakak perempuan",
+        "translation": "Две старшие сестры"
       }
     ],
     "wordFamily": [
       {
         "word": "berkakak",
         "translation": "иметь старшего брата/сестру"
+      },
+      {
+        "word": "kakak perempuan",
+        "translation": "старшая сестра"
       }
     ],
     "lessonIds": [
@@ -11264,8 +11044,8 @@ export const vocabulary: DictionaryWord[] = [
   {
     "id": 354,
     "word": "keluarga",
-    "pronunciation": "/keluarɡa/",
-    "translation": "семья",
+    "pronunciation": "/kəluarɡa/",
+    "translation": "семья, род",
     "category": "noun",
     "frequency": 354,
     "examples": [
@@ -11276,6 +11056,14 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Keluarga besar",
         "translation": "Большая семья"
+      },
+      {
+        "sentence": "Keluarga besar saya",
+        "translation": "Моя большая семья"
+      },
+      {
+        "sentence": "Foto keluarga",
+        "translation": "Семейное фото"
       }
     ],
     "wordFamily": [
@@ -11286,6 +11074,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "kekeluargaan",
         "translation": "семейный, по-родственному"
+      },
+      {
+        "word": "rumah tangga",
+        "translation": "домашнее хозяйство"
       }
     ],
     "lessonIds": [
@@ -11351,37 +11143,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 357,
-    "word": "kakak",
-    "pronunciation": "/kakak/",
-    "translation": "старший брат/сестра",
-    "category": "noun",
-    "frequency": 357,
-    "examples": [
-      {
-        "sentence": "Kakak perempuan saya",
-        "translation": "Моя старшая сестра"
-      },
-      {
-        "sentence": "Dua kakak perempuan",
-        "translation": "Две старшие сестры"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "berkakak",
-        "translation": "иметь старшего брата/сестру"
-      },
-      {
-        "word": "kakak perempuan",
-        "translation": "старшая сестра"
-      }
-    ],
-    "lessonIds": [
-      6
-    ]
-  },
-  {
     "id": 358,
     "word": "putra",
     "pronunciation": "/putra/",
@@ -11437,37 +11198,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "anak perempuan",
         "translation": "дочь / девочка"
-      }
-    ],
-    "lessonIds": [
-      6
-    ]
-  },
-  {
-    "id": 360,
-    "word": "keluarga",
-    "pronunciation": "/kəluarɡa/",
-    "translation": "семья, род; домочадцы",
-    "category": "noun",
-    "frequency": 360,
-    "examples": [
-      {
-        "sentence": "Keluarga besar saya",
-        "translation": "Моя большая семья"
-      },
-      {
-        "sentence": "Foto keluarga",
-        "translation": "Семейное фото"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "berkeluarga",
-        "translation": "иметь семью"
-      },
-      {
-        "word": "rumah tangga",
-        "translation": "домашнее хозяйство"
       }
     ],
     "lessonIds": [
@@ -13737,45 +13467,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 433,
-    "word": "simpan",
-    "pronunciation": "/simpan/",
-    "translation": "хранить, убирать",
-    "category": "verb",
-    "frequency": 433,
-    "examples": [
-      {
-        "sentence": "Simpan buku ini",
-        "translation": "Убери эту книгу"
-      },
-      {
-        "sentence": "Saya simpan di tas",
-        "translation": "Я уберу в сумку"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "menyimpan",
-        "translation": "хранить"
-      },
-      {
-        "word": "disimpan",
-        "translation": "храниться"
-      },
-      {
-        "word": "simpanan",
-        "translation": "сбережения"
-      },
-      {
-        "word": "penyimpanan",
-        "translation": "хранение"
-      }
-    ],
-    "lessonIds": [
-      10
-    ]
-  },
-  {
     "id": 434,
     "word": "antar",
     "pronunciation": "/antar/",
@@ -14000,27 +13691,6 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "lessonIds": [
       13
-    ]
-  },
-  {
-    "id": 443,
-    "word": "ikan",
-    "pronunciation": "/ikan/",
-    "translation": "рыба",
-    "category": "noun",
-    "frequency": 443,
-    "examples": [
-      {
-        "sentence": "Ikan besar",
-        "translation": "Большая рыба"
-      },
-      {
-        "sentence": "Makan ikan",
-        "translation": "Есть рыбу"
-      }
-    ],
-    "lessonIds": [
-      3
     ]
   },
   {
@@ -14893,7 +14563,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 481,
     "word": "panas",
     "pronunciation": "/panas/",
-    "translation": "жаркий, горячий",
+    "translation": "жаркий, горячий; жара",
     "category": "adjective",
     "frequency": 481,
     "examples": [
@@ -14904,6 +14574,14 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Kopi panas",
         "translation": "Горячий кофе"
+      },
+      {
+        "sentence": "Musim panas",
+        "translation": "Лето (букв. 'жаркий сезон')"
+      },
+      {
+        "sentence": "Air panas",
+        "translation": "Горячая вода"
       }
     ],
     "wordFamily": [
@@ -14918,6 +14596,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "pemanasan",
         "translation": "нагревание, разминка"
+      },
+      {
+        "word": "musim panas",
+        "translation": "лето"
       }
     ],
     "lessonIds": [
@@ -14928,7 +14610,7 @@ export const vocabulary: DictionaryWord[] = [
     "id": 482,
     "word": "dingin",
     "pronunciation": "/diŋin/",
-    "translation": "холодный",
+    "translation": "холодный; холод",
     "category": "adjective",
     "frequency": 482,
     "examples": [
@@ -14939,6 +14621,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Hari ini dingin",
         "translation": "Сегодня холодно"
+      },
+      {
+        "sentence": "Musim dingin",
+        "translation": "Зима (букв. 'холодный сезон')"
       }
     ],
     "wordFamily": [
@@ -14953,6 +14639,10 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "pendingin",
         "translation": "охладитель"
+      },
+      {
+        "word": "musim dingin",
+        "translation": "зима"
       }
     ],
     "lessonIds": [
@@ -15011,33 +14701,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "berawan",
         "translation": "облачный"
-      }
-    ],
-    "lessonIds": [
-      13
-    ]
-  },
-  {
-    "id": 485,
-    "word": "gempa",
-    "pronunciation": "/ɡəmpa/",
-    "translation": "землетрясение",
-    "category": "noun",
-    "frequency": 485,
-    "examples": [
-      {
-        "sentence": "Gempa bumi",
-        "translation": "Землетрясение"
-      },
-      {
-        "sentence": "Ada gempa",
-        "translation": "Было землетрясение"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "gempabumi",
-        "translation": "землетрясение"
       }
     ],
     "lessonIds": [
@@ -15208,76 +14871,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "semusim",
         "translation": "один сезон"
-      }
-    ],
-    "lessonIds": [
-      13
-    ]
-  },
-  {
-    "id": 492,
-    "word": "panas",
-    "pronunciation": "/panas/",
-    "translation": "горячий, жаркий; жара",
-    "category": "adjective",
-    "frequency": 492,
-    "examples": [
-      {
-        "sentence": "Musim panas",
-        "translation": "Лето (букв. 'жаркий сезон')"
-      },
-      {
-        "sentence": "Air panas",
-        "translation": "Горячая вода"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "kepanasan",
-        "translation": "страдать от жары"
-      },
-      {
-        "word": "memanaskan",
-        "translation": "нагревать"
-      },
-      {
-        "word": "musim panas",
-        "translation": "лето"
-      }
-    ],
-    "lessonIds": [
-      13
-    ]
-  },
-  {
-    "id": 493,
-    "word": "dingin",
-    "pronunciation": "/diŋin/",
-    "translation": "холодный; холод",
-    "category": "adjective",
-    "frequency": 493,
-    "examples": [
-      {
-        "sentence": "Musim dingin",
-        "translation": "Зима (букв. 'холодный сезон')"
-      },
-      {
-        "sentence": "Air dingin",
-        "translation": "Холодная вода"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "kedinginan",
-        "translation": "замёрзнуть"
-      },
-      {
-        "word": "pendingin",
-        "translation": "охладитель / кондиционер"
-      },
-      {
-        "word": "musim dingin",
-        "translation": "зима"
       }
     ],
     "lessonIds": [

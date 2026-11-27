@@ -66,14 +66,14 @@ Memperkenalkan diri:
     content: {
       theory: `Kata ganti orang dalam bahasa Rusia:
 
-Saya — Я [ya]
-Kamu — Ты [ty] (informal), Вы [vy] (formal / jamak)
-Dia (laki-laki) — Он [on]
-Dia (perempuan) — Она [a-na]
-Dia (benda) — Оно [a-no]
-Kami/kita — Мы [my]
-Kalian — Вы [vy]
-Mereka — Они [a-ni]
+- Я [ya] — saya
+- Ты [ty] — kamu (informal)
+- Вы [vy] — Anda (formal) / kalian (jamak)
+- Он [on] — dia (laki-laki)
+- Она [a-na] — dia (perempuan)
+- Оно [a-no] — dia / itu (benda netral)
+- Мы [my] — kami / kita
+- Они [a-ni] — mereka
 
 Kosakata untuk contoh kalimat:
 - Говорить [ga-va-reet'] — bicara
@@ -243,7 +243,7 @@ Kosakata pendukung:
     description: "Menyatakan kepemilikan dalam bahasa Rusia",
     objectives: ["Mengenal kata ganti kepemilikan", "Gender kata kepemilikan"],
     content: {
-      theory: `Kata ganti kepemilikan dalam bahasa Rusia disesuaikan dengan gender benda:
+      theory: `Kata ganti kepemilikan dalam bahasa Rusia disesuaikan dengan gender benda.
 
 Milik saya:
 - Мой [moy] — maskulin (мой дом = rumah saya, мой папа = ayah saya)
@@ -280,7 +280,7 @@ Kosakata keluarga dan benda:
       ],
     },
     exercises: [601, 602, 603, 604],
-    vocabulary: [36, 37, 38, 39, 40, 41, 42],
+    vocabulary: [8, 36, 37, 38, 39, 40, 41],
     estimatedTime: 35,
   },
   {
@@ -291,23 +291,23 @@ Kosakata keluarga dan benda:
     content: {
       theory: `Angka dalam bahasa Rusia:
 
-0 — Ноль [nol']
-1 — Один [a-deen]
-2 — Два [dva]
-3 — Три [tree]
-4 — Четыре [che-ty-rye]
-5 — Пять [pyat']
-6 — Шесть [shest']
-7 — Семь [syem']
-8 — Восемь [vo-syem']
-9 — Девять [dye-vyat']
-10 — Десять [dye-syat']
+- Ноль [nol'] — 0
+- Один [a-deen] — 1
+- Два [dva] — 2
+- Три [tree] — 3
+- Четыре [che-ty-rye] — 4
+- Пять [pyat'] — 5
+- Шесть [shest'] — 6
+- Семь [syem'] — 7
+- Восемь [vo-syem'] — 8
+- Девять [dye-vyat'] — 9
+- Десять [dye-syat'] — 10
 
 Puluhan dan ratusan:
-- 20 — Двадцать [dvad-tsat']
-- 30 — Тридцать [treed-tsat']
-- 50 — Пятьдесят [pyat'-dye-syat]
-- 100 — Сто [sto]
+- Двадцать [dvad-tsat'] — 20
+- Тридцать [treed-tsat'] — 30
+- Пятьдесят [pyat'-dye-syat] — 50
+- Сто [sto] — 100
 
 Kosakata berhitung dan usia:
 - Брат [brat] / брата [bra-ta] — saudara laki-laki (два брата = dua saudara laki-laki)
@@ -329,7 +329,7 @@ Kosakata berhitung dan usia:
       ],
     },
     exercises: [701, 702, 703, 704],
-    vocabulary: [43, 44, 45, 46, 47, 48, 49, 50],
+    vocabulary: [19, 43, 45, 46, 47, 48, 49, 50],
     estimatedTime: 40,
   },
   {
@@ -380,7 +380,7 @@ Keterangan waktu dan jam:
     description: "Membentuk kalimat dalam masa lampau",
     objectives: ["Bentuk lampau kata kerja", "Gender dalam masa lampau"],
     content: {
-      theory: `Masa lampau dalam bahasa Rusia dibentuk berdasarkan gender subjek:
+      theory: `Masa lampau dalam bahasa Rusia dibentuk berdasarkan gender subjek.
 
 Akhiran bentuk lampau:
 - Maskulin: -л (был, читал, делал)
@@ -419,7 +419,7 @@ Bentuk kata kerja dan kosakata tempat:
     description: "Aktivitas yang sedang berlangsung",
     objectives: ["Konjugasi waktu sekarang", "Aktivitas sehari-hari"],
     content: {
-      theory: `Waktu sekarang menyatakan aksi saat ini atau rutinitas:
+      theory: `Waktu sekarang menyatakan aksi saat ini atau rutinitas.
 
 Konjugasi kata kerja dan kosakata:
 - Читать [chee-tat'] — membaca
@@ -454,7 +454,7 @@ Konjugasi kata kerja dan kosakata:
     description: "Membentuk kalimat dalam masa depan",
     objectives: ["Masa depan sederhana dan majemuk", "Kata bantu 'буду'"],
     content: {
-      theory: `Masa depan dalam bahasa Rusia dapat dibentuk dengan kata bantu 'быть':
+      theory: `Masa depan dalam bahasa Rusia dapat dibentuk dengan kata bantu 'быть'.
 
 Bentuk 'буду' + kata kerja infinitif:
 - Я буду [ya boo-doo] — saya akan
@@ -528,7 +528,7 @@ Kosakata kegiatan dan arah:
     description: "Mendeskripsikan benda dan orang",
     objectives: ["Gender kata sifat", "Posisi kata sifat", "Kata sifat umum"],
     content: {
-      theory: `Kata sifat dalam bahasa Rusia mendahului kata benda dan berpasangan dengan gender benda:
+      theory: `Kata sifat dalam bahasa Rusia mendahului kata benda dan berpasangan dengan gender benda.
 
 Akhiran kata sifat:
 - Maskulin: -ый / -ий (большой город = kota besar, новый дом = rumah baru)

@@ -81,89 +81,162 @@ function markAllLessonWordsLearned() {
   progressStore.markMultipleWordsAsLearned(lessonWords.value.map((w) => w.id));
 }
 
+function formatPhoneticInline(body: string): string {
+  // 1. Replace every `<term> /phon/` or `<term> [phon]` pair strictly in the target language script
+  const phonPairRegex =
+    langStore.targetLang === "id"
+      ? /(^|[,;(:\s])([A-Za-z0-9-]+(?:[A-Za-z0-9\s.'"!?-]*?[A-Za-z0-9.'"!?])?)\s+(\/[^\s/]+(?:\s+[^\s/]+)*\/)/g
+      : /(^|[,;(:\s])([А-Яа-яЁё]+(?:[А-Яа-яЁё0-9\s.'"!?-]*?[А-Яа-яЁё0-9.'"!?])?)\s+(\[[^\]]+\])/g;
+
+  let res = body.replace(phonPairRegex, (_m, sep, rawTerm, phon) => {
+    const term = rawTerm.trim();
+    const safeSpeak = term.replace(/"/g, "&quot;");
+    return `${sep}<strong class="theory-term">${term}</strong> <span class="theory-phonetic">${phon}</span> <button class="audio-btn-inline" data-word="${safeSpeak}" title="🔊">🔊</button>`;
+  });
+
+  // 2. Wrap parenthetical notes `(...)`
+  res = res.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+
+  // 3. Wrap translations following `</button>` (optionally after a note) + dash
+  res = res.replace(
+    /(<\/button>(?:\s*<span class="theory-note">.*?<\/span>)?\s*[-–—]\s*)((?:(?!<strong class="theory-term">).)+)/g,
+    (_m, before, trans) => {
+      const trimmedTrans = trans.replace(/[,;]\s*$/, "");
+      const trailing = trans.slice(trimmedTrans.length);
+      return `${before}<span class="theory-translation">${trimmedTrans}</span>${trailing}`;
+    },
+  );
+
+  return res;
+}
+
 function renderTheory(text: string): string {
-  return text
-    .split("\n")
-    .map((line) => {
-      const trimmedLine = line.trim();
-      if (!trimmedLine) return "<br>";
+  const blocks: string[] = [];
 
-      if (
-        /^([А-ЯЁA-Z\d][^:\n\r]*:)$/.test(trimmedLine) &&
-        !trimmedLine.includes("/") &&
-        !trimmedLine.includes("[")
-      ) {
-        return `<div class="theory-heading">${trimmedLine}</div>`;
-      }
+  for (const line of text.split("\n")) {
+    const trimmed = line.trim();
+    if (!trimmed) continue;
 
-      const hasPhon = /(\/[^\s/]+(?:\s+[^\s/]+)*\/|\[[^\]]+\])/.test(line);
+    const isIndented = /^\s{2,}/.test(line);
+    const hasPhon = /(\/[^\s/]+(?:\s+[^\s/]+)*\/|\[[^\]]+\])/.test(trimmed);
+    const bulletMatch = trimmed.match(/^[-–—•]\s+(.*)$/);
+    const numberedRuleMatch = trimmed.match(/^(\d+\.)\s+(.*)$/);
 
-      if (hasPhon) {
-        const prefixMatch = line.match(/^(\s*(?:\d+[\.)]\s*|[-–—•]\s*))(.*)$/);
-        const prefix = prefixMatch ? prefixMatch[1] : "";
-        let body = prefixMatch ? prefixMatch[2] : line;
+    // Category 1: Section heading (non-bullet, non-indented, ends with ':', not multi-sentence)
+    const isHeading =
+      !bulletMatch &&
+      !isIndented &&
+      trimmed.endsWith(":") &&
+      !/[А-Яа-яЁёA-Za-z]\.\s+[А-ЯЁA-Z]/.test(trimmed);
 
-        // 1. Replace every `<term> /phon/` or `<term> [phon]` pair (handles multiple terms on one line)
-        const phonPairRegex =
-          /(^|[,;(]\s*|\s\/\s+|\s[-–—]\s+)([A-Za-zА-Яа-яЁёÀ-ÿ0-9-]+(?:[A-Za-zА-Яа-яЁёÀ-ÿ0-9\s.'"?-]*?[A-Za-zА-Яа-яЁёÀ-ÿ0-9.?"'])?)\s+(\/[^\s/]+(?:\s+[^\s/]+)*\/|\[[^\]]+\])/g;
+    if (isHeading) {
+      const content = hasPhon
+        ? formatPhoneticInline(trimmed)
+        : trimmed.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+      blocks.push(`<div class="theory-heading">${content}</div>`);
+      continue;
+    }
 
-        body = body.replace(phonPairRegex, (_m, sep, rawTerm, phon) => {
-          const term = rawTerm.trim();
-          const safeSpeak = term.replace(/"/g, "&quot;");
-          return `${sep}<strong class="theory-term">${term}</strong> <span class="theory-phonetic">${phon}</span> <button class="audio-btn-inline" data-word="${safeSpeak}" title="🔊">🔊</button>`;
-        });
+    // Category 2: Vocabulary / example bullet with phonetics
+    if (bulletMatch && hasPhon) {
+      const subClass = isIndented ? " theory-subitem" : "";
+      blocks.push(
+        `<div class="theory-item${subClass}"><span class="theory-bullet">•</span><span class="theory-item-body">${formatPhoneticInline(bulletMatch[1])}</span></div>`,
+      );
+      continue;
+    }
 
-        // 2. Wrap parenthetical notes `(...)`
-        body = body.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+    // Category 3a: Rule / schema bullet without phonetics
+    if (bulletMatch) {
+      const subClass = isIndented ? " theory-subitem" : "";
+      let body = bulletMatch[1].replace(/\*\*(.*?)\*\*/g, '<strong class="theory-term">$1</strong>');
+      body = body.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+      body = body.replace(
+        /^([A-Za-zА-Яа-яЁёÀ-ÿ0-9\s.'"-]+?)(\s*(?::|\s[-–—])\s*)(.+)$/,
+        '<strong class="theory-term">$1</strong>$2<span class="theory-translation">$3</span>',
+      );
+      blocks.push(
+        `<div class="theory-item theory-rule-item${subClass}"><span class="theory-bullet">•</span><span class="theory-item-body">${body}</span></div>`,
+      );
+      continue;
+    }
 
-        // 3. Wrap translations following `</button>` (optionally after a note) + dash
-        body = body.replace(
-          /(<\/button>(?:\s*<span class="theory-note">.*?<\/span>)?\s*[-–—]\s*)((?:(?!<strong class="theory-term">).)+)/g,
-          (_m, before, trans) => {
-            const trimmedTrans = trans.replace(/,\s*$/, "");
-            const trailing = trans.slice(trimmedTrans.length);
-            return `${before}<span class="theory-translation">${trimmedTrans}</span>${trailing}`;
-          },
-        );
+    // Category 3b: Numbered rule / instruction (not ending in ':')
+    if (numberedRuleMatch) {
+      const num = numberedRuleMatch[1];
+      let body = hasPhon
+        ? formatPhoneticInline(numberedRuleMatch[2])
+        : numberedRuleMatch[2]
+            .replace(/\*\*(.*?)\*\*/g, '<strong class="theory-term">$1</strong>')
+            .replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+      blocks.push(
+        `<div class="theory-numbered-rule"><span class="theory-num">${num}</span><span class="theory-item-body">${body}</span></div>`,
+      );
+      continue;
+    }
 
-        return `${prefix}${body}`;
-      }
+    // Category 4: Prose / explanatory paragraph
+    const prose = hasPhon
+      ? formatPhoneticInline(trimmed)
+      : trimmed
+          .replace(/\*\*(.*?)\*\*/g, '<strong class="theory-term">$1</strong>')
+          .replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+    blocks.push(`<p class="theory-prose">${prose}</p>`);
+  }
 
-      let processed = line;
-      processed = processed.replace(/\*\*(.*?)\*\*/g, '<strong class="theory-term">$1</strong>');
+  return blocks.join("");
+}
 
-      if (/^\s*[-–—•]\s*[A-Za-zА-Яа-яЁё]/.test(processed)) {
-        processed = processed.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
-        processed = processed.replace(
-          /^(\s*[-–—•]\s*)([A-Za-zА-Яа-яЁёÀ-ÿ0-9\s.'"-]+?)(\s*[-–—:]\s*)(.+)$/,
-          '$1<strong class="theory-term">$2</strong>$3<span class="theory-translation">$4</span>',
-        );
-      } else {
-        processed = processed.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
-      }
+function findTopLevelDash(str: string): { index: number; length: number } | null {
+  let depth = 0;
+  for (let i = 0; i < str.length; i++) {
+    const ch = str[i];
+    if (ch === "(") depth++;
+    else if (ch === ")" && depth > 0) depth--;
+    else if (depth === 0) {
+      const rest = str.slice(i);
+      const m = rest.match(/^\s+[—–-]\s+/);
+      if (m) return { index: i, length: m[0].length };
+    }
+  }
+  return null;
+}
 
-      return processed;
-    })
-    .join("<br>");
+function isSpeakableTargetTerm(term: string): boolean {
+  const clean = term.replace(/\([^)]*\)/g, "").trim();
+  if (!clean || /\bvs\b/i.test(clean)) return false;
+  if (langStore.targetLang === "id") {
+    return /[A-Za-z]/.test(clean) && !/[А-Яа-яЁё]/.test(clean);
+  }
+  return /[А-Яа-яЁё]/.test(clean);
 }
 
 function renderKeyPoint(point: string): string {
-  const dashIndex = point.search(/\s*[-–—]\s*/);
-  if (dashIndex === -1) return point;
+  const dash = findTopLevelDash(point);
 
-  const term = point.slice(0, dashIndex).trim();
-  const rest = point.slice(dashIndex).replace(/^\s*[-–—]\s*/, "").trim();
+  // Category KP-3: Plain statement without top-level dash
+  if (!dash) {
+    return point.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+  }
+
+  const term = point.slice(0, dash.index).trim();
+  const rest = point.slice(dash.index + dash.length).trim();
+  const speakableTerm = isSpeakableTargetTerm(term);
+  const speakBtn = speakableTerm
+    ? ` <button class="audio-btn-inline" data-word="${term.replace(/\([^)]*\)/g, "").trim().replace(/"/g, "&quot;")}" title="🔊">🔊</button>`
+    : "";
 
   const exampleMatch = rest.match(/\(([^()]+)\)$/);
   if (exampleMatch) {
     const desc = rest.slice(0, exampleMatch.index).trim();
     const rawExamples = exampleMatch[1];
 
-    if (/[-–—]/.test(rawExamples)) {
+    // Category KP-1: Rule with `Phrase — translation` example chips in parentheses
+    if (/\s+[—–-]\s+/.test(rawExamples)) {
       const formattedExamples = rawExamples
         .split(/;\s*|,\s*(?=[A-ZА-Яa-zа-я])/g)
         .map((ex) => {
-          const parts = ex.split(/\s*[-–—]\s*/);
+          const parts = ex.split(/\s+[—–-]\s+/);
           if (parts.length >= 2) {
             const phrase = parts[0].trim();
             const tr = parts.slice(1).join(" — ").trim();
@@ -174,18 +247,24 @@ function renderKeyPoint(point: string): string {
         })
         .join('<span class="kp-ex-delim">; </span>');
 
-      const descHtml = desc ? `<span class="kp-desc">${desc}</span> ` : "";
-      return `<strong class="kp-term">${term}</strong> <span class="kp-sep">—</span> ${descHtml}<span class="kp-examples">(${formattedExamples})</span>`;
+      const descHtml = desc
+        ? `<span class="kp-desc">${desc.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>')}</span> `
+        : "";
+      return `<strong class="kp-term">${term}</strong>${speakBtn} <span class="kp-sep">—</span> ${descHtml}<span class="kp-examples">(${formattedExamples})</span>`;
     }
 
-    // Simple parenthetical note after translation, e.g. "Меня зовут... — Nama saya... (untuk memperkenalkan diri)"
-    const safeTerm = term.replace(/"/g, "&quot;");
-    const descHtml = desc ? `<span class="kp-trans">${desc}</span> ` : "";
-    return `<strong class="kp-term">${term}</strong> <button class="audio-btn-inline" data-word="${safeTerm}" title="🔊">🔊</button> <span class="kp-sep">—</span> ${descHtml}<span class="theory-note">(${rawExamples})</span>`;
+    // Category KP-2a: Phrase/term + translation + parenthetical note
+    const restClass = speakableTerm ? "kp-trans" : "kp-desc";
+    const descHtml = desc
+      ? `<span class="${restClass}">${desc.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>')}</span> `
+      : "";
+    return `<strong class="kp-term">${term}</strong>${speakBtn} <span class="kp-sep">—</span> ${descHtml}<span class="theory-note">(${rawExamples})</span>`;
   }
 
-  const safeTerm = term.replace(/"/g, "&quot;");
-  return `<strong class="kp-term">${term}</strong> <button class="audio-btn-inline" data-word="${safeTerm}" title="🔊">🔊</button> <span class="kp-sep">—</span> <span class="kp-trans">${rest}</span>`;
+  // Category KP-2b: Phrase/term + translation or rule + description
+  const restClass = speakableTerm ? "kp-trans" : "kp-desc";
+  const formattedRest = rest.replace(/(\([^)]+\))/g, '<span class="theory-note">$1</span>');
+  return `<strong class="kp-term">${term}</strong>${speakBtn} <span class="kp-sep">—</span> <span class="${restClass}">${formattedRest}</span>`;
 }
 
 function onTheoryClick(e: MouseEvent) {
@@ -584,11 +663,44 @@ function resetLessonProgress() {
 }
 
 .theory-text {
-  line-height: 1.82;
+  line-height: 1.75;
   color: var(--text);
   margin-bottom: 2rem;
   font-size: 1.03rem;
-  white-space: pre-line;
+}
+
+.theory-text :deep(.theory-prose) {
+  margin: 0 0 0.85rem 0;
+  color: var(--text);
+}
+
+.theory-text :deep(.theory-item),
+.theory-text :deep(.theory-numbered-rule) {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.32rem;
+}
+
+.theory-text :deep(.theory-subitem) {
+  padding-left: 1.15rem;
+}
+
+.theory-text :deep(.theory-bullet) {
+  color: var(--primary);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.theory-text :deep(.theory-num) {
+  color: var(--primary);
+  font-weight: 700;
+  flex-shrink: 0;
+  min-width: 1.3rem;
+}
+
+.theory-text :deep(.theory-item-body) {
+  flex: 1;
 }
 
 .theory-text :deep(.theory-term) {
@@ -615,14 +727,22 @@ function resetLessonProgress() {
 
 .theory-text :deep(.theory-heading) {
   font-family: var(--font-display);
-  font-size: 1.12rem;
+  font-size: 1.08rem;
   font-weight: 700;
   color: var(--text-h);
-  margin-top: 1.4rem;
-  margin-bottom: 0.45rem;
+  margin-top: 1.35rem;
+  margin-bottom: 0.5rem;
   border-left: 3px solid var(--primary);
   padding-left: 0.65rem;
   display: block;
+}
+
+.theory-text :deep(.theory-heading:first-child) {
+  margin-top: 0;
+}
+
+.theory-text :deep(.theory-heading .theory-translation) {
+  font-weight: 500;
 }
 
 .key-points {

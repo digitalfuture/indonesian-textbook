@@ -273,7 +273,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "id": 8,
     "word": "да",
     "pronunciation": "/da/",
-    "translation": "ya",
+    "translation": "ya, dan",
     "category": "adverb",
     "frequency": 8,
     "examples": [
@@ -284,10 +284,19 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Да, я понимаю",
         "translation": "Ya, saya mengerti"
+      },
+      {
+        "sentence": "Да, хорошо",
+        "translation": "Ya, baik"
+      },
+      {
+        "sentence": "Да, я",
+        "translation": "Ya, saya"
       }
     ],
     "lessonIds": [
-      1
+      1,
+      4
     ],
     "wordFamily": []
   },
@@ -616,7 +625,7 @@ export const vocabularyRu: DictionaryWord[] = [
     "id": 19,
     "word": "что",
     "pronunciation": "/tɕto/",
-    "translation": "apa",
+    "translation": "apa, bahwa",
     "category": "adverb",
     "frequency": 19,
     "examples": [
@@ -627,6 +636,14 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Что ты делаешь?",
         "translation": "Apa yang kamu lakukan?"
+      },
+      {
+        "sentence": "Я знаю",
+        "translation": "Saya tahu"
+      },
+      {
+        "sentence": "Он сказал, что придёт",
+        "translation": "Dia bilang bahwa akan datang"
       }
     ],
     "wordFamily": [
@@ -644,7 +661,8 @@ export const vocabularyRu: DictionaryWord[] = [
       }
     ],
     "lessonIds": [
-      2
+      2,
+      4
     ]
   },
   {
@@ -948,6 +966,14 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Ты можешь?",
         "translation": "Kamu bisa?"
+      },
+      {
+        "sentence": "Я могу",
+        "translation": "Saya bisa"
+      },
+      {
+        "sentence": "Ты можешь мне помочь?",
+        "translation": "Kamu bisa bantu saya?"
       }
     ],
     "wordFamily": [
@@ -973,7 +999,8 @@ export const vocabularyRu: DictionaryWord[] = [
       }
     ],
     "lessonIds": [
-      3
+      3,
+      13
     ]
   },
   {
@@ -1405,27 +1432,6 @@ export const vocabularyRu: DictionaryWord[] = [
     ]
   },
   {
-    "id": 42,
-    "word": "да",
-    "pronunciation": "/da/",
-    "translation": "dan, ya",
-    "category": "conjunction",
-    "frequency": 42,
-    "examples": [
-      {
-        "sentence": "Да, хорошо",
-        "translation": "Ya, baik"
-      },
-      {
-        "sentence": "Да, я",
-        "translation": "Ya, saya"
-      }
-    ],
-    "lessonIds": [
-      4
-    ]
-  },
-  {
     "id": 43,
     "word": "если",
     "pronunciation": "/jesli/",
@@ -1446,27 +1452,6 @@ export const vocabularyRu: DictionaryWord[] = [
       4
     ],
     "wordFamily": []
-  },
-  {
-    "id": 44,
-    "word": "что",
-    "pronunciation": "/tɕto/",
-    "translation": "bahwa",
-    "category": "conjunction",
-    "frequency": 44,
-    "examples": [
-      {
-        "sentence": "Я знаю",
-        "translation": "Saya tahu"
-      },
-      {
-        "sentence": "Он сказал, что придёт",
-        "translation": "Dia bilang bahwa akan datang"
-      }
-    ],
-    "lessonIds": [
-      4
-    ]
   },
   {
     "id": 45,
@@ -1878,6 +1863,10 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Старый друг",
         "translation": "Teman lama"
+      },
+      {
+        "sentence": "Старый город",
+        "translation": "Kota tua"
       }
     ],
     "wordFamily": [
@@ -1911,7 +1900,8 @@ export const vocabularyRu: DictionaryWord[] = [
       }
     ],
     "lessonIds": [
-      5
+      5,
+      14
     ]
   },
   {
@@ -2161,10 +2151,15 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Рыба",
         "translation": "Ikan"
+      },
+      {
+        "sentence": "Рыбки",
+        "translation": "Ikan-ikan"
       }
     ],
     "lessonIds": [
-      6
+      6,
+      29
     ],
     "wordFamily": [
       {
@@ -3147,10 +3142,15 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Всегда",
         "translation": "Selalu"
+      },
+      {
+        "sentence": "Я всегда рад",
+        "translation": "Saya selalu senang"
       }
     ],
     "lessonIds": [
-      9
+      9,
+      24
     ],
     "wordFamily": [
       {
@@ -3575,11 +3575,20 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Уже",
         "translation": "Sudah"
+      },
+      {
+        "sentence": "Я уже сделал",
+        "translation": "Saya sudah selesai"
+      },
+      {
+        "sentence": "Уже не надо",
+        "translation": "Sudah tidak perlu"
       }
     ],
     "wordFamily": [],
     "lessonIds": [
-      10
+      10,
+      17
     ]
   },
   {
@@ -3597,10 +3606,15 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Ещё раз",
         "translation": "Sekali lagi"
+      },
+      {
+        "sentence": "Он ещё",
+        "translation": "Dia еще"
       }
     ],
     "lessonIds": [
-      10
+      10,
+      17
     ],
     "wordFamily": []
   },
@@ -5049,33 +5063,6 @@ export const vocabularyRu: DictionaryWord[] = [
     ]
   },
   {
-    "id": 155,
-    "word": "мочь",
-    "pronunciation": "/motɕʲ/",
-    "translation": "bisa",
-    "category": "verb",
-    "frequency": 155,
-    "examples": [
-      {
-        "sentence": "Я могу",
-        "translation": "Saya bisa"
-      },
-      {
-        "sentence": "Ты можешь мне помочь?",
-        "translation": "Kamu bisa bantu saya?"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "смочь",
-        "translation": "berhasil"
-      }
-    ],
-    "lessonIds": [
-      13
-    ]
-  },
-  {
     "id": 156,
     "word": "тёплый",
     "pronunciation": "/tёplɨj/",
@@ -5505,33 +5492,6 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "word": "молодость",
         "translation": "kemudaan, masa muda"
-      }
-    ],
-    "lessonIds": [
-      14
-    ]
-  },
-  {
-    "id": 168,
-    "word": "старый",
-    "pronunciation": "/starɨj/",
-    "translation": "tua",
-    "category": "adjective",
-    "frequency": 168,
-    "examples": [
-      {
-        "sentence": "Старый город",
-        "translation": "Kota tua"
-      },
-      {
-        "sentence": "Старый друг",
-        "translation": "Teman lama"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "старость",
-        "translation": "usia tua"
       }
     ],
     "lessonIds": [
@@ -6290,69 +6250,6 @@ export const vocabularyRu: DictionaryWord[] = [
       17
     ],
     "wordFamily": []
-  },
-  {
-    "id": 198,
-    "word": "уже",
-    "pronunciation": "/uʐje/",
-    "translation": "sudah",
-    "category": "adverb",
-    "frequency": 198,
-    "examples": [
-      {
-        "sentence": "Уже",
-        "translation": "Sudah"
-      },
-      {
-        "sentence": "Я уже сделал",
-        "translation": "Saya sudah selesai"
-      }
-    ],
-    "lessonIds": [
-      17
-    ]
-  },
-  {
-    "id": 199,
-    "word": "ещё",
-    "pronunciation": "/jeɕːё/",
-    "translation": "masih, lagi",
-    "category": "adverb",
-    "frequency": 199,
-    "examples": [
-      {
-        "sentence": "Ещё раз",
-        "translation": "Sekali lagi"
-      },
-      {
-        "sentence": "Он ещё",
-        "translation": "Dia еще"
-      }
-    ],
-    "lessonIds": [
-      17
-    ]
-  },
-  {
-    "id": 200,
-    "word": "уже",
-    "pronunciation": "/uʐje/",
-    "translation": "sudah (lagi)",
-    "category": "adverb",
-    "frequency": 200,
-    "examples": [
-      {
-        "sentence": "Уже не надо",
-        "translation": "Sudah tidak perlu"
-      },
-      {
-        "sentence": "Уже пришёл?",
-        "translation": "Sudah datang?"
-      }
-    ],
-    "lessonIds": [
-      17
-    ]
   },
   {
     "id": 201,
@@ -7311,10 +7208,19 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Аптека",
         "translation": "Apotek"
+      },
+      {
+        "sentence": "Лекарство",
+        "translation": "Obat"
+      },
+      {
+        "sentence": "Ночная аптека",
+        "translation": "Apotek malam"
       }
     ],
     "lessonIds": [
-      20
+      20,
+      27
     ],
     "wordFamily": []
   },
@@ -7354,10 +7260,19 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Где школа?",
         "translation": "Di mana школа?"
+      },
+      {
+        "sentence": "Школа",
+        "translation": "Sekolah"
+      },
+      {
+        "sentence": "Школьный учитель",
+        "translation": "Guru sekolah"
       }
     ],
     "lessonIds": [
-      20
+      20,
+      29
     ],
     "wordFamily": [
       {
@@ -8173,10 +8088,19 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Звезда",
         "translation": "Bintang"
+      },
+      {
+        "sentence": "Небо",
+        "translation": "Langit"
+      },
+      {
+        "sentence": "Путеводная звезда",
+        "translation": "Bintang penuntun"
       }
     ],
     "lessonIds": [
-      23
+      23,
+      34
     ],
     "wordFamily": []
   },
@@ -8451,27 +8375,6 @@ export const vocabularyRu: DictionaryWord[] = [
         "word": "раза",
         "translation": "kali"
       }
-    ]
-  },
-  {
-    "id": 279,
-    "word": "всегда",
-    "pronunciation": "/vsjeɡda/",
-    "translation": "selalu",
-    "category": "adverb",
-    "frequency": 279,
-    "examples": [
-      {
-        "sentence": "Я всегда рад",
-        "translation": "Saya selalu senang"
-      },
-      {
-        "sentence": "всегда",
-        "translation": "selalu"
-      }
-    ],
-    "lessonIds": [
-      24
     ]
   },
   {
@@ -9513,10 +9416,19 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Сколько денег?",
         "translation": "Berapa uang?"
+      },
+      {
+        "sentence": "Зарабатывать деньги",
+        "translation": "Menghasilkan uang"
+      },
+      {
+        "sentence": "Много денег",
+        "translation": "Banyak uang"
       }
     ],
     "lessonIds": [
-      27
+      27,
+      30
     ]
   },
   {
@@ -9761,27 +9673,6 @@ export const vocabularyRu: DictionaryWord[] = [
         "word": "врачом",
         "translation": "dokter"
       }
-    ]
-  },
-  {
-    "id": 324,
-    "word": "аптека",
-    "pronunciation": "/aptjeka/",
-    "translation": "apotek",
-    "category": "noun",
-    "frequency": 324,
-    "examples": [
-      {
-        "sentence": "Лекарство",
-        "translation": "Obat"
-      },
-      {
-        "sentence": "Ночная аптека",
-        "translation": "Apotek malam"
-      }
-    ],
-    "lessonIds": [
-      27
     ]
   },
   {
@@ -10182,27 +10073,6 @@ export const vocabularyRu: DictionaryWord[] = [
     "wordFamily": []
   },
   {
-    "id": 340,
-    "word": "школа",
-    "pronunciation": "/ʂkola/",
-    "translation": "sekolah",
-    "category": "noun",
-    "frequency": 340,
-    "examples": [
-      {
-        "sentence": "Школа",
-        "translation": "Sekolah"
-      },
-      {
-        "sentence": "Школьный учитель",
-        "translation": "Guru sekolah"
-      }
-    ],
-    "lessonIds": [
-      29
-    ]
-  },
-  {
     "id": 341,
     "word": "животное",
     "pronunciation": "/ʐivotnoje/",
@@ -10302,27 +10172,6 @@ export const vocabularyRu: DictionaryWord[] = [
         "word": "птицы",
         "translation": "burung"
       }
-    ]
-  },
-  {
-    "id": 345,
-    "word": "рыба",
-    "pronunciation": "/rɨba/",
-    "translation": "ikan",
-    "category": "noun",
-    "frequency": 345,
-    "examples": [
-      {
-        "sentence": "Рыба",
-        "translation": "Ikan"
-      },
-      {
-        "sentence": "Рыбки",
-        "translation": "Ikan-ikan"
-      }
-    ],
-    "lessonIds": [
-      29
     ]
   },
   {
@@ -10604,27 +10453,6 @@ export const vocabularyRu: DictionaryWord[] = [
       {
         "sentence": "Компания",
         "translation": "Perusahaan"
-      }
-    ],
-    "lessonIds": [
-      30
-    ]
-  },
-  {
-    "id": 357,
-    "word": "деньги",
-    "pronunciation": "/djenʲɡi/",
-    "translation": "uang",
-    "category": "noun",
-    "frequency": 357,
-    "examples": [
-      {
-        "sentence": "Зарабатывать деньги",
-        "translation": "Menghasilkan uang"
-      },
-      {
-        "sentence": "Много денег",
-        "translation": "Banyak uang"
       }
     ],
     "lessonIds": [
@@ -11849,27 +11677,6 @@ export const vocabularyRu: DictionaryWord[] = [
         "word": "космическая",
         "translation": "angkasa luar"
       }
-    ]
-  },
-  {
-    "id": 402,
-    "word": "звезда",
-    "pronunciation": "/zvjezda/",
-    "translation": "bintang",
-    "category": "noun",
-    "frequency": 402,
-    "examples": [
-      {
-        "sentence": "Небо",
-        "translation": "Langit"
-      },
-      {
-        "sentence": "Путеводная звезда",
-        "translation": "Bintang penuntun"
-      }
-    ],
-    "lessonIds": [
-      34
     ]
   },
   {
