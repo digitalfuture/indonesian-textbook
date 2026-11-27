@@ -15193,5 +15193,450 @@ export const vocabulary: DictionaryWord[] = [
     "lessonIds": [
       15
     ]
+  },
+  {
+    "id": 505,
+    "word": "sudah",
+    "pronunciation": "/sudah/",
+    "translation": "уже (маркер завершённого действия)",
+    "category": "adverb",
+    "frequency": 12,
+    "examples": [
+      {
+        "sentence": "Saya sudah makan",
+        "translation": "Я уже поел"
+      },
+      {
+        "sentence": "Sudah selesai?",
+        "translation": "Уже закончил?"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "sesudah",
+        "translation": "после"
+      },
+      {
+        "word": "kesudahan",
+        "translation": "конец, исход"
+      }
+    ],
+    "lessonIds": [
+      9
+    ]
+  },
+  {
+    "id": 506,
+    "word": "sedang",
+    "pronunciation": "/sədaŋ/",
+    "translation": "сейчас, в процессе (маркер длительного действия)",
+    "category": "adverb",
+    "frequency": 18,
+    "examples": [
+      {
+        "sentence": "Saya sedang bekerja",
+        "translation": "Я сейчас работаю"
+      },
+      {
+        "sentence": "Dia sedang membaca buku",
+        "translation": "Он сейчас читает книгу"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "sedangkan",
+        "translation": "тогда как, а"
+      }
+    ],
+    "lessonIds": [
+      10
+    ]
+  },
+  {
+    "id": 507,
+    "word": "akan",
+    "pronunciation": "/akan/",
+    "translation": "будет, буду (маркер будущего времени)",
+    "category": "adverb",
+    "frequency": 14,
+    "examples": [
+      {
+        "sentence": "Saya akan belajar besok",
+        "translation": "Я буду учиться завтра"
+      },
+      {
+        "sentence": "Dia akan datang minggu depan",
+        "translation": "Он приедет на следующей неделе"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      11
+    ]
+  },
+  {
+    "id": 508,
+    "word": "masih",
+    "pronunciation": "/masih/",
+    "translation": "всё ещё",
+    "category": "adverb",
+    "frequency": 22,
+    "examples": [
+      {
+        "sentence": "Saya masih di rumah",
+        "translation": "Я всё ещё дома"
+      },
+      {
+        "sentence": "Bapak masih rapat di kantor",
+        "translation": "Папа всё ещё на совещании в офисе"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      10
+    ]
+  },
+  {
+    "id": 509,
+    "word": "sering",
+    "pronunciation": "/səriŋ/",
+    "translation": "часто",
+    "category": "adverb",
+    "frequency": 35,
+    "examples": [
+      {
+        "sentence": "Saya sering minum kopi",
+        "translation": "Я часто пью кофе"
+      },
+      {
+        "sentence": "Kami sering pergi ke pasar",
+        "translation": "Мы часто ходим на рынок"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "sering kali",
+        "translation": "часто, нередко"
+      }
+    ],
+    "lessonIds": [
+      9
+    ]
+  },
+  {
+    "id": 510,
+    "word": "bisa",
+    "pronunciation": "/bisa/",
+    "translation": "мочь, уметь",
+    "category": "verb",
+    "frequency": 15,
+    "examples": [
+      {
+        "sentence": "Saya bisa berenang",
+        "translation": "Я умею плавать"
+      },
+      {
+        "sentence": "Bisa bantu saya?",
+        "translation": "Можете помочь мне?"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "kebiasaan",
+        "translation": "привычка"
+      }
+    ],
+    "lessonIds": [
+      12
+    ]
+  },
+  {
+    "id": 511,
+    "word": "harus",
+    "pronunciation": "/harus/",
+    "translation": "должен, обязан, нужно",
+    "category": "verb",
+    "frequency": 19,
+    "examples": [
+      {
+        "sentence": "Kamu harus tidur sekarang",
+        "translation": "Ты должен спать сейчас"
+      },
+      {
+        "sentence": "Kita harus datang tepat waktu",
+        "translation": "Мы должны прийти вовремя"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "keharusan",
+        "translation": "необходимость, обязанность"
+      },
+      {
+        "word": "seharusnya",
+        "translation": "следовало бы, по идее"
+      }
+    ],
+    "lessonIds": [
+      12
+    ]
+  },
+  {
+    "id": 512,
+    "word": "ingin",
+    "pronunciation": "/iŋin/",
+    "translation": "хотеть, желать (вежливо)",
+    "category": "verb",
+    "frequency": 24,
+    "examples": [
+      {
+        "sentence": "Dia ingin pergi ke Bali",
+        "translation": "Он хочет поехать на Бали"
+      },
+      {
+        "sentence": "Saya ingin belajar bahasa Indonesia",
+        "translation": "Я хочу учить индонезийский язык"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "keinginan",
+        "translation": "желание, стремление"
+      },
+      {
+        "word": "menginginkan",
+        "translation": "желать чего-либо"
+      }
+    ],
+    "lessonIds": [
+      12
+    ]
+  },
+  {
+    "id": 513,
+    "word": "boleh",
+    "pronunciation": "/boleh/",
+    "translation": "можно, разрешено",
+    "category": "verb",
+    "frequency": 26,
+    "examples": [
+      {
+        "sentence": "Boleh saya masuk?",
+        "translation": "Можно мне войти?"
+      },
+      {
+        "sentence": "Boleh saya makan di sini?",
+        "translation": "Можно мне поесть здесь?"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "membolehkan",
+        "translation": "разрешать, позволять"
+      }
+    ],
+    "lessonIds": [
+      12
+    ]
+  },
+  {
+    "id": 514,
+    "word": "perlu",
+    "pronunciation": "/pərlu/",
+    "translation": "нужно, нуждаться",
+    "category": "verb",
+    "frequency": 28,
+    "examples": [
+      {
+        "sentence": "Saya perlu dokter",
+        "translation": "Мне нужен врач"
+      },
+      {
+        "sentence": "Tidak perlu khawatir",
+        "translation": "Не нужно волноваться"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "keperluan",
+        "translation": "потребность, нужда"
+      },
+      {
+        "word": "memerlukan",
+        "translation": "нуждаться в чём-либо"
+      }
+    ],
+    "lessonIds": [
+      12
+    ]
+  },
+  {
+    "id": 515,
+    "word": "paling",
+    "pronunciation": "/paliŋ/",
+    "translation": "самый (превосходная степень)",
+    "category": "adverb",
+    "frequency": 30,
+    "examples": [
+      {
+        "sentence": "Gajah binatang paling besar",
+        "translation": "Слон — самое большое животное"
+      },
+      {
+        "sentence": "Dia siswa paling pintar",
+        "translation": "Он самый умный ученик"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      13
+    ]
+  },
+  {
+    "id": 516,
+    "word": "sangat",
+    "pronunciation": "/saŋat/",
+    "translation": "очень, весьма",
+    "category": "adverb",
+    "frequency": 20,
+    "examples": [
+      {
+        "sentence": "Makanan ini sangat enak",
+        "translation": "Эта еда очень вкусная"
+      },
+      {
+        "sentence": "Hari ini cuaca sangat panas",
+        "translation": "Сегодня погода очень жаркая"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      13
+    ]
+  },
+  {
+    "id": 517,
+    "word": "dan",
+    "pronunciation": "/dan/",
+    "translation": "и",
+    "category": "conjunction",
+    "frequency": 5,
+    "examples": [
+      {
+        "sentence": "Saya makan nasi dan minum air",
+        "translation": "Я ем рис и пью воду"
+      },
+      {
+        "sentence": "Ibu dan bapak ada di rumah",
+        "translation": "Мама и папа дома"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      15
+    ]
+  },
+  {
+    "id": 518,
+    "word": "atau",
+    "pronunciation": "/atau/",
+    "translation": "или",
+    "category": "conjunction",
+    "frequency": 16,
+    "examples": [
+      {
+        "sentence": "Mau teh atau kopi?",
+        "translation": "Хочешь чай или кофе?"
+      },
+      {
+        "sentence": "Kita pergi hari ini atau besok?",
+        "translation": "Мы пойдём сегодня или завтра?"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "ataukah",
+        "translation": "или же"
+      }
+    ],
+    "lessonIds": [
+      15
+    ]
+  },
+  {
+    "id": 519,
+    "word": "tapi",
+    "pronunciation": "/tapi/",
+    "translation": "но, однако",
+    "category": "conjunction",
+    "frequency": 17,
+    "examples": [
+      {
+        "sentence": "Dia pintar tapi malas",
+        "translation": "Он умный, но ленивый"
+      },
+      {
+        "sentence": "Baju ini bagus tapi mahal",
+        "translation": "Эта рубашка красивая, но дорогая"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "tetapi",
+        "translation": "но, однако (нейтр./офиц.)"
+      }
+    ],
+    "lessonIds": [
+      15
+    ]
+  },
+  {
+    "id": 520,
+    "word": "karena",
+    "pronunciation": "/karəna/",
+    "translation": "потому что, так как",
+    "category": "conjunction",
+    "frequency": 13,
+    "examples": [
+      {
+        "sentence": "Saya makan karena saya lapar",
+        "translation": "Я ем, потому что я голоден"
+      },
+      {
+        "sentence": "Dia tidak datang karena sakit",
+        "translation": "Он не пришёл, потому что заболел"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "oleh karena itu",
+        "translation": "поэтому, вследствие этого"
+      }
+    ],
+    "lessonIds": [
+      15
+    ]
+  },
+  {
+    "id": 521,
+    "word": "yang",
+    "pronunciation": "/jaŋ/",
+    "translation": "который, которая, что (определитель)",
+    "category": "conjunction",
+    "frequency": 4,
+    "examples": [
+      {
+        "sentence": "Orang yang saya lihat",
+        "translation": "Человек, которого я видел"
+      },
+      {
+        "sentence": "Makanan yang enak",
+        "translation": "Вкусная еда (еда, которая вкусная)"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      15
+    ]
   }
 ];
