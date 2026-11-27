@@ -159,22 +159,29 @@ function renderKeyPoint(point: string): string {
     const desc = rest.slice(0, exampleMatch.index).trim();
     const rawExamples = exampleMatch[1];
 
-    const formattedExamples = rawExamples
-      .split(/;\s*|,\s*(?=[A-ZА-Яa-zа-я])/g)
-      .map((ex) => {
-        const parts = ex.split(/\s*[-–—]\s*/);
-        if (parts.length >= 2) {
-          const phrase = parts[0].trim();
-          const tr = parts.slice(1).join(" — ").trim();
-          const safePhrase = phrase.replace(/"/g, "&quot;");
-          return `<span class="kp-ex-item"><span class="kp-ex-phrase">${phrase}</span> <button class="audio-btn-inline" data-word="${safePhrase}" title="🔊">🔊</button> <span class="kp-ex-sep">—</span> <span class="kp-ex-tr">${tr}</span></span>`;
-        }
-        return `<span class="kp-ex-item">${ex}</span>`;
-      })
-      .join('<span class="kp-ex-delim">; </span>');
+    if (/[-–—]/.test(rawExamples)) {
+      const formattedExamples = rawExamples
+        .split(/;\s*|,\s*(?=[A-ZА-Яa-zа-я])/g)
+        .map((ex) => {
+          const parts = ex.split(/\s*[-–—]\s*/);
+          if (parts.length >= 2) {
+            const phrase = parts[0].trim();
+            const tr = parts.slice(1).join(" — ").trim();
+            const safePhrase = phrase.replace(/"/g, "&quot;");
+            return `<span class="kp-ex-item"><span class="kp-ex-phrase">${phrase}</span> <button class="audio-btn-inline" data-word="${safePhrase}" title="🔊">🔊</button> <span class="kp-ex-sep">—</span> <span class="kp-ex-tr">${tr}</span></span>`;
+          }
+          return `<span class="kp-ex-item">${ex}</span>`;
+        })
+        .join('<span class="kp-ex-delim">; </span>');
 
-    const descHtml = desc ? `<span class="kp-desc">${desc}</span> ` : "";
-    return `<strong class="kp-term">${term}</strong> <span class="kp-sep">—</span> ${descHtml}<span class="kp-examples">(${formattedExamples})</span>`;
+      const descHtml = desc ? `<span class="kp-desc">${desc}</span> ` : "";
+      return `<strong class="kp-term">${term}</strong> <span class="kp-sep">—</span> ${descHtml}<span class="kp-examples">(${formattedExamples})</span>`;
+    }
+
+    // Simple parenthetical note after translation, e.g. "Меня зовут... — Nama saya... (untuk memperkenalkan diri)"
+    const safeTerm = term.replace(/"/g, "&quot;");
+    const descHtml = desc ? `<span class="kp-trans">${desc}</span> ` : "";
+    return `<strong class="kp-term">${term}</strong> <button class="audio-btn-inline" data-word="${safeTerm}" title="🔊">🔊</button> <span class="kp-sep">—</span> ${descHtml}<span class="theory-note">(${rawExamples})</span>`;
   }
 
   const safeTerm = term.replace(/"/g, "&quot;");
