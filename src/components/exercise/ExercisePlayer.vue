@@ -171,21 +171,17 @@ function playSound(type: "success" | "error" | "complete") {
   }
 }
 
-watch(
-  [() => props.lessonId, () => progressStore.isInitialized],
-  ([newLessonId]) => {
-    if (newLessonId != null) {
-      completedExercises.value =
-        progressStore.lessonProgress(newLessonId)?.completedExercises?.slice() || [];
-    } else {
-      completedExercises.value = [];
-    }
-    initQueue();
-  },
-  { immediate: true },
-);
-
 const activeQueue = ref<Exercise[]>([]);
+
+function syncCompletedFromStore(lessonId: number | null) {
+  if (lessonId != null) {
+    const validIds = new Set((props.exercises || []).map((e) => e.id));
+    const saved = progressStore.lessonProgress(lessonId)?.completedExercises || [];
+    completedExercises.value = validIds.size > 0 ? saved.filter((id) => validIds.has(id)) : saved.slice();
+  } else {
+    completedExercises.value = [];
+  }
+}
 
 function initQueue() {
   const baseExercises = props.exercises ? [...props.exercises] : [];
@@ -203,8 +199,31 @@ function initQueue() {
 }
 
 watch(
+  [() => props.lessonId, () => progressStore.isInitialized],
+  ([newLessonId]) => {
+    syncCompletedFromStore(newLessonId);
+    initQueue();
+  },
+  { immediate: true },
+);
+
+watch(
+  () =>
+    props.lessonId != null
+      ? progressStore.lessonProgress(props.lessonId)?.completedExercises?.length ?? 0
+      : -1,
+  (storeCount) => {
+    if (props.lessonId != null && storeCount === 0 && completedExercises.value.length > 0) {
+      completedExercises.value = [];
+      initQueue();
+    }
+  },
+);
+
+watch(
   () => props.exercises,
   () => {
+    syncCompletedFromStore(props.lessonId);
     initQueue();
   },
   { deep: true },
@@ -654,7 +673,10 @@ defineExpose({
       </div>
     </div>
 
-    <slot name="completion" v-else></slot>
+    <slot
+      name="completion"
+      v-else-if="completedExercises.length >= exercises.length && exercises.length > 0"
+    ></slot>
   </div>
 </template>
 

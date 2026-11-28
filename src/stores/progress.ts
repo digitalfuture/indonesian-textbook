@@ -631,7 +631,7 @@ export const useProgressStore = defineStore("progress", () => {
   function getLearningStats() {
     const langStore = useLanguageStore();
     const totalLessons = 16;
-    const totalWords = langStore.targetLang === "id" ? 500 : 405;
+    const totalWords = langStore.targetLang === "id" ? 500 : 392;
 
     return {
       lessonProgress: Math.min(100, (lessonsCompleted.value / totalLessons) * 100),
