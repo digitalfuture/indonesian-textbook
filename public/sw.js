@@ -1,4 +1,4 @@
-const CACHE_NAME = "indonesian-textbook-v0.3.8";
+const CACHE_NAME = "indonesian-textbook-v0.3.9";
 const BASE = "/indonesian-textbook/";
 const CORE_URLS = [
   BASE,

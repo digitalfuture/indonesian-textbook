@@ -793,76 +793,6 @@ export const vocabulary: DictionaryWord[] = [
     "wordFamily": []
   },
   {
-    "id": 27,
-    "word": "engkau",
-    "pronunciation": "/əŋkau/",
-    "translation": "ты (поэтично/архаично)",
-    "category": "pronoun",
-    "frequency": 27,
-    "examples": [
-      {
-        "sentence": "Engkau baik",
-        "translation": "Ты хороший"
-      },
-      {
-        "sentence": "Engkau siapa?",
-        "translation": "Кто ты?"
-      }
-    ],
-    "lessonIds": [
-      2
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 28,
-    "word": "kenalan",
-    "pronunciation": "/kənalan/",
-    "translation": "знакомиться, знакомство",
-    "category": "verb",
-    "frequency": 28,
-    "examples": [
-      {
-        "sentence": "Senang berkenalan denganmu",
-        "translation": "Рад познакомиться с тобой"
-      },
-      {
-        "sentence": "Kami berkenalan",
-        "translation": "Мы знакомимся"
-      }
-    ],
-    "relatedWords": [
-      34,
-      35
-    ],
-    "wordFamily": [
-      {
-        "word": "mengenal",
-        "translation": "знать, узнавать"
-      },
-      {
-        "word": "dikenal",
-        "translation": "быть узнанным, известный"
-      },
-      {
-        "word": "berkenalan",
-        "translation": "знакомиться"
-      },
-      {
-        "word": "perkenalan",
-        "translation": "представление"
-      },
-      {
-        "word": "terkenal",
-        "translation": "известный, знаменитый"
-      }
-    ],
-    "lessonIds": [
-      1,
-      16
-    ]
-  },
-  {
     "id": 29,
     "word": "tinggal",
     "pronunciation": "/tiŋɡal/",
@@ -981,9 +911,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Как это сделать?"
       }
     ],
-    "relatedWords": [
-      120
-    ],
+    "relatedWords": [],
     "wordFamily": [
       {
         "word": "bagaimanakah",
@@ -1039,53 +967,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 34,
-    "word": "perkenalan",
-    "pronunciation": "/perkenalan/",
-    "translation": "представление, знакомство",
-    "category": "noun",
-    "frequency": 34,
-    "examples": [
-      {
-        "sentence": "Perkenalan saya",
-        "translation": "Моё знакомство / представление"
-      },
-      {
-        "sentence": "Acara perkenalan",
-        "translation": "Встреча-знакомство"
-      }
-    ],
-    "relatedWords": [
-      28,
-      35
-    ],
-    "wordFamily": [
-      {
-        "word": "mengenal",
-        "translation": "знать, узнавать"
-      },
-      {
-        "word": "dikenal",
-        "translation": "быть узнанным, известный"
-      },
-      {
-        "word": "kenalan",
-        "translation": "знакомый"
-      },
-      {
-        "word": "berkenalan",
-        "translation": "знакомиться"
-      },
-      {
-        "word": "terkenal",
-        "translation": "известный, знаменитый"
-      }
-    ],
-    "lessonIds": [
-      1
-    ]
-  },
-  {
     "id": 35,
     "word": "berkenalan",
     "pronunciation": "/bərkənalan/",
@@ -1102,10 +983,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Приятно познакомиться"
       }
     ],
-    "relatedWords": [
-      28,
-      34
-    ],
+    "relatedWords": [],
     "wordFamily": [
       {
         "word": "mengenal",
@@ -1209,29 +1087,6 @@ export const vocabulary: DictionaryWord[] = [
       1,
       16
     ]
-  },
-  {
-    "id": 38,
-    "word": "berkenan",
-    "pronunciation": "/bərkənan/",
-    "translation": "соблаговолить, быть любезным",
-    "category": "verb",
-    "frequency": 38,
-    "examples": [
-      {
-        "sentence": "Apakah Anda berkenan duduk?",
-        "translation": "Не соблаговолите ли Вы присесть?"
-      },
-      {
-        "sentence": "Berkenan datang",
-        "translation": "Соблаговолите прийти"
-      }
-    ],
-    "lessonIds": [
-      1,
-      16
-    ],
-    "wordFamily": []
   },
   {
     "id": 39,
@@ -1760,9 +1615,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Не беги!"
       }
     ],
-    "relatedWords": [
-      91
-    ],
+    "relatedWords": [],
     "wordFamily": [
       {
         "word": "berlari",
@@ -2462,37 +2315,6 @@ export const vocabulary: DictionaryWord[] = [
       3,
       5,
       6
-    ]
-  },
-  {
-    "id": 71,
-    "word": "tiada",
-    "pronunciation": "/tiada/",
-    "translation": "нет, не имеется",
-    "category": "verb",
-    "frequency": 71,
-    "examples": [
-      {
-        "sentence": "Tiada",
-        "translation": "Нет / отсутствует"
-      },
-      {
-        "sentence": "Tiada uang",
-        "translation": "Нет денег"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "meniadakan",
-        "translation": "упразднять"
-      },
-      {
-        "word": "ketiadaan",
-        "translation": "отсутствие"
-      }
-    ],
-    "lessonIds": [
-      5
     ]
   },
   {
@@ -3241,45 +3063,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 91,
-    "word": "berlari",
-    "pronunciation": "/bərlari/",
-    "translation": "бегать, бежать",
-    "category": "verb",
-    "frequency": 91,
-    "examples": [
-      {
-        "sentence": "Dia berlari cepat",
-        "translation": "Он бежит быстро"
-      },
-      {
-        "sentence": "Berlari di taman",
-        "translation": "Бегать в парке"
-      }
-    ],
-    "relatedWords": [
-      53
-    ],
-    "wordFamily": [
-      {
-        "word": "pelari",
-        "translation": "бегун"
-      },
-      {
-        "word": "melarikan",
-        "translation": "убегать, угонять"
-      },
-      {
-        "word": "larian",
-        "translation": "побег"
-      }
-    ],
-    "lessonIds": [
-      3,
-      13
-    ]
-  },
-  {
     "id": 92,
     "word": "duduk",
     "pronunciation": "/duduk/",
@@ -3789,41 +3572,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 106,
-    "word": "manakah",
-    "pronunciation": "/manakah/",
-    "translation": "который же, где именно (усиленный вопрос)",
-    "category": "adverb",
-    "frequency": 106,
-    "examples": [
-      {
-        "sentence": "Yang mana rumahmu?",
-        "translation": "Который твой дом?"
-      },
-      {
-        "sentence": "Manakah pilihanmu?",
-        "translation": "Который твой выбор?"
-      },
-      {
-        "sentence": "Manakah ini?",
-        "translation": "Который этот?"
-      },
-      {
-        "sentence": "Manakah itu?",
-        "translation": "Который тот?"
-      }
-    ],
-    "lessonIds": [
-      4
-    ],
-    "wordFamily": [
-      {
-        "word": "mana",
-        "translation": "где / который"
-      }
-    ]
-  },
-  {
     "id": 107,
     "word": "mengapa",
     "pronunciation": "/məŋapa/",
@@ -4108,81 +3856,6 @@ export const vocabulary: DictionaryWord[] = [
       }
     ],
     "wordFamily": [],
-    "lessonIds": [
-      4
-    ]
-  },
-  {
-    "id": 117,
-    "word": "ataukah",
-    "pronunciation": "/ataukah/",
-    "translation": "или же",
-    "category": "conjunction",
-    "frequency": 117,
-    "examples": [
-      {
-        "sentence": "Dia ataukah saya?",
-        "translation": "Он или я?"
-      },
-      {
-        "sentence": "Ini ataukah itu?",
-        "translation": "Это или то?"
-      }
-    ],
-    "lessonIds": [
-      4,
-      15
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 119,
-    "word": "bilakah",
-    "pronunciation": "/bilakah/",
-    "translation": "когда же (формально)",
-    "category": "adverb",
-    "frequency": 119,
-    "examples": [
-      {
-        "sentence": "Bilakah dia datang?",
-        "translation": "Когда же он придёт?"
-      },
-      {
-        "sentence": "Bilakah kita mulai?",
-        "translation": "Когда же мы начнём?"
-      }
-    ],
-    "lessonIds": [
-      4
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 120,
-    "word": "bagaimanakah",
-    "pronunciation": "/baɡaimanakah/",
-    "translation": "как же (формально)",
-    "category": "adverb",
-    "frequency": 120,
-    "examples": [
-      {
-        "sentence": "Bagaimanakah caranya?",
-        "translation": "Каким же образом?"
-      },
-      {
-        "sentence": "Bagaimanakah?",
-        "translation": "Как?"
-      }
-    ],
-    "relatedWords": [
-      32
-    ],
-    "wordFamily": [
-      {
-        "word": "bagaimanapun",
-        "translation": "как бы то ни было"
-      }
-    ],
     "lessonIds": [
       4
     ]
@@ -5042,34 +4715,6 @@ export const vocabulary: DictionaryWord[] = [
     "wordFamily": []
   },
   {
-    "id": 151,
-    "word": "bagi",
-    "pronunciation": "/baɡi/",
-    "translation": "для, ради",
-    "category": "preposition",
-    "frequency": 151,
-    "examples": [
-      {
-        "sentence": "Bagi saya",
-        "translation": "Для меня"
-      },
-      {
-        "sentence": "Bagi kamu",
-        "translation": "Для тебя"
-      }
-    ],
-    "lessonIds": [
-      6,
-      14
-    ],
-    "wordFamily": [
-      {
-        "word": "bagian",
-        "translation": "для, ради"
-      }
-    ]
-  },
-  {
     "id": 152,
     "word": "untuk",
     "pronunciation": "/untuk/",
@@ -5193,41 +4838,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 157,
-    "word": "tiap",
-    "pronunciation": "/tiap/",
-    "translation": "каждый (о времени)",
-    "category": "adverb",
-    "frequency": 157,
-    "examples": [
-      {
-        "sentence": "Tiap hari",
-        "translation": "Каждый день"
-      },
-      {
-        "sentence": "Tiap minggu",
-        "translation": "Каждую неделю"
-      }
-    ],
-    "relatedWords": [
-      158
-    ],
-    "wordFamily": [
-      {
-        "word": "setiap",
-        "translation": "каждый"
-      },
-      {
-        "word": "ketiapan",
-        "translation": "регулярность"
-      }
-    ],
-    "lessonIds": [
-      6,
-      8
-    ]
-  },
-  {
     "id": 158,
     "word": "setiap",
     "pronunciation": "/setiap/",
@@ -5244,9 +4854,7 @@ export const vocabulary: DictionaryWord[] = [
         "translation": "Каждый день"
       }
     ],
-    "relatedWords": [
-      157
-    ],
+    "relatedWords": [],
     "wordFamily": [
       {
         "word": "tiap-tiap",
@@ -5287,37 +4895,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "word": "menyamua",
         "translation": "собирать всё"
-      }
-    ],
-    "lessonIds": [
-      6
-    ]
-  },
-  {
-    "id": 160,
-    "word": "seluruh",
-    "pronunciation": "/seluruh/",
-    "translation": "весь, целый",
-    "category": "adverb",
-    "frequency": 160,
-    "examples": [
-      {
-        "sentence": "Seluruh",
-        "translation": "Целиком / весь"
-      },
-      {
-        "sentence": "Seluruh jalan",
-        "translation": "Вся улица / вся дорога"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "seluruhnya",
-        "translation": "целиком, полностью"
-      },
-      {
-        "word": "menyeluruh",
-        "translation": "всесторонний"
       }
     ],
     "lessonIds": [
@@ -5777,28 +5354,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 175,
-    "word": "seribu",
-    "pronunciation": "/seribu/",
-    "translation": "тысяча",
-    "category": "number",
-    "frequency": 175,
-    "examples": [
-      {
-        "sentence": "Seribu",
-        "translation": "Тысяча"
-      },
-      {
-        "sentence": "Seribu orang",
-        "translation": "Тысяча человек"
-      }
-    ],
-    "lessonIds": [
-      7
-    ],
-    "wordFamily": []
-  },
-  {
     "id": 176,
     "word": "sejuta",
     "pronunciation": "/sedʒuta/",
@@ -6055,98 +5610,6 @@ export const vocabulary: DictionaryWord[] = [
       7,
       8
     ]
-  },
-  {
-    "id": 184,
-    "word": "lipat",
-    "pronunciation": "/lipat/",
-    "translation": "складывать; раз (кратность)",
-    "category": "verb",
-    "frequency": 184,
-    "examples": [
-      {
-        "sentence": "Dua lipat",
-        "translation": "Вдвое"
-      },
-      {
-        "sentence": "Lipat ganda",
-        "translation": "Вдвойне"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "berlipat",
-        "translation": "складчатый"
-      },
-      {
-        "word": "melipat",
-        "translation": "складывать"
-      },
-      {
-        "word": "lipatan",
-        "translation": "складка"
-      }
-    ],
-    "lessonIds": [
-      7
-    ]
-  },
-  {
-    "id": 185,
-    "word": "ganda",
-    "pronunciation": "/ɡanda/",
-    "translation": "двойной, вдвойне",
-    "category": "adverb",
-    "frequency": 185,
-    "examples": [
-      {
-        "sentence": "Lipat ganda",
-        "translation": "Вдвойне"
-      },
-      {
-        "sentence": "Harga ganda",
-        "translation": "Двойная цена"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "berganda",
-        "translation": "двойной"
-      },
-      {
-        "word": "menggandakan",
-        "translation": "удваивать"
-      },
-      {
-        "word": "penggandaan",
-        "translation": "удвоение"
-      }
-    ],
-    "lessonIds": [
-      7
-    ]
-  },
-  {
-    "id": 186,
-    "word": "separuh",
-    "pronunciation": "/separuh/",
-    "translation": "половина (часть)",
-    "category": "number",
-    "frequency": 186,
-    "examples": [
-      {
-        "sentence": "Separuh buku",
-        "translation": "Половина книги"
-      },
-      {
-        "sentence": "Separuh jalan",
-        "translation": "Половина дороги"
-      }
-    ],
-    "lessonIds": [
-      7
-    ],
-    "wordFamily": []
   },
   {
     "id": 187,
@@ -8835,28 +8298,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 279,
-    "word": "pelangi",
-    "pronunciation": "/pelaŋi/",
-    "translation": "радуга",
-    "category": "noun",
-    "frequency": 279,
-    "examples": [
-      {
-        "sentence": "Pelangi",
-        "translation": "Радуга"
-      },
-      {
-        "sentence": "Warna pelangi",
-        "translation": "Цвета радуги"
-      }
-    ],
-    "lessonIds": [
-      14
-    ],
-    "wordFamily": []
-  },
-  {
     "id": 280,
     "word": "gempa",
     "pronunciation": "/ɡəmpa/",
@@ -11143,68 +10584,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 358,
-    "word": "putra",
-    "pronunciation": "/putra/",
-    "translation": "сын, юноша; принц",
-    "category": "noun",
-    "frequency": 358,
-    "examples": [
-      {
-        "sentence": "Putra sulung",
-        "translation": "Старший сын"
-      },
-      {
-        "sentence": "Putra saya",
-        "translation": "Мой сын"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "putri",
-        "translation": "дочь"
-      },
-      {
-        "word": "anak laki-laki",
-        "translation": "сын / мальчик"
-      }
-    ],
-    "lessonIds": [
-      6
-    ]
-  },
-  {
-    "id": 359,
-    "word": "putri",
-    "pronunciation": "/putri/",
-    "translation": "дочь, девушка; принцесса",
-    "category": "noun",
-    "frequency": 359,
-    "examples": [
-      {
-        "sentence": "Putri bungsu",
-        "translation": "Младшая дочь"
-      },
-      {
-        "sentence": "Putri saya",
-        "translation": "Моя дочь"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "putra",
-        "translation": "сын"
-      },
-      {
-        "word": "anak perempuan",
-        "translation": "дочь / девочка"
-      }
-    ],
-    "lessonIds": [
-      6
-    ]
-  },
-  {
     "id": 361,
     "word": "guru",
     "pronunciation": "/ɡuru/",
@@ -11505,28 +10884,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Bapak saya pengusaha",
         "translation": "Мой отец — бизнесмен"
-      }
-    ],
-    "lessonIds": [
-      2
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 373,
-    "word": "insinyur",
-    "pronunciation": "/insiɲur/",
-    "translation": "инженер",
-    "category": "noun",
-    "frequency": 373,
-    "examples": [
-      {
-        "sentence": "Ini insinyur",
-        "translation": "Это инженер"
-      },
-      {
-        "sentence": "Dia insinyur",
-        "translation": "Он инженер"
       }
     ],
     "lessonIds": [
@@ -12829,28 +12186,6 @@ export const vocabulary: DictionaryWord[] = [
     "wordFamily": []
   },
   {
-    "id": 414,
-    "word": "pinggir",
-    "pronunciation": "/piŋɡir/",
-    "translation": "окраина, край",
-    "category": "noun",
-    "frequency": 414,
-    "examples": [
-      {
-        "sentence": "Pinggir kota",
-        "translation": "Окраина города"
-      },
-      {
-        "sentence": "Di pinggir",
-        "translation": "На краю"
-      }
-    ],
-    "lessonIds": [
-      14
-    ],
-    "wordFamily": []
-  },
-  {
     "id": 415,
     "word": "sekitar",
     "pronunciation": "/sekitar/",
@@ -12998,28 +12333,6 @@ export const vocabulary: DictionaryWord[] = [
     "lessonIds": [
       14
     ]
-  },
-  {
-    "id": 420,
-    "word": "jurusan",
-    "pronunciation": "/dʒurusan/",
-    "translation": "направление, курс",
-    "category": "noun",
-    "frequency": 420,
-    "examples": [
-      {
-        "sentence": "Jurusan apa?",
-        "translation": "Какое направление?"
-      },
-      {
-        "sentence": "Bus jurusan Jakarta",
-        "translation": "Автобус в направлении Джакарты"
-      }
-    ],
-    "lessonIds": [
-      14
-    ],
-    "wordFamily": []
   },
   {
     "id": 421,
@@ -13770,28 +13083,6 @@ export const vocabulary: DictionaryWord[] = [
     "wordFamily": []
   },
   {
-    "id": 447,
-    "word": "bebek",
-    "pronunciation": "/bebek/",
-    "translation": "утка",
-    "category": "noun",
-    "frequency": 447,
-    "examples": [
-      {
-        "sentence": "Bebek berenang",
-        "translation": "Утка плавает"
-      },
-      {
-        "sentence": "Bebek goreng",
-        "translation": "Жареная утка"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
     "id": 448,
     "word": "sapi",
     "pronunciation": "/sapi/",
@@ -13814,72 +13105,6 @@ export const vocabulary: DictionaryWord[] = [
     "wordFamily": []
   },
   {
-    "id": 449,
-    "word": "kambing",
-    "pronunciation": "/kambiŋ/",
-    "translation": "коза",
-    "category": "noun",
-    "frequency": 449,
-    "examples": [
-      {
-        "sentence": "Kambing gunung",
-        "translation": "Горная коза"
-      },
-      {
-        "sentence": "Daging kambing",
-        "translation": "Козлятина"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 450,
-    "word": "ular",
-    "pronunciation": "/ular/",
-    "translation": "змея",
-    "category": "noun",
-    "frequency": 450,
-    "examples": [
-      {
-        "sentence": "Ular besar",
-        "translation": "Большая змея"
-      },
-      {
-        "sentence": "Hati-hati ular",
-        "translation": "Осторожно, змея"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 451,
-    "word": "harimau",
-    "pronunciation": "/harimau/",
-    "translation": "тигр",
-    "category": "noun",
-    "frequency": 451,
-    "examples": [
-      {
-        "sentence": "Harimau besar",
-        "translation": "Большой тигр"
-      },
-      {
-        "sentence": "Harimau",
-        "translation": "Тигр"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
     "id": 452,
     "word": "gajah",
     "pronunciation": "/ɡadʒah/",
@@ -13894,158 +13119,6 @@ export const vocabulary: DictionaryWord[] = [
       {
         "sentence": "Gajah",
         "translation": "Слон"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 453,
-    "word": "monyet",
-    "pronunciation": "/moɲet/",
-    "translation": "обезьяна",
-    "category": "noun",
-    "frequency": 453,
-    "examples": [
-      {
-        "sentence": "Monyet",
-        "translation": "Обезьяна"
-      },
-      {
-        "sentence": "Monyet di hutan",
-        "translation": "Обезьяна в лесу"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 454,
-    "word": "nyamuk",
-    "pronunciation": "/ɲamuk/",
-    "translation": "комар",
-    "category": "noun",
-    "frequency": 454,
-    "examples": [
-      {
-        "sentence": "Banyak nyamuk",
-        "translation": "Много комаров"
-      },
-      {
-        "sentence": "Nyamuk",
-        "translation": "Комар"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 455,
-    "word": "kupu-kupu",
-    "pronunciation": "/kupu-kupu/",
-    "translation": "бабочка",
-    "category": "noun",
-    "frequency": 455,
-    "examples": [
-      {
-        "sentence": "Ini kupu-kupu",
-        "translation": "Это бабочка"
-      },
-      {
-        "sentence": "Kupu-kupu terbang",
-        "translation": "Бабочка летает"
-      }
-    ],
-    "lessonIds": [
-      13
-    ]
-  },
-  {
-    "id": 456,
-    "word": "lebah",
-    "pronunciation": "/ləbah/",
-    "translation": "пчела",
-    "category": "noun",
-    "frequency": 456,
-    "examples": [
-      {
-        "sentence": "Ini lebah",
-        "translation": "Это пчела"
-      },
-      {
-        "sentence": "Lebah terbang",
-        "translation": "Пчела летает"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 457,
-    "word": "semut",
-    "pronunciation": "/səmut/",
-    "translation": "муравей",
-    "category": "noun",
-    "frequency": 457,
-    "examples": [
-      {
-        "sentence": "Semut kecil",
-        "translation": "Маленький муравей"
-      },
-      {
-        "sentence": "Semut merah",
-        "translation": "Красный муравей"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 458,
-    "word": "kura-kura",
-    "pronunciation": "/kura-kura/",
-    "translation": "черепаха",
-    "category": "noun",
-    "frequency": 458,
-    "examples": [
-      {
-        "sentence": "Ini kura-kura",
-        "translation": "Это черепаха"
-      },
-      {
-        "sentence": "Kura-kura berjalan lambat",
-        "translation": "Черепаха идёт медленно"
-      }
-    ],
-    "lessonIds": [
-      13
-    ]
-  },
-  {
-    "id": 459,
-    "word": "buaya",
-    "pronunciation": "/buaja/",
-    "translation": "крокодил",
-    "category": "noun",
-    "frequency": 459,
-    "examples": [
-      {
-        "sentence": "Buaya besar",
-        "translation": "Большой крокодил"
-      },
-      {
-        "sentence": "Buaya di sungai",
-        "translation": "Крокодил в реке"
       }
     ],
     "lessonIds": [
@@ -15002,28 +14075,6 @@ export const vocabulary: DictionaryWord[] = [
     ],
     "lessonIds": [
       7,
-      13
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 499,
-    "word": "topan",
-    "pronunciation": "/topan/",
-    "translation": "тайфун, ураган",
-    "category": "noun",
-    "frequency": 499,
-    "examples": [
-      {
-        "sentence": "Topan besar",
-        "translation": "Большой тайфун"
-      },
-      {
-        "sentence": "Topan",
-        "translation": "Ураган"
-      }
-    ],
-    "lessonIds": [
       13
     ],
     "wordFamily": []
