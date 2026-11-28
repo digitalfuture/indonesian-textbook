@@ -6383,37 +6383,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 213,
-    "word": "ikan",
-    "pronunciation": "/ikan/",
-    "translation": "рыба",
-    "category": "noun",
-    "frequency": 213,
-    "examples": [
-      {
-        "sentence": "Ikan goreng",
-        "translation": "Жареная рыба"
-      },
-      {
-        "sentence": "Saya makan ikan",
-        "translation": "Я ем рыбу"
-      },
-      {
-        "sentence": "Ikan besar",
-        "translation": "Большая рыба"
-      },
-      {
-        "sentence": "Makan ikan",
-        "translation": "Есть рыбу"
-      }
-    ],
-    "lessonIds": [
-      3,
-      15
-    ],
-    "wordFamily": []
-  },
-  {
     "id": 214,
     "word": "telur",
     "pronunciation": "/telur/",
@@ -12952,181 +12921,6 @@ export const vocabulary: DictionaryWord[] = [
     ]
   },
   {
-    "id": 441,
-    "word": "kucing",
-    "pronunciation": "/kutʃiŋ/",
-    "translation": "кошка",
-    "category": "noun",
-    "frequency": 441,
-    "examples": [
-      {
-        "sentence": "Kucing saya",
-        "translation": "Моя кошка"
-      },
-      {
-        "sentence": "Kucing kecil",
-        "translation": "Маленькая кошка"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "berkucing",
-        "translation": "иметь кошку"
-      }
-    ],
-    "lessonIds": [
-      6,
-      13
-    ]
-  },
-  {
-    "id": 442,
-    "word": "anjing",
-    "pronunciation": "/andʒiŋ/",
-    "translation": "собака",
-    "category": "noun",
-    "frequency": 442,
-    "examples": [
-      {
-        "sentence": "Anjing besar",
-        "translation": "Большая собака"
-      },
-      {
-        "sentence": "Anjing saya",
-        "translation": "Моя собака"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "beranjing",
-        "translation": "иметь собаку"
-      }
-    ],
-    "lessonIds": [
-      13
-    ]
-  },
-  {
-    "id": 444,
-    "word": "burung",
-    "pronunciation": "/buruŋ/",
-    "translation": "птица",
-    "category": "noun",
-    "frequency": 444,
-    "examples": [
-      {
-        "sentence": "Burung terbang",
-        "translation": "Птица летит"
-      },
-      {
-        "sentence": "Burung kecil",
-        "translation": "Маленькая птица"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "berburung",
-        "translation": "охотиться на птиц"
-      }
-    ],
-    "lessonIds": [
-      13
-    ]
-  },
-  {
-    "id": 445,
-    "word": "kuda",
-    "pronunciation": "/kuda/",
-    "translation": "лошадь",
-    "category": "noun",
-    "frequency": 445,
-    "examples": [
-      {
-        "sentence": "Kuda putih",
-        "translation": "Белая лошадь"
-      },
-      {
-        "sentence": "Naik kuda",
-        "translation": "Ездить верхом"
-      }
-    ],
-    "wordFamily": [
-      {
-        "word": "berkuda",
-        "translation": "верхом на лошади"
-      }
-    ],
-    "lessonIds": [
-      13
-    ]
-  },
-  {
-    "id": 446,
-    "word": "ayam",
-    "pronunciation": "/ajam/",
-    "translation": "курица",
-    "category": "noun",
-    "frequency": 446,
-    "examples": [
-      {
-        "sentence": "Ayam goreng",
-        "translation": "Жареная курица"
-      },
-      {
-        "sentence": "Ini ayam",
-        "translation": "Это курица"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 448,
-    "word": "sapi",
-    "pronunciation": "/sapi/",
-    "translation": "корова",
-    "category": "noun",
-    "frequency": 448,
-    "examples": [
-      {
-        "sentence": "Sapi",
-        "translation": "Корова"
-      },
-      {
-        "sentence": "Daging sapi",
-        "translation": "Говядина"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
-    "id": 452,
-    "word": "gajah",
-    "pronunciation": "/ɡadʒah/",
-    "translation": "слон",
-    "category": "noun",
-    "frequency": 452,
-    "examples": [
-      {
-        "sentence": "Gajah besar",
-        "translation": "Большой слон"
-      },
-      {
-        "sentence": "Gajah",
-        "translation": "Слон"
-      }
-    ],
-    "lessonIds": [
-      13
-    ],
-    "wordFamily": []
-  },
-  {
     "id": 461,
     "word": "sepeda",
     "pronunciation": "/sepeda/",
@@ -15636,6 +15430,230 @@ export const vocabulary: DictionaryWord[] = [
     "wordFamily": [],
     "lessonIds": [
       16
+    ]
+  },
+  {
+    "id": 557,
+    "word": "suka",
+    "pronunciation": "/suka/",
+    "translation": "любить, нравиться",
+    "category": "verb",
+    "frequency": 23,
+    "examples": [
+      {
+        "sentence": "Saya suka kopi",
+        "translation": "Я люблю кофе"
+      },
+      {
+        "sentence": "Dia suka belajar bahasa Indonesia",
+        "translation": "Ему нравится учить индонезийский язык"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "menyukai",
+        "translation": "любить, предпочитать"
+      },
+      {
+        "word": "kesukaan",
+        "translation": "любимое занятие / вещь"
+      }
+    ],
+    "lessonIds": [
+      12
+    ]
+  },
+  {
+    "id": 558,
+    "word": "juga",
+    "pronunciation": "/dʒuɡa/",
+    "translation": "тоже, также",
+    "category": "adverb",
+    "frequency": 9,
+    "examples": [
+      {
+        "sentence": "Senang bertemu dengan Anda juga",
+        "translation": "Мне тоже приятно с Вами познакомиться"
+      },
+      {
+        "sentence": "Saya juga mau makan",
+        "translation": "Я тоже хочу есть"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      1,
+      15
+    ]
+  },
+  {
+    "id": 559,
+    "word": "hanya",
+    "pronunciation": "/haɲa/",
+    "translation": "только, лишь",
+    "category": "adverb",
+    "frequency": 29,
+    "examples": [
+      {
+        "sentence": "Hanya uang tunai",
+        "translation": "Только наличные"
+      },
+      {
+        "sentence": "Saya hanya punya sedikit waktu",
+        "translation": "У меня есть лишь немного времени"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      5,
+      16
+    ]
+  },
+  {
+    "id": 560,
+    "word": "permisi",
+    "pronunciation": "/pərmisi/",
+    "translation": "прошу прощения, разрешите пройти",
+    "category": "interjection",
+    "frequency": 46,
+    "examples": [
+      {
+        "sentence": "Permisi, Pak, numpang tanya",
+        "translation": "Извините, господин, разрешите спросить"
+      },
+      {
+        "sentence": "Permisi, boleh saya lewat?",
+        "translation": "Разрешите пройти?"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      1,
+      16
+    ]
+  },
+  {
+    "id": 561,
+    "word": "kembali",
+    "pronunciation": "/kəmbali/",
+    "translation": "возвращаться; пожалуйста (в ответ на спасибо)",
+    "category": "verb",
+    "frequency": 34,
+    "examples": [
+      {
+        "sentence": "Terima kasih — Kembali",
+        "translation": "Спасибо — Пожалуйста"
+      },
+      {
+        "sentence": "Dia akan kembali besok",
+        "translation": "Он вернётся завтра"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "kembalian",
+        "translation": "сдача (деньги)"
+      },
+      {
+        "word": "mengembalikan",
+        "translation": "возвращать что-либо"
+      }
+    ],
+    "lessonIds": [
+      1,
+      11,
+      16
+    ]
+  },
+  {
+    "id": 562,
+    "word": "tanya",
+    "pronunciation": "/taɲa/",
+    "translation": "спрашивать, вопрос",
+    "category": "verb",
+    "frequency": 40,
+    "examples": [
+      {
+        "sentence": "Boleh saya tanya?",
+        "translation": "Можно спросить?"
+      },
+      {
+        "sentence": "Coba tanya dia",
+        "translation": "Попробуй спросить его"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "bertanya",
+        "translation": "спрашивать"
+      },
+      {
+        "word": "pertanyaan",
+        "translation": "вопрос"
+      }
+    ],
+    "lessonIds": [
+      3,
+      4
+    ]
+  },
+  {
+    "id": 563,
+    "word": "jawab",
+    "pronunciation": "/dʒawab/",
+    "translation": "отвечать, ответ",
+    "category": "verb",
+    "frequency": 47,
+    "examples": [
+      {
+        "sentence": "Tolong jawab pertanyaan ini",
+        "translation": "Пожалуйста, ответь на этот вопрос"
+      },
+      {
+        "sentence": "Dia belum jawab pesan saya",
+        "translation": "Он ещё не ответил на моё сообщение"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "menjawab",
+        "translation": "отвечать"
+      },
+      {
+        "word": "jawaban",
+        "translation": "ответ"
+      }
+    ],
+    "lessonIds": [
+      4
+    ]
+  },
+  {
+    "id": 564,
+    "word": "hangat",
+    "pronunciation": "/haŋat/",
+    "translation": "тёплый, радушный",
+    "category": "adjective",
+    "frequency": 66,
+    "examples": [
+      {
+        "sentence": "Saya mau minum kopi hangat",
+        "translation": "Я хочу выпить тёплого кофе"
+      },
+      {
+        "sentence": "Air putih hangat",
+        "translation": "Тёплая питьевая вода"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "menghangatkan",
+        "translation": "подогревать, согревать"
+      }
+    ],
+    "lessonIds": [
+      12,
+      13
     ]
   }
 ];

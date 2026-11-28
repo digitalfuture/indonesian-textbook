@@ -4,6 +4,8 @@ import { useProgressStore } from "../../stores/progress";
 import { useSound } from "../../composables/useSound";
 import { useSpeech } from "../../composables/useSpeech";
 import { useVocabulary } from "../../composables/useVocabulary";
+import { useLanguageStore } from "../../stores/language";
+import { allThematicWordsId } from "../../data/thematicVocabulary";
 import { evaluateTextAnswer } from "../../utils/textMatch";
 import type { PropType } from "vue";
 import type { Exercise } from "../../utils/types";
@@ -24,6 +26,7 @@ const emit = defineEmits<{
 }>();
 
 const progressStore = useProgressStore();
+const langStore = useLanguageStore();
 const { isSoundEnabled, toggleSound } = useSound();
 const { speak } = useSpeech();
 const { vocabulary } = useVocabulary();
@@ -147,17 +150,18 @@ const exerciseVocabulary = computed(() => {
   const cleanText = textToScan.replace(/[^\p{L}\p{N}\s-]/gu, " ");
   const sortedVocab = [...vocabulary.value].sort((a, b) => b.word.length - a.word.length);
   const vocabByWord = new Map(vocabulary.value.map((w) => [w.word.toLowerCase(), w]));
-  const matched: typeof vocabulary.value = [];
-  const matchedIds = new Set<number>();
+  const matched: { id: number | string; word: string; pronunciation?: string; translation: string }[] = [];
+  const matchedWords = new Set<string>();
 
-  const addMatch = (item: (typeof vocabulary.value)[number]) => {
-    if (!matchedIds.has(item.id)) {
+  const addMatch = (item: { id: number | string; word: string; pronunciation?: string; translation: string }) => {
+    const key = item.word.toLowerCase();
+    if (!matchedWords.has(key)) {
       matched.push(item);
-      matchedIds.add(item.id);
+      matchedWords.add(key);
     }
   };
 
-  // 1. Direct exact phrase / word match (longest first)
+  // 1. Direct exact phrase / word match in Core dictionary (longest first)
   for (const item of sortedVocab) {
     const word = item.word.toLowerCase();
     const escapedWord = word.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
@@ -185,15 +189,31 @@ const exerciseVocabulary = computed(() => {
     if (foundRoot) continue;
 
     // Fallback: check wordFamily entries (e.g. tetapi -> tapi)
+    let foundFamily = false;
     for (const item of vocabulary.value) {
       if (item.wordFamily?.some((f) => f.word.toLowerCase() === token)) {
         addMatch(item);
+        foundFamily = true;
         break;
+      }
+    }
+    if (foundFamily) continue;
+
+    // 3. Fallback: check thematic dictionaries (animals, countries, etc.) for ID course
+    if (langStore.targetLang === "id") {
+      const thHit = allThematicWordsId.find((w) => w.word.toLowerCase() === token);
+      if (thHit) {
+        addMatch({
+          id: thHit.key,
+          word: thHit.word,
+          pronunciation: thHit.pronunciation,
+          translation: thHit.translation,
+        });
       }
     }
   }
 
-  return matched.sort((a, b) => a.id - b.id);
+  return matched.sort((a, b) => String(a.id).localeCompare(String(b.id), undefined, { numeric: true }));
 });
 
 function playSound(type: "success" | "error" | "complete") {

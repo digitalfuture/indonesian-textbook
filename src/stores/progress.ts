@@ -625,6 +625,36 @@ export const useProgressStore = defineStore("progress", () => {
     saveProgress(progress.value);
   }
 
+  // Тематические словари (отдельный прогресс, не влияющий на 500 базовых слов)
+  function isThematicWordLearned(key: string): boolean {
+    return progress.value.thematicLearned?.includes(key) || false;
+  }
+
+  function toggleThematicWordLearned(key: string) {
+    if (!progress.value.thematicLearned) {
+      progress.value.thematicLearned = [];
+    }
+    const idx = progress.value.thematicLearned.indexOf(key);
+    if (idx >= 0) {
+      progress.value.thematicLearned.splice(idx, 1);
+    } else {
+      progress.value.thematicLearned.push(key);
+      progress.value = updateStreak(progress.value);
+    }
+    saveProgress(progress.value);
+  }
+
+  function markThematicWordLearned(key: string) {
+    if (!progress.value.thematicLearned) {
+      progress.value.thematicLearned = [];
+    }
+    if (!progress.value.thematicLearned.includes(key)) {
+      progress.value.thematicLearned.push(key);
+      progress.value = updateStreak(progress.value);
+      saveProgress(progress.value);
+    }
+  }
+
   // Массовые операции
   function markMultipleWordsAsLearned(wordIds: number[]) {
     wordIds.forEach((id) => markWordAsLearned(id));
@@ -681,6 +711,9 @@ export const useProgressStore = defineStore("progress", () => {
     completeExercise,
     markWordAsLearned,
     toggleWordLearned,
+    isThematicWordLearned,
+    toggleThematicWordLearned,
+    markThematicWordLearned,
     reviewWordSRS,
     getNextReviewIntervalPreview,
     recordExerciseMistake,

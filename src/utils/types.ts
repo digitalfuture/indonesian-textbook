@@ -173,6 +173,9 @@ export interface UserProgress {
 
   // Освоение слов для ИИ-чата (слово -> уровень от 0 до 5)
   wordMastery?: Record<string, number>;
+
+  // Изученные слова тематических словарей (ключи вида "fauna:bebek")
+  thematicLearned?: string[];
 }
 
 // Интерфейс для экспорта/импорта прогресса

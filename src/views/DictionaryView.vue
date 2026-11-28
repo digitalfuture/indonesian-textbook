@@ -6,6 +6,11 @@ import { useLanguageStore } from "../stores/language";
 import { useSpeech } from "../composables/useSpeech";
 import { vocabulary as vocabId } from "../data/vocabulary";
 import { vocabularyRu as vocabRu } from "../data/vocabularyRu";
+import {
+  thematicDictionariesId,
+  allThematicWordsId,
+  type ThematicWord,
+} from "../data/thematicVocabulary";
 import type { Category, DictionaryWord } from "../utils/types";
 
 const route = useRoute();
@@ -17,8 +22,152 @@ const vocabulary = computed(() =>
   langStore.targetLang === "id" ? vocabId : vocabRu,
 );
 
-const viewMode = ref<"list" | "flashcards">(
-  route.query.mode === "flashcards" ? "flashcards" : "list",
+const coreWordSet = computed(
+  () => new Set(vocabId.map((w) => w.word.toLowerCase())),
+);
+
+const viewMode = ref<"list" | "flashcards" | "thematic">(
+  route.query.mode === "flashcards"
+    ? "flashcards"
+    : route.query.mode === "thematic" && langStore.targetLang === "id"
+      ? "thematic"
+      : "list",
+);
+
+// Thematic Dictionaries state
+const selectedThemeId = ref<string | null>(
+  typeof route.query.theme === "string" ? route.query.theme : null,
+);
+const thematicSubMode = ref<"list" | "flashcards">("list");
+const thematicGlobalSearch = ref("");
+const thematicSearch = ref("");
+const thematicStatusFilter = ref<"all" | "unlearned" | "learned">("all");
+const thematicCardFilter = ref<"unlearned" | "all">("unlearned");
+const thematicCardDirection = ref<"targetToNative" | "nativeToTarget" | "mixed">("targetToNative");
+const thematicDeck = ref<ThematicWord[]>([]);
+const thematicCardIndex = ref(0);
+const thematicCardFlipped = ref(false);
+const thematicKnownCount = ref(0);
+const thematicRepeatCount = ref(0);
+const thematicSessionFinished = ref(false);
+
+const activeTheme = computed(
+  () => thematicDictionariesId.find((t) => t.id === selectedThemeId.value) || null,
+);
+
+const totalThematicStats = computed(() => ({
+  total: allThematicWordsId.length,
+  learned: allThematicWordsId.filter((w) => progressStore.isThematicWordLearned(w.key)).length,
+}));
+
+function getThemeLearnedCount(themeId: string): number {
+  const theme = thematicDictionariesId.find((t) => t.id === themeId);
+  if (!theme) return 0;
+  return theme.words.filter((w) => progressStore.isThematicWordLearned(w.key)).length;
+}
+
+const thematicGlobalMatches = computed(() => {
+  const q = thematicGlobalSearch.value.trim().toLowerCase();
+  if (!q) return [];
+  return allThematicWordsId.filter(
+    (w) =>
+      w.word.toLowerCase().includes(q) ||
+      w.translation.toLowerCase().includes(q),
+  );
+});
+
+const filteredThemeWords = computed(() => {
+  if (!activeTheme.value) return [];
+  let list = [...activeTheme.value.words];
+  const q = thematicSearch.value.trim().toLowerCase();
+  if (q) {
+    list = list.filter(
+      (w) =>
+        w.word.toLowerCase().includes(q) ||
+        w.translation.toLowerCase().includes(q),
+    );
+  }
+  if (thematicStatusFilter.value === "learned") {
+    list = list.filter((w) => progressStore.isThematicWordLearned(w.key));
+  } else if (thematicStatusFilter.value === "unlearned") {
+    list = list.filter((w) => !progressStore.isThematicWordLearned(w.key));
+  }
+  return list;
+});
+
+function buildThematicDeck(shuffle = false) {
+  if (!activeTheme.value) {
+    thematicDeck.value = [];
+    return;
+  }
+  let deck = [...activeTheme.value.words];
+  if (thematicCardFilter.value === "unlearned") {
+    const unlearned = deck.filter((w) => !progressStore.isThematicWordLearned(w.key));
+    if (unlearned.length > 0) deck = unlearned;
+  }
+  if (shuffle) {
+    for (let i = deck.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+  }
+  thematicDeck.value = deck;
+  thematicCardIndex.value = 0;
+  thematicCardFlipped.value = false;
+  thematicKnownCount.value = 0;
+  thematicRepeatCount.value = 0;
+  thematicSessionFinished.value = false;
+}
+
+function openTheme(themeId: string) {
+  selectedThemeId.value = themeId;
+  thematicSubMode.value = "list";
+  thematicSearch.value = "";
+  thematicStatusFilter.value = "all";
+  buildThematicDeck(false);
+}
+
+const currentThematicCard = computed<ThematicWord | null>(() => {
+  if (thematicSessionFinished.value || thematicDeck.value.length === 0) return null;
+  return thematicDeck.value[thematicCardIndex.value] || null;
+});
+
+const isThematicCardReversed = computed(() => {
+  if (thematicCardDirection.value === "nativeToTarget") return true;
+  if (thematicCardDirection.value === "targetToNative") return false;
+  return thematicCardIndex.value % 2 === 1;
+});
+
+function rateThematicCard(know: boolean) {
+  if (!currentThematicCard.value) return;
+  const card = currentThematicCard.value;
+  if (know) {
+    progressStore.markThematicWordLearned(card.key);
+    thematicKnownCount.value++;
+  } else {
+    thematicRepeatCount.value++;
+    const insertAt = Math.min(thematicDeck.value.length, thematicCardIndex.value + 3);
+    thematicDeck.value.splice(insertAt, 0, card);
+  }
+  thematicCardFlipped.value = false;
+  if (thematicCardIndex.value < thematicDeck.value.length - 1) {
+    thematicCardIndex.value++;
+  } else {
+    thematicSessionFinished.value = true;
+  }
+}
+
+watch([selectedThemeId, thematicCardFilter], () => {
+  buildThematicDeck(false);
+});
+
+watch(
+  () => langStore.targetLang,
+  (lang) => {
+    if (lang !== "id" && viewMode.value === "thematic") {
+      viewMode.value = "list";
+    }
+  },
 );
 const searchQuery = ref("");
 const selectedCategory = ref<Category | "all">("all");
@@ -285,8 +434,27 @@ const stats = computed(() => ({
 }));
 
 function handleKeyDown(e: KeyboardEvent) {
-  if (viewMode.value !== "flashcards" || !currentFlashcard.value) return;
   if (e.target instanceof HTMLInputElement || e.target instanceof HTMLSelectElement) return;
+
+  if (
+    viewMode.value === "thematic" &&
+    thematicSubMode.value === "flashcards" &&
+    currentThematicCard.value
+  ) {
+    if (e.key === " " || e.key === "Enter") {
+      e.preventDefault();
+      thematicCardFlipped.value = !thematicCardFlipped.value;
+    } else if (e.key === "1" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      rateThematicCard(false);
+    } else if (e.key === "2" || e.key === "ArrowRight") {
+      e.preventDefault();
+      rateThematicCard(true);
+    }
+    return;
+  }
+
+  if (viewMode.value !== "flashcards" || !currentFlashcard.value) return;
   if (e.key === " " || e.key === "Enter") {
     e.preventDefault();
     flipCard();
@@ -355,10 +523,460 @@ onUnmounted(() => {
         <i class="pi pi-clone"></i>
         <span>{{ $t('dictionary.modes.flashcardsShort') }}</span>
       </button>
+      <button
+        v-if="langStore.targetLang === 'id'"
+        class="mode-btn"
+        :class="{ active: viewMode === 'thematic' }"
+        @click="viewMode = 'thematic'"
+        type="button"
+      >
+        <i class="pi pi-th-large"></i>
+        <span>{{ $t('dictionary.modes.thematicShort') }}</span>
+        <span class="mode-count-pill">{{ thematicDictionariesId.length }}</span>
+      </button>
     </div>
 
+    <!-- ================= THEMATIC DICTIONARIES MODE ================= -->
+    <section
+      v-if="viewMode === 'thematic' && langStore.targetLang === 'id'"
+      class="thematic-section fade-in"
+    >
+      <!-- Overview of all 9 thematic dictionaries -->
+      <template v-if="!activeTheme">
+        <div class="thematic-intro-bar">
+          <div>
+            <p class="thematic-subtitle">{{ $t('dictionary.thematic.subtitle') }}</p>
+            <span class="thematic-total-pill">
+              {{ $t('dictionary.thematic.allThemesTotal', totalThematicStats) }}
+            </span>
+          </div>
+          <div class="search-box thematic-search-box">
+            <i class="pi pi-search search-icon"></i>
+            <input
+              v-model="thematicGlobalSearch"
+              type="text"
+              class="form-input search-input"
+              :placeholder="$t('dictionary.thematic.searchAll')"
+            />
+            <button
+              v-if="thematicGlobalSearch"
+              class="clear-btn"
+              @click="thematicGlobalSearch = ''"
+              type="button"
+            >
+              <i class="pi pi-times"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Global search matches across themes -->
+        <div v-if="thematicGlobalSearch.trim()" class="thematic-search-results">
+          <div v-if="thematicGlobalMatches.length === 0" class="no-results content-card">
+            <p>{{ $t('dictionary.noResults') }}</p>
+          </div>
+          <div v-else class="thematic-words-grid">
+            <div
+              v-for="item in thematicGlobalMatches"
+              :key="item.key"
+              class="thematic-word-card"
+              :class="{ learned: progressStore.isThematicWordLearned(item.key) }"
+            >
+              <div class="tw-top">
+                <div class="tw-title-row">
+                  <strong class="tw-word">{{ item.word }}</strong>
+                  <button class="audio-btn-sm" @click="speak(item.word)" type="button">🔊</button>
+                  <button class="audio-btn-sm" @click="speakSlow(item.word)" :title="$t('sound.slow')" type="button">🐢</button>
+                  <span class="tw-pron">{{ item.pronunciation }}</span>
+                </div>
+                <button
+                  class="icon-action-btn"
+                  :class="{ done: progressStore.isThematicWordLearned(item.key) }"
+                  @click="progressStore.toggleThematicWordLearned(item.key)"
+                  :title="$t('dictionary.markAsLearned')"
+                  type="button"
+                >
+                  <i :class="progressStore.isThematicWordLearned(item.key) ? 'pi pi-check-circle' : 'pi pi-circle'"></i>
+                </button>
+              </div>
+              <p class="tw-translation">{{ item.translation }}</p>
+              <div class="tw-badges">
+                <button class="theme-origin-pill" @click="openTheme(item.themeId)" type="button">
+                  {{ item.themeIcon }} {{ item.themeTitleRu }}
+                </button>
+                <span v-if="coreWordSet.has(item.word.toLowerCase())" class="core-badge">
+                  {{ $t('dictionary.thematic.coreBadge') }}
+                </span>
+              </div>
+              <div v-if="item.example" class="tw-example">
+                <span class="tw-ex-id">{{ item.example.sentence }}</span>
+                <button class="audio-btn-inline" @click="speak(item.example.sentence)" type="button">🔊</button>
+                <span class="tw-ex-ru">— {{ item.example.translation }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Theme cards grid -->
+        <div v-else class="themes-grid">
+          <button
+            v-for="theme in thematicDictionariesId"
+            :key="theme.id"
+            class="theme-card"
+            @click="openTheme(theme.id)"
+            type="button"
+          >
+            <div class="theme-card-top">
+              <span class="theme-icon" :class="theme.color">{{ theme.icon }}</span>
+              <span class="theme-count-chip">
+                {{ $t('dictionary.thematic.wordsCount', { count: theme.words.length }) }}
+              </span>
+            </div>
+            <h3>{{ langStore.interfaceLang === 'ru' ? theme.titleRu : theme.titleId }}</h3>
+            <p class="theme-desc">
+              {{ langStore.interfaceLang === 'ru' ? theme.descriptionRu : theme.descriptionId }}
+            </p>
+            <div class="theme-progress-wrap">
+              <div class="theme-progress-label">
+                <span>{{
+                  $t('dictionary.thematic.learnedProgress', {
+                    learned: getThemeLearnedCount(theme.id),
+                    total: theme.words.length,
+                  })
+                }}</span>
+                <strong>{{ Math.round((getThemeLearnedCount(theme.id) / theme.words.length) * 100) }}%</strong>
+              </div>
+              <div class="theme-progress-bar">
+                <div
+                  class="theme-progress-fill"
+                  :style="{ width: Math.round((getThemeLearnedCount(theme.id) / theme.words.length) * 100) + '%' }"
+                ></div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </template>
+
+      <!-- Active Theme Detail -->
+      <template v-else>
+        <div class="theme-detail-nav">
+          <button class="btn btn-outline btn-sm" @click="selectedThemeId = null" type="button">
+            <i class="pi pi-arrow-left"></i>
+            <span>{{ $t('dictionary.thematic.backToThemes') }}</span>
+          </button>
+
+          <div class="theme-pills">
+            <button
+              v-for="t in thematicDictionariesId"
+              :key="t.id"
+              class="theme-pill"
+              :class="{ active: t.id === activeTheme.id }"
+              @click="openTheme(t.id)"
+              type="button"
+            >
+              <span>{{ t.icon }}</span>
+              <span>{{ langStore.interfaceLang === 'ru' ? t.titleRu : t.titleId }}</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="theme-detail-header content-card">
+          <div class="tdh-left">
+            <span class="theme-icon lg" :class="activeTheme.color">{{ activeTheme.icon }}</span>
+            <div>
+              <h2>{{ langStore.interfaceLang === 'ru' ? activeTheme.titleRu : activeTheme.titleId }}</h2>
+              <p class="tdh-desc">
+                {{ langStore.interfaceLang === 'ru' ? activeTheme.descriptionRu : activeTheme.descriptionId }}
+              </p>
+              <span class="tdh-progress-pill">
+                {{
+                  $t('dictionary.thematic.learnedProgress', {
+                    learned: getThemeLearnedCount(activeTheme.id),
+                    total: activeTheme.words.length,
+                  })
+                }}
+              </span>
+            </div>
+          </div>
+
+          <div class="tdh-mode-toggle">
+            <button
+              class="mode-btn"
+              :class="{ active: thematicSubMode === 'list' }"
+              @click="thematicSubMode = 'list'"
+              type="button"
+            >
+              <i class="pi pi-list"></i>
+              <span>{{ $t('dictionary.modes.listShort') }}</span>
+            </button>
+            <button
+              class="mode-btn"
+              :class="{ active: thematicSubMode === 'flashcards' }"
+              @click="thematicSubMode = 'flashcards'; buildThematicDeck(false)"
+              type="button"
+            >
+              <i class="pi pi-clone"></i>
+              <span>{{ $t('dictionary.modes.flashcardsShort') }}</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Theme Words List -->
+        <div v-if="thematicSubMode === 'list'" class="theme-list-body">
+          <div class="theme-list-controls">
+            <div class="search-box">
+              <i class="pi pi-search search-icon"></i>
+              <input
+                v-model="thematicSearch"
+                type="text"
+                class="form-input search-input"
+                :placeholder="$t('dictionary.thematic.searchTheme')"
+              />
+              <button
+                v-if="thematicSearch"
+                class="clear-btn"
+                @click="thematicSearch = ''"
+                type="button"
+              >
+                <i class="pi pi-times"></i>
+              </button>
+            </div>
+
+            <select v-model="thematicStatusFilter" class="form-input theme-status-select">
+              <option value="all">{{ $t('dictionary.status.all') }}</option>
+              <option value="unlearned">{{ $t('dictionary.status.unlearned') }}</option>
+              <option value="learned">{{ $t('dictionary.status.learned') }}</option>
+            </select>
+          </div>
+
+          <div v-if="filteredThemeWords.length === 0" class="no-results content-card">
+            <p>{{ $t('dictionary.noResults') }}</p>
+          </div>
+
+          <div v-else class="thematic-words-grid">
+            <div
+              v-for="item in filteredThemeWords"
+              :key="item.key"
+              class="thematic-word-card"
+              :class="{ learned: progressStore.isThematicWordLearned(item.key) }"
+            >
+              <div class="tw-top">
+                <div class="tw-title-row">
+                  <strong class="tw-word">{{ item.word }}</strong>
+                  <button class="audio-btn-sm" @click="speak(item.word)" type="button">🔊</button>
+                  <button class="audio-btn-sm" @click="speakSlow(item.word)" :title="$t('sound.slow')" type="button">🐢</button>
+                  <span class="tw-pron">{{ item.pronunciation }}</span>
+                </div>
+                <button
+                  class="icon-action-btn"
+                  :class="{ done: progressStore.isThematicWordLearned(item.key) }"
+                  @click="progressStore.toggleThematicWordLearned(item.key)"
+                  :title="$t('dictionary.markAsLearned')"
+                  type="button"
+                >
+                  <i :class="progressStore.isThematicWordLearned(item.key) ? 'pi pi-check-circle' : 'pi pi-circle'"></i>
+                </button>
+              </div>
+              <p class="tw-translation">{{ item.translation }}</p>
+              <div v-if="coreWordSet.has(item.word.toLowerCase())" class="tw-badges">
+                <span class="core-badge">{{ $t('dictionary.thematic.coreBadge') }}</span>
+              </div>
+              <p v-if="item.note" class="tw-note">{{ item.note }}</p>
+              <div v-if="item.example" class="tw-example">
+                <span class="tw-ex-id">{{ item.example.sentence }}</span>
+                <button class="audio-btn-inline" @click="speak(item.example.sentence)" type="button">🔊</button>
+                <span class="tw-ex-ru">— {{ item.example.translation }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Theme Flashcards -->
+        <div v-else class="flashcards-section fade-in">
+          <div class="flashcards-controls">
+            <div class="flashcard-filters">
+              <select v-model="thematicCardFilter" class="form-input">
+                <option value="unlearned">{{ $t('dictionary.flashcards.filterUnlearned') }}</option>
+                <option value="all">{{ $t('dictionary.flashcards.filterAll') }}</option>
+              </select>
+            </div>
+
+            <div class="direction-bar">
+              <div class="direction-pills">
+                <button
+                  class="dir-pill"
+                  :class="{ active: thematicCardDirection === 'targetToNative' }"
+                  @click="thematicCardDirection = 'targetToNative'; thematicCardFlipped = false"
+                  type="button"
+                >
+                  ID → RU
+                </button>
+                <button
+                  class="dir-pill"
+                  :class="{ active: thematicCardDirection === 'nativeToTarget' }"
+                  @click="thematicCardDirection = 'nativeToTarget'; thematicCardFlipped = false"
+                  type="button"
+                >
+                  RU → ID
+                </button>
+                <button
+                  class="dir-pill"
+                  :class="{ active: thematicCardDirection === 'mixed' }"
+                  @click="thematicCardDirection = 'mixed'; thematicCardFlipped = false"
+                  type="button"
+                >
+                  {{ $t('dictionary.flashcards.directionMixed') }}
+                </button>
+              </div>
+
+              <button class="btn btn-outline btn-sm" @click="buildThematicDeck(true)" type="button">
+                <i class="pi pi-sync"></i>
+                <span>{{ $t('dictionary.flashcards.shuffle') }}</span>
+              </button>
+            </div>
+          </div>
+
+          <div v-if="currentThematicCard" class="flashcard-stage">
+            <div class="flashcard-meta-bar">
+              <span>
+                {{
+                  $t('dictionary.flashcards.progress', {
+                    current: thematicCardIndex + 1,
+                    total: thematicDeck.length,
+                  })
+                }}
+              </span>
+              <span class="session-tally">
+                <span class="tally-good">✓ {{ thematicKnownCount }}</span>
+                <span v-if="thematicRepeatCount > 0" class="tally-repeat">↻ {{ thematicRepeatCount }}</span>
+              </span>
+            </div>
+
+            <div class="flashcard-progress">
+              <div
+                class="flashcard-progress-fill"
+                :style="{ width: ((thematicCardIndex + 1) / thematicDeck.length) * 100 + '%' }"
+              ></div>
+            </div>
+
+            <div
+              class="flashcard-card"
+              :class="{ flipped: thematicCardFlipped }"
+              @click="thematicCardFlipped = !thematicCardFlipped"
+            >
+              <div class="flashcard-inner">
+                <div class="flashcard-face flashcard-front">
+                  <span class="card-cat-badge">{{ activeTheme.icon }} {{ activeTheme.titleRu }}</span>
+
+                  <template v-if="!isThematicCardReversed">
+                    <div class="card-word">{{ currentThematicCard.word }}</div>
+                    <div class="card-pronunciation">{{ currentThematicCard.pronunciation }}</div>
+                    <div class="card-audio-row">
+                      <button
+                        class="audio-btn card-audio"
+                        @click.stop="speak(currentThematicCard.word)"
+                        type="button"
+                      >
+                        🔊
+                      </button>
+                      <button
+                        class="audio-btn card-audio"
+                        @click.stop="speakSlow(currentThematicCard.word)"
+                        :title="$t('sound.slow')"
+                        type="button"
+                      >
+                        🐢
+                      </button>
+                    </div>
+                  </template>
+
+                  <template v-else>
+                    <span class="card-recall-label">{{ $t('dictionary.flashcards.recallPrompt') }}</span>
+                    <div class="card-word">{{ currentThematicCard.translation }}</div>
+                  </template>
+
+                  <span class="flip-hint">{{ $t('dictionary.flashcards.flip') }}</span>
+                </div>
+
+                <div class="flashcard-face flashcard-back">
+                  <template v-if="!isThematicCardReversed">
+                    <div class="card-translation">{{ currentThematicCard.translation }}</div>
+                  </template>
+                  <template v-else>
+                    <div class="card-translation">{{ currentThematicCard.word }}</div>
+                    <div class="card-pronunciation">{{ currentThematicCard.pronunciation }}</div>
+                    <div class="card-audio-row">
+                      <button
+                        class="audio-btn card-audio"
+                        @click.stop="speak(currentThematicCard.word)"
+                        type="button"
+                      >
+                        🔊
+                      </button>
+                      <button
+                        class="audio-btn card-audio"
+                        @click.stop="speakSlow(currentThematicCard.word)"
+                        :title="$t('sound.slow')"
+                        type="button"
+                      >
+                        🐢
+                      </button>
+                    </div>
+                  </template>
+
+                  <p v-if="currentThematicCard.note" class="tw-note">{{ currentThematicCard.note }}</p>
+
+                  <div v-if="currentThematicCard.example" class="card-example-box" @click.stop>
+                    <div class="card-example-line">
+                      <strong>{{ currentThematicCard.example.sentence }}</strong>
+                      <button
+                        class="audio-btn-inline"
+                        @click="speak(currentThematicCard.example.sentence)"
+                        type="button"
+                      >
+                        🔊
+                      </button>
+                    </div>
+                    <div class="card-example-tr">{{ currentThematicCard.example.translation }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flashcard-actions">
+              <button class="btn-repeat" @click="rateThematicCard(false)" type="button">
+                <i class="pi pi-replay"></i>
+                <span>{{ $t('dictionary.flashcards.repeat') }}</span>
+              </button>
+              <button class="btn-know" @click="rateThematicCard(true)" type="button">
+                <i class="pi pi-check"></i>
+                <span>{{ $t('dictionary.flashcards.know') }}</span>
+              </button>
+            </div>
+
+            <p class="keyboard-hint">{{ $t('dictionary.flashcards.keyboardHint') }}</p>
+          </div>
+
+          <div v-else-if="thematicSessionFinished" class="empty-flashcards content-card">
+            <div class="finished-icon"><i class="pi pi-trophy"></i></div>
+            <h3>{{ $t('dictionary.flashcards.finished') }}</h3>
+            <p class="finished-stats">
+              {{
+                $t('dictionary.flashcards.sessionSummary', {
+                  known: thematicKnownCount,
+                  repeated: thematicRepeatCount,
+                })
+              }}
+            </p>
+            <button class="btn btn-primary" @click="buildThematicDeck(true)" type="button">
+              {{ $t('dictionary.flashcards.restart') }}
+            </button>
+          </div>
+        </div>
+      </template>
+    </section>
+
     <!-- ================= FLASHCARDS MODE ================= -->
-    <section v-if="viewMode === 'flashcards'" class="flashcards-section fade-in">
+    <section v-else-if="viewMode === 'flashcards'" class="flashcards-section fade-in">
       <div class="flashcards-controls">
         <div class="flashcard-filters">
           <select v-model="flashcardFilter" class="form-input">
@@ -1491,6 +2109,383 @@ onUnmounted(() => {
 
 .modal-example p {
   margin: 0.25rem 0 0;
+}
+
+/* Thematic Dictionaries */
+.mode-count-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.08rem 0.45rem;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.mode-btn.active .mode-count-pill {
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--primary-on-solid);
+}
+
+.thematic-intro-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.thematic-subtitle {
+  margin: 0 0 0.45rem;
+  font-size: 0.94rem;
+  color: var(--muted);
+  max-width: 560px;
+}
+
+.thematic-total-pill {
+  display: inline-block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.22rem 0.7rem;
+  border-radius: 999px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-h);
+}
+
+.thematic-search-box {
+  min-width: 260px;
+  flex: 1;
+  max-width: 340px;
+}
+
+.themes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 1rem;
+}
+
+.theme-card {
+  text-align: left;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  cursor: pointer;
+  transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+  box-shadow: var(--shadow-xs);
+}
+
+.theme-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.theme-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.theme-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.45rem;
+  background: var(--primary-soft);
+  flex-shrink: 0;
+}
+
+.theme-icon.lg {
+  width: 54px;
+  height: 54px;
+  font-size: 1.8rem;
+}
+
+.theme-icon.amber { background: rgba(245, 158, 11, 0.15); }
+.theme-icon.emerald { background: rgba(16, 185, 129, 0.15); }
+.theme-icon.sky { background: rgba(14, 165, 233, 0.15); }
+.theme-icon.orange { background: rgba(249, 115, 22, 0.15); }
+.theme-icon.rose { background: rgba(244, 63, 94, 0.15); }
+.theme-icon.indigo { background: rgba(99, 102, 241, 0.15); }
+.theme-icon.teal { background: rgba(20, 184, 166, 0.15); }
+.theme-icon.violet { background: rgba(139, 92, 246, 0.15); }
+.theme-icon.pink { background: rgba(236, 72, 153, 0.15); }
+
+.theme-count-chip {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+}
+
+.theme-card h3 {
+  margin: 0.15rem 0 0;
+  font-size: 1.08rem;
+  color: var(--text-h);
+}
+
+.theme-desc {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.45;
+  flex: 1;
+}
+
+.theme-progress-wrap {
+  margin-top: 0.35rem;
+}
+
+.theme-progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.theme-progress-label strong {
+  color: var(--primary);
+}
+
+.theme-progress-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  overflow: hidden;
+}
+
+.theme-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--primary-solid);
+  transition: width 0.25s ease;
+}
+
+.theme-detail-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-pills {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.theme-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.32rem 0.68rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.theme-pill:hover {
+  border-color: var(--primary);
+}
+
+.theme-pill.active {
+  background: var(--primary-solid);
+  border-color: var(--primary-solid);
+  color: var(--primary-on-solid);
+}
+
+.theme-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.15rem;
+}
+
+.tdh-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.tdh-left h2 {
+  margin: 0 0 0.2rem;
+  font-size: 1.35rem;
+}
+
+.tdh-desc {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.tdh-progress-pill {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.18rem 0.6rem;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.tdh-mode-toggle {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.24rem;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+}
+
+.theme-list-controls {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-list-controls .search-box {
+  flex: 1;
+  min-width: 220px;
+}
+
+.theme-status-select {
+  width: auto;
+  min-width: 170px;
+}
+
+.thematic-words-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 0.85rem;
+}
+
+.thematic-word-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+  transition: border-color 0.16s ease;
+}
+
+.thematic-word-card.learned {
+  border-color: rgba(22, 163, 74, 0.4);
+}
+
+.tw-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.tw-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.tw-word {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  color: var(--text-h);
+}
+
+.tw-pron {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.tw-translation {
+  margin: 0;
+  font-size: 0.96rem;
+  color: var(--translation-color);
+  font-weight: 500;
+}
+
+.tw-badges {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.theme-origin-pill {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.theme-origin-pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.core-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.14rem 0.5rem;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.tw-note {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.tw-example {
+  margin-top: 0.2rem;
+  padding-top: 0.45rem;
+  border-top: 1px dashed var(--border);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+.tw-ex-id {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.tw-ex-ru {
+  color: var(--muted);
 }
 
 @media (max-width: 768px) {
