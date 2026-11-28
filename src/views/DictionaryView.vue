@@ -8,10 +8,16 @@ import { vocabulary as vocabId } from "../data/vocabulary";
 import { vocabularyRu as vocabRu } from "../data/vocabularyRu";
 import {
   thematicDictionariesId,
-  allThematicWordsId,
+  thematicDictionariesRu,
   type ThematicWord,
 } from "../data/thematicVocabulary";
 import type { Category, DictionaryWord } from "../utils/types";
+
+const baseUrl = import.meta.env.BASE_URL;
+function resolveAsset(path?: string): string {
+  if (!path) return "";
+  return `${baseUrl}${path.replace(/^\/+/, "")}`;
+}
 
 const route = useRoute();
 const progressStore = useProgressStore();
@@ -22,14 +28,29 @@ const vocabulary = computed(() =>
   langStore.targetLang === "id" ? vocabId : vocabRu,
 );
 
+const thematicDictionaries = computed(() =>
+  langStore.targetLang === "id" ? thematicDictionariesId : thematicDictionariesRu,
+);
+
+const allThematicWords = computed(() =>
+  thematicDictionaries.value.flatMap((theme) =>
+    theme.words.map((w) => ({
+      ...w,
+      themeId: theme.id,
+      themeIcon: theme.icon,
+      themeTitle: langStore.interfaceLang === "ru" ? theme.titleRu : theme.titleId,
+    })),
+  ),
+);
+
 const coreWordSet = computed(
-  () => new Set(vocabId.map((w) => w.word.toLowerCase())),
+  () => new Set(vocabulary.value.map((w) => w.word.toLowerCase())),
 );
 
 const viewMode = ref<"list" | "flashcards" | "thematic">(
   route.query.mode === "flashcards"
     ? "flashcards"
-    : route.query.mode === "thematic" && langStore.targetLang === "id"
+    : route.query.mode === "thematic"
       ? "thematic"
       : "list",
 );
@@ -50,18 +71,19 @@ const thematicCardFlipped = ref(false);
 const thematicKnownCount = ref(0);
 const thematicRepeatCount = ref(0);
 const thematicSessionFinished = ref(false);
+const previewPhotoWord = ref<ThematicWord | null>(null);
 
 const activeTheme = computed(
-  () => thematicDictionariesId.find((t) => t.id === selectedThemeId.value) || null,
+  () => thematicDictionaries.value.find((t) => t.id === selectedThemeId.value) || null,
 );
 
 const totalThematicStats = computed(() => ({
-  total: allThematicWordsId.length,
-  learned: allThematicWordsId.filter((w) => progressStore.isThematicWordLearned(w.key)).length,
+  total: allThematicWords.value.length,
+  learned: allThematicWords.value.filter((w) => progressStore.isThematicWordLearned(w.key)).length,
 }));
 
 function getThemeLearnedCount(themeId: string): number {
-  const theme = thematicDictionariesId.find((t) => t.id === themeId);
+  const theme = thematicDictionaries.value.find((t) => t.id === themeId);
   if (!theme) return 0;
   return theme.words.filter((w) => progressStore.isThematicWordLearned(w.key)).length;
 }
@@ -69,7 +91,7 @@ function getThemeLearnedCount(themeId: string): number {
 const thematicGlobalMatches = computed(() => {
   const q = thematicGlobalSearch.value.trim().toLowerCase();
   if (!q) return [];
-  return allThematicWordsId.filter(
+  return allThematicWords.value.filter(
     (w) =>
       w.word.toLowerCase().includes(q) ||
       w.translation.toLowerCase().includes(q),
@@ -163,10 +185,9 @@ watch([selectedThemeId, thematicCardFilter], () => {
 
 watch(
   () => langStore.targetLang,
-  (lang) => {
-    if (lang !== "id" && viewMode.value === "thematic") {
-      viewMode.value = "list";
-    }
+  () => {
+    selectedThemeId.value = null;
+    thematicGlobalSearch.value = "";
   },
 );
 const searchQuery = ref("");
@@ -524,7 +545,6 @@ onUnmounted(() => {
         <span>{{ $t('dictionary.modes.flashcardsShort') }}</span>
       </button>
       <button
-        v-if="langStore.targetLang === 'id'"
         class="mode-btn"
         :class="{ active: viewMode === 'thematic' }"
         @click="viewMode = 'thematic'"
@@ -532,13 +552,13 @@ onUnmounted(() => {
       >
         <i class="pi pi-th-large"></i>
         <span>{{ $t('dictionary.modes.thematicShort') }}</span>
-        <span class="mode-count-pill">{{ thematicDictionariesId.length }}</span>
+        <span class="mode-count-pill">{{ thematicDictionaries.length }}</span>
       </button>
     </div>
 
     <!-- ================= THEMATIC DICTIONARIES MODE ================= -->
     <section
-      v-if="viewMode === 'thematic' && langStore.targetLang === 'id'"
+      v-if="viewMode === 'thematic'"
       class="thematic-section fade-in"
     >
       <!-- Overview of all 9 thematic dictionaries -->
@@ -579,8 +599,15 @@ onUnmounted(() => {
               v-for="item in thematicGlobalMatches"
               :key="item.key"
               class="thematic-word-card"
-              :class="{ learned: progressStore.isThematicWordLearned(item.key) }"
+              :class="{ learned: progressStore.isThematicWordLearned(item.key), 'has-photo': Boolean(item.image) }"
             >
+              <div
+                v-if="item.image"
+                class="tw-photo-wrap"
+                @click="previewPhotoWord = item"
+              >
+                <img :src="resolveAsset(item.image)" :alt="item.word" loading="lazy" class="tw-photo" />
+              </div>
               <div class="tw-top">
                 <div class="tw-title-row">
                   <strong class="tw-word">{{ item.word }}</strong>
@@ -601,7 +628,7 @@ onUnmounted(() => {
               <p class="tw-translation">{{ item.translation }}</p>
               <div class="tw-badges">
                 <button class="theme-origin-pill" @click="openTheme(item.themeId)" type="button">
-                  {{ item.themeIcon }} {{ item.themeTitleRu }}
+                  {{ item.themeIcon }} {{ item.themeTitle }}
                 </button>
                 <span v-if="coreWordSet.has(item.word.toLowerCase())" class="core-badge">
                   {{ $t('dictionary.thematic.coreBadge') }}
@@ -619,7 +646,7 @@ onUnmounted(() => {
         <!-- Theme cards grid -->
         <div v-else class="themes-grid">
           <button
-            v-for="theme in thematicDictionariesId"
+            v-for="theme in thematicDictionaries"
             :key="theme.id"
             class="theme-card"
             @click="openTheme(theme.id)"
@@ -627,9 +654,14 @@ onUnmounted(() => {
           >
             <div class="theme-card-top">
               <span class="theme-icon" :class="theme.color">{{ theme.icon }}</span>
-              <span class="theme-count-chip">
-                {{ $t('dictionary.thematic.wordsCount', { count: theme.words.length }) }}
-              </span>
+              <div class="theme-top-badges">
+                <span v-if="theme.hasImages" class="photo-chip">
+                  <i class="pi pi-image"></i> {{ $t('dictionary.thematic.photoBadge') }}
+                </span>
+                <span class="theme-count-chip">
+                  {{ $t('dictionary.thematic.wordsCount', { count: theme.words.length }) }}
+                </span>
+              </div>
             </div>
             <h3>{{ langStore.interfaceLang === 'ru' ? theme.titleRu : theme.titleId }}</h3>
             <p class="theme-desc">
@@ -666,7 +698,7 @@ onUnmounted(() => {
 
           <div class="theme-pills">
             <button
-              v-for="t in thematicDictionariesId"
+              v-for="t in thematicDictionaries"
               :key="t.id"
               class="theme-pill"
               :class="{ active: t.id === activeTheme.id }"
@@ -757,8 +789,15 @@ onUnmounted(() => {
               v-for="item in filteredThemeWords"
               :key="item.key"
               class="thematic-word-card"
-              :class="{ learned: progressStore.isThematicWordLearned(item.key) }"
+              :class="{ learned: progressStore.isThematicWordLearned(item.key), 'has-photo': Boolean(item.image) }"
             >
+              <div
+                v-if="item.image"
+                class="tw-photo-wrap"
+                @click="previewPhotoWord = item"
+              >
+                <img :src="resolveAsset(item.image)" :alt="item.word" loading="lazy" class="tw-photo" />
+              </div>
               <div class="tw-top">
                 <div class="tw-title-row">
                   <strong class="tw-word">{{ item.word }}</strong>
@@ -808,7 +847,7 @@ onUnmounted(() => {
                   @click="thematicCardDirection = 'targetToNative'; thematicCardFlipped = false"
                   type="button"
                 >
-                  ID → RU
+                  {{ langStore.targetLang.toUpperCase() }} → {{ langStore.interfaceLang.toUpperCase() }}
                 </button>
                 <button
                   class="dir-pill"
@@ -816,7 +855,7 @@ onUnmounted(() => {
                   @click="thematicCardDirection = 'nativeToTarget'; thematicCardFlipped = false"
                   type="button"
                 >
-                  RU → ID
+                  {{ langStore.interfaceLang.toUpperCase() }} → {{ langStore.targetLang.toUpperCase() }}
                 </button>
                 <button
                   class="dir-pill"
@@ -865,7 +904,16 @@ onUnmounted(() => {
             >
               <div class="flashcard-inner">
                 <div class="flashcard-face flashcard-front">
-                  <span class="card-cat-badge">{{ activeTheme.icon }} {{ activeTheme.titleRu }}</span>
+                  <span class="card-cat-badge">
+                    {{ activeTheme.icon }} {{ langStore.interfaceLang === 'ru' ? activeTheme.titleRu : activeTheme.titleId }}
+                  </span>
+
+                  <img
+                    v-if="currentThematicCard.image"
+                    :src="resolveAsset(currentThematicCard.image)"
+                    :alt="currentThematicCard.word"
+                    class="fc-dish-photo"
+                  />
 
                   <template v-if="!isThematicCardReversed">
                     <div class="card-word">{{ currentThematicCard.word }}</div>
@@ -1406,6 +1454,39 @@ onUnmounted(() => {
         </button>
       </div>
     </section>
+
+    <!-- Photo Lightbox Dialog -->
+    <PDialog
+      :visible="Boolean(previewPhotoWord)"
+      @update:visible="(v: boolean) => { if (!v) previewPhotoWord = null; }"
+      modal
+      :header="previewPhotoWord?.word || ''"
+      :style="{ width: '560px', maxWidth: '94vw' }"
+    >
+      <div v-if="previewPhotoWord" class="photo-lightbox-body">
+        <img
+          v-if="previewPhotoWord.image"
+          :src="resolveAsset(previewPhotoWord.image)"
+          :alt="previewPhotoWord.word"
+          class="lightbox-photo"
+        />
+        <div class="lightbox-meta">
+          <div class="tw-title-row">
+            <strong class="tw-word">{{ previewPhotoWord.word }}</strong>
+            <button class="audio-btn-sm" @click="speak(previewPhotoWord.word)" type="button">🔊</button>
+            <button class="audio-btn-sm" @click="speakSlow(previewPhotoWord.word)" :title="$t('sound.slow')" type="button">🐢</button>
+            <span class="tw-pron">{{ previewPhotoWord.pronunciation }}</span>
+          </div>
+          <p class="tw-translation">{{ previewPhotoWord.translation }}</p>
+          <p v-if="previewPhotoWord.note" class="tw-note">{{ previewPhotoWord.note }}</p>
+          <div v-if="previewPhotoWord.example" class="tw-example">
+            <span class="tw-ex-id">{{ previewPhotoWord.example.sentence }}</span>
+            <button class="audio-btn-inline" @click="speak(previewPhotoWord.example.sentence)" type="button">🔊</button>
+            <span class="tw-ex-ru">— {{ previewPhotoWord.example.translation }}</span>
+          </div>
+        </div>
+      </div>
+    </PDialog>
 
     <!-- Examples Dialog -->
     <PDialog
@@ -2486,6 +2567,75 @@ onUnmounted(() => {
 
 .tw-ex-ru {
   color: var(--muted);
+}
+
+.theme-top-badges {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.photo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--primary);
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--primary-soft);
+}
+
+.tw-photo-wrap {
+  margin: -1rem -1.1rem 0.55rem -1.1rem;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: calc(var(--radius-md) - 2px) calc(var(--radius-md) - 2px) 0 0;
+  background: var(--bg-subtle);
+  cursor: zoom-in;
+}
+
+.tw-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.28s ease;
+}
+
+.tw-photo-wrap:hover .tw-photo {
+  transform: scale(1.04);
+}
+
+.fc-dish-photo {
+  width: 190px;
+  height: 128px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-xs);
+  margin-bottom: 0.25rem;
+}
+
+.photo-lightbox-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.lightbox-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+.lightbox-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 @media (max-width: 768px) {

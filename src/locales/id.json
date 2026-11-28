@@ -393,6 +393,7 @@
   "dictionary.thematic.wordsCount": "{count} kata",
   "dictionary.thematic.learnedProgress": "Dipelajari {learned} dari {total}",
   "dictionary.thematic.coreBadge": "Dasar 500",
+  "dictionary.thematic.photoBadge": "Dengan Foto",
   "dictionary.thematic.allThemesTotal": "Total kata tematik: {total} · Dipelajari: {learned}",
   "sound.speed": "Kecepatan suara",
   "sound.speedTooltip": "Kecepatan bicara (klik untuk ganti: 0.7× / 0.9× / 1.1×)",

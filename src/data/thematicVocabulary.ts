@@ -3,6 +3,7 @@ export interface ThematicWord {
   word: string;
   pronunciation: string;
   translation: string;
+  image?: string; // relative path inside public/, e.g. "images/dishes/id/nasi-goreng.jpg"
   example?: {
     sentence: string;
     translation: string;
@@ -14,6 +15,7 @@ export interface ThematicDictionary {
   id: string;
   icon: string;
   color: string;
+  hasImages?: boolean;
   titleRu: string;
   titleId: string;
   descriptionRu: string;
@@ -22,6 +24,123 @@ export interface ThematicDictionary {
 }
 
 export const thematicDictionariesId: ThematicDictionary[] = [
+  {
+    id: "dishes_id",
+    icon: "🍽️",
+    color: "orange",
+    hasImages: true,
+    titleRu: "Популярные блюда Индонезии",
+    titleId: "Hidangan Populer Indonesia",
+    descriptionRu: "12 культовых блюд и напитков индонезийской кухни с фотографиями",
+    descriptionId: "12 hidangan dan minuman ikonik Indonesia lengkap dengan foto",
+    words: [
+      {
+        key: "dishes_id:nasi goreng",
+        word: "nasi goreng",
+        pronunciation: "/nasi ɡoreŋ/",
+        translation: "наси горенг (жареный рис с яйцом и курицей)",
+        image: "images/dishes/id/nasi-goreng.jpg",
+        note: "Главное национальное блюдо Индонезии; готовится со сладким соевым соусом kecap manis",
+        example: { sentence: "Saya mau pesan satu nasi goreng ayam", translation: "Я хочу заказать один жареный рис с курицей" },
+      },
+      {
+        key: "dishes_id:mie goreng",
+        word: "mie goreng",
+        pronunciation: "/mi ɡoreŋ/",
+        translation: "ми горенг (жареная лапша с овощами и курицей)",
+        image: "images/dishes/id/mie-goreng.jpg",
+        example: { sentence: "Mie goreng ini tidak terlalu pedas", translation: "Эта жареная лапша не слишком острая" },
+      },
+      {
+        key: "dishes_id:sate ayam",
+        word: "sate ayam",
+        pronunciation: "/sate ajam/",
+        translation: "сате аям (куриные шашлычки в арахисовом соусе)",
+        image: "images/dishes/id/sate-ayam.jpg",
+        note: "Обычно подаётся с рисовыми брусочками lontong и арахисовым соусом bumbu kacang",
+        example: { sentence: "Sate ayam sepuluh tusuk, tolong", translation: "Десять шпажек куриного сате, пожалуйста" },
+      },
+      {
+        key: "dishes_id:rendang",
+        word: "rendang",
+        pronunciation: "/rəndaŋ/",
+        translation: "ренданг (тушёная говядина в кокосовом молоке и специях)",
+        image: "images/dishes/id/rendang.jpg",
+        note: "Знаменитое блюдо народа минангкабау (Западная Суматра), томится несколько часов",
+        example: { sentence: "Rendang daging sapi sangat lezat", translation: "Говяжий ренданг невероятно вкусный" },
+      },
+      {
+        key: "dishes_id:gado-gado",
+        word: "gado-gado",
+        pronunciation: "/ɡado-ɡado/",
+        translation: "гадо-гадо (овощной салат с тофу, яйцом и арахисовым соусом)",
+        image: "images/dishes/id/gado-gado.jpg",
+        note: "Отличный сытный вариант для вегетарианцев",
+        example: { sentence: "Saya suka gado-gado dengan kerupuk", translation: "Я люблю гадо-гадо с хрустящими чипсами крупук" },
+      },
+      {
+        key: "dishes_id:soto ayam",
+        word: "soto ayam",
+        pronunciation: "/soto ajam/",
+        translation: "сото аям (пряный золотистый куриный суп с куркумой)",
+        image: "images/dishes/id/soto-ayam.jpg",
+        note: "Подаётся с лаймом, вермишелью, яйцом и хрустящим луком",
+        example: { sentence: "Soto ayam hangat enak saat hujan", translation: "Тёплый суп сото аям хорош в дождливую погоду" },
+      },
+      {
+        key: "dishes_id:bakso",
+        word: "bakso",
+        pronunciation: "/bakso/",
+        translation: "баксо (бульон с мясными фрикадельками и лапшой)",
+        image: "images/dishes/id/bakso.jpg",
+        example: { sentence: "Boleh minta satu mangkuk bakso?", translation: "Можно одну тарелку супа баксо?" },
+      },
+      {
+        key: "dishes_id:nasi campur",
+        word: "nasi campur",
+        pronunciation: "/nasi tʃampur/",
+        translation: "наси чампур (рис с ассорти гарниров на одной тарелке)",
+        image: "images/dishes/id/nasi-campur.jpg",
+        note: "campur = «смешанный»; идеальный способ попробовать сразу много вкусов в варунге",
+        example: { sentence: "Nasi campur Bali terkenal di mana-mana", translation: "Балийский наси чампур известен повсюду" },
+      },
+      {
+        key: "dishes_id:bebek goreng",
+        word: "bebek goreng",
+        pronunciation: "/bebek ɡoreŋ/",
+        translation: "бебек горенг (хрустящая жареная утка с самбалом)",
+        image: "images/dishes/id/bebek-goreng.jpg",
+        note: "Особенно популярна на Бали и Восточной Яве",
+        example: { sentence: "Bebek goreng di restoran ini renyah sekali", translation: "Жареная утка в этом ресторане очень хрустящая" },
+      },
+      {
+        key: "dishes_id:ikan bakar",
+        word: "ikan bakar",
+        pronunciation: "/ikan bakar/",
+        translation: "икан бакар (целая рыба на углях с соусом и лаймом)",
+        image: "images/dishes/id/ikan-bakar.jpg",
+        example: { sentence: "Malam ini kami makan ikan bakar di pantai", translation: "Сегодня вечером мы едим рыбу на гриле на пляже" },
+      },
+      {
+        key: "dishes_id:pisang goreng",
+        word: "pisang goreng",
+        pronunciation: "/pisaŋ ɡoreŋ/",
+        translation: "писанг горенг (хрустящие жареные бананы в кляре)",
+        image: "images/dishes/id/pisang-goreng.jpg",
+        note: "Любимый уличный десерт к кофе или чаю",
+        example: { sentence: "Pisang goreng hangat dan kopi hitam", translation: "Тёплые жареные бананы и чёрный кофе" },
+      },
+      {
+        key: "dishes_id:es kelapa muda",
+        word: "es kelapa muda",
+        pronunciation: "/es kəlapa muda/",
+        translation: "эс келапа муда (свежий молодой кокос со льдом)",
+        image: "images/dishes/id/es-kelapa-muda.jpg",
+        note: "kelapa muda = «молодой кокос»; прекрасно утоляет жажду в тропическую жару",
+        example: { sentence: "Satu es kelapa muda tanpa gula, ya", translation: "Один холодный молодой кокос без сахара, пожалуйста" },
+      },
+    ],
+  },
   {
     id: "fauna",
     icon: "🐾",
@@ -406,6 +525,126 @@ export const thematicDictionariesId: ThematicDictionary[] = [
       { key: "slang:yuk", word: "yuk", pronunciation: "/juk/", translation: "давай!, погнали! (от ayo)", example: { sentence: "Yuk makan siang sekarang!", translation: "Пойдём пообедаем сейчас!" } },
       { key: "slang:nih", word: "nih", pronunciation: "/nih/", translation: "вот это (разговорное ini)", example: { sentence: "Enak banget nih!", translation: "Вот это вкуснотища!" } },
       { key: "slang:tuh", word: "tuh", pronunciation: "/tuh/", translation: "вон то (разговорное itu)", example: { sentence: "Lihat tuh, matahari terbenam!", translation: "Глянь вон туда, закат!" } },
+    ],
+  },
+];
+
+export const thematicDictionariesRu: ThematicDictionary[] = [
+  {
+    id: "dishes_ru",
+    icon: "🍽️",
+    color: "rose",
+    hasImages: true,
+    titleRu: "Популярные блюда русской кухни",
+    titleId: "Hidangan Populer Rusia",
+    descriptionRu: "12 знаковых блюд и напитков русской кухни с фотографиями",
+    descriptionId: "12 hidangan dan minuman paling terkenal dari Rusia lengkap dengan foto",
+    words: [
+      {
+        key: "dishes_ru:борщ",
+        word: "Борщ",
+        pronunciation: "[borshch]",
+        translation: "Borscht — sup bit merah tradisional dengan daging dan krim asam (smetana)",
+        image: "images/dishes/ru/borsch.jpg",
+        note: "Biasanya disajikan panas dengan roti gandum hitam dan bawang putih",
+        example: { sentence: "Я буду борщ со сметаной", translation: "Saya pesan borscht dengan krim asam" },
+      },
+      {
+        key: "dishes_ru:пельмени",
+        word: "Пельмени",
+        pronunciation: "[pyel'-mye-ni]",
+        translation: "Pelmeni — pangsit rebus isi daging cincang khas Rusia",
+        image: "images/dishes/ru/pelmeni.jpg",
+        note: "Disajikan dengan mentega, smetana, atau sedikit cuka dan lada hitam",
+        example: { sentence: "Пельмени очень вкусные со сметаной", translation: "Pelmeni sangat enak dengan krim asam" },
+      },
+      {
+        key: "dishes_ru:блины",
+        word: "Блины",
+        pronunciation: "[blee-ny]",
+        translation: "Bliny — panekuk tipis Rusia (dengan madu, selai, smetana, atau kaviar)",
+        image: "images/dishes/ru/bliny.jpg",
+        note: "Hidangan utama festival musim semi Maslenitsa",
+        example: { sentence: "На завтрак мы едим блины с мёдом", translation: "Untuk sarapan kami makan bliny dengan madu" },
+      },
+      {
+        key: "dishes_ru:оливье",
+        word: "Оливье",
+        pronunciation: "[a-leev'-ye]",
+        translation: "Salad Olivier — salad kentang, wortel, kacang polong, acar, telur, dan mayones",
+        image: "images/dishes/ru/olivier.jpg",
+        note: "Salad wajib saat perayaan Tahun Baru di Rusia",
+        example: { sentence: "Салат оливье — классика на Новый год", translation: "Salad Olivier adalah hidangan klasik Tahun Baru" },
+      },
+      {
+        key: "dishes_ru:сырники",
+        word: "Сырники",
+        pronunciation: "[syr-nee-kee]",
+        translation: "Syrniki — panekuk keju lembut (tvorog) goreng untuk sarapan",
+        image: "images/dishes/ru/syrniki.jpg",
+        note: "Sering disajikan dengan selai beri dan krim asam",
+        example: { sentence: "Можно порцию сырников и кофе?", translation: "Boleh satu porsi syrniki dan kopi?" },
+      },
+      {
+        key: "dishes_ru:солянка",
+        word: "Солянка",
+        pronunciation: "[sa-lyan-ka]",
+        translation: "Solyanka — sup kental asam-gurih dengan aneka daging, zaitun, acar, dan lemon",
+        image: "images/dishes/ru/solyanka.jpg",
+        example: { sentence: "Зимой горячая солянка согревает", translation: "Di musim dingin solyanka panas menghangatkan tubuh" },
+      },
+      {
+        key: "dishes_ru:окрошка",
+        word: "Окрошка",
+        pronunciation: "[ak-rosh-ka]",
+        translation: "Okroshka — sup dingin segar musim panas dengan kvas atau kefir",
+        image: "images/dishes/ru/okroshka.jpg",
+        note: "Berisi potongan mentimun, lobak, daun bawang, telur rebus, dan kentang",
+        example: { sentence: "В жаркий день приятно съесть окрошку", translation: "Di hari panas enak makan okroshka dingin" },
+      },
+      {
+        key: "dishes_ru:пирожки",
+        word: "Пирожки",
+        pronunciation: "[pee-razh-kee]",
+        translation: "Pirozhki — roti panggang atau goreng isi kentang, kubis, daging, atau apel",
+        image: "images/dishes/ru/pirozhki.jpg",
+        example: { sentence: "Бабушка испекла пирожки с картошкой", translation: "Nenek memanggang pirozhki isi kentang" },
+      },
+      {
+        key: "dishes_ru:шашлык",
+        word: "Шашлык",
+        pronunciation: "[shash-lyk]",
+        translation: "Shashlyk — sate potongan daging panggang arang khas Rusia dan Kaukasus",
+        image: "images/dishes/ru/shashlyk.jpg",
+        note: "Sangat populer saat piknik musim panas bersama keluarga dan teman",
+        example: { sentence: "В выходные мы готовим шашлык на природе", translation: "Di akhir pekan kami memanggang shashlyk di alam terbuka" },
+      },
+      {
+        key: "dishes_ru:голубцы",
+        word: "Голубцы",
+        pronunciation: "[ga-loob-tsy]",
+        translation: "Golubtsy — gulungan daun kubis isi daging dan nasi dalam saus tomat",
+        image: "images/dishes/ru/golubtsy.jpg",
+        example: { sentence: "Домашние голубцы со сметаной", translation: "Golubtsy rumahan dengan krim asam" },
+      },
+      {
+        key: "dishes_ru:гречка",
+        word: "Гречка",
+        pronunciation: "[gryech-ka]",
+        translation: "Grechka — bubur soba (buckwheat), makanan pendamping paling populer di Rusia",
+        image: "images/dishes/ru/grechka.jpg",
+        note: "Sangat bergizi dan sering dimasak dengan jamur serta bawang",
+        example: { sentence: "Гречка с грибами и маслом", translation: "Grechka dengan jamur dan mentega" },
+      },
+      {
+        key: "dishes_ru:квас",
+        word: "Квас",
+        pronunciation: "[kvas]",
+        translation: "Kvas — minuman tradisional dingin dari fermentasi roti gandum hitam",
+        image: "images/dishes/ru/kvas.jpg",
+        note: "Rasanya segar sedikit manis-asam, sangat populer di musim panas",
+        example: { sentence: "Летом в России пьют холодный квас", translation: "Di musim panas orang Rusia minum kvas dingin" },
+      },
     ],
   },
 ];

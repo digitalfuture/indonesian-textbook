@@ -393,6 +393,7 @@
   "dictionary.thematic.wordsCount": "{count} слов",
   "dictionary.thematic.learnedProgress": "Изучено {learned} из {total}",
   "dictionary.thematic.coreBadge": "База 500",
+  "dictionary.thematic.photoBadge": "С фото",
   "dictionary.thematic.allThemesTotal": "Всего тематических слов: {total} · Изучено: {learned}",
   "sound.speed": "Скорость речи",
   "sound.speedTooltip": "Скорость озвучки (нажмите для смены: 0.7× / 0.9× / 1.1×)",
