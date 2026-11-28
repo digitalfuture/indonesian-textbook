@@ -14,6 +14,8 @@ import {
 } from "../utils/storage";
 import { lessons as lessonsId } from "../data/lessons";
 import { lessonsRu } from "../data/lessonsRu";
+import { vocabulary as vocabularyId } from "../data/vocabulary";
+import { vocabularyRu } from "../data/vocabularyRu";
 import { useLanguageStore } from "./language";
 
 export const useProgressStore = defineStore("progress", () => {
@@ -631,7 +633,8 @@ export const useProgressStore = defineStore("progress", () => {
   function getLearningStats() {
     const langStore = useLanguageStore();
     const totalLessons = 16;
-    const totalWords = langStore.targetLang === "id" ? 500 : 392;
+    const totalWords =
+      langStore.targetLang === "id" ? vocabularyId.length : vocabularyRu.length;
 
     return {
       lessonProgress: Math.min(100, (lessonsCompleted.value / totalLessons) * 100),

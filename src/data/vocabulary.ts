@@ -15638,5 +15638,953 @@ export const vocabulary: DictionaryWord[] = [
     "lessonIds": [
       15
     ]
+  },
+  {
+    "id": 522,
+    "word": "kasih",
+    "pronunciation": "/kasih/",
+    "translation": "любовь, благодарность; давать (разг.)",
+    "category": "noun",
+    "frequency": 11,
+    "examples": [
+      {
+        "sentence": "Terima kasih banyak",
+        "translation": "Большое спасибо (букв. «примите много благодарности»)"
+      },
+      {
+        "sentence": "Kasih sayang keluarga",
+        "translation": "Любовь и забота семьи"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "terima kasih",
+        "translation": "спасибо"
+      },
+      {
+        "word": "kekasih",
+        "translation": "возлюбленный / возлюбленная"
+      }
+    ],
+    "lessonIds": [
+      1,
+      16
+    ]
+  },
+  {
+    "id": 523,
+    "word": "di",
+    "pronunciation": "/di/",
+    "translation": "в, на (предлог места: «где?»)",
+    "category": "preposition",
+    "frequency": 2,
+    "examples": [
+      {
+        "sentence": "Saya tinggal di sini",
+        "translation": "Я живу здесь"
+      },
+      {
+        "sentence": "Dia ada di rumah",
+        "translation": "Он находится дома"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "di mana",
+        "translation": "где"
+      },
+      {
+        "word": "di sini",
+        "translation": "здесь"
+      }
+    ],
+    "lessonIds": [
+      1,
+      4,
+      14
+    ]
+  },
+  {
+    "id": 524,
+    "word": "ke",
+    "pronunciation": "/kə/",
+    "translation": "в, на, к (предлог направления: «куда?»)",
+    "category": "preposition",
+    "frequency": 6,
+    "examples": [
+      {
+        "sentence": "Dia pergi ke kantor",
+        "translation": "Он идёт в офис"
+      },
+      {
+        "sentence": "Mau ke mana?",
+        "translation": "Куда собираешься?"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "ke mana",
+        "translation": "куда"
+      }
+    ],
+    "lessonIds": [
+      11,
+      14
+    ]
+  },
+  {
+    "id": 525,
+    "word": "pada",
+    "pronunciation": "/pada/",
+    "translation": "в, при, на (о времени или абстрактно)",
+    "category": "preposition",
+    "frequency": 25,
+    "examples": [
+      {
+        "sentence": "Kita bertemu pada jam tiga",
+        "translation": "Мы встретимся в три часа"
+      },
+      {
+        "sentence": "Pada hari Senin saya bekerja",
+        "translation": "В понедельник я работаю"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "kepada",
+        "translation": "к, кому-либо (адресат)"
+      }
+    ],
+    "lessonIds": [
+      14
+    ]
+  },
+  {
+    "id": 526,
+    "word": "siswa",
+    "pronunciation": "/siswa/",
+    "translation": "ученик, школьник",
+    "category": "noun",
+    "frequency": 65,
+    "examples": [
+      {
+        "sentence": "Saya siswa",
+        "translation": "Я ученик"
+      },
+      {
+        "sentence": "Mereka siswa baru",
+        "translation": "Они новые ученики"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "mahasiswa",
+        "translation": "студент университета"
+      }
+    ],
+    "lessonIds": [
+      2
+    ]
+  },
+  {
+    "id": 527,
+    "word": "pintu",
+    "pronunciation": "/pintu/",
+    "translation": "дверь, вход",
+    "category": "noun",
+    "frequency": 72,
+    "examples": [
+      {
+        "sentence": "Tolong buka pintu",
+        "translation": "Пожалуйста, открой дверь"
+      },
+      {
+        "sentence": "Tutup pintu itu",
+        "translation": "Закрой ту дверь"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "pintu masuk",
+        "translation": "вход"
+      },
+      {
+        "word": "pintu keluar",
+        "translation": "выход"
+      }
+    ],
+    "lessonIds": [
+      3
+    ]
+  },
+  {
+    "id": 528,
+    "word": "bahasa",
+    "pronunciation": "/bahasa/",
+    "translation": "язык, речь",
+    "category": "noun",
+    "frequency": 27,
+    "examples": [
+      {
+        "sentence": "Kami belajar bahasa Indonesia",
+        "translation": "Мы учим индонезийский язык"
+      },
+      {
+        "sentence": "Bisa bicara bahasa Inggris?",
+        "translation": "Вы говорите по-английски?"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "berbahasa",
+        "translation": "говорить на языке"
+      }
+    ],
+    "lessonIds": [
+      3
+    ]
+  },
+  {
+    "id": 529,
+    "word": "masalah",
+    "pronunciation": "/masalah/",
+    "translation": "проблема, вопрос",
+    "category": "noun",
+    "frequency": 38,
+    "examples": [
+      {
+        "sentence": "Ini bukan masalah",
+        "translation": "Это не проблема"
+      },
+      {
+        "sentence": "Tidak ada masalah",
+        "translation": "Нет проблем"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "bermasalah",
+        "translation": "проблемный, иметь проблему"
+      }
+    ],
+    "lessonIds": [
+      5
+    ]
+  },
+  {
+    "id": 530,
+    "word": "laki-laki",
+    "pronunciation": "/laki-laki/",
+    "translation": "мужчина, мужской",
+    "category": "noun",
+    "frequency": 42,
+    "examples": [
+      {
+        "sentence": "Kakak laki-laki saya",
+        "translation": "Мой старший брат"
+      },
+      {
+        "sentence": "Anak laki-laki itu pintar",
+        "translation": "Тот мальчик умный"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      6
+    ]
+  },
+  {
+    "id": 531,
+    "word": "perempuan",
+    "pronunciation": "/pərəmpuan/",
+    "translation": "женщина, женский",
+    "category": "noun",
+    "frequency": 43,
+    "examples": [
+      {
+        "sentence": "Kakak perempuan saya",
+        "translation": "Моя старшая сестра"
+      },
+      {
+        "sentence": "Buku ini untuk anak perempuan dia",
+        "translation": "Эта книга для его дочери"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      6
+    ]
+  },
+  {
+    "id": 532,
+    "word": "puluh",
+    "pronunciation": "/puluh/",
+    "translation": "десяток (для образования десятков: 20, 30...)",
+    "category": "number",
+    "frequency": 31,
+    "examples": [
+      {
+        "sentence": "Dua puluh orang",
+        "translation": "Двадцать человек"
+      },
+      {
+        "sentence": "Lima puluh ribu rupiah",
+        "translation": "Пятьдесят тысяч рупий"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "sepuluh",
+        "translation": "десять"
+      },
+      {
+        "word": "puluhan",
+        "translation": "десятки"
+      }
+    ],
+    "lessonIds": [
+      7
+    ]
+  },
+  {
+    "id": 533,
+    "word": "ribu",
+    "pronunciation": "/ribu/",
+    "translation": "тысяча",
+    "category": "number",
+    "frequency": 32,
+    "examples": [
+      {
+        "sentence": "Dua ratus ribu",
+        "translation": "Двести тысяч"
+      },
+      {
+        "sentence": "Sepuluh ribu rupiah",
+        "translation": "Десять тысяч рупий"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "seribu",
+        "translation": "одна тысяча"
+      },
+      {
+        "word": "ribuan",
+        "translation": "тысячи"
+      }
+    ],
+    "lessonIds": [
+      7
+    ]
+  },
+  {
+    "id": 534,
+    "word": "butuh",
+    "pronunciation": "/butuh/",
+    "translation": "нуждаться, требоваться",
+    "category": "verb",
+    "frequency": 45,
+    "examples": [
+      {
+        "sentence": "Saya butuh sedikit uang",
+        "translation": "Мне нужно немного денег"
+      },
+      {
+        "sentence": "Apakah kamu butuh bantuan?",
+        "translation": "Тебе нужна помощь?"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "kebutuhan",
+        "translation": "потребность, нужда"
+      },
+      {
+        "word": "membutuhkan",
+        "translation": "нуждаться в чём-либо"
+      }
+    ],
+    "lessonIds": [
+      7
+    ]
+  },
+  {
+    "id": 535,
+    "word": "waktu",
+    "pronunciation": "/waktu/",
+    "translation": "время, пора",
+    "category": "noun",
+    "frequency": 21,
+    "examples": [
+      {
+        "sentence": "Sekarang waktu sarapan",
+        "translation": "Сейчас время завтракать"
+      },
+      {
+        "sentence": "Saya akan datang tepat waktu",
+        "translation": "Я приду вовремя"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "sewaktu",
+        "translation": "во время, когда"
+      }
+    ],
+    "lessonIds": [
+      8,
+      11,
+      12
+    ]
+  },
+  {
+    "id": 536,
+    "word": "lagi",
+    "pronunciation": "/laɡi/",
+    "translation": "ещё, снова; сейчас / в процессе (разг.)",
+    "category": "adverb",
+    "frequency": 19,
+    "examples": [
+      {
+        "sentence": "Dia lagi baca buku",
+        "translation": "Он сейчас читает книгу"
+      },
+      {
+        "sentence": "Sampai jumpa lagi",
+        "translation": "До скорой встречи (увидимся снова)"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      10
+    ]
+  },
+  {
+    "id": 537,
+    "word": "tepat",
+    "pronunciation": "/təpat/",
+    "translation": "точный, ровно, вовремя",
+    "category": "adjective",
+    "frequency": 58,
+    "examples": [
+      {
+        "sentence": "Kamu harus datang tepat waktu",
+        "translation": "Ты должен прийти вовремя"
+      },
+      {
+        "sentence": "Jawaban ini tepat sekali",
+        "translation": "Этот ответ совершенно точный"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "ketepatan",
+        "translation": "точность"
+      }
+    ],
+    "lessonIds": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": 538,
+    "word": "bantu",
+    "pronunciation": "/bantu/",
+    "translation": "помогать",
+    "category": "verb",
+    "frequency": 39,
+    "examples": [
+      {
+        "sentence": "Bisa bantu saya?",
+        "translation": "Можете помочь мне?"
+      },
+      {
+        "sentence": "Tolong bantu dia",
+        "translation": "Пожалуйста, помоги ему"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "membantu",
+        "translation": "помогать"
+      },
+      {
+        "word": "bantuan",
+        "translation": "помощь"
+      }
+    ],
+    "lessonIds": [
+      12
+    ]
+  },
+  {
+    "id": 539,
+    "word": "tenang",
+    "pronunciation": "/tənaŋ/",
+    "translation": "спокойный, тихий",
+    "category": "adjective",
+    "frequency": 76,
+    "examples": [
+      {
+        "sentence": "Laut ini sangat tenang",
+        "translation": "Это море очень спокойное"
+      },
+      {
+        "sentence": "Tenang saja, semua beres",
+        "translation": "Не переживай, всё в порядке"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "ketenangan",
+        "translation": "спокойствие"
+      }
+    ],
+    "lessonIds": [
+      13
+    ]
+  },
+  {
+    "id": 540,
+    "word": "merasa",
+    "pronunciation": "/mərasa/",
+    "translation": "чувствовать, ощущать",
+    "category": "verb",
+    "frequency": 44,
+    "examples": [
+      {
+        "sentence": "Dia merasa capek setelah bekerja",
+        "translation": "Он чувствует усталость после работы"
+      },
+      {
+        "sentence": "Saya merasa senang hari ini",
+        "translation": "Я чувствую себя счастливым сегодня"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "rasa",
+        "translation": "вкус, чувство"
+      },
+      {
+        "word": "perasaan",
+        "translation": "чувство, ощущение"
+      }
+    ],
+    "lessonIds": [
+      13
+    ]
+  },
+  {
+    "id": 541,
+    "word": "setelah",
+    "pronunciation": "/sətəlah/",
+    "translation": "после, после того как",
+    "category": "preposition",
+    "frequency": 36,
+    "examples": [
+      {
+        "sentence": "Dia merasa capek setelah bekerja",
+        "translation": "Он устал после работы"
+      },
+      {
+        "sentence": "Setelah makan malam kami pulang",
+        "translation": "После ужина мы пошли домой"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "telah",
+        "translation": "уже (книжн.)"
+      }
+    ],
+    "lessonIds": [
+      13
+    ]
+  },
+  {
+    "id": 542,
+    "word": "lelah",
+    "pronunciation": "/ləlah/",
+    "translation": "усталый, утомлённый (нейтр.)",
+    "category": "adjective",
+    "frequency": 74,
+    "examples": [
+      {
+        "sentence": "Saya merasa sangat lelah",
+        "translation": "Я чувствую сильную усталость"
+      },
+      {
+        "sentence": "Jangan lupa istirahat kalau lelah",
+        "translation": "Не забудь отдохнуть, если устал"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "kelelahan",
+        "translation": "переутомление, истощение"
+      }
+    ],
+    "lessonIds": [
+      13
+    ]
+  },
+  {
+    "id": 543,
+    "word": "parkir",
+    "pronunciation": "/parkir/",
+    "translation": "парковаться, парковка",
+    "category": "verb",
+    "frequency": 89,
+    "examples": [
+      {
+        "sentence": "Mobil parkir di luar gedung",
+        "translation": "Машина припаркована снаружи здания"
+      },
+      {
+        "sentence": "Di mana tempat parkir?",
+        "translation": "Где парковка?"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "parkiran",
+        "translation": "парковка, стоянка"
+      }
+    ],
+    "lessonIds": [
+      14
+    ]
+  },
+  {
+    "id": 544,
+    "word": "gedung",
+    "pronunciation": "/ɡəduŋ/",
+    "translation": "здание, корпус",
+    "category": "noun",
+    "frequency": 78,
+    "examples": [
+      {
+        "sentence": "Gedung kantor ini tinggi",
+        "translation": "Это офисное здание высокое"
+      },
+      {
+        "sentence": "Mobil parkir di luar gedung",
+        "translation": "Машина припаркована снаружи здания"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      14
+    ]
+  },
+  {
+    "id": 545,
+    "word": "terus",
+    "pronunciation": "/tərus/",
+    "translation": "прямо, дальше, продолжать",
+    "category": "adverb",
+    "frequency": 33,
+    "examples": [
+      {
+        "sentence": "Jalan terus sampai lampu merah",
+        "translation": "Идите прямо до светофора"
+      },
+      {
+        "sentence": "Terus belajar ya!",
+        "translation": "Продолжай учиться!"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "meneruskan",
+        "translation": "продолжать"
+      }
+    ],
+    "lessonIds": [
+      14
+    ]
+  },
+  {
+    "id": 546,
+    "word": "belok",
+    "pronunciation": "/belok/",
+    "translation": "поворачивать, поворот",
+    "category": "verb",
+    "frequency": 84,
+    "examples": [
+      {
+        "sentence": "Belok ke kanan di depan jembatan",
+        "translation": "Поверните направо перед мостом"
+      },
+      {
+        "sentence": "Tolong belok kiri di sini",
+        "translation": "Пожалуйста, поверните здесь налево"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "belokan",
+        "translation": "поворот (на дороге)"
+      }
+    ],
+    "lessonIds": [
+      14
+    ]
+  },
+  {
+    "id": 547,
+    "word": "jembatan",
+    "pronunciation": "/dʒəmbatan/",
+    "translation": "мост",
+    "category": "noun",
+    "frequency": 92,
+    "examples": [
+      {
+        "sentence": "Belok ke kanan di depan jembatan",
+        "translation": "Поверните направо перед мостом"
+      },
+      {
+        "sentence": "Jembatan ini panjang sekali",
+        "translation": "Этот мост очень длинный"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      14
+    ]
+  },
+  {
+    "id": 548,
+    "word": "desa",
+    "pronunciation": "/desa/",
+    "translation": "деревня, село",
+    "category": "noun",
+    "frequency": 79,
+    "examples": [
+      {
+        "sentence": "Desa ada di antara gunung dan sungai",
+        "translation": "Деревня находится между горой и рекой"
+      },
+      {
+        "sentence": "Nenek tinggal di desa",
+        "translation": "Бабушка живёт в деревне"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "pedesaan",
+        "translation": "сельская местность"
+      }
+    ],
+    "lessonIds": [
+      14
+    ]
+  },
+  {
+    "id": 549,
+    "word": "porsi",
+    "pronunciation": "/porsi/",
+    "translation": "порция",
+    "category": "noun",
+    "frequency": 95,
+    "examples": [
+      {
+        "sentence": "Tolong satu porsi nasi goreng",
+        "translation": "Пожалуйста, одну порцию жареного риса"
+      },
+      {
+        "sentence": "Porsinya besar sekali",
+        "translation": "Порция очень большая"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      15
+    ]
+  },
+  {
+    "id": 550,
+    "word": "cabai",
+    "pronunciation": "/tʃabai/",
+    "translation": "перец чили",
+    "category": "noun",
+    "frequency": 88,
+    "examples": [
+      {
+        "sentence": "Nasi goreng tanpa cabai",
+        "translation": "Жареный рис без перца чили"
+      },
+      {
+        "sentence": "Cabai ini sangat pedas",
+        "translation": "Этот перец чили очень острый"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "cabe",
+        "translation": "перец чили (разг.)"
+      }
+    ],
+    "lessonIds": [
+      15
+    ]
+  },
+  {
+    "id": 551,
+    "word": "kalau",
+    "pronunciation": "/kalau/",
+    "translation": "если, когда (разг.)",
+    "category": "conjunction",
+    "frequency": 18,
+    "examples": [
+      {
+        "sentence": "Kalau kamu mau masak, beli garam di pasar",
+        "translation": "Если ты хочешь готовить, купи соль на рынке"
+      },
+      {
+        "sentence": "Kalau hujan, kita tinggal di rumah",
+        "translation": "Если пойдёт дождь, мы останемся дома"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "jika",
+        "translation": "если (нейтр./офиц.)"
+      }
+    ],
+    "lessonIds": [
+      15
+    ]
+  },
+  {
+    "id": 552,
+    "word": "meskipun",
+    "pronunciation": "/məskipun/",
+    "translation": "хотя, несмотря на то что",
+    "category": "conjunction",
+    "frequency": 54,
+    "examples": [
+      {
+        "sentence": "Meskipun pedas, sup ayam ini sangat enak",
+        "translation": "Хотя и острый, этот куриный суп очень вкусный"
+      },
+      {
+        "sentence": "Dia tetap datang meskipun hujan",
+        "translation": "Он всё равно пришёл, несмотря на дождь"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "meski",
+        "translation": "хотя (кратк.)"
+      }
+    ],
+    "lessonIds": [
+      15
+    ]
+  },
+  {
+    "id": 553,
+    "word": "walaupun",
+    "pronunciation": "/walaupun/",
+    "translation": "хотя, даже если",
+    "category": "conjunction",
+    "frequency": 55,
+    "examples": [
+      {
+        "sentence": "Walaupun capek, dia tetap belajar",
+        "translation": "Хотя он устал, он всё равно учится"
+      },
+      {
+        "sentence": "Walaupun mahal, kualitasnya bagus",
+        "translation": "Хотя и дорого, качество хорошее"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "walau",
+        "translation": "хотя (кратк.)"
+      }
+    ],
+    "lessonIds": [
+      15
+    ]
+  },
+  {
+    "id": 554,
+    "word": "sup",
+    "pronunciation": "/sup/",
+    "translation": "суп",
+    "category": "noun",
+    "frequency": 85,
+    "examples": [
+      {
+        "sentence": "Sup ayam ini sangat enak",
+        "translation": "Этот куриный суп очень вкусный"
+      },
+      {
+        "sentence": "Saya mau pesan sup sayur",
+        "translation": "Я хочу заказать овощной суп"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      15
+    ]
+  },
+  {
+    "id": 555,
+    "word": "terlambat",
+    "pronunciation": "/tərlambat/",
+    "translation": "опоздать, с опозданием",
+    "category": "adjective",
+    "frequency": 68,
+    "examples": [
+      {
+        "sentence": "Maaf, saya terlambat",
+        "translation": "Извините, я опоздал"
+      },
+      {
+        "sentence": "Jangan datang terlambat",
+        "translation": "Не опаздывай"
+      }
+    ],
+    "wordFamily": [
+      {
+        "word": "lambat",
+        "translation": "медленный"
+      },
+      {
+        "word": "keterlambatan",
+        "translation": "опоздание, задержка"
+      }
+    ],
+    "lessonIds": [
+      16
+    ]
+  },
+  {
+    "id": 556,
+    "word": "terlalu",
+    "pronunciation": "/tərlalu/",
+    "translation": "слишком, чересчур",
+    "category": "adverb",
+    "frequency": 41,
+    "examples": [
+      {
+        "sentence": "Ini terlalu mahal",
+        "translation": "Это слишком дорого"
+      },
+      {
+        "sentence": "Makanan ini terlalu pedas",
+        "translation": "Эта еда слишком острая"
+      }
+    ],
+    "wordFamily": [],
+    "lessonIds": [
+      16
+    ]
   }
 ];

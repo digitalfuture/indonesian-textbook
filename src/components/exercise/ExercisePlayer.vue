@@ -86,6 +86,51 @@ watch(currentExerciseIndex, () => {
   scrollToTop();
 });
 
+function getIndonesianStemCandidates(token: string): string[] {
+  const candidates: string[] = [];
+  if (token === "sopir") candidates.push("supir");
+
+  // Reduplication (e.g. apa-apa -> apa)
+  const parts = token.split("-");
+  if (parts.length === 2 && parts[0] === parts[1]) {
+    candidates.push(parts[0]);
+  }
+
+  // Possessive / definiteness suffixes (-nya, -ku, -mu)
+  const baseForms = [token];
+  for (const suf of ["nya", "ku", "mu"]) {
+    if (token.length > suf.length + 2 && token.endsWith(suf)) {
+      const stripped = token.slice(0, -suf.length);
+      candidates.push(stripped);
+      baseForms.push(stripped);
+    }
+  }
+
+  // Common Indonesian verb/noun prefixes (se-, ber-/be-, di-, meN- including K-P-S-T)
+  for (const form of baseForms) {
+    if (form.startsWith("se") && form.length > 4) candidates.push(form.slice(2));
+    if (form.startsWith("ber") && form.length > 5) candidates.push(form.slice(3));
+    if (form.startsWith("be") && form.length > 5) candidates.push(form.slice(2));
+    if (form.startsWith("di") && form.length > 4) candidates.push(form.slice(2));
+    if (form.startsWith("meny") && form.length > 5) candidates.push("s" + form.slice(4));
+    if (form.startsWith("meng") && form.length > 5) {
+      candidates.push(form.slice(4));
+      candidates.push("k" + form.slice(4));
+    }
+    if (form.startsWith("mem") && form.length > 5) {
+      candidates.push(form.slice(3));
+      candidates.push("p" + form.slice(3));
+    }
+    if (form.startsWith("men") && form.length > 5) {
+      candidates.push(form.slice(3));
+      candidates.push("t" + form.slice(3));
+    }
+    if (form.startsWith("me") && form.length > 4) candidates.push(form.slice(2));
+  }
+
+  return candidates;
+}
+
 const exerciseVocabulary = computed(() => {
   if (!currentExercise.value) return [];
 
@@ -101,19 +146,50 @@ const exerciseVocabulary = computed(() => {
 
   const cleanText = textToScan.replace(/[^\p{L}\p{N}\s-]/gu, " ");
   const sortedVocab = [...vocabulary.value].sort((a, b) => b.word.length - a.word.length);
+  const vocabByWord = new Map(vocabulary.value.map((w) => [w.word.toLowerCase(), w]));
   const matched: typeof vocabulary.value = [];
-  const foundWords = new Set<string>();
+  const matchedIds = new Set<number>();
 
+  const addMatch = (item: (typeof vocabulary.value)[number]) => {
+    if (!matchedIds.has(item.id)) {
+      matched.push(item);
+      matchedIds.add(item.id);
+    }
+  };
+
+  // 1. Direct exact phrase / word match (longest first)
   for (const item of sortedVocab) {
     const word = item.word.toLowerCase();
-    if (foundWords.has(word)) continue;
-
     const escapedWord = word.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
     const regex = new RegExp(`(?:^|\\s)${escapedWord}(?:$|\\s)`, "i");
-
     if (regex.test(cleanText)) {
-      matched.push(item);
-      foundWords.add(word);
+      addMatch(item);
+    }
+  }
+
+  // 2. Match wordFamily forms and Indonesian affixed / reduplicated roots
+  const tokens = cleanText.split(/\s+/).filter(Boolean);
+  for (const token of tokens) {
+    if (vocabByWord.has(token)) continue;
+
+    // Try Indonesian affix / reduplication stem candidates
+    let foundRoot = false;
+    for (const cand of getIndonesianStemCandidates(token)) {
+      const hit = vocabByWord.get(cand);
+      if (hit) {
+        addMatch(hit);
+        foundRoot = true;
+        break;
+      }
+    }
+    if (foundRoot) continue;
+
+    // Fallback: check wordFamily entries (e.g. tetapi -> tapi)
+    for (const item of vocabulary.value) {
+      if (item.wordFamily?.some((f) => f.word.toLowerCase() === token)) {
+        addMatch(item);
+        break;
+      }
     }
   }
 
